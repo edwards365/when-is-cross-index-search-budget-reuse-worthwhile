@@ -1,0 +1,11 @@
+run_id: phase2_gate0_retention_s7_v7
+selector_run: results/raw/phase2_gate0_precision_s7_v2
+construction_vectors: 10000
+M: 16
+ef_construction: 100
+seed: 7
+geometry_tolerance: 1.0e-12
+datasets:
+  - data/manifests/sift1m.yaml
+  - data/manifests/glove100.yaml
+  - data/manifests/vibe_arxiv_nomic.yaml
