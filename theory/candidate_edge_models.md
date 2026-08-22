@@ -25,6 +25,8 @@ w b_e^\top(L')^+b_e=\frac{g_e}{1+g_e}<1.
 \]
 Unlike existing-edge leverage, \(g_e\) need not be at most one. This scheme directly measures topology before addition, but recomputing it after each choice does not yield the frozen modular term analyzed in the first selector.
 
+For the insertion-log experiment, "before addition" has one further frozen convention: first apply the unmodified HNSW insertion and its reverse-neighbor pruning, induce the layer-0 graph on the new center plus the logged `efConstruction` result queue, and only then evaluate each rejected center--candidate edge. Evaluating before the standard insertion would leave the new center isolated, making every such resistance infinite. All three schemes share a per-insertion Gaussian scale equal to the median edge length in the union of this induced graph and the dense center star. This convention is an offline diagnostic, not an online selector.
+
 ## Scheme C: deletion sensitivity of an existing edge
 
 For existing edge \(e\) with \(\tau_e=wR_e\), delete it:

@@ -54,7 +54,9 @@ def effective_resistance_matrix(
     if disconnected not in {"infinite", "component"}:
         raise ValueError(f"unsupported disconnected policy: {disconnected}")
     weights = _validate_adjacency(weights)
-    n_components, labels = connected_components(weights, directed=False)
+    # Pass the exact support graph. SciPy's dense weighted-graph conversion can
+    # otherwise treat very small but nonzero conductances as absent edges.
+    n_components, labels = connected_components(weights > 0, directed=False)
     result = np.full(weights.shape, np.inf, dtype=np.float64)
     np.fill_diagonal(result, 0.0)
 
