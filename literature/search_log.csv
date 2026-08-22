@@ -1,3 +1,20 @@
 search_date,source,query,result_count,notes
-2026-08-22,pending,"effective resistance HNSW",,Systematic search not yet completed
+2026-08-22,web/arXiv,"effective resistance HNSW",0,"No direct method found; HNSW and general resistance papers returned separately"
+2026-08-22,web/arXiv,"effective resistance approximate nearest neighbor",0,"No direct ANNS graph-construction collision found in returned primary results"
+2026-08-22,web,"edge leverage nearest neighbor graph",0,"Returned graph-metric/ANN uses but no leverage-based ANNS neighbor selection"
+2026-08-22,web/NeurIPS,"spectral sparsification ANN graph",3,"General spectral sparsification only; guarantees are not ANN guarantees"
+2026-08-22,web,"spectral graph HNSW",1,"HNSW itself returned; no matching spectral neighbor-selection paper"
+2026-08-22,web/ACM/OpenReview,"graph rewiring HNSW",2,"Graph memory reordering and dynamic deletion; neither uses effective resistance for construction"
+2026-08-22,web/arXiv,"neighbor selection HNSW",4,"Original heuristic plus survey/implementation material"
+2026-08-22,web/arXiv,"insertion order HNSW",1,"Elliott and Clark 2024 directly studies LID/category order effects"
+2026-08-22,web/arXiv/PVLDB,"navigable graph high-dimensional nearest neighbor",5,"HNSW NSG Vamana FlatNav and worst-case work retained"
+2026-08-22,web/OpenReview,"graph diversification approximate nearest neighbor",3,"RND/relative-neighborhood diversification and diverse-result search; no resistance scoring"
+2026-08-22,web,"low conductance nearest neighbor search",0,"No directly matching primary ANNS construction result returned"
+2026-08-22,web,"bridge edge graph nearest neighbor search",0,"No directly matching primary ANNS construction result returned"
+2026-08-22,web,"tangent space local PCA HNSW",1,"PCA filtering work is query-distance acceleration rather than edge selection"
+2026-08-22,web,"manifold graph ANNS",2,"Adjacent graph/manifold search results; not a direct collision"
+2026-08-22,web/arXiv,"query difficulty HNSW",2,"Insertion-order/LID and adaptive beam-search work retained"
+2026-08-22,web/arXiv,"adaptive beam search graph ANNS",1,"DABS 2025 directly relevant query-layer baseline"
+2026-08-22,web/arXiv,"early termination HNSW",1,"DABS retained; broader screening still open"
+2026-08-22,web/IEEE,"directed effective resistance",1,"Young Scardovi Leonard directed definition retained as modeling alternative"
 

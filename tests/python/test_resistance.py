@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
 from narhnsw.resistance import (
+    direction_coverage,
     edge_leverage_scores,
     effective_resistance_matrix,
     gaussian_weight_graph,
@@ -50,3 +51,25 @@ def test_direction_term_avoids_duplicate_direction() -> None:
     )
     assert selected == [0, 2]
     assert all(item.total_gain >= 0 for item in trace)
+
+
+def test_direction_logdet_is_monotone_submodular_on_tiny_instance() -> None:
+    directions = np.array([[1.0, 0.0], [0.0, 1.0], [np.sqrt(0.5), np.sqrt(0.5)]], dtype=float)
+
+    def value(indices: frozenset[int]) -> float:
+        rows = directions[sorted(indices)] if indices else np.empty((0, 2))
+        return direction_coverage(rows, sigma=0.7)
+
+    universe = frozenset(range(len(directions)))
+    subsets = [
+        frozenset(i for i in universe if mask & (1 << i)) for mask in range(1 << len(universe))
+    ]
+    for left in subsets:
+        for right in subsets:
+            if not left.issubset(right):
+                continue
+            assert value(left) <= value(right) + 1e-12
+            for item in universe - right:
+                gain_left = value(left | {item}) - value(left)
+                gain_right = value(right | {item}) - value(right)
+                assert gain_left + 1e-12 >= gain_right

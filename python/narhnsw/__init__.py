@@ -2,6 +2,7 @@
 
 from .resistance import (
     CandidateScore,
+    direction_coverage,
     edge_leverage_scores,
     effective_resistance_matrix,
     greedy_neighbor_selection,
@@ -9,6 +10,7 @@ from .resistance import (
 
 __all__ = [
     "CandidateScore",
+    "direction_coverage",
     "edge_leverage_scores",
     "effective_resistance_matrix",
     "greedy_neighbor_selection",

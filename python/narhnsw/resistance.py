@@ -19,7 +19,6 @@ DisconnectedPolicy = Literal["infinite", "component"]
 @dataclass(frozen=True)
 class CandidateScore:
     index: int
-    resistance: float
     leverage: float
     direction_gain: float
     locality: float
@@ -111,6 +110,24 @@ def gaussian_weight_graph(
     return weights
 
 
+def direction_coverage(directions: np.ndarray, sigma: float = 0.5) -> float:
+    """Return log det(I + sigma^-2 Z Z^T) using a stable signed log determinant."""
+
+    directions = np.asarray(directions, dtype=np.float64)
+    if directions.ndim != 2:
+        raise ValueError("directions must be a matrix with one row per selected edge")
+    if sigma <= 0:
+        raise ValueError("sigma must be positive")
+    if len(directions) == 0:
+        return 0.0
+    sign, value = np.linalg.slogdet(
+        np.eye(len(directions)) + (directions @ directions.T) / sigma**2
+    )
+    if sign <= 0:
+        raise FloatingPointError("direction Gram matrix is not positive definite")
+    return float(value)
+
+
 def _logdet_direction_gain(
     selected: list[np.ndarray], candidate: np.ndarray, sigma: float
 ) -> float:
@@ -119,11 +136,7 @@ def _logdet_direction_gain(
     def objective(rows: list[np.ndarray]) -> float:
         if not rows:
             return 0.0
-        z = np.stack(rows)
-        sign, value = np.linalg.slogdet(np.eye(len(rows)) + (z @ z.T) / sigma**2)
-        if sign <= 0:
-            raise FloatingPointError("direction Gram update is not positive definite")
-        return float(value)
+        return direction_coverage(np.stack(rows), sigma)
 
     return objective([*selected, candidate]) - objective(selected)
 
@@ -183,7 +196,6 @@ def greedy_neighbor_selection(
             choices.append(
                 CandidateScore(
                     index=index,
-                    resistance=float(leverage[index]),
                     leverage=float(leverage[index]),
                     direction_gain=direction_gain,
                     locality=float(locality[index]),

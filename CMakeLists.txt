@@ -16,8 +16,11 @@ endif()
 add_executable(narhnsw_smoke cpp/src/main.cpp)
 target_link_libraries(narhnsw_smoke PRIVATE narhnsw_core)
 
+add_executable(hnsw_instrumented_smoke cpp/src/hnsw_instrumented_smoke.cpp)
+target_include_directories(hnsw_instrumented_smoke PRIVATE third_party/hnswlib)
+
 enable_testing()
 add_executable(test_resistance_cpp tests/cpp/test_resistance.cpp)
 target_link_libraries(test_resistance_cpp PRIVATE narhnsw_core)
 add_test(NAME resistance_cpp COMMAND test_resistance_cpp)
-
+add_test(NAME hnsw_instrumented_cpp COMMAND hnsw_instrumented_smoke)

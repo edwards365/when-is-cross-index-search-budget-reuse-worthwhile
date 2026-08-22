@@ -1,0 +1,10 @@
+fixture: results/raw/hnsw_fixture_s7
+variants: [original, random, distance, geometry, resistance, resistance_direction]
+repair_seed: 19
+query_seed: 23
+queries: 100
+query_noise: 0.02
+k: 10
+ef_search: [10, 20, 40, 80]
+max_candidates: 32
+purpose: implementation_and_mechanism_smoke_only
