@@ -6,7 +6,7 @@ This file is normative. A symbol must not be reused with a different meaning in 
 
 - \(X=\{x_1,\ldots,x_n\}\subseteq\mathbb R^d\): indexed data set; \(n\) is its size and \(d\) its ambient dimension.
 - \(q\): a query, not necessarily in \(X\).
-- \(d_X(x,y)\): the nonnegative distance or dissimilarity used by construction and search. We write \(\|x-y\|_2\) only when Euclidean structure is assumed.
+- \(\delta(x,y)\): the nonnegative dissimilarity used by construction and search on data and queries. It is \(\|x-y\|_2\) in Euclidean search. For nonzero vectors, cosine distance is \(1-\langle x,y\rangle/(\|x\|\|y\|)\); on unit vectors it is one half of squared Euclidean distance and preserves rankings, but it is not a metric on arbitrary nonzero vectors. Maximum inner-product search uses a score \(s(x,q)=\langle x,q\rangle\), not a distance; any transformed ranking dissimilarity must be declared and may be negative or nonmetric. “General metric” additionally assumes symmetry, identity, and triangle inequality. No metric theorem is transferred to a generic nonmetric score without rechecking its proof.
 - \(k\): requested number of neighbors; \(N_k(q)\): exact top-\(k\) set under a declared deterministic tie rule.
 - \(Q\): query distribution or a fixed held-out query set, stated in context.
 
@@ -17,6 +17,7 @@ This file is normative. A symbol must not be reused with a different meaning in 
 - \(N_G^+(u)\), \(N_G^-(u)\): outgoing and incoming search neighbors. \(N_G(u)\) is used only for an explicitly undirected graph.
 - \(M\): local selection budget. \(M_{\max}\) and \(M_{\max,0}\): stored degree caps above and at layer zero.
 - \(C_u\): frozen candidate ground set for base vertex \(u\); \(c=|C_u|\).
+- \(N_H(u)\subseteq C_u\): neighbors selected by the standard HNSW heuristic from this logged candidate set; \(D_H(u)=C_u\setminus N_H(u)\): rejected candidates.
 - \(S_u\subseteq C_u\): selected outgoing neighbors, \(|S_u|\le M\).
 - \(H_u=(V_u,E_u,w_u)\): connected, undirected, positive-conductance local reference graph used only to score candidates. It is not an HNSW search layer.
 - \(\bar G_0\): an explicitly declared symmetrization of the directed bottom layer. Parallel edges and weight aggregation must be specified.
@@ -26,11 +27,12 @@ The following models are distinct: **DLS**, directed local selection with indepe
 
 ## Query process
 
-- \(V(q;G)\): set of vertices visited by the declared search algorithm.
-- \(C_{\mathrm{search}}(q;G)\): generic cost; it must name the counted operation.
+- \(V_{\rm seen}(q;G)\): vertices whose identifiers enter the visited set; \(V_{\rm exp}(q;G)\): vertices whose outgoing neighborhoods are expanded.
+- \(C_{\rm ndc}(q;G)\), \(C_{\rm seen}(q;G)=|V_{\rm seen}|\), \(C_{\rm exp}(q;G)=|V_{\rm exp}|\), and \(C_{\rm wall}(q;G)\): distance calls, seen nodes, expanded nodes, and measured latency. The generic \(C_{\rm search}\) is used only with a declared subscript.
 - \(\operatorname{NDC}(q;G)\): exact number of calls to the distance function, including the bottom layer.
 - \(\operatorname{Rec}@k(q;G)=|\widehat N_k(q;G)\cap N_k(q)|/k\).
 - \(ef^*(q;G,R)=\min\{ef:\operatorname{Rec}@k(q;G,ef)\ge R\}\), or \(+\infty\) if the tested grid never reaches \(R\). This is an offline oracle statistic.
+- `efSearch` is the configured bound on the result/candidate frontier in standard HNSW SearchLayer; it is not equal to the number seen or expanded. \(b\) denotes an abstract beam stopping width. \(\gamma_{\rm DABS}\) denotes the distance slack in DABS and must not be denoted by `ef`.
 - \(x_0,\ldots,x_T\): a pure-greedy trajectory; \(\mathcal T(q)\subseteq X\): declared target region.
 
 ## Graph linear algebra
@@ -46,6 +48,12 @@ Unless stated otherwise, \(H=(V,E,w)\) is a connected undirected multigraph with
 - \(\lambda_i(L)\): nondecreasing Laplacian eigenvalues.
 - \(\Phi_H(A)=w(A,V\setminus A)/\min\{\operatorname{vol}(A),\operatorname{vol}(V\setminus A)\}\): conductance of a nontrivial vertex set; \(\Phi(H)=\min_A\Phi_H(A)\).
 - \(\operatorname{vol}(H)=\sum_v d_w(v)=2\sum_e w_e\).
+
+## Three candidate-edge scores
+
+- **A (reference-edge leverage):** every selectable edge belongs to a frozen dense/augmented \(H_u^A\), and \(r_e^A=w_eR_{H_u^A}(e)\in(0,1]\).
+- **B (pre-addition gain):** for \(e\notin E(H)\), \(g_e^B=w_eR_H(a,b)\in[0,\infty)\). After adding it, its leverage is \(g_e^B/(1+g_e^B)\); these two numbers are not interchangeable.
+- **C (deletion sensitivity):** for existing \(e\), \(r_e^C=\tau_e^H\). Deletion preserves connectivity exactly when \(r_e^C<1\), and its tree-partition loss is \(-\log(1-r_e^C)\).
 
 ## Frozen local objective
 

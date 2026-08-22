@@ -57,3 +57,28 @@ strictly away from a query, while an edge with arbitrarily small leverage can
 be the only distance-decreasing shortcut. Even arbitrarily accurate spectral
 approximation need not preserve adjacency-based greedy paths. We therefore
 treat leverage as a structural term and evaluate query progress separately.
+
+\paragraph{Candidate-edge semantics.}
+For a missing edge $e=(u,v)$, its score is undefined until a reference scheme is
+fixed. Scheme A inserts all center--candidate edges into one augmented graph and
+scores existing-edge leverages. Scheme B scores the pre-insertion gain
+$g_e=w_eR_e$ in a common base graph. Scheme C inserts sequentially and updates
+the Laplacian. The current repair implements Scheme A; the schemes can rank
+candidates differently.
+
+For connected $L$ and $b_e\perp\mathbf1$, insertion obeys
+\begin{equation}
+(L+w b_eb_e^\top)^+=L^+-
+\frac{wL^+b_eb_e^\top L^+}{1+w b_e^\top L^+b_e},
+\qquad \frac{Z(L+w b_eb_e^\top)}{Z(L)}=1+wR_e.
+\end{equation}
+Deletion uses denominator $1-\tau_e$; zero is the bridge/disconnection boundary.
+
+\paragraph{Localization and search boundary.}
+An induced local subgraph gives only a Rayleigh upper bound. Exact terminal
+preservation requires the Schur complement
+$L_{TT}-L_{TI}L_{II}^{-1}L_{IT}$. Hence one-hop and two-hop rankings are
+heuristics unless a spectral approximation and score-margin condition is proved.
+A pure-greedy step bound follows from global reachable-state $\delta$ progress.
+HNSW beam search and DABS have different queues and termination rules, so transfer
+also needs an explicit rank/retention condition for every improving successor.

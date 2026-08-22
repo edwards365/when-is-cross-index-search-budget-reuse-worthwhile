@@ -30,7 +30,7 @@ package-dir = {"" = "python"}
 where = ["python"]
 
 [tool.pytest.ini_options]
-testpaths = ["tests/python"]
+testpaths = ["tests/python", "theory/tests"]
 addopts = "--strict-markers"
 
 [tool.ruff]
@@ -39,4 +39,3 @@ target-version = "py310"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
-

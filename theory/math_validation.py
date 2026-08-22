@@ -46,6 +46,51 @@ def projection_and_leverages(
     return projector, np.diag(projector).copy()
 
 
+def rank_one_pseudoinverse_update(
+    laplacian_plus: np.ndarray,
+    contrast: np.ndarray,
+    conductance: float,
+    *,
+    add: bool,
+) -> np.ndarray:
+    """Update L^+ for L +/- w bb^T when the connected kernel is unchanged."""
+    laplacian_plus = np.asarray(laplacian_plus, dtype=float)
+    contrast = np.asarray(contrast, dtype=float)
+    if conductance <= 0 or not np.isclose(np.sum(contrast), 0.0):
+        raise ValueError("conductance must be positive and contrast orthogonal to one")
+    voltage = laplacian_plus @ contrast
+    leverage_without_weight = float(contrast @ voltage)
+    denominator = 1.0 + conductance * leverage_without_weight
+    sign = -1.0
+    if not add:
+        denominator = 1.0 - conductance * leverage_without_weight
+        sign = 1.0
+        if denominator <= 1e-12:
+            raise ValueError("deletion disconnects the graph or is numerically singular")
+    return laplacian_plus + sign * conductance * np.outer(voltage, voltage) / denominator
+
+
+def spanning_tree_partition(n: int, edges: Sequence[Edge]) -> float:
+    """Return the weighted spanning-tree partition via a Laplacian cofactor."""
+    _, _, laplacian = graph_matrices(n, edges)
+    return float(np.linalg.det(laplacian[:-1, :-1]))
+
+
+def kron_reduction(laplacian: np.ndarray, boundary: Sequence[int]) -> np.ndarray:
+    """Return the exact Schur complement onto boundary vertices."""
+    laplacian = np.asarray(laplacian, dtype=float)
+    boundary = list(boundary)
+    interior = [i for i in range(len(laplacian)) if i not in boundary]
+    if not boundary:
+        raise ValueError("boundary must be nonempty")
+    if not interior:
+        return laplacian[np.ix_(boundary, boundary)].copy()
+    l_bb = laplacian[np.ix_(boundary, boundary)]
+    l_bi = laplacian[np.ix_(boundary, interior)]
+    l_ii = laplacian[np.ix_(interior, interior)]
+    return l_bb - l_bi @ np.linalg.solve(l_ii, l_bi.T)
+
+
 def path_edges(n: int, weight: float = 1.0) -> list[Edge]:
     return [(i, i + 1, weight) for i in range(n - 1)]
 
@@ -157,6 +202,31 @@ def frozen_objective(
         + beta * direction_logdet(vectors, chosen, sigma)
         + gamma * np.sum(locality[chosen])
     )
+
+
+def greedy_cardinality(ground_size: int, budget: int, objective) -> tuple[int, float]:
+    """Return greedy subset mask and value under deterministic index tie-breaking."""
+    selected_mask = 0
+    for _ in range(min(budget, ground_size)):
+        candidates = [i for i in range(ground_size) if not selected_mask & (1 << i)]
+        winner = max(
+            candidates,
+            key=lambda i: (
+                objective(selected_mask | (1 << i)) - objective(selected_mask),
+                -i,
+            ),
+        )
+        selected_mask |= 1 << winner
+    return selected_mask, float(objective(selected_mask))
+
+
+def exhaustive_cardinality_optimum(
+    ground_size: int, budget: int, objective
+) -> tuple[int, float]:
+    """Return an exact optimum over subsets with cardinality at most budget."""
+    feasible = [mask for mask in range(1 << ground_size) if mask.bit_count() <= budget]
+    best_mask = max(feasible, key=lambda mask: (objective(mask), -mask))
+    return best_mask, float(objective(best_mask))
 
 
 def diminishing_returns_violations(

@@ -10,3 +10,14 @@ With fixed nonnegative leverage/locality weights, `F_res` and `F_local` are nonn
 
 This statement provides no global recall, navigability, or HNSW query-complexity guarantee.
 
+## Rank-one insertion and deletion
+
+For connected (L), contrast (b\perp\mathbf1), and conductance (w>0), adding (wbb^\top) preserves the kernel and
+\[
+(L+wbb^\top)^+=L^+-\frac{wL^+bb^\top L^+}{1+w b^\top L^+b}.
+\]
+Deleting an existing edge uses the plus sign and denominator (1-wR), provided it is positive. Denominator zero is exactly the bridge/disconnection boundary. Matrix-tree ratios are (Z'/Z=1+wR) for insertion and (1-\tau_e) for deletion. Numerical tests compare these identities with direct pseudoinverses and cofactor enumeration.
+
+## Exact terminal localization
+
+Partition a connected Laplacian into terminals (T) and interior (I), with invertible grounded (L_{II}). The Schur complement (L_{TT}-L_{TI}L_{II}^{-1}L_{IT}) has the same terminal Dirichlet energy and therefore the same pairwise terminal effective resistances. Induced-radius graphs do not enjoy this equality.

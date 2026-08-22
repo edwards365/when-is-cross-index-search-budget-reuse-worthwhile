@@ -13,7 +13,7 @@ is the orthogonal projector onto \(\operatorname{im}(W^{1/2}B^\top)\). Moreover 
 **Derivation.** Put \(A=BW^{1/2}\), so \(L=AA^\top\) and \(P=A^\top(AA^\top)^+A\). A thin SVD \(A=U_r\Sigma_rV_r^\top\) gives \(P=V_rV_r^\top\), hence \(P=P^\top=P^2\) and its image is the row space of \(A\). Its diagonal is
 \(w_e b_e^\top L^+b_e\). Connectivity gives \(r=\operatorname{rank}B=N-1\), so \(\operatorname{tr}P=N-1\), equal to the sum of its diagonal.
 
-**Status/source.** `rederived_verified`; matches Lemma 3 of Spielman--Srivastava (2011). **Use:** identifies a normalized structural nonredundancy score. **Does not imply:** a distance-decreasing step, recall, or HNSW complexity.
+**Status/source.** `proved`; matches Lemma 3 of Spielman--Srivastava (2011). **Use:** identifies a normalized structural nonredundancy score. **Does not imply:** a distance-decreasing step, recall, or HNSW complexity.
 
 ## K2. Bounds and bridge equivalence
 
@@ -21,7 +21,7 @@ is the orthogonal projector onto \(\operatorname{im}(W^{1/2}B^\top)\). Moreover 
 
 **Proof.** Positivity follows because the endpoints of an edge are distinct and connected. The direct edge is a resistance \(1/w_e\) path, so Thomson's principle gives \(R_e\le1/w_e\). If it is a bridge, every unit flow must send one unit through it and has energy at least \(1/w_e\); equality follows. If it is not a bridge, an alternative finite-resistance path is in parallel with the direct edge, making the equivalent resistance strictly smaller than \(1/w_e\). Multiplication by \(w_e\) proves the claim.
 
-**Status/source.** `rederived_verified`; standard electrical-network consequence. **Use:** certifies local bridge edges. **Does not imply:** the bridge points toward any query or belongs in a degree-limited ANN graph.
+**Status/source.** `proved`; standard electrical-network consequence. **Use:** certifies local bridge edges. **Does not imply:** the bridge points toward any query or belongs in a degree-limited ANN graph.
 
 ## K3. Weighted random spanning-tree marginal
 
@@ -37,7 +37,7 @@ is the orthogonal projector onto \(\operatorname{im}(W^{1/2}B^\top)\). Moreover 
 
 **Proof.** By Thomson's principle, resistance is the minimum unit-flow energy \(\sum_e f_e^2/w_e\). Added edges enlarge the feasible flow set; increased conductance weakly lowers every affected energy term.
 
-**Status/source.** `rederived_verified`. **Use:** predicts systematic local overestimation. **Limitation:** it gives no ranking guarantee. A ranking guarantee follows only from simultaneous error intervals narrow enough not to overlap; enlarging to two hops is an empirical mitigation, not a theorem. A sufficient structural condition is a common-kernel spectral approximation between the local terminal Schur complement and the global one.
+**Status/source.** `proved`. **Use:** predicts systematic local overestimation. **Limitation:** it gives no ranking guarantee. A ranking guarantee follows only from simultaneous error intervals narrow enough not to overlap; enlarging to two hops is an empirical mitigation, not a theorem. A sufficient structural condition is a common-kernel spectral approximation between the local terminal Schur complement and the global one.
 
 ## K5. Spectral approximation and resistance stability
 
@@ -54,7 +54,7 @@ and the same multiplicative bounds hold for every effective resistance.
 
 If candidate edge weights are unchanged, the order \(\tau_e>\tau_f\) is certified stable whenever \(\tau_e/\tau_f>(1+\varepsilon)/(1-\varepsilon)\). With changed weights, the corresponding weight ratio must be included.
 
-**Status/source.** spectral preservation is `imported_verified` from Spielman--Srivastava; the pseudoinverse and ranking corollaries are `project_proved`. **Does not imply:** preservation of adjacency-based greedy paths, top-k recall, beam width, or query distribution performance.
+**Status/source.** spectral preservation is `imported_verified` from Spielman--Srivastava; the pseudoinverse and ranking corollaries are `proved`. **Does not imply:** preservation of adjacency-based greedy paths, top-k recall, beam width, or query distribution performance.
 
 ## K6. Commute time
 
@@ -75,7 +75,7 @@ Let \(A_S=I+\sigma^{-2}\sum_{v\in S}z_vz_v^\top\), \(\sigma>0\).
 **Proof.** The empty determinant is one. The matrix determinant lemma gives the displayed marginal, which is nonnegative. If \(S\subseteq T\), then \(A_S\preceq A_T\), hence \(A_T^{-1}\preceq A_S^{-1}\), so the marginal decreases. Sylvester's identity gives
 \(\det(I_d+\sigma^{-2}Z_S^\top Z_S)=\det(I_{|S|}+\sigma^{-2}Z_SZ_S^\top)\).
 
-**Status/source.** `rederived_verified`; consistent with log-determinant information-gain arguments used by Krause, Singh, and Guestrin (2008). Use Cholesky solves and `log1p`; never form an inverse or raw determinant numerically.
+**Status/source.** `proved`; consistent with log-determinant information-gain arguments used by Krause, Singh, and Guestrin (2008). Use Cholesky solves and `log1p`; never form an inverse or raw determinant numerically.
 
 ## K8. Frozen combined objective and greedy approximation
 
@@ -87,7 +87,7 @@ for an optimum of size at most \(M\).
 
 **Proof sketch.** The resistance and locality sums are modular; K7 is monotone submodular; nonnegative sums preserve both properties. The standard residual-gap recurrence proves the bound.
 
-**Status/source.** `rederived_verified`; approximation factor from Nemhauser--Wolsey--Fisher (1978). **Scope:** one frozen DLS problem only. Reciprocal insertion, reverse pruning, and globally shared degree caps invalidate direct transfer of this factor.
+**Status/source.** `proved`; approximation factor from Nemhauser--Wolsey--Fisher (1978). **Scope:** one frozen DLS problem only. Reciprocal insertion, reverse pruning, and globally shared degree caps invalidate direct transfer of this factor.
 
 **Greedy pseudocode.** Start with \(S=\varnothing\) and a Cholesky factor for the regularized Gram matrix. Until \(|S|=M\) or candidates are exhausted, evaluate the three-term marginal for every remaining candidate, choose the deterministic maximum, append it, and perform a rank-one factor update.
 
@@ -98,7 +98,20 @@ If \(d_X(x_t,q)-d_X(x_{t+1},q)\ge\delta>0\) until a target threshold \(r_q\) is 
 
 Existence of one such path does not ensure pure greedy follows it. The algorithmic bound holds under the stronger condition that every non-target vertex it can reach has at least one \(\delta\)-improving neighbor: choosing the closest neighbor then improves by at least \(\delta\). Beam search inherits this trajectory only if its queue/termination rules retain and expand it; no universal `efSearch` bound follows from path existence alone.
 
-**Status.** `project_proved` for the stated pure-greedy model; HNSW transfer is `partial`.
+**Status.** `proved` for the stated pure-greedy model; HNSW transfer is `proof_sketch`.
+
+## K10. Candidate-edge rank-one identities
+
+For missing edge contrast (b\perp\mathbf1) and conductance (w>0), insertion gives
+\[
+(L+wbb^\top)^+=L^+-\frac{wL^+bb^\top L^+}{1+w b^\top L^+b},
+\qquad Z'/Z=1+wR.
+\]
+For deletion of an existing nonbridge edge, replace the denominator by (1-wR=1-\tau_e) and reverse the correction sign; (1-\tau_e=0) is the singular bridge boundary. **Status:** `proved` from Sherman--Morrison on (mathbf1^\perp) and the matrix-tree determinant lemma; numerically checked against direct pseudoinverses and cofactors. The three candidate semantics and post-insertion leverage (g/(1+g)) are in `candidate_edge_models.md`.
+
+## K11. Terminal Schur preservation
+
+For terminal/interior partition (T,I) with admissible (L_{II}^{-1}), the Kron-reduced Laplacian (L_{TT}-L_{TI}L_{II}^{-1}L_{IT}) preserves all pairwise effective resistances in (T). **Status:** `imported_verified` from Durfee et al., Fact 5.4, and rederived by minimizing Dirichlet energy over interior potentials. This is the correct exact localization object; induced one-hop/two-hop graphs only satisfy the narrower Rayleigh statements in `localization.md`.
 
 ## Primary sources checked in this batch
 

@@ -1,21 +1,25 @@
 schema_version: 1
 allowed_statuses:
   - imported_verified
-  - rederived_verified
-  - project_proved
-  - proposed
-  - partial
+  - imported_unverified
+  - proved
+  - proof_sketch
+  - conjecture
   - empirically_supported
   - disproved
-  - abandoned
   - blocked
+  - abandoned
 last_updated: 2026-08-22
 claims:
   cut_space_projection:
     proposition: P is the weighted cut-space projector, diag(P)=tau, and sum(tau)=N-1.
-    status: rederived_verified
+    status: proved
     assumptions: connected undirected positive-weight graph
     source: Spielman--Srivastava 2011, Lemma 3
+    original_statement: Lemma 3 identifies the weighted incidence expression as a projection.
+    dependencies: [connectedness, spectral theorem, Moore--Penrose pseudoinverse]
+    algorithm_relation: supplies frozen edge scores on the declared undirected reference graph only
+    originality: classical result rederived; not project-original
     proof_file: theory/known_results.md#k1-weighted-cut-space-projection-and-foster-identity
     numerical_test: tests/python/test_effective_resistance.py::test_laplacian_and_projection_identities
     counterexample: null
@@ -23,9 +27,13 @@ claims:
     last_updated: 2026-08-22
   bridge_iff_unit_leverage:
     proposition: An existing edge is a bridge if and only if tau_e=1.
-    status: rederived_verified
+    status: proved
     assumptions: connected undirected positive-weight graph
     source: classical Thomson/Rayleigh consequence
+    original_statement: weighted bridge edges have effective resistance equal to reciprocal conductance
+    dependencies: [connectedness, Thomson principle]
+    algorithm_relation: detects local nonredundancy but not query usefulness
+    originality: classical result rederived; not project-original
     proof_file: theory/known_results.md#k2-bounds-and-bridge-equivalence
     numerical_test: tests/python/test_effective_resistance.py::test_known_graph_resistances_and_leverages
     counterexample: null
@@ -43,9 +51,13 @@ claims:
     last_updated: 2026-08-22
   local_resistance_upper_bound:
     proposition: A connected conductance-preserving subgraph overestimates terminal resistance.
-    status: rederived_verified
+    status: proved
     assumptions: undirected graphs; same terminal vertices; subgraph remains connected
     source: Rayleigh monotonicity
+    original_statement: deleting positive-conductance edges cannot decrease effective resistance
+    dependencies: [Dirichlet principle, conductance_preservation]
+    algorithm_relation: bounds an induced local score above a fixed global score but does not preserve ranks
+    originality: classical result specialized to the project; not project-original
     proof_file: theory/known_results.md#k4-rayleigh-monotonicity-and-local-bias
     numerical_test: tests/python/test_counterexamples.py::test_local_reference_graph_can_overestimate_global_resistance
     counterexample: theory/counterexamples.md#c4-local-overestimation
@@ -63,9 +75,13 @@ claims:
     last_updated: 2026-08-22
   spectral_resistance_stability:
     proposition: Common-kernel epsilon spectral approximation yields reciprocal multiplicative resistance bounds.
-    status: project_proved
+    status: proved
     assumptions: common kernel span(1); 0<=epsilon<1
     source: inversion on the positive-definite restriction
+    original_statement: common-kernel Loewner approximation reverses under pseudoinversion on one-perp
+    dependencies: [common_kernel, Loewner_order, positive_definite_restriction]
+    algorithm_relation: controls score error only when the local graph approximates the relevant Schur complement
+    originality: project corollary of classical Loewner inversion
     proof_file: theory/known_results.md#k5-spectral-approximation-and-resistance-stability
     numerical_test: tests/python/test_effective_resistance.py
     counterexample: null
@@ -83,9 +99,13 @@ claims:
     last_updated: 2026-08-22
   direction_logdet_submodular:
     proposition: Regularized direction log-det is normalized monotone submodular.
-    status: rederived_verified
+    status: proved
     assumptions: sigma>0; fixed nonzero direction vectors
     source: determinant lemma and Loewner inversion; consistent with Krause et al. 2008
+    original_statement: regularized rank-one log determinant has diminishing returns
+    dependencies: [sigma_positive, fixed_nonzero_directions, matrix_determinant_lemma]
+    algorithm_relation: proves the direction component of the frozen local selector
+    originality: standard log-determinant argument specialized to directions
     proof_file: theory/known_results.md#k7-direction-log-determinant
     numerical_test: tests/python/test_submodularity.py::test_direction_logdet_is_normalized_monotone_submodular
     counterexample: null
@@ -93,9 +113,13 @@ claims:
     last_updated: 2026-08-22
   frozen_local_greedy_factor:
     proposition: Frozen DLS greedy has a 1-1/e approximation for the declared combined objective.
-    status: rederived_verified
+    status: proved
     assumptions: fixed ground set and scores; nonnegative coefficients; cardinality budget
     source: Nemhauser--Wolsey--Fisher 1978
+    original_statement: cardinality greedy approximates normalized monotone submodular maximization
+    dependencies: [direction_logdet_submodular, frozen_modular_scores, fixed_ground_set, exact_marginals]
+    algorithm_relation: applies to one row-wise Directed Local Selection call, not reciprocal HNSW repair
+    originality: project composition of classical objective pieces and classical greedy theorem
     proof_file: theory/known_results.md#k8-frozen-combined-objective-and-greedy-approximation
     numerical_test: tests/python/test_submodularity.py::test_frozen_combination_is_submodular
     counterexample: null
@@ -123,9 +147,13 @@ claims:
     last_updated: 2026-08-22
   bridge_retention_candidate_a:
     proposition: A candidate with strictly largest combined marginal at a greedy step is selected at that step.
-    status: project_proved
+    status: proved
     assumptions: frozen objective; deterministic exact marginal evaluation
     source: definition of greedy selection
+    original_statement: an exact strict marginal winner is selected next
+    dependencies: [frozen_objective, deterministic_tie_rule, exact_marginal_evaluation]
+    algorithm_relation: one local greedy step before downstream pruning
+    originality: project-specific but elementary sufficient condition
     proof_file: theory/project_theorems.md#theorem-a-score-gap-bridge-retention
     numerical_test: null
     counterexample: bridge status alone is insufficient
@@ -133,9 +161,13 @@ claims:
     last_updated: 2026-08-22
   monotone_cross_cut_candidate_b:
     proposition: Retaining the stated cross edge concatenates two delta-monotone paths.
-    status: project_proved
+    status: proved
     assumptions: both internal paths and cross edge meet delta decrease; compatible endpoints
     source: project proof by concatenation
+    original_statement: compatible delta-monotone path segments concatenate
+    dependencies: [metric_progress, compatible_endpoints, retained_cross_edge]
+    algorithm_relation: certifies path existence, not beam discovery
+    originality: project-specific but elementary concatenation lemma
     proof_file: theory/project_theorems.md#theorem-b-monotone-cross-cut-concatenation
     numerical_test: null
     counterexample: existence alone does not force greedy choice
@@ -143,9 +175,13 @@ claims:
     last_updated: 2026-08-22
   margin_stability_candidate_c:
     proposition: Uniform marginal perturbation epsilon and every-step gap >2epsilon preserve the greedy sequence.
-    status: project_proved
+    status: proved
     assumptions: same ground set/budget/tie rule; uniform bound at all common prefixes
     source: project induction
+    original_statement: uniform marginal error below half every winner gap preserves a greedy sequence
+    dependencies: [same_ground_set, same_budget, same_tie_rule, uniform_prefix_error]
+    algorithm_relation: compares frozen selectors; excludes candidate-set drift and reverse pruning
+    originality: project-specific stability proposition
     proof_file: theory/project_theorems.md#theorem-c-greedy-selection-stability
     numerical_test: null
     counterexample: null
@@ -153,17 +189,79 @@ claims:
     last_updated: 2026-08-22
   pure_greedy_delta_bound_candidate_e:
     proposition: Global delta-improvement availability gives the pure-greedy step bound.
-    status: project_proved
+    status: proved
     assumptions: every reachable non-target vertex has a delta-improving neighbor
     source: project telescoping proof
+    original_statement: global reachable-state delta progress bounds the number of pure-greedy steps
+    dependencies: [global_delta_progress, pure_greedy_policy, fixed_query_metric]
+    algorithm_relation: applies to pure greedy only; beam queue retention and HNSW termination are additional obligations
+    originality: project-specific potential-function proposition
     proof_file: theory/project_theorems.md#theorem-e-pure-greedy-query-bound
     numerical_test: tests/python/test_counterexamples.py
     counterexample: one existing good path is insufficient for beam/HNSW guarantee
     experiment_link: query trace monotonicity and minimum progress
     last_updated: 2026-08-22
+  rank_one_candidate_update:
+    proposition: Candidate-edge insertion and nonbridge deletion obey the stated pseudoinverse and spanning-tree partition ratios.
+    status: proved
+    assumptions: connected undirected positive-weight graph; zero-sum contrast; deletion denominator positive
+    source: Sherman--Morrison on the positive-definite restriction and matrix-tree theorem
+    original_statement: rank-one inverse and determinant lemmas applied on one-perp
+    dependencies: [common_kernel, matrix_determinant_lemma, matrix_tree_theorem]
+    algorithm_relation: distinguishes pre-insertion gain, post-insertion leverage, and deletion sensitivity
+    originality: classical identities organized for the project's three candidate semantics
+    proof_file: theory/candidate_edge_models.md
+    numerical_test: theory/tests/test_rank_one_and_kron.py
+    counterexample: deletion denominator zero for a bridge
+    experiment_link: candidate-scheme score comparison
+    last_updated: 2026-08-22
+  terminal_kron_preservation:
+    proposition: Exact terminal Schur complementation preserves all terminal effective resistances.
+    status: proved
+    assumptions: connected undirected graph; admissible terminal/interior partition; invertible eliminated block
+    source: Durfee et al., Fact 5.4; Dirichlet minimization
+    original_statement: exact Schur complement preserves terminal effective resistance
+    dependencies: [Schur_complement, Dirichlet_principle]
+    algorithm_relation: defines the exact localization oracle against which hop-local graphs must be compared
+    originality: imported theorem rederived; not project-original
+    proof_file: theory/localization.md
+    numerical_test: theory/tests/test_rank_one_and_kron.py::test_kron_reduction_preserves_terminal_resistance
+    counterexample: induced-radius subgraph need not equal the Schur complement
+    experiment_link: one-hop/two-hop versus exact-Kron rank distortion
+    last_updated: 2026-08-22
+  directed_kron_transfer:
+    proposition: Directed Kron-reduction resistance results apply directly to the project's union-symmetrized HNSW score.
+    status: imported_unverified
+    assumptions: directed theorem conditions and equality of resistance notions not checked
+    source: Sugiyama and Sato 2023 official abstract
+    proof_file: null
+    numerical_test: null
+    counterexample: different directed and symmetrized mathematical objects
+    experiment_link: union/intersection/directed-model sensitivity
+    last_updated: 2026-08-22
+  pairwise_er_amc:
+    proposition: AMC estimates pairwise effective resistance within epsilon with the stated high probability and parameterized runtime.
+    status: imported_verified
+    assumptions: undirected unweighted graph; Yang--Tang random-walk estimator; theorem epsilon/delta settings
+    source: Yang and Tang 2023, Theorems 3.1 and 3.4
+    proof_file: theory/reading_notes/spectral_algorithms.md
+    numerical_test: null
+    counterexample: null
+    experiment_link: future scalable-estimator calibration against dense oracle
+    last_updated: 2026-08-22
+  graph_vector_eval_scope:
+    proposition: The cited study benchmarks twelve graph-vector methods on seven real datasets up to one billion vectors.
+    status: empirically_supported
+    assumptions: paper implementations, datasets, tuning protocol, and hardware
+    source: Azizi, Echihabi, and Palpanas 2025
+    proof_file: theory/reading_notes/ann_collision_and_benchmarks.md
+    numerical_test: null
+    counterexample: null
+    experiment_link: external-validity protocol design
+    last_updated: 2026-08-22
   hnsw_recall_or_complexity_guarantee:
     proposition: Resistance-direction repair guarantees HNSW recall improvement or logarithmic query cost.
-    status: proposed
+    status: conjecture
     assumptions: not yet sufficient
     source: null
     proof_file: theory/proof_attempts.md

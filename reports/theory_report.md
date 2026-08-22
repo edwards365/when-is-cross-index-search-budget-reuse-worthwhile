@@ -62,3 +62,18 @@ Dense exact local resistance costs \(O(c^3)\) time and \(O(c^2)\) storage; all-n
 ## 11. Open proof and experiment queue
 
 Priority gaps are: characterize when the terminal Schur complement of \(H_u\) approximates the global graph; quantify reverse-pruning survival; derive a beam-retention lemma with explicit queue rules; complete remaining reading cards; enumerate the direction/locality counterexample; and measure theorem-premise prevalence on synthetic and real data. No recall theorem will be attempted before those premises are observable.
+
+## 12. Required decision answers
+
+1. **Is the mathematical idea internally coherent?** Yes as a local, frozen, directed-row selection objective evaluated through a separately declared undirected reference graph. It is not coherent if schemes A/B/C, directed adjacency, or dynamic recomputation are mixed.
+2. **Why might resistance fit ANNS?** Leverage identifies structurally nonredundant edges, cut crossings, and alternative-path scarcity; under a degree budget these can complement HNSW's geometric diversification.
+3. **Why might it fail?** Electrical importance is query-agnostic and undirected. It can reward long, wrong-way, unused, or symmetrization-only edges and consume scarce degree.
+4. **Which classical results are legally reusable?** Cut-space projection/Foster identities, transfer-current spanning-tree marginals, Rayleigh monotonicity, rank-one Laplacian updates, exact Schur preservation, common-kernel spectral bounds, regularized logdet submodularity, and cardinality/stochastic greedy—each only under the assumptions in `source_claim_map.csv`.
+5. **Where are the transfer gaps?** Candidate coverage, a valid symmetrization, local-to-global Schur approximation, query-aligned cut crossings, fixed ground sets, reciprocal/reverse-pruning survival, and beam queue retention/termination.
+6. **What is proved?** The local algebra and objective claims, exact rank-one/Kron identities, three local stability/selection propositions, cross-cut path existence, and a pure-greedy delta-progress step bound. The full list is in `theory/proof_status.yaml`.
+7. **What is refuted?** Resistance-only navigation utility, safe removal of low-leverage edges, spectral-to-recall transfer, hop-radius rank control, dynamic-leverage submodularity, local-to-global greedy-factor transfer, and path-existence-to-HNSW-success transfer.
+8. **Most promising original theorem?** A beam-retention theorem for a separated-region model: candidate coverage plus a query-aligned retained cross-cut edge, bounded distractor rank, and explicit HNSW queue rules imply target-region reachability with a quantified `efSearch`.
+9. **Are its assumptions realistic?** Candidate coverage and score margins are measurable; universal delta progress is unlikely. The useful version must be distributional or restricted to empirically identified hard regions. Current traces do not yet establish premise prevalence.
+10. **Is theory sufficient for a paper?** It supports a rigorous method section and honest mechanism paper, not yet a strong search-guarantee contribution. The negative repair smoke result also prevents a performance claim.
+11. **What remains?** Exact/approximate global terminal-Schur comparisons, candidate-recall and reverse-pruning instrumentation, bounded-distractor beam analysis, directed-model choice, high-dimensional direction-concentration tests, and multi-seed premise/effect estimation.
+12. **If the idea fails, what is the fundamental reason?** The method optimizes redundancy in an undirected query-independent electrical network, while HNSW success is a directed, metric-ordered, queue-limited process under a query distribution. Without a stable bridge between those objects, the objectives need not align.

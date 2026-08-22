@@ -1,6 +1,6 @@
 # Auditable counterexamples
 
-`python -m theory.search_counterexamples` emits the exact numerical examples C1, C2, and C6. Tests verify C1--C4. Conductances are positive and graphs are undirected for resistance; navigation uses the stated unweighted adjacency.
+`python -m theory.search_counterexamples` emits exact numerical examples for C1, C2, and C6. Tests verify the finite constructions. Conductances are positive and graphs are undirected for resistance unless a directed navigation graph is explicitly stated.
 
 ## C1. Unit leverage without navigation value
 
@@ -33,3 +33,49 @@ Define the otherwise ambiguous dynamic set function explicitly: \(F_{\rm dyn}(S)
 \Delta(e_2\mid A)=11/24\approx0.45833<13/28\approx0.46429=\Delta(e_2\mid B).
 \]
 **Disproves:** this recomputed-leverage sum has diminishing returns. Other dynamic scoring procedures may not even integrate to a path-independent set function; each must be defined before a submodularity claim is meaningful.
+
+## C7. A bridge can be irrelevant to the query support
+
+Join two dense clusters by their unique edge (a-b), so \(\tau_{ab}=1\). Put all database queries and their true neighbors in the first cluster, and start every search there. The bridge is maximally nonredundant yet is never needed by this query distribution. **Disproves:** topological necessity alone implies positive expected ANN utility.
+
+## C8. Two bridges need not help the same direction
+
+Let a central component attach to two leaf components by bridges \(e_L,e_R\), hence both scores are one. Embed the leaves so that each helps only its own query region. **Disproves:** equal resistance makes edges interchangeable for query navigation.
+
+## C9. A long bridge can displace a necessary local edge
+
+At a vertex with budget one, let \(e_b\) be a long bridge into a query-irrelevant appendage and \(e_g\) the sole strict-improvement move toward the target. Parallel alternate paths can make \(\tau(e_g)<1\), so pure resistance selects \(e_b\). **Disproves:** leverage maximization under a degree budget preserves the best monotone move.
+
+## C10. Symmetrization can invent a nonexistent directed escape
+
+Take directed arc \(a\to u\) but no arc \(u\to a\). Union symmetrization inserts \(\{u,a\}\), whereas intersection symmetrization omits it. **Disproves:** a score on an unspecified symmetrization is automatically a valid directed HNSW edge-utility score.
+
+## C11. Candidate coverage dominates any scoring theorem
+
+Let \(u\to v\to t\) be the unique metric-decreasing route, but exclude \(v\) from \(C_u\). Every selector over \(C_u\) fails to add \(u\to v\). **Disproves:** an approximation guarantee over the available ground set implies navigation.
+
+## C12. Pure resistance is uninformative on a tree candidate star
+
+Under scheme A, join center \(u\) to candidate leaves \(v_i\), with no alternate routes. Every candidate has \(\tau_i=1\), regardless of direction or distance. **Disproves:** candidate leverage necessarily discriminates candidates under the project's own augmented-star construction.
+
+## C13. High-dimensional direction gains concentrate
+
+Draw normalized candidate directions independently and uniformly from a high-dimensional sphere. Pairwise inner products concentrate near zero, so at early prefixes most candidates have nearly the same log-det marginal. In a deterministic (d=512,c=64) seeded sample, the coefficient of variation of first-step marginals is exactly zero (all unit directions give \(\log(1+\sigma^{-2})\)); at a small random prefix it becomes small rather than encoding query relevance. **Disproves:** the direction term necessarily offers strong candidate discrimination in high dimension. An anisotropic/query-aligned distribution or learned projection is an additional premise, not a consequence of dimension.
+
+## Requested failure-mode coverage
+
+| Failure mode | Witness |
+|---|---|
+| high resistance but wrong query direction | C1 |
+| low resistance but only useful shortcut | C2 |
+| spectral closeness but different navigation | C3 |
+| local/global rank distortion | C4 |
+| diversity displaces local accuracy | C5 |
+| dynamic score lacks submodularity | C6 |
+| query-irrelevant bridge | C7 |
+| equal bridges help incompatible regions | C8 |
+| degree-budget displacement | C9 |
+| directed/symmetrized mismatch | C10 |
+| missing useful candidate | C11 |
+| constant scores on augmented tree/star | C12 |
+| high-dimensional direction concentration | C13 |
