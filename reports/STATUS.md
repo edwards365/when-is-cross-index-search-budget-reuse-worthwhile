@@ -2,7 +2,7 @@
 
 Last updated: 2026-08-22
 
-Milestone completed: Tier-0 infrastructure and executable baseline.
+Milestone completed: Tier-0 infrastructure, executable baseline, and first independent theory batch.
 
 Completed locally: workspace/Git/GitHub audit; hardware and toolchain audit; repository scaffold; exact Python and C++ resistance references; deterministic synthetic data generator; manifest-driven downloader; HNSW smoke runner; query-level result schema; baseline analysis; theory boundary documents; initial tests and CI definition. Python tests pass 8/8; CTest passes 1/1; Ruff passes. A 2,000-base/200-query/16-D narrow-bridge dataset was generated with exact top-10 ground truth and SHA-256 `7e0ff23c9a4a0a172aba068bebc0f973f9137668200cee02298bac56fda4ffcc`.
 
@@ -14,7 +14,9 @@ Literature milestone started: 18 required/adjacent search strings and 13 verifie
 
 Degree-preserving repair milestone started: all six required variants run on an exported real hnswlib layer-0 graph while preserving each node's outgoing degree and the total 5,487-edge budget. The first aggressive full-reselection result is negative: Original reaches Recall@10=.995 at ef=10 with mean NDC=98.05, while Resistance+Direction first clears .95 at ef=20 with mean NDC=135.94, and Resistance-only needs ef=40 with mean NDC=182.05. See `reports/repair_smoke_report.md`; this result is retained and does not decide H2.
 
-Next milestone: insertion-candidate logging and a frozen small-fraction controlled-swap intervention that preserves most HNSW heuristic edges. Random and Geometry controls must be matched by replacement count. Verified public-data manifests proceed in parallel.
+Theory milestone completed: the HNSW primary paper's Algorithms 1--5 and complexity sections were audited, including the exact Algorithm 4 pairwise diversity condition. A normative notation contract, verified-results ledger, 16-claim status registry, six reading cards, local/global model split, theorem-candidate audit, complexity ledger, first report, and paper-section draft now exist. Dense numerical tests cover known graph families, projection/Foster identities, Rayleigh monotonicity, weighted spanning-tree marginals, log-det and frozen-objective submodularity, and navigation counterexamples. The explicit dynamic objective `sum(selected current leverages)` is disproved as submodular by a five-vertex enumeration. Spectral approximation is also shown insufficient for adjacency-based greedy navigation. Python tests pass 28/28, Ruff passes, and Release CTest passes 2/2.
+
+Next milestones: finish the queued full-text reading cards; add insertion-candidate logging and a frozen small-fraction controlled-swap intervention that preserves most HNSW heuristic edges; instrument selector margins and exact query traces to measure the new theorem premises. Random and Geometry controls must be matched by replacement count. Verified public-data manifests proceed in parallel.
 
 Current tier: Tier 0 (16 GiB RAM is the limiting resource). Do not schedule complete 1M sweeps.
 

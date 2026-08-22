@@ -1,0 +1,173 @@
+schema_version: 1
+allowed_statuses:
+  - imported_verified
+  - rederived_verified
+  - project_proved
+  - proposed
+  - partial
+  - empirically_supported
+  - disproved
+  - abandoned
+  - blocked
+last_updated: 2026-08-22
+claims:
+  cut_space_projection:
+    proposition: P is the weighted cut-space projector, diag(P)=tau, and sum(tau)=N-1.
+    status: rederived_verified
+    assumptions: connected undirected positive-weight graph
+    source: Spielman--Srivastava 2011, Lemma 3
+    proof_file: theory/known_results.md#k1-weighted-cut-space-projection-and-foster-identity
+    numerical_test: tests/python/test_effective_resistance.py::test_laplacian_and_projection_identities
+    counterexample: null
+    experiment_link: local leverage normalization audit
+    last_updated: 2026-08-22
+  bridge_iff_unit_leverage:
+    proposition: An existing edge is a bridge if and only if tau_e=1.
+    status: rederived_verified
+    assumptions: connected undirected positive-weight graph
+    source: classical Thomson/Rayleigh consequence
+    proof_file: theory/known_results.md#k2-bounds-and-bridge-equivalence
+    numerical_test: tests/python/test_effective_resistance.py::test_known_graph_resistances_and_leverages
+    counterexample: null
+    experiment_link: bridge-retention rate
+    last_updated: 2026-08-22
+  spanning_tree_marginal:
+    proposition: Weighted random spanning-tree edge marginal equals tau_e.
+    status: imported_verified
+    assumptions: connected undirected positive-weight graph; product-of-weights tree law
+    source: matrix-tree/transfer-current identity
+    proof_file: theory/known_results.md#k3-weighted-random-spanning-tree-marginal
+    numerical_test: tests/python/test_effective_resistance.py::test_weighted_spanning_tree_marginals_equal_leverages
+    counterexample: null
+    experiment_link: optional tree-sampling proxy calibration
+    last_updated: 2026-08-22
+  local_resistance_upper_bound:
+    proposition: A connected conductance-preserving subgraph overestimates terminal resistance.
+    status: rederived_verified
+    assumptions: undirected graphs; same terminal vertices; subgraph remains connected
+    source: Rayleigh monotonicity
+    proof_file: theory/known_results.md#k4-rayleigh-monotonicity-and-local-bias
+    numerical_test: tests/python/test_counterexamples.py::test_local_reference_graph_can_overestimate_global_resistance
+    counterexample: theory/counterexamples.md#c4-local-overestimation
+    experiment_link: one-hop versus two-hop rank distortion
+    last_updated: 2026-08-22
+  local_rank_control_from_radius:
+    proposition: Expanding a local graph by one hop controls global leverage ranking error.
+    status: disproved
+    assumptions: no spectral or Schur-complement approximation assumption
+    source: project counterexample
+    proof_file: null
+    numerical_test: tests/python/test_counterexamples.py::test_local_reference_graph_can_overestimate_global_resistance
+    counterexample: theory/counterexamples.md#c4-local-overestimation
+    experiment_link: neighborhood-radius sensitivity
+    last_updated: 2026-08-22
+  spectral_resistance_stability:
+    proposition: Common-kernel epsilon spectral approximation yields reciprocal multiplicative resistance bounds.
+    status: project_proved
+    assumptions: common kernel span(1); 0<=epsilon<1
+    source: inversion on the positive-definite restriction
+    proof_file: theory/known_results.md#k5-spectral-approximation-and-resistance-stability
+    numerical_test: tests/python/test_effective_resistance.py
+    counterexample: null
+    experiment_link: leverage rank stability under local-graph perturbation
+    last_updated: 2026-08-22
+  spectral_approximation_implies_navigation:
+    proposition: Spectral approximation alone preserves greedy ANN paths or recall.
+    status: disproved
+    assumptions: navigation treats positive-weight edges as adjacency regardless of conductance
+    source: project counterexample family
+    proof_file: null
+    numerical_test: tests/python/test_counterexamples.py::test_tiny_conductance_edge_can_change_unweighted_navigation
+    counterexample: theory/counterexamples.md#c3-spectral-closeness-does-not-preserve-greedy-navigation
+    experiment_link: weighted spectral error versus trace divergence
+    last_updated: 2026-08-22
+  direction_logdet_submodular:
+    proposition: Regularized direction log-det is normalized monotone submodular.
+    status: rederived_verified
+    assumptions: sigma>0; fixed nonzero direction vectors
+    source: determinant lemma and Loewner inversion; consistent with Krause et al. 2008
+    proof_file: theory/known_results.md#k7-direction-log-determinant
+    numerical_test: tests/python/test_submodularity.py::test_direction_logdet_is_normalized_monotone_submodular
+    counterexample: null
+    experiment_link: logged direction marginal and Gram condition number
+    last_updated: 2026-08-22
+  frozen_local_greedy_factor:
+    proposition: Frozen DLS greedy has a 1-1/e approximation for the declared combined objective.
+    status: rederived_verified
+    assumptions: fixed ground set and scores; nonnegative coefficients; cardinality budget
+    source: Nemhauser--Wolsey--Fisher 1978
+    proof_file: theory/known_results.md#k8-frozen-combined-objective-and-greedy-approximation
+    numerical_test: tests/python/test_submodularity.py::test_frozen_combination_is_submodular
+    counterexample: null
+    experiment_link: greedy objective gap on enumerably small candidate sets
+    last_updated: 2026-08-22
+  global_hnsw_greedy_factor:
+    proposition: The local 1-1/e factor applies to reciprocal HNSW construction with reverse pruning.
+    status: disproved
+    assumptions: real construction couples local budgets
+    source: model mismatch
+    proof_file: theory/local_global_models.md
+    numerical_test: null
+    counterexample: shared degree capacity can invalidate independent local optima
+    experiment_link: DLS versus SLR objective loss
+    last_updated: 2026-08-22
+  dynamic_leverage_submodular:
+    proposition: Sum of selected edges' recomputed leverages is submodular.
+    status: disproved
+    assumptions: F_dyn(S)=sum_{e in S} tau_e^(H0+S)
+    source: project exhaustive enumeration
+    proof_file: theory/counterexamples.md#c6-dynamic-leverage-is-not-generally-submodular
+    numerical_test: tests/python/test_submodularity.py::test_declared_dynamic_leverage_objective_is_not_submodular
+    counterexample: n=5 tree plus three candidate edges; emitted by theory.search_counterexamples
+    experiment_link: frozen versus dynamic selection divergence
+    last_updated: 2026-08-22
+  bridge_retention_candidate_a:
+    proposition: A candidate with strictly largest combined marginal at a greedy step is selected at that step.
+    status: project_proved
+    assumptions: frozen objective; deterministic exact marginal evaluation
+    source: definition of greedy selection
+    proof_file: theory/project_theorems.md#theorem-a-score-gap-bridge-retention
+    numerical_test: null
+    counterexample: bridge status alone is insufficient
+    experiment_link: bridge score gap and retention
+    last_updated: 2026-08-22
+  monotone_cross_cut_candidate_b:
+    proposition: Retaining the stated cross edge concatenates two delta-monotone paths.
+    status: project_proved
+    assumptions: both internal paths and cross edge meet delta decrease; compatible endpoints
+    source: project proof by concatenation
+    proof_file: theory/project_theorems.md#theorem-b-monotone-cross-cut-concatenation
+    numerical_test: null
+    counterexample: existence alone does not force greedy choice
+    experiment_link: trace-level cross-cut progress
+    last_updated: 2026-08-22
+  margin_stability_candidate_c:
+    proposition: Uniform marginal perturbation epsilon and every-step gap >2epsilon preserve the greedy sequence.
+    status: project_proved
+    assumptions: same ground set/budget/tie rule; uniform bound at all common prefixes
+    source: project induction
+    proof_file: theory/project_theorems.md#theorem-c-greedy-selection-stability
+    numerical_test: null
+    counterexample: null
+    experiment_link: top-two marginal gaps across insertion orders
+    last_updated: 2026-08-22
+  pure_greedy_delta_bound_candidate_e:
+    proposition: Global delta-improvement availability gives the pure-greedy step bound.
+    status: project_proved
+    assumptions: every reachable non-target vertex has a delta-improving neighbor
+    source: project telescoping proof
+    proof_file: theory/project_theorems.md#theorem-e-pure-greedy-query-bound
+    numerical_test: tests/python/test_counterexamples.py
+    counterexample: one existing good path is insufficient for beam/HNSW guarantee
+    experiment_link: query trace monotonicity and minimum progress
+    last_updated: 2026-08-22
+  hnsw_recall_or_complexity_guarantee:
+    proposition: Resistance-direction repair guarantees HNSW recall improvement or logarithmic query cost.
+    status: proposed
+    assumptions: not yet sufficient
+    source: null
+    proof_file: theory/proof_attempts.md
+    numerical_test: experiment pipeline only
+    counterexample: high-resistance no-navigation and worst-case ANN literature
+    experiment_link: Recall@k, NDC, ef-star
+    last_updated: 2026-08-22

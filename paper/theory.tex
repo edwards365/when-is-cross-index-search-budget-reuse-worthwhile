@@ -1,0 +1,59 @@
+\section{Local resistance--direction neighbor selection}
+\label{sec:theory}
+
+We distinguish the directed HNSW search graph from a connected, undirected,
+positive-weight local reference graph $H_u=(V_u,E_u,w_u)$.  Fixing an
+orientation, let $B$ be its vertex--edge incidence matrix, $W$ its diagonal
+conductance matrix, and $L=BWB^\top$.  For an existing edge $e$ define
+$\tau_e=w_e b_e^\top L^+b_e$.
+
+\begin{proposition}[Weighted cut-space leverage]
+$P=W^{1/2}B^\top L^+BW^{1/2}$ is the orthogonal projector onto
+$\operatorname{im}(W^{1/2}B^\top)$. Hence $P_{ee}=\tau_e$,
+$0<\tau_e\le 1$, and $\sum_e\tau_e=|V_u|-1$. Moreover, $\tau_e=1$ if and
+only if $e$ is a bridge.
+\end{proposition}
+\begin{proof}
+Writing $A=BW^{1/2}$ gives $P=A^\top(AA^\top)^+A$. A thin singular-value
+decomposition gives $P=V_rV_r^\top$, with $r=|V_u|-1$.  The diagonal and
+trace identities follow.  Thomson's principle bounds the terminal
+resistance by the direct-edge resistance $1/w_e$, with equality exactly
+when no alternate path exists.
+\end{proof}
+
+For candidate $v$ let $z_v=(x_v-x_u)/\|x_v-x_u\|_2$, freeze
+$r_v=\tau_{(u,v)}^{H_u}$ before selection, and set
+$\ell_v=\exp[-d_X(u,v)^2/\rho_u^2]$.  For $\sigma>0$ define
+\begin{equation}
+ F_u(S)=\alpha\sum_{v\in S}r_v+
+ \beta\log\det\!\left(I+\sigma^{-2}\sum_{v\in S}z_vz_v^\top\right)+
+ \gamma\sum_{v\in S}\ell_v .
+\end{equation}
+
+\begin{proposition}[Frozen local objective]
+For $\alpha,\beta,\gamma\ge0$, $F_u$ is normalized, monotone, and
+submodular. Under $|S|\le M$, exact greedy attains at least $1-1/e$ of the
+optimal value of this frozen directed local-selection problem.
+\end{proposition}
+\begin{proof}
+The first and third terms are nonnegative modular functions. If
+$A_S=I+\sigma^{-2}\sum_{v\in S}z_vz_v^\top$, the matrix determinant lemma
+gives marginal gain
+$\log(1+\sigma^{-2}z_v^\top A_S^{-1}z_v)$. For $S\subseteq T$,
+$A_T^{-1}\preceq A_S^{-1}$, proving diminishing returns. The standard
+cardinality-constrained monotone-submodular greedy theorem completes the
+claim.
+\end{proof}
+
+The scope is deliberately local. Reciprocal insertion and reverse pruning
+couple degree budgets at different vertices, so the proposition is not a
+global approximation theorem for HNSW construction. Recomputing leverages
+after every selection also changes the set function; a five-vertex
+counterexample shows that the natural sum of recomputed selected-edge
+leverages is not submodular.
+
+Finally, resistance is not a navigation certificate. A bridge edge can point
+strictly away from a query, while an edge with arbitrarily small leverage can
+be the only distance-decreasing shortcut. Even arbitrarily accurate spectral
+approximation need not preserve adjacency-based greedy paths. We therefore
+treat leverage as a structural term and evaluate query progress separately.
