@@ -1,0 +1,24 @@
+name: Experiment
+description: Register a reproducible experiment before execution
+title: "[experiment] "
+labels: [experiment]
+body:
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis and stopping rule
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Frozen datasets, parameters, seeds, and metrics
+    validations:
+      required: true
+  - type: textarea
+    id: leakage
+    attributes:
+      label: Leakage controls and failure retention
+    validations:
+      required: true
+

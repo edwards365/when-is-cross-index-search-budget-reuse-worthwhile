@@ -1,0 +1,9 @@
+dataset: data/synthetic/narrow_bridge_n2000_d16_s7.npz
+sample_nodes: 256
+knn: 8
+symmetrization: union
+weighting: gaussian
+rho: median_knn_distance
+disconnected_policy: infinite
+purpose: exact_local_resistance_numerical_check
+

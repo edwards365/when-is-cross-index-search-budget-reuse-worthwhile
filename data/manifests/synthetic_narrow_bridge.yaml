@@ -1,0 +1,16 @@
+name: narrow_bridge
+official_source: generated_by_this_repository
+download_url: null
+file_size: generated
+sha256: recorded_in_sidecar_after_generation
+license: MIT
+vectors: configurable
+dimensions: configurable
+data_type: float32
+distance: euclidean
+queries: ten_percent_minimum_20
+ground_truth_source: sklearn_exact_brute_force
+download_date: null
+preprocessing: two_gaussian_clouds_plus_low_noise_linear_bridge
+normalized: false
+

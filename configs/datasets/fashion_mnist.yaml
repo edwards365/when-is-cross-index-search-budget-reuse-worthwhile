@@ -1,0 +1,17 @@
+name: fashion-mnist-784-euclidean
+official_source: https://github.com/erikbern/ann-benchmarks
+download_url: https://ann-benchmarks.com/fashion-mnist-784-euclidean.hdf5
+local_path: data/raw/fashion-mnist-784-euclidean.hdf5
+size_bytes: 252000000
+sha256: REQUIRES_UPSTREAM_VERIFICATION_BEFORE_DOWNLOAD
+license: Fashion-MNIST MIT; ANN-Benchmarks dataset packaging terms apply
+vectors: 60000
+dimensions: 784
+data_type: float32
+distance: euclidean
+queries: 10000
+ground_truth_source: ANN-Benchmarks HDF5 neighbors
+normalized: false
+download_date: null
+preprocessing: verify HDF5 train/test/neighbors shapes and recompute a sample exactly
+

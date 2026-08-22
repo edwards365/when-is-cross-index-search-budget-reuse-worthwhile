@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.20)
+project(narhnsw VERSION 0.1.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_library(narhnsw_core cpp/src/resistance.cpp)
+target_include_directories(narhnsw_core PUBLIC cpp/include)
+if(MSVC)
+  target_compile_options(narhnsw_core PRIVATE /W4 /permissive-)
+else()
+  target_compile_options(narhnsw_core PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+add_executable(narhnsw_smoke cpp/src/main.cpp)
+target_link_libraries(narhnsw_smoke PRIVATE narhnsw_core)
+
+enable_testing()
+add_executable(test_resistance_cpp tests/cpp/test_resistance.cpp)
+target_link_libraries(test_resistance_cpp PRIVATE narhnsw_core)
+add_test(NAME resistance_cpp COMMAND test_resistance_cpp)
+

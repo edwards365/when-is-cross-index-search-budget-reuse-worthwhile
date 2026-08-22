@@ -1,0 +1,10 @@
+dataset: data/synthetic/narrow_bridge_n2000_d16_s7.npz
+hardware_id: LAPTOP-Q79U6UF3-AMD64
+k: 10
+m: 16
+ef_construction: 100
+ef_search: [10, 20, 40, 80, 120, 200]
+seed: 7
+warmup_queries: 50
+threads: 1
+purpose: pipeline_correctness_only

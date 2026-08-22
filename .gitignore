@@ -1,0 +1,49 @@
+# Python and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Native builds and IDEs
+build/
+out/
+cmake-build-*/
+*.obj
+*.pdb
+*.dll
+*.so
+*.dylib
+.vs/
+.idea/
+.vscode/
+
+# Reproducible large artifacts
+data/raw/**
+data/processed/**
+!data/processed/.gitkeep
+indexes/**
+results/raw/**
+!results/raw/.gitkeep
+results/processed/*.parquet
+*.hnsw
+*.index
+*.npy
+*.npz
+*.hdf5
+*.h5
+
+# Caches, logs, credentials
+.cache/
+downloads/
+*.log
+*.tmp
+secrets/
+credentials/
+*.pem
+*.key
+

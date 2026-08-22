@@ -1,0 +1,13 @@
+{
+  "name": "narrow_bridge",
+  "kind": "deterministic_synthetic",
+  "generator": "scripts/data/generate_synthetic.py",
+  "n_base": 2000,
+  "n_query": 200,
+  "dimension": 16,
+  "metric": "l2",
+  "seed": 7,
+  "generated_at_utc": "2026-08-22T03:38:34.720427+00:00",
+  "file": "data\\synthetic\\narrow_bridge_n2000_d16_s7.npz",
+  "sha256": "7e0ff23c9a4a0a172aba068bebc0f973f9137668200cee02298bac56fda4ffcc"
+}
