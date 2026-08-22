@@ -1,0 +1,14 @@
+run_id: phase2_gatea_development_data_v1
+datasets:
+  - data/manifests/sift1m.yaml
+  - data/manifests/glove100.yaml
+  - data/manifests/vibe_arxiv_nomic.yaml
+base_vectors: 100000
+development_queries: 1000
+query_sampling_pool: 100000
+query_seed: 20260822
+k: 10
+query_batch: 8
+base_batch: 10000
+allowed_hdf5_members: [train]
+forbidden_hdf5_members: [test, neighbors, distances]
