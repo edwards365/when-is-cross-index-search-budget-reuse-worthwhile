@@ -1,0 +1,79 @@
+schema_version: 1
+phase: 1
+status: closed
+result_code_commit: ba90eda1cbbedc4bb8a9474b540622d9882cb79f
+closure_tag: phase1-local-resistance-null-v1
+hnswlib_commit: 3f3429661187e4c24a490a0f148fc6bc89042b3d
+hardware_id: LAPTOP-Q79U6UF3-AMD64
+hardware_tier: 0
+formal_decision: resistance_specific_benefit_not_established
+seeds:
+  graph: 7
+  independent_holdout: 101
+  random_control: 313
+  bootstrap: 991
+bootstrap_replicates: 5000
+tests_at_closure:
+  python: 48
+  ctest: 2
+  ruff: pass
+environment:
+  python: 3.11.16
+  compiler: MSVC_19.44
+  cmake: 3.30.5
+  environment_yml_sha256: 27c9cf9a6fe88a879d05a7e3e06b9e636bf31db68c1ddb4b3d3a466f198e7de2
+  pyproject_sha256: 98a845456ad81500cec466f25703574de116d58928e56bcd6e52b9bd2a6ae2a8
+formal_runs:
+  - run_id: hnsw-candidate-logging-s7
+    status: valid
+  - run_id: candidate-scoring-s7
+    status: valid_negative
+  - run_id: query-attribution-s7
+    status: diagnostic_only
+  - run_id: controlled-swap-independent-holdout-s7
+    status: valid_negative
+invalid_runs:
+  - run_id: controlled-swap-base-perturbation-s7
+    reason: base_identity_template_overlap
+    allowed_in_formal_tables: false
+artifacts:
+  - path: results/raw/hnsw_candidate_logging_s7/insertion_candidates.csv
+    sha256: 126404a8dfcc8b08056b7edd774d86b456a4bcce08678f991cb66b2eaac95d96
+  - path: results/raw/hnsw_candidate_logging_s7/insertion_adjacency_changes.csv
+    sha256: a0a9b1230fd831277259c9ad9854d737b67da82b5658e64800bc2b1464dcc9ec
+  - path: results/raw/hnsw_candidate_logging_s7/edges.csv
+    sha256: 290ba1b3787e9b03e9e708a1a3f9de4ce89c284a172446d5341afe218bd84dbb
+  - path: results/raw/candidate_scoring_s7/candidate_scores.csv
+    sha256: 8dfe7b9610f608e4651362c6b2d00c191788e0db859f1356e453295a271e2542
+  - path: results/raw/candidate_scoring_s7/analysis_summary.json
+    sha256: e2570e5c206da481541d1607c74e178bfd00ed5f15be3568570782593f6cf9ea
+  - path: results/raw/query_attribution_s7/attribution_summary.json
+    sha256: 979f4352c616ea767d131007611e6ee53138849b10cd9ff8f6717bb7fc5c5795
+  - path: results/raw/query_attribution_s7/failure_query_support.csv
+    sha256: 47bdd172fe6d12aaf8776e5441e5fc9c303593b3734b41a199100cc70faad56c
+  - path: results/raw/controlled_swap_fixture_s7/points.csv
+    sha256: d7d785d836852891ca9f057140e51d5b827a1a3c7736918e5cbdced0270be764
+  - path: results/raw/controlled_swap_fixture_s7/heldout_query_points.csv
+    sha256: 74cb1dcf16746dfd92ac0acb81cc2db6a7c1cd725ab86b5bf51e73facff55b99
+  - path: results/raw/controlled_swap_fixture_s7/heldout_query_summary.csv
+    sha256: ec2fe89c8c9c330dcad3835098bf2e67c984ceb71c87e8e20b75f7caf85bf7cc
+  - path: results/raw/controlled_swap_fixture_s7/heldout_metadata.txt
+    sha256: 6192698a9830100633c0ef436350ca15ec49d23479201a47a18155c728699dfe
+  - path: results/raw/controlled_swap_eval_s7/swaps.csv
+    sha256: d6fcc0b6180a5a8325e7d7fc312bef0c2226f69132dae1753e48ff21ef626436
+  - path: results/raw/controlled_swap_eval_s7/heldout_query_results.csv
+    sha256: 832ea6485650185fcc48477071047333591818997558819ad2f570922151a533
+  - path: results/raw/controlled_swap_eval_s7/heldout_summary.csv
+    sha256: 15cf79026486b28050a13d0718a05c8cec5c4401fb993074d2eb0eab2dbc553d
+  - path: results/raw/controlled_swap_eval_s7/paired_comparisons.csv
+    sha256: 052e7f21bc162b1809f4cc374a9857adcd66ea9a3579381423aa8a6c5cdb36af
+  - path: results/raw/controlled_swap_eval_s7/metadata.json
+    sha256: ed78a0db8d7a2f938d2e5b0a83805026548162587db5d15f475875d212d435ad
+reproduction:
+  output_directory: results/raw/phase1_reproduction_ba90eda
+  byte_identical_outputs:
+    - swaps.csv
+    - heldout_query_results.csv
+    - heldout_summary.csv
+    - paired_comparisons.csv
+    - metadata.json

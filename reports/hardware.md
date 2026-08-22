@@ -1,13 +1,13 @@
 # Detected hardware
 
-Detection time (UTC): `2026-08-22T03:35:52.394083+00:00`
+Detection time (UTC): `2026-08-22T10:40:31.277998+00:00`
 Hardware ID: `LAPTOP-Q79U6UF3-AMD64`
 Experiment tier: **Tier 0**
 
 ```json
 {
   "hardware_id": "LAPTOP-Q79U6UF3-AMD64",
-  "detected_at_utc": "2026-08-22T03:35:52.394083+00:00",
+  "detected_at_utc": "2026-08-22T10:40:31.277998+00:00",
   "os": {
     "system": "Windows",
     "release": "10",
@@ -23,12 +23,12 @@ Experiment tier: **Tier 0**
   },
   "memory": {
     "total_gib": 15.627,
-    "available_gib": 1.316
+    "available_gib": 1.675
   },
   "disk": {
     "path": "C:",
     "total_gib": 924.172,
-    "free_gib": 258.35
+    "free_gib": 268.912
   },
   "gpu": {
     "nvidia_smi": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 561.00",

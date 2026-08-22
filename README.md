@@ -2,7 +2,7 @@
 
 This repository is a reproducible feasibility study of whether local effective-resistance edge leverage and directional coverage can improve finite-degree proximity graphs. HNSW is the first experimental vehicle; the scientific scope is broader than HNSW.
 
-The current phase tests two preregistered hypotheses: whether missing high-leverage local edges explain hard queries (H1), and whether degree-preserving local rewiring improves cost at matched recall (H2). Positive and negative results are retained.
+Phase I is closed at tag `phase1-local-resistance-null-v1`. It established local mathematical and engineering feasibility but did not establish a resistance-specific Recall or NDC benefit; positive and negative results, including one invalidated leakage incident, are retained. Phase II studies the preregistered query-independent hypothesis **Geometry first + Resistance second**, with stability across construction seeds and insertion orders as the primary possible resistance contribution.
 
 ## Reproduce the local smoke experiment
 
@@ -29,4 +29,3 @@ The first implementation symmetrizes local directed neighborhoods and computes e
 
 - `third_party/hnswlib`: upstream nmslib/hnswlib pinned as a Git submodule; its own license is preserved.
 - Faiss, VIBE, DiskANN, ANN-Benchmarks, and Big-ANN-Benchmarks are recorded in `third_party/LOCKS.md`; they are not vendored for the Tier-0 smoke phase.
-
