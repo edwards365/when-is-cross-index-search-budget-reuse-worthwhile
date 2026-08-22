@@ -56,3 +56,23 @@ runs:
         sha256: 2abb95cc2ba428b3069399f803884a064abd6167d3e37870a768a5361e778d5b
       - path: results/raw/phase2_arxiv_nomic10k_selector_audit_s7/summary.csv
         sha256: a4de7088f644cadbfe6b462c22a6cd10e48c01c124827fa8da9256e1ce6c1777
+  - run_id: phase2-gate0-precision-s7-v2
+    purpose: mixed-tolerance, Decimal-60, determinism, and proposed-treatment audit
+    git_commit: 34586b3028af831c40d4b81819362882e75439c3
+    config: configs/phase2/gate0_precision.yaml
+    raw_directory: results/raw/phase2_gate0_precision_s7_v2
+    artifacts:
+      - path: results/raw/phase2_gate0_precision_s7_v2/config.yaml
+        sha256: 99e29743188c0d5463d6bc396bc7a659f02943cb10ae3003fec958a686875234
+      - path: results/raw/phase2_gate0_precision_s7_v2/metadata.json
+        sha256: 9d0808ddd71e81214aa8909feebf0148c5d07c352414b03212ecba5f45fed91d
+      - path: results/raw/phase2_gate0_precision_s7_v2/per_center.csv
+        sha256: eec7b294a364d0dabf2e13de1fedcad8bdbdb2f1223fcc4f7853fc86670552dc
+      - path: results/raw/phase2_gate0_precision_s7_v2/per_swap.csv
+        sha256: e33d3c23dd91943b2a2bf5f715c8d66116ad5ffd511ea279aa2cf5554af775c1
+      - path: results/raw/phase2_gate0_precision_s7_v2/summary.csv
+        sha256: 120461aae16d3e6066d215a39a8363e6c06718a603a4d9384830763c044e27d2
+      - path: results/processed/phase2_gate0_precision_s7_v2/status.json
+        sha256: c0517faf8996b389ca7d637385f2b3af3bf40308a17f1a41a9e863b67f6124a1
+      - path: results/processed/phase2_gate0_precision_s7_v2/treatment_strength.csv
+        sha256: ae2febd50d19fe7c7e8ae5ae983bc1fe034206e5e3d647a97b3fd40540996208

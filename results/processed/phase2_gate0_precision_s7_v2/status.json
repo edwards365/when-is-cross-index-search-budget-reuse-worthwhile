@@ -1,0 +1,5 @@
+{
+  "scope": "128-source proposed partial graphs; not final HNSW",
+  "final_retention_available": false,
+  "blocker": "GGR is not integrated before reciprocal insertion/reverse pruning"
+}

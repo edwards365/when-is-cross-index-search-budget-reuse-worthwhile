@@ -47,3 +47,11 @@ centers admitted 110 swaps with max Geometry loss 0 and mean frozen-leverage gai
 mean leverage gain 0.290561 and 0.364347. Thus all three preregistered public data
 families show a nonempty lexicographic (`epsilon=0`) resistance action space. This is
 the strongest conclusion permitted by these construction-only audits.
+
+Gate 0 numerical audit completed at code commit `34586b3`: swap sets were unchanged
+for mixed Geometry tolerance from zero through `1e-9`, all repeated selections were
+deterministic, and Decimal-60 sampled changed centers all finished strictly above the
+greedy Geometry baseline. The numerical sub-gate passes. Gate 0 remains blocked because
+the external selector is not integrated before HNSW reciprocal insertion and reverse
+pruning, so actual retained swaps and final-graph treatment strength are unavailable.
+Gate A and all formal test access remain unauthorized.
