@@ -40,3 +40,10 @@ frozen-leverage gain 0.151332. At epsilon 0.005 and 0.01, mean Geometry loss was
 0.004250 and 0.008712 and mean leverage gain was 0.657232 and 0.836533. The two public
 datasets therefore agree that strict secondary optimization is mechanically nonempty;
 they still provide no query-performance or stability evidence.
+
+Arxiv-Nomic completes the three-dataset construction audit. At epsilon 0, 50/128
+centers admitted 110 swaps with max Geometry loss 0 and mean frozen-leverage gain
+0.073967. Epsilon 0.005 and 0.01 yielded mean Geometry loss 0.004403 and 0.009100 and
+mean leverage gain 0.290561 and 0.364347. Thus all three preregistered public data
+families show a nonempty lexicographic (`epsilon=0`) resistance action space. This is
+the strongest conclusion permitted by these construction-only audits.

@@ -9,6 +9,10 @@ datasets:
     sha256: 544af1d5e84e112cd4749571dcfd8ca109818a572f850af75a3a09e093a953c4
     accessed_members: [train]
     formal_test_members_accessed: false
+  - manifest: data/manifests/vibe_arxiv_nomic.yaml
+    sha256: 8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414
+    accessed_members: [train]
+    formal_test_members_accessed: false
 runs:
   - run_id: phase2-sift10k-selector-audit-s7
     purpose: construction-only structural selector audit; not search performance
@@ -38,3 +42,17 @@ runs:
         sha256: a7f675c3912f979e98de1a2918ce451e41866c4d8203bbc66518c6b61c985cf2
       - path: results/raw/phase2_glove10k_selector_audit_s7/summary.csv
         sha256: 502fa0385b4de86ca47c3895bdb0c71047f1028db136c464886f483a54e3b327
+  - run_id: phase2-arxiv-nomic10k-selector-audit-s7
+    purpose: construction-only structural selector audit; not search performance
+    git_commit: 7bbe90544eb28932cdadd9ad59a1753f123c1bc6
+    config: configs/phase2/arxiv_nomic10k_selector_audit.yaml
+    raw_directory: results/raw/phase2_arxiv_nomic10k_selector_audit_s7
+    artifacts:
+      - path: results/raw/phase2_arxiv_nomic10k_selector_audit_s7/config.yaml
+        sha256: 6fff0898a680a0e83f246416b0c3d180d90534436fb7548bc1a2dff71bac939b
+      - path: results/raw/phase2_arxiv_nomic10k_selector_audit_s7/metadata.json
+        sha256: 3fe4bc5d691d22083df5c71d45874aa8d7bfe49eb979171aa6d4ed178c66102b
+      - path: results/raw/phase2_arxiv_nomic10k_selector_audit_s7/per_center.csv
+        sha256: 2abb95cc2ba428b3069399f803884a064abd6167d3e37870a768a5361e778d5b
+      - path: results/raw/phase2_arxiv_nomic10k_selector_audit_s7/summary.csv
+        sha256: a4de7088f644cadbfe6b462c22a6cd10e48c01c124827fa8da9256e1ce6c1777
