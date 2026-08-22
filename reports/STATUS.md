@@ -18,4 +18,4 @@ Next milestone: insertion-candidate logging and a frozen small-fraction controll
 
 Current tier: Tier 0 (16 GiB RAM is the limiting resource). Do not schedule complete 1M sweeps.
 
-Open constraints: native Windows lacks global CMake/PATH configuration, but the isolated environment supplies CMake and Visual Studio supplies MSVC. No Slurm or WSL distribution is installed. The private GitHub repository, milestone, and issues exist; ordinary Git push is pending because repeated connections to `github.com:443` were reset/timed out while `api.github.com` remained available.
+Open constraints: native Windows lacks global CMake/PATH configuration, but the isolated environment supplies CMake and Visual Studio supplies MSVC. No Slurm or WSL distribution is installed. The private GitHub repository, milestone, eight issues, and `main`/`develop`/`exp/resistance-validation` branches now exist remotely. Initial push required retries because connections to `github.com:443` were temporarily reset/timed out; no force push was used.
