@@ -109,3 +109,18 @@ runs:
         sha256: 1621e45a5ec52b8235109a2d14454ac3b773e96cab50a6e3576cb2c8ca8f7bc8
       - path: results/raw/phase2_gate0_retention_s7_v8/arxiv-nomic-768-normalized_retention_after_edges.csv
         sha256: 86f78ecc5cbc054e48cbcbaa97617824ae86e25d07e33d24382817de866e5202
+  - run_id: phase2_controls_10k_s7_v1
+    purpose: Geometry-safe Random and Shuffled-Resistance matching audit
+    git_commit: bf9bc8636fad051007be9e9c2c5498d4737412c1
+    config: configs/phase2/controls_10k.yaml
+    config_sha256: ea59653fc91b74f01f0b8c93758d0e97044c483dec647be9455071ebd4bf153e
+    raw_directory: results/raw/phase2_controls_10k_s7_v1
+    artifacts:
+      - path: results/raw/phase2_controls_10k_s7_v1/config.yaml
+        sha256: d64d9d1b610e992fb6735f673686815d47a40284987945f6e9f76234f2619b4c
+      - path: results/raw/phase2_controls_10k_s7_v1/metadata.json
+        sha256: b312dd02436b3772011d76464469678b358c944964b1fa869566e28dab063e61
+      - path: results/raw/phase2_controls_10k_s7_v1/per_center.csv
+        sha256: c05bbbb0039a6d2b6e8e289e00a4f8187962e3384375da8959ce0ce6ffaf3e02
+      - path: results/raw/phase2_controls_10k_s7_v1/summary.csv
+        sha256: 567ecf0c0bd559394a1f8dfdd94e785abbc14524ca52e09636ef92128d475ed7

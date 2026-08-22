@@ -54,6 +54,11 @@ final-graph audit at commit `150a0fe` then applied Geometry and GGR selections t
 hnswlib reciprocal insertion and reverse pruning. Across SIFT/GloVe/Arxiv, 73/57/50
 of 128 centers changed; 158/105/108 terminal GGR edges were proposed, every source
 edge survived, and 157/99/106 reciprocal edges survived (99.37%/94.29%/98.15%). Gate
-0 therefore passes and epsilon zero is frozen as the main Phase-II setting. Gate A is
-not yet running: Geometry-safe Random and Shuffled-Resistance must first be implemented
-on the identical feasible-swap path. All formal test access remains unauthorized.
+0 therefore passes and epsilon zero is frozen as the main Phase-II setting.
+
+The required resistance-specificity controls are now implemented and audited at 10K.
+Geometry-safe Random exactly matched GGR's swap-step budget on every center while
+sharing its sources, candidate size, epsilon-zero Geometry guard, and layer. Shuffled-
+Resistance permuted score identities within each pool and reused the unchanged GGR
+flow. All three datasets remained Geometry-safe. Gate A engineering may now begin;
+no 100K query result exists yet and all formal test access remains unauthorized.
