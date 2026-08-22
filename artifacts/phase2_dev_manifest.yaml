@@ -124,3 +124,38 @@ runs:
         sha256: c05bbbb0039a6d2b6e8e289e00a4f8187962e3384375da8959ce0ce6ffaf3e02
       - path: results/raw/phase2_controls_10k_s7_v1/summary.csv
         sha256: 567ecf0c0bd559394a1f8dfdd94e785abbc14524ca52e09636ef92128d475ed7
+  - run_id: phase2_gatea_development_data_v2
+    purpose: sealed 100K development queries and exact top-10 truth
+    git_commit: 0d630046bf29a8ba274bedfdbc83a781cf5c965b
+    config: configs/phase2/gatea_development_data.yaml
+    config_sha256: 0dc07bc83b87b7d8875370f95ae6e4baa3a8f8301463f5b29b8be941e5183d96
+    raw_directory: results/raw/phase2_gatea_development_data_v2
+    artifacts:
+      - path: results/raw/phase2_gatea_development_data_v2/config.yaml
+        sha256: b9262a78c7517f3131a664f1f28ed9bbccbb62bcad94d1dd0c7fde824b8075c9
+      - path: results/raw/phase2_gatea_development_data_v2/metadata.json
+        sha256: 608375b15411a7ca5e58f4e08d22f202c53378ae7bbfc4e9adc338a5c9101ac1
+      - path: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_queries.npy
+        sha256: c0c7eec8198de8ce93628d75953c67a7eb3397703ad257f9e413545bd3a95a11
+      - path: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_query_source_ids.npy
+        sha256: 3cdf52671bd37f05feac5b74cd0c46b37bc51ba57f331dbf0df80f77a1f62e7a
+      - path: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_ground_truth.npy
+        sha256: a6a7c0038085611d13b9e61ed72e16686524c91b3de0c4795a0a95d10b931ec9
+      - path: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_ground_truth_distances.npy
+        sha256: f7727c4c8cd1457e20ea70ddd7435f7dfbd8e58a7e2b6bf18c29a43b398d12fc
+      - path: results/raw/phase2_gatea_development_data_v2/glove-100-angular_queries.npy
+        sha256: b2cbaaf96d332c1d0f4607f976b68d4566272341e33887c502575a742858dfee
+      - path: results/raw/phase2_gatea_development_data_v2/glove-100-angular_query_source_ids.npy
+        sha256: a705d4d09c7a37bdad36d2ff2d005776e4667ccbb6d12a9dc30176e5473ed576
+      - path: results/raw/phase2_gatea_development_data_v2/glove-100-angular_ground_truth.npy
+        sha256: fae42abfcfc7a43fa5006330231ea5f2216825ec4cf748a7f535d2a564386d6e
+      - path: results/raw/phase2_gatea_development_data_v2/glove-100-angular_ground_truth_distances.npy
+        sha256: 4b7a82053726574d4d9b8e7d6d1da26e5f278119a7f4d0883af0f5f5ae4f578e
+      - path: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_queries.npy
+        sha256: 0b6def325e66979fe473e3d9b46c506179dc6169b9bfd6e1880b8eb81c8cef82
+      - path: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_query_source_ids.npy
+        sha256: d3ff8b2cfec5bae64d040ad8fcb456928b3743986206f35a06f17a87fe0bd139
+      - path: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_ground_truth.npy
+        sha256: c6fb281b7021052387ee0cd89d331959406dc7faaa2a7a33aa14fbc201b6be9a
+      - path: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_ground_truth_distances.npy
+        sha256: 9526c1c890c628a2ee74e1d0542b85c6136efd7faaaec548b2313dc850141507

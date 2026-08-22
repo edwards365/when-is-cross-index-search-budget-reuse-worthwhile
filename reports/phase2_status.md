@@ -62,3 +62,9 @@ sharing its sources, candidate size, epsilon-zero Geometry guard, and layer. Shu
 Resistance permuted score identities within each pool and reused the unchanged GGR
 flow. All three datasets remained Geometry-safe. Gate A engineering may now begin;
 no 100K query result exists yet and all formal test access remains unauthorized.
+
+Gate A input data are now frozen at run `phase2_gatea_development_data_v2`: each
+dataset uses the first 100K train vectors, 1,000 distinct queries sampled from the
+next 100K train rows, and newly computed exhaustive float64 top-10 truth. SIFT uses
+squared L2; normalized GloVe and Arxiv use one-minus-inner-product. Method benchmarking
+has not started, so no Gate A PASS/FAIL decision is available.
