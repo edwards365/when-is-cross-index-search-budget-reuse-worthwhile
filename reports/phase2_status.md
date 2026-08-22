@@ -33,3 +33,10 @@ used no development query and cannot select the main epsilon. The formal test re
 sealed. The next required experiment is development-query search on independently
 derived queries, followed by the hashed epsilon amendment; no performance conclusion
 is currently available.
+
+The same sealed audit was repeated on 10,000 L2-normalized GloVe-100 training vectors.
+At epsilon 0, 57/128 centers admitted 106 swaps with max Geometry loss 0 and mean
+frozen-leverage gain 0.151332. At epsilon 0.005 and 0.01, mean Geometry loss was
+0.004250 and 0.008712 and mean leverage gain was 0.657232 and 0.836533. The two public
+datasets therefore agree that strict secondary optimization is mechanically nonempty;
+they still provide no query-performance or stability evidence.
