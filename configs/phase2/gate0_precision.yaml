@@ -1,4 +1,4 @@
-run_id: phase2-gate0-precision-s7
+run_id: phase2-gate0-precision-s7-v2
 datasets:
   - data/manifests/sift1m.yaml
   - data/manifests/glove100.yaml

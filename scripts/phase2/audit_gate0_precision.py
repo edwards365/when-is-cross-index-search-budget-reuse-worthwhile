@@ -210,6 +210,12 @@ def main() -> None:
                         "classification": classification,
                         "deterministic": deterministic,
                         "termination": result.termination,
+                        "geometry_selected_targets": json.dumps(
+                            [int(candidates[item]) for item in result.geometry_selected]
+                        ),
+                        "final_selected_targets": json.dumps(
+                            [int(candidates[item]) for item in result.selected]
+                        ),
                     }
                 )
                 selected = list(result.geometry_selected)
@@ -241,6 +247,9 @@ def main() -> None:
                             "swap_index": swap_index,
                             "outgoing": swap.outgoing,
                             "incoming": swap.incoming,
+                            "outgoing_target": int(candidates[swap.outgoing]),
+                            "incoming_target": int(candidates[swap.incoming]),
+                            "layer": 0,
                             "geometry_delta": swap.geometry_after - swap.geometry_before,
                             "high_precision_geometry_delta": hp_delta,
                             "leverage_delta": swap.leverage_after - swap.leverage_before,
