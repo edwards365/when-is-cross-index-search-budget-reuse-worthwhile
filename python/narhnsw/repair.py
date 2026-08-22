@@ -6,6 +6,7 @@ from typing import Literal
 
 import numpy as np
 
+from .ggr import geometry_guarded_resistance_selection
 from .graph import validate_adjacency
 from .resistance import (
     edge_leverage_scores,
@@ -21,6 +22,7 @@ Variant = Literal[
     "geometry",
     "resistance",
     "resistance_direction",
+    "ggr",
 ]
 
 
@@ -66,7 +68,8 @@ def rewire_directed_graph(
     *,
     seed: int = 0,
     max_candidates: int = 32,
-) -> tuple[np.ndarray, dict[str, int | str]]:
+    epsilon: float = 0.0,
+) -> tuple[np.ndarray, dict[str, int | float | str]]:
     """Re-select every node's outgoing list without changing per-node edge budgets.
 
     This reference operates on an exported bottom-layer graph and does not mutate an
@@ -85,6 +88,7 @@ def rewire_directed_graph(
         "geometry",
         "resistance",
         "resistance_direction",
+        "ggr",
     }
     if variant not in supported:
         raise ValueError(f"unsupported variant: {variant}")
@@ -94,6 +98,9 @@ def rewire_directed_graph(
     rng = np.random.default_rng(seed)
     repaired = np.zeros_like(graph)
     replaced = 0
+    accepted_swaps = 0
+    geometry_loss = 0.0
+    leverage_gain = 0.0
     for center in range(len(graph)):
         original = np.flatnonzero(graph[center])
         budget = len(original)
@@ -119,11 +126,19 @@ def rewire_directed_graph(
         else:
             leverage = (
                 _local_candidate_leverage(points, graph, center, pool)
-                if variant in {"resistance", "resistance_direction"}
+                if variant in {"resistance", "resistance_direction", "ggr"}
                 else np.zeros(len(pool))
             )
             if variant == "resistance":
                 chosen = pool[np.argsort(-leverage, kind="stable")[:budget]]
+            elif variant == "ggr":
+                result = geometry_guarded_resistance_selection(
+                    points[center], points[pool], leverage, budget, epsilon=epsilon
+                )
+                chosen = pool[np.asarray(result.selected, dtype=np.int64)]
+                accepted_swaps += len(result.swaps)
+                geometry_loss += result.geometry_star - result.geometry_final
+                leverage_gain += result.leverage_final - result.leverage_initial
             else:
                 alpha = 1.0 if variant == "resistance_direction" else 0.0
                 beta = 1.0
@@ -146,4 +161,11 @@ def rewire_directed_graph(
     if repaired.sum() != graph.sum():
         raise AssertionError("rewiring changed the total directed edge budget")
     validate_adjacency(repaired, max_degree=int(graph.sum(axis=1).max(initial=0)))
-    return repaired, {"variant": variant, "replaced_directed_edges": replaced}
+    return repaired, {
+        "variant": variant,
+        "replaced_directed_edges": replaced,
+        "accepted_swaps": accepted_swaps,
+        "geometry_objective_loss": geometry_loss,
+        "frozen_leverage_gain": leverage_gain,
+        "epsilon": epsilon,
+    }

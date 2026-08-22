@@ -1,0 +1,21 @@
+name: arxiv-nomic-768-normalized
+official_source: https://github.com/vector-index-bench/vibe
+dataset_card: https://huggingface.co/datasets/vector-index-bench/vibe
+download_url: https://huggingface.co/datasets/vector-index-bench/vibe/resolve/main/arxiv-nomic-768-normalized.hdf5
+local_path: data/raw/arxiv-nomic-768-normalized.hdf5
+sha256: 8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414
+license: CC-BY-4.0 dataset card; VIBE benchmark code MIT
+vectors: 1344643
+dimensions: 768
+data_type: float32
+distance: angular_on_unit_normalized_vectors
+queries: 1000
+ground_truth_source: VIBE HDF5 top-100 exact neighbors
+normalized: true
+download_date: null
+preprocessing: deterministic first-10K/100K construction prefixes; development queries generated without reading HDF5 test or neighbors
+split_roles:
+  train: construction
+  test: formal_test
+  neighbors: formal_test
+  distances: formal_test

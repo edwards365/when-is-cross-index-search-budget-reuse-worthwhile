@@ -1,0 +1,42 @@
+allowed_statuses:
+  - imported_verified
+  - rederived_verified
+  - project_proved
+  - proposed
+  - partial
+  - empirically_supported
+  - disproved
+claims:
+  euclidean_one_step_progress_condition:
+    status: rederived_verified
+    evidence: theory/progress_cone.md
+    implies_recall: false
+  discrete_weighted_cap_coverage_monotone_submodular:
+    status: project_proved
+    evidence: theory/progress_cone.md
+    scope: fixed_query_independent_finite_direction_sample
+  fixed_set_cap_monte_carlo_hoeffding_bound:
+    status: rederived_verified
+    evidence: theory/progress_cone.md
+  cap_coverage_equivalent_to_logdet:
+    status: disproved
+    evidence: theory/progress_cone.md
+  ggr_preserves_cardinality_and_geometry_floor:
+    status: project_proved
+    evidence: theory/geometry_guarded_resistance.md
+    numerical_scope: within_registered_tolerance
+  ggr_terminates:
+    status: project_proved
+    evidence: theory/geometry_guarded_resistance.md
+  ggr_guarantees_final_recall:
+    status: disproved
+    evidence: theory/phase2_counterexamples.md
+  greedy_choice_stable_under_margin_bound:
+    status: project_proved
+    evidence: theory/stability_margin.md
+  frozen_leverage_perturbation_ranking_bound:
+    status: partial
+    evidence: theory/stability_margin.md
+  ggr_improves_cross_build_stability:
+    status: proposed
+    evidence: preregistration/phase2_v1.md

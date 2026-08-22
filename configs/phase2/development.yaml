@@ -1,0 +1,17 @@
+phase: phase2_development
+formal: false
+hardware_tier: 0
+dataset_sizes: [10000, 100000]
+datasets: [sift1m, glove100, vibe_arxiv_nomic]
+methods: [original, geometry, resistance, ggr, random]
+M: 16
+ef_construction: 100
+seeds: [7, 17, 29, 43, 61]
+orders: [seeded_random, approximate_lid_ascending]
+lid_k: 20
+ef_search: [10, 20, 40, 80, 120, 200, 400]
+epsilon_candidates: [0.0, 0.005, 0.01]
+objective_tolerance: 1.0e-12
+threads: 1
+query_source: generated_development_from_construction_distribution
+formal_hdf5_members_forbidden: [test, neighbors, distances]

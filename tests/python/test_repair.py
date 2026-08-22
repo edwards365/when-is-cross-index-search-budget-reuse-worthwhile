@@ -21,7 +21,15 @@ def test_two_hop_pool_excludes_center() -> None:
 
 @pytest.mark.parametrize(
     "variant",
-    ["original", "random", "distance", "geometry", "resistance", "resistance_direction"],
+    [
+        "original",
+        "random",
+        "distance",
+        "geometry",
+        "resistance",
+        "resistance_direction",
+        "ggr",
+    ],
 )
 def test_variants_preserve_every_degree_and_total_budget(variant: str) -> None:
     points, adjacency = fixture_graph()

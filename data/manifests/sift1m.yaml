@@ -1,0 +1,22 @@
+name: sift-128-euclidean
+official_source: https://github.com/erikbern/ann-benchmarks
+download_url: https://ann-benchmarks.com/sift-128-euclidean.hdf5
+checksum_source: https://huggingface.co/datasets/hhy3/ann-datasets/blob/main/sift-128-euclidean.hdf5
+local_path: data/raw/sift-128-euclidean.hdf5
+size_bytes: 525128288
+sha256: dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984
+license: upstream SIFT/ANN-Benchmarks dataset page does not state a dataset license; provenance review required before redistribution
+vectors: 1000000
+dimensions: 128
+data_type: float32
+distance: euclidean
+queries: 10000
+ground_truth_source: ANN-Benchmarks HDF5 top-100 neighbors and distances
+normalized: false
+download_date: null
+preprocessing: deterministic first-10K/100K construction prefixes; development queries generated without reading HDF5 test or neighbors
+split_roles:
+  train: construction
+  test: formal_test
+  neighbors: formal_test
+  distances: formal_test

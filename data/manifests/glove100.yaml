@@ -1,0 +1,23 @@
+name: glove-100-angular
+official_source: https://github.com/erikbern/ann-benchmarks
+upstream_vector_source: https://nlp.stanford.edu/projects/glove/
+download_url: https://ann-benchmarks.com/glove-100-angular.hdf5
+checksum_source: https://huggingface.co/datasets/hhy3/ann-datasets/blob/main/glove-100-angular.hdf5
+local_path: data/raw/glove-100-angular.hdf5
+size_bytes: 485413888
+sha256: 544af1d5e84e112cd4749571dcfd8ca109818a572f850af75a3a09e093a953c4
+license: GloVe vectors PDDL-1.0; ANN-Benchmarks code MIT; packaging terms separately retained
+vectors: 1183514
+dimensions: 100
+data_type: float32
+distance: angular
+queries: 10000
+ground_truth_source: ANN-Benchmarks HDF5 top-100 neighbors and distances
+normalized: true_at_phase2_ingest
+download_date: null
+preprocessing: L2-normalize construction vectors; deterministic first-10K/100K prefixes; development queries generated without reading HDF5 test or neighbors
+split_roles:
+  train: construction
+  test: formal_test
+  neighbors: formal_test
+  distances: formal_test

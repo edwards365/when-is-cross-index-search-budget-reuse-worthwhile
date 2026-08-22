@@ -40,7 +40,10 @@ def main() -> None:
     for attempt in range(1, args.retries + 1):
         try:
             offset = partial.stat().st_size if partial.exists() else 0
-            request = urllib.request.Request(manifest["download_url"])
+            request = urllib.request.Request(
+                manifest["download_url"],
+                headers={"User-Agent": "narhnsw-research-downloader/1.0"},
+            )
             if offset:
                 request.add_header("Range", f"bytes={offset}-")
             with (

@@ -17,6 +17,7 @@ dependencies = [
   "PyYAML>=6,<7",
   "psutil>=5.9,<8",
   "hnswlib==0.8.0",
+  "h5py>=3.11,<4",
 ]
 
 [project.optional-dependencies]

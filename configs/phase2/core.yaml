@@ -1,0 +1,19 @@
+phase: phase2_core
+formal: true
+firewall: sealed
+enabled: false
+blocked_reason: development_epsilon_amendment_not_yet_frozen
+datasets: [sift1m, glove100, vibe_arxiv_nomic]
+methods: [original, geometry, resistance, ggr, random]
+M: 16
+ef_construction: 100
+seeds: [7, 17, 29, 43, 61]
+orders: [seeded_random, approximate_lid_ascending]
+lid_k: 20
+ef_search: [10, 20, 40, 80, 120, 200, 400]
+primary_recall: 0.95
+secondary_recall: 0.99
+epsilon: null
+objective_tolerance: 1.0e-12
+threads: 1
+statistics: hierarchical_paired_bootstrap
