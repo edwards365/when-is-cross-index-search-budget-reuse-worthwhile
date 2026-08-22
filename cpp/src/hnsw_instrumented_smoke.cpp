@@ -1,4 +1,5 @@
 #include "hnswlib/hnswlib.h"
+#include "narhnsw/hnsw_candidate_logger.hpp"
 
 #include <algorithm>
 #include <atomic>
@@ -105,7 +106,8 @@ GraphSummary inspect_level_zero(const hnswlib::HierarchicalNSW<float>& index, st
 }
 
 void export_fixture(const std::filesystem::path& output, const std::vector<Point>& points,
-                    const hnswlib::HierarchicalNSW<float>& index) {
+                    const hnswlib::HierarchicalNSW<float>& index,
+                    const narhnsw::HnswCandidateLogger<float>& candidate_logger) {
     std::filesystem::create_directories(output);
     std::ofstream point_file(output / "points.csv");
     for (const auto& point : points) {
@@ -128,6 +130,11 @@ void export_fixture(const std::filesystem::path& output, const std::vector<Point
     metadata_file << "entrypoint=" << index.enterpoint_node_ << '\n';
     metadata_file << "max_degree=" << index.maxM0_ << '\n';
     metadata_file << "seed=7\n";
+    metadata_file << "candidate_rows=" << candidate_logger.decisions().size() << '\n';
+    metadata_file << "adjacency_change_rows=" << candidate_logger.adjacency_changes().size()
+                  << '\n';
+    metadata_file << "candidate_logging_replays_distances=true\n";
+    candidate_logger.export_csv(output, index);
 }
 
 }  // namespace
@@ -149,10 +156,13 @@ int main(int argc, char** argv) {
 
     CountingL2Space space(dimensions);
     hnswlib::HierarchicalNSW<float> index(&space, n, m, 100, 7);
-    for (std::size_t node = 0; node < n; ++node) index.addPoint(base[node].data(), node);
+    narhnsw::HnswCandidateLogger<float> candidate_logger;
+    for (std::size_t node = 0; node < n; ++node)
+        candidate_logger.add_point(index, base[node].data(), node);
     index.setEf(40);
     const GraphSummary graph = inspect_level_zero(index, n);
-    if (argc == 2) export_fixture(std::filesystem::path(argv[1]), base, index);
+    if (argc == 2)
+        export_fixture(std::filesystem::path(argv[1]), base, index, candidate_logger);
 
     double recall_sum = 0.0;
     std::vector<long> exact_distance_computations;
@@ -195,9 +205,13 @@ int main(int argc, char** argv) {
               << " mean_upstream_ndc_metric=" << mean_upstream_ndc << " mean_hops=" << mean_hops
               << " directed_edges=" << graph.directed_edges
               << " reciprocal_directed_edges=" << graph.reciprocal_directed_edges
-              << " max_degree=" << graph.max_degree << '\n';
+              << " max_degree=" << graph.max_degree
+              << " insertion_candidate_rows=" << candidate_logger.decisions().size()
+              << " insertion_adjacency_changes=" << candidate_logger.adjacency_changes().size()
+              << '\n';
     if (mean_recall < 0.95 || mean_exact_ndc <= mean_upstream_ndc || mean_hops <= 0.0 ||
-        graph.directed_edges == 0)
+        graph.directed_edges == 0 || candidate_logger.decisions().empty() ||
+        candidate_logger.adjacency_changes().empty())
         return 1;
     return 0;
 }
