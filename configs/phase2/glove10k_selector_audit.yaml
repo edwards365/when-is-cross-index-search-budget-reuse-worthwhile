@@ -1,0 +1,15 @@
+run_id: phase2-glove10k-selector-audit-s7
+manifest: data/manifests/glove100.yaml
+construction_vectors: 10000
+audited_centers: 128
+candidate_count: 32
+M: 16
+ef_construction: 100
+candidate_ef_search: 100
+seed: 7
+epsilon_candidates: [0.0, 0.005, 0.01]
+objective_tolerance: 1.0e-12
+threads: 1
+allowed_hdf5_members: [train]
+forbidden_hdf5_members: [test, neighbors, distances]
+purpose: construction-only structural selector audit; not a search-performance result

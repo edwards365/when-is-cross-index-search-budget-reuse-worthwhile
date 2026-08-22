@@ -77,9 +77,15 @@ def main() -> None:
         if train.shape[1] != manifest["dimensions"]:
             raise ValueError("construction-vector dimension mismatch")
         points = np.asarray(train[: config["construction_vectors"]], dtype=np.float32)
+    angular = str(manifest["distance"]).startswith("angular")
+    if angular:
+        norms = np.linalg.norm(points, axis=1, keepdims=True)
+        if np.any(norms == 0):
+            raise ValueError("angular dataset contains a zero construction vector")
+        points /= norms
     load_seconds = time.perf_counter() - started
 
-    index = hnswlib.Index(space="l2", dim=points.shape[1])
+    index = hnswlib.Index(space="cosine" if angular else "l2", dim=points.shape[1])
     index.init_index(
         max_elements=len(points),
         M=config["M"],
@@ -161,6 +167,8 @@ def main() -> None:
         "status": "development_structural_audit_not_search_performance",
         "formal_test_members_accessed": False,
         "dataset_sha256": manifest["sha256"],
+        "distance": manifest["distance"],
+        "l2_normalized_at_ingest": angular,
         "git_commit": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=REPO, text=True
         ).strip(),

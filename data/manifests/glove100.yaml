@@ -14,7 +14,8 @@ distance: angular
 queries: 10000
 ground_truth_source: ANN-Benchmarks HDF5 top-100 neighbors and distances
 normalized: true_at_phase2_ingest
-download_date: null
+download_date: '2026-08-22'
+checksum_verified_locally: true
 preprocessing: L2-normalize construction vectors; deterministic first-10K/100K prefixes; development queries generated without reading HDF5 test or neighbors
 split_roles:
   train: construction
