@@ -1,0 +1,31 @@
+{
+  "role": "development",
+  "formal_test_members_accessed": false,
+  "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+  "base_vectors_per_dataset": 100000,
+  "queries_per_dataset": 1000,
+  "k": 10,
+  "datasets": {
+    "sift_100k": {
+      "source_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+      "base_content_sha256": "d0ad618c42429e9e2261e37e7ecaf042af58e47117ad62d5935457e129d0ab21",
+      "query_file_sha256": "c0c7eec8198de8ce93628d75953c67a7eb3397703ad257f9e413545bd3a95a11",
+      "truth_file_sha256": "a6a7c0038085611d13b9e61ed72e16686524c91b3de0c4795a0a95d10b931ec9",
+      "metric": "float64 squared Euclidean ground truth; float32 L2 HNSW"
+    },
+    "glove100_100k": {
+      "source_sha256": "544af1d5e84e112cd4749571dcfd8ca109818a572f850af75a3a09e093a953c4",
+      "base_content_sha256": "c4dd1cf6ca196baceaf5622e07081656d4e199bc0c3b3072d12e4c43ac98c109",
+      "query_file_sha256": "b2cbaaf96d332c1d0f4607f976b68d4566272341e33887c502575a742858dfee",
+      "truth_file_sha256": "fae42abfcfc7a43fa5006330231ea5f2216825ec4cf748a7f535d2a564386d6e",
+      "metric": "L2 normalization; float64 one-minus-inner-product truth; float32 inner-product HNSW"
+    },
+    "arxiv_nomic_100k": {
+      "source_sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+      "base_content_sha256": "9fc6c6e71329832643a6c1e57eecd32e632bf90b1a5a4bed83587dbab70de107",
+      "query_file_sha256": "0b6def325e66979fe473e3d9b46c506179dc6169b9bfd6e1880b8eb81c8cef82",
+      "truth_file_sha256": "c6fb281b7021052387ee0cd89d331959406dc7faaa2a7a33aa14fbc201b6be9a",
+      "metric": "L2 normalization; float64 one-minus-inner-product truth; float32 inner-product HNSW"
+    }
+  }
+}

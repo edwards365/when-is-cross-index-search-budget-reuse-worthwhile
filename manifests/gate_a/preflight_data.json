@@ -1,0 +1,88 @@
+{
+  "datasets": [
+    {
+      "dataset": "sift_100k",
+      "base_shape": [
+        100000,
+        128
+      ],
+      "base_dtype": "float32",
+      "query_shape": [
+        1000,
+        128
+      ],
+      "query_dtype": "float32",
+      "truth_shape": [
+        1000,
+        10
+      ],
+      "truth_dtype": "int64",
+      "query_source_min": 100048,
+      "query_source_max": 199995,
+      "base_id_overlap": false,
+      "base_vector_duplicate": false,
+      "sample_truth_queries_recomputed": 8,
+      "sample_truth_exact_match": true,
+      "accessed_hdf5_members": [
+        "train"
+      ],
+      "formal_members_accessed": false
+    },
+    {
+      "dataset": "glove100_100k",
+      "base_shape": [
+        100000,
+        100
+      ],
+      "base_dtype": "float32",
+      "query_shape": [
+        1000,
+        100
+      ],
+      "query_dtype": "float32",
+      "truth_shape": [
+        1000,
+        10
+      ],
+      "truth_dtype": "int64",
+      "query_source_min": 100008,
+      "query_source_max": 199934,
+      "base_id_overlap": false,
+      "base_vector_duplicate": false,
+      "sample_truth_queries_recomputed": 8,
+      "sample_truth_exact_match": true,
+      "accessed_hdf5_members": [
+        "train"
+      ],
+      "formal_members_accessed": false
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "base_shape": [
+        100000,
+        768
+      ],
+      "base_dtype": "float32",
+      "query_shape": [
+        1000,
+        768
+      ],
+      "query_dtype": "float32",
+      "truth_shape": [
+        1000,
+        10
+      ],
+      "truth_dtype": "int64",
+      "query_source_min": 100098,
+      "query_source_max": 199846,
+      "base_id_overlap": false,
+      "base_vector_duplicate": false,
+      "sample_truth_queries_recomputed": 8,
+      "sample_truth_exact_match": true,
+      "accessed_hdf5_members": [
+        "train"
+      ],
+      "formal_members_accessed": false
+    }
+  ]
+}

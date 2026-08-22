@@ -1,0 +1,734 @@
+{
+  "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+  "runs": [
+    {
+      "run_id": "sift_100k-original-b7",
+      "dataset": "sift_100k",
+      "method": "original",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry-b7",
+      "dataset": "sift_100k",
+      "method": "geometry",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-ggr_0-b7",
+      "dataset": "sift_100k",
+      "method": "ggr_0",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b7-c101",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b7-c211",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b7-c307",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b7-c101",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b7-c211",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b7-c307",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-original-b17",
+      "dataset": "sift_100k",
+      "method": "original",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry-b17",
+      "dataset": "sift_100k",
+      "method": "geometry",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-ggr_0-b17",
+      "dataset": "sift_100k",
+      "method": "ggr_0",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b17-c101",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b17-c211",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b17-c307",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b17-c101",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b17-c211",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b17-c307",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-original-b29",
+      "dataset": "sift_100k",
+      "method": "original",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry-b29",
+      "dataset": "sift_100k",
+      "method": "geometry",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-ggr_0-b29",
+      "dataset": "sift_100k",
+      "method": "ggr_0",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b29-c101",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b29-c211",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-geometry_safe_random-b29-c307",
+      "dataset": "sift_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b29-c101",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b29-c211",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "sift_100k-shuffled_resistance-b29-c307",
+      "dataset": "sift_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-original-b7",
+      "dataset": "glove100_100k",
+      "method": "original",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry-b7",
+      "dataset": "glove100_100k",
+      "method": "geometry",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-ggr_0-b7",
+      "dataset": "glove100_100k",
+      "method": "ggr_0",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b7-c101",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b7-c211",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b7-c307",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b7-c101",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b7-c211",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b7-c307",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-original-b17",
+      "dataset": "glove100_100k",
+      "method": "original",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry-b17",
+      "dataset": "glove100_100k",
+      "method": "geometry",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-ggr_0-b17",
+      "dataset": "glove100_100k",
+      "method": "ggr_0",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b17-c101",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b17-c211",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b17-c307",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b17-c101",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b17-c211",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b17-c307",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-original-b29",
+      "dataset": "glove100_100k",
+      "method": "original",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry-b29",
+      "dataset": "glove100_100k",
+      "method": "geometry",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-ggr_0-b29",
+      "dataset": "glove100_100k",
+      "method": "ggr_0",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b29-c101",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b29-c211",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-geometry_safe_random-b29-c307",
+      "dataset": "glove100_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b29-c101",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b29-c211",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "glove100_100k-shuffled_resistance-b29-c307",
+      "dataset": "glove100_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-original-b7",
+      "dataset": "arxiv_nomic_100k",
+      "method": "original",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry-b7",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-ggr_0-b7",
+      "dataset": "arxiv_nomic_100k",
+      "method": "ggr_0",
+      "build_seed": 7,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b7-c101",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b7-c211",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b7-c307",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 7,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b7-c101",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b7-c211",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b7-c307",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 7,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-original-b17",
+      "dataset": "arxiv_nomic_100k",
+      "method": "original",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry-b17",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-ggr_0-b17",
+      "dataset": "arxiv_nomic_100k",
+      "method": "ggr_0",
+      "build_seed": 17,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b17-c101",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b17-c211",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b17-c307",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 17,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b17-c101",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b17-c211",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b17-c307",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 17,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-original-b29",
+      "dataset": "arxiv_nomic_100k",
+      "method": "original",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry-b29",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-ggr_0-b29",
+      "dataset": "arxiv_nomic_100k",
+      "method": "ggr_0",
+      "build_seed": 29,
+      "control_seed": null,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b29-c101",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b29-c211",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-geometry_safe_random-b29-c307",
+      "dataset": "arxiv_nomic_100k",
+      "method": "geometry_safe_random",
+      "build_seed": 29,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b29-c101",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 101,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b29-c211",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 211,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    },
+    {
+      "run_id": "arxiv_nomic_100k-shuffled_resistance-b29-c307",
+      "dataset": "arxiv_nomic_100k",
+      "method": "shuffled_resistance",
+      "build_seed": 29,
+      "control_seed": 307,
+      "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+      "status": "pending"
+    }
+  ]
+}

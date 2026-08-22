@@ -1,0 +1,102 @@
+phase: gate_a_development
+formal: false
+firewall: sealed
+enabled_hdf5_members: [train]
+forbidden_hdf5_members: [test, neighbors, distances]
+k: 10
+base_vectors: 100000
+development_queries: 1000
+datasets:
+  sift_100k:
+    name: sift-128-euclidean
+    dimensions: 128
+    dtype: float32
+    metric: squared_l2
+    normalized: false
+    source: data/raw/sift-128-euclidean.hdf5
+    source_member: train
+    source_sha256: dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984
+    base_content_sha256: d0ad618c42429e9e2261e37e7ecaf042af58e47117ad62d5935457e129d0ab21
+    queries: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_queries.npy
+    queries_sha256: c0c7eec8198de8ce93628d75953c67a7eb3397703ad257f9e413545bd3a95a11
+    ground_truth: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_ground_truth.npy
+    ground_truth_sha256: a6a7c0038085611d13b9e61ed72e16686524c91b3de0c4795a0a95d10b931ec9
+    ground_truth_distances: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_ground_truth_distances.npy
+    ground_truth_distances_sha256: f7727c4c8cd1457e20ea70ddd7435f7dfbd8e58a7e2b6bf18c29a43b398d12fc
+    query_source_ids: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_query_source_ids.npy
+    query_source_ids_sha256: 3cdf52671bd37f05feac5b74cd0c46b37bc51ba57f331dbf0df80f77a1f62e7a
+  glove100_100k:
+    name: glove-100-angular
+    dimensions: 100
+    dtype: float32
+    metric: one_minus_inner_product
+    normalized: true
+    source: data/raw/glove-100-angular.hdf5
+    source_member: train
+    source_sha256: 544af1d5e84e112cd4749571dcfd8ca109818a572f850af75a3a09e093a953c4
+    base_content_sha256: c4dd1cf6ca196baceaf5622e07081656d4e199bc0c3b3072d12e4c43ac98c109
+    queries: results/raw/phase2_gatea_development_data_v2/glove-100-angular_queries.npy
+    queries_sha256: b2cbaaf96d332c1d0f4607f976b68d4566272341e33887c502575a742858dfee
+    ground_truth: results/raw/phase2_gatea_development_data_v2/glove-100-angular_ground_truth.npy
+    ground_truth_sha256: fae42abfcfc7a43fa5006330231ea5f2216825ec4cf748a7f535d2a564386d6e
+    ground_truth_distances: results/raw/phase2_gatea_development_data_v2/glove-100-angular_ground_truth_distances.npy
+    ground_truth_distances_sha256: 4b7a82053726574d4d9b8e7d6d1da26e5f278119a7f4d0883af0f5f5ae4f578e
+    query_source_ids: results/raw/phase2_gatea_development_data_v2/glove-100-angular_query_source_ids.npy
+    query_source_ids_sha256: a705d4d09c7a37bdad36d2ff2d005776e4667ccbb6d12a9dc30176e5473ed576
+  arxiv_nomic_100k:
+    name: arxiv-nomic-768-normalized
+    dimensions: 768
+    dtype: float32
+    metric: one_minus_inner_product
+    normalized: true
+    source: data/raw/arxiv-nomic-768-normalized.hdf5
+    source_member: train
+    source_sha256: 8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414
+    base_content_sha256: 9fc6c6e71329832643a6c1e57eecd32e632bf90b1a5a4bed83587dbab70de107
+    queries: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_queries.npy
+    queries_sha256: 0b6def325e66979fe473e3d9b46c506179dc6169b9bfd6e1880b8eb81c8cef82
+    ground_truth: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_ground_truth.npy
+    ground_truth_sha256: c6fb281b7021052387ee0cd89d331959406dc7faaa2a7a33aa14fbc201b6be9a
+    ground_truth_distances: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_ground_truth_distances.npy
+    ground_truth_distances_sha256: 9526c1c890c628a2ee74e1d0542b85c6136efd7faaaec548b2313dc850141507
+    query_source_ids: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_query_source_ids.npy
+    query_source_ids_sha256: d3ff8b2cfec5bae64d040ad8fcb456928b3743986206f35a06f17a87fe0bd139
+build:
+  M: 16
+  ef_construction: 100
+  threads: 1
+  build_seeds: [7, 17, 29]
+  insertion_order: seeded_random
+methods: [original, geometry, ggr_0, geometry_safe_random, shuffled_resistance]
+control_seeds: [101, 211, 307]
+geometry:
+  beta: 1.0
+  gamma: 1.0
+  sigma: 0.5
+  rho: median_center_candidate_distance
+ggr:
+  epsilon: 0.0
+  geometry_tolerance: 1.0e-12
+  leverage_tolerance: 1.0e-12
+  reference_graph: frozen_local_scheme_a
+  candidate_count: 32
+search:
+  base_ef: [10, 20, 40, 80, 120, 200]
+  predeclared_midpoints: [15, 30, 60, 100, 160]
+  midpoint_rule: add_dataset_wide_if_any_method_crosses_recall_0.95_or_0.99
+  warmup_queries: 100
+  latency_rounds: 3
+statistics:
+  primary_recall: 0.95
+  primary_quantile: 0.95
+  secondary_recall: 0.99
+  bootstrap_replicates: 5000
+  bootstrap_seed: 20260823
+runtime:
+  raw_root: results/gate_a/raw
+  derived_root: results/gate_a/derived
+  logs_root: logs/gate_a
+  indexes_root: indexes/gate_a
+  overwrite_complete_runs: false
+  minimum_free_ram_gib: 4.0
+  max_parallel_builds: 1
