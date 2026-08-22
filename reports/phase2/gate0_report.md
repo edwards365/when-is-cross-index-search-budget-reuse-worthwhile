@@ -1,77 +1,83 @@
-# Gate 0: epsilon-zero numerical and treatment-strength audit
+# Gate 0: epsilon-zero numerical and final-graph treatment audit
 
-## A. Stage conclusion
+## A. Decision
 
-Status: **BLOCKED** overall; numerical sub-gate **PASS**, final-HNSW integration
-sub-gate **BLOCKED**.
+Status: **PASS for development screening** at epsilon zero. The numerical and
+final-graph treatment sub-gates both pass. Formal HDF5 `test`, `neighbors`, and
+`distances` members remain sealed; this result contains no search-performance claim.
 
-Scientific conclusion: the observed epsilon-zero action space is real under the
-implemented frozen Geometry objective and is not created by the former absolute
-`1e-12` tolerance. However, the selector is not yet integrated before reciprocal
-insertion/reverse pruning, so actual retained treatment strength in the final HNSW
-graph is unknown. This is a numerical/development-mechanism result, not a search or
-confirmatory result.
+The pass is deliberately scoped to a paired, independent, post-build level-0
+fixed-selection integration. The external Geometry or GGR set is written first and
+then hnswlib's reciprocal insertion, capacity check, and Algorithm-4 reverse pruning
+are executed. It proves that the selected GGR treatment is real and survives in a
+final HNSW graph. Native per-insertion selection remains an engineering task before
+large-scale timing claims.
 
-## B. Evidence
+Under the preregistered rule, epsilon zero is now frozen as the Phase-II main setting.
+Epsilon 0.005 and 0.01 remain development-only sensitivity settings and may not be
+selected using formal outcomes.
 
-Configuration: first 10,000 `train` vectors from SIFT1M, normalized GloVe-100, and
-normalized Arxiv-Nomic; seed 7; 128 deterministic centers per dataset; 32 candidates;
-`M=16`; one thread; epsilon zero; Geometry tolerances `0, 1e-15, 1e-12, 1e-9`;
-frozen-leverage tolerance `1e-12`. Decimal-60 recomputation covered a fixed stratified
-32-center sample per dataset. Code commit: `34586b3`.
+## B. Numerical authenticity
 
-| Dataset | Changed sources at every tolerance | Swaps at every tolerance | Proposed directed Jaccard | Proposed support Jaccard | Total leverage gain |
-|---|---:|---:|---:|---:|---:|
-| SIFT | 73/128 | 163 | 0.856754 | 0.857403 | 6.057851 |
-| GloVe-100 | 57/128 | 106 | 0.902462 | 0.902428 | 19.370506 |
-| Arxiv-Nomic | 50/128 | 110 | 0.899814 | 0.899814 | 9.467793 |
+The audit used the first 10,000 `train` vectors from SIFT1M, normalized GloVe-100,
+and normalized Arxiv-Nomic; seed 7; one thread; 128 fixed centers per dataset; 32
+candidates; `M=16`; and Geometry tolerances `0, 1e-15, 1e-12, 1e-9`. Decimal-60
+recomputation covered 32 fixed centers per dataset.
 
-The complete swap counts and selected sets were identical across the four tolerance
-levels. Repeating every selection with identical inputs produced a deterministic
-fraction of 1.0. Float64 final Geometry change was never negative. Among
-high-precision sampled centers that actually swapped, Decimal-60 final-minus-baseline
-Geometry changes were all strictly positive:
-
-| Dataset | Sampled changed centers | Minimum | Median | Maximum |
+| Dataset | Changed centers | Swap steps | Geometry total delta | Leverage total gain |
 |---|---:|---:|---:|---:|
-| SIFT | 18 | 0.000029 | 0.010812 | 0.114369 |
-| GloVe-100 | 13 | 0.000338 | 0.008696 | 0.025215 |
-| Arxiv-Nomic | 11 | 0.000037 | 0.006203 | 0.012103 |
+| SIFT | 73/128 | 163 | +1.628146 | +6.057851 |
+| GloVe-100 | 57/128 | 106 | +0.661461 | +19.370506 |
+| Arxiv-Nomic | 50/128 | 110 | +0.362605 | +9.467793 |
 
-Individual exchanges can reduce Geometry relative to the immediately preceding set,
-but every accepted set stays above the fixed greedy baseline; this is why per-swap
-minimum deltas can be negative while final-minus-baseline deltas are nonnegative.
-Every swap records float64 and sampled Decimal deltas, leverage delta, guard margin,
-candidate size, source, target, and layer. All audited swaps were layer 0.
+Counts and selected sets were identical at every tolerance, and duplicate runs were
+byte-identical for every retained CSV. Float64 final-minus-baseline Geometry was never
+negative. Decimal-60 changed-center minima were +0.000029 (SIFT), +0.000338 (GloVe),
+and +0.000037 (Arxiv). Thus epsilon-zero action is not a tolerance artifact.
 
-Total wall time was 262.97 s; dataset audit times were 50.39 s (SIFT), 27.96 s
-(GloVe), and 170.73 s (Arxiv-Nomic). Peak process RSS was 179,953,664 bytes. These are
-audit costs, not final integrated construction overhead. The v2 core numeric rows are
-exactly value-identical to the superseded field-incomplete v1 run.
+Geometry delta quartiles over all 128 centers were SIFT `[0, 0.003558, 0.016953]`,
+GloVe `[0, 0, 0.006365]`, and Arxiv `[0, 0, 0.002527]`; maxima were 0.169773,
+0.071992, and 0.054834. Leverage-gain quartiles were SIFT
+`[0, 0.008597, 0.051067]`, GloVe `[0, 0, 0.166860]`, and Arxiv
+`[0, 0, 0.078567]`; maxima were 0.633300, 1.916425, and 0.738989. Every audited
+exchange was at layer 0.
 
-Artifacts are registered in `artifacts/phase2_dev_manifest.yaml`. The derived partial
-graph topology table is explicitly scoped to the 128 audited sources and cannot stand
-in for final-HNSW connectivity, reciprocity, clustering, indegree, or hubness.
+## C. Paired final-graph treatment strength
 
-## C. Falsification and controls
+Frozen run: `phase2_gate0_retention_s7_v8`, code/config commit `150a0fe`. Two
+independent indexes per dataset use identical data, insertion order, seed, `M=16`,
+and `efConstruction=100`; one receives Geometry selections and the other GGR-0
+selections. Only centers with a different terminal set are treated.
 
-- Tolerance artifact: not observed through `1e-9`; zero-tolerance results are identical.
-- High-precision reversal: not observed for any sampled changed center.
-- Seed/thread nondeterminism: not observed under the audited seed and one-thread setup.
-- Reverse-pruning erasure: unresolved because GGR currently operates outside the
-  in-build reciprocal/reverse-pruning path.
-- Geometry-safe Random: not yet implemented.
-- Shuffled-Resistance: not yet implemented.
-- Data leakage: no official `test`, `neighbors`, or `distances` HDF5 member was read.
+| Dataset | Proposed terminal edges | Actual new edges | Source retained | Reciprocal retained | Directed Jaccard | Support Jaccard |
+|---|---:|---:|---:|---:|---:|---:|
+| SIFT | 158 | 157 (99.37%) | 158/158 | 157/158 (99.37%) | 0.996045 | 0.996873 |
+| GloVe-100 | 105 | 104 (99.05%) | 105/105 | 99/105 (94.29%) | 0.998532 | 0.999029 |
+| Arxiv-Nomic | 108 | 108 (100%) | 108/108 | 106/108 (98.15%) | 0.997875 | 0.998430 |
 
-## D. Decision
+The one or two terminal edges already present after reciprocal effects are reported as
+non-effectual rather than counted as new treatment. No source edge was erased. Final
+graphs remained one weak component. Relative Geometry-to-GGR changes were small:
+reciprocal directed fraction changed by -0.000196/-0.000068/-0.000099; mean local
+clustering by +0.000026/-0.000016/-0.000012; indegree Gini by
++0.000063/+0.000048/+0.000050 for SIFT/GloVe/Arxiv. Indegree maxima were unchanged
+(54/96/88). Complete degree, indegree, reciprocity, component, clustering, and hubness
+rows are in `topology.csv`.
 
-Gate 0 does **not** authorize Gate A. The numerical component permits epsilon zero to
-remain the candidate main setting, but it cannot be frozen as the integrated main
-method until proposed swaps are inserted through the real HNSW reciprocal and reverse-
-pruning path and their survival/treatment metrics are measured. Next work is final-
-graph integration instrumentation, followed by Geometry-safe Random and
-Shuffled-Resistance on the identical feasible-swap path.
+The final run took 17.30 seconds including two builds per dataset, CSV export, and
+Python topology analysis. Peak monitored C++ RSS was 36,855,808 bytes (SIFT),
+33,456,128 bytes (GloVe), and 113,594,368 bytes (Arxiv); peak Python analysis RSS was
+248,016,896 bytes. These are audit-process costs, not native in-build GGR overhead.
 
-Do not state that epsilon-zero GGR improves HNSW, that the greedy Geometry baseline is
-globally optimal, or that the proposed-edge Jaccard is a final-index treatment measure.
+## D. Falsification status and next gate
+
+- Tolerance artifact: falsified through `1e-9`.
+- High-precision reversal: absent in the fixed Decimal-60 sample.
+- Determinism: all final graph/treatment/topology CSVs reproduced byte-for-byte.
+- Reverse-pruning erasure: falsified; reciprocal terminal retention is 94.29%–99.37%.
+- Data leakage: no formal HDF5 member was read.
+- Geometry-safe Random and Shuffled-Resistance controls: still required before Gate A.
+
+Gate 0 therefore authorizes control implementation, not formal tests and not a claim
+that resistance improves ANNS. Gate A may start only after both negative controls use
+the identical feasible-swap and mutual-connection path.

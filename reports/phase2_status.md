@@ -16,9 +16,8 @@ Implemented locally after the preregistration commit:
 - first theory files and proof-status registry;
 - public dataset manifests for SIFT1M, GloVe-100, and VIBE Arxiv-Nomic.
 
-Validation currently completed: targeted GGR/repair tests 17/17, full project Python
-58/58, scoped Ruff clean, CTest 2/2, and all 16 frozen Phase I artifact hashes still
-valid.
+Validation currently completed: full project Python 60/60, scoped Ruff clean, CTest
+3/3, and all frozen Phase I artifact hashes still valid.
 
 The first construction-only public-data audit is complete on the first 10,000 SIFT1M
 training vectors at code commit `83c4cfd` (128 fixed centers, 32 candidates, `M=16`,
@@ -48,10 +47,13 @@ mean leverage gain 0.290561 and 0.364347. Thus all three preregistered public da
 families show a nonempty lexicographic (`epsilon=0`) resistance action space. This is
 the strongest conclusion permitted by these construction-only audits.
 
-Gate 0 numerical audit completed at code commit `34586b3`: swap sets were unchanged
-for mixed Geometry tolerance from zero through `1e-9`, all repeated selections were
-deterministic, and Decimal-60 sampled changed centers all finished strictly above the
-greedy Geometry baseline. The numerical sub-gate passes. Gate 0 remains blocked because
-the external selector is not integrated before HNSW reciprocal insertion and reverse
-pruning, so actual retained swaps and final-graph treatment strength are unavailable.
-Gate A and all formal test access remain unauthorized.
+Gate 0 is complete. Its numerical audit found identical selections from zero through
+`1e-9` mixed tolerance, deterministic repeats, and strictly positive Decimal-60
+final-minus-Geometry deltas for every sampled changed center. The paired independent
+final-graph audit at commit `150a0fe` then applied Geometry and GGR selections through
+hnswlib reciprocal insertion and reverse pruning. Across SIFT/GloVe/Arxiv, 73/57/50
+of 128 centers changed; 158/105/108 terminal GGR edges were proposed, every source
+edge survived, and 157/99/106 reciprocal edges survived (99.37%/94.29%/98.15%). Gate
+0 therefore passes and epsilon zero is frozen as the main Phase-II setting. Gate A is
+not yet running: Geometry-safe Random and Shuffled-Resistance must first be implemented
+on the identical feasible-swap path. All formal test access remains unauthorized.

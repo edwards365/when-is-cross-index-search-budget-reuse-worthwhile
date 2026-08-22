@@ -76,3 +76,36 @@ runs:
         sha256: c0517faf8996b389ca7d637385f2b3af3bf40308a17f1a41a9e863b67f6124a1
       - path: results/processed/phase2_gate0_precision_s7_v2/treatment_strength.csv
         sha256: ae2febd50d19fe7c7e8ae5ae983bc1fe034206e5e3d647a97b3fd40540996208
+  - run_id: phase2_gate0_retention_s7_v8
+    purpose: paired Geometry-to-GGR final-HNSW treatment retention audit
+    git_commit: 150a0fe5404a9e7834c9e5808538b35b8523378b
+    config: configs/phase2/gate0_retention.yaml
+    config_sha256: eb0744d5e7655dd4230490ee1520cbf92876140744a9a872f1e3fd875bcfac28
+    raw_directory: results/raw/phase2_gate0_retention_s7_v8
+    artifacts:
+      - path: results/raw/phase2_gate0_retention_s7_v8/config.yaml
+        sha256: c07f18452208cdbb1f12f84b3f780e4e3306a59f2749ec1c548faa7b57b57964
+      - path: results/raw/phase2_gate0_retention_s7_v8/metadata.json
+        sha256: 1400ea3acf81c2b22cbc596f9683eb03b536629742e6c53028e45d4e07d3ea34
+      - path: results/raw/phase2_gate0_retention_s7_v8/summary.csv
+        sha256: 0359272f46d2791e0bfa377dad9ae3b1bb213e8bff6cc50e839f6a7134b73fe5
+      - path: results/raw/phase2_gate0_retention_s7_v8/topology.csv
+        sha256: f961a45d3e51c7ac1978f6daa278f776da50a690c131a319930b836916ab7e96
+      - path: results/raw/phase2_gate0_retention_s7_v8/sift-128-euclidean_retention.csv
+        sha256: 650ea0b6ccd2ff60013abe7ff15324db4c88fffde23b8e6465dcff808578c9cf
+      - path: results/raw/phase2_gate0_retention_s7_v8/sift-128-euclidean_retention_before_edges.csv
+        sha256: c8f1cde137e2a76bbf1df784f1bcf3d48f638ff4f33a59fb6b18abd6ad7db253
+      - path: results/raw/phase2_gate0_retention_s7_v8/sift-128-euclidean_retention_after_edges.csv
+        sha256: 9bcafa0ec59e5b38a0de2c446e675c39f8bca521b9aba2fc5521f09240c47136
+      - path: results/raw/phase2_gate0_retention_s7_v8/glove-100-angular_retention.csv
+        sha256: af027205dad1053fb66080ffe7b88b9f3d3de173b6bd0b8e3ab780b462258d39
+      - path: results/raw/phase2_gate0_retention_s7_v8/glove-100-angular_retention_before_edges.csv
+        sha256: e3a25ebe3680a28cf2dec2c36ee99d76dcb2cba21270e383bf67b858aad1a635
+      - path: results/raw/phase2_gate0_retention_s7_v8/glove-100-angular_retention_after_edges.csv
+        sha256: aba92103f7419a3d31fb37016dbecbcd69a59db8b3fab4ade4afab43d924d4b7
+      - path: results/raw/phase2_gate0_retention_s7_v8/arxiv-nomic-768-normalized_retention.csv
+        sha256: b178af6f296a5eb807a24876b90213e8953a7a68c1c005d351f4682eb5d501ef
+      - path: results/raw/phase2_gate0_retention_s7_v8/arxiv-nomic-768-normalized_retention_before_edges.csv
+        sha256: 1621e45a5ec52b8235109a2d14454ac3b773e96cab50a6e3576cb2c8ca8f7bc8
+      - path: results/raw/phase2_gate0_retention_s7_v8/arxiv-nomic-768-normalized_retention_after_edges.csv
+        sha256: 86f78ecc5cbc054e48cbcbaa97617824ae86e25d07e33d24382817de866e5202
