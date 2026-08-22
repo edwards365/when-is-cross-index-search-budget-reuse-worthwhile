@@ -80,6 +80,15 @@ ggr:
   leverage_tolerance: 1.0e-12
   reference_graph: frozen_local_scheme_a
   candidate_count: 32
+integration:
+  scope: paired_independent_post_build_level0_fixed_selection
+  plan_sources: all_100k_base_labels
+  plan_application_order: ascending_external_source_label
+  reciprocal_rule: hnswlib_mutual_insert_capacity_check_algorithm4_reverse_pruning
+  candidate_generation: same_seeded_base_build_then_hnsw_knn_query_k33
+  candidate_query_threads: 1
+  control_seed_formula: control_seed_plus_build_seed_times_1000000_plus_source_label
+  limitation: native_insertion_time_selection_not_claimed
 search:
   base_ef: [10, 20, 40, 80, 120, 200]
   predeclared_midpoints: [15, 30, 60, 100, 160]

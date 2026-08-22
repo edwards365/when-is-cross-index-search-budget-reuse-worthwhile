@@ -1,7 +1,7 @@
 {
   "role": "development",
   "formal_test_members_accessed": false,
-  "config_sha256": "34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd",
+  "config_sha256": "2b8b1da4fbec3b3c67f4fcfaae16b151edc07d48cba5a14161dbe79fe2b174fc",
   "base_vectors_per_dataset": 100000,
   "queries_per_dataset": 1000,
   "k": 10,

@@ -22,6 +22,9 @@ target_include_directories(hnsw_instrumented_smoke PRIVATE cpp/include third_par
 add_executable(hnsw_apply_selection_plan cpp/src/hnsw_apply_selection_plan.cpp)
 target_include_directories(hnsw_apply_selection_plan PRIVATE cpp/include third_party/hnswlib)
 
+add_executable(hnsw_gate_a_benchmark cpp/src/hnsw_gate_a_benchmark.cpp)
+target_include_directories(hnsw_gate_a_benchmark PRIVATE cpp/include third_party/hnswlib)
+
 enable_testing()
 add_executable(test_resistance_cpp tests/cpp/test_resistance.cpp)
 target_link_libraries(test_resistance_cpp PRIVATE narhnsw_core)

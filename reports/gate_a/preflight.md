@@ -19,12 +19,20 @@ authorized. Formal HDF5 `test`, `neighbors`, and `distances` remain sealed.
 ## Frozen definition
 
 The single configuration is `configs/gate_a/gate_a_100k.yaml`, SHA-256
-`34dba99482ad060ccbb6d9ec984edfa36662aa0c2751601df1b0b4c9e7a07abd`.
+`2b8b1da4fbec3b3c67f4fcfaae16b151edc07d48cba5a14161dbe79fe2b174fc`.
 It freezes three 100K datasets, 1,000 development queries, `k=10`, `M=16`,
 `efConstruction=100`, build seeds 7/17/29, control seeds 101/211/307, epsilon zero,
 one thread, the six-point ef grid, and five predeclared midpoints. The generated run
 matrix contains 81 unique builds: 27 deterministic-method builds and 54 randomized
 control builds.
+
+The integration scope is also frozen: each method gets an independent same-seed base
+index; all 100K external labels receive a fixed level-0 selection; plans are applied
+in ascending source-label order before hnswlib mutual insertion/capacity checking and
+Algorithm-4 reverse pruning. Candidate pools come from the same seeded base build via
+single-thread `k=33` HNSW queries. Control randomness is
+`control_seed + build_seed*1,000,000 + source_label`. This is the validated Gate-0
+post-build path; native insertion-time selection and its build overhead are not claimed.
 
 ## Data audit
 
