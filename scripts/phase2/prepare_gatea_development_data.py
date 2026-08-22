@@ -17,6 +17,7 @@ import yaml
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "python"))
+sys.path.insert(0, str(REPO))
 
 from narhnsw.ground_truth import exact_top_k  # noqa: E402
 

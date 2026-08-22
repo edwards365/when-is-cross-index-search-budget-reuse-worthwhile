@@ -1,4 +1,4 @@
-run_id: phase2_gatea_development_data_v1
+run_id: phase2_gatea_development_data_v2
 datasets:
   - data/manifests/sift1m.yaml
   - data/manifests/glove100.yaml
