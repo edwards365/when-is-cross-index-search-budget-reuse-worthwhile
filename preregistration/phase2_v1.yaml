@@ -1,0 +1,65 @@
+version: phase2_v1
+status: frozen_design_test_sealed
+primary_question: geometry_first_resistance_second_for_cross_build_stability
+primary_contrast: ggr_minus_geometry
+methods:
+  confirmatory: [original, geometry, resistance, ggr, random]
+  excluded_from_decision: [trace_resistance, linear_weighted_mixture]
+geometry:
+  selector: existing_deterministic_greedy
+  alpha: 0.0
+  beta: 1.0
+  gamma: 1.0
+  sigma: 0.5
+  rho: median_positive_center_candidate_distance
+ggr:
+  leverage_scheme: A_augmented_local_union_graph
+  leverage_frozen_during_selection: true
+  query_inputs_allowed: false
+  exchange: deterministic_one_for_one
+  objective_tolerance: 1.0e-12
+  max_accepted_swaps: M_times_candidate_count_minus_M
+epsilon:
+  candidates: [0.0, 0.005, 0.01]
+  selected_main: pending_development_amendment
+  fallback: 0.0
+  max_development_recall_loss: 0.001
+datasets:
+  core: [sift1m, glove_100, vibe_arxiv_nomic]
+  tier0_development_sizes: [10000, 100000]
+  formal_test_accessed: false
+construction:
+  M: 16
+  ef_construction: 100
+  seeds: [7, 17, 29, 43, 61]
+  orders: [seeded_random, approximate_lid_ascending]
+  lid_k: 20
+search:
+  ef_grid: [10, 20, 40, 80, 120, 200, 400]
+  primary_recall: 0.95
+  secondary_recall: 0.99
+statistics:
+  outer_cluster: seed_times_insertion_order
+  inner_unit: paired_query
+  interval: 0.95
+go:
+  performance:
+    mean_ndc_reduction: 0.03
+    tail_ndc_reduction: 0.05
+    minimum_consistent_datasets: 2
+    minimum_consistent_build_fraction: 0.80
+    maximum_recall_loss: 0.001
+    latency_must_improve: true
+  stability:
+    cost_variance_reduction: 0.20
+    worst_build_cost_reduction: 0.10
+    perturbation_recall_degradation_reduction: 0.20
+    minimum_consistent_datasets: 2
+    maximum_mean_cost_increase: 0.02
+    maximum_recall_loss: 0.001
+formal_test_gate:
+  preregistration_hashed_and_committed: false
+  epsilon_amendment_hashed_and_committed: false
+  dataset_checksums_verified: false
+  implementation_tests_passed: false
+  open: false
