@@ -14,8 +14,8 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install -e ".[test]"
-      - run: python -m pytest tests/python -q
-      - run: ruff check python scripts tests/python
+      - run: python -m pytest -q
+      - run: ruff check python scripts tests theory
 
   cpp:
     runs-on: ubuntu-latest
