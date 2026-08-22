@@ -1,5 +1,6 @@
 #include "hnswlib/hnswlib.h"
 #include "narhnsw/hnsw_candidate_logger.hpp"
+#include "narhnsw/hnsw_query_tracer.hpp"
 
 #include <algorithm>
 #include <atomic>
@@ -8,7 +9,9 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <limits>
 #include <numeric>
+#include <optional>
 #include <queue>
 #include <random>
 #include <set>
@@ -80,6 +83,16 @@ struct GraphSummary {
     std::size_t reciprocal_directed_edges{0};
     std::size_t max_degree{0};
 };
+
+std::set<std::size_t> labels_from_heap(
+    std::priority_queue<std::pair<float, hnswlib::labeltype>> heap) {
+    std::set<std::size_t> labels;
+    while (!heap.empty()) {
+        labels.insert(heap.top().second);
+        heap.pop();
+    }
+    return labels;
+}
 
 GraphSummary inspect_level_zero(const hnswlib::HierarchicalNSW<float>& index, std::size_t n) {
     GraphSummary summary;
@@ -161,8 +174,9 @@ int main(int argc, char** argv) {
         candidate_logger.add_point(index, base[node].data(), node);
     index.setEf(40);
     const GraphSummary graph = inspect_level_zero(index, n);
-    if (argc == 2)
-        export_fixture(std::filesystem::path(argv[1]), base, index, candidate_logger);
+    const std::optional<std::filesystem::path> output =
+        argc == 2 ? std::optional<std::filesystem::path>(argv[1]) : std::nullopt;
+    if (output) export_fixture(*output, base, index, candidate_logger);
 
     double recall_sum = 0.0;
     std::vector<long> exact_distance_computations;
@@ -172,6 +186,15 @@ int main(int argc, char** argv) {
         Point query = base[(query_id * 13) % n];
         for (float& value : query) value += 0.01F * noise(generator);
         const auto expected = exact_top_k(base, query, k);
+        std::optional<std::set<std::size_t>> traced_reference;
+        long traced_reference_ndc = 0;
+        if (query_id == 0) {
+            space.reset();
+            const auto traced = narhnsw::HnswQueryTracer<float>::search(
+                index, query.data(), k, 40, query_id);
+            traced_reference_ndc = space.count();
+            traced_reference = labels_from_heap(traced.results);
+        }
         index.metric_distance_computations.store(0);
         index.metric_hops.store(0);
         space.reset();
@@ -181,6 +204,9 @@ int main(int argc, char** argv) {
             observed.insert(observed_heap.top().second);
             observed_heap.pop();
         }
+        if (traced_reference &&
+            (*traced_reference != observed || traced_reference_ndc != space.count()))
+            throw std::runtime_error("query trace diverged from upstream searchKnn");
         std::vector<std::size_t> intersection;
         std::set_intersection(expected.begin(), expected.end(), observed.begin(), observed.end(),
                               std::back_inserter(intersection));
@@ -213,5 +239,72 @@ int main(int argc, char** argv) {
         graph.directed_edges == 0 || candidate_logger.decisions().empty() ||
         candidate_logger.adjacency_changes().empty())
         return 1;
+
+    if (output) {
+        constexpr std::size_t traced_queries = 256;
+        const std::vector<std::size_t> traced_efs{10, 20, 40};
+        std::ofstream query_file(*output / "query_points.csv");
+        std::ofstream summary_file(*output / "query_trace_summary.csv");
+        std::ofstream trace_file(*output / "query_trace_events.csv");
+        query_file << "query_id,source_id";
+        for (std::size_t dimension = 0; dimension < dimensions; ++dimension)
+            query_file << ",x" << dimension;
+        query_file << '\n';
+        summary_file << "query_id,ef,recall,exact_ndc,upper_evaluations,base_evaluations,"
+                        "base_expansions,ground_truth,observed\n";
+        trace_file << "query_id,ef,event_index,phase,layer,source,target,distance_to_query,"
+                      "lower_bound_before,result_size_before,event\n";
+        trace_file.precision(std::numeric_limits<float>::max_digits10);
+        for (std::size_t query_id = 0; query_id < traced_queries; ++query_id) {
+            const std::size_t source_id = (query_id * 13) % n;
+            Point query = base[source_id];
+            for (float& value : query) value += 0.01F * noise(generator);
+            query_file << query_id << ',' << source_id;
+            for (const float value : query) query_file << ',' << value;
+            query_file << '\n';
+            const auto expected = exact_top_k(base, query, k);
+            for (const auto ef : traced_efs) {
+                space.reset();
+                auto traced = narhnsw::HnswQueryTracer<float>::search(index, query.data(), k, ef,
+                                                                      query_id);
+                const long traced_ndc = space.count();
+                const auto observed = labels_from_heap(traced.results);
+                index.setEf(ef);
+                space.reset();
+                const auto reference = labels_from_heap(index.searchKnn(query.data(), k));
+                const long reference_ndc = space.count();
+                if (observed != reference || traced_ndc != reference_ndc)
+                    throw std::runtime_error("query trace diverged from upstream searchKnn");
+                std::vector<std::size_t> intersection;
+                std::set_intersection(expected.begin(), expected.end(), observed.begin(),
+                                      observed.end(), std::back_inserter(intersection));
+                const double recall =
+                    static_cast<double>(intersection.size()) / static_cast<double>(k);
+                summary_file << query_id << ',' << ef << ',' << recall << ',' << traced_ndc << ','
+                             << traced.upper_evaluations << ',' << traced.base_evaluations << ','
+                             << traced.base_expansions << ",\"";
+                bool first = true;
+                for (const auto label : expected) {
+                    if (!first) summary_file << ';';
+                    summary_file << label;
+                    first = false;
+                }
+                summary_file << "\",\"";
+                first = true;
+                for (const auto label : observed) {
+                    if (!first) summary_file << ';';
+                    summary_file << label;
+                    first = false;
+                }
+                summary_file << "\"\n";
+                for (const auto& event : traced.events)
+                    trace_file << event.query_id << ',' << event.ef << ',' << event.event_index
+                               << ',' << event.phase << ',' << event.layer << ',' << event.source
+                               << ',' << event.target << ',' << event.distance_to_query << ','
+                               << event.lower_bound_before << ',' << event.result_size_before << ','
+                               << event.event << '\n';
+            }
+        }
+    }
     return 0;
 }
