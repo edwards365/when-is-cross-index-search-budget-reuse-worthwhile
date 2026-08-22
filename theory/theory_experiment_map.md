@@ -17,6 +17,6 @@
 | \(ef^*(q;G,R)\) | minimum successful value on fixed `ef` grid | experiment pipeline | offline query difficulty; never an online feature |
 | \(\operatorname{NDC}\) | exact wrapper distance-call counter | C++ instrumentation | search cost; upstream HNSW counter is not used as exact total |
 | geometric hardness | LID, contrast, neighbor gap, density | analysis pipeline (pending) | separate query geometry from graph state |
-| navigation hardness | stalls, frontier growth, missing high-score candidates | trace analysis (pending) | graph-conditional mechanism diagnosis |
+| navigation hardness | stalls, frontier growth, missing high-score candidates | exact query trace and controlled-swap analysis | graph-conditional mechanism diagnosis; independent holdout found no resistance-specific recall benefit |
 
 For every claimed test, record whether the mathematical premise holds before evaluating the conclusion. Frozen diagnostic scores must be computed without held-out truth leakage when proposed as online signals. Truth-dependent quantities such as \(ef^*\) are explicitly offline diagnostics. A synthetic-only theorem remains useful as a mechanism certificate, but cannot be advertised as a real-data performance guarantee until premise prevalence and effect sizes are measured.

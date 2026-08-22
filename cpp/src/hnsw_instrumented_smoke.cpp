@@ -123,6 +123,7 @@ void export_fixture(const std::filesystem::path& output, const std::vector<Point
                     const narhnsw::HnswCandidateLogger<float>& candidate_logger) {
     std::filesystem::create_directories(output);
     std::ofstream point_file(output / "points.csv");
+    point_file.precision(std::numeric_limits<float>::max_digits10);
     for (const auto& point : points) {
         for (std::size_t dimension = 0; dimension < point.size(); ++dimension) {
             if (dimension) point_file << ',';
@@ -246,6 +247,7 @@ int main(int argc, char** argv) {
         std::ofstream query_file(*output / "query_points.csv");
         std::ofstream summary_file(*output / "query_trace_summary.csv");
         std::ofstream trace_file(*output / "query_trace_events.csv");
+        query_file.precision(std::numeric_limits<float>::max_digits10);
         query_file << "query_id,source_id";
         for (std::size_t dimension = 0; dimension < dimensions; ++dimension)
             query_file << ",x" << dimension;
@@ -305,6 +307,77 @@ int main(int argc, char** argv) {
                                << event.event << '\n';
             }
         }
+
+        constexpr std::size_t heldout_queries = 1024;
+        std::mt19937 heldout_generator(101);
+        std::normal_distribution<float> heldout_noise(0.0F, 0.45F);
+        std::ofstream heldout_query_file(*output / "heldout_query_points.csv");
+        std::ofstream heldout_summary_file(*output / "heldout_query_summary.csv");
+        heldout_query_file.precision(std::numeric_limits<float>::max_digits10);
+        heldout_query_file << "query_id,cluster";
+        for (std::size_t dimension = 0; dimension < dimensions; ++dimension)
+            heldout_query_file << ",x" << dimension;
+        heldout_query_file << '\n';
+        heldout_summary_file
+            << "query_id,ef,recall,exact_ndc,upper_evaluations,base_evaluations,"
+               "base_expansions,base_entrypoint,ground_truth,observed\n";
+        for (std::size_t query_id = 0; query_id < heldout_queries; ++query_id) {
+            const int cluster = static_cast<int>(query_id % 2);
+            Point query(dimensions);
+            for (float& value : query) value = heldout_noise(heldout_generator);
+            query[0] += cluster == 0 ? -2.5F : 2.5F;
+            heldout_query_file << query_id << ',' << cluster;
+            for (const float value : query) heldout_query_file << ',' << value;
+            heldout_query_file << '\n';
+            const auto expected = exact_top_k(base, query, k);
+            for (const auto ef : traced_efs) {
+                space.reset();
+                auto traced = narhnsw::HnswQueryTracer<float>::search(index, query.data(), k, ef,
+                                                                      query_id);
+                const long traced_ndc = space.count();
+                const auto observed = labels_from_heap(traced.results);
+                index.setEf(ef);
+                space.reset();
+                const auto reference = labels_from_heap(index.searchKnn(query.data(), k));
+                if (observed != reference || traced_ndc != space.count())
+                    throw std::runtime_error("held-out trace diverged from upstream searchKnn");
+                std::vector<std::size_t> intersection;
+                std::set_intersection(expected.begin(), expected.end(), observed.begin(),
+                                      observed.end(), std::back_inserter(intersection));
+                std::optional<hnswlib::tableint> base_entrypoint;
+                for (const auto& event : traced.events)
+                    if (event.phase == "base" && event.event == "entry") {
+                        base_entrypoint = event.source;
+                        break;
+                    }
+                if (!base_entrypoint) throw std::runtime_error("missing base entrypoint");
+                heldout_summary_file
+                    << query_id << ',' << ef << ','
+                    << static_cast<double>(intersection.size()) / static_cast<double>(k) << ','
+                    << traced_ndc << ',' << traced.upper_evaluations << ','
+                    << traced.base_evaluations << ',' << traced.base_expansions << ','
+                    << *base_entrypoint << ",\"";
+                bool first = true;
+                for (const auto label : expected) {
+                    if (!first) heldout_summary_file << ';';
+                    heldout_summary_file << label;
+                    first = false;
+                }
+                heldout_summary_file << "\",\"";
+                first = true;
+                for (const auto label : observed) {
+                    if (!first) heldout_summary_file << ';';
+                    heldout_summary_file << label;
+                    first = false;
+                }
+                heldout_summary_file << "\"\n";
+            }
+        }
+        std::ofstream heldout_metadata_file(*output / "heldout_metadata.txt");
+        heldout_metadata_file << "queries=1024\nquery_seed=101\n"
+                                 "distribution=independent_balanced_two_cloud_gaussian\n"
+                                 "cluster_centers_x0=-2.5,2.5\nstandard_deviation=0.45\n"
+                                 "selection_query_overlap=none\n";
     }
     return 0;
 }
