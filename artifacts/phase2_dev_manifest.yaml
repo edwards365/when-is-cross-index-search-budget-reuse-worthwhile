@@ -1,0 +1,22 @@
+phase: phase2
+status: development_only_formal_test_sealed
+dataset:
+  manifest: data/manifests/sift1m.yaml
+  sha256: dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984
+  accessed_members: [train]
+  formal_test_members_accessed: false
+runs:
+  - run_id: phase2-sift10k-selector-audit-s7
+    purpose: construction-only structural selector audit; not search performance
+    git_commit: 83c4cfd262d5437e3fc86965beac8b7ce432f080
+    config: configs/phase2/sift10k_selector_audit.yaml
+    raw_directory: results/raw/phase2_sift10k_selector_audit_s7
+    artifacts:
+      - path: results/raw/phase2_sift10k_selector_audit_s7/config.yaml
+        sha256: 86e01c54e6bd7ec9a02aa591ac00ccdf1d887ecd633f9f4c2d903c63b95dd2a8
+      - path: results/raw/phase2_sift10k_selector_audit_s7/metadata.json
+        sha256: a447fa67864cd7c66f173e2fda265be8670a3bfebe4d63fadab85d239821f6d4
+      - path: results/raw/phase2_sift10k_selector_audit_s7/per_center.csv
+        sha256: 284614435cebdb92000d33472f0e1d997d75c1ae2e8e2d25ba416ff651b6e265
+      - path: results/raw/phase2_sift10k_selector_audit_s7/summary.csv
+        sha256: f7f4522081a5c839752673313448c9faab9151c27623e35a27877d472da60f2c
