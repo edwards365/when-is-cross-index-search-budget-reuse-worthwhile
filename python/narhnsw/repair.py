@@ -137,7 +137,7 @@ def rewire_directed_graph(
                 )
                 chosen = pool[np.asarray(result.selected, dtype=np.int64)]
                 accepted_swaps += len(result.swaps)
-                geometry_loss += result.geometry_star - result.geometry_final
+                geometry_loss += result.geometry_base - result.geometry_final
                 leverage_gain += result.leverage_final - result.leverage_initial
             else:
                 alpha = 1.0 if variant == "resistance_direction" else 0.0

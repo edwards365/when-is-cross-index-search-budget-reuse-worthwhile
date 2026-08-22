@@ -1,0 +1,22 @@
+run_id: phase2-gate0-precision-s7
+datasets:
+  - data/manifests/sift1m.yaml
+  - data/manifests/glove100.yaml
+  - data/manifests/vibe_arxiv_nomic.yaml
+construction_vectors: 10000
+audited_centers: 128
+high_precision_centers: 32
+candidate_count: 32
+M: 16
+ef_construction: 100
+candidate_ef_search: 100
+seed: 7
+epsilon: 0.0
+geometry_tolerance_sweep: [0.0, 1.0e-15, 1.0e-12, 1.0e-9]
+leverage_tolerance: 1.0e-12
+decimal_precision: 60
+threads: 1
+allowed_hdf5_members: [train]
+forbidden_hdf5_members: [test, neighbors, distances]
+final_hnsw_retention_available: false
+final_hnsw_retention_blocker: selector is not integrated before reciprocal insertion/reverse pruning

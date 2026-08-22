@@ -27,12 +27,14 @@ class GGRResult:
 
     selected: tuple[int, ...]
     geometry_selected: tuple[int, ...]
-    geometry_star: float
+    geometry_base: float
     geometry_final: float
     leverage_initial: float
     leverage_final: float
     epsilon: float
-    tolerance: float
+    geometry_tolerance: float
+    geometry_allowance: float
+    leverage_tolerance: float
     termination: str
     swaps: tuple[GGRSwap, ...]
 
@@ -89,7 +91,8 @@ def geometry_guarded_resistance_selection(
     budget: int,
     *,
     epsilon: float = 0.0,
-    tolerance: float = 1e-12,
+    geometry_tolerance: float = 1e-12,
+    leverage_tolerance: float = 1e-12,
     max_swaps: int | None = None,
     beta: float = 1.0,
     gamma: float = 1.0,
@@ -112,18 +115,22 @@ def geometry_guarded_resistance_selection(
         raise ValueError("budget is outside the candidate set")
     if not np.isfinite(epsilon) or not 0 <= epsilon < 1:
         raise ValueError("epsilon must lie in [0, 1)")
-    if not np.isfinite(tolerance) or tolerance < 0:
-        raise ValueError("tolerance must be finite and nonnegative")
+    if not np.isfinite(geometry_tolerance) or geometry_tolerance < 0:
+        raise ValueError("geometry_tolerance must be finite and nonnegative")
+    if not np.isfinite(leverage_tolerance) or leverage_tolerance < 0:
+        raise ValueError("leverage_tolerance must be finite and nonnegative")
     if len(candidates) == 0:
         return GGRResult(
             selected=(),
             geometry_selected=(),
-            geometry_star=0.0,
+            geometry_base=0.0,
             geometry_final=0.0,
             leverage_initial=0.0,
             leverage_final=0.0,
             epsilon=epsilon,
-            tolerance=tolerance,
+            geometry_tolerance=geometry_tolerance,
+            geometry_allowance=geometry_tolerance,
+            leverage_tolerance=leverage_tolerance,
             termination="local_optimum",
             swaps=(),
         )
@@ -143,7 +150,7 @@ def geometry_guarded_resistance_selection(
         sigma=sigma,
         rho=rho,
     )
-    geometry_star = geometry_objective(
+    geometry_base = geometry_objective(
         center,
         candidates,
         geometry_selected,
@@ -152,10 +159,11 @@ def geometry_guarded_resistance_selection(
         sigma=sigma,
         rho=rho,
     )
-    threshold = (1.0 - epsilon) * geometry_star
+    threshold = (1.0 - epsilon) * geometry_base
+    geometry_allowance = geometry_tolerance * (1.0 + abs(geometry_base))
     selected = list(geometry_selected)
     leverage_total = float(leverage[selected].sum())
-    geometry_total = geometry_star
+    geometry_total = geometry_base
     if max_swaps is None:
         max_swaps = budget * (len(candidates) - budget)
     if max_swaps < 0:
@@ -171,7 +179,7 @@ def geometry_guarded_resistance_selection(
                 if incoming in selected_set:
                     continue
                 leverage_gain = float(leverage[incoming] - leverage[outgoing])
-                if leverage_gain <= tolerance:
+                if leverage_gain <= leverage_tolerance:
                     continue
                 proposal = [item for item in selected if item != outgoing]
                 proposal.append(incoming)
@@ -185,7 +193,7 @@ def geometry_guarded_resistance_selection(
                     sigma=sigma,
                     rho=rho,
                 )
-                if proposal_geometry + tolerance >= threshold:
+                if proposal_geometry + geometry_allowance >= threshold:
                     feasible.append(
                         (leverage_gain, proposal_geometry, -outgoing, -incoming, proposal)
                     )
@@ -214,12 +222,14 @@ def geometry_guarded_resistance_selection(
     return GGRResult(
         selected=tuple(selected),
         geometry_selected=tuple(geometry_selected),
-        geometry_star=geometry_star,
+        geometry_base=geometry_base,
         geometry_final=geometry_total,
         leverage_initial=float(leverage[geometry_selected].sum()),
         leverage_final=leverage_total,
         epsilon=epsilon,
-        tolerance=tolerance,
+        geometry_tolerance=geometry_tolerance,
+        geometry_allowance=geometry_allowance,
+        leverage_tolerance=leverage_tolerance,
         termination=termination,
         swaps=tuple(swaps),
     )

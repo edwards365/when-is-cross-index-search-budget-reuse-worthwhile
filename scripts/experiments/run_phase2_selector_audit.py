@@ -121,19 +121,20 @@ def main() -> None:
                 leverage,
                 config["M"],
                 epsilon=epsilon,
-                tolerance=config["objective_tolerance"],
+                geometry_tolerance=config["objective_tolerance"],
+                leverage_tolerance=config["objective_tolerance"],
             )
             rows.append(
                 {
                     "center": int(center),
                     "epsilon": float(epsilon),
                     "swaps": len(result.swaps),
-                    "geometry_star": result.geometry_star,
+                    "geometry_base": result.geometry_base,
                     "geometry_final": result.geometry_final,
                     "geometry_relative_loss": (
                         0.0
-                        if result.geometry_star == 0
-                        else (result.geometry_star - result.geometry_final) / result.geometry_star
+                        if result.geometry_base == 0
+                        else (result.geometry_base - result.geometry_final) / result.geometry_base
                     ),
                     "leverage_initial": result.leverage_initial,
                     "leverage_final": result.leverage_final,

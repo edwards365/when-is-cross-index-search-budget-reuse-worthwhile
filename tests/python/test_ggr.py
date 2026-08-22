@@ -25,10 +25,10 @@ def test_geometry_objective_matches_greedy_start_and_guard() -> None:
     result = geometry_guarded_resistance_selection(
         center, candidates, leverage, 3, epsilon=0.01
     )
-    assert result.geometry_star == pytest.approx(
+    assert result.geometry_base == pytest.approx(
         geometry_objective(center, candidates, result.geometry_selected)
     )
-    assert result.geometry_final + result.tolerance >= 0.99 * result.geometry_star
+    assert result.geometry_final + result.geometry_allowance >= 0.99 * result.geometry_base
 
 
 def test_ggr_preserves_cardinality_and_improves_frozen_leverage() -> None:
@@ -40,7 +40,7 @@ def test_ggr_preserves_cardinality_and_improves_frozen_leverage() -> None:
     assert len(set(result.selected)) == 3
     assert result.leverage_final >= result.leverage_initial
     for swap in result.swaps:
-        assert swap.leverage_after > swap.leverage_before + result.tolerance
+        assert swap.leverage_after > swap.leverage_before + result.leverage_tolerance
 
 
 def test_ggr_is_deterministic_and_terminates_at_registered_cap() -> None:
@@ -55,7 +55,7 @@ def test_ggr_is_deterministic_and_terminates_at_registered_cap() -> None:
 def test_zero_epsilon_never_exceeds_numerical_geometry_loss() -> None:
     center, candidates, leverage = fixture()
     result = geometry_guarded_resistance_selection(center, candidates, leverage, 3)
-    assert result.geometry_final + result.tolerance >= result.geometry_star
+    assert result.geometry_final + result.geometry_allowance >= result.geometry_base
 
 
 def test_empty_candidate_set_returns_empty_selection() -> None:
@@ -65,6 +65,35 @@ def test_empty_candidate_set_returns_empty_selection() -> None:
     assert result.selected == ()
     assert result.geometry_final == 0.0
     assert result.termination == "local_optimum"
+
+
+def test_geometry_guard_uses_registered_mixed_tolerance() -> None:
+    center, candidates, leverage = fixture()
+    result = geometry_guarded_resistance_selection(
+        center,
+        candidates,
+        leverage,
+        3,
+        geometry_tolerance=2e-10,
+        leverage_tolerance=3e-11,
+    )
+    assert result.geometry_allowance == pytest.approx(
+        2e-10 * (1.0 + abs(result.geometry_base))
+    )
+    assert result.leverage_tolerance == 3e-11
+
+
+def test_zero_tolerance_accepts_no_geometry_decrease() -> None:
+    center, candidates, leverage = fixture()
+    result = geometry_guarded_resistance_selection(
+        center,
+        candidates,
+        leverage,
+        3,
+        geometry_tolerance=0.0,
+        leverage_tolerance=0.0,
+    )
+    assert result.geometry_final >= result.geometry_base
 
 
 @pytest.mark.parametrize("epsilon", [-0.1, 1.0, np.inf])

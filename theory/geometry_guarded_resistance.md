@@ -10,8 +10,8 @@ objective be
 
 The Phase II implementation fixes `beta=gamma=1`, `sigma=0.5`, and `rho_u` to the
 median center-candidate distance, exactly matching the Phase I Geometry control. Its
-deterministic greedy output is `S_geo`, and `F_star=F_geo(S_geo)`; the star denotes
-the baseline value, not a claim of exact combinatorial optimality.
+deterministic greedy output is `S_geo`, and `F_base=F_geo(S_geo)`. This is a greedy
+baseline value, not a claim of exact combinatorial optimality.
 
 Scheme-A scores `tau_e=w_e R_eff(e)` are computed once on the explicitly augmented,
 connected, union-symmetrized local graph. They are frozen during selection.
@@ -21,10 +21,11 @@ connected, union-symmetrized local graph. They are frozen during selection.
 Initialize `S=S_geo`. Among all one-for-one proposals, deterministically accept a
 proposal only when
 
-- `F_geo(S') + eta >= (1-epsilon) F_star`, and
+- `F_geo(S') + eta_geo >= (1-epsilon) F_base`, and
 - `sum_(e in S') tau_e > sum_(e in S) tau_e + eta`,
 
-where `eta` is the registered float64 tolerance. Select the feasible proposal with
+where `eta_geo=tau_num(1+|F_base|)` is the registered mixed float64 tolerance. Frozen
+leverage improvement uses a separate `eta_tau`. Select the feasible proposal with
 largest leverage gain, then geometry value, then deterministic candidate indices.
 Stop at local optimality or the registered accepted-swap cap.
 
@@ -33,8 +34,8 @@ Stop at local optimality or the registered accepted-swap cap.
 Every accepted operation removes and adds exactly one distinct edge. Induction gives
 `|S|=|S_geo|<=M`, so the per-node and global directed-edge budgets are preserved when
 applied independently to all outgoing lists. The acceptance predicate gives
-`F_geo(S) >= (1-epsilon)F_star-eta` after every swap. The leverage sum increases by
-more than `eta`; with a finite candidate set and the explicit cap, termination is
+`F_geo(S) >= (1-epsilon)F_base-eta_geo` after every swap. The leverage sum increases by
+more than `eta_tau`; with a finite candidate set and the explicit cap, termination is
 unconditional. Without the cap, strict improvement and finitely many fixed-cardinality
 subsets also imply termination in exact arithmetic.
 
