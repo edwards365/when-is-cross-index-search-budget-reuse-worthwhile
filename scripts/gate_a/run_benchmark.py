@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import os
+import platform
 import struct
 import subprocess
 import sys
@@ -61,6 +62,7 @@ def main() -> None:
     parser.add_argument("--executable", type=Path, required=True)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--plan", type=Path)
+    parser.add_argument("--hardware-id")
     args = parser.parse_args()
     config_bytes = args.config.read_bytes()
     config_hash = hashlib.sha256(config_bytes).hexdigest()
@@ -140,7 +142,7 @@ def main() -> None:
                 str(config["search"]["warmup_queries"]),
                 str(config["search"]["latency_rounds"]),
                 config_hash,
-                "asus-tuf-f16-fx607jir-i9-14900hx-rtx4070",
+                args.hardware_id or platform.node(),
                 args.run_id,
                 str(output.resolve()),
             ]
