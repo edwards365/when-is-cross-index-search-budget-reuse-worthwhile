@@ -1,0 +1,195 @@
+version: gb_mpcc_v1
+status: preregistered_before_new_performance_runs
+frozen_from_commit: b02afed
+formal_test_gate: closed
+formal_test_members_accessed: false
+forbidden_hdf5_members: [test, neighbors, distances]
+
+research_question: >-
+  Does query-independent, length-aware multi-scale progress-cone coverage add
+  navigation information beyond HNSW Algorithm 4 and matched angle/geometry controls?
+
+data:
+  construction_prefixes: [10000, 100000]
+  development_queries_per_dataset: 1000
+  split_rule:
+    design_dev_query_ids: {start_inclusive: 0, stop_exclusive: 500}
+    validation_dev_query_ids: {start_inclusive: 500, stop_exclusive: 1000}
+    formal_test: original HDF5 test/neighbors/distances members; sealed until E2 authorization
+  roles:
+    base_train: query-independent construction and state-distribution estimation
+    design_dev: formula checks, mechanism non-emptiness, and one-time primary variant selection
+    validation_dev: gate decisions only; no parameter feedback
+    formal_test: one-time external validation after frozen E1 pass
+  datasets:
+    sift:
+      name: sift-128-euclidean
+      url: https://ann-benchmarks.com/sift-128-euclidean.hdf5
+      source_sha256: dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984
+      base_100k_content_sha256: d0ad618c42429e9e2261e37e7ecaf042af58e47117ad62d5935457e129d0ab21
+      development_queries_sha256: c0c7eec8198de8ce93628d75953c67a7eb3397703ad257f9e413545bd3a95a11
+      development_truth_sha256: a6a7c0038085611d13b9e61ed72e16686524c91b3de0c4795a0a95d10b931ec9
+      dimensions: 128
+      metric: squared_l2
+      normalized: false
+    glove:
+      name: glove-100-angular
+      url: https://ann-benchmarks.com/glove-100-angular.hdf5
+      source_sha256: 544af1d5e84e112cd4749571dcfd8ca109818a572f850af75a3a09e093a953c4
+      base_100k_content_sha256: c4dd1cf6ca196baceaf5622e07081656d4e199bc0c3b3072d12e4c43ac98c109
+      development_queries_sha256: b2cbaaf96d332c1d0f4607f976b68d4566272341e33887c502575a742858dfee
+      development_truth_sha256: fae42abfcfc7a43fa5006330231ea5f2216825ec4cf748a7f535d2a564386d6e
+      dimensions: 100
+      metric: squared_l2_on_unit_vectors
+      normalized: true
+    arxiv:
+      name: arxiv-nomic-768-normalized
+      url: https://huggingface.co/datasets/vector-index-bench/vibe/resolve/main/arxiv-nomic-768-normalized.hdf5
+      source_sha256: 8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414
+      base_100k_content_sha256: 9fc6c6e71329832643a6c1e57eecd32e632bf90b1a5a4bed83587dbab70de107
+      development_queries_sha256: 0b6def325e66979fe473e3d9b46c506179dc6169b9bfd6e1880b8eb81c8cef82
+      development_truth_sha256: c6fb281b7021052387ee0cd89d331959406dc7faaa2a7a33aa14fbc201b6be9a
+      dimensions: 768
+      metric: squared_l2_on_unit_vectors
+      normalized: true
+
+construction:
+  implementation: existing instrumented hnswlib path
+  M: 16
+  ef_construction: 100
+  query_threads: 1
+  construction_threads: 1
+  build_seeds: [7, 17, 29]
+  insertion_order_primary: seeded_random
+  insertion_order_robustness: [approximate_lid_ascending, approximate_lid_descending]
+  level_rule: original_hnswlib_seeded_rule
+
+gb_mpcc:
+  candidate_pool: frozen Algorithm-4 candidate log before final neighbor selection
+  local_scale: distance_to_16th_nonself_base_neighbor
+  state_samples: 2048
+  state_sample_seed_formula: 202608240000 + build_seed_times_1000003 + source_label
+  direction_models:
+    design_candidates: [empirical_direction, local_pca, isotropic_sphere]
+    primary_selection: choose once on design-dev after T0/R0; then freeze
+  empirical_direction: normalized local base-neighbor displacements with deterministic resampling
+  local_pca:
+    neighborhood_size: 64
+    retained_variance: 0.90
+    maximum_components: 32
+    sampling: normalized_gaussian_in_local_subspace
+  isotropic_sphere: uniform_on_ambient_unit_sphere_negative_reference
+  rho_quantile_bins:
+    near: [0.75, 1.25]
+    medium: [1.25, 2.5]
+    far: [2.5, 5.0]
+  rho_bin_weights: [0.3333333333, 0.3333333334, 0.3333333333]
+  exact_progress_eta: 0.0
+  multiplicative_diagnostic_eta: 0.05
+  smooth_tau_design_candidate: 0.05
+  geometry_backbone:
+    source: original Algorithm 4 accepted set
+    mandatory_slots: 12
+    flexible_slots: 4
+    flexible_slot_ablation: [1, 2, 4]
+    primary_flexible_slots: choose once from ablation on design-dev; then freeze
+  optimizer: deterministic_greedy_maximum_marginal_bitset_coverage
+  tie_break: [larger_marginal_gain, shorter_edge, smaller_external_label]
+
+controls:
+  required:
+    - original_hnsw
+    - geometry
+    - ggr_0_frozen
+    - maxmin_angle
+    - length_aware_angle
+    - gb_mpcc
+    - mpcc_shuffled
+    - geometry_safe_random
+  matched_fields:
+    - source_nodes
+    - source_outdegree
+    - total_edges
+    - flexible_slots
+    - candidate_pool
+    - reciprocal_processing
+    - build_seed
+    - insertion_order
+    - search_entry
+    - distance_function
+
+theory_gate_t0:
+  isotropic_degeneracy_threshold: 0.05
+  geometry_equivalence_jaccard_threshold: 0.95
+  pass:
+    - all_formula_and_submodularity_tests_pass
+    - at_least_one_query_independent_model_nondegenerate_on_two_datasets
+    - measurable_difference_from_algorithm4_exists
+    - novelty_audit_finds_no_identical_published_method
+  stop_if_any:
+    - all_query_independent_models_cover_almost_zero_or_one
+    - selection_jaccard_above_0.95_without_incremental_coverage
+    - identical_objective_constraint_and_build_stage_already_published
+    - implementation_requires_development_query_trajectories
+
+replay_gate_r0:
+  pass_datasets: 2
+  require_seed_direction_consistency: true
+  must_outperform: [algorithm4, geometry, maxmin_angle, length_aware_angle, ggr_0]
+  labels_may_use_design_dev_trajectories: true
+  labels_may_affect_construction_score: false
+
+graph_gate_e0:
+  sizes: [10000]
+  datasets: [sift, glove, arxiv]
+  build_seeds: [7, 17, 29]
+  maximum_build_time_ratio_vs_geometry: 2.0
+  require_two_navigation_chain_metrics_on_two_datasets: true
+
+performance_gate_e1:
+  sizes: [100000]
+  ef_grid_rule: original_only_design_dev_calibration_then_freeze
+  primary: paired_p95_ndc_at_common_recall_at_10_ge_0.95
+  fallback: preregister_highest_common_reachable_recall_and_mark_endpoint_unreachable
+  secondary:
+    - mean_p50_p99_ndc
+    - visited_nodes_hops_distance_computations
+    - p50_p95_p99_latency
+    - recall_at_1_and_10
+    - construction_time_peak_memory_index_size
+    - cross_seed_variance_and_worst_seed
+  bootstrap_replicates: 5000
+  bootstrap_seed: 20260824
+  paired_unit: query
+  outer_cluster: build_seed_times_insertion_order
+  multiplicity: holm_for_confirmatory_method_contrasts
+  pass:
+    minimum_datasets: 2
+    minimum_mean_primary_improvement: 0.01
+    maximum_absolute_recall_loss: 0.001
+    require_recall_loss_ci_excludes_unacceptable_loss: true
+    require_majority_seed_direction: true
+    require_better_than_random_and_shuffled: true
+    require_latency_same_direction: true
+
+formal_gate_e2:
+  open: false
+  authorization_requires:
+    - e1_passed
+    - algorithms_parameters_seeds_grid_endpoints_statistics_frozen
+    - frozen_commit_recorded
+    - explicit_one_time_unseal
+
+decision_labels:
+  - THEORY_INVALID
+  - OBJECTIVE_DEGENERATE
+  - NOVELTY_NOT_ESTABLISHED
+  - MECHANISM_NONEMPTY
+  - MECHANISM_EQUIVALENT_TO_GEOMETRY
+  - PROXY_DISTRIBUTION_MISMATCH
+  - LOCAL_NAVIGATION_SUPPORTED
+  - PERFORMANCE_NOT_ESTABLISHED
+  - NDC_ONLY_NO_LATENCY_GAIN
+  - DEVELOPMENT_GATE_PASSED
+  - EXTERNAL_VALIDITY_SUPPORTED
+  - NEGATIVE_BOUNDARY_RESULT
