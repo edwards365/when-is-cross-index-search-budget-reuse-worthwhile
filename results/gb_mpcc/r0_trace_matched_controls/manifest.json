@@ -1,0 +1,220 @@
+{
+  "addendum_sha256": "a3d218de1e312f9aed4aac52349fee50653a075959379bd656a0b9573c798186",
+  "complete_runs": 9,
+  "existing_indexes_loaded_read_only": true,
+  "expected_runs": 9,
+  "formal_test_members_accessed": false,
+  "index_built_or_mutated": false,
+  "runs": [
+    {
+      "build_seed": 17,
+      "dataset": "arxiv_nomic_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 725,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "arxiv_nomic_10k-b17",
+      "status": "complete",
+      "trace_sha256": "def09588387cab00796f3dbff776c18afeb281b304f9503a4486f722c3d1877a"
+    },
+    {
+      "build_seed": 29,
+      "dataset": "arxiv_nomic_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 621,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "arxiv_nomic_10k-b29",
+      "status": "complete",
+      "trace_sha256": "429a4ca722ea12ad2ac0fbec4ba0291373282ca1297f3593c67e16566639e135"
+    },
+    {
+      "build_seed": 7,
+      "dataset": "arxiv_nomic_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 732,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "arxiv_nomic_10k-b7",
+      "status": "complete",
+      "trace_sha256": "5d5c79153b21450b57322e9972fa34d1872a98c1dec33ec2f6314a74d4f8f7c8"
+    },
+    {
+      "build_seed": 17,
+      "dataset": "glove100_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 626,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "glove100_10k-b17",
+      "status": "complete",
+      "trace_sha256": "e893696c1ef5089d58eec527130197c0bf3ac2113787fddc0cce1dc93798f7cb"
+    },
+    {
+      "build_seed": 29,
+      "dataset": "glove100_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 572,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "glove100_10k-b29",
+      "status": "complete",
+      "trace_sha256": "cc81fef67d63984d9b6d02962645d17910cd9359ade2e98c9dadad0903085ed8"
+    },
+    {
+      "build_seed": 7,
+      "dataset": "glove100_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 632,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "glove100_10k-b7",
+      "status": "complete",
+      "trace_sha256": "0975c0eaab825112673bdbdcd7600861baf69a1a1d610537ff8db5885beafca5"
+    },
+    {
+      "build_seed": 17,
+      "dataset": "sift_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 437,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "sift_10k-b17",
+      "status": "complete",
+      "trace_sha256": "7c49743b4113b379a7179baf2a13ae32e48a5763cd6a3c1762a9fa8855703a8c"
+    },
+    {
+      "build_seed": 29,
+      "dataset": "sift_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 618,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "sift_10k-b29",
+      "status": "complete",
+      "trace_sha256": "926e503e6c79024622d1688613c12f0480608b86dac2181f65f97d749e9c0b2d"
+    },
+    {
+      "build_seed": 7,
+      "dataset": "sift_10k",
+      "ef_search": [
+        10,
+        20,
+        40,
+        80,
+        120,
+        200
+      ],
+      "formal_test_members_accessed": false,
+      "index_built_or_mutated": false,
+      "index_loaded_read_only": true,
+      "matched_trace_rows": 540,
+      "query_ids": [
+        0,
+        500
+      ],
+      "run_id": "sift_10k-b7",
+      "status": "complete",
+      "trace_sha256": "965dd1dc9b1e1519fc3ee92d620ae95fbfee6c069242a5613ba16eec85b0e4ba"
+    }
+  ],
+  "schema_version": 1,
+  "status": "complete",
+  "structural_replay_sha256": "47c340e7710ca61a2d0d24bcd945af3b2441c360a8fb85c1aea765a525da486e"
+}

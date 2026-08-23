@@ -11,6 +11,7 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
+import yaml
 
 BASELINES = (
     "algorithm4",
@@ -63,6 +64,11 @@ def length_adjusted_result(group: pd.DataFrame) -> dict[str, float]:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument(
+        "--control-correction",
+        type=Path,
+        default=Path("preregistration/gb_mpcc_r0_control_correction.yaml"),
+    )
+    parser.add_argument(
         "--structural",
         type=Path,
         default=Path("results/gb_mpcc/r0_replay_trace_ready/per_event_selector.csv.gz"),
@@ -76,6 +82,13 @@ def main() -> None:
     parser.add_argument("--decision", type=Path, default=Path("manifests/gb_mpcc_r0_decision.json"))
     parser.add_argument("--report", type=Path, default=Path("reports/replay_gate_r0.md"))
     args = parser.parse_args()
+    correction = yaml.safe_load(args.control_correction.read_text(encoding="utf-8"))
+    if (
+        correction["status"] != "frozen_before_budget_matched_control_outputs"
+        or correction["correction_type"] != "control_compliance_only_no_parameter_tuning"
+        or correction["firewall"]["formal_test_access"] != "forbidden"
+    ):
+        raise PermissionError("R0 control-correction protocol is not frozen")
     metadata = json.loads((args.analysis / "metadata.json").read_text(encoding="utf-8"))
     trace_manifest = json.loads(args.trace_manifest.read_text(encoding="utf-8"))
     if (
@@ -198,6 +211,7 @@ def main() -> None:
         "e1_authorized": False,
         "formal_test_authorized": False,
         "evidence_sha256": {
+            "control_correction": sha256(args.control_correction),
             "structural": sha256(args.structural),
             "trace_manifest": sha256(args.trace_manifest),
             "trace_analysis_metadata": sha256(args.analysis / "metadata.json"),
@@ -221,6 +235,12 @@ def main() -> None:
                     "mean_delta"
                 ],
                 "dStrict vs GGR": result["strict_progress_vs_baselines"]["ggr_0"]["mean_delta"],
+                "dStrict vs matched random": result["strict_progress_vs_baselines"][
+                    "geometry_backbone_random"
+                ]["mean_delta"],
+                "dStrict vs matched shuffled": result["strict_progress_vs_baselines"][
+                    "geometry_backbone_mpcc_shuffled"
+                ]["mean_delta"],
                 "dBeam vs A4": result["beam_admissible_vs_baselines"]["algorithm4"]["mean_delta"],
                 "proxy-real rho": result["proxy_real_spearman"],
                 "calibration MAE": result["proxy_real_mean_absolute_calibration_error"],

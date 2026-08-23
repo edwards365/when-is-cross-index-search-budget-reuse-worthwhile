@@ -1,0 +1,23 @@
+{
+  "build_seed": 7,
+  "dataset": "sift_10k",
+  "ef_search": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "formal_test_members_accessed": false,
+  "index_built_or_mutated": false,
+  "index_loaded_read_only": true,
+  "matched_trace_rows": 540,
+  "query_ids": [
+    0,
+    500
+  ],
+  "run_id": "sift_10k-b7",
+  "status": "complete",
+  "trace_sha256": "965dd1dc9b1e1519fc3ee92d620ae95fbfee6c069242a5613ba16eec85b0e4ba"
+}

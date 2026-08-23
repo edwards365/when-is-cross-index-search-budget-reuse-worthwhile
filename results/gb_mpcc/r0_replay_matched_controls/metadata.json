@@ -1,0 +1,14 @@
+{
+  "accessed_sources": [
+    "frozen_train_prefix_fbin",
+    "candidate_recorder_logs"
+  ],
+  "development_trace_diagnostics_complete": false,
+  "events": 2304,
+  "formal_test_members_accessed": false,
+  "index_built_or_saved": false,
+  "protocol_sha256": "ce5f7bac8297c3975ee2485fcb6ce855f087cf1346c2f703029a360a4bf92632",
+  "r0_gate_decision": "PENDING_TRACE_DIAGNOSTICS",
+  "selector_rows": 25344,
+  "status": "structural_replay_complete"
+}

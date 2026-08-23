@@ -1,0 +1,53 @@
+{
+  "addendum_sha256": "a3d218de1e312f9aed4aac52349fee50653a075959379bd656a0b9573c798186",
+  "dataset_seed_positive_directions_vs_baselines": {
+    "arxiv_nomic_10k": {
+      "algorithm4": 3,
+      "geometry": 3,
+      "geometry_backbone_mpcc_shuffled": 3,
+      "geometry_backbone_random": 3,
+      "ggr_0": 3,
+      "length_aware_angle": 3,
+      "maxmin_angle": 3
+    },
+    "glove100_10k": {
+      "algorithm4": 3,
+      "geometry": 3,
+      "geometry_backbone_mpcc_shuffled": 3,
+      "geometry_backbone_random": 3,
+      "ggr_0": 3,
+      "length_aware_angle": 3,
+      "maxmin_angle": 3
+    },
+    "sift_10k": {
+      "algorithm4": 3,
+      "geometry": 1,
+      "geometry_backbone_mpcc_shuffled": 3,
+      "geometry_backbone_random": 2,
+      "ggr_0": 1,
+      "length_aware_angle": 3,
+      "maxmin_angle": 3
+    }
+  },
+  "formal_test_members_accessed": false,
+  "index_built_or_mutated": false,
+  "matched_trace_states": 5503,
+  "r0_gate_decision": "PENDING_FINAL_R0_ADJUDICATION",
+  "reached_events": 1206,
+  "selectors": [
+    "algorithm4",
+    "geometry",
+    "maxmin_angle",
+    "length_aware_angle",
+    "ggr_0",
+    "geometry_safe_random",
+    "mpcc_shuffled",
+    "geometry_backbone_random",
+    "geometry_backbone_mpcc_shuffled",
+    "pure_mpcc",
+    "geometry_backbone_mpcc"
+  ],
+  "state_selector_rows": 60533,
+  "status": "trace_analysis_complete",
+  "structural_replay_sha256": "47c340e7710ca61a2d0d24bcd945af3b2441c360a8fb85c1aea765a525da486e"
+}
