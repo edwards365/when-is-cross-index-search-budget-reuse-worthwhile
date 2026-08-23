@@ -9,9 +9,9 @@ uniformly scheduled midpoint supplements. Every run used the frozen 100K base,
 Formal HDF5 `test`, `neighbors`, and `distances` members were not accessed.
 
 The primary endpoint is the minimum observed p95 exact NDC among efSearch settings
-whose mean Recall@10 is at least 0.95. With the signed contrast
-`(GGR cost - Geometry cost) / Geometry cost`, negative is favorable. The three
-build-seed contrasts were:
+whose mean Recall@10 is at least 0.95. With the cost-improvement convention
+`(Geometry cost - GGR cost) / Geometry cost`, positive is favorable. The three
+build-seed improvements were:
 
 | Build seed | Signed GGR minus Geometry |
 | --- | ---: |

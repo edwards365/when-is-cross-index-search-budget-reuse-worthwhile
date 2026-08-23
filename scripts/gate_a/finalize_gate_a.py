@@ -127,8 +127,10 @@ def endpoint_rows(curve: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(rows).reset_index(drop=True)
 
 
-def percent(left: float, right: float) -> float:
-    return 100.0 * (left - right) / right
+def improvement(candidate: float, baseline: float) -> float:
+    """Return cost improvement versus baseline; positive is favorable."""
+
+    return 100.0 * (baseline - candidate) / baseline
 
 
 def summarize_dataset(queries: pd.DataFrame, records: list[dict[str, object]]) -> dict[str, object]:
@@ -155,9 +157,15 @@ def summarize_dataset(queries: pd.DataFrame, records: list[dict[str, object]]) -
                 "ggr_p50_latency_us": float(ggr.p50_latency_ns / 1000),
                 "ggr_p95_latency_us": float(ggr.p95_latency_ns / 1000),
                 "ggr_p99_latency_us": float(ggr.p99_latency_ns / 1000),
-                "ggr_minus_geometry_p95_ndc_percent": percent(ggr.p95_ndc, geometry.p95_ndc),
-                "ggr_minus_random_mean_p95_ndc_percent": percent(ggr.p95_ndc, random_cost),
-                "ggr_minus_shuffled_mean_p95_ndc_percent": percent(ggr.p95_ndc, shuffled_cost),
+                "ggr_improvement_vs_geometry_p95_ndc_percent": improvement(
+                    ggr.p95_ndc, geometry.p95_ndc
+                ),
+                "ggr_improvement_vs_random_mean_p95_ndc_percent": improvement(
+                    ggr.p95_ndc, random_cost
+                ),
+                "ggr_improvement_vs_shuffled_mean_p95_ndc_percent": improvement(
+                    ggr.p95_ndc, shuffled_cost
+                ),
             }
         status = "PRIMARY_ENDPOINT_REACHABLE"
     else:
@@ -192,9 +200,9 @@ def final_decision(datasets: list[dict[str, object]]) -> str:
     for dataset in datasets:
         seeds = list(dataset["primary_by_build_seed"].values())
         stable = sum(
-            row["ggr_minus_geometry_p95_ndc_percent"] < 0
-            and row["ggr_minus_random_mean_p95_ndc_percent"] < 0
-            and row["ggr_minus_shuffled_mean_p95_ndc_percent"] < 0
+            row["ggr_improvement_vs_geometry_p95_ndc_percent"] > 0
+            and row["ggr_improvement_vs_random_mean_p95_ndc_percent"] > 0
+            and row["ggr_improvement_vs_shuffled_mean_p95_ndc_percent"] > 0
             for row in seeds
         ) >= 2
         successes += int(stable)
@@ -213,14 +221,14 @@ def render_report(summary: dict[str, object]) -> str:
         "GloVe triggered none. Every audited artifact records only the `train` HDF5",
         "member and `formal_test_members_accessed=false`; formal test data remain sealed.",
         "",
-        "| Dataset | Frozen endpoint status | GGR−Geometry p95 NDC by build seed |",
+        "| Dataset | Frozen endpoint status | GGR improvement vs Geometry by build seed |",
         "| --- | --- | --- |",
     ]
     for name in DATASETS:
         row = datasets[name]
         if row["primary_by_build_seed"]:
             effects = ", ".join(
-                f"b{seed} {values['ggr_minus_geometry_p95_ndc_percent']:+.3f}%"
+                f"b{seed} {values['ggr_improvement_vs_geometry_p95_ndc_percent']:+.3f}%"
                 for seed, values in row["primary_by_build_seed"].items()
             )
         else:
@@ -228,7 +236,7 @@ def render_report(summary: dict[str, object]) -> str:
         lines.append(f"| {name} | {row['status']} | {effects} |")
     lines += [
         "",
-        "Negative contrast is favorable. SIFT is weakly negative but seed directions are",
+        "Positive improvement is favorable. SIFT is weakly negative but seed directions are",
         "inconsistent and the result is not specific to resistance. Arxiv is consistently",
         "unfavorable to GGR versus Geometry and both matched negative controls. GloVe's",
         "primary endpoint is right-censored by the frozen efSearch grid and is neither a",
