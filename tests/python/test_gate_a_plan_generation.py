@@ -1,6 +1,10 @@
 import pytest
 
-from scripts.gate_a.generate_plans import requested_center_count, validate_complete_scope
+from scripts.gate_a.generate_plans import (
+    requested_center_count,
+    validate_complete_scope,
+    worker_owns_shard,
+)
 
 
 def test_requested_center_count_distinguishes_validation_from_full_run() -> None:
@@ -44,3 +48,16 @@ def test_completed_plan_rejects_inconsistent_full_marker() -> None:
             requested_centers=100_000,
             base_vectors=100_000,
         )
+
+
+def test_selection_workers_partition_shards_without_overlap() -> None:
+    assignments = [
+        [start for start in range(0, 1_000, 100) if worker_owns_shard(start, 100, worker, 3)]
+        for worker in range(3)
+    ]
+    assert assignments == [[0, 300, 600, 900], [100, 400, 700], [200, 500, 800]]
+    assert sorted(start for assignment in assignments for start in assignment) == list(
+        range(0, 1_000, 100)
+    )
+    with pytest.raises(ValueError, match="worker index"):
+        worker_owns_shard(0, 100, 3, 3)

@@ -76,6 +76,14 @@ def validate_complete_scope(
         raise ValueError("completed plan has an inconsistent full-run marker")
 
 
+def worker_owns_shard(
+    start: int, shard_size: int, worker_index: int, worker_count: int
+) -> bool:
+    if worker_count <= 0 or not 0 <= worker_index < worker_count:
+        raise ValueError("selection worker index must lie in [0, worker_count)")
+    return (start // shard_size) % worker_count == worker_index
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, required=True)
@@ -84,6 +92,8 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--shard-size", type=int, default=100)
     parser.add_argument("--max-centers", type=int)
+    parser.add_argument("--selection-worker-index", type=int, default=0)
+    parser.add_argument("--selection-worker-count", type=int, default=1)
     args = parser.parse_args()
     if not args.output.is_absolute():
         args.output = (REPO / args.output).resolve()
@@ -98,6 +108,12 @@ def main() -> None:
         raise ValueError("build seed is not in the frozen config")
     if args.shard_size <= 0:
         raise ValueError("shard size must be positive")
+    worker_owns_shard(
+        0,
+        args.shard_size,
+        args.selection_worker_index,
+        args.selection_worker_count,
+    )
     available_gib = psutil.virtual_memory().available / 2**30
     minimum_gib = float(config["runtime"]["minimum_free_ram_gib"])
     if available_gib < minimum_gib:
@@ -169,6 +185,13 @@ def main() -> None:
 
     for start in range(0, count, args.shard_size):
         stop = min(start + args.shard_size, count)
+        if not worker_owns_shard(
+            start,
+            args.shard_size,
+            args.selection_worker_index,
+            args.selection_worker_count,
+        ):
+            continue
         if shard_complete(shard_root, start, stop, methods):
             continue
         plan_rows = {method: [] for method in methods}
@@ -257,6 +280,21 @@ def main() -> None:
         os.replace(audit_temporary, audit_final)
         peak_rss = max(peak_rss, process.memory_info().rss)
         print(f"completed centers [{start},{stop}) peak_rss={peak_rss}", flush=True)
+
+    if args.selection_worker_count > 1:
+        print(
+            json.dumps(
+                {
+                    "selection_worker_index": args.selection_worker_index,
+                    "selection_worker_count": args.selection_worker_count,
+                    "worker_shards_complete": True,
+                    "formal_test_members_accessed": False,
+                },
+                sort_keys=True,
+            ),
+            flush=True,
+        )
+        return
 
     plans_root = args.output / "plans"
     plans_root.mkdir(exist_ok=True)
