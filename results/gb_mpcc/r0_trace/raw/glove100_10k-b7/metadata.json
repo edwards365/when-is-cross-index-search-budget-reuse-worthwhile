@@ -1,0 +1,23 @@
+{
+  "build_seed": 7,
+  "dataset": "glove100_10k",
+  "ef_search": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "formal_test_members_accessed": false,
+  "index_built_or_mutated": false,
+  "index_loaded_read_only": true,
+  "matched_trace_rows": 632,
+  "query_ids": [
+    0,
+    500
+  ],
+  "run_id": "glove100_10k-b7",
+  "status": "complete",
+  "trace_sha256": "d298957d3a0a44ca969087cd978a2f7c837a34f80d3595103486c7a1452f41f7"
+}

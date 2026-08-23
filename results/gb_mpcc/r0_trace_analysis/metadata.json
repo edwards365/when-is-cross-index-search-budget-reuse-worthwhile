@@ -1,0 +1,34 @@
+{
+  "addendum_sha256": "a3d218de1e312f9aed4aac52349fee50653a075959379bd656a0b9573c798186",
+  "dataset_seed_positive_directions_vs_baselines": {
+    "arxiv_nomic_10k": {
+      "algorithm4": 3,
+      "geometry": 3,
+      "ggr_0": 3,
+      "length_aware_angle": 3,
+      "maxmin_angle": 3
+    },
+    "glove100_10k": {
+      "algorithm4": 3,
+      "geometry": 3,
+      "ggr_0": 3,
+      "length_aware_angle": 3,
+      "maxmin_angle": 3
+    },
+    "sift_10k": {
+      "algorithm4": 3,
+      "geometry": 1,
+      "ggr_0": 1,
+      "length_aware_angle": 3,
+      "maxmin_angle": 3
+    }
+  },
+  "formal_test_members_accessed": false,
+  "index_built_or_mutated": false,
+  "matched_trace_states": 5503,
+  "r0_gate_decision": "PENDING_FINAL_R0_ADJUDICATION",
+  "reached_events": 1206,
+  "state_selector_rows": 49527,
+  "status": "trace_analysis_complete",
+  "structural_replay_sha256": "6aa04448e7aa80f5c8ef53b09456db296a1fb954eb839f8701ab6391bd17a48c"
+}

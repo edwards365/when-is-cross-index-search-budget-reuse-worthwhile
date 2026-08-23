@@ -1,0 +1,225 @@
+{
+  "dataset_results": {
+    "arxiv_nomic_10k": {
+      "beam_admissible_vs_baselines": {
+        "algorithm4": {
+          "mean_delta": 0.020484004706983666,
+          "positive_seeds": 3
+        },
+        "geometry": {
+          "mean_delta": 0.05375575098389777,
+          "positive_seeds": 3
+        },
+        "ggr_0": {
+          "mean_delta": 0.08185927451651216,
+          "positive_seeds": 3
+        },
+        "length_aware_angle": {
+          "mean_delta": 0.020484004706983666,
+          "positive_seeds": 3
+        },
+        "maxmin_angle": {
+          "mean_delta": 0.14201769542031273,
+          "positive_seeds": 3
+        }
+      },
+      "gain_not_explained_only_by_length": true,
+      "length_analysis": {
+        "length_adjusted_intercept": 0.002339756742780632,
+        "length_adjusted_intercept_t": 9.64848077187943,
+        "mean_coverage_delta_vs_algorithm4": 0.006544748942057292,
+        "mean_length_delta_vs_algorithm4": -0.0035429857900266836
+      },
+      "mean_algorithm4_jaccard": 0.8831235052500532,
+      "mean_reached_event_fraction": 0.5729166666666666,
+      "non_equivalent_below_0_95": true,
+      "pass": true,
+      "proxy_minus_real_bias": 0.359417333541828,
+      "proxy_real_mean_absolute_calibration_error": 0.4304576457686636,
+      "proxy_real_spearman": 0.3166378558762823,
+      "reached_events": 440,
+      "selector_nonempty": true,
+      "strict_progress_vs_baselines": {
+        "algorithm4": {
+          "mean_delta": 0.017298269809140735,
+          "positive_seeds": 3
+        },
+        "geometry": {
+          "mean_delta": 0.04717029764703299,
+          "positive_seeds": 3
+        },
+        "ggr_0": {
+          "mean_delta": 0.07447606496835597,
+          "positive_seeds": 3
+        },
+        "length_aware_angle": {
+          "mean_delta": 0.017298269809140735,
+          "positive_seeds": 3
+        },
+        "maxmin_angle": {
+          "mean_delta": 0.13634406467169524,
+          "positive_seeds": 3
+        }
+      }
+    },
+    "glove100_10k": {
+      "beam_admissible_vs_baselines": {
+        "algorithm4": {
+          "mean_delta": 0.03845407520141656,
+          "positive_seeds": 3
+        },
+        "geometry": {
+          "mean_delta": 0.04738691074010413,
+          "positive_seeds": 3
+        },
+        "ggr_0": {
+          "mean_delta": 0.055848628339206834,
+          "positive_seeds": 3
+        },
+        "length_aware_angle": {
+          "mean_delta": 0.03845407520141656,
+          "positive_seeds": 3
+        },
+        "maxmin_angle": {
+          "mean_delta": 0.1158477075109363,
+          "positive_seeds": 3
+        }
+      },
+      "gain_not_explained_only_by_length": true,
+      "length_analysis": {
+        "length_adjusted_intercept": 0.017225918429656394,
+        "length_adjusted_intercept_t": 31.98847980452124,
+        "mean_coverage_delta_vs_algorithm4": 0.020709991455078125,
+        "mean_length_delta_vs_algorithm4": -0.0064867100009860165
+      },
+      "mean_algorithm4_jaccard": 0.7019341750771946,
+      "mean_reached_event_fraction": 0.5,
+      "non_equivalent_below_0_95": true,
+      "pass": true,
+      "proxy_minus_real_bias": 0.5185757328195545,
+      "proxy_real_mean_absolute_calibration_error": 0.5599397668364815,
+      "proxy_real_spearman": 0.1957045922467479,
+      "reached_events": 384,
+      "selector_nonempty": true,
+      "strict_progress_vs_baselines": {
+        "algorithm4": {
+          "mean_delta": 0.04347844391920069,
+          "positive_seeds": 3
+        },
+        "geometry": {
+          "mean_delta": 0.04172880588339287,
+          "positive_seeds": 3
+        },
+        "ggr_0": {
+          "mean_delta": 0.0527640283191207,
+          "positive_seeds": 3
+        },
+        "length_aware_angle": {
+          "mean_delta": 0.04347844391920069,
+          "positive_seeds": 3
+        },
+        "maxmin_angle": {
+          "mean_delta": 0.12169773919263609,
+          "positive_seeds": 3
+        }
+      }
+    },
+    "sift_10k": {
+      "beam_admissible_vs_baselines": {
+        "algorithm4": {
+          "mean_delta": 0.0003425659173079667,
+          "positive_seeds": 1
+        },
+        "geometry": {
+          "mean_delta": -0.009871737375712734,
+          "positive_seeds": 1
+        },
+        "ggr_0": {
+          "mean_delta": 0.0128966839503658,
+          "positive_seeds": 2
+        },
+        "length_aware_angle": {
+          "mean_delta": 0.0003425659173079667,
+          "positive_seeds": 1
+        },
+        "maxmin_angle": {
+          "mean_delta": 0.1149073770223229,
+          "positive_seeds": 3
+        }
+      },
+      "gain_not_explained_only_by_length": true,
+      "length_analysis": {
+        "length_adjusted_intercept": 0.0007433940087057628,
+        "length_adjusted_intercept_t": 4.127276516682566,
+        "mean_coverage_delta_vs_algorithm4": 0.0025005340576171875,
+        "mean_length_delta_vs_algorithm4": -0.0026459789560590065
+      },
+      "mean_algorithm4_jaccard": 0.9660658808479532,
+      "mean_reached_event_fraction": 0.4973958333333333,
+      "non_equivalent_below_0_95": false,
+      "pass": false,
+      "proxy_minus_real_bias": 0.4638669996873471,
+      "proxy_real_mean_absolute_calibration_error": 0.5021063239674518,
+      "proxy_real_spearman": 0.2859452111248882,
+      "reached_events": 382,
+      "selector_nonempty": true,
+      "strict_progress_vs_baselines": {
+        "algorithm4": {
+          "mean_delta": 0.006003812334199833,
+          "positive_seeds": 3
+        },
+        "geometry": {
+          "mean_delta": -0.016182056174891168,
+          "positive_seeds": 1
+        },
+        "ggr_0": {
+          "mean_delta": 0.0056294160953027665,
+          "positive_seeds": 1
+        },
+        "length_aware_angle": {
+          "mean_delta": 0.006003812334199833,
+          "positive_seeds": 3
+        },
+        "maxmin_angle": {
+          "mean_delta": 0.11398360047754301,
+          "positive_seeds": 3
+        }
+      }
+    }
+  },
+  "decision": "PASS_TO_GRAPH_E0",
+  "e0_authorized": true,
+  "e1_authorized": false,
+  "evidence_sha256": {
+    "paired_differences": "6ea5c9b36818ccd447bd20c1890aa40f1100f934653c2089aa8267faaa2826b4",
+    "proxy_calibration": "02277e44fc87a19717848e8f28ce2d3fa00356d1fe5c17e904b240b9568d4041",
+    "structural": "6aa04448e7aa80f5c8ef53b09456db296a1fb954eb839f8701ab6391bd17a48c",
+    "trace_analysis_metadata": "d6c30b82b3922ecdbe83c72b08566d1c8b97c27bdafd40388abd2b9853fd5f4b",
+    "trace_manifest": "21c7366107fb97a93d21a3b4755f125d2a971e1bfe134c209a5c926cae99e227"
+  },
+  "formal_test_authorized": false,
+  "formal_test_members_accessed": false,
+  "gate": "Replay Gate R0",
+  "index_built_or_mutated_during_r0_trace": false,
+  "length_aware_angle_exactly_algorithm4": true,
+  "limitations": [
+    "R0 is an offline local mechanism diagnostic, not a graph-performance result.",
+    "Route states came from existing Original 100K indexes, while candidate pools came from 10K insertion replays.",
+    "Only sampled centers reached by design-dev query IDs 0-499 on the frozen ef grid contribute route metrics.",
+    "Absolute proxy calibration is poor despite relative ranking transfer on two datasets.",
+    "Missed-true-neighbor opportunity labels are too sparse to support a positive claim."
+  ],
+  "matched_route_states": 5503,
+  "passing_datasets": [
+    "arxiv_nomic_10k",
+    "glove100_10k"
+  ],
+  "predefined_labels": [
+    "LOCAL_NAVIGATION_SUPPORTED",
+    "PROXY_DISTRIBUTION_MISMATCH"
+  ],
+  "reached_events": 1206,
+  "required_passing_datasets": 2,
+  "schema_version": 1,
+  "structural_events": 2304
+}

@@ -1,0 +1,23 @@
+{
+  "build_seed": 29,
+  "dataset": "arxiv_nomic_10k",
+  "ef_search": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "formal_test_members_accessed": false,
+  "index_built_or_mutated": false,
+  "index_loaded_read_only": true,
+  "matched_trace_rows": 621,
+  "query_ids": [
+    0,
+    500
+  ],
+  "run_id": "arxiv_nomic_10k-b29",
+  "status": "complete",
+  "trace_sha256": "6c5643b8781f3b3b36ea1727729cafe05e47bbd52e32fcd18c8a22f2bc166c92"
+}
