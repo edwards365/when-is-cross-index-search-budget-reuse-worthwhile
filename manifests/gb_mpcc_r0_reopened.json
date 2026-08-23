@@ -1,0 +1,10 @@
+{
+  "status": "REOPENED_FOR_BUDGET_MATCHED_CONTROL_CORRECTION",
+  "superseded_decision_commit": "1468c65",
+  "reason": "R0 random and shuffled controls did not match the GB-MPCC backbone and flexible-slot budget required by v3.",
+  "correction_is_parameter_tuning": false,
+  "e0_authorized": false,
+  "e1_authorized": false,
+  "formal_test_authorized": false,
+  "formal_test_members_accessed": false
+}

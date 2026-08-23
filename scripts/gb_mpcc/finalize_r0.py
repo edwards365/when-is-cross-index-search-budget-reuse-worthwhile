@@ -19,6 +19,11 @@ BASELINES = (
     "length_aware_angle",
     "ggr_0",
 )
+MATCHED_CONTROLS = (
+    "geometry_backbone_random",
+    "geometry_backbone_mpcc_shuffled",
+)
+COMPARATORS = (*BASELINES, *MATCHED_CONTROLS)
 GB = "geometry_backbone_mpcc"
 
 
@@ -111,7 +116,7 @@ def main() -> None:
                     (route[route["baseline"] == baseline]["delta_strict_progress"] > 0).sum()
                 ),
             }
-            for baseline in BASELINES
+            for baseline in COMPARATORS
         }
         beam_by_baseline = {
             baseline: {
@@ -122,7 +127,7 @@ def main() -> None:
                     (route[route["baseline"] == baseline]["delta_beam_admissible"] > 0).sum()
                 ),
             }
-            for baseline in BASELINES
+            for baseline in COMPARATORS
         }
         beats_strict = all(
             item["mean_delta"] > 0 and item["positive_seeds"] >= 2
@@ -248,11 +253,12 @@ def main() -> None:
                 f"Passing datasets: {', '.join(passing_datasets)} "
                 f"({len(passing_datasets)}/3; required 2).",
                 "",
-                "- The full selector matrix contains 2,304 frozen insertion events and "
-                "20,736 selector rows; selections are nonempty.",
+                "- The full selector matrix contains 2,304 frozen insertion events; all "
+                "registered selector outputs are nonempty.",
                 "- GloVe and Arxiv are non-equivalent to Algorithm 4 at the frozen 0.95 "
                 "mean-Jaccard threshold and beat every registered strong comparator on "
-                "strict-progress and beam-admissible route labels in a majority of seeds.",
+                "strict-progress and beam-admissible route labels in a majority of seeds, "
+                "including the backbone/slot-matched random and shuffled controls.",
                 "- Length-adjusted coverage intercepts remain positive; the signal is not "
                 "fully explained by choosing shorter edges.",
                 "- LengthAware-Angle exactly reproduces Algorithm 4 on all recorded events; "

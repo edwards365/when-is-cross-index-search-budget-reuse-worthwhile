@@ -22,6 +22,11 @@ BASELINES = (
     "length_aware_angle",
     "ggr_0",
 )
+MATCHED_CONTROLS = (
+    "geometry_backbone_random",
+    "geometry_backbone_mpcc_shuffled",
+)
+COMPARATORS = (*BASELINES, *MATCHED_CONTROLS)
 GB = "geometry_backbone_mpcc"
 LABELS = (
     "strict_progress",
@@ -126,7 +131,11 @@ def main() -> None:
         raise PermissionError("structural replay firewall failure")
 
     structural = pd.read_csv(structural_path)
-    if len(structural) != 20736 or structural["selected_external_labels"].isna().any():
+    selectors = tuple(structural["selector"].unique())
+    if (
+        len(structural) != 2304 * len(selectors)
+        or structural["selected_external_labels"].isna().any()
+    ):
         raise ValueError("structural selector matrix is incomplete")
     structural_index = {
         (row.dataset, int(row.build_seed), int(row.external_source_label), row.selector): row
@@ -174,7 +183,7 @@ def main() -> None:
             returned = set(parse_labels(state.returned_top10))
             truth = set(parse_labels(state.truth_top10))
             missed_truth = truth - returned
-            for selector in structural["selector"].unique():
+            for selector in selectors:
                 key = (dataset, seed, source_label, selector)
                 if key not in structural_index:
                     raise ValueError(f"trace source absent from structural replay: {key}")
@@ -202,7 +211,9 @@ def main() -> None:
                 }
                 state_records.append(record)
     states = pd.DataFrame.from_records(state_records)
-    if len(states) != sum(run["matched_trace_rows"] for run in trace_manifest["runs"]) * 9:
+    if len(states) != (
+        sum(run["matched_trace_rows"] for run in trace_manifest["runs"]) * len(selectors)
+    ):
         raise RuntimeError("trace selector-state matrix is incomplete")
     states.to_csv(args.output / "per_state_selector.csv.gz", index=False, compression="gzip")
 
@@ -228,7 +239,7 @@ def main() -> None:
     for (dataset, seed), group in events.groupby(["dataset", "build_seed"]):
         indexed = group.set_index(["source_label", "selector"])
         common_sources = sorted(set(group["source_label"]))
-        for baseline in BASELINES:
+        for baseline in COMPARATORS:
             row: dict[str, Any] = {
                 "dataset": dataset,
                 "build_seed": int(seed),
@@ -272,7 +283,7 @@ def main() -> None:
     dataset_directions: dict[str, dict[str, int]] = {}
     for dataset, group in paired.groupby("dataset"):
         dataset_directions[dataset] = {}
-        for baseline in BASELINES:
+        for baseline in COMPARATORS:
             comparison = group[group["baseline"] == baseline]
             dataset_directions[dataset][baseline] = int(
                 (comparison["delta_strict_progress"] > 0).sum()
@@ -280,7 +291,8 @@ def main() -> None:
     metadata = {
         "status": "trace_analysis_complete",
         "state_selector_rows": len(states),
-        "matched_trace_states": len(states) // 9,
+        "matched_trace_states": len(states) // len(selectors),
+        "selectors": list(selectors),
         "reached_events": int(
             events[["dataset", "build_seed", "source_label"]].drop_duplicates().shape[0]
         ),
@@ -320,7 +332,9 @@ def main() -> None:
         "## Proxy calibration",
         "",
         "```text",
-        calibration[calibration["selector"].isin([GB, *BASELINES])].round(6).to_string(index=False),
+        calibration[calibration["selector"].isin([GB, *COMPARATORS])]
+        .round(6)
+        .to_string(index=False),
         "```",
         "",
         "The final PASS/STOP label must be assigned only after checking the preregistered "

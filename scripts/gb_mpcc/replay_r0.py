@@ -30,6 +30,8 @@ from narhnsw.mpcc_selectors import (
     maxmin_angle_select,
     mpcc_select,
     progress_masks,
+    random_backbone_select,
+    shuffled_backbone_mpcc_select,
     shuffled_mpcc_select,
 )
 from narhnsw.resistance import (
@@ -46,6 +48,8 @@ SELECTORS = (
     "ggr_0",
     "geometry_safe_random",
     "mpcc_shuffled",
+    "geometry_backbone_random",
+    "geometry_backbone_mpcc_shuffled",
     "pure_mpcc",
     "geometry_backbone_mpcc",
 )
@@ -293,6 +297,18 @@ def replay_run(
             ).selected,
             "mpcc_shuffled": shuffled_mpcc_select(
                 empirical_masks, budget, np.random.default_rng(event_seed + 30000057)
+            ),
+            "geometry_backbone_random": random_backbone_select(
+                len(rows),
+                budget,
+                algorithm4[: min(12, budget)],
+                np.random.default_rng(event_seed + 40000063),
+            ),
+            "geometry_backbone_mpcc_shuffled": shuffled_backbone_mpcc_select(
+                empirical_masks,
+                budget,
+                algorithm4[: min(12, budget)],
+                np.random.default_rng(event_seed + 50000069),
             ),
             "pure_mpcc": mpcc_select(empirical_masks, budget),
             "geometry_backbone_mpcc": mpcc_select(

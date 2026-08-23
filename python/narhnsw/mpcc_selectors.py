@@ -116,6 +116,7 @@ def length_aware_angle_select(
         if not selected:
             winner = min(remaining, key=lambda i: (lengths[i], int(labels[i])))
         else:
+
             def key(index: int) -> tuple[float, float, int]:
                 cosine = directions[selected] @ directions[index]
                 margin = cosine - lengths[selected] / (2.0 * lengths[index])
@@ -143,3 +144,30 @@ def shuffled_mpcc_select(
     # Candidate ``i`` receives mask ``permutation[i]``.  Return candidate indices
     # in this shuffled assignment; un-permuting here would cancel the control.
     return mpcc_select(masks[permutation], budget)
+
+
+def shuffled_backbone_mpcc_select(
+    masks: NDArray[np.bool_],
+    budget: int,
+    backbone: tuple[int, ...],
+    rng: np.random.Generator,
+) -> tuple[int, ...]:
+    """Shuffle mask identities while retaining the exact frozen backbone slots."""
+
+    permutation = rng.permutation(len(masks))
+    return mpcc_select(masks[permutation], budget, backbone)
+
+
+def random_backbone_select(
+    candidate_count: int,
+    budget: int,
+    backbone: tuple[int, ...],
+    rng: np.random.Generator,
+) -> tuple[int, ...]:
+    """Fill only the flexible slots uniformly without replacement."""
+
+    if not 0 <= len(backbone) <= budget <= candidate_count:
+        raise ValueError("backbone and budget are inconsistent")
+    available = np.asarray(sorted(set(range(candidate_count)) - set(backbone)))
+    added = rng.permutation(available)[: budget - len(backbone)]
+    return tuple(backbone) + tuple(int(item) for item in added)

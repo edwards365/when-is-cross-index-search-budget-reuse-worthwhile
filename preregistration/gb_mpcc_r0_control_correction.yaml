@@ -1,0 +1,45 @@
+version: gb_mpcc_r0_control_correction_v1
+status: frozen_before_budget_matched_control_outputs
+reason: >-
+  Protocol audit before E0 found that the existing MPCC-Shuffled control replaced
+  the full budget and Geometry-Safe-Random matched GGR swaps, so neither matched
+  GB-MPCC's Algorithm-4 backbone and four flexible slots as required by v3.
+correction_type: control_compliance_only_no_parameter_tuning
+parent_protocol: preregistration/gb_mpcc_r0.yaml
+parent_protocol_sha256: ce5f7bac8297c3975ee2485fcb6ce855f087cf1346c2f703029a360a4bf92632
+superseded_decision_commit: 1468c65
+e0_authorization_during_correction: withdrawn
+
+matched_controls:
+  geometry_backbone_random:
+    backbone: first_min_12_budget_algorithm4_candidates
+    flexible_slots: budget_minus_backbone_size
+    rule: uniform_without_replacement_from_non_backbone_candidates
+    seed_formula: 202608240000_plus_build_seed_times_1000003_plus_source_plus_40000063
+  geometry_backbone_mpcc_shuffled:
+    backbone: first_min_12_budget_algorithm4_candidates
+    flexible_slots: budget_minus_backbone_size
+    rule: permute_candidate_identities_attached_to_empirical_masks_then_greedy_fill
+    seed_formula: 202608240000_plus_build_seed_times_1000003_plus_source_plus_50000069
+
+replay_scope:
+  datasets: [sift_10k, glove100_10k, arxiv_nomic_10k]
+  build_seeds: [7, 17, 29]
+  sampled_events_per_run: 256
+  all_existing_selectors_recomputed_unchanged: true
+  trace_addendum_unchanged: true
+  existing_read_only_indexes_may_be_retraced: true
+
+corrected_pass_requires:
+  minimum_datasets: 2
+  non_equivalent_algorithm4_mean_jaccard_below: 0.95
+  strict_progress_positive_vs_all_strong_and_matched_controls: true
+  beam_admissible_positive_vs_all_strong_and_matched_controls: true
+  minimum_positive_seeds_per_dataset: 2
+  gain_not_explained_only_by_edge_length: true
+
+firewall:
+  formal_test_access: forbidden
+  forbidden_hdf5_members: [test, neighbors, distances]
+  labels_may_change_selector_or_state_distribution: false
+  e1_authorized: false

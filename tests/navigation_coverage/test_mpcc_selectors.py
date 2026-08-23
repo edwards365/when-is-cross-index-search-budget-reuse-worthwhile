@@ -6,6 +6,8 @@ from narhnsw.mpcc_selectors import (
     maxmin_angle_select,
     mpcc_select,
     progress_masks,
+    random_backbone_select,
+    shuffled_backbone_mpcc_select,
     shuffled_mpcc_select,
 )
 
@@ -38,9 +40,7 @@ def test_angle_selectors_fill_budget_deterministically() -> None:
 
 
 def test_mpcc_backbone_is_retained() -> None:
-    masks = np.array(
-        [[True, False, False], [False, True, False], [False, False, True]], dtype=bool
-    )
+    masks = np.array([[True, False, False], [False, True, False], [False, False, True]], dtype=bool)
     assert mpcc_select(masks, 2, (1,))[0] == 1
 
 
@@ -59,3 +59,13 @@ def test_shuffled_mpcc_returns_original_candidate_coordinates() -> None:
     expected_permutation = np.random.default_rng(seed).permutation(len(masks))
     selected = shuffled_mpcc_select(masks, 1, np.random.default_rng(seed))
     assert selected == (int(np.flatnonzero(expected_permutation == 0)[0]),)
+
+
+def test_matched_controls_retain_backbone_and_fill_only_flexible_slots() -> None:
+    masks = np.eye(8, dtype=bool)
+    backbone = (1, 3, 5, 7)
+    shuffled = shuffled_backbone_mpcc_select(masks, 6, backbone, np.random.default_rng(17))
+    random = random_backbone_select(8, 6, backbone, np.random.default_rng(17))
+    for selected in (shuffled, random):
+        assert selected[: len(backbone)] == backbone
+        assert len(selected) == len(set(selected)) == 6

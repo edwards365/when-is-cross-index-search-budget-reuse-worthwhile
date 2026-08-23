@@ -30,6 +30,15 @@ equal to the number accepted by the recorded Algorithm 4 event (at most 16).
   candidates and fill remaining slots by maximum marginal empirical-direction
   coverage. The production claim concerns this version; Pure-MPCC is only a
   distinguishability upper diagnostic.
+- **Geometry-Backbone-Random**: retain exactly the same Algorithm 4 backbone and
+  fill exactly the same number of flexible slots by uniform sampling without
+  replacement.
+- **Geometry-Backbone-MPCC-Shuffled**: retain exactly the same Algorithm 4
+  backbone and flexible-slot budget, but randomly permute candidate identities
+  attached to empirical coverage masks before greedy filling.
+
+The earlier Pure-MPCC-Shuffled and Geometry-Safe-Random selectors remain useful
+diagnostics but are not budget-matched controls for GB-MPCC.
 
 All greedy ties are deterministic. State samples, local scale, radii, and seeds are
 those frozen in `preregistration/gb_mpcc_r0.yaml`. Isotropic-Sphere remains a negative
