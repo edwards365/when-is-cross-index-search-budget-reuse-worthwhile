@@ -1,0 +1,64 @@
+version: gb_mpcc_r0_trace_addendum_v1
+status: frozen_before_reading_query_trace_events
+reason: >-
+  The original R0 preregistration froze query IDs and diagnostic labels but did
+  not freeze efSearch values, trace indexes, or the exact operational labels.
+  This addendum closes that gap before any R0 query trace event is generated.
+parent_protocol: preregistration/gb_mpcc_r0.yaml
+parent_protocol_sha256: ce5f7bac8297c3975ee2485fcb6ce855f087cf1346c2f703029a360a4bf92632
+structural_replay_fix_commit: 084643e
+
+data_role: existing_gate_a_design_dev_only
+query_ids: {start_inclusive: 0, stop_exclusive: 500}
+ef_search: [10, 20, 40, 80, 120, 200]
+ef_source: frozen_gate_a_base_grid
+index_policy:
+  mode: load_existing_original_hnsw_index_read_only
+  mutation: forbidden
+  construction: forbidden
+  datasets:
+    sift_10k: results/gate_a/raw/sift_100k-original-b{seed}/index.bin
+    glove100_10k: results/gate_a/raw/glove100_100k-original-b{seed}/index.bin
+    arxiv_nomic_10k: results/gate_a/raw/arxiv_nomic_100k-original-b{seed}/index.bin
+  build_seeds: [7, 17, 29]
+
+trace_scope:
+  phase: base_layer
+  event: expanded
+  center_match: external_source_label_of_sampled_r0_event
+  candidate_labels: selected_external_labels_from_structural_replay
+  repeated_center_policy: retain_first_expansion_per_query_ef_center
+
+operational_labels:
+  strict_progress: selected_candidate_distance_lt_center_distance
+  multiplicative_progress_eta_0_05: selected_candidate_distance_le_0_95_times_center_distance
+  beam_admissible: selected_candidate_distance_lt_expansion_lower_bound
+  expanded: selected_candidate_appears_as_a_later_base_layer_expansion
+  missed_true_neighbor_opportunity: >-
+    selected candidate belongs to design-dev exact top-10 but not the Original
+    returned top-10 for that query
+
+ranking_and_calibration:
+  unit: sampled_event_with_at_least_one_matched_route_state
+  selector_score: mean_binary_label_over_matched_query_ef_states
+  proxy_score: frozen_empirical_direction_hard_progress_coverage
+  report:
+    - reached_event_fraction
+    - state_count
+    - selector_label_rates
+    - paired_selector_differences_by_dataset_and_seed
+    - spearman_proxy_real_correlation
+    - mean_absolute_calibration_error
+  pass_comparators: [algorithm4, geometry, maxmin_angle, length_aware_angle, ggr_0]
+
+firewall:
+  allowed:
+    - exported_train_prefix_vectors
+    - existing_original_gate_a_indexes
+    - frozen_gate_a_design_dev_queries
+    - frozen_gate_a_design_dev_ground_truth
+    - existing_gate_a_query_summaries
+  forbidden_hdf5_members: [test, neighbors, distances]
+  formal_test_access: forbidden
+  labels_may_change_selector_or_state_distribution: false
+  graph_gate_e0_authorized: false

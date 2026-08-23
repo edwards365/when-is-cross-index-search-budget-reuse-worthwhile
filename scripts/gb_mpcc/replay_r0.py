@@ -310,6 +310,9 @@ def replay_run(
                 "candidate_count": len(rows),
                 "budget": budget,
                 "selector": selector,
+                "selected_external_labels": ";".join(
+                    str(int(external_candidates[index])) for index in selected
+                ),
                 "ggr_swap_count": len(ggr.swaps),
             }
             record.update(
