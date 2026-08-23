@@ -13,6 +13,7 @@ from pathlib import Path
 
 import h5py
 import numpy as np
+from narhnsw.coverage_objective import greedy_incremental_hard_coverage, hard_coverage
 from scipy.special import betainc
 
 DATASETS = {
@@ -92,6 +93,28 @@ def analytic_union_bound(thresholds: np.ndarray, dimension: int) -> np.ndarray:
     return np.minimum(1.0, masses.sum(axis=0))
 
 
+def algorithm4_select(displacements: np.ndarray, budget: int = 16) -> tuple[int, ...]:
+    lengths = np.linalg.norm(displacements, axis=1)
+    ordered = sorted(range(len(displacements)), key=lambda index: (lengths[index], index))
+    selected: list[int] = []
+    for candidate in ordered:
+        if len(selected) >= budget:
+            break
+        occluded = any(
+            np.linalg.norm(displacements[candidate] - displacements[blocker])
+            < lengths[candidate]
+            for blocker in selected
+        )
+        if not occluded:
+            selected.append(candidate)
+    return tuple(selected)
+
+
+def jaccard(left: tuple[int, ...], right: tuple[int, ...]) -> float:
+    union = set(left) | set(right)
+    return len(set(left) & set(right)) / len(union) if union else 1.0
+
+
 def audit_dataset(
     dataset: str,
     path: Path,
@@ -122,10 +145,23 @@ def audit_dataset(
         analytic_local = analytic_union_bound(thresholds, cap_dimension)
         analytic_ambient = analytic_union_bound(thresholds, vectors.shape[1])
         model_coverage: dict[str, np.ndarray] = {}
+        empirical_masks: np.ndarray | None = None
         for model in ("empirical_direction", "local_pca", "isotropic_sphere"):
             directions = state_directions(model, displacements, samples, rng)
             masks = candidate_directions @ directions.T > thresholds
             model_coverage[model] = np.any(masks, axis=0)
+            if model == "empirical_direction":
+                empirical_masks = masks
+        if empirical_masks is None:
+            raise AssertionError("empirical masks were not generated")
+        algorithm4 = algorithm4_select(candidate_displacements)
+        mpcc = greedy_incremental_hard_coverage(
+            empirical_masks, (), range(len(candidate_displacements)), len(algorithm4)
+        )
+        selection_jaccard = jaccard(algorithm4, mpcc)
+        incremental_empirical_coverage = hard_coverage(
+            empirical_masks, mpcc
+        ) - hard_coverage(empirical_masks, algorithm4)
         for bin_name in RHO_BINS:
             selected = bin_labels == bin_name
             rows.append(
@@ -134,6 +170,9 @@ def audit_dataset(
                     "rho_bin": bin_name,
                     "local_dimension": lid,
                     "cap_dimension_rounded": cap_dimension,
+                    "algorithm4_selected": len(algorithm4),
+                    "pure_mpcc_algorithm4_jaccard": selection_jaccard,
+                    "pure_mpcc_incremental_empirical_coverage": incremental_empirical_coverage,
                     "analytic_local_dimension_union_bound": float(
                         np.mean(analytic_local[selected])
                     ),
@@ -172,6 +211,26 @@ def audit_dataset(
         for bin_name in RHO_BINS
         if summaries[bin_name]["analytic_ambient_dimension_union_bound"]["median"] < 0.05
     ]
+    unique_centers = {int(row["center_id"]): row for row in rows}.values()
+    overlap = {
+        "median_jaccard": float(
+            np.median([float(row["pure_mpcc_algorithm4_jaccard"]) for row in unique_centers])
+        ),
+        "fraction_jaccard_above_0_95": float(
+            np.mean(
+                [
+                    float(row["pure_mpcc_algorithm4_jaccard"]) > 0.95
+                    for row in unique_centers
+                ]
+            )
+        ),
+        "median_incremental_empirical_coverage": float(
+            np.median(
+                [float(row["pure_mpcc_incremental_empirical_coverage"]) for row in unique_centers]
+            )
+        ),
+        "scope": "pure equal-budget objective distinguishability on exact-kNN proxy pool",
+    }
     return {
         "dataset": dataset,
         "dimensions": int(vectors.shape[1]),
@@ -190,6 +249,7 @@ def audit_dataset(
         "rho_bins": summaries,
         "empirical_direction_nondegenerate": empirical_nondegenerate,
         "isotropic_ambient_degenerate_bins": isotropic_degenerate_bins,
+        "algorithm4_overlap": overlap,
         "node_rows": rows,
     }
 
@@ -217,6 +277,24 @@ def render_report(result: dict[str, object]) -> str:
                 f"{values['local_pca_coverage']['median']:.4f} | "
                 f"{values['isotropic_sphere_coverage']['median']:.4f} |"
             )
+    lines += [
+        "",
+        "## Pure-objective overlap diagnostic",
+        "",
+        "This equal-budget check compares Algorithm 4 with pure empirical MPCC on the",
+        "same proxy pool. It establishes objective distinguishability only; it is not the",
+        "frozen-backbone production selector and does not replace Replay Gate R0.",
+        "",
+        "| Dataset | Median Jaccard | Fraction Jaccard > 0.95 | Median coverage gain |",
+        "| --- | ---: | ---: | ---: |",
+    ]
+    for dataset in result["datasets"]:
+        overlap = dataset["algorithm4_overlap"]
+        lines.append(
+            f"| {dataset['dataset']} | {overlap['median_jaccard']:.4f} | "
+            f"{overlap['fraction_jaccard_above_0_95']:.4f} | "
+            f"{overlap['median_incremental_empirical_coverage']:+.4f} |"
+        )
     lines += [
         "",
         f"Frozen T0 capacity status: **{result['capacity_status']}**.",
