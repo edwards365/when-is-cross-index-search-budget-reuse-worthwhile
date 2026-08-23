@@ -1,0 +1,103 @@
+version: gb_mpcc_r0_v1
+status: frozen_before_r0_candidate_generation
+parent_t0_commit: ae57dd8
+gate: replay_r0
+formal_test_gate: closed
+allowed_hdf5_members: [train]
+forbidden_hdf5_members: [test, neighbors, distances]
+
+datasets:
+  - {id: sift_10k, manifest: data/manifests/sift1m.yaml, vectors: 10000, normalized: false}
+  - {id: glove100_10k, manifest: data/manifests/glove100.yaml, vectors: 10000, normalized: true}
+  - {id: arxiv_nomic_10k, manifest: data/manifests/vibe_arxiv_nomic.yaml, vectors: 10000, normalized: true}
+
+original_candidate_recording:
+  implementation: instrumented_original_hnswlib_insertion_replay
+  M: 16
+  ef_construction: 100
+  distance: squared_l2
+  build_seeds: [7, 17, 29]
+  insertion_order: seeded_random_permutation_of_external_labels
+  levels: [0]
+  save_index: false
+  compress_candidate_csv_after_validation: true
+  minimum_free_disk_gib: 10
+
+replay_sampling:
+  eligible_event:
+    - layer_is_zero
+    - at_least_16_distinct_candidates
+    - algorithm4_selected_set_nonempty
+  maximum_events_per_dataset_seed: 256
+  deterministic_order: sha256_of_dataset_seed_insertion_id_then_ascending_digest
+  no_query_labels_used_for_event_selection: true
+
+state_distribution:
+  state_samples: 2048
+  seed_formula: 202608240000 + build_seed_times_1000003 + external_source_label
+  local_scale: distance_to_16th_nonself_base_neighbor
+  rho_bins:
+    near: [0.75, 1.25]
+    medium: [1.25, 2.5]
+    far: [2.5, 5.0]
+  rho_bin_weights: [0.3333333333, 0.3333333334, 0.3333333333]
+  models: [empirical_direction, local_pca, isotropic_sphere]
+  isotropic_sphere_role: frozen_negative_reference_only
+
+selectors:
+  - algorithm4
+  - geometry
+  - maxmin_angle
+  - length_aware_angle
+  - ggr_0
+  - geometry_safe_random
+  - mpcc_shuffled
+  - pure_mpcc
+  - geometry_backbone_mpcc
+  geometry_backbone:
+    mandatory_slots: 12
+    flexible_slots: 4
+  tie_break: [larger_gain, shorter_edge, smaller_external_label]
+
+structural_metrics:
+  - selected_count
+  - algorithm4_jaccard
+  - geometry_jaccard
+  - changed_node_fraction
+  - changed_edge_fraction
+  - hard_progress_coverage_by_scale
+  - multiplicative_progress_coverage_eta_0_05
+  - best_progress_rate
+  - edge_length_distribution
+  - pairwise_angle_distribution
+
+development_trace_diagnostics:
+  split: design_dev_only
+  query_ids: {start_inclusive: 0, stop_exclusive: 500}
+  permitted_labels: [strict_progress, multiplicative_progress, beam_admissible, expanded]
+  labels_may_change_selector_or_state_distribution: false
+  validation_dev_access: forbidden_during_r0
+
+pass:
+  minimum_datasets: 2
+  require_nonempty_and_not_algorithm4_equivalent: true
+  maximum_equivalence_jaccard: 0.95
+  require_better_mechanism_ranking_than:
+    - algorithm4
+    - geometry
+    - maxmin_angle
+    - length_aware_angle
+    - ggr_0
+  require_majority_seed_direction: true
+  require_gain_not_explained_only_by_edge_length: true
+
+stop:
+  - equivalent_to_algorithm4_or_length_aware_angle
+  - no_consistent_mechanism_gain_on_two_datasets
+  - query_trajectory_required_for_construction_score
+  - storage_below_safety_gate
+
+authorization_after_r0:
+  graph_gate_e0: only_after_committed_r0_pass
+  performance_gate_e1: false
+  formal_gate_e2: false

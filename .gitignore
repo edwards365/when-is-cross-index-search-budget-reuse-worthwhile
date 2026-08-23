@@ -31,6 +31,7 @@ indexes/**
 results/raw/**
 !results/raw/.gitkeep
 results/processed/*.parquet
+results/gb_mpcc/r0_inputs/*.fbin
 *.hnsw
 *.index
 *.npy

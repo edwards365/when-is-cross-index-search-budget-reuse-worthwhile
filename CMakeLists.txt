@@ -25,6 +25,9 @@ target_include_directories(hnsw_apply_selection_plan PRIVATE cpp/include third_p
 add_executable(hnsw_gate_a_benchmark cpp/src/hnsw_gate_a_benchmark.cpp)
 target_include_directories(hnsw_gate_a_benchmark PRIVATE cpp/include third_party/hnswlib)
 
+add_executable(hnsw_record_candidates cpp/src/hnsw_record_candidates.cpp)
+target_include_directories(hnsw_record_candidates PRIVATE cpp/include third_party/hnswlib)
+
 enable_testing()
 add_executable(test_resistance_cpp tests/cpp/test_resistance.cpp)
 target_link_libraries(test_resistance_cpp PRIVATE narhnsw_core)
