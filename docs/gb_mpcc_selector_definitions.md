@@ -22,6 +22,8 @@ equal to the number accepted by the recorded Algorithm 4 event (at most 16).
   count matched to GGR-0 and deterministic event seed.
 - **MPCC-Shuffled**: permute candidate identities attached to frozen coverage masks,
   then run the unchanged coverage greedy rule with an event-deterministic seed.
+  The selected row positions are the candidate identities; they must not be mapped
+  back through the permutation, which would cancel this negative control.
 - **Pure-MPCC**: greedily maximize hard empirical-direction multi-scale union
   coverage under the common budget.
 - **Geometry-Backbone-MPCC**: retain the first `min(12,budget)` recorded Algorithm 4

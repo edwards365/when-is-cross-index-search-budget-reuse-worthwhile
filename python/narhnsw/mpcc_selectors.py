@@ -140,5 +140,6 @@ def shuffled_mpcc_select(
     masks: NDArray[np.bool_], budget: int, rng: np.random.Generator
 ) -> tuple[int, ...]:
     permutation = rng.permutation(len(masks))
-    selected_in_permuted_coordinates = mpcc_select(masks[permutation], budget)
-    return tuple(int(permutation[index]) for index in selected_in_permuted_coordinates)
+    # Candidate ``i`` receives mask ``permutation[i]``.  Return candidate indices
+    # in this shuffled assignment; un-permuting here would cancel the control.
+    return mpcc_select(masks[permutation], budget)

@@ -45,8 +45,17 @@ def test_mpcc_backbone_is_retained() -> None:
 
 
 def test_shuffled_mpcc_returns_original_candidate_coordinates() -> None:
-    masks = np.eye(5, dtype=bool)
+    masks = np.array(
+        [
+            [True, True, True, True],
+            [True, False, False, False],
+            [False, True, False, False],
+            [False, False, True, False],
+            [False, False, False, True],
+        ],
+        dtype=bool,
+    )
     seed = 31
     expected_permutation = np.random.default_rng(seed).permutation(len(masks))
-    selected = shuffled_mpcc_select(masks, 2, np.random.default_rng(seed))
-    assert selected == tuple(int(item) for item in expected_permutation[:2])
+    selected = shuffled_mpcc_select(masks, 1, np.random.default_rng(seed))
+    assert selected == (int(np.flatnonzero(expected_permutation == 0)[0]),)
