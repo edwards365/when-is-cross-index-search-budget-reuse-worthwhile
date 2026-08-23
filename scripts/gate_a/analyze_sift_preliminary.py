@@ -27,8 +27,20 @@ def run_name(method: str, build_seed: int, control_seed: int | None = None) -> s
 
 
 def load_run(raw: Path, name: str, *, add_midpoints: bool) -> pd.DataFrame:
+    metadata = json.loads((raw / name / "metadata.json").read_text(encoding="utf-8"))
+    if metadata.get("status") != "complete":
+        raise ValueError(f"{name}: run is not complete")
+    if metadata.get("formal_test_members_accessed") is not False:
+        raise ValueError(f"{name}: formal test access audit failed")
     parts = [pd.read_csv(raw / name / "queries.csv")]
     if add_midpoints:
+        midpoint_metadata = json.loads(
+            (raw / f"{name}-midpoints" / "metadata.json").read_text(encoding="utf-8")
+        )
+        if midpoint_metadata.get("status") != "complete":
+            raise ValueError(f"{name}-midpoints: run is not complete")
+        if midpoint_metadata.get("formal_test_members_accessed") is not False:
+            raise ValueError(f"{name}-midpoints: formal test access audit failed")
         parts.append(pd.read_csv(raw / f"{name}-midpoints" / "queries.csv"))
     frame = collapse_latency_rounds(pd.concat(parts, ignore_index=True))
     observed = set(frame["ef_search"].unique())
@@ -93,6 +105,23 @@ def main() -> None:
     geometry = primary[primary.method == "geometry"].set_index("build_seed")
     ggr = primary[primary.method == "ggr_0"].set_index("build_seed")
     improvements = 100 * (geometry.ndc_cost - ggr.ndc_cost) / geometry.ndc_cost
+    comparisons: dict[str, dict[str, float]] = {}
+    for build_seed in BUILD_SEEDS:
+        build = primary[primary.build_seed == build_seed]
+        ggr_cost = float(build[build.method == "ggr_0"].ndc_cost.iloc[0])
+        baselines = {
+            "geometry": float(build[build.method == "geometry"].ndc_cost.iloc[0]),
+            "original": float(build[build.method == "original"].ndc_cost.iloc[0]),
+            "geometry_safe_random_mean": float(
+                build[build.method == "geometry_safe_random"].ndc_cost.mean()
+            ),
+            "shuffled_resistance_mean": float(
+                build[build.method == "shuffled_resistance"].ndc_cost.mean()
+            ),
+        }
+        comparisons[str(build_seed)] = {
+            name: 100 * (cost - ggr_cost) / cost for name, cost in baselines.items()
+        }
     summary = {
         "scope": "sealed-development SIFT only; not a final Gate-A verdict",
         "formal_test_members_accessed": False,
@@ -106,6 +135,7 @@ def main() -> None:
         "ggr_vs_geometry_improvement_percent_mean": float(improvements.mean()),
         "ggr_vs_geometry_improvement_positive_builds": int((improvements > 0).sum()),
         "ggr_vs_geometry_improvement_ge_1pct_builds": int((improvements >= 1).sum()),
+        "ggr_improvement_percent_vs_primary_baselines_by_build": comparisons,
     }
     args.output.mkdir(parents=True, exist_ok=True)
     curve.to_csv(args.output / "sift_100k-gate-a-curve.csv", index=False)
