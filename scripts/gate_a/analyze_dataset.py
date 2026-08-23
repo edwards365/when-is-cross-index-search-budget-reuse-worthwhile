@@ -44,6 +44,7 @@ def main() -> None:
     parser.add_argument("--dataset", required=True)
     parser.add_argument("--raw", type=Path, default=Path("results/gate_a/raw"))
     parser.add_argument("--output", type=Path, default=Path("results/gate_a/derived"))
+    parser.add_argument("--include-midpoints", action="store_true")
     args = parser.parse_args()
 
     frames = []
@@ -67,15 +68,15 @@ def main() -> None:
             raise ValueError(f"{name}: run-key mismatch")
         frames.append(frame)
 
-    queries = pd.concat(frames, ignore_index=True)
-    curve = curve_summary(queries)
+    base_queries = pd.concat(frames, ignore_index=True)
+    base_curve = curve_summary(base_queries)
     triggered: list[int] = []
     trigger_evidence = []
     for low, high, midpoint in zip(BASE_EF[:-1], BASE_EF[1:], MIDPOINTS, strict=True):
-        low_curve = curve[curve.ef_search == low].set_index(
+        low_curve = base_curve[base_curve.ef_search == low].set_index(
             ["method", "build_seed", "control_seed"]
         )
-        high_curve = curve[curve.ef_search == high].set_index(
+        high_curve = base_curve[base_curve.ef_search == high].set_index(
             ["method", "build_seed", "control_seed"]
         )
         thresholds = []
@@ -100,6 +101,34 @@ def main() -> None:
             }
         )
 
+    if args.include_midpoints:
+        if not triggered:
+            raise ValueError("midpoint inclusion requested but no midpoint was triggered")
+        for name, method, build_seed, control_seed in expected_runs(args.dataset):
+            supplement = args.raw / f"{name}-midpoints"
+            metadata = json.loads(
+                (supplement / "metadata.json").read_text(encoding="utf-8")
+            )
+            if metadata.get("status") != "complete":
+                raise ValueError(f"{name}-midpoints: incomplete")
+            if metadata.get("formal_test_members_accessed") is not False:
+                raise ValueError(f"{name}-midpoints: formal test access audit failed")
+            frame = collapse_latency_rounds(pd.read_csv(supplement / "queries.csv"))
+            if len(frame) != len(triggered) * 1000 or frame.query_id.nunique() != 1000:
+                raise ValueError(f"{name}-midpoints: incomplete queries")
+            if set(frame.ef_search.unique()) != set(triggered):
+                raise ValueError(f"{name}-midpoints: ef values differ from triggered grid")
+            if (
+                set(frame.method) != {method}
+                or set(frame.build_seed) != {build_seed}
+                or (control_seed is not None and set(frame.control_seed) != {control_seed})
+            ):
+                raise ValueError(f"{name}-midpoints: run-key mismatch")
+            frames.append(frame)
+
+    queries = pd.concat(frames, ignore_index=True)
+    curve = curve_summary(queries)
+
     matched_rows = []
     for key, group in curve.groupby(["method", "build_seed", "control_seed"], dropna=False):
         method, build_seed, control_seed = key
@@ -119,15 +148,53 @@ def main() -> None:
                 }
             )
     matched = pd.DataFrame(matched_rows)
+    primary = matched[
+        (matched.target_recall == 0.95) & (matched.ndc_quantile == 0.95)
+    ]
+    primary_comparisons = {}
+    for build_seed in BUILD_SEEDS:
+        build = primary[primary.build_seed == build_seed]
+        ggr = build[build.method == "ggr_0"].iloc[0]
+        baselines = {
+            "geometry": build[build.method == "geometry"].ndc_cost.mean(),
+            "original": build[build.method == "original"].ndc_cost.mean(),
+            "geometry_safe_random_mean": build[
+                build.method == "geometry_safe_random"
+            ].ndc_cost.mean(),
+            "shuffled_resistance_mean": build[
+                build.method == "shuffled_resistance"
+            ].ndc_cost.mean(),
+        }
+        comparisons = {}
+        for baseline, cost in baselines.items():
+            if pd.isna(ggr.ndc_cost) or pd.isna(cost):
+                comparisons[baseline] = None
+            else:
+                comparisons[baseline] = float(100 * (ggr.ndc_cost - cost) / cost)
+        primary_comparisons[str(build_seed)] = {
+            "ggr_ndc_cost": None if pd.isna(ggr.ndc_cost) else float(ggr.ndc_cost),
+            "ggr_observed_recall": (
+                None if pd.isna(ggr.observed_recall) else float(ggr.observed_recall)
+            ),
+            "ggr_minus_baseline_percent": comparisons,
+        }
     args.output.mkdir(parents=True, exist_ok=True)
-    curve.to_csv(args.output / f"{args.dataset}-gate-a-curve.csv", index=False)
-    matched.to_csv(args.output / f"{args.dataset}-gate-a-matched-recall.csv", index=False)
+    result_stage = "final" if args.include_midpoints else "base"
+    curve.to_csv(
+        args.output / f"{args.dataset}-gate-a-{result_stage}-curve.csv", index=False
+    )
+    matched.to_csv(
+        args.output / f"{args.dataset}-gate-a-{result_stage}-matched-recall.csv",
+        index=False,
+    )
     summary = {
         "dataset": args.dataset,
         "complete_main_runs": 27,
         "formal_test_members_accessed": False,
         "triggered_midpoints": triggered,
         "trigger_evidence": trigger_evidence,
+        "result_stage": result_stage,
+        "primary_comparisons": primary_comparisons,
     }
     (args.output / f"{args.dataset}-gate-a-base-summary.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
