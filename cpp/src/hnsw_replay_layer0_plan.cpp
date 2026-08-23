@@ -47,6 +47,7 @@ Plan read_plan(const std::filesystem::path& path, std::size_t points, std::size_
     Plan plan;
     std::string line;
     while (std::getline(input, line)) {
+        if (!line.empty() && line.back() == '\r') line.pop_back();
         if (line.empty() || line == "source,target") continue;
         const auto comma = line.find(',');
         if (comma == std::string::npos) throw std::runtime_error("invalid selection-plan row");
