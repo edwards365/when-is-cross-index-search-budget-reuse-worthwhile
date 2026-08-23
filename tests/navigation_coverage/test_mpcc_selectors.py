@@ -6,6 +6,7 @@ from narhnsw.mpcc_selectors import (
     maxmin_angle_select,
     mpcc_select,
     progress_masks,
+    shuffled_mpcc_select,
 )
 
 
@@ -41,3 +42,11 @@ def test_mpcc_backbone_is_retained() -> None:
         [[True, False, False], [False, True, False], [False, False, True]], dtype=bool
     )
     assert mpcc_select(masks, 2, (1,))[0] == 1
+
+
+def test_shuffled_mpcc_returns_original_candidate_coordinates() -> None:
+    masks = np.eye(5, dtype=bool)
+    seed = 31
+    expected_permutation = np.random.default_rng(seed).permutation(len(masks))
+    selected = shuffled_mpcc_select(masks, 2, np.random.default_rng(seed))
+    assert selected == tuple(int(item) for item in expected_permutation[:2])

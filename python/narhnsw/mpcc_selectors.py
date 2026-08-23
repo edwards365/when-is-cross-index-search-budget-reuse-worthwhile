@@ -140,4 +140,5 @@ def shuffled_mpcc_select(
     masks: NDArray[np.bool_], budget: int, rng: np.random.Generator
 ) -> tuple[int, ...]:
     permutation = rng.permutation(len(masks))
-    return mpcc_select(masks[permutation], budget)
+    selected_in_permuted_coordinates = mpcc_select(masks[permutation], budget)
+    return tuple(int(permutation[index]) for index in selected_in_permuted_coordinates)
