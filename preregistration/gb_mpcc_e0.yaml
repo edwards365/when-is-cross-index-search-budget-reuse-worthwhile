@@ -1,0 +1,244 @@
+version: gb_mpcc_e0_v1
+status: frozen_before_graph_construction
+gate: graph_gate_e0
+parent_r0_commit: 7d36ae9
+parent_r0_decision: PASS_TO_GRAPH_E0
+parent_r0_decision_path: manifests/gb_mpcc_r0_decision.json
+formal_test_gate: closed
+
+scientific_scope:
+  design: fixed_original_candidate_stream_counterfactual_insertion_time_layer0
+  claim_allowed: final_graph_local_mechanism_validation
+  claim_forbidden:
+    - adaptive_candidate_feedback_production_integration
+    - 100k_performance_improvement
+    - formal_test_generalization
+  rationale: >-
+    Every selector receives the same genuine Original-HNSW insertion candidate
+    pool, level assignment, insertion order, source budget, and reverse-pruning
+    rule. This isolates neighbor selection while producing a complete searchable
+    final graph. Candidate-pool feedback is intentionally outside E0.
+
+firewall:
+  allowed_hdf5_members: [train]
+  forbidden_hdf5_members: [test, neighbors, distances]
+  allowed_query_role: frozen_design_dev_only
+  validation_dev_access: forbidden
+  formal_test_access: forbidden
+  query_or_truth_may_affect_construction: false
+  e1_authorized: false
+
+datasets:
+  - id: sift_10k
+    manifest: data/manifests/sift1m.yaml
+    vectors: 10000
+    dimensions: 128
+    normalized: false
+    metric: squared_l2
+    design_queries: results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_queries.npy
+  - id: glove100_10k
+    manifest: data/manifests/glove100.yaml
+    vectors: 10000
+    dimensions: 100
+    normalized: true
+    metric: one_minus_inner_product
+    design_queries: results/raw/phase2_gatea_development_data_v2/glove-100-angular_queries.npy
+  - id: arxiv_nomic_10k
+    manifest: data/manifests/vibe_arxiv_nomic.yaml
+    vectors: 10000
+    dimensions: 768
+    normalized: true
+    metric: one_minus_inner_product
+    design_queries: results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_queries.npy
+
+design_dev:
+  query_ids: {start_inclusive: 0, stop_exclusive: 500}
+  truth: exact_top10_over_same_first_10k_normalized_base
+  truth_generation: blocked_matrix_exact_distance_with_stable_label_tie_break
+  construction_access: forbidden
+
+base_hnsw:
+  M: 16
+  maxM0: 32
+  ef_construction: 100
+  build_seeds: [7, 17, 29]
+  insertion_order: seeded_random_permutation_of_external_labels
+  threads: 1
+  upper_layers: reconstructed_original_hnsw_and_held_identical_across_methods
+  layer0_candidate_source: results/gb_mpcc/r0_candidates/{dataset}-b{seed}
+  candidate_manifest: manifests/gb_mpcc_r0_candidates.json
+  candidate_stream_frozen_from_original_hnsw: true
+  candidate_pool_feedback_enabled: false
+
+counterfactual_layer0_construction:
+  processing_order: ascending_internal_insertion_id
+  source_budget: recorded_algorithm4_accepted_count_at_that_insertion
+  source_selection_applied_before_reciprocal_updates: true
+  reciprocal_rule: hnswlib_capacity_check_then_algorithm4_reverse_pruning
+  reciprocal_capacity: 32
+  later_insertions_may_reverse_prune_earlier_edges: true
+  graph_materialization: overwrite_every_layer0_list_in_rebuilt_original_index
+  original_reproduction_required: exact_directed_layer0_edge_equality
+  invariants:
+    - no_self_edges
+    - no_duplicate_neighbors
+    - maximum_layer0_degree_32
+    - every_endpoint_in_range
+    - unchanged_upper_layer_checksums_across_methods
+
+state_distribution:
+  model: empirical_direction
+  state_samples: 2048
+  local_neighbors: exact_64_nonself_neighbors_in_first_10k_base
+  local_scale: distance_to_16th_nonself_neighbor
+  radii_bins:
+    near: [0.75, 1.25]
+    medium: [1.25, 2.5]
+    far: [2.5, 5.0]
+  bin_weights: [0.3333333333, 0.3333333334, 0.3333333333]
+  seed_formula: 202608240000_plus_build_seed_times_1000003_plus_external_source_label
+  precompute_from_complete_base: true
+  query_independent: true
+  note: batch_construction_not_streaming
+
+methods:
+  shared:
+    - original_algorithm4
+    - geometry
+    - maxmin_angle
+    - ggr_0
+  length_aware_angle:
+    execution: alias_original_after_exact_selection_equality_audit
+  primary_R: 4
+  ablation_R: [1, 2]
+  r_values: [1, 2, 4]
+  r_specific:
+    - geometry_backbone_mpcc
+    - geometry_backbone_random
+    - geometry_backbone_mpcc_shuffled
+  backbone_rule: first_max_0_budget_minus_R_recorded_algorithm4_candidates
+  flexible_slots: min_R_budget
+  geometry: {alpha: 0.0, beta: 1.0, gamma: 1.0, sigma: 0.5, rho: median_center_candidate_distance}
+  ggr: {epsilon: 0.0, geometry_tolerance: 1.0e-12, leverage_tolerance: 1.0e-12, scheme: A}
+  matched_random_seed_offset: 40000063
+  matched_shuffled_seed_offset: 50000069
+  tie_break: [larger_gain, shorter_edge, smaller_external_label]
+  distinct_graphs_per_dataset_seed: 13
+  total_graph_runs: 117
+
+search:
+  query_ids: {start_inclusive: 0, stop_exclusive: 500}
+  k: 10
+  ef_search: [10, 20, 40, 80, 120, 200]
+  entry_and_upper_search: unchanged_hnsw
+  exact_ndc_counter: true
+  trace_validation: every_graph_search_result_and_ndc_matches_reference_searchKnn
+  latency_role: diagnostic_only
+  latency_rounds: 3
+  warmup_queries: 100
+
+graph_metrics:
+  - planned_and_final_directed_edge_jaccard
+  - changed_source_fraction
+  - changed_directed_edge_fraction
+  - source_edge_immediate_retention
+  - source_edge_final_retention
+  - reciprocal_edge_immediate_retention
+  - reciprocal_edge_final_retention
+  - weak_component_count
+  - strong_component_count
+  - largest_weak_and_strong_component_fraction
+  - in_and_out_degree_distribution
+  - reciprocal_directed_fraction
+  - local_clustering
+  - edge_length_and_pairwise_angle_distribution
+  - upper_layer_checksum_equality
+
+navigation_metrics:
+  - strict_progress_rate_on_expanded_states
+  - multiplicative_progress_eta_0_05_rate
+  - beam_admissible_progress_rate
+  - local_minimum_expansion_fraction
+  - mean_hops
+  - mean_and_p50_p95_p99_base_expansions
+  - mean_and_p50_p95_p99_ndc
+  - recall_at_1
+  - recall_at_10
+  - p50_p95_p99_latency_diagnostic
+
+resource_metrics:
+  - selector_seconds
+  - graph_materialization_seconds
+  - search_seconds
+  - peak_rss_bytes
+  - state_cache_bytes
+  - compressed_result_bytes
+  - overhead_relative_to_original_reconstruction
+resource_metrics_note: fixed_candidate_counterfactual_overhead_is_not_production_build_overhead
+
+statistics:
+  pairing: same_dataset_seed_query_ef
+  primary_R_only_for_gate: 4
+  ablations_cannot_rescue_primary_R: true
+  bootstrap_replicates: 2000
+  bootstrap_seed: 2026082402
+  resampling_unit: query_within_dataset_seed_then_seed_summary
+  report_effects_and_95_percent_intervals: true
+  multiple_comparison: holm_within_primary_metric_family
+  no_ef_point_treated_as_independent_replication: true
+
+pass:
+  graph_validity_required_all_runs: true
+  original_exact_reproduction_required_all_9: true
+  upper_layer_checksum_equality_required: true
+  minimum_datasets: 2
+  minimum_positive_seeds_per_passing_dataset: 2
+  primary_R: 4
+  primary_comparators: [original_algorithm4, geometry, geometry_backbone_random_R4, geometry_backbone_mpcc_shuffled_R4]
+  navigation_chain_rule: >-
+    On at least two datasets and at least two of three seeds, GB-MPCC R4 must
+    improve at least two of strict progress, beam-admissible progress, local
+    minimum fraction, base expansions, or NDC relative to Original/LengthAware
+    and Geometry; at least one of those improvements must also exceed both
+    backbone-matched controls.
+  recall_noninferiority: mean_recall_at_10_loss_no_more_than_0.001_at_each_ef
+  build_cost_rule: report_only_due_to_fixed_candidate_scope
+
+stop:
+  - original_reproduction_failure
+  - any_graph_invariant_failure
+  - weak_connectivity_broken_where_original_connected
+  - upper_layer_checksum_mismatch
+  - primary_R4_fails_navigation_chain_on_two_datasets
+  - primary_R4_fails_recall_noninferiority
+  - gains_do_not_exceed_matched_random_and_shuffled_controls
+  - storage_below_10_GiB
+  - formal_test_or_validation_dev_access
+
+execution:
+  run_order: dataset_then_build_seed_then_method_then_R
+  datasets_order: [sift_10k, glove100_10k, arxiv_nomic_10k]
+  seeds_order: [7, 17, 29]
+  methods_order:
+    - original_algorithm4
+    - geometry
+    - maxmin_angle
+    - ggr_0
+    - geometry_backbone_random_R1
+    - geometry_backbone_mpcc_shuffled_R1
+    - geometry_backbone_mpcc_R1
+    - geometry_backbone_random_R2
+    - geometry_backbone_mpcc_shuffled_R2
+    - geometry_backbone_mpcc_R2
+    - geometry_backbone_random_R4
+    - geometry_backbone_mpcc_shuffled_R4
+    - geometry_backbone_mpcc_R4
+  maximum_parallel_graphs: 3
+  temporary_index_policy: evaluate_then_delete_after_checksums_and_metrics
+  minimum_free_disk_gib: 10
+  output_root: results/gb_mpcc/e0
+  logs_root: logs/gb_mpcc/e0
+
+authorization_after_e0:
+  e1: only_after_committed_e0_pass
+  formal_test: false
