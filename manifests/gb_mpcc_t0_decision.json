@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "gate": "T0",
+  "decision": "PASS_TO_REPLAY_R0",
+  "formal_test_members_accessed": false,
+  "new_performance_runs_executed": false,
+  "criteria": {
+    "formula_tests": "PASS",
+    "submodularity_tests": "PASS",
+    "capacity_on_two_datasets": "PASS",
+    "algorithm4_objective_distinguishability": "PASS_FOR_EXACT_KNN_PROXY_POOL",
+    "novelty": "PROVISIONAL_PASS"
+  },
+  "tests": {
+    "navigation_coverage": {"passed": 16, "failed": 0},
+    "existing_python": {"passed": 75, "failed": 0},
+    "native_smoke_executables": {"passed": 3, "failed": 0}
+  },
+  "capacity": {
+    "status": "QUERY_INDEPENDENT_CAPACITY_NONDEGENERATE_ON_AT_LEAST_TWO_DATASETS",
+    "empirical_direction_nondegenerate_datasets": ["glove100_100k", "arxiv_nomic_100k"],
+    "ambient_isotropic_degenerate_bins": {
+      "sift_100k": ["near"],
+      "glove100_100k": ["near"],
+      "arxiv_nomic_100k": ["near", "medium", "far"]
+    }
+  },
+  "algorithm4_overlap_proxy": {
+    "scope": "pure equal-budget objective on exact-32-NN query-independent proxy pools",
+    "sift_100k": {"median_jaccard": 0.3333, "median_coverage_gain": 0.0132},
+    "glove100_100k": {"median_jaccard": 0.3333, "median_coverage_gain": 0.0208},
+    "arxiv_nomic_100k": {"median_jaccard": 0.2899, "median_coverage_gain": 0.0190}
+  },
+  "authorization": {
+    "offline_replay_r0": true,
+    "graph_gate_e0": false,
+    "performance_gate_e1": false,
+    "formal_gate_e2": false
+  },
+  "required_next_step": "Replay Gate R0 on real HNSW insertion candidate logs"
+}

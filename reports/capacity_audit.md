@@ -17,6 +17,18 @@ insertion-time Algorithm 4 pool.
 | arxiv_nomic_100k | 26.47 | medium | 0.9850 | 0.0000 | 1.0000 | 0.3746 | 0.0000 |
 | arxiv_nomic_100k | 26.47 | far | 1.0000 | 0.0183 | 1.0000 | 0.9342 | 0.0132 |
 
+## Pure-objective overlap diagnostic
+
+This equal-budget check compares Algorithm 4 with pure empirical MPCC on the
+same proxy pool. It establishes objective distinguishability only; it is not the
+frozen-backbone production selector and does not replace Replay Gate R0.
+
+| Dataset | Median Jaccard | Fraction Jaccard > 0.95 | Median coverage gain |
+| --- | ---: | ---: | ---: |
+| sift_100k | 0.3333 | 0.0000 | +0.0132 |
+| glove100_100k | 0.3333 | 0.0156 | +0.0208 |
+| arxiv_nomic_100k | 0.2899 | 0.0000 | +0.0190 |
+
 Frozen T0 capacity status: **QUERY_INDEPENDENT_CAPACITY_NONDEGENERATE_ON_AT_LEAST_TWO_DATASETS**.
 
 `Local-d UB` uses rounded estimated LID; `Ambient-d UB` matches the ambient
