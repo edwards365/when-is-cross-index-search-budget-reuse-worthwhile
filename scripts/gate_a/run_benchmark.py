@@ -55,6 +55,22 @@ def write_order(path: Path, values: np.ndarray) -> None:
         values.tofile(handle)
 
 
+def resolve_ef_values(config: dict[str, object], requested: str | None) -> list[int]:
+    search = config["search"]
+    if requested is None:
+        return list(search["base_ef"])
+    try:
+        values = [int(value) for value in requested.split(",")]
+    except ValueError as error:
+        raise ValueError("ef values must be comma-separated integers") from error
+    if not values or any(value <= 0 for value in values) or values != sorted(set(values)):
+        raise ValueError("ef values must be positive, unique, and increasing")
+    allowed = set(search["base_ef"]) | set(search["predeclared_midpoints"])
+    if not set(values) <= allowed:
+        raise ValueError("ef values must come from the frozen base grid or predeclared midpoints")
+    return values
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, required=True)
@@ -63,10 +79,12 @@ def main() -> None:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--plan", type=Path)
     parser.add_argument("--hardware-id")
+    parser.add_argument("--ef-values")
     args = parser.parse_args()
     config_bytes = args.config.read_bytes()
     config_hash = hashlib.sha256(config_bytes).hexdigest()
     config = yaml.safe_load(config_bytes)
+    ef_values = resolve_ef_values(config, args.ef_values)
     matrix = json.loads(args.matrix.read_text(encoding="utf-8"))
     matches = [row for row in matrix["runs"] if row["run_id"] == args.run_id]
     if len(matches) != 1:
@@ -138,7 +156,7 @@ def main() -> None:
                 task["dataset"],
                 task["method"],
                 str(task["control_seed"]) if task["control_seed"] is not None else "-",
-                ",".join(str(value) for value in config["search"]["base_ef"]),
+                ",".join(str(value) for value in ef_values),
                 str(config["search"]["warmup_queries"]),
                 str(config["search"]["latency_rounds"]),
                 config_hash,
