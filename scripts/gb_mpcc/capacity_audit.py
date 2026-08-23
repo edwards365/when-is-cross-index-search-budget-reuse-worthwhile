@@ -119,7 +119,8 @@ def audit_dataset(
         cap_dimension = max(2, int(round(lid))) if np.isfinite(lid) else vectors.shape[1]
         radii, bin_labels = state_radii(rng, samples)
         thresholds = scaled_lengths[:, None] / (2.0 * radii[None, :])
-        analytic = analytic_union_bound(thresholds, cap_dimension)
+        analytic_local = analytic_union_bound(thresholds, cap_dimension)
+        analytic_ambient = analytic_union_bound(thresholds, vectors.shape[1])
         model_coverage: dict[str, np.ndarray] = {}
         for model in ("empirical_direction", "local_pca", "isotropic_sphere"):
             directions = state_directions(model, displacements, samples, rng)
@@ -133,7 +134,12 @@ def audit_dataset(
                     "rho_bin": bin_name,
                     "local_dimension": lid,
                     "cap_dimension_rounded": cap_dimension,
-                    "analytic_isotropic_union_bound": float(np.mean(analytic[selected])),
+                    "analytic_local_dimension_union_bound": float(
+                        np.mean(analytic_local[selected])
+                    ),
+                    "analytic_ambient_dimension_union_bound": float(
+                        np.mean(analytic_ambient[selected])
+                    ),
                     **{
                         f"{model}_coverage": float(np.mean(coverage[selected]))
                         for model, coverage in model_coverage.items()
@@ -150,7 +156,8 @@ def audit_dataset(
                 "p90": float(np.quantile([float(row[field]) for row in selected], 0.90)),
             }
             for field in (
-                "analytic_isotropic_union_bound",
+                "analytic_local_dimension_union_bound",
+                "analytic_ambient_dimension_union_bound",
                 "empirical_direction_coverage",
                 "local_pca_coverage",
                 "isotropic_sphere_coverage",
@@ -160,6 +167,11 @@ def audit_dataset(
         0.05 <= summaries[bin_name]["empirical_direction_coverage"]["median"] <= 0.95
         for bin_name in RHO_BINS
     ) >= 1
+    isotropic_degenerate_bins = [
+        bin_name
+        for bin_name in RHO_BINS
+        if summaries[bin_name]["analytic_ambient_dimension_union_bound"]["median"] < 0.05
+    ]
     return {
         "dataset": dataset,
         "dimensions": int(vectors.shape[1]),
@@ -177,6 +189,7 @@ def audit_dataset(
         },
         "rho_bins": summaries,
         "empirical_direction_nondegenerate": empirical_nondegenerate,
+        "isotropic_ambient_degenerate_bins": isotropic_degenerate_bins,
         "node_rows": rows,
     }
 
@@ -190,15 +203,16 @@ def render_report(result: dict[str, object]) -> str:
         "neighbors are a pre-replay proxy candidate pool, not claimed to equal HNSW's",
         "insertion-time Algorithm 4 pool.",
         "",
-        "| Dataset | LID median | Scale | Isotropic analytic UB | Empirical coverage "
-        "| Local-PCA coverage | Isotropic MC |",
-        "| --- | ---: | --- | ---: | ---: | ---: | ---: |",
+        "| Dataset | LID | Scale | Local-d UB | Ambient-d UB | Empirical | Local-PCA | "
+        "Ambient MC |",
+        "| --- | ---: | --- | ---: | ---: | ---: | ---: | ---: |",
     ]
     for dataset in result["datasets"]:
         for bin_name, values in dataset["rho_bins"].items():
             lines.append(
                 f"| {dataset['dataset']} | {dataset['local_dimension']['median']:.2f} | "
-                f"{bin_name} | {values['analytic_isotropic_union_bound']['median']:.4f} | "
+                f"{bin_name} | {values['analytic_local_dimension_union_bound']['median']:.4f} | "
+                f"{values['analytic_ambient_dimension_union_bound']['median']:.4f} | "
                 f"{values['empirical_direction_coverage']['median']:.4f} | "
                 f"{values['local_pca_coverage']['median']:.4f} | "
                 f"{values['isotropic_sphere_coverage']['median']:.4f} |"
@@ -207,8 +221,9 @@ def render_report(result: dict[str, object]) -> str:
         "",
         f"Frozen T0 capacity status: **{result['capacity_status']}**.",
         "",
-        "The 0.05/0.95 non-degeneracy interval and isotropic 0.05 stop threshold were",
-        "fixed before this run. Capacity alone cannot establish Algorithm 4 difference,",
+        "`Local-d UB` uses rounded estimated LID; `Ambient-d UB` matches the ambient",
+        "isotropic Monte Carlo model. The 0.05/0.95 interval and isotropic 0.05 stop",
+        "threshold were fixed before this run. Capacity cannot establish Algorithm 4 difference,",
         "proxy transfer to routing states, or search performance.",
     ]
     return "\n".join(lines) + "\n"
