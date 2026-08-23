@@ -52,6 +52,30 @@ def shard_complete(shard_root: Path, start: int, stop: int, methods: list[str]) 
     ).is_file()
 
 
+def requested_center_count(base_vectors: int, max_centers: int | None) -> int:
+    if max_centers is None:
+        return base_vectors
+    if not 0 < max_centers <= base_vectors:
+        raise ValueError("max centers must lie in [1, base_vectors]")
+    return max_centers
+
+
+def validate_complete_scope(
+    complete: dict[str, object],
+    *,
+    config_hash: str,
+    requested_centers: int,
+    base_vectors: int,
+) -> None:
+    if complete.get("config_sha256") != config_hash:
+        raise ValueError("completed plan uses a different config")
+    if complete.get("centers") != requested_centers:
+        raise ValueError("completed plan uses a different center count")
+    expected_full = requested_centers == base_vectors
+    if complete.get("full_frozen_center_count") is not expected_full:
+        raise ValueError("completed plan has an inconsistent full-run marker")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, required=True)
@@ -81,11 +105,16 @@ def main() -> None:
             f"available RAM {available_gib:.3f} GiB is below frozen minimum {minimum_gib:.3f} GiB"
         )
 
+    count = requested_center_count(config["base_vectors"], args.max_centers)
     complete_path = args.output / "complete.json"
     if complete_path.exists():
         complete = json.loads(complete_path.read_text(encoding="utf-8"))
-        if complete["config_sha256"] != config_hash:
-            raise ValueError("completed plan uses a different config")
+        validate_complete_scope(
+            complete,
+            config_hash=config_hash,
+            requested_centers=count,
+            base_vectors=config["base_vectors"],
+        )
         print(json.dumps(complete, indent=2, sort_keys=True))
         return
     args.output.mkdir(parents=True, exist_ok=True)
@@ -93,11 +122,6 @@ def main() -> None:
     shard_root.mkdir(exist_ok=True)
     dataset = config["datasets"][args.dataset]
     methods = method_names(config["control_seeds"])
-    count = config["base_vectors"]
-    if args.max_centers is not None:
-        if not 0 < args.max_centers <= count:
-            raise ValueError("max centers must lie in [1, base_vectors]")
-        count = args.max_centers
     started = time.perf_counter()
     started_utc = datetime.now(UTC).isoformat()
     base = read_hdf5_rows(

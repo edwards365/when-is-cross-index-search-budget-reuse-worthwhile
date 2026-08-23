@@ -31,6 +31,25 @@ def test_disconnected_pairs_are_infinite() -> None:
     assert resistance[2, 2] == 0
 
 
+def test_grounded_solver_matches_moore_penrose_reference() -> None:
+    weights = np.array(
+        [
+            [0.0, 1.2, 0.4, 0.0],
+            [1.2, 0.0, 0.7, 0.3],
+            [0.4, 0.7, 0.0, 1.1],
+            [0.0, 0.3, 1.1, 0.0],
+        ]
+    )
+    laplacian = np.diag(weights.sum(axis=1)) - weights
+    reference_inverse = np.linalg.pinv(laplacian, hermitian=True)
+    diagonal = np.diag(reference_inverse)
+    reference = diagonal[:, None] + diagonal[None, :] - 2.0 * reference_inverse
+
+    np.testing.assert_allclose(
+        effective_resistance_matrix(weights), reference, rtol=1e-12, atol=1e-12
+    )
+
+
 def test_asymmetric_weights_are_rejected() -> None:
     with pytest.raises(ValueError, match="symmetric"):
         effective_resistance_matrix(np.array([[0.0, 1.0], [0.0, 0.0]]))

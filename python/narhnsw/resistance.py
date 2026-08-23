@@ -10,7 +10,6 @@ from dataclasses import dataclass
 from typing import Literal
 
 import numpy as np
-from scipy.linalg import pinvh
 from scipy.sparse.csgraph import connected_components
 
 DisconnectedPolicy = Literal["infinite", "component"]
@@ -66,9 +65,27 @@ def effective_resistance_matrix(
             continue
         block = weights[np.ix_(ids, ids)]
         laplacian = np.diag(block.sum(axis=1)) - block
-        inverse = pinvh(laplacian, rtol=rcond, check_finite=True)
-        diag = np.diag(inverse)
-        resistance = diag[:, None] + diag[None, :] - 2.0 * inverse
+        # Ground the final vertex instead of repeatedly diagonalizing the
+        # singular Laplacian.  For a connected weighted graph, the inverse of
+        # any grounded Laplacian gives exactly the same pairwise effective
+        # resistances as the Moore--Penrose inverse.  This formulation also
+        # avoids a Windows SciPy/LAPACK native crash observed on a valid Gate-A
+        # candidate graph.
+        grounded = laplacian[:-1, :-1]
+        if not np.all(np.isfinite(grounded)):
+            raise ValueError("grounded Laplacian must be finite")
+        condition = np.linalg.cond(grounded)
+        if not np.isfinite(condition) or condition * rcond >= 1.0:
+            raise np.linalg.LinAlgError("grounded Laplacian is numerically singular")
+        grounded_inverse = np.linalg.solve(grounded, np.eye(len(grounded)))
+        grounded_inverse = 0.5 * (grounded_inverse + grounded_inverse.T)
+        diag = np.diag(grounded_inverse)
+        resistance = np.zeros_like(laplacian)
+        resistance[:-1, :-1] = (
+            diag[:, None] + diag[None, :] - 2.0 * grounded_inverse
+        )
+        resistance[:-1, -1] = diag
+        resistance[-1, :-1] = diag
         resistance[np.abs(resistance) < 100 * np.finfo(float).eps] = 0.0
         result[np.ix_(ids, ids)] = resistance
     return result
