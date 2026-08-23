@@ -45,15 +45,16 @@ state_distribution:
   isotropic_sphere_role: frozen_negative_reference_only
 
 selectors:
-  - algorithm4
-  - geometry
-  - maxmin_angle
-  - length_aware_angle
-  - ggr_0
-  - geometry_safe_random
-  - mpcc_shuffled
-  - pure_mpcc
-  - geometry_backbone_mpcc
+  methods:
+    - algorithm4
+    - geometry
+    - maxmin_angle
+    - length_aware_angle
+    - ggr_0
+    - geometry_safe_random
+    - mpcc_shuffled
+    - pure_mpcc
+    - geometry_backbone_mpcc
   geometry_backbone:
     mandatory_slots: 12
     flexible_slots: 4
