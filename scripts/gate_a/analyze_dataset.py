@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -130,6 +131,30 @@ def main() -> None:
     }
     (args.output / f"{args.dataset}-gate-a-base-summary.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+    config_path = Path("configs/gate_a/gate_a_100k.yaml")
+    config_hash = hashlib.sha256(config_path.read_bytes()).hexdigest()
+    midpoint_runs = []
+    for name, method, build_seed, control_seed in expected_runs(args.dataset):
+        midpoint_runs.append(
+            {
+                "run_id": f"{name}-midpoints",
+                "dataset": args.dataset,
+                "method": method,
+                "build_seed": build_seed,
+                "control_seed": control_seed,
+                "config_sha256": config_hash,
+                "status": "pending",
+            }
+        )
+    midpoint_matrix = {
+        "config_sha256": config_hash,
+        "purpose": "uniform triggered midpoint supplement",
+        "ef_values": triggered,
+        "runs": midpoint_runs,
+    }
+    (args.output / f"{args.dataset}-midpoint-matrix.json").write_text(
+        json.dumps(midpoint_matrix, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     print(json.dumps(summary, indent=2, sort_keys=True))
 
