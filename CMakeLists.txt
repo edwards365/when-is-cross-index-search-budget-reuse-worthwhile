@@ -40,6 +40,9 @@ target_include_directories(hnsw_e0_evaluate_index PRIVATE cpp/include third_part
 add_executable(hnsw_d0_compare_indexes cpp/src/hnsw_d0_compare_indexes.cpp)
 target_include_directories(hnsw_d0_compare_indexes PRIVATE cpp/include third_party/hnswlib)
 
+add_executable(hnsw_d0_counterfactual_search cpp/src/hnsw_d0_counterfactual_search.cpp)
+target_include_directories(hnsw_d0_counterfactual_search PRIVATE cpp/include third_party/hnswlib)
+
 enable_testing()
 add_executable(test_resistance_cpp tests/cpp/test_resistance.cpp)
 target_link_libraries(test_resistance_cpp PRIVATE narhnsw_core)
