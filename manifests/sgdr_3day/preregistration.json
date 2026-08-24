@@ -1,0 +1,90 @@
+{
+  "version": "sgdr_3day_v1",
+  "status": "FROZEN_BEFORE_SGDR_PERFORMANCE_EXPERIMENTS",
+  "baseline_code_commit": "476eea8da83e9a34651acd739cbaabc5ed7454b2",
+  "scientific_question": "Can query-time, far-field-only expansion of additive R4 delta edges improve equal-recall cost without deleting any Original layer-0 edge?",
+  "datasets": ["sift_10k", "glove100_10k", "arxiv_nomic_10k"],
+  "graph_seeds": [7, 17, 29],
+  "query_split": {
+    "role": "frozen_E0_train_side_design_dev",
+    "queries_per_dataset": 500,
+    "manifest": "results/gb_mpcc/e0/search_inputs/manifest.json",
+    "validation_dev_access": "FORBIDDEN",
+    "formal_test_access": "FORBIDDEN"
+  },
+  "ef_search": [10, 20, 40, 80, 120, 200],
+  "delta_edges": {
+    "source": "R4_final_edges_minus_Original_final_edges",
+    "parameter_reoptimization": "FORBIDDEN",
+    "original_edge_deletion": "FORBIDDEN",
+    "main_budget_fraction_of_original_layer0_directed_edges": 0.10,
+    "ablation_budget_fraction": 0.05,
+    "stable_selection": "existing_R4_plan_priority_then_stable_directed_edge_id",
+    "maximum_layer0_storage_increase_fraction_for_success": 0.10
+  },
+  "scale_threshold_grid": [1.0, 1.5, 2.0, 3.0, 4.0],
+  "depth_gate_expansion_grid": [4, 8, 16, 32],
+  "method_order": ["Original", "R4-Replacement", "Union-All", "SGDR-Scale", "SGDR-Depth", "Random-Delta", "Shuffled-Delta"],
+  "random_seeds": [7, 17, 29],
+  "statistics": {
+    "unit": "paired_query_within_dataset_seed_ef",
+    "bootstrap_replicates": 5000,
+    "interval": 0.95,
+    "report": ["mean", "p50", "p95", "p99", "latency", "safe_harmed_strata", "difficulty_quantiles", "trim_extreme_1_percent"]
+  },
+  "primary_metrics": ["Recall@10", "NDC", "end_to_end_latency"],
+  "fixed_ef_recall_noninferiority_margin": -0.001,
+  "equal_recall_targets": "frozen_before_results_from_common_reachable_recall_ranges_only",
+  "gate_o": {
+    "oracle_minimum_datasets": 2,
+    "oracle_mean_ndc_improvement_minimum": 0.03,
+    "stage_minimum_datasets": 2,
+    "stage_recall_difference_minimum": -0.001,
+    "stage_mean_ndc_improvement_minimum": 0.02,
+    "stage_p95_ndc_improvement_alternative": 0.05,
+    "majority_seed_direction_required": true,
+    "benefit_not_outlier_dominated": true,
+    "estimated_gate_overhead_must_not_erase_benefit": true,
+    "pass": "AUTHORIZE_MINIMAL_SGDR_IMPLEMENTATION",
+    "fail": "FAIL_ORACLE_UPPER_BOUND"
+  },
+  "final_gate": {
+    "passing_datasets_minimum": 2,
+    "positive_seeds_per_passing_dataset_minimum": 2,
+    "all_primary_fixed_ef_recall_difference_minimum": -0.001,
+    "equal_recall_mean_ndc_improvement_minimum": 0.02,
+    "equal_recall_p95_ndc_improvement_alternative": 0.05,
+    "latency_must_match_ndc_direction": true,
+    "must_beat_random_and_shuffled_controls": true,
+    "union_all_must_be_worse_than_stage_gate": true,
+    "storage_increase_maximum": 0.10,
+    "statuses": ["PASS_SGDR_PRELIMINARY", "WEAK_SIGNAL_NEEDS_REDESIGN", "FAIL_SCALE_GATED_NONINFERIORITY", "FAIL_NOVELTY_COLLISION"]
+  },
+  "execution_order": [
+    "environment_and_evidence_audit",
+    "gate_o_query_oracle_and_break_even",
+    "gate_o_trace_stage_oracle",
+    "gate_o_decision",
+    "implementation_only_if_gate_o_passes",
+    "three_datasets_seed7",
+    "seeds17_and29_only_if_cross_dataset_direction_is_consistent",
+    "final_decision"
+  ],
+  "stop_conditions": [
+    "Gate O failure",
+    "free disk below 10 GiB",
+    "validation-dev or formal-test access attempt",
+    "frozen evidence checksum change",
+    "custom search mismatch with native Original",
+    "protocol conflict or adaptive tuning attempt"
+  ],
+  "forbidden": [
+    "modify frozen E0 or D0 evidence",
+    "access validation-dev or formal-test",
+    "select best seed dataset threshold or recall target after results",
+    "reoptimize R4 GB-MPCC Resistance Geometry or coverage weights",
+    "delete Original edges",
+    "enter BEP or E1",
+    "recompute existing exact truth"
+  ]
+}
