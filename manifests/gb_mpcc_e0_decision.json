@@ -1,0 +1,63 @@
+{
+  "adaptive_tuning_performed": false,
+  "combined_passing_datasets": 0,
+  "dataset_results": {
+    "arxiv_nomic_10k": {
+      "mean_ndc_reduction_vs_original_percent": 8.962,
+      "navigation_chain_pass": false,
+      "positive_navigation_seeds": 1,
+      "recall_noninferiority_pass": false,
+      "worst_fixed_ef_recall_difference_vs_original": -0.005733
+    },
+    "glove100_10k": {
+      "mean_ndc_reduction_vs_original_percent": 4.824,
+      "navigation_chain_pass": true,
+      "positive_navigation_seeds": 2,
+      "recall_noninferiority_pass": false,
+      "worst_fixed_ef_recall_difference_vs_original": -0.0102
+    },
+    "sift_10k": {
+      "mean_ndc_reduction_vs_original_percent": 4.694,
+      "navigation_chain_pass": false,
+      "positive_navigation_seeds": 1,
+      "recall_noninferiority_pass": false,
+      "worst_fixed_ef_recall_difference_vs_original": -0.017667
+    }
+  },
+  "e1_authorized": false,
+  "evidence_sha256": {
+    "final_report": "5af7951574091cae300233a0bd0f694c6a2fe647dee8afbb6c6be7365e0e24eb",
+    "graph_matrix_summary": "729ea9bc3b890e30fad0a82c959daa2de5e0a1f1c74f25455a7ca0683ebebd0e",
+    "graph_summary": "bed00d6ad5ef1a4df3e42b9b5de828684dc94cdcc693dbd5bbef52b150820e84",
+    "paired_navigation_effects": "30c0cbb1306f5c834e9ea7c7daa40ff6f79a1f8ad83f917b0517cc1322f76fa1",
+    "plan_matrix_audit": "a1cf90b558b2d8e5109c0ce46c3eaa1ba53db08429f9163fc9908fbc3c7048ae",
+    "query_summary": "bec56e5d345a65a11096223caaef5f923729ec8c5043c261c56908e5f8ec1e00",
+    "recall_noninferiority": "28a7165af1368620704a18635ea4edb2f9bffaf948a1df144f1344ade725daa4",
+    "resource_summary": "54d2a19b98d6b72517935d7a8aa85cbf2dc180ae8cf4fed5bdd7692eb400f98f",
+    "search_input_manifest": "7a9282ef24e7fca3985a19d3e21ccb5e576cf3ff6718eccbaade4f41e2626d90",
+    "unabridged_decision": "13c51687118c821262c4b28ad30844fb4cfc4c4d3259b96d2a36120902d23fc2"
+  },
+  "formal_test_members_accessed": false,
+  "gate": "Graph Gate E0",
+  "graph_matrix": {
+    "all_graph_invariants_passed": true,
+    "all_temporary_indexes_deleted": true,
+    "graphs_completed": 117,
+    "original_exact_reproduction": "9/9",
+    "upper_layer_checksums_equal_within_run": true
+  },
+  "navigation_passing_datasets": 1,
+  "primary_R": 4,
+  "primary_method": "geometry_backbone_mpcc_R4",
+  "proxy_distribution_mismatch_carried_forward": true,
+  "recall_noninferiority_passing_datasets": 0,
+  "required_passing_datasets": 2,
+  "schema_version": 1,
+  "status": "STOP_REJECT_E0_NO_E1",
+  "stop_reasons": [
+    "primary_R4_fails_navigation_chain_on_two_datasets",
+    "primary_R4_fails_recall_noninferiority",
+    "fewer_than_two_datasets_pass_both_primary_rules"
+  ],
+  "validation_dev_accessed": false
+}
