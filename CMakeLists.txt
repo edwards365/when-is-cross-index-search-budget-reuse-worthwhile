@@ -34,6 +34,9 @@ target_include_directories(hnsw_r0_trace_existing PRIVATE cpp/include third_part
 add_executable(hnsw_replay_layer0_plan cpp/src/hnsw_replay_layer0_plan.cpp)
 target_include_directories(hnsw_replay_layer0_plan PRIVATE cpp/include third_party/hnswlib)
 
+add_executable(hnsw_e0_evaluate_index cpp/src/hnsw_e0_evaluate_index.cpp)
+target_include_directories(hnsw_e0_evaluate_index PRIVATE cpp/include third_party/hnswlib)
+
 enable_testing()
 add_executable(test_resistance_cpp tests/cpp/test_resistance.cpp)
 target_link_libraries(test_resistance_cpp PRIVATE narhnsw_core)
