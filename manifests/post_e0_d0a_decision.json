@@ -1,0 +1,36 @@
+{
+  "adaptive_tuning_performed": false,
+  "dataset_decisions": {
+    "arxiv_nomic_10k": {
+      "dataset_pass": true,
+      "positive_seeds": 2
+    },
+    "glove100_10k": {
+      "dataset_pass": true,
+      "positive_seeds": 3
+    },
+    "sift_10k": {
+      "dataset_pass": false,
+      "positive_seeds": 0
+    }
+  },
+  "evidence_sha256": {
+    "decision": "8a80213231e573a27e3c4e227ecb91e45e5e007ee175b10a93be87a3022ccb34",
+    "equal_recall_points": "f62cd349d16c52b2090e47a25ddfb5581897e26d69008833700e282c4147356b",
+    "tracked_report": "f461fa677fe934a84fd0903b54475e6fb96f82ef2d78edfd8dc5994a8835d7e2"
+  },
+  "extrapolation_used": false,
+  "formal_test_members_accessed": false,
+  "gate": "Post-E0 D0-A observed-point equal-recall Pareto",
+  "interpolation_used": false,
+  "label": "EQUAL_RECALL_EFFICIENCY_SIGNAL",
+  "new_graphs_built": false,
+  "next_action": "CONTINUE_D0_B",
+  "observed_ef_only": true,
+  "parent_e0_decision": "STOP_REJECT_E0_NO_E1",
+  "passing_datasets": 2,
+  "required_passing_datasets": 2,
+  "schema_version": 1,
+  "status": "PASS_CONTINUE_D0",
+  "validation_dev_accessed": false
+}
