@@ -1,0 +1,109 @@
+version: post_e0_d0_dfg_v1
+status: frozen_before_trace_or_diagnostic_graph_reconstruction
+parent_d0b_commit: 01dd525ba72d922dcd75c07bb3dd94fd8cef0b33
+parent_d0b_decision: PASS_CONTINUE_D0
+parent_manifest: manifests/post_e0_d0b_decision.json
+
+firewall:
+  allowed_vectors: frozen_first_10k_train_prefixes
+  allowed_queries: old_e0_design_query_ids_0_through_499_diagnostic_only
+  allowed_truth: exact_top10_over_same_frozen_10k_base
+  new_ef_points: forbidden
+  ef_search: [10, 20, 40, 80, 120, 200]
+  validation_dev_access: forbidden
+  formal_test_access: forbidden
+  adaptive_tuning: forbidden
+  bep_implementation: forbidden_before_total_d0_pass
+
+matrix:
+  datasets: [sift_10k, glove100_10k, arxiv_nomic_10k]
+  build_seeds: [7, 17, 29]
+  original_method: original_algorithm4
+  primary_method: geometry_backbone_mpcc_R4
+  maximum_parallel_reconstructions: 3
+  temporary_index_policy: evaluate_then_delete
+  minimum_free_disk_gib: 10
+  exact_original_reproduction_required: true
+  exact_primary_reproduction_required: true
+  upper_layer_checksum_equality_required: true
+
+d0d_first_divergence:
+  query_pairs: original_recall_strictly_greater_than_primary_recall_at_same_existing_ef
+  same_entry_point: required
+  same_query_implementation: required
+  record:
+    - first_visited_set_divergence
+    - first_candidate_queue_divergence
+    - first_result_heap_divergence
+    - first_original_edge_absent_from_primary
+    - edge_strict_progress
+    - edge_beam_admissible_at_original_state
+    - edge_reaches_missed_true_top10_on_original_trace
+    - source_or_reciprocal_or_reverse_pruning_origin
+    - normalized_radius_over_local_scale
+    - nearest_frozen_proxy_state_distance
+    - effective_progress_edge_counts
+  exclusive_classification_precedence:
+    - RECIPROCAL_PRUNING_DAMAGE
+    - NEAR_TARGET_DAMAGE
+    - PROXY_TAIL_FAILURE
+    - REDUNDANCY_LOSS
+    - QUEUE_ORDER_EFFECT
+    - GLOBAL_PATH_EFFECT
+    - UNATTRIBUTED
+  classification_thresholds:
+    near_target_normalized_radius_max: 1.25
+    proxy_tail_nearest_state_quantile: 0.95
+    redundancy_original_effective_progress_edge_advantage_minimum: 1
+
+d0e_counterfactuals:
+  diagnostic_only: true
+  methods:
+    original_minus:
+      layer0_edges: intersection_of_original_and_primary_final_edges
+    primary_plus_original:
+      layer0_edges: union_of_original_and_primary_final_edges
+      degree_budget_may_be_exceeded: true
+    primary_source_only:
+      construction: primary_source_selection_with_original_reciprocal_lists_preserved_until_native_updates
+    primary_reciprocal_only:
+      construction: original_source_selection_with_primary_reciprocal_and_reverse_pruning_effects
+    primary_critical_addback:
+      construction: primary_final_graph_plus_ranked_deleted_original_edges
+  claim_scope: causal_diagnostic_only
+
+d0f_oracle_addback:
+  supervision: old_e0_failure_queries_diagnostic_only
+  ranking: greedy_failure_query_set_cover_then_stable_edge_id
+  budgets_as_fraction_of_replaced_original_edges: [0.0, 0.01, 0.025, 0.05, 0.10, 0.15, 0.20, 0.25]
+  local_repairability:
+    maximum_addback_fraction: 0.25
+    minimum_recall_loss_recovery: 0.80
+    minimum_retained_primary_ndc_improvement: 0.50
+  pass_label: FAILURE_LOCALLY_REPAIRABLE
+  fail_label: FAILURE_STRUCTURALLY_DIFFUSE
+
+d0g_hubness:
+  reverse_knn_k: 10
+  hubness_quantile_bins: [0.0, 0.10, 0.25, 0.50, 0.75, 0.90, 1.0]
+  anti_hub_definition: reverse_knn_count_at_or_below_dataset_10th_percentile
+  report:
+    - final_graph_indegree
+    - reverse_knn_count
+    - deleted_edge_endpoint_quantiles
+    - missed_truth_neighbor_quantiles
+    - failure_target_region_indegree
+    - anti_hub_inedge_change
+    - route_concentration_on_hubs
+  branch_c_trigger: consistent_anti_hub_damage_on_at_least_2_datasets_and_2_of_3_seeds
+
+total_d0_gate:
+  required:
+    - D0A_EQUAL_RECALL_EFFICIENCY_SIGNAL
+    - D0B_SAFE_QUERY_EFFICIENCY_SIGNAL
+    - D0F_FAILURE_LOCALLY_REPAIRABLE
+    - NO_FATAL_NOVELTY_OVERLAP
+    - EXPLICIT_NONDIFFUSE_CAUSAL_MECHANISM
+  pass_action: AUTHORIZE_T1_BEFORE_ANY_BEP_GRAPH
+  fail_action: STOP_HNSW_TOPOLOGY_MODIFICATION
+
