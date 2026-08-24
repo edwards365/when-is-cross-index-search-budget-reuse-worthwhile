@@ -1,0 +1,27 @@
+{
+  "status": "QUERY_ORACLE_COMPONENT_PASS",
+  "gate_o_fully_resolved": false,
+  "datasets": {
+    "arxiv_nomic_10k": {"passing_seeds": 3, "mean_ndc_improvement_range": [0.08467, 0.09025], "safe_fraction_approx": 0.934},
+    "glove100_10k": {"passing_seeds": 3, "mean_ndc_improvement_range": [0.03732, 0.04052], "safe_fraction_approx": 0.818},
+    "sift_10k": {"passing_seeds": 3, "mean_ndc_improvement_range": [0.04183, 0.04373], "safe_fraction_approx": 0.901}
+  },
+  "top_1_percent_trim_check": "all_9_runs_remain_above_0.03",
+  "fallback_rerun": {
+    "arxiv_possible_cells_per_h": "12/18",
+    "glove_possible_cells_per_h": "0/18",
+    "sift_possible_cells_per_h": "9/18",
+    "h_values": [0.0, 0.005, 0.01, 0.02],
+    "conclusion": "full failure-then-Original rerun is not a generally viable cross-dataset mechanism"
+  },
+  "evidence_sha256": {
+    "summary.json": "12fc4510b975f6f309c94f5dd4c5b0d6fa6e62c665d7a9c09e518d8f7b47cf07",
+    "run_summary.csv": "2eb698a6d173d5f308597687093b5ae8deda19121f2e899abea19017f323016a",
+    "fallback_break_even.csv": "5b07f637643c032ec9b273796a5d171bc7f44fb8d923961a8b1a07b975293dfe"
+  },
+  "new_graphs_built": false,
+  "new_ef_points": false,
+  "validation_dev_accessed": false,
+  "formal_test_members_accessed": false,
+  "sgdr_implementation_authorized": false
+}
