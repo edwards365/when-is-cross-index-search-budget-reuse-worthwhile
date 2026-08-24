@@ -79,8 +79,7 @@ def geometry_objective(
     directions = delta / distances[:, None]
     locality = np.exp(-np.square(distances / rho))
     return float(
-        beta * direction_coverage(directions[chosen], sigma)
-        + gamma * locality[chosen].sum()
+        beta * direction_coverage(directions[chosen], sigma) + gamma * locality[chosen].sum()
     )
 
 
@@ -98,6 +97,7 @@ def geometry_guarded_resistance_selection(
     gamma: float = 1.0,
     sigma: float = 0.5,
     rho: float | None = None,
+    labels: np.ndarray | None = None,
 ) -> GGRResult:
     """Improve frozen leverage subject to a Geometry-only objective floor.
 
@@ -107,8 +107,11 @@ def geometry_guarded_resistance_selection(
 
     candidates = np.asarray(candidates, dtype=np.float64)
     leverage = np.asarray(leverage, dtype=np.float64)
+    external_labels = None if labels is None else np.asarray(labels, dtype=np.int64)
     if leverage.shape != (len(candidates),):
         raise ValueError("leverage must be one value per candidate")
+    if external_labels is not None and external_labels.shape != (len(candidates),):
+        raise ValueError("labels must contain one external label per candidate")
     if np.any(~np.isfinite(leverage)) or np.any(leverage < 0):
         raise ValueError("leverage must be finite and nonnegative")
     if not 0 <= budget <= len(candidates):
@@ -149,6 +152,7 @@ def geometry_guarded_resistance_selection(
         gamma=gamma,
         sigma=sigma,
         rho=rho,
+        labels=external_labels,
     )
     geometry_base = geometry_objective(
         center,
@@ -173,7 +177,7 @@ def geometry_guarded_resistance_selection(
     termination = "local_optimum"
     for _ in range(max_swaps):
         selected_set = set(selected)
-        feasible: list[tuple[float, float, int, int, list[int]]] = []
+        feasible: list[tuple[tuple[float, ...], int, int, list[int], float, float]] = []
         for outgoing in sorted(selected_set):
             for incoming in range(len(candidates)):
                 if incoming in selected_set:
@@ -194,14 +198,27 @@ def geometry_guarded_resistance_selection(
                     rho=rho,
                 )
                 if proposal_geometry + geometry_allowance >= threshold:
+                    if external_labels is None:
+                        key = (leverage_gain, proposal_geometry, -outgoing, -incoming)
+                    else:
+                        incoming_length = float(
+                            np.linalg.norm(candidates[incoming] - np.asarray(center))
+                        )
+                        key = (
+                            leverage_gain,
+                            proposal_geometry,
+                            -incoming_length,
+                            -float(external_labels[incoming]),
+                            -float(external_labels[outgoing]),
+                        )
                     feasible.append(
-                        (leverage_gain, proposal_geometry, -outgoing, -incoming, proposal)
+                        (key, outgoing, incoming, proposal, proposal_geometry, leverage_gain)
                     )
         if not feasible:
             break
-        leverage_gain, proposal_geometry, neg_outgoing, neg_incoming, proposal = max(feasible)
-        outgoing = -neg_outgoing
-        incoming = -neg_incoming
+        _, outgoing, incoming, proposal, proposal_geometry, leverage_gain = max(
+            feasible, key=lambda item: item[0]
+        )
         new_leverage = leverage_total + leverage_gain
         swaps.append(
             GGRSwap(

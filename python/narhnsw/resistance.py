@@ -81,9 +81,7 @@ def effective_resistance_matrix(
         grounded_inverse = 0.5 * (grounded_inverse + grounded_inverse.T)
         diag = np.diag(grounded_inverse)
         resistance = np.zeros_like(laplacian)
-        resistance[:-1, :-1] = (
-            diag[:, None] + diag[None, :] - 2.0 * grounded_inverse
-        )
+        resistance[:-1, :-1] = diag[:, None] + diag[None, :] - 2.0 * grounded_inverse
         resistance[:-1, -1] = diag
         resistance[-1, :-1] = diag
         resistance[np.abs(resistance) < 100 * np.finfo(float).eps] = 0.0
@@ -171,6 +169,7 @@ def greedy_neighbor_selection(
     gamma: float = 1.0,
     sigma: float = 0.5,
     rho: float | None = None,
+    labels: np.ndarray | None = None,
 ) -> tuple[list[int], list[CandidateScore]]:
     """Greedily maximize nonnegative leverage, direction log-det, and locality.
 
@@ -182,10 +181,13 @@ def greedy_neighbor_selection(
     center = np.asarray(center, dtype=np.float64)
     candidates = np.asarray(candidates, dtype=np.float64)
     leverage = np.asarray(leverage, dtype=np.float64)
+    external_labels = None if labels is None else np.asarray(labels, dtype=np.int64)
     if candidates.ndim != 2 or candidates.shape[1:] != center.shape:
         raise ValueError("candidate dimensions must match center")
     if leverage.shape != (len(candidates),) or np.any(leverage < 0):
         raise ValueError("leverage must be one nonnegative value per candidate")
+    if external_labels is not None and external_labels.shape != (len(candidates),):
+        raise ValueError("labels must contain one external label per candidate")
     if not 0 <= budget <= len(candidates):
         raise ValueError("budget is outside the candidate set")
     if min(alpha, beta, gamma) < 0 or sigma <= 0:
@@ -221,7 +223,17 @@ def greedy_neighbor_selection(
                     total_gain=float(total),
                 )
             )
-        winner = max(choices, key=lambda item: (item.total_gain, -item.index))
+        if external_labels is None:
+            winner = max(choices, key=lambda item: (item.total_gain, -item.index))
+        else:
+            winner = max(
+                choices,
+                key=lambda item: (
+                    item.total_gain,
+                    -float(distances[item.index]),
+                    -int(external_labels[item.index]),
+                ),
+            )
         selected.append(winner.index)
         selected_directions.append(directions[winner.index])
         remaining.remove(winner.index)
