@@ -1,0 +1,32 @@
+{
+  "status": "STOP_ALGORITHM_PIVOT_TO_BOUNDARY_STUDY",
+  "gate_o": "FAIL_ORACLE_UPPER_BOUND",
+  "datasets": ["sift_10k", "glove100_10k", "arxiv_nomic_10k"],
+  "graph_seeds": [7, 17, 29],
+  "query_oracle": {
+    "passing_seeds_per_dataset": {"sift_10k": 3, "glove100_10k": 3, "arxiv_nomic_10k": 3},
+    "mean_ndc_improvement_ranges": {"sift_10k": [0.04183, 0.04373], "glove100_10k": [0.03732, 0.04052], "arxiv_nomic_10k": [0.08467, 0.09025]}
+  },
+  "recall_noninferiority": "No common Scale/Depth mode passed the joint frozen criterion in any dataset at 2/3 seeds.",
+  "equal_recall_ndc": "Not run after Gate O failure; no authorization for implementation-stage equal-recall evaluation.",
+  "p95_ndc": "No fixed diagnostic mode reached the preregistered 5% p95 alternative in the required datasets/seeds.",
+  "latency": "Not measured after Gate O stop; diagnostic NDC already showed no benefit.",
+  "storage_overhead": "Frozen diagnostic delta budget was at most 10% of Original layer-0 directed-edge count.",
+  "union_all_mean_ndc_cost_increase_percent": {"sift_10k": 2.6162, "glove100_10k": 2.8798, "arxiv_nomic_10k": 2.4451},
+  "negative_controls": "Random-Delta and Shuffled-Delta were not authorized because Gate O failed before implementation.",
+  "literature_novelty": "NO_FATAL_EXACT_COLLISION_BUT_CROWDED_ADAPTIVE_ROUTING_SPACE",
+  "continue_or_stop_reason": "The complete-policy oracle signal was real, but no preregistered additive scale/depth policy converted it into positive NDC while satisfying the cross-dataset Gate O rule.",
+  "sgdr_implementation_authorized": false,
+  "bep_or_e1_authorized": false,
+  "validation_dev_accessed": false,
+  "formal_test_members_accessed": false,
+  "evidence_sha256": {
+    "query_oracle_summary": "12fc4510b975f6f309c94f5dd4c5b0d6fa6e62c665d7a9c09e518d8f7b47cf07",
+    "delta_plan_matrix": "b22b5b648669ba8823d5de963ccec2c834f0dcbdb7e713578928c5875bc3d1e2",
+    "stage_matrix": "07affa33af6b0cfada83a59977cfae128de7e274dd3ef7db6097e8b744c8753b",
+    "stage_analysis": "0650640287ec9e26fb5a28e60a2c1165b4e851c11d1b36e93e747427e4bca858",
+    "repair_pareto_png": "a46a4cc1e787897ac30f65001574f9ffb4ede8a1fa0bc0c1dcf59665808d8da0",
+    "safe_harmed_png": "4713dec66989d7ccbd18f8e6ebae63caafd1d79b2e3d491c8d84e64c9f92bf19",
+    "delta_phase_damage_png": "0cc0593e2ab093b363203fe5736f83034dd0f619b9a3509cd64d9de2051caac4"
+  }
+}

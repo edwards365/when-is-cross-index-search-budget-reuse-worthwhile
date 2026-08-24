@@ -91,3 +91,29 @@ the result of additive, selectively expanded edges: the visited set and queue st
 would change. Consequently, phase labels derived from those traces are descriptive
 proxies only and cannot satisfy Gate O. An exact diagnostic counterfactual search or
 equivalent identifiable replay is required before implementation authorization.
+
+## Fixed-degree far-progress versus near-redundancy conflict
+
+At a node with degree cap `M`, let `F` be edges valuable for reducing distance while
+the query is far from the node's local scale, and let `N` be edges that provide
+near-target reachability or redundant finite-beam routes. Selection is a resource
+allocation problem: `|S∩F|+|S∩N|<=M`. If a far edge replaces a near edge, its positive
+one-step progress can coexist with an arbitrarily large loss on queries whose only
+beam-surviving route uses that near edge (Counterexample 1). Conversely, reserving all
+near-redundancy edges can eliminate shortcuts. Without a workload distribution and a
+state-dependent search model, no static local score can order these two utilities in
+a way that guarantees both finite-beam noninferiority and far-field improvement.
+The D0-F Pareto curve is the empirical form of this conflict: recovery rises with
+add-back budget while retained NDC benefit crosses zero well before 80% recovery.
+
+## Reciprocal insertion and reverse-pruning nonlocality
+
+Consider source insertion `u` selecting `v`. HNSW also attempts reciprocal `v->u`.
+If `v` is already at degree cap, the augmented list is re-pruned; an existing edge
+`v->w` may disappear even though neither the score nor the source list of `w` changed.
+For a second query whose only finite-beam route is `s->v->w->t`, this remote deletion
+breaks retrieval. Thus a change justified entirely at `u` can affect a different
+query at `v`, and later insertions can propagate the effect through further reciprocal
+updates. This minimal construction explains why source-only local objectives cannot
+be treated as edge-independent interventions. The observed D0-D attribution—25.62%
+reciprocal/reverse-pruning damage—shows that this is not merely a logical corner case.
