@@ -1,0 +1,44 @@
+version: post_e0_d0_v1
+status: frozen_before_d0a_analysis
+parent_e0_commit: d733ca094a3fa20f55cba727bb814d8fb45cdf3d
+parent_e0_decision: STOP_REJECT_E0_NO_E1
+parent_manifest: manifests/gb_mpcc_e0_decision.json
+
+firewall:
+  allowed_inputs: [existing_e0_design_query_metrics]
+  validation_dev_access: forbidden
+  formal_test_access: forbidden
+  new_graph_construction: forbidden_in_d0a
+  new_ef_points: forbidden_in_d0a
+  extrapolation: forbidden
+  adaptive_tuning: forbidden
+
+d0a:
+  datasets: [sift_10k, glove100_10k, arxiv_nomic_10k]
+  build_seeds: [7, 17, 29]
+  ef_search: [10, 20, 40, 80, 120, 200]
+  methods:
+    - original_algorithm4
+    - geometry
+    - geometry_backbone_random_R4
+    - geometry_backbone_mpcc_shuffled_R4
+    - geometry_backbone_mpcc_R4
+  primary: geometry_backbone_mpcc_R4
+  fixed_targets: [0.90, 0.95]
+  highest_common_recall: per_dataset_seed_minimum_of_method_maxima
+  envelope: minimum_observed_ndc_among_ef_points_reaching_target
+  interpolation: descriptive_only_not_used
+  seed_pass_rule: >-
+    At every reachable fixed target and at the highest common reachable target,
+    primary NDC must improve by at least 1 percent versus Original, must not
+    exceed Geometry, and must be strictly below both matched controls.
+  dataset_pass_rule: at_least_2_of_3_seeds
+  overall_pass_rule: at_least_2_datasets
+  failure_label: NO_EQUAL_RECALL_EFFICIENCY_SIGNAL
+  failure_action: STOP_HNSW_TOPOLOGY_MODIFICATION
+
+outputs:
+  summary_csv: results/post_e0/d0a/equal_recall_points.csv
+  decision_json: results/post_e0/d0a/decision.json
+  report: reports/post_e0_equal_recall.md
+
