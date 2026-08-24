@@ -1,0 +1,14 @@
+{
+  "status": "STOP_HNSW_TOPOLOGY_MODIFICATION",
+  "decisive_failed_requirement": "D0F_FAILURE_LOCALLY_REPAIRABLE",
+  "observed_d0f_status": "FAILURE_STRUCTURALLY_DIFFUSE",
+  "d0f_commit": "ad20e0c69910a8cbdd1375a829d3c8bfdc5b86a8",
+  "logic": "The frozen total D0 gate is conjunctive; one failed required condition makes PASS impossible.",
+  "d0g_and_literature_status": "not_required_to_resolve_the_conjunctive_gate",
+  "bep_authorized": false,
+  "bep_implemented": false,
+  "e1_authorized": false,
+  "validation_dev_accessed": false,
+  "formal_test_members_accessed": false,
+  "temporary_indexes_deleted": true
+}
