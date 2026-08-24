@@ -44,6 +44,9 @@ def main() -> None:
         raise PermissionError("E0 formal-test firewall is open")
     inputs = load_inputs(args.inputs)
     args.output.mkdir(parents=True, exist_ok=True)
+    neighbor_specification = protocol["state_distribution"]["local_neighbors"]
+    if neighbor_specification != "exact_64_nonself_neighbors_in_first_10k_base":
+        raise ValueError("E0 local-neighbor specification changed")
     summaries = []
     for dataset in protocol["datasets"]:
         dataset_id = str(dataset["id"])
@@ -59,7 +62,7 @@ def main() -> None:
         )
         neighbor_ids, local_scales = exact_local_neighbors(
             points,
-            int(protocol["state_distribution"]["local_neighbors"]),
+            64,
             block_size=args.block_size,
         )
         destination = args.output / f"{dataset_id}.npz"
