@@ -37,7 +37,8 @@ struct Truth {
 
 class CountingSpace final : public hnswlib::SpaceInterface<float> {
    public:
-    explicit CountingSpace(std::size_t dimensions) : state_{dimensions, &counter_} {}
+    CountingSpace(std::size_t dimensions, bool inner_product)
+        : state_{dimensions, &counter_, inner_product} {}
     std::size_t get_data_size() override { return state_.dimensions * sizeof(float); }
     hnswlib::DISTFUNC<float> get_dist_func() override { return distance; }
     void* get_dist_func_param() override { return &state_; }
@@ -49,6 +50,7 @@ class CountingSpace final : public hnswlib::SpaceInterface<float> {
     struct State {
         std::size_t dimensions;
         std::atomic<std::uint64_t>* counter;
+        bool inner_product;
         bool counting{true};
     };
     static float distance(const void* left_raw, const void* right_raw,
@@ -59,6 +61,11 @@ class CountingSpace final : public hnswlib::SpaceInterface<float> {
         if (state->counting)
             state->counter->fetch_add(1, std::memory_order_relaxed);
         float value = 0.0F;
+        if (state->inner_product) {
+            for (std::size_t dimension = 0; dimension < state->dimensions; ++dimension)
+                value += left[dimension] * right[dimension];
+            return 1.0F - value;
+        }
         for (std::size_t dimension = 0; dimension < state->dimensions; ++dimension) {
             const float difference = left[dimension] - right[dimension];
             value += difference * difference;
@@ -151,23 +158,26 @@ struct ExpansionProgress {
 
 int main(int argc, char** argv) {
     try {
-        if (argc != 9) {
-            std::cerr << "usage: hnsw_e0_evaluate_index INDEX QUERIES TRUTH EFS WARMUP "
+        if (argc != 10) {
+            std::cerr << "usage: hnsw_e0_evaluate_index INDEX QUERIES TRUTH METRIC EFS WARMUP "
                          "ROUNDS RUN_ID OUTPUT_CSV\n";
             return 2;
         }
         const std::filesystem::path index_path = argv[1];
         const Matrix queries = read_matrix(argv[2]);
         const Truth truth = read_truth(argv[3]);
-        const auto efs = parse_efs(argv[4]);
-        const auto warmup = std::stoul(argv[5]);
-        const auto rounds = std::stoul(argv[6]);
-        const std::string run_id = argv[7];
-        const std::filesystem::path output_path = argv[8];
+        const std::string metric = argv[4];
+        if (metric != "l2" && metric != "ip")
+            throw std::invalid_argument("metric must be l2 or ip");
+        const auto efs = parse_efs(argv[5]);
+        const auto warmup = std::stoul(argv[6]);
+        const auto rounds = std::stoul(argv[7]);
+        const std::string run_id = argv[8];
+        const std::filesystem::path output_path = argv[9];
         if (queries.rows != 500 || truth.rows != 500 || truth.k != 10 ||
             queries.rows != truth.rows || rounds != 3)
             throw std::invalid_argument("E0 requires 500 queries, top-10 truth, and 3 rounds");
-        CountingSpace space(queries.columns);
+        CountingSpace space(queries.columns, metric == "ip");
         Index index(&space, index_path.string(), false);
         if (index.cur_element_count.load() != 10000)
             throw std::invalid_argument("E0 evaluator requires a 10K index");
