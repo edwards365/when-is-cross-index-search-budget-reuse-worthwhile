@@ -165,8 +165,23 @@ int main(int argc, char** argv) {
         const auto upper_before = upper_checksum(index, points);
         for (std::size_t node = 0; node < points; ++node)
             index.setListCount(index.get_linklist0(static_cast<hnswlib::tableint>(node)), 0);
-        for (const auto& [source, selected] : plan)
+        std::size_t planned_source_edges = 0;
+        std::size_t source_edges_retained_immediately = 0;
+        std::size_t reciprocal_edges_retained_immediately = 0;
+        for (const auto& [source, selected] : plan) {
             narhnsw::mutually_connect_selected(index, source, selected, 0);
+            const auto source_adjacent = neighbors(index, source, 0);
+            const std::set<hnswlib::tableint> source_neighbors(source_adjacent.begin(),
+                                                                source_adjacent.end());
+            planned_source_edges += selected.size();
+            for (const auto target : selected) {
+                source_edges_retained_immediately += source_neighbors.count(target);
+                const auto target_neighbors = neighbors(index, target, 0);
+                reciprocal_edges_retained_immediately +=
+                    std::find(target_neighbors.begin(), target_neighbors.end(), source) !=
+                    target_neighbors.end();
+            }
+        }
         const auto upper_after = upper_checksum(index, points);
         if (upper_before != upper_after)
             throw std::runtime_error("layer-0 replay changed an upper layer");
@@ -183,6 +198,11 @@ int main(int argc, char** argv) {
                  << "  \"status\": \"complete\",\n"
                  << "  \"points\": " << points << ",\n"
                  << "  \"directed_layer0_edges\": " << edges << ",\n"
+                 << "  \"planned_source_edges\": " << planned_source_edges << ",\n"
+                 << "  \"source_edges_retained_immediately\": "
+                 << source_edges_retained_immediately << ",\n"
+                 << "  \"reciprocal_edges_retained_immediately\": "
+                 << reciprocal_edges_retained_immediately << ",\n"
                  << "  \"upper_checksum_before\": " << upper_before << ",\n"
                  << "  \"upper_checksum_after\": " << upper_after << ",\n"
                  << "  \"upper_checksum_equal\": true,\n"
