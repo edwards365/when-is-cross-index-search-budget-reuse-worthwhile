@@ -1,0 +1,24 @@
+{
+  "status": "FROZEN_BEFORE_GATE_O_OUTPUT_INSPECTION",
+  "parent_preregistration_sha256": "bac001deb85da4560d146fdd394a3237c15359cb974f02c0fa10479effb7cd1d",
+  "reason": "The main preregistration froze Gate O thresholds but did not spell out aggregation and fallback-overhead sensitivities.",
+  "query_oracle_aggregation": {
+    "unit": "all_500_queries_times_all_6_frozen_ef_points_within_dataset_seed",
+    "dataset_pass": "at_least_two_of_three_seeds_have_mean_NDC_improvement_at_least_0.03",
+    "overall_requirement": "at_least_two_datasets_pass",
+    "outlier_check": "repeat_after_removing_the_top_1_percent_largest_per_query_savings; dataset pass must remain",
+    "primary_rule": "choose_R4_only_when_query_level_Recall_at_same_ef_is_at_least_Original"
+  },
+  "fallback_break_even": {
+    "h_sensitivity": [0.0, 0.005, 0.01, 0.02],
+    "rule": "actual_harmed_fraction_must_be_strictly_below_1_minus_alpha_minus_h",
+    "claim": "optimistic_bound_only_because_double-run_may_share_no_work"
+  },
+  "stage_oracle_aggregation": {
+    "dataset_pass": "at_least_two_of_three_seeds_meet_recall_and_NDC_or_p95_thresholds",
+    "overall_requirement": "at_least_two_datasets_pass",
+    "proxy_results_cannot_satisfy_gate": true,
+    "exact_counterfactual_or_identifiable_trace_evidence_required": true
+  },
+  "adaptive_changes_after_output_inspection": "FORBIDDEN"
+}
