@@ -1,0 +1,34 @@
+{
+  "status": "FAIL_ORACLE_UPPER_BOUND",
+  "next_status": "STOP_ALGORITHM_PIVOT_TO_BOUNDARY_STUDY",
+  "query_oracle_component": "PASS_3_OF_3_DATASETS_3_OF_3_SEEDS",
+  "fallback_rerun_component": "NOT_CROSS_DATASET_VIABLE",
+  "exact_stage_component": "FAIL_0_OF_9_COMMON_MODES",
+  "gate_o_passes": false,
+  "passing_common_scale_or_depth_modes": [],
+  "stage_matrix": {
+    "runs": 9,
+    "rows": 297000,
+    "delta_budget_fraction_of_original_layer0": 0.10,
+    "modes": ["Union-All", "Scale-1", "Scale-1.5", "Scale-2", "Scale-3", "Scale-4", "Depth-4", "Depth-8", "Depth-16", "Depth-32"],
+    "all_native_original_checks_exact": true,
+    "all_temporary_indexes_deleted": true
+  },
+  "union_all_mean_ndc_change_percent": {
+    "sift_10k": 2.6162,
+    "glove100_10k": 2.8798,
+    "arxiv_nomic_10k": 2.4451
+  },
+  "best_nontrivial_observation": "Modes that materially inspected delta edges increased rather than reduced mean NDC; high scale thresholds converged to Original with approximately zero change.",
+  "reason": "No fixed preregistered scale or depth mode passed any dataset in two of three seeds under the joint Recall and NDC/p95 thresholds.",
+  "sgdr_implementation_authorized": false,
+  "bep_or_e1_authorized": false,
+  "validation_dev_accessed": false,
+  "formal_test_members_accessed": false,
+  "evidence_sha256": {
+    "delta_plan_matrix": "b22b5b648669ba8823d5de963ccec2c834f0dcbdb7e713578928c5875bc3d1e2",
+    "stage_matrix": "07affa33af6b0cfada83a59977cfae128de7e274dd3ef7db6097e8b744c8753b",
+    "stage_analysis": "0650640287ec9e26fb5a28e60a2c1165b4e851c11d1b36e93e747427e4bca858",
+    "run_mode_summary": "9906ef5b447b7d0a964f9578d76bfd6f5ab0c58f90bfbbb8a5295b3024cd915b"
+  }
+}
