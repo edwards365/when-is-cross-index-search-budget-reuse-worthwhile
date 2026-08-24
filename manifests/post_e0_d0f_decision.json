@@ -1,0 +1,45 @@
+{
+  "aggregation_rule": "all_datasets_at_least_two_of_three_seeds",
+  "aggregation_rule_scope": "conservative_operational_rule_frozen_before_curve_inspection",
+  "bep_implemented": false,
+  "causal_claim_scope": "diagnostic_not_algorithmic",
+  "datasets": {
+    "arxiv_nomic_10k": {
+      "passes_two_of_three": false,
+      "passing_seeds": 0,
+      "total_seeds": 3
+    },
+    "glove100_10k": {
+      "passes_two_of_three": false,
+      "passing_seeds": 0,
+      "total_seeds": 3
+    },
+    "sift_10k": {
+      "passes_two_of_three": false,
+      "passing_seeds": 0,
+      "total_seeds": 3
+    }
+  },
+  "formal_test_members_accessed": false,
+  "matrix_rows": 324000,
+  "new_ef_points": false,
+  "oracle_query_supervision_diagnostic_only": true,
+  "runs": {
+    "arxiv_nomic_10k-b17": false,
+    "arxiv_nomic_10k-b29": false,
+    "arxiv_nomic_10k-b7": false,
+    "glove100_10k-b17": false,
+    "glove100_10k-b29": false,
+    "glove100_10k-b7": false,
+    "sift_10k-b17": false,
+    "sift_10k-b29": false,
+    "sift_10k-b7": false
+  },
+  "status": "FAILURE_STRUCTURALLY_DIFFUSE",
+  "thresholds": {
+    "maximum_addback_fraction": 0.25,
+    "minimum_recall_loss_recovery": 0.8,
+    "minimum_retained_primary_ndc_improvement": 0.5
+  },
+  "validation_dev_accessed": false
+}
