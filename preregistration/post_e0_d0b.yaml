@@ -1,0 +1,47 @@
+version: post_e0_d0b_v1
+status: frozen_before_d0b_analysis
+parent_d0a_commit: b430579475f69629497e8ac8cee2832a0bc66d68
+parent_d0a_decision: PASS_CONTINUE_D0
+parent_manifest: manifests/post_e0_d0a_decision.json
+
+firewall:
+  allowed_inputs: [existing_e0_query_metrics]
+  new_ef_points: forbidden
+  new_graph_construction: forbidden
+  validation_dev_access: forbidden
+  formal_test_access: forbidden
+  adaptive_tuning: forbidden
+
+analysis:
+  datasets: [sift_10k, glove100_10k, arxiv_nomic_10k]
+  build_seeds: [7, 17, 29]
+  ef_search: [10, 20, 40, 80, 120, 200]
+  original: original_algorithm4
+  primary: geometry_backbone_mpcc_R4
+  safe_definition: recall_primary_query_ef_greater_or_equal_original_query_ef
+  harmed_definition: recall_primary_query_ef_less_than_original_query_ef
+  ndc_improvement: ndc_original_minus_ndc_primary
+  bootstrap_replicates: 5000
+  bootstrap_seed: 2026082403
+  seed_pass_rule: >-
+    Safe query-ef pairs have positive mean NDC improvement, the median per-query
+    safe NDC improvement is positive, and at least four of six ef points have
+    positive mean safe-query NDC improvement.
+  dataset_pass_rule: at_least_2_of_3_seeds
+  overall_pass_rule: at_least_2_datasets
+  pass_action: CONTINUE_D0_DFG
+  failure_label: NDC_REDUCTION_EXPLAINED_BY_MISSED_SEARCH
+  failure_action: STOP_HNSW_TOPOLOGY_MODIFICATION
+
+known_artifact_boundary:
+  available:
+    - per_query_recall
+    - ndc
+    - base_expansions
+    - traversal_hops
+    - returned_top10
+  unavailable_without_trace_replay:
+    - candidate_enqueue_count
+    - terminal_frontier_state
+  rule: do_not_substitute_proxy_values_for_unavailable_fields
+
