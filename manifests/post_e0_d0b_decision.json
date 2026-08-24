@@ -1,0 +1,43 @@
+{
+  "adaptive_tuning_performed": false,
+  "dataset_decisions": {
+    "arxiv_nomic_10k": {
+      "dataset_pass": true,
+      "harmed_query_ef_fraction_range": [0.061, 0.069667],
+      "mean_safe_ndc_improvement_range": [74.47474, 78.739794],
+      "positive_seeds": 3
+    },
+    "glove100_10k": {
+      "dataset_pass": true,
+      "harmed_query_ef_fraction_range": [0.178667, 0.184333],
+      "mean_safe_ndc_improvement_range": [62.042208, 68.165917],
+      "positive_seeds": 3
+    },
+    "sift_10k": {
+      "dataset_pass": true,
+      "harmed_query_ef_fraction_range": [0.097, 0.102667],
+      "mean_safe_ndc_improvement_range": [32.34773, 33.827051],
+      "positive_seeds": 3
+    }
+  },
+  "evidence_sha256": {
+    "decision": "0fc67c3363e955e2485492c50473141ded0d4f45df016e50c39b7e11a8c01964",
+    "safe_harmed_by_ef": "713f606b31d733c7adc328038733dd7a325344b32f8aa25da4d7b2d9c8bb47a4"
+  },
+  "formal_test_members_accessed": false,
+  "gate": "Post-E0 D0-B safe/harmed query decomposition",
+  "label": "SAFE_QUERY_EFFICIENCY_SIGNAL",
+  "new_ef_points": false,
+  "new_graphs_built": false,
+  "next_action": "CONTINUE_D0_DFG",
+  "passing_datasets": 3,
+  "required_passing_datasets": 2,
+  "schema_version": 1,
+  "status": "PASS_CONTINUE_D0",
+  "unavailable_existing_artifacts": [
+    "candidate_enqueue_count",
+    "terminal_frontier_state"
+  ],
+  "unavailable_fields_not_substituted": true,
+  "validation_dev_accessed": false
+}
