@@ -8,6 +8,7 @@ import csv
 import gzip
 import hashlib
 import json
+import shutil
 import time
 from collections import defaultdict
 from itertools import groupby
@@ -202,6 +203,9 @@ def run(args: argparse.Namespace) -> None:
         raise PermissionError("E0 formal-test firewall is open")
     if protocol["design_dev"]["construction_access"] != "forbidden":
         raise PermissionError("E0 query-construction firewall is open")
+    minimum_free_bytes = int(protocol["execution"]["minimum_free_disk_gib"]) * 1024**3
+    if shutil.disk_usage(Path(".")).free < minimum_free_bytes:
+        raise OSError("E0 disk safety stop before plan generation")
     if args.dataset not in {item["id"] for item in protocol["datasets"]}:
         raise ValueError("dataset is outside the frozen matrix")
     if args.seed not in protocol["base_hnsw"]["build_seeds"]:
@@ -289,6 +293,8 @@ def run(args: argparse.Namespace) -> None:
                 changed_events[name] += set(selected) != set(algorithm4)
             events += 1
             if events % 250 == 0:
+                if shutil.disk_usage(args.output).free < minimum_free_bytes:
+                    raise OSError("E0 disk safety stop during plan generation")
                 print(
                     f"{args.dataset}-b{args.seed}: planned {events} insertions",
                     flush=True,
