@@ -198,9 +198,9 @@ long long optional_index(const std::optional<std::size_t>& value) {
 
 int main(int argc, char** argv) {
     try {
-        if (argc != 10) {
+        if (argc != 11) {
             std::cerr << "usage: hnsw_d0_compare_indexes ORIGINAL PRIMARY QUERIES TRUTH "
-                         "METRIC EFS RUN_ID OUTPUT_CSV OUTPUT_META\n";
+                         "METRIC EFS RUN_ID OUTPUT_CSV OUTPUT_COVERAGE OUTPUT_META\n";
             return 2;
         }
         const Matrix queries = read_matrix(argv[3]);
@@ -222,6 +222,11 @@ int main(int argc, char** argv) {
 
         std::ofstream output(argv[8]);
         if (!output) throw std::runtime_error("cannot create D0-D output");
+        std::ofstream coverage(argv[9]);
+        if (!coverage) throw std::runtime_error("cannot create D0-D coverage output");
+        coverage << "run_id,ef_search,query_id,source_internal,target_internal,"
+                    "source_external,target_external,strict_progress,beam_admissible,"
+                    "target_is_missed_true_top10,target_expanded_original\n";
         output << "run_id,ef_search,query_id,original_recall,primary_recall,original_ndc,"
                   "primary_ndc,first_visited_divergence,first_queue_divergence,"
                   "first_result_heap_divergence,absent_source_internal,absent_target_internal,"
@@ -229,6 +234,7 @@ int main(int argc, char** argv) {
                   "beam_admissible,target_is_missed_true_top10,target_expanded_original,"
                   "original_results,primary_results\n";
         std::size_t harmed = 0;
+        std::size_t coverage_rows = 0;
         for (const auto ef : efs) {
             original.setEf(ef);
             primary.setEf(ef);
@@ -254,6 +260,34 @@ int main(int argc, char** argv) {
                 const auto original_accepted = phase_events(original_trace.events, "accepted");
                 const auto primary_accepted = phase_events(primary_trace.events, "accepted");
                 const auto absent = first_absent_original_edge(original_visited, primary);
+                std::set<std::pair<hnswlib::tableint, hnswlib::tableint>> written_edges;
+                std::set<std::uint32_t> primary_labels;
+                for (const auto& item : primary_result) primary_labels.insert(item.second);
+                std::set<std::uint32_t> missed_truth;
+                for (std::size_t offset = 0; offset < truth.k; ++offset) {
+                    const auto label = truth.labels[query_id * truth.k + offset];
+                    if (!primary_labels.count(label)) missed_truth.insert(label);
+                }
+                for (const auto& event : original_visited) {
+                    if (has_edge(primary, event.source, event.target) ||
+                        !written_edges.emplace(event.source, event.target).second)
+                        continue;
+                    const auto source_label = original.getExternalLabel(event.source);
+                    const auto target_label = original.getExternalLabel(event.target);
+                    const float source_distance = original_space.distance(
+                        query, original.getDataByInternalId(event.source));
+                    const bool strict_edge = event.distance_to_query < source_distance;
+                    const bool beam_edge = event.distance_to_query < event.lower_bound_before;
+                    const bool expanded_edge = std::any_of(
+                        original_expanded.begin(), original_expanded.end(),
+                        [&](const Event& expanded) { return expanded.source == event.target; });
+                    coverage << run_id << ',' << ef << ',' << query_id << ',' << event.source
+                             << ',' << event.target << ',' << source_label << ',' << target_label
+                             << ',' << strict_edge << ',' << beam_edge << ','
+                             << missed_truth.count(static_cast<std::uint32_t>(target_label)) << ','
+                             << expanded_edge << '\n';
+                    ++coverage_rows;
+                }
                 long long source_internal = -1;
                 long long target_internal = -1;
                 long long source_external = -1;
@@ -271,8 +305,6 @@ int main(int argc, char** argv) {
                         query, original.getDataByInternalId(absent->source));
                     strict = absent->distance_to_query < source_distance;
                     beam = absent->distance_to_query < absent->lower_bound_before;
-                    std::set<std::uint32_t> primary_labels;
-                    for (const auto& item : primary_result) primary_labels.insert(item.second);
                     for (std::size_t offset = 0; offset < truth.k; ++offset) {
                         const auto label = truth.labels[query_id * truth.k + offset];
                         target_missed_truth = target_missed_truth ||
@@ -298,9 +330,10 @@ int main(int argc, char** argv) {
                        << labels(original_result) << ',' << labels(primary_result) << '\n';
             }
         }
-        std::ofstream metadata(argv[9]);
+        std::ofstream metadata(argv[10]);
         metadata << "{\n  \"status\": \"complete\",\n  \"run_id\": \"" << run_id
                  << "\",\n  \"harmed_query_ef_pairs\": " << harmed
+                 << ",\n  \"original_only_trace_edge_rows\": " << coverage_rows
                  << ",\n  \"trace_matches_native_search\": true,\n"
                     "  \"new_ef_points\": false,\n"
                     "  \"validation_dev_accessed\": false,\n"

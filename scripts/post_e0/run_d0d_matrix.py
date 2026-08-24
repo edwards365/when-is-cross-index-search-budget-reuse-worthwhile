@@ -138,6 +138,7 @@ def execute(
             raise ValueError(f"{run_id}/{method}: upper checksum mismatch")
 
     trace_csv = work / "first_divergence.csv"
+    coverage_csv = work / "original_only_trace_edges.csv"
     trace_metadata = work / "trace_metadata.json"
     trace_seconds = run_checked(
         [
@@ -150,6 +151,7 @@ def execute(
             ",".join(map(str, protocol["firewall"]["ef_search"])),
             run_id,
             str(trace_csv.resolve()),
+            str(coverage_csv.resolve()),
             str(trace_metadata.resolve()),
         ],
         logs / f"{run_id}.trace.stdout.log",
@@ -160,9 +162,12 @@ def execute(
         raise ValueError(f"{run_id}: invalid trace metadata")
     if count_csv(trace_csv) != trace["harmed_query_ef_pairs"]:
         raise ValueError(f"{run_id}: trace row count mismatch")
+    if count_csv(coverage_csv) != trace["original_only_trace_edge_rows"]:
+        raise ValueError(f"{run_id}: trace-edge coverage row count mismatch")
 
     final.mkdir(parents=True)
     compress(trace_csv, final / "first_divergence.csv.gz")
+    compress(coverage_csv, final / "original_only_trace_edges.csv.gz")
     shutil.copy2(trace_metadata, final / "trace_metadata.json")
     record = {
         "status": "complete",
@@ -170,6 +175,7 @@ def execute(
         "dataset": job["dataset"],
         "build_seed": job["seed"],
         "harmed_query_ef_pairs": trace["harmed_query_ef_pairs"],
+        "original_only_trace_edge_rows": trace["original_only_trace_edge_rows"],
         "original_reconstruction_seconds": original_seconds,
         "primary_reconstruction_seconds": primary_seconds,
         "trace_seconds": trace_seconds,
@@ -179,6 +185,7 @@ def execute(
         "upper_checksums_equal": True,
         "trace_matches_native_search": True,
         "trace_sha256": sha256(final / "first_divergence.csv.gz"),
+        "coverage_sha256": sha256(final / "original_only_trace_edges.csv.gz"),
         "temporary_indexes_deleted": False,
         "new_ef_points": False,
         "validation_dev_accessed": False,
@@ -288,6 +295,9 @@ def main() -> None:
         "status": "D0D_TRACE_MATRIX_COMPLETE",
         "runs": 9,
         "harmed_query_ef_pairs": sum(item["harmed_query_ef_pairs"] for item in records),
+        "original_only_trace_edge_rows": sum(
+            item["original_only_trace_edge_rows"] for item in records
+        ),
         "all_reconstructions_exact_e0": True,
         "all_traces_match_native_search": True,
         "all_temporary_indexes_deleted": True,
