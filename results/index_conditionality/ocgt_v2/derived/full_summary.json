@@ -1,0 +1,79 @@
+{
+  "oracle_headroom_by_dataset": {
+    "arxiv_nomic_10k": 0.2529274769840643,
+    "glove100_10k": 0.3920890667666655,
+    "sift_10k": 0.22541633872808614
+  },
+  "conditionality": {
+    "arxiv_nomic_10k": {
+      "omega": 0.3046308380177325,
+      "query_variance": 0.25026684249841946,
+      "graph_variance": 0.0013100669940549333,
+      "interaction_variance": 0.1096381636209078,
+      "centered_spearman_median": 0.5570049321393402,
+      "kendall_median": 0.5216582777384848,
+      "hard_top10_jaccard_median": 0.3333333333333333
+    },
+    "glove100_10k": {
+      "omega": 0.16318005047788953,
+      "query_variance": 1.5376524791637316,
+      "graph_variance": 0.0025900642232499953,
+      "interaction_variance": 0.299842528026108,
+      "centered_spearman_median": 0.7837737983222011,
+      "kendall_median": 0.6571528043990223,
+      "hard_top10_jaccard_median": 0.35135135135135137
+    },
+    "sift_10k": {
+      "omega": 0.3479288205365396,
+      "query_variance": 0.3053131375950584,
+      "graph_variance": 0.011968896516726947,
+      "interaction_variance": 0.16290742974588324,
+      "centered_spearman_median": 0.5226391485755371,
+      "kendall_median": 0.4754859774175382,
+      "hard_top10_jaccard_median": 0.26582278481012656
+    }
+  },
+  "transfer_eta_by_dataset": {
+    "arxiv_nomic_10k": -0.004846206711973536,
+    "glove100_10k": 0.11618135838044887,
+    "sift_10k": -0.09490160919351916
+  },
+  "predictors": {
+    "arxiv_nomic_10k": {
+      "LID_STATIC": {
+        "corr": 0.2866657466100263,
+        "ndc_gain": -0.023027730924586667,
+        "recall_diff": 0.005955555555555557
+      },
+      "SHEAF": {
+        "corr": 0.5391818571920581,
+        "ndc_gain": -1.7030848932376534,
+        "recall_diff": 0.0010666666666666665
+      }
+    },
+    "glove100_10k": {
+      "LID_STATIC": {
+        "corr": 0.7248623924146952,
+        "ndc_gain": -0.025084719817440457,
+        "recall_diff": 0.017866666666666666
+      },
+      "SHEAF": {
+        "corr": 0.5765599003950906,
+        "ndc_gain": -0.6608135645669049,
+        "recall_diff": 0.009155555555555556
+      }
+    },
+    "sift_10k": {
+      "LID_STATIC": {
+        "corr": 0.3313925520997596,
+        "ndc_gain": -0.0069450997683012,
+        "recall_diff": 0.0017777777777777783
+      },
+      "SHEAF": {
+        "corr": 0.5564774853167567,
+        "ndc_gain": -1.7055293696795402,
+        "recall_diff": 0.002577777777777778
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "arxiv_nomic_10k": {
+    "graphs": 9,
+    "mean_headroom_ndc": 0.2602596366712681,
+    "mean_fixed_ndc": 416.9124444444444,
+    "mean_oracle_ndc": 308.4655555555555,
+    "mean_recall_fixed": 0.9700000000000001
+  },
+  "glove100_10k": {
+    "graphs": 9,
+    "mean_headroom_ndc": 0.4032048488114474,
+    "mean_fixed_ndc": 1699.8017777777777,
+    "mean_oracle_ndc": 1013.793111111111,
+    "mean_recall_fixed": 0.9544222222222223
+  },
+  "sift_10k": {
+    "graphs": 9,
+    "mean_headroom_ndc": 0.21468361338668607,
+    "mean_fixed_ndc": 360.44311111111114,
+    "mean_oracle_ndc": 282.2406666666667,
+    "mean_recall_fixed": 0.9651111111111111
+  }
+}

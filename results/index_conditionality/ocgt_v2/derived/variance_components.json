@@ -1,0 +1,29 @@
+{
+  "arxiv_nomic_10k": {
+    "omega": 0.3046308380177325,
+    "query_variance": 0.25026684249841946,
+    "graph_variance": 0.0013100669940549333,
+    "interaction_variance": 0.1096381636209078,
+    "centered_spearman_median": 0.5570049321393402,
+    "kendall_median": 0.5216582777384848,
+    "hard_top10_jaccard_median": 0.3333333333333333
+  },
+  "glove100_10k": {
+    "omega": 0.16318005047788953,
+    "query_variance": 1.5376524791637316,
+    "graph_variance": 0.0025900642232499953,
+    "interaction_variance": 0.299842528026108,
+    "centered_spearman_median": 0.7837737983222011,
+    "kendall_median": 0.6571528043990223,
+    "hard_top10_jaccard_median": 0.35135135135135137
+  },
+  "sift_10k": {
+    "omega": 0.3479288205365396,
+    "query_variance": 0.3053131375950584,
+    "graph_variance": 0.011968896516726947,
+    "interaction_variance": 0.16290742974588324,
+    "centered_spearman_median": 0.5226391485755371,
+    "kendall_median": 0.4754859774175382,
+    "hard_top10_jaccard_median": 0.26582278481012656
+  }
+}
