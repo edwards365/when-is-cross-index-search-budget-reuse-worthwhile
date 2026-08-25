@@ -1,0 +1,101 @@
+[
+  {
+    "dataset": "sift_10k",
+    "graph_seed": 43,
+    "insertion_order": "random",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "14ffa3f41bfabe4af4f5506f9df5073369e0426b14ed71e7c503b20cee92e169",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "sift_10k",
+    "graph_seed": 43,
+    "insertion_order": "lid_ascending",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "453344545de1e304ce842c0eda2a0edbd72548c164e6a5b57ac25ffd6bfc02ab",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "sift_10k",
+    "graph_seed": 43,
+    "insertion_order": "lid_descending",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "52b44287a47c29d6b145d184a315165dce57e9c1fb1496df459b9172aecc21ba",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "glove100_10k",
+    "graph_seed": 43,
+    "insertion_order": "random",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "9778d13bb1301b88803f7e2bea06aaeb463d8a1b09950a5c74d43998da16862c",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "glove100_10k",
+    "graph_seed": 43,
+    "insertion_order": "lid_ascending",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "795d834c2c34ce6bfd793022ecdf93b921d79012294e6eefd0956a4bbd9e4c16",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "glove100_10k",
+    "graph_seed": 43,
+    "insertion_order": "lid_descending",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "7651165d21f421b2fd6d31edaa0c260655aa6a36ee9554f6a8fd37ccb135d66f",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "arxiv_nomic_10k",
+    "graph_seed": 43,
+    "insertion_order": "random",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "03a335bc3dff9432157234f659136a4b60dc47a8f0ca25df1cc0991ac4a86e4f",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "arxiv_nomic_10k",
+    "graph_seed": 43,
+    "insertion_order": "lid_ascending",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "28c481f96c0a5612ec7897a928b54cd4665c28071ff0fc9c8f38f892fae66536",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  },
+  {
+    "dataset": "arxiv_nomic_10k",
+    "graph_seed": 43,
+    "insertion_order": "lid_descending",
+    "rows": 6000,
+    "repeat_deterministic": true,
+    "graph_hash": "a08646951e3a20387f4da33ad731f45978574f1e8073348f2bae6e325b5d6d06",
+    "entry_point": 4691,
+    "max_level": 3,
+    "native_instrumented_exact": true
+  }
+]
