@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "KEEP_REALISTIC_HNSW_HISTORY_NONPORTABILITY",
+  "gate_pass": true,
+  "gate_by_dataset": {
+    "arxiv_nomic_100k": true,
+    "glove100_100k": true,
+    "sift_100k": true
+  },
+  "graphs": 18,
+  "rows": 216000,
+  "failures": [],
+  "temporary_indexes_deleted": true,
+  "formal_test_accessed": false,
+  "decision_sha256": "2ffc23b14c1754a210d9ce87c261effac37ba4ad3347853e5ea7c7ce2b4c7331",
+  "evidence": [
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/arxiv_nomic_100k__seed43__cluster_block_order.csv.gz",
+      "sha256": "cdad6a7b08536582367a38df0f81c0e0d9d66967737458fa7fe571a9bdcc7dd7",
+      "rows": 12000,
+      "metadata_sha256": "2a8339ed4a38f207e6e133c833abdceb29382877b03d0bbfacd5042e229bec5d"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/arxiv_nomic_100k__seed43__natural_source_order.csv.gz",
+      "sha256": "c6ce5f9d4addb96a3469eeab569f66693411e8ff21eaa710baa103c6058bf78a",
+      "rows": 12000,
+      "metadata_sha256": "2adf45cee87c82d525555c1dc27af29893e2d50e2f091ad4ce37554cc258039b"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/arxiv_nomic_100k__seed59__cluster_block_order.csv.gz",
+      "sha256": "d4ae6319a9ce97ad37f519d43a8a665b291016181e9c953af5467ba7513bdad3",
+      "rows": 12000,
+      "metadata_sha256": "63b6dbef0329f877208310e55cc2e0b4b380f5d3057f0a9b7b7869347b27a66f"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/arxiv_nomic_100k__seed59__natural_source_order.csv.gz",
+      "sha256": "528eb1fbd348225ec9a8065309e00cdeba152c6be8b456a63ddf0fff268671e1",
+      "rows": 12000,
+      "metadata_sha256": "115720cd503a3b5fbf527ef60c8f02f6df6fc95ae0f287d2b8a26fb8d11d0c70"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/arxiv_nomic_100k__seed71__cluster_block_order.csv.gz",
+      "sha256": "45e36940f678ef16826378de5f6de68dcbcadd3886977948098e68332ed1a731",
+      "rows": 12000,
+      "metadata_sha256": "c0e4b2836dc1eeadeb40e1f8a61223a4223f10c2c8a896d7a6cc50202285244b"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/arxiv_nomic_100k__seed71__natural_source_order.csv.gz",
+      "sha256": "067da6ed6dbd7d0fa27b1566378ce2113daf56191aea66a6360cd915a5c86288",
+      "rows": 12000,
+      "metadata_sha256": "f71c111a2cc2bf0443f22d483cdb7ca6ba9bf7ac0a70c2def659e5bef7b8d52b"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/glove100_100k__seed43__cluster_block_order.csv.gz",
+      "sha256": "f4030e5d91c6a9465281cab4edeaf21df4ec7ff6f7bb9902257b0cf39d7df463",
+      "rows": 12000,
+      "metadata_sha256": "88cfcdd12a3ac98cef9c566e2ff7e2f8879d1e9205ac81a204af08366130767f"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/glove100_100k__seed43__natural_source_order.csv.gz",
+      "sha256": "e7166093be43a38ae82450b1a3746b98db89d5b18e5bc2aa59a66fe18437bc22",
+      "rows": 12000,
+      "metadata_sha256": "4d418213aec3ef77d43175d3e604cd3ae404d9113e5e0fe0fa793bf4943def9f"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/glove100_100k__seed59__cluster_block_order.csv.gz",
+      "sha256": "07fc48cd77033ae8360b2752e544499ceb46b91f2fd3e16e6626c16d43c7dc94",
+      "rows": 12000,
+      "metadata_sha256": "eba634efe74a7b4f356fc2acdbcd880ef30db3ea66c5ba4ca98f4943ef60f8ca"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/glove100_100k__seed59__natural_source_order.csv.gz",
+      "sha256": "0efeff1310ba5c5e44c295aba02be72d3713a27631840602915c8c54f93bc6d7",
+      "rows": 12000,
+      "metadata_sha256": "371a7c3f3539642fbc5446ac3ede0e9bfe702d71d923d37dcebd032d88afb384"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/glove100_100k__seed71__cluster_block_order.csv.gz",
+      "sha256": "6cc44548abea6ade422f2b85f0c4de947ad7e3ae8e649b8a75bf20d9ddd38fbf",
+      "rows": 12000,
+      "metadata_sha256": "46f54a88382c63e26e7161ed538f9adfa5d4b03e57b1e6253e62cc137bbacdda"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/glove100_100k__seed71__natural_source_order.csv.gz",
+      "sha256": "afbf7c275222891e59e4a88685e39de23214b747fa1e1fc6aaa9933bc97ffb00",
+      "rows": 12000,
+      "metadata_sha256": "2c76d6bda353e57794278882ff23c44ca99ad7cd7835259ca7f6cacfcd62d9a7"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/sift_100k__seed43__cluster_block_order.csv.gz",
+      "sha256": "65306c055e5fec96a5af57eaf1a2d0e8b8d5986f250639ad9b484a3019494b56",
+      "rows": 12000,
+      "metadata_sha256": "eb721a3d2a2084dc4c1498da1599aab2ddc5197216d000f5796ca748ed7f4f07"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/sift_100k__seed43__natural_source_order.csv.gz",
+      "sha256": "5d387aab4509463da7f9a87f87fd9fb120b785393a000aaf170a246e4e7d9b1a",
+      "rows": 12000,
+      "metadata_sha256": "0630c946c55c6295b6060fc428396fe627d19364005c5dd22590add377f6bb77"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/sift_100k__seed59__cluster_block_order.csv.gz",
+      "sha256": "0a6c2d1b1285efdbf372641c5aaeafdbc393f886a750584b31c31966ddf748f6",
+      "rows": 12000,
+      "metadata_sha256": "7375a7112dffa57c3b9d448f886e760dab6ae430d455c086fa503c48d2b1ab35"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/sift_100k__seed59__natural_source_order.csv.gz",
+      "sha256": "a352436d414e5a372571d7ea9507c7bb30ab5b2cf1e7e586d262b40efea8b7f7",
+      "rows": 12000,
+      "metadata_sha256": "90e1acb9580a160b4937ae77e2a88978bb8e1c127d9b76d2b5123f6776ffd5e3"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/sift_100k__seed71__cluster_block_order.csv.gz",
+      "sha256": "257ce9c2ff3f06bcf73f8e3107408ec973f6bc18c1ca3b76a695e827208e4e16",
+      "rows": 12000,
+      "metadata_sha256": "c113bb6a4aad391494dc6545a53684745f246f66c314fa2575d1a4a6beca257d"
+    },
+    {
+      "path": "results/hardness_portability_100k/realistic_raw/sift_100k__seed71__natural_source_order.csv.gz",
+      "sha256": "6f6f8a25be887d593e934b393f0d8528eb1d7ceac08845284c6fbe6be694df47",
+      "rows": 12000,
+      "metadata_sha256": "af2b41dbda5faad912c70c9d4903b0cf3f8bf5900c4f7e0d4521b86ed4a3ac56"
+    }
+  ]
+}
