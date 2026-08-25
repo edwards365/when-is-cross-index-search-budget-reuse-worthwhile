@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "FROZEN_BEFORE_GATE_R",
+  "uses_queries_or_truth": false,
+  "records": [
+    {
+      "dataset": "sift_100k",
+      "definition": "OCGT-v3 exact squared-L2 k=100 MLE LID",
+      "tie_break": "ascending external label",
+      "lid_path": "results/hardness_portability_100k/lid_orders/sift_100k_lid.npy",
+      "lid_sha256": "5858fa9c894d2b97806db82294d30db303de11ba6a3a3a2e4414f733a35c16a0",
+      "order_path": "results/hardness_portability_100k/lid_orders/sift_100k_order.npy",
+      "order_sha256": "68902a231481acb67601c492a82019921f136fa623c69b00c6ca360c2fce5cfa",
+      "count": 100000
+    },
+    {
+      "dataset": "glove100_100k",
+      "definition": "OCGT-v3 exact squared-L2 k=100 MLE LID",
+      "tie_break": "ascending external label",
+      "lid_path": "results/hardness_portability_100k/lid_orders/glove100_100k_lid.npy",
+      "lid_sha256": "75ae7439d24451f4b265f906b3936a7f47f3731e1302f827c9bed224f2bcda72",
+      "order_path": "results/hardness_portability_100k/lid_orders/glove100_100k_order.npy",
+      "order_sha256": "034f69a52ee1d3410a6f293cd460868b703aa3ca1eb8a6883e20a71ac0f87c4e",
+      "count": 100000
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "definition": "OCGT-v3 exact squared-L2 k=100 MLE LID",
+      "tie_break": "ascending external label",
+      "lid_path": "results/hardness_portability_100k/lid_orders/arxiv_nomic_100k_lid.npy",
+      "lid_sha256": "aa8f604e4b678522ee219915ee149391625b11234b75aa7c68c08655be1b81e7",
+      "order_path": "results/hardness_portability_100k/lid_orders/arxiv_nomic_100k_order.npy",
+      "order_sha256": "ee882bfa029deeac3c5f25842caf17911649b81f107bd65ad88aa94364d26c42",
+      "count": 100000
+    }
+  ],
+  "formal_test_accessed": false
+}
