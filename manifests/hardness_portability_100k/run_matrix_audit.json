@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "PASS_CORE_MATRIX_AUDIT",
+  "graphs": 27,
+  "rows": 324000,
+  "failures": [],
+  "temporary_indexes_deleted": true,
+  "formal_test_accessed": false,
+  "core_gate_status": "PASS_TO_REALISTIC_HISTORY_GATE",
+  "analysis_sha256": "f6b0f14c523de9d9597e638c0acf891fa51de773207c5b16b06d16fe576da399",
+  "evidence": [
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed43__lid_ascending.csv.gz",
+      "sha256": "0bc79267332d834f31ed5d342dd75705580f3298a9649469962bd172ce8804ff",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed43__lid_ascending.metadata.json",
+      "metadata_sha256": "66d6e6ed906d27c41a920ad2b32477fe62e619568157490711c5f829efbf71e6"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed43__lid_descending.csv.gz",
+      "sha256": "e5d1bc478ef5173c71dc12b1f1ecbd0a36f36a42b9550ea6cd84d3c2d3d58e52",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed43__lid_descending.metadata.json",
+      "metadata_sha256": "d8fe6bd6e493a414d0799a1324b0dd721b699d07e3eac7b0d0569b8d75217a3c"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed43__random.csv.gz",
+      "sha256": "033ba4ca6daab1b0f0be5c60d8e81a1fd1be8f90176b984e0f57c003bfdc81c4",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed43__random.metadata.json",
+      "metadata_sha256": "a4381f68933df167144e8403df0b54e73d2d57e052172a58355adbfb85cc1c1b"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed59__lid_ascending.csv.gz",
+      "sha256": "db52f9e37821bb67e9c6f76cbf853bed470199033484383cf4947b5b9094f0f6",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed59__lid_ascending.metadata.json",
+      "metadata_sha256": "62be75c11b5a4bbe50dc1057e81e7590d5d5aba9cac1e1f330478dd3192055a5"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed59__lid_descending.csv.gz",
+      "sha256": "7ff2718427d8ef0779cb163094a6581ae36d96cc63ca2711a403d8fd1e619ee8",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed59__lid_descending.metadata.json",
+      "metadata_sha256": "616f021c01e84861566a9b05354f78f84a5203c013e460f6a977e6f73a5e4b02"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed59__random.csv.gz",
+      "sha256": "f7eb54b7ebc6502c8533297b93528d81dc7e3c68b26d48f0640328778d9dc90e",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed59__random.metadata.json",
+      "metadata_sha256": "4ab9995dbbbbd560678176dcf99c739bfb9b88f716fd0391554098b58b51670c"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed71__lid_ascending.csv.gz",
+      "sha256": "f84ff3a162e2819e828db6aef13c81736f2b3c3fbeb4be53fac3aeed288a1f0c",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed71__lid_ascending.metadata.json",
+      "metadata_sha256": "8cfe222e20ace75d8e98b722e7ffdffd1cf68057feeb0fe49bdc5e39b46ac6ec"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed71__lid_descending.csv.gz",
+      "sha256": "f1c06eefc7b34c22c749107be0866f23e6f6939445e16257a8d1692a96b7a656",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed71__lid_descending.metadata.json",
+      "metadata_sha256": "35edddfead211af728182663e1e7ac9320975e264c2bd473de4ee0799e705ee0"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed71__random.csv.gz",
+      "sha256": "ac035c9aac55fe9d2b33e30d55db74b60a657563e292e80155700f67ba6ef090",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/arxiv_nomic_100k__seed71__random.metadata.json",
+      "metadata_sha256": "19ee7209e7b285318cfb270dd40d36b326ec7a7f268d2be158a7848f7593dc69"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed43__lid_ascending.csv.gz",
+      "sha256": "fa85a612b96eded0f67747eb14c60d6dd0da8da5f94d57be37d066ca2315e5ae",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed43__lid_ascending.metadata.json",
+      "metadata_sha256": "675d911fec3c593aa270cbdcab880244abfbdc0a339d6398acf4639abcfabc81"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed43__lid_descending.csv.gz",
+      "sha256": "ff237f6692cfce004c26acda07f739b067dab49794084407ecce2787f7b7cb3a",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed43__lid_descending.metadata.json",
+      "metadata_sha256": "6d6b394241be950ec709565eaa9212c744ad8dc524d7fe215cf60b849b7242e7"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed43__random.csv.gz",
+      "sha256": "8a6aa473114cae46279bdcfbe6a0fe06ed182498d3ddd0df92d8f04e8d6c3517",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed43__random.metadata.json",
+      "metadata_sha256": "f7dc46fcff0223c7fe355e9d4cca36fb0615a47439b55b5ea825e68fc67e6ca9"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed59__lid_ascending.csv.gz",
+      "sha256": "b5cbfe4b9acb2c684272e447fc1b6ec3c3382128ef9f67132e81f35111de65a4",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed59__lid_ascending.metadata.json",
+      "metadata_sha256": "3f109977341cba7c4c20c595c4ab7a480fbf04f7ba469347087625434d8ca165"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed59__lid_descending.csv.gz",
+      "sha256": "bfb56e8b7e376582d5c28dbb0c09b416b8e50e82baa20f7058efe2d1cc9666f4",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed59__lid_descending.metadata.json",
+      "metadata_sha256": "4abd885d3e8fdda105585186782b5e774e41263c0339809e5824eb3342fa2c2f"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed59__random.csv.gz",
+      "sha256": "d581d6e66b262241b564b36d220e3739f5b7da35e46e08e8a4b98d1eae658986",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed59__random.metadata.json",
+      "metadata_sha256": "a109770ea6c6976e5f6e708d20eccd6c39a4c86ac0fc49702d0dde69b507670f"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed71__lid_ascending.csv.gz",
+      "sha256": "38689d8089a52c82696815a5625f629785411fb7970468e0e799af784d88e542",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed71__lid_ascending.metadata.json",
+      "metadata_sha256": "c267b4daf84923ea92452449617fae06e5c00c4e0ee7901d92cbc3ba691ba0b5"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed71__lid_descending.csv.gz",
+      "sha256": "86ec3f4f090c63ef7191d38ccc9694b549f908fe600c6c3ba3cd44112b4cd2f0",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed71__lid_descending.metadata.json",
+      "metadata_sha256": "34330f0bba0d33be764db613901ef7057fd7ca8983ae943e1c949c643879aa97"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/glove100_100k__seed71__random.csv.gz",
+      "sha256": "bdca2033d28a53826b0923dae4db7b1f95951226811ae47fd3f2fbb4ab30d9b8",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/glove100_100k__seed71__random.metadata.json",
+      "metadata_sha256": "855ec91ecd45dba0d4ef52e8b0e8b81b046d085e8f80cbeef47be61fe5023903"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed43__lid_ascending.csv.gz",
+      "sha256": "717eec6e3d96619f3dea666801dac1ee3069476a169030cfcfb97c6c72a1a1e8",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed43__lid_ascending.metadata.json",
+      "metadata_sha256": "1e36e3e423345a7466d0d1378c2b3943575d8de41ceb593e1d8181e2e77e85c6"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed43__lid_descending.csv.gz",
+      "sha256": "0ca1be9ae145579cbf18b1d10cc1e795f3cf2c575f65e8d6cf2c2115a0b2dd7b",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed43__lid_descending.metadata.json",
+      "metadata_sha256": "e3481620f685291be0f1dbd7d93f7d8ba0f5d9b4c34d424653ebdda3b0bea1c8"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed43__random.csv.gz",
+      "sha256": "52bb6b5468575cb5fe9dc6f2e75839d45cefbbf6c45b42b5a7785a3d93d41b8c",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed43__random.metadata.json",
+      "metadata_sha256": "c1793b370699e059ba95609518392ffe0bd098871366f84bea2d2535de028425"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed59__lid_ascending.csv.gz",
+      "sha256": "d377de310d0a8beb5a1138f3bc623fb9055b16980d4244212258206ac4c2a042",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed59__lid_ascending.metadata.json",
+      "metadata_sha256": "8be3bd595ca6bad649cffb31b048baef24c216d66b6621409a6637f0990ea75c"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed59__lid_descending.csv.gz",
+      "sha256": "03bf7ffcce3cd81a158d53881d8227fc80ac53c0818fc4b103e867611000a40e",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed59__lid_descending.metadata.json",
+      "metadata_sha256": "be2a9ac56afc45e3c7d75f8a72903a554776df1af616962b19333468d7346323"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed59__random.csv.gz",
+      "sha256": "275b9063df73c706d6cc6e25bd9608029bbdeaf77fa575e7acac947366379bc5",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed59__random.metadata.json",
+      "metadata_sha256": "2a3ef098512cbd26fb0d8ace2879085c59a9dc8f2a5ff97d62eb427ca3424d40"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed71__lid_ascending.csv.gz",
+      "sha256": "fc7bb68679b527f6246b348b90419aba734b554aee021744d77c8b34bfe05956",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed71__lid_ascending.metadata.json",
+      "metadata_sha256": "29ba62dab2a79075075a57be5f4f8d7e5927fd80d770138b10b8e3bb124a39ec"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed71__lid_descending.csv.gz",
+      "sha256": "beb058d40029574533aeaa247121ebf715dd6324215571610ea790e02a92406b",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed71__lid_descending.metadata.json",
+      "metadata_sha256": "e120af0d72c341e206fee655d5150898809975c27fd1070700f1a91bc1608447"
+    },
+    {
+      "path": "results/hardness_portability_100k/core_raw/sift_100k__seed71__random.csv.gz",
+      "sha256": "b0330240b2596c7b705a1fcfe7dd04eab84b18dd0aae634b9b27b9d1fdaeed4c",
+      "rows": 12000,
+      "metadata_path": "results/hardness_portability_100k/core_raw/sift_100k__seed71__random.metadata.json",
+      "metadata_sha256": "ad25fd692e679e18898a46c2a26025e28248ae521960170dbad4e9197c382f73"
+    }
+  ]
+}

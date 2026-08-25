@@ -1,0 +1,14 @@
+{
+  "dataset": "arxiv_nomic_100k",
+  "graph_seed": 43,
+  "insertion_order": "lid_descending",
+  "rows": 12000,
+  "graph_hash": "5e9811737495eb9b1df5b04e8549182e92aefec86dc1069f79a953fd14fa6b51",
+  "graph_file_hash": "6cbd1d410d6d86240655049555d1d5757718a218649a9d64c5e9cf075794d61f",
+  "entry_point": 59579,
+  "max_level": 4,
+  "build_seconds": 148.344524681,
+  "peak_rss_bytes": 835416064,
+  "native_instrumented_exact": true,
+  "temporary_index_deleted": true
+}
