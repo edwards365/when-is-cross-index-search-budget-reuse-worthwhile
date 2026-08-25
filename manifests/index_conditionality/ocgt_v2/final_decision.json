@@ -87,5 +87,6 @@
     "graph invariants required by preregistration were not fully captured before temporary indexes were deleted"
   ],
   "continue_reasons": [],
-  "shadow_non_authorizing_hypothesis": "SHRINK_TO_HNSW_CONSTRUCTION_HISTORY"
+  "shadow_non_authorizing_hypothesis": "SHRINK_TO_HNSW_CONSTRUCTION_HISTORY",
+  "evidence_sha256": "manifests/index_conditionality/ocgt_v2/evidence_sha256.json"
 }

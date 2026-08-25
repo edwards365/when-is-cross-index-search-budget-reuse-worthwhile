@@ -1,8 +1,10 @@
 {
+  "docs/index_conditionality/ocgt_v2/environment.md": "25fdabff1527875ff1407457a16380afcf5cac4d168d237a618e2e183bdd6cba",
   "docs/index_conditionality/ocgt_v2/final_report.md": "5387427a0bf77a385466328d1820bcae4b7aef1c546bde3adceaa81f1cf2a681",
   "docs/index_conditionality/ocgt_v2/literature_matrix.md": "64f6ce34fd74a0c870b08ac6a10fd3e9b860ec641473b3a73f4285b1d7f099fb",
   "docs/index_conditionality/ocgt_v2/theory.md": "5940ff7915b5c3e454a961c236a30b86756586b38e10b4b7cf944a7a4d0cef63",
-  "manifests/index_conditionality/ocgt_v2/final_decision.json": "8b1653163f0211db1973c3ca01fe1c805426ec2e6336aa1c1b3074049db97001",
+  "manifests/index_conditionality/ocgt_v2/evidence_sha256.json": "b2e797eccd892250384276b0f23e8df5610178f24b28f38220826f5ee57869b8",
+  "manifests/index_conditionality/ocgt_v2/final_decision.json": "815290597b784b66314754988a4d4f64b4e580931f3b099703fb84bb3d42b60c",
   "manifests/index_conditionality/ocgt_v2/preregistration.json": "c10c729bcd70e2c14ab77edff1a3225dc8cc3fc955e4d2fbc2b18f95f1fdb39e",
   "manifests/index_conditionality/ocgt_v2/query_split.json": "81ba821305a4dec04a0b0648d0af8e874044ed46114b6d1299c12efc05ad8cc8",
   "manifests/index_conditionality/ocgt_v2/query_split_materialization.json": "8e55d49901e02762410c3836d2b593f10b98e54821dcea6623e5c29543197247",
