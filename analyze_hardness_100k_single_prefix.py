@@ -4,6 +4,8 @@ import csv,gzip,glob,json,math
 from pathlib import Path
 import numpy as np
 from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
 
 ROOT=Path('/home/wlk/projects/navigation-aware-resistance-hnsw-hardness-100k');OUT=ROOT/'results/hardness_portability_100k/single_prefix';OUT.mkdir(parents=True,exist_ok=False)
 E=np.array([10,16,24,32,48,64,96,128,192,256,384,512]);split=json.loads((ROOT/'manifests/hardness_portability_100k/query_split.json').read_text())['splits'];CAL=np.array(split['train_design']);AUD=np.array(split['internal_test'])
@@ -30,7 +32,7 @@ def features(graph,q):
 G=load();rows=[]
 for key,graph in sorted(G.items()):
  y=np.array([stable(graph[q]) for q in range(1000)]);X=np.array([features(graph,q) for q in range(1000)])
- model=LogisticRegression(C=1.0,max_iter=500,random_state=20260915,multi_class='auto').fit(X[CAL],y[CAL]);proba=model.predict_proba(X);raw=2**(proba@np.log2(model.classes_))
+ model=make_pipeline(StandardScaler(),LogisticRegression(C=1.0,max_iter=2000,random_state=20260915)).fit(X[CAL],y[CAL]);proba=model.predict_proba(X);raw=2**(proba@np.log2(model[-1].classes_))
  target=.95 if any(np.mean([graph[int(q)][int(e)]['rec'] for q in CAL])>=.95 for e in E) else .90;fixed=next((int(e) for e in E if np.mean([graph[int(q)][int(e)]['rec'] for q in CAL])>=target),512);baseline=np.mean([graph[int(q)][fixed]['rec'] for q in CAL]);candidates=sorted({float(e/raw[int(q)]) for q in CAL for e in E});mul=candidates[-1]
  for z in candidates:
   if np.mean([graph[int(q)][ceilgrid(z*raw[int(q)])]['rec'] for q in CAL])>=baseline-.001:mul=z;break
