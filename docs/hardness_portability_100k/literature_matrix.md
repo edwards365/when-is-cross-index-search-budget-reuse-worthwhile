@@ -1,0 +1,14 @@
+# Literature matrix
+
+| Work | Query-hardness definition | Observes actual index | Insertion history | Cross-index same-query transfer | Oracle upper bound | Probe cost | Per-query recall safety | Difference from this project |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| HNSW (arXiv:1603.09320) | No per-query hardness measure | Yes | Incremental construction is fundamental | No | No | N/A | No | Establishes the graph/search mechanism and randomized hierarchy. |
+| Elliott & Clark (arXiv:2405.17813) | Dataset/order/LID effects on recall | Yes | Yes | No central budget-transfer analysis | No | N/A | No | Directly motivates insertion-order sensitivity; this project studies query ranking and calibrated budget portability. |
+| Steiner-hardness (arXiv:2408.13899) | Graph-native connection/minimum-effort proxy | Yes | Not the central factor | Not the central experiment | Representative-graph hardness, not target-index Oracle portability | Offline graph computation | Correlation-oriented | Closest graph-native hardness baseline; this project compares the same queries across rebuilt HNSW instances. |
+| Adaptive-ef (arXiv:2512.06636) | Distribution-aware per-query ef score | Limited index observation | No central history comparison | Not central | No target-index Oracle transfer matrix | Reports online/offline cost | Targets recall statistically | A query-adaptive baseline; portability across construction histories remains the distinction. |
+| SHEAF (arXiv:2607.12229) | Answer-set flux from self-profiled probes | Dynamic search observations | No central history study | Not central | No | Probe cost is essential | Predictive, implementation-dependent | This project charges full probe cost and tests transfer across rebuilt indexes. |
+| DABS (arXiv:2505.15636) | Distance-adaptive stopping/beam evidence | Dynamic search state | No central history study | Not central | No | Search-integrated | Provides accuracy conditions | A potentially resumable dynamic baseline rather than a cross-history measurement study. |
+| DARTH (arXiv:2505.19001) | Declarative recall via early termination | Dynamic search state | No central history study | Not central | No | Search-integrated | Recall-oriented | Evaluated only if official implementation uniquely fixes semantics and costs. |
+| Escape Hardness (arXiv:2510.22316) | Dynamically detects and repairs hard searches | Dynamic graph/search evidence | No central history study | Not central | No | Intervention cost required | Recall-oriented | Focuses on detecting/fixing hardness, while this project measures whether hardness budgets are portable. |
+
+Conservative novelty statement: existing literature reviewed here does not make per-query budget transfer across HNSW construction histories its central research question. This is not a claim that no prior work touches related order, graph, or adaptive-search effects.

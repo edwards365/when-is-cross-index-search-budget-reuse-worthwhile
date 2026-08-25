@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "protocol": "hardness_portability_100k",
+  "status": "PASS_TO_100K_DATA_FREEZE_WITH_CRITICAL_DISK_MARGIN",
+  "frozen_parent": "0d490fecb655bf0345186a137f2ba2d5ee6287d6",
+  "branch": "exp/hardness_portability_100k",
+  "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw-hardness-100k",
+  "ocgt_v3_checksums_verified": true,
+  "source_hdf5_present": {"sift": true, "glove": true, "arxiv": true},
+  "native_instrumented_recorder_available": true,
+  "resumable_prefix_available": false,
+  "cpu_threads": 128,
+  "ram_total_gib": 251,
+  "ram_available_gib": 239,
+  "gpu_count": 4,
+  "gpu_model": "NVIDIA GeForce RTX 3090",
+  "disk_free_bytes": 11324923904,
+  "disk_stop_bytes": 10737418240,
+  "formal_test_accessed": false,
+  "ocgt_v3_modified": false
+}
