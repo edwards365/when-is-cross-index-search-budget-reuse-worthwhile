@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import csv,gzip,hashlib,json,shutil,struct,subprocess,tempfile
+import csv,gzip,hashlib,json,shutil,struct,subprocess,tempfile,time
 from pathlib import Path
 import h5py
 import numpy as np
@@ -19,13 +19,18 @@ def index_header(p):
  with open(p,'rb') as f:
   vals=struct.unpack('<6Q',f.read(48));maxlevel=struct.unpack('<i',f.read(4))[0];entry=struct.unpack('<I',f.read(4))[0]
  return {'max_level':maxlevel,'entry_point':entry,'points':vals[2]}
-def peak_rss_bytes(path):
- for line in path.read_text().splitlines():
-  if line.startswith('Maximum resident set size'):
-   return int(line.split(':',1)[1].strip())*1024
- raise RuntimeError('missing maximum RSS')
+def run_monitored(cmd,stdout,stderr):
+ process=subprocess.Popen(cmd,stdout=stdout,stderr=stderr);peak=0
+ while process.poll() is None:
+  try:
+   for line in Path(f'/proc/{process.pid}/status').read_text().splitlines():
+    if line.startswith('VmRSS:'):peak=max(peak,int(line.split()[1])*1024)
+  except FileNotFoundError:pass
+  time.sleep(0.05)
+ if process.returncode:raise subprocess.CalledProcessError(process.returncode,cmd)
+ return peak
 def enrich(ds,seed,oname,rawdir,outgz,base,q,truth):
- gh=sha(rawdir/'edges.csv');fh=sha(rawdir/'index.bin');hdr=index_header(rawdir/'index.bin');qh=recs[ds]['query_hashes']; metric_ip=NORM[ds];meta=json.loads((rawdir/'metadata.json').read_text());rss=peak_rss_bytes(rawdir/'time.txt')
+ gh=sha(rawdir/'edges.csv');fh=sha(rawdir/'index.bin');hdr=index_header(rawdir/'index.bin');qh=recs[ds]['query_hashes']; metric_ip=NORM[ds];meta=json.loads((rawdir/'metadata.json').read_text());rss=int((rawdir/'peak_rss_bytes.txt').read_text())
  with open(rawdir/'queries.csv') as f,gzip.open(outgz,'wt',newline='') as z:
   rd=csv.DictReader(f);fields=['schema_version','dataset','base_size','query_id','query_split','query_vector_hash','truth_hash','graph_seed','insertion_order','insertion_history_id','insertion_order_seed','graph_hash','graph_file_hash','build_config_hash','code_commit','run_id','construction_wall_time','peak_build_memory','search_prefix_resumable','ef_search','k','returned_top10_ids','returned_top10_distances','recall_at_10','exact_ndc','query_latency_ns','entry_point','max_level','native_or_instrumented','success','error_code'];wr=csv.DictWriter(z,fieldnames=fields);wr.writeheader()
   for r in rd:
@@ -47,8 +52,8 @@ for ds in DIMS:
     if shutil.disk_usage(ROOT).free < 10*1024**3:raise RuntimeError('disk below 10 GiB stop line')
     raw=Path(td)/run;raw.mkdir(parents=True,exist_ok=False);op=td/'order.bin';orderfile(op,order)
     cmd=[str(BIN),str(points),str(op),str(queries),str(truthbin),'-','ip' if NORM[ds] else 'l2','16','100',str(seed),ds,'original','-',EFS,'0','1',prereg_hash,'hardness-100k-core',run,str(raw)]
-    timed=['/usr/bin/time','-v','-o',str(raw/'time.txt')]+cmd
-    subprocess.run(timed,check=True,stdout=(raw/'stdout.log').open('w'),stderr=(raw/'stderr.log').open('w'))
+    with (raw/'stdout.log').open('w') as stdout,(raw/'stderr.log').open('w') as stderr:rss=run_monitored(cmd,stdout,stderr)
+    (raw/'peak_rss_bytes.txt').write_text(str(rss)+'\n')
     gh,fh,hdr,meta,rss=enrich(ds,seed,oname,raw,gz,base,q,truth)
     rec={'dataset':ds,'graph_seed':seed,'insertion_order':oname,'rows':12000,'graph_hash':gh,'graph_file_hash':fh,'entry_point':hdr['entry_point'],'max_level':hdr['max_level'],'build_seconds':meta['build_seconds'],'peak_rss_bytes':rss,'native_instrumented_exact':True,'temporary_index_deleted':True}
     mp.write_text(json.dumps(rec,indent=2)+'\n');results.append(rec);shutil.rmtree(raw)
