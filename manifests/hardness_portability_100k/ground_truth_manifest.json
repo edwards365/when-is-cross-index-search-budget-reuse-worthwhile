@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "FROZEN_EXACT_TOP10",
+  "k": 10,
+  "implementation": "narhnsw.ground_truth.exact_top_k",
+  "datasets": [
+    {"dataset":"sift_100k","truth_sha256":"20e95ebff20d5106757d7237bb64d408cf44155349568c7b8c271715a45ed166","truth_distances_sha256":"7dc2bad29df1fc28aea3b6609dcd7feb1a6757d984d15096920a9e46807ce5e8"},
+    {"dataset":"glove100_100k","truth_sha256":"1a743e80f41e8a84d80fd2673259d8a7881b0e75add427adf97a7a6baa23bd51","truth_distances_sha256":"e41a8721b8bebe94bb47072b043dce7de7c1298967b500a93d9d52ef0debcf5a"},
+    {"dataset":"arxiv_nomic_100k","truth_sha256":"a52d5cd6c3bd78e69ee29b24458b1657e02cecd67fbdb8470ad857249f375b03","truth_distances_sha256":"7625ed22a4622c9e1d0341c654ffc35108f7f9cdb54374d0b9c69b9fba0c397c"}
+  ],
+  "formal_test_accessed": false
+}

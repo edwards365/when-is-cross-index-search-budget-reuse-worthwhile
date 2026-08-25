@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "FROZEN",
+  "source_member": "train",
+  "base_source_ids": [0, 99999],
+  "base_size": 100000,
+  "query_count_per_dataset": 1000,
+  "selection_seed": 20260915,
+  "datasets": [
+    {"dataset":"sift_100k","source_sha256":"dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984","base_sha256":"d0ad618c42429e9e2261e37e7ecaf042af58e47117ad62d5935457e129d0ab21","dimensions":128,"normalized":false,"queries_sha256":"07d60ff2fe04e12848fb712977b0dc36e875d0ce50163f4ff8a2d8da3d46f95a","source_ids_sha256":"ac23c76cb267873b0df3bda89521c1cc64e7853e871a7a37e391ac50b007af76"},
+    {"dataset":"glove100_100k","source_sha256":"544af1d5e84e112cd4749571dcfd8ca109818a572f850af75a3a09e093a953c4","base_sha256":"c4dd1cf6ca196baceaf5622e07081656d4e199bc0c3b3072d12e4c43ac98c109","dimensions":100,"normalized":true,"queries_sha256":"e842ae3c87f38dcb564f25ad38f37440a1ac677907b75b2745520e97f8774efd","source_ids_sha256":"65c2aabfc8c9069e5a4c98f943f8ae25cd0f99dcf2a5bc06d08abedc542f9171"},
+    {"dataset":"arxiv_nomic_100k","source_sha256":"8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414","base_sha256":"9fc6c6e71329832643a6c1e57eecd32e632bf90b1a5a4bed83587dbab70de107","dimensions":768,"normalized":true,"queries_sha256":"c7e2427fc8c74d005c3909fd2c6819461fa3b51e8e25988e0ca663bb3111c46b","source_ids_sha256":"87929fd6f43f790084196a2ec414b637de77a54a8aaaf4be71997e7d65ce4dda"}
+  ],
+  "base_query_overlap": 0,
+  "prior_query_overlap": 0,
+  "formal_test_accessed": false
+}
