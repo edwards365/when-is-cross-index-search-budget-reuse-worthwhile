@@ -1,0 +1,19 @@
+{
+  "run_id": "arxiv_nomic_10k__seed7__random",
+  "method": "original",
+  "build_seed": 7,
+  "control_seed": null,
+  "points": 10000,
+  "queries": 500,
+  "plan_sources": 0,
+  "proposed_targets": 0,
+  "before_directed_edges": 183940,
+  "after_directed_edges": 183940,
+  "directed_edge_jaccard": 1.000000000,
+  "build_seconds": 8.718148915,
+  "treatment_seconds": 0.000000050,
+  "index_size_bytes": 32207356,
+  "config_hash": "f479c9b1e944dbc2a3e5c5a8f77f3854fa9ee7f4",
+  "hardware_id": "ocgt-v2",
+  "formal_test_members_accessed": false
+}

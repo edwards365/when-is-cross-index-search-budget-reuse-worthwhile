@@ -1,0 +1,19 @@
+{
+  "run_id": "sift_10k__seed7__lid_ascending",
+  "method": "original",
+  "build_seed": 7,
+  "control_seed": null,
+  "points": 10000,
+  "queries": 500,
+  "plan_sources": 0,
+  "proposed_targets": 0,
+  "before_directed_edges": 125980,
+  "after_directed_edges": 125980,
+  "directed_edge_jaccard": 1.000000000,
+  "build_seconds": 1.164175575,
+  "treatment_seconds": 0.000000160,
+  "index_size_bytes": 6607356,
+  "config_hash": "f479c9b1e944dbc2a3e5c5a8f77f3854fa9ee7f4",
+  "hardware_id": "ocgt-v2",
+  "formal_test_members_accessed": false
+}
