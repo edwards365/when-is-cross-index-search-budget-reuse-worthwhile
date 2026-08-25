@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "PASS_100K_REPRODUCTION_GATE",
+  "datasets": 3,
+  "graph_configurations": 9,
+  "determinism_repetitions": 2,
+  "physical_rows": 216000,
+  "unique_query_ef_cells": 108000,
+  "native_instrumented_label_recall_ndc_exact": true,
+  "graph_hash_repeat_exact": true,
+  "missing_cells": 0,
+  "failures": [],
+  "evidence": [
+    {
+      "path": "results/hardness_portability_100k/gate_r/sift_100k__seed43__random__rep1.csv.gz",
+      "sha256": "98f8be96190216c2fb57205e8e0fb2eba5b6c29fa4c00c591b185a7d98d4f68a",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/sift_100k__seed43__random__rep2.csv.gz",
+      "sha256": "880c4e7e368ce5180753b17ef5182c19c47fd5b45f56cfb67a35dfbe00192642",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/sift_100k__seed43__lid_ascending__rep1.csv.gz",
+      "sha256": "3ccfd5f084bacdffd97e72995d4ca7b3c35a7af1b46b66ebabf4a37935144944",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/sift_100k__seed43__lid_ascending__rep2.csv.gz",
+      "sha256": "4cac1af0a542c657979b2305ec6578bb4ab28c15afe34d8184d040939342d1dc",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/sift_100k__seed43__lid_descending__rep1.csv.gz",
+      "sha256": "362c9ed580903eb768344fe1e3760b26cfcffbc98f7429806ffb4d4a59ac4548",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/sift_100k__seed43__lid_descending__rep2.csv.gz",
+      "sha256": "9a3ee1398a6667b743c3cfd0d351a4aaeada1425eaa7e2e87cec7bccb3d9ab66",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/glove100_100k__seed43__random__rep1.csv.gz",
+      "sha256": "5114d75d695848ebf325428fb75c00878912c4375ad2c9aeedcbe65ff4a4da7e",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/glove100_100k__seed43__random__rep2.csv.gz",
+      "sha256": "8355597fa16c91fe8a3b37069bfe383b6888b88ed104f7111393392b869f2e9f",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/glove100_100k__seed43__lid_ascending__rep1.csv.gz",
+      "sha256": "ddd397710cbc3d66c2b9bea397127b7dfe96d8f7658197c4750cd08090d117f3",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/glove100_100k__seed43__lid_ascending__rep2.csv.gz",
+      "sha256": "b54d3fd65323afd0c84d7940d2368cf18ccc1f6d2a21651af4b5c09b03333f38",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/glove100_100k__seed43__lid_descending__rep1.csv.gz",
+      "sha256": "4251f518bf1b260e6e43c6ac1fd68acf09fb6b1baf7773f74863e809bb9fc492",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/glove100_100k__seed43__lid_descending__rep2.csv.gz",
+      "sha256": "2cabb4697c6f321a75b42ed20ff7197b4c807379b7ef2f8b649f3490eb714612",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/arxiv_nomic_100k__seed43__random__rep1.csv.gz",
+      "sha256": "b0b208963c7042b85d4aaca7f0d1056b288838f42784e88424c152a48a5a2c44",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/arxiv_nomic_100k__seed43__random__rep2.csv.gz",
+      "sha256": "66dbededa973693ac695dd397becbebf67d719deffb3778178204a61dcb97559",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/arxiv_nomic_100k__seed43__lid_ascending__rep1.csv.gz",
+      "sha256": "7a691e8a5e7c8ffc0c50769dffd63386956c3720fe7d792136a4fca3d857d28f",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/arxiv_nomic_100k__seed43__lid_ascending__rep2.csv.gz",
+      "sha256": "3ee3c9a883e07783430c92acecd27b26a293363fe499ec7f65e032898143134e",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/arxiv_nomic_100k__seed43__lid_descending__rep1.csv.gz",
+      "sha256": "edcf9d75201719daee1cad52c0cf5ab12490e1ca2d8bd684865c3a2178832e0d",
+      "rows": 12000
+    },
+    {
+      "path": "results/hardness_portability_100k/gate_r/arxiv_nomic_100k__seed43__lid_descending__rep2.csv.gz",
+      "sha256": "9805ffd8d5a282f7e272d5f1568d51c7e83c0d9d720208243074f1f9272c3130",
+      "rows": 12000
+    }
+  ],
+  "temporary_indexes_deleted": true,
+  "formal_test_accessed": false
+}
