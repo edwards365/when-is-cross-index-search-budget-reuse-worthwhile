@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "protocol": "OCGT-v2",
+  "seed": 20260825,
+  "query_ids": {"all": "0..499", "train_design": "deterministic_shuffle[0:250]", "calibration": "deterministic_shuffle[250:375]", "internal_audit": "deterministic_shuffle[375:500]"},
+  "counts": {"all": 500, "train_design": 250, "calibration": 125, "internal_audit": 125},
+  "same_ids_across_graphs": true,
+  "formal_test": false
+}

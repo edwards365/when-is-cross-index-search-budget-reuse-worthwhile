@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "protocol": "OCGT-v2",
+  "old_protocol_status": "INVALID_EXPERIMENT_REPRODUCTION_OR_DATA_FAILURE",
+  "git_base": "759e605044491bb911dc74a6839cedd89a200d1b",
+  "datasets": ["sift_10k", "glove100_10k", "arxiv_nomic_10k"],
+  "base_size": 10000,
+  "queries_per_dataset": 500,
+  "query_split_seed": 20260825,
+  "query_split": {"train_design": 250, "calibration": 125, "internal_audit": 125},
+  "graph_seeds": [7, 17, 29],
+  "insertion_orders": ["random", "lid_ascending", "lid_descending"],
+  "random_order_seed": 101,
+  "hnsw": {"M": 16, "efConstruction": 100, "k": 10},
+  "ef_grid": [10,16,24,32,48,64,96,128,192,256,384,512],
+  "planned_graphs": 27,
+  "planned_query_runs": 162000,
+  "recall_targets": {"primary": 0.9, "fixed_calibration": 0.95, "fallback": 0.9},
+  "bootstrap": {"n": 5000, "seed": 991},
+  "forbidden": ["validation-dev", "formal-test", "sealed_members", "adaptive_tuning", "extra_ef", "extra_seed", "extra_order"],
+  "status": "FROZEN_PREREGISTRATION"
+}
