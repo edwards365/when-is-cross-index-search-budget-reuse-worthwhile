@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "REALIZABILITY_GAP_PERSISTS",
+  "reason": "Frozen tracer records events but does not serialize candidate/result queues and visited state; existing independent-ef traces cannot identify exact continuation cost. The ideal full-reuse lower bound is reported but cannot authorize a method.",
+  "model": "multinomial logistic regression",
+  "features": [
+    "answer_set_flux_16_24",
+    "answer_set_overlap_16_24",
+    "log_ndc16",
+    "log_ndc24",
+    "log_ndc_delta"
+  ],
+  "training_split": "train_design_250",
+  "evaluation_split": "confirmatory_audit_750_once",
+  "actual_candidate_gate_pass": false,
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "graphs": 15,
+      "mean_recall_diff": -0.0004977777777777772,
+      "worst_recall_diff": -0.003466666666666666,
+      "mean_no_reuse_net_gain": -1.504110896433518,
+      "mean_ideal_reuse_net_gain": 0.011861052675901866,
+      "all_seed_history_directions_nonnegative_ideal": false,
+      "actual_resumable_prefix_available": false
+    },
+    "glove100_100k": {
+      "graphs": 15,
+      "mean_recall_diff": -0.00013333333333333334,
+      "worst_recall_diff": -0.008933333333333333,
+      "mean_no_reuse_net_gain": -0.05341396320313781,
+      "mean_ideal_reuse_net_gain": 0.16047740647442377,
+      "all_seed_history_directions_nonnegative_ideal": true,
+      "actual_resumable_prefix_available": false
+    },
+    "sift_100k": {
+      "graphs": 15,
+      "mean_recall_diff": -0.0019466666666666662,
+      "worst_recall_diff": -0.011466666666666663,
+      "mean_no_reuse_net_gain": -1.307362401301371,
+      "mean_ideal_reuse_net_gain": 0.00801734207839492,
+      "all_seed_history_directions_nonnegative_ideal": false,
+      "actual_resumable_prefix_available": false
+    }
+  },
+  "graphs": 45,
+  "formal_test_accessed": false
+}
