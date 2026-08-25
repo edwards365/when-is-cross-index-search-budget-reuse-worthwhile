@@ -1,0 +1,19 @@
+{
+  "docs/index_conditionality/ocgt_v2/final_report.md": "5387427a0bf77a385466328d1820bcae4b7aef1c546bde3adceaa81f1cf2a681",
+  "docs/index_conditionality/ocgt_v2/literature_matrix.md": "64f6ce34fd74a0c870b08ac6a10fd3e9b860ec641473b3a73f4285b1d7f099fb",
+  "docs/index_conditionality/ocgt_v2/theory.md": "5940ff7915b5c3e454a961c236a30b86756586b38e10b4b7cf944a7a4d0cef63",
+  "manifests/index_conditionality/ocgt_v2/final_decision.json": "8b1653163f0211db1973c3ca01fe1c805426ec2e6336aa1c1b3074049db97001",
+  "manifests/index_conditionality/ocgt_v2/preregistration.json": "c10c729bcd70e2c14ab77edff1a3225dc8cc3fc955e4d2fbc2b18f95f1fdb39e",
+  "manifests/index_conditionality/ocgt_v2/query_split.json": "81ba821305a4dec04a0b0648d0af8e874044ed46114b6d1299c12efc05ad8cc8",
+  "manifests/index_conditionality/ocgt_v2/query_split_materialization.json": "8e55d49901e02762410c3836d2b593f10b98e54821dcea6623e5c29543197247",
+  "results/index_conditionality/ocgt_v2/derived/cross_graph_transfer.csv": "75bc1340c86fe3334a7db4a479889a18ecb2ff5a0f9b4cb431d9629fd14887da",
+  "results/index_conditionality/ocgt_v2/derived/full_summary.json": "1a6e1907538dd00c48e5ba161f2d0efff0405833014e26232296fa6bd3582a32",
+  "results/index_conditionality/ocgt_v2/derived/oracle_headroom.csv": "311a3b72ccf1a7b029a9ce3f59aade320432ecbd9e186bfedac442c67d7b4f6c",
+  "results/index_conditionality/ocgt_v2/derived/per_query_effort.csv": "27671c20eed77b1790028269b41da3052d681a7e185f802257ed9e982d5dbbff",
+  "results/index_conditionality/ocgt_v2/derived/predictor_summary.csv": "b5fcc7c0cb881f3bb42c094e8298f63bf1150acbfd2fdf8e87b7163ddd7e86d2",
+  "results/index_conditionality/ocgt_v2/derived/summary.json": "f850b37f84df672f639bc0546d4b8f276a65e413ef4d4e9eaac1841009b8d399",
+  "results/index_conditionality/ocgt_v2/derived/variance_components.json": "4b0d96b6568a6bf3d790cbc74dbcb9921dd701f3d8899daad26ead5521afe425",
+  "results/index_conditionality/ocgt_v2/figures/conditionality_summary.png": "3fe4f382101d9fed87642a823b77d9dae2a1db428073f059d00af5fe71e1484f",
+  "results/index_conditionality/ocgt_v2/figures/oracle_headroom.png": "da0f89d303af54d985e02c410f05e5bc8823e4b4ae85a79146726f4a9b55ccfd",
+  "results/index_conditionality/ocgt_v2/figures/predictor_actual_cost.png": "7c9cfa4687f28c705f225da20b3869e89ab912b3d7557aaaba509ffce20e7a56"
+}
