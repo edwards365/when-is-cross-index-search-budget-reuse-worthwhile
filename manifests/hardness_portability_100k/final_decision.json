@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "protocol": "Query Hardness Is Not Portable 100K",
+  "status": "KEEP_BOUNDARY_STUDY_REALIZABILITY_GAP",
+  "data_valid": true,
+  "reproduction_gate": "PASS_100K_REPRODUCTION_GATE",
+  "core_gate": "PASS_TO_REALISTIC_HISTORY_GATE",
+  "realistic_history_gate": "KEEP_REALISTIC_HNSW_HISTORY_NONPORTABILITY",
+  "single_prefix_gate": "REALIZABILITY_GAP_PERSISTS",
+  "graphs": {"gate_r_configurations": 9, "gate_r_repetitions": 18, "core": 27, "realistic": 18, "primary_unique": 45},
+  "rows": {"gate_r_physical": 216000, "gate_r_unique_cells": 108000, "core": 324000, "realistic": 216000, "primary": 540000},
+  "oracle_headroom": {"arxiv_nomic_100k": 0.2593342651, "glove100_100k": 0.6361916632, "sift_100k": 0.3312282359},
+  "omega": {"arxiv_nomic_100k": 0.2700827879, "glove100_100k": 0.0995679454, "sift_100k": 0.2875581476},
+  "history_regret_delta": {"arxiv_nomic_100k": 0.1127333049, "glove100_100k": 0.0341978641, "sift_100k": 0.1535814778},
+  "realistic_gate_by_dataset": {"arxiv_nomic_100k": true, "glove100_100k": true, "sift_100k": true},
+  "baseline_status": {"LID": "REPRODUCIBLE_FROZEN_LOCAL", "Steiner": "BASELINE_NOT_REPRODUCIBLE", "Adaptive_ef": "BASELINE_NOT_REPRODUCIBLE", "SHEAF_official": "BASELINE_NOT_REPRODUCIBLE", "DABS": "BASELINE_NOT_REPRODUCIBLE", "DARTH": "BASELINE_NOT_REPRODUCIBLE", "Escape_Hardness": "BASELINE_NOT_REPRODUCIBLE"},
+  "single_prefix_actual_candidate_pass": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "frozen_parent_commit": "0d490fecb655bf0345186a137f2ba2d5ee6287d6",
+  "pre_finalization_commit": "2361cbe",
+  "report": "docs/hardness_portability_100k/final_report.md"
+}
