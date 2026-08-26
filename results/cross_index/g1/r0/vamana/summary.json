@@ -1,0 +1,12 @@
+{
+  "status": "VAMANA_R0_EXECUTION_REPEAT_PASS_PENDING_GRAPH_STRUCTURE_AUDIT",
+  "jobs": 6,
+  "logical_graphs": 12,
+  "query_budget_cells": 7200,
+  "repeat_output_sha256": "5b5c0036ab677d7504d208b499228b7fb7841ff51fdd29036ab6be2f57a71b0b",
+  "native_cmps_used": true,
+  "seed_control": "implementation_has_no_rng_parameter; seed43/59 are exact deterministic repeats",
+  "temporary_inputs_deleted": true,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}
