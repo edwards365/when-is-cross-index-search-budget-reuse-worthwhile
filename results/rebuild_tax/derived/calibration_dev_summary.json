@@ -1,0 +1,11 @@
+{
+  "status": "DEVELOPMENT_ONLY_COMPLETE",
+  "calibration_queries_only": true,
+  "calibration_count": 250,
+  "audit_queries_read": 0,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "evaluated_cells": 360,
+  "infeasible_cells": 1800,
+  "new_hnsw_queries": 0
+}
