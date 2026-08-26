@@ -12,7 +12,8 @@ def main():
  out.mkdir(parents=True); rec=[]
  for d in m['datasets']:
   ids=np.asarray(d['calibration_source_ids']+d['audit_source_ids'],dtype=np.int64);assert hashlib.sha256(ids.astype('<i8').tobytes()).hexdigest()==d['source_ids_le_i64_sha256']
-  with h5py.File(MAIN/d['source_path'],'r') as f:q=np.asarray(f['train'][ids],dtype=np.float32);base=np.asarray(f['train'][:100000],dtype=np.float32)
+  order=np.argsort(ids); inverse=np.argsort(order)
+  with h5py.File(MAIN/d['source_path'],'r') as f:q=np.asarray(f['train'][ids[order]],dtype=np.float32)[inverse];base=np.asarray(f['train'][:100000],dtype=np.float32)
   normalized='angular' in d['source_path'] or 'normalized' in d['source_path']
   if normalized:q/=np.linalg.norm(q,axis=1,keepdims=True);base/=np.linalg.norm(base,axis=1,keepdims=True)
   truth,dist=exact_top_k(base,q,10,metric='l2'); paths={n:out/f"{d['dataset']}_{n}.npy" for n in ('queries','truth','truth_distances','source_ids')}
