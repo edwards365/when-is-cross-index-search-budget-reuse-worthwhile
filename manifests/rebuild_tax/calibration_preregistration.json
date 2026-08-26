@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_BEFORE_VALIDATION_MEMBER_READ",
+  "protocol": "Adaptive ANN Has a Rebuild Tax / Gate C",
+  "generator_sha256": "2c9c1b533167c7436b4d1f0ac7d16824157fac8822afd8aa5c767a62f3a20c3b",
+  "graph_seeds": [
+    43,
+    59,
+    71
+  ],
+  "histories": [
+    "random",
+    "natural_source_order",
+    "cluster_block_order"
+  ],
+  "M": 16,
+  "ef_construction": 100,
+  "k": 10,
+  "ef_grid": [
+    10,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96,
+    128,
+    192,
+    256,
+    384,
+    512
+  ],
+  "sentinel_n": [
+    32,
+    64,
+    128,
+    256,
+    512,
+    1000
+  ],
+  "delta": [
+    0.05,
+    0.01,
+    0.005,
+    0.001
+  ],
+  "sentinel_rule": "first n identifiers in frozen calibration_source_ids order",
+  "source_target_pairs": "all ordered pairs among 9 frozen graph configurations within each dataset",
+  "recall_noninferiority": -0.001,
+  "gate_c": {
+    "under_budget_rate": "not above preregistered delta confidence allowance",
+    "aggregate_recall_delta_min": -0.001,
+    "datasets_with_headroom_retention_gt_20pct": 2,
+    "net_ndc_improvement_min_at_N_ge_1e5": 0.01,
+    "p95_ndc_nonworse": true,
+    "realistic_history_direction_consistent": true,
+    "not_single_seed_dominated": true
+  },
+  "bootstrap": {
+    "unit": "query",
+    "replicates": 5000,
+    "seed": 991
+  },
+  "raw_schema": "dataset,seed,history,query_id,ef,recall_at_10,exact_ndc,native_match,graph_hash",
+  "validation_members_read": false,
+  "formal_test_accessed": false,
+  "dataset_member_hashes": [
+    {
+      "dataset": "arxiv_nomic_100k",
+      "source_ids_le_i64_sha256": "2738ea45cf12afc1b5878e80785d43ea0bd6fe15c5714413927c9f20fe477707",
+      "query_count": 2000
+    },
+    {
+      "dataset": "glove100_100k",
+      "source_ids_le_i64_sha256": "234770cc5aabca06208d7650e55ade29119e4c74ff4c133ea09151881c6d6411",
+      "query_count": 2000
+    },
+    {
+      "dataset": "sift_100k",
+      "source_ids_le_i64_sha256": "f2c3fc9917dd14cd464ca0b8b439598e2ca33e4eb69a468cf3c3f65237180617",
+      "query_count": 2000
+    }
+  ]
+}
