@@ -1,0 +1,58 @@
+{
+  "status": "FROZEN_G1_QUERY_TRUTH_BEFORE_ANY_GRAPH",
+  "membership_commit": "f8858a9",
+  "datasets": [
+    {
+      "dataset": "arxiv_nomic_100k",
+      "query_count": 1000,
+      "design_count": 250,
+      "confirm_count": 750,
+      "dimensions": 768,
+      "normalized": true,
+      "queries_path": "results/cross_index/g1/query_inputs/arxiv_nomic_100k_queries.npy",
+      "truth_path": "results/cross_index/g1/query_inputs/arxiv_nomic_100k_truth.npy",
+      "truth_distances_path": "results/cross_index/g1/query_inputs/arxiv_nomic_100k_truth_distances.npy",
+      "source_ids_path": "results/cross_index/g1/query_inputs/arxiv_nomic_100k_source_ids.npy",
+      "queries_sha256": "9f78cf550369b2839b906d562c743e165183c6ee633e57d68aa9fba3f5d18f0c",
+      "truth_sha256": "96051decdb98ae65cc8fb10d8044dbc37b3a0fef36152587958cf94102e2c8bb",
+      "truth_distances_sha256": "998fa815a4d3411919cbbb0ca5e9be231948f6de1b00dd9bda558e50202926f7",
+      "source_ids_sha256": "e72c57c31c30f8cf53c582c51f9370db14ff3349a7ad669c7fa544bc41bb32e8"
+    },
+    {
+      "dataset": "glove100_100k",
+      "query_count": 1000,
+      "design_count": 250,
+      "confirm_count": 750,
+      "dimensions": 100,
+      "normalized": true,
+      "queries_path": "results/cross_index/g1/query_inputs/glove100_100k_queries.npy",
+      "truth_path": "results/cross_index/g1/query_inputs/glove100_100k_truth.npy",
+      "truth_distances_path": "results/cross_index/g1/query_inputs/glove100_100k_truth_distances.npy",
+      "source_ids_path": "results/cross_index/g1/query_inputs/glove100_100k_source_ids.npy",
+      "queries_sha256": "09b6cd392310b350a16b91c4fa85aa95d2ce9f83a212b7be1ce4ff62c60ed8f4",
+      "truth_sha256": "260c1103bba58baee0dfca196f62f1e965993e9e8954865ef9f6917f91293f17",
+      "truth_distances_sha256": "acdf6549401379ed0a9e2673bcc8bfd6af8b65650bd8ab20707e7ea3ff2ade43",
+      "source_ids_sha256": "d7d1b99b5038437a71afca2b3b6e4a5ed524d28c6e4ed08d268decf7217f8df2"
+    },
+    {
+      "dataset": "sift_100k",
+      "query_count": 1000,
+      "design_count": 250,
+      "confirm_count": 750,
+      "dimensions": 128,
+      "normalized": false,
+      "queries_path": "results/cross_index/g1/query_inputs/sift_100k_queries.npy",
+      "truth_path": "results/cross_index/g1/query_inputs/sift_100k_truth.npy",
+      "truth_distances_path": "results/cross_index/g1/query_inputs/sift_100k_truth_distances.npy",
+      "source_ids_path": "results/cross_index/g1/query_inputs/sift_100k_source_ids.npy",
+      "queries_sha256": "60cba37d995166d5c89d9d58bbe7424e789c0bde0c0547aeee9b9376d4bf1bd3",
+      "truth_sha256": "4950dcad70fe533e45afa34287f996bd3c8192ada1ee859e8c9799acad4ae111",
+      "truth_distances_sha256": "cb46dcaf6ea83ff773c6e981038c7e76d2b8ea08fe0ba109a9a4ef71a7995459",
+      "source_ids_sha256": "749ddbadf0ceff755dafb5b73a215c9edc55e96d0e81c046244697c696c583e1"
+    }
+  ],
+  "base_overlap": 0,
+  "prior_query_overlap": 0,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}
