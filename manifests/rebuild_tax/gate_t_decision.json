@@ -1,0 +1,23 @@
+{
+  "gate": "T",
+  "status": "PASS_GATE_T",
+  "requirements": {
+    "five_theory_results_with_assumptions_and_proofs": true,
+    "finite_beam_counterexample_test": true,
+    "pib_reproducible_from_frozen_raw": true,
+    "synthetic_conformal_coverage_test": true,
+    "calibration_audit_isolation": true,
+    "all_costs_accounted": true,
+    "no_audit_tuning": true
+  },
+  "development_evidence": {
+    "train_design_queries": 250,
+    "evaluated_cells": 360,
+    "finite_sample_infeasible_cells": 1800,
+    "audit_queries_read": 0,
+    "new_hnsw_queries": 0
+  },
+  "authorization": "Freeze an independent validation protocol before reading validation membership; do not run validation until that commit exists.",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}

@@ -1,0 +1,9 @@
+# Certified rebuild calibration: development protocol
+
+Gate M passed before this implementation began. The implementation uses only the frozen 250-query `train_design` split and the already recorded 12-point ef/NDC matrix; it executes no new HNSW searches. The 750-query `internal_test`, validation-dev, and formal-test are not read.
+
+For each ordered pair of realistic-history graphs within a dataset, the first `n` identifiers in the frozen randomized train-design order form the sentinel set and the remaining train-design identifiers are used only as a development diagnostic. The multiplier is the order statistic at `ceil((n+1)(1-delta))`; allocations round upward to the frozen ef grid. Sentinel target-budget discovery charges the sum of target-index NDC over the entire frozen ef grid. Online and amortized cost at workloads 1e3 through 1e7 are reported without subtracting probe or calibration costs.
+
+The frozen grid is `n={32,64,128,256,512,1000}` and `delta={.05,.01,.005,.001}`. A cell is `FINITE_SAMPLE_INFEASIBLE` whenever the conformal rank exceeds `n`, the requested sentinel count exceeds the 250-query development pool, or no disjoint development remainder exists. Consequently, development evaluation exists only for `(32,.05)`, `(64,.05)`, `(128,.05)`, and `(128,.01)`; no maximum-ratio substitution is presented as a nontrivial conformal quantile.
+
+The 360 evaluated source-target cells have mean diagnostic coverage 0.9814 and minimum 0.8602. These are development diagnostics, not Gate C evidence and not a guarantee for unseen histories. They were not used to alter the sentinel grid, delta grid, method, or decision thresholds. Gate T establishes theoretical and implementation readiness only; an independent validation protocol, membership hashes, source-target pairs, sentinel rule, costs, and Gate C thresholds must be committed before validation members are read.
