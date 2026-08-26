@@ -1,0 +1,11 @@
+{
+  "dataset": "arxiv_nomic_100k",
+  "history": "random",
+  "seed": 59,
+  "rows": 12000,
+  "graph_hash": "663ffc91f6b13fcca190e5b5d401b2238fa625eea790c1d39e6710c6313288bb",
+  "build_seconds": 31.35409426689148,
+  "temporary_index_deleted": true,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}

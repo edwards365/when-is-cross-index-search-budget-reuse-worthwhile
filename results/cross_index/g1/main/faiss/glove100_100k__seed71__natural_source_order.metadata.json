@@ -1,0 +1,11 @@
+{
+  "dataset": "glove100_100k",
+  "history": "natural_source_order",
+  "seed": 71,
+  "rows": 12000,
+  "graph_hash": "a4514dcd35ce3794d09d657e78ae167cb2761a88b2902f37bfd4152f58e21c68",
+  "build_seconds": 0.7466471195220947,
+  "temporary_index_deleted": true,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}

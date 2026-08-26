@@ -1,0 +1,11 @@
+{
+  "dataset": "sift_100k",
+  "history": "natural_source_order",
+  "seed": 71,
+  "rows": 12000,
+  "graph_hash": "266576d32ef88b9f359ef360454fc982cc44d179575d10297235c0a99ddbd4ed",
+  "build_seconds": 0.8981621265411377,
+  "temporary_index_deleted": true,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}
