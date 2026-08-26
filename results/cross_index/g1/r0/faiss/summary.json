@@ -1,0 +1,45 @@
+{
+  "status": "FAISS_R0_COMPONENT_PASS",
+  "faiss_version": "1.15.0",
+  "graphs": [
+    {
+      "history": "natural_source_order",
+      "seed": 43,
+      "graph_sha256": "d18701f491a782cb2bf1700c470ccd689f149ad70aa7710783c130877bc1a3e2",
+      "rows": 1200,
+      "labels_distances_repeat_exact": true,
+      "ndc_repeat_exact": true,
+      "temporary_graph_deleted": true
+    },
+    {
+      "history": "natural_source_order",
+      "seed": 59,
+      "graph_sha256": "5b87c3cec8b3c000cfd1b929f3fae83c3c25d8a73c3d8810cd4bfc82540ff8df",
+      "rows": 1200,
+      "labels_distances_repeat_exact": true,
+      "ndc_repeat_exact": true,
+      "temporary_graph_deleted": true
+    },
+    {
+      "history": "random",
+      "seed": 43,
+      "graph_sha256": "ca4ff8274b1014e0a4de6174f623d27aed54142fb1493c2ad40b3d9df6aa069e",
+      "rows": 1200,
+      "labels_distances_repeat_exact": true,
+      "ndc_repeat_exact": true,
+      "temporary_graph_deleted": true
+    },
+    {
+      "history": "random",
+      "seed": 59,
+      "graph_sha256": "b347bf31b19fdc06b05c5d06cb41a01fb132be5acbe4d1e99d69cc6b58bc1536",
+      "rows": 1200,
+      "labels_distances_repeat_exact": true,
+      "ndc_repeat_exact": true,
+      "temporary_graph_deleted": true
+    }
+  ],
+  "rows": 4800,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}
