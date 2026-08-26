@@ -1,0 +1,185 @@
+{
+  "status": "PASS_GATE_T",
+  "synthetic_conformal_coverage": "PASS",
+  "finite_beam_counterexample": "PASS",
+  "grid_rounding": "PASS",
+  "split_isolation": "PASS",
+  "sentinel_grid": [
+    {
+      "n": 32,
+      "delta": 0.05,
+      "k": 32,
+      "status": "PASS",
+      "multiplier": 1.096875
+    },
+    {
+      "n": 32,
+      "delta": 0.01,
+      "k": 33,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 32,
+      "delta": 0.005,
+      "k": 33,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 32,
+      "delta": 0.001,
+      "k": 33,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 64,
+      "delta": 0.05,
+      "k": 62,
+      "status": "PASS",
+      "multiplier": 1.0953125
+    },
+    {
+      "n": 64,
+      "delta": 0.01,
+      "k": 65,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 64,
+      "delta": 0.005,
+      "k": 65,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 64,
+      "delta": 0.001,
+      "k": 65,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 128,
+      "delta": 0.05,
+      "k": 123,
+      "status": "PASS",
+      "multiplier": 1.0953125
+    },
+    {
+      "n": 128,
+      "delta": 0.01,
+      "k": 128,
+      "status": "PASS",
+      "multiplier": 1.09921875
+    },
+    {
+      "n": 128,
+      "delta": 0.005,
+      "k": 129,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 128,
+      "delta": 0.001,
+      "k": 129,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 256,
+      "delta": 0.05,
+      "k": 245,
+      "status": "PASS",
+      "multiplier": 1.0953125
+    },
+    {
+      "n": 256,
+      "delta": 0.01,
+      "k": 255,
+      "status": "PASS",
+      "multiplier": 1.09921875
+    },
+    {
+      "n": 256,
+      "delta": 0.005,
+      "k": 256,
+      "status": "PASS",
+      "multiplier": 1.099609375
+    },
+    {
+      "n": 256,
+      "delta": 0.001,
+      "k": 257,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 512,
+      "delta": 0.05,
+      "k": 488,
+      "status": "PASS",
+      "multiplier": 1.0951171875
+    },
+    {
+      "n": 512,
+      "delta": 0.01,
+      "k": 508,
+      "status": "PASS",
+      "multiplier": 1.0990234375
+    },
+    {
+      "n": 512,
+      "delta": 0.005,
+      "k": 511,
+      "status": "PASS",
+      "multiplier": 1.099609375
+    },
+    {
+      "n": 512,
+      "delta": 0.001,
+      "k": 513,
+      "status": "FINITE_SAMPLE_INFEASIBLE",
+      "multiplier": null
+    },
+    {
+      "n": 1000,
+      "delta": 0.05,
+      "k": 951,
+      "status": "PASS",
+      "multiplier": 1.095
+    },
+    {
+      "n": 1000,
+      "delta": 0.01,
+      "k": 991,
+      "status": "PASS",
+      "multiplier": 1.099
+    },
+    {
+      "n": 1000,
+      "delta": 0.005,
+      "k": 996,
+      "status": "PASS",
+      "multiplier": 1.0995
+    },
+    {
+      "n": 1000,
+      "delta": 0.001,
+      "k": 1000,
+      "status": "PASS",
+      "multiplier": 1.0999
+    }
+  ],
+  "cost_accounting": {
+    "sentinel_target_discovery": "FULLY_CHARGED",
+    "query_probe": "FULLY_CHARGED",
+    "amortization": "REPORT_ONLY_NOT_SUBTRACTED"
+  },
+  "new_hnsw_queries": 0,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}
