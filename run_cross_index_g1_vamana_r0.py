@@ -17,7 +17,8 @@ m=json.loads((ROOT/'manifests/cross_index_g1_query_membership.json').read_text()
 r=next(x for x in m['datasets'] if x['dataset']=='sift_100k')
 with h5py.File(MAIN/r['source_path'],'r') as f: base=np.asarray(f['train'][:10000],dtype=np.float32)
 queries=np.load(ROOT/'results/cross_index/g1/query_inputs/sift_100k_queries.npy')[:100]
-truth=np.load(ROOT/'results/cross_index/g1/query_inputs/sift_100k_truth.npy')[:100]
+dist=(queries*queries).sum(1)[:,None]+(base*base).sum(1)[None,:]-2.0*(queries@base.T)
+truth=np.argsort(dist,axis=1,kind='stable')[:,:10].astype(np.uint32)
 orders={'natural_source_order':np.arange(10000,dtype=np.int64),'random':np.random.default_rng(20260915).permutation(10000)}
 records=[]
 with tempfile.TemporaryDirectory(prefix='g1-vamana-r0-',dir='/dev/shm') as td:
