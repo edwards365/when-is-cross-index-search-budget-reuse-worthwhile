@@ -1,0 +1,166 @@
+{
+  "status": "KEEP_BOUNDARY_STUDY_CERTIFICATION_IS_COSTLY",
+  "candidates": [
+    {
+      "n": 32,
+      "delta": 0.05,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 64,
+      "delta": 0.05,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 128,
+      "delta": 0.05,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 128,
+      "delta": 0.01,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 256,
+      "delta": 0.05,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 256,
+      "delta": 0.01,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 256,
+      "delta": 0.005,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 512,
+      "delta": 0.05,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 512,
+      "delta": 0.01,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 512,
+      "delta": 0.005,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 1000,
+      "delta": 0.05,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 1000,
+      "delta": 0.01,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 1000,
+      "delta": 0.005,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    },
+    {
+      "n": 1000,
+      "delta": 0.001,
+      "safe": true,
+      "recall_noninferior": true,
+      "retention": false,
+      "p95_nonworse": false,
+      "direction": false,
+      "net_benefit": false,
+      "pass_all": false
+    }
+  ],
+  "gate_m": "PASS",
+  "gate_t": "PASS",
+  "graphs": 27,
+  "raw_rows": 648000,
+  "validation_calibration_queries": 1000,
+  "validation_audit_queries": 1000,
+  "formal_test_accessed": false
+}

@@ -1,0 +1,12 @@
+{
+  "status": "KEEP_BOUNDARY_STUDY_CERTIFICATION_IS_COSTLY",
+  "gate_m": "PASS_KEEP_REBUILD_TAX_MECHANISM",
+  "gate_t": "PASS_GATE_T",
+  "gate_c": "SAFE_BUT_NO_EFFICIENT_CANDIDATE",
+  "validation": {"graphs": 27, "rows": 648000, "calibration_queries_per_dataset": 1000, "audit_queries_per_dataset": 1000, "reproduction_failures": 0},
+  "gate_c_candidates": {"feasible": 14, "coverage_and_recall_safe": 14, "retain_headroom": 0, "p95_nonworse": 0, "net_benefit": 0, "pass_all": 0},
+  "interpretation": "Finite-sample calibration certifies transfer safety but consumes rather than preserves the useful Oracle headroom on the full cross-history matrix.",
+  "authorize_formal_test": false,
+  "authorize_second_implementation": false,
+  "formal_test_accessed": false
+}
