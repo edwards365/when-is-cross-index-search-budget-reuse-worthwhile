@@ -1,0 +1,24 @@
+{
+  "status": "FROZEN_AFTER_RAW_COLLECTION_BEFORE_ANY_GATE_C_DERIVATION",
+  "reason": "Resolve the preregistered but previously non-numeric under-budget allowance and candidate aggregation without changing the frozen grid.",
+  "under_budget_allowance": "For each dataset and candidate, the one-sided 95% Wilson upper confidence bound over audit query x ordered-source-target cells must be <= delta.",
+  "candidate_unit": "One globally fixed (sentinel_n, delta) pair, aggregated uniformly over all preregistered ordered source-target pairs; no per-dataset, per-seed, or per-history selection.",
+  "candidate_pass": [
+    "Wilson upper under-budget bound <= delta on every dataset",
+    "aggregate mean Recall difference >= -0.001",
+    "target Oracle headroom retention > 0.20 on at least two datasets",
+    "including calibration NDC, net NDC improvement > 0.01 versus fixed ef at N=100000 or a larger preregistered workload",
+    "p95 online NDC does not exceed fixed-ef p95",
+    "direction is consistent across all three realistic histories",
+    "direction is not dominated by one seed"
+  ],
+  "decision_priority": [
+    "AUTHORIZE_CERTIFIED_REBUILD_CALIBRATION if any globally fixed candidate passes all criteria",
+    "LIMITED_TO_RELAXED_RISK_REGIME if passes exist only at delta=0.05",
+    "KEEP_BOUNDARY_STUDY_CERTIFICATION_IS_COSTLY if at least one candidate meets safety and Recall criteria but no candidate has required net benefit",
+    "RECALIBRATION_CANNOT_CERTIFY_TRANSFER otherwise"
+  ],
+  "bootstrap": {"unit": "audit query", "replicates": 5000, "seed": 991},
+  "raw_results_inspected_before_freeze": false,
+  "formal_test_accessed": false
+}
