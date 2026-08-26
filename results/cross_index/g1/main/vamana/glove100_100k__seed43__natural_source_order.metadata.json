@@ -1,0 +1,15 @@
+{
+  "dataset": "glove100_100k",
+  "history": "natural_source_order",
+  "seed": 43,
+  "rows": 12000,
+  "graph_hash": "f515b785aeacc4e263e8c18b6db2cc98e069635bcd5680c514986aca81ae9f46",
+  "nodes_including_frozen_start": 100001,
+  "max_degree": 32,
+  "directed_edges": 2997297,
+  "run_seconds": 84.11680865287781,
+  "native_cmps": true,
+  "temporary_index_deleted": true,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}

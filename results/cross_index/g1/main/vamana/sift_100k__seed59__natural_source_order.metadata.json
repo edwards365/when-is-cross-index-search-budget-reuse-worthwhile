@@ -1,0 +1,15 @@
+{
+  "dataset": "sift_100k",
+  "history": "natural_source_order",
+  "seed": 59,
+  "rows": 12000,
+  "graph_hash": "fe3596fbb79b2dcbdbc812a4114148c0321ae9784976b988bf4385622a13ce9a",
+  "nodes_including_frozen_start": 100001,
+  "max_degree": 32,
+  "directed_edges": 2526538,
+  "run_seconds": 52.87537384033203,
+  "native_cmps": true,
+  "temporary_index_deleted": true,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}
