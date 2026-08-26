@@ -1,0 +1,202 @@
+{
+  "status": "KEEP_REBUILD_TAX_MECHANISM",
+  "gate_m_pass": true,
+  "gate_by_dataset": {
+    "arxiv_nomic_100k": true,
+    "glove100_100k": true,
+    "sift_100k": true
+  },
+  "leave_one_min_pib": {
+    "arxiv_nomic_100k": 0.09569734597137125,
+    "glove100_100k": 0.24721836990081458,
+    "sift_100k": 0.14476905678393193
+  },
+  "details": {
+    "arxiv_nomic_100k": {
+      "realistic": {
+        "strict_pib": 0.13592998158050618,
+        "strict_ci_low": 0.12700766542116168,
+        "trimmed_top1pct_mean_contribution": 0.12589072047111113
+      },
+      "artificial": {
+        "strict_pib": 0.11626253805326092,
+        "strict_ci_low": 0.10813682331592063,
+        "trimmed_top1pct_mean_contribution": 0.10149820611414821
+      },
+      "pooled": {
+        "strict_pib": 0.1829442520515483,
+        "strict_ci_low": 0.17285748509986212,
+        "trimmed_top1pct_mean_contribution": 0.17086172956334553
+      }
+    },
+    "glove100_100k": {
+      "realistic": {
+        "strict_pib": 0.3408389221540944,
+        "strict_ci_low": 0.3160964641766256,
+        "trimmed_top1pct_mean_contribution": 0.33056387851489377
+      },
+      "artificial": {
+        "strict_pib": 0.27399048996295394,
+        "strict_ci_low": 0.2525606203377929,
+        "trimmed_top1pct_mean_contribution": 0.25317346367077503
+      },
+      "pooled": {
+        "strict_pib": 0.4314960844797753,
+        "strict_ci_low": 0.40260662675039327,
+        "trimmed_top1pct_mean_contribution": 0.45086468404313573
+      }
+    },
+    "sift_100k": {
+      "realistic": {
+        "strict_pib": 0.22894451250419068,
+        "strict_ci_low": 0.2160215655221936,
+        "trimmed_top1pct_mean_contribution": 0.20693833506351494
+      },
+      "artificial": {
+        "strict_pib": 0.17934974144422755,
+        "strict_ci_low": 0.16926072320542804,
+        "trimmed_top1pct_mean_contribution": 0.16103306493576272
+      },
+      "pooled": {
+        "strict_pib": 0.30135273030147425,
+        "strict_ci_low": 0.2883274906365362,
+        "trimmed_top1pct_mean_contribution": 0.28271023637718545
+      }
+    }
+  },
+  "rank": {
+    "arxiv_nomic_100k": {
+      "realistic": {
+        "mean_spearman": 0.5777597902079636,
+        "mean_kendall": 0.5254799386968511,
+        "mean_percentile_displacement": 0.18458082381446866,
+        "displacement_ci95": [
+          0.17689259506502497,
+          0.19241938634228353
+        ]
+      },
+      "artificial": {
+        "mean_spearman": 0.5249567657790243,
+        "mean_kendall": 0.4875095328616678,
+        "mean_percentile_displacement": 0.20278368194629878,
+        "displacement_ci95": [
+          0.19459057706571722,
+          0.2110951342530782
+        ]
+      },
+      "pooled": {
+        "mean_spearman": 0.5035091823090783,
+        "mean_kendall": 0.4544476988549676,
+        "mean_percentile_displacement": 0.21111370504588126,
+        "displacement_ci95": [
+          0.20419158242736346,
+          0.21794131010659712
+        ]
+      }
+    },
+    "glove100_100k": {
+      "realistic": {
+        "mean_spearman": 0.8350455948641838,
+        "mean_kendall": 0.7136740070205254,
+        "mean_percentile_displacement": 0.11581634772288978,
+        "displacement_ci95": [
+          0.11086605597586906,
+          0.12075013103891609
+        ]
+      },
+      "artificial": {
+        "mean_spearman": 0.8443554136901809,
+        "mean_kendall": 0.7325379013639297,
+        "mean_percentile_displacement": 0.10994570538495772,
+        "displacement_ci95": [
+          0.1045112297878653,
+          0.11553097463284379
+        ]
+      },
+      "pooled": {
+        "mean_spearman": 0.8207444478719584,
+        "mean_kendall": 0.6909169798220259,
+        "mean_percentile_displacement": 0.12393545679954225,
+        "displacement_ci95": [
+          0.11947017610782631,
+          0.12848775637357746
+        ]
+      }
+    },
+    "sift_100k": {
+      "realistic": {
+        "mean_spearman": 0.5238005644164423,
+        "mean_kendall": 0.46074864588383146,
+        "mean_percentile_displacement": 0.20284784651139792,
+        "displacement_ci95": [
+          0.19550748652524355,
+          0.21022174998763785
+        ]
+      },
+      "artificial": {
+        "mean_spearman": 0.5369494155866763,
+        "mean_kendall": 0.4857235355628153,
+        "mean_percentile_displacement": 0.1992036789793799,
+        "displacement_ci95": [
+          0.19093242545616373,
+          0.20719630321910698
+        ]
+      },
+      "pooled": {
+        "mean_spearman": 0.47552032315968984,
+        "mean_kendall": 0.41256632703161117,
+        "mean_percentile_displacement": 0.21802503231822323,
+        "displacement_ci95": [
+          0.2116357912136817,
+          0.22425315531820203
+        ]
+      }
+    }
+  },
+  "mechanism": [
+    {
+      "dataset": "arxiv_nomic_100k",
+      "omega": 0.4643825573107357,
+      "geometry_ridge_oof_r2": 0.024508218684823446,
+      "geometry_ridge_spearman": 0.23847884395408078,
+      "geometry_isotonic_d10d1_oof_r2": -0.005921997566985082,
+      "sensitive_query_auroc": 0.48140941303939233,
+      "sensitive_query_auprc": 0.18910012447123417,
+      "graph_global_n": 15,
+      "graph_global_mean_budget_oof_r2": 0.8696850783894281,
+      "trace_incremental_r2": null,
+      "trace_status": "UNAVAILABLE_NO_FROZEN_QUERY_TRACE"
+    },
+    {
+      "dataset": "glove100_100k",
+      "omega": 0.15419844336943692,
+      "geometry_ridge_oof_r2": 0.012195540209933076,
+      "geometry_ridge_spearman": 0.14772136472028508,
+      "geometry_isotonic_d10d1_oof_r2": -0.005091197163697103,
+      "sensitive_query_auroc": 0.5987444444444444,
+      "sensitive_query_auprc": 0.27712246318370154,
+      "graph_global_n": 15,
+      "graph_global_mean_budget_oof_r2": 0.8706463338005593,
+      "trace_incremental_r2": null,
+      "trace_status": "UNAVAILABLE_NO_FROZEN_QUERY_TRACE"
+    },
+    {
+      "dataset": "sift_100k",
+      "omega": 0.4875376259308796,
+      "geometry_ridge_oof_r2": 0.02767393243951699,
+      "geometry_ridge_spearman": 0.16768635397053086,
+      "geometry_isotonic_d10d1_oof_r2": -0.006918380250034328,
+      "sensitive_query_auroc": 0.5878,
+      "sensitive_query_auprc": 0.2625627331420176,
+      "graph_global_n": 15,
+      "graph_global_mean_budget_oof_r2": 0.5583364199531111,
+      "trace_incremental_r2": null,
+      "trace_status": "UNAVAILABLE_NO_FROZEN_QUERY_TRACE"
+    }
+  ],
+  "source_graphs": 45,
+  "source_rows": 540000,
+  "new_hnsw_queries": 0,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}

@@ -1,0 +1,20 @@
+{
+  "gate": "M",
+  "status": "KEEP_REBUILD_TAX_MECHANISM",
+  "gate_m_pass": true,
+  "datasets_passed": 3,
+  "datasets_total": 3,
+  "decision": "Proceed to development-only Gate T; validation-dev and formal-test remain sealed.",
+  "constraints": {
+    "new_hnsw_queries": 0,
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false,
+    "trace_incremental_analysis": "UNAVAILABLE_IN_FROZEN_SOURCE"
+  },
+  "realistic_history": {
+    "arxiv_nomic_100k": {"pib_0": 0.13592998158050618, "ci_low": 0.12700766542116168, "oracle_retention": 0.6750098415729054},
+    "glove100_100k": {"pib_0": 0.3408389221540944, "ci_low": 0.3162086761210878, "oracle_retention": 0.7199780706129065},
+    "sift_100k": {"pib_0": 0.22894451250419068, "ci_low": 0.21657682563931172, "oracle_retention": 0.43099794728657215}
+  },
+  "next_gate": "T"
+}
