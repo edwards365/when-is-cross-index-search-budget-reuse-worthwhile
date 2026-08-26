@@ -127,6 +127,13 @@ pub(crate) struct QueryStats {
     misc: KnnSearch,
 }
 
+impl CheckMatch for QueryStats {
+    fn check_match(&self, previous: &Self) -> Match {
+        let builder = check_all_fields!(self, previous, { ids, misc });
+        builder.finish()
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize)]
 pub(crate) struct KnnStats {
     recall: KnnRecall,
@@ -150,7 +157,7 @@ impl CheckMatch for KnnStats {
         let builder = check_all_fields!(
             self,
             previous,
-            { recall, counters, misc }
+            { recall, counters, misc, per_query }
         );
         builder.finish()
     }
