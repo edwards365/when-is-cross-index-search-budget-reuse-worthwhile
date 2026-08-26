@@ -1,0 +1,49 @@
+{
+  "status": "VALIDATION_INPUTS_MATERIALIZED",
+  "datasets": [
+    {
+      "dataset": "arxiv_nomic_100k",
+      "query_count": 2000,
+      "dimensions": 768,
+      "normalized": true,
+      "queries_path": "results/rebuild_tax/validation_inputs/arxiv_nomic_100k_queries.npy",
+      "truth_path": "results/rebuild_tax/validation_inputs/arxiv_nomic_100k_truth.npy",
+      "truth_distances_path": "results/rebuild_tax/validation_inputs/arxiv_nomic_100k_truth_distances.npy",
+      "source_ids_path": "results/rebuild_tax/validation_inputs/arxiv_nomic_100k_source_ids.npy",
+      "queries_sha256": "5ca586ca974f388bef720265fa11692a98b1dd83e77057290e126a83d8e7222a",
+      "truth_sha256": "7ae873d382d94245df2be348bda9966e3901f6685332a7ad2d87aa6d3821d4dc",
+      "truth_distances_sha256": "3be8c50e6ff401a2f1eccb7cf2d99c011166b6ce4cc7d2c437fed4ad9e2f32a7",
+      "source_ids_sha256": "c4852ee166630f95fc0d44e0753357284b36760938119186630723a6035304ab"
+    },
+    {
+      "dataset": "glove100_100k",
+      "query_count": 2000,
+      "dimensions": 100,
+      "normalized": true,
+      "queries_path": "results/rebuild_tax/validation_inputs/glove100_100k_queries.npy",
+      "truth_path": "results/rebuild_tax/validation_inputs/glove100_100k_truth.npy",
+      "truth_distances_path": "results/rebuild_tax/validation_inputs/glove100_100k_truth_distances.npy",
+      "source_ids_path": "results/rebuild_tax/validation_inputs/glove100_100k_source_ids.npy",
+      "queries_sha256": "81a7dfb32ec0038a7d2266f8f95a65e3743b4187305fe74d15274777725dd417",
+      "truth_sha256": "a564dd89e13bd4ed452e7515481e610551964c412ab33d1b58da892a5ebe8f48",
+      "truth_distances_sha256": "cbb7f59bb5a09eca0939405c10b0cbc4c2898494e440ce4ad65b753eb929194f",
+      "source_ids_sha256": "ef0fa27e3a9972e0e188f954ba2e8d6c12180a10b6a9219a31699c37cd40833a"
+    },
+    {
+      "dataset": "sift_100k",
+      "query_count": 2000,
+      "dimensions": 128,
+      "normalized": false,
+      "queries_path": "results/rebuild_tax/validation_inputs/sift_100k_queries.npy",
+      "truth_path": "results/rebuild_tax/validation_inputs/sift_100k_truth.npy",
+      "truth_distances_path": "results/rebuild_tax/validation_inputs/sift_100k_truth_distances.npy",
+      "source_ids_path": "results/rebuild_tax/validation_inputs/sift_100k_source_ids.npy",
+      "queries_sha256": "0ec5ad64a1dad58aec714a1cfd90e23433f1ce1232c479503b3623838f2fd049",
+      "truth_sha256": "36989dbea915da4e4dcc911b58e00393a766e313195a257a7b8ac55d64f39334",
+      "truth_distances_sha256": "a4f934638911bac0bd24e4536b0b39aab01a8e75306bbee07c6732379c2f8df8",
+      "source_ids_sha256": "71dd89abd0b3ee9c614b05d4be8d495d3fea22779baf03d22c96a84e199dcad8"
+    }
+  ],
+  "membership_commit": "052395c",
+  "formal_test_accessed": false
+}
