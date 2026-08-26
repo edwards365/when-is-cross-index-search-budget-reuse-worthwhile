@@ -2,7 +2,7 @@ diff --git a/diskann-inmem/integration/index/tests.rs b/diskann-inmem/integratio
 index 46fd52f..3aa52b0 100644
 --- a/diskann-inmem/integration/index/tests.rs
 +++ b/diskann-inmem/integration/index/tests.rs
-@@ -44,14 +44,20 @@ pub(super) fn knn(
+@@ -44,12 +44,17 @@ pub(super) fn knn(
      let before = index.counters();
      let mut misc = KnnSearch::new();
      let mut neighbors = Vec::new();
@@ -29,7 +29,7 @@ index 46fd52f..3aa52b0 100644
      })
  }
  
-@@ -110,11 +117,17 @@ impl std::fmt::Display for KnnRecall {
+@@ -110,9 +117,15 @@ impl std::fmt::Display for KnnRecall {
      }
  }
  
