@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "gate": "cross_index_g1_pre_r0_build_provenance",
+  "frozen_baseline": "f43486d1d35efb147d060e9dc8baa36dc56586a7",
+  "repository_head_before_commit": "9ada330575c341e500fd24073ae66685a2c2696f",
+  "diskann": {
+    "official_repository": "https://github.com/microsoft/DiskANN.git",
+    "source_commit": "158126e64129d3c39f9df02199c2dcc06d4f9e7f",
+    "cargo_lock_sha256": "d83279f030b102dcbac27ff012391af5854aab165d2b3c90ccde21bf6963056c",
+    "package": "diskann-inmem",
+    "package_version": "0.56.0",
+    "binary_target": "integration-test",
+    "features": ["integration-test"],
+    "build_profile": "release",
+    "build_command": "cargo build --release -p diskann-inmem --features integration-test --bin integration-test",
+    "binary_size_bytes": 11079104,
+    "binary_sha256": "e0f518c6566f34896c2173d81d26c7eaa7eed85dfe6a60a164709b187089d547"
+  },
+  "toolchain": {
+    "rustc": "1.97.1 (8bab26f4f 2026-07-14)",
+    "rustc_commit": "8bab26f4f68e0e26f0bb7960be334d5b520ea452",
+    "cargo": "1.97.1 (c980f4866 2026-06-30)",
+    "cargo_commit": "c980f4866141969fab6254a680546a277789d6f0",
+    "host": "x86_64-unknown-linux-gnu"
+  },
+  "constraints": {
+    "status": "BUILD_ONLY_NOT_R0_PASS",
+    "no_graph_built": true,
+    "formal_test_accessed": false,
+    "validation_dev_accessed": false,
+    "instrumentation_equivalence_required_before_100k": true
+  }
+}
