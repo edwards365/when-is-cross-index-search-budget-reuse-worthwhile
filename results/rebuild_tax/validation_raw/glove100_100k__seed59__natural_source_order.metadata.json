@@ -1,0 +1,14 @@
+{
+  "dataset": "glove100_100k",
+  "graph_seed": 59,
+  "insertion_order": "natural_source_order",
+  "rows": 24000,
+  "graph_hash": "d9a86a643d7e5364d7a4211cf251288be9eafe5cf6f8278eabe67c39c99d974f",
+  "graph_file_hash": "ab3e896cca72542c7cf66909c7b38769c77f6b4f51a71d93c4b3867328495f23",
+  "entry_point": 19046,
+  "max_level": 4,
+  "build_seconds": 37.182250072,
+  "peak_rss_bytes": 306524160,
+  "native_instrumented_exact": true,
+  "temporary_index_deleted": true
+}
