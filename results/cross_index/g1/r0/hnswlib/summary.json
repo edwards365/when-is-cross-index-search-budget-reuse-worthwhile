@@ -1,0 +1,44 @@
+{
+  "status": "HNSWLIB_R0_COMPONENT_PASS",
+  "graphs": [
+    {
+      "history": "natural_source_order",
+      "seed": 43,
+      "rows": 1200,
+      "graph_sha256": "372453275597d6d9373b9fc23c779a00659ccb43c64a2ac63422cf8cd311a101",
+      "index_sha256": "38e7147727bf7d7e11c36fb2c57523388c1715d631141c32bcf6aef19be66430",
+      "native_instrumented_exact": true,
+      "temporary_graph_deleted": true
+    },
+    {
+      "history": "natural_source_order",
+      "seed": 59,
+      "rows": 1200,
+      "graph_sha256": "7d1ee34d7cbf081e51f673b87eeeea436035c4f3fe70a89983256406d499f027",
+      "index_sha256": "68533654cf43b3700b437f64fde4247aab68747dd76a783b1df8f84f08ed1ae4",
+      "native_instrumented_exact": true,
+      "temporary_graph_deleted": true
+    },
+    {
+      "history": "random",
+      "seed": 43,
+      "rows": 1200,
+      "graph_sha256": "08e7ccd8c9293221a38bf9afff00acc2fcda64f0c9e7eee95708f4c6050a7617",
+      "index_sha256": "9a5ec3ed3e346a589490613b84a66379346d444f3cfde2e59060913a5b4911e9",
+      "native_instrumented_exact": true,
+      "temporary_graph_deleted": true
+    },
+    {
+      "history": "random",
+      "seed": 59,
+      "rows": 1200,
+      "graph_sha256": "2a06fd50685a1d140f0493b57a3cc02cc578b6c88c41987486c1fcde5d2a0b23",
+      "index_sha256": "47d975e8130768f194359bbba6d9f638d470e114e29b3b350a669f686bed1598",
+      "native_instrumented_exact": true,
+      "temporary_graph_deleted": true
+    }
+  ],
+  "rows": 4800,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false
+}
