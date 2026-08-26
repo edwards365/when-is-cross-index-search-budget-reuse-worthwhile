@@ -1,0 +1,131 @@
+{
+  "status": "FINAL",
+  "label": "SHRINK_TO_HNSWLIB_IMPLEMENTATION_BOUNDARY",
+  "gate_g1_pass": false,
+  "gate_g2_pass": false,
+  "g1_by_dataset": {
+    "arxiv_nomic_100k": false,
+    "glove100_100k": false,
+    "sift_100k": false
+  },
+  "g2_by_dataset": {
+    "arxiv_nomic_100k": false,
+    "glove100_100k": true,
+    "sift_100k": false
+  },
+  "graphs": 81,
+  "rows": 972000,
+  "bootstrap": 5000,
+  "formal_test_accessed": false,
+  "validation_dev_accessed": false,
+  "summary": {
+    "hnswlib:arxiv_nomic_100k": {
+      "budget_variation_rate": 0.5786666666666667,
+      "oracle_headroom": -0.049812021247914014,
+      "cross_minus_same_regret": 0.0162922283811571,
+      "ci95": [
+        0.012831729143254138,
+        0.02001813831389012
+      ],
+      "rank_inversion": 0.19595057476562966,
+      "trimmed_delta": 0.013272754169907036,
+      "price_of_blindness": 0.20064642152520462
+    },
+    "hnswlib:glove100_100k": {
+      "budget_variation_rate": 0.8613333333333333,
+      "oracle_headroom": 0.34722503634093355,
+      "cross_minus_same_regret": 0.0643879299559647,
+      "ci95": [
+        0.05893643181874391,
+        0.0700319906314427
+      ],
+      "rank_inversion": 0.11143190869304956,
+      "trimmed_delta": 0.06136654599531359,
+      "price_of_blindness": 0.23936164508672847
+    },
+    "hnswlib:sift_100k": {
+      "budget_variation_rate": 0.7373333333333333,
+      "oracle_headroom": 0.040058654759907164,
+      "cross_minus_same_regret": 0.1597277010907047,
+      "ci95": [
+        0.15187601237870874,
+        0.16802882488329918
+      ],
+      "rank_inversion": 0.19797092535397065,
+      "trimmed_delta": 0.15394144005755198,
+      "price_of_blindness": 0.24570661367541288
+    },
+    "faiss:arxiv_nomic_100k": {
+      "budget_variation_rate": 0.632,
+      "oracle_headroom": -0.028915675149658628,
+      "cross_minus_same_regret": -0.00031784215155645297,
+      "ci95": [
+        -0.0017936473257885138,
+        0.0012379013217621523
+      ],
+      "rank_inversion": 0.2269880462859994,
+      "trimmed_delta": -0.0014139775960287611,
+      "price_of_blindness": 0.2868147914245927
+    },
+    "faiss:glove100_100k": {
+      "budget_variation_rate": 0.892,
+      "oracle_headroom": 0.31435559465549306,
+      "cross_minus_same_regret": -0.000540944777351104,
+      "ci95": [
+        -0.0018974446692103233,
+        0.0008655860477375076
+      ],
+      "rank_inversion": 0.12547298367952486,
+      "trimmed_delta": -0.001394091403159177,
+      "price_of_blindness": 0.3191236814171111
+    },
+    "faiss:sift_100k": {
+      "budget_variation_rate": 0.8013333333333333,
+      "oracle_headroom": 0.05028523342941097,
+      "cross_minus_same_regret": -0.0005741684040293301,
+      "ci95": [
+        -0.0016451670320431913,
+        0.0005195243745051804
+      ],
+      "rank_inversion": 0.23512263730582175,
+      "trimmed_delta": -0.0012084282929439236,
+      "price_of_blindness": 0.37394508886099054
+    },
+    "vamana:arxiv_nomic_100k": {
+      "budget_variation_rate": 0.252,
+      "oracle_headroom": -0.1627771436458037,
+      "cross_minus_same_regret": -0.00012391473077301925,
+      "ci95": [
+        -0.0003717441923190661,
+        9.613374910936527e-18
+      ],
+      "rank_inversion": 0.14172378760837556,
+      "trimmed_delta": -0.00012525073865198532,
+      "price_of_blindness": 0.08356492118081421
+    },
+    "vamana:glove100_100k": {
+      "budget_variation_rate": 0.696,
+      "oracle_headroom": 0.22137992181174834,
+      "cross_minus_same_regret": 0.2026308061749858,
+      "ci95": [
+        0.18845034934222113,
+        0.21676902999597888
+      ],
+      "rank_inversion": 0.0941833908062481,
+      "trimmed_delta": 0.1955893701226633,
+      "price_of_blindness": 0.2292183424884253
+    },
+    "vamana:sift_100k": {
+      "budget_variation_rate": 0.496,
+      "oracle_headroom": -0.049100303568776336,
+      "cross_minus_same_regret": 0.1319751299117392,
+      "ci95": [
+        0.12404367324511148,
+        0.14050075869671602
+      ],
+      "rank_inversion": 0.17007206989815582,
+      "trimmed_delta": 0.12459232295123905,
+      "price_of_blindness": 0.15336335075357418
+    }
+  }
+}
