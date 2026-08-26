@@ -34,7 +34,7 @@ for k,g in G.items():
 def eval_budget(k,q,b):return G[k][q][min(int(b),512)][1]
 def quantile_budget(values,delta):
  values=np.sort(np.asarray(values));rank=int(np.ceil((1-delta)*len(values)))-1;return int(values[max(0,min(rank,len(values)-1))])
-dataset_rows=[];history_rows=[];retention_rows=[];query_contrib={};details={}
+dataset_rows=[];history_rows=[];retention_rows=[];sensitivity_rows=[];query_contrib={};details={}
 for ds in DS:
  details[ds]={}
  for name,orders in groups.items():
@@ -52,6 +52,13 @@ for ds in DS:
   strict=query_contrib[(ds,name)];keep=np.argsort(strict)[:int(.99*len(strict))];details[ds][name]={'strict_pib':next(r['pib'] for r in dataset_rows if r['dataset']==ds and r['history_group']==name and r['delta']==0),'strict_ci_low':next(r['pib_ci_low'] for r in dataset_rows if r['dataset']==ds and r['history_group']==name and r['delta']==0),'trimmed_top1pct_mean_contribution':float(strict[keep].mean())}
   for order in sorted(orders):
    ks=[k for k in keys if k[2]==order];a=np.mean([[eval_budget(k,int(q),budget[k][int(q)]) for k in ks] for q in AUD]);b=np.mean([[eval_budget(k,int(q),max(budget[x][int(q)] for x in keys)) for k in ks] for q in AUD]);history_rows.append({'dataset':ds,'history_group':name,'history':order,'strict_pib_using_group_blind_budget':float(b/a-1),'aware_mean_ndc':float(a),'blind_mean_ndc':float(b)})
+
+  for target_name,target_map in [('first_quality_preserving',first),('stable_recall_0.9',b09),('stable_recall_1.0',b10)]:
+   aware=np.asarray([np.mean([eval_budget(k,int(q),target_map[k][int(q)]) for k in keys]) for q in AUD]);fix=np.asarray([np.mean([eval_budget(k,int(q),fixed[k]) for k in keys]) for q in AUD])
+   for d in DELTAS:
+    blind=np.asarray([np.mean([eval_budget(k,int(q),quantile_budget([target_map[x][int(q)] for x in keys],d)) for k in keys]) for q in AUD]);vals=[]
+    for _ in range(5000):idx=RNG.integers(0,len(AUD),len(AUD));vals.append(float(blind[idx].mean()/aware[idx].mean()-1))
+    denom=fix.mean()-aware.mean();sensitivity_rows.append({'dataset':ds,'history_group':name,'target':target_name,'delta':d,'pib':float(blind.mean()/aware.mean()-1),'pib_ci_low':ci(vals)[0],'pib_ci_high':ci(vals)[1],'oracle_retention':float((fix.mean()-blind.mean())/denom) if denom else float('nan'),'right_censored_query_rate':float(np.mean([any(target_map[k][int(q)]>512 for k in keys) for q in AUD]))})
 
 rank_rows=[];rank_summary={}
 for ds in DS:
@@ -87,4 +94,4 @@ passed=sum(gate.values())>=2;status='KEEP_REBUILD_TAX_MECHANISM' if passed else 
 summary={'status':status,'gate_m_pass':passed,'gate_by_dataset':gate,'leave_one_min_pib':leave,'details':details,'rank':rank_summary,'mechanism':mechanism,'source_graphs':45,'source_rows':540000,'new_hnsw_queries':0,'validation_dev_accessed':False,'formal_test_accessed':False}
 def write(name,rows):
  with open(OUT/name,'w',newline='') as f:w=csv.DictWriter(f,fieldnames=rows[0].keys());w.writeheader();w.writerows(rows)
-write('pib_by_dataset.csv',dataset_rows);write('pib_by_history.csv',history_rows);write('oracle_retention.csv',retention_rows);write('rank_inversions.csv',rank_rows);write('mechanism_decomposition.csv',mechanism);(OUT/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary,indent=2))
+write('pib_by_dataset.csv',dataset_rows);write('pib_by_history.csv',history_rows);write('oracle_retention.csv',retention_rows);write('pib_sensitivity.csv',sensitivity_rows);write('rank_inversions.csv',rank_rows);write('mechanism_decomposition.csv',mechanism);(OUT/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps(summary,indent=2))
