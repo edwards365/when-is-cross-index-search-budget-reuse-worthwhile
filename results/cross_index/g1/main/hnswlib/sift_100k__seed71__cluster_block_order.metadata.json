@@ -1,0 +1,14 @@
+{
+  "dataset": "sift_100k",
+  "graph_seed": 71,
+  "insertion_order": "cluster_block_order",
+  "rows": 12000,
+  "graph_hash": "b8dbd5221e2eecd2e6bd93bf5e66ea93099d4fc7d2d9bda545dc210087bd5faf",
+  "graph_file_hash": "0fd7463edbb7ad725c8d4b946a9bcbeb493d6bff8a9052657b35c7abb12b0e50",
+  "entry_point": 98500,
+  "max_level": 4,
+  "build_seconds": 18.480176191,
+  "peak_rss_bytes": 298024960,
+  "native_instrumented_exact": true,
+  "temporary_index_deleted": true
+}
