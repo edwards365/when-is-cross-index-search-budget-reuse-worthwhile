@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "FAST_FEASIBILITY_FINAL",
+  "decision": "CONTINUE_RCRS_FULL_IMPLEMENTATION",
+  "monotone_lower_bound_proved": true,
+  "hnswlib_monotone_tax": {
+    "arxiv_nomic_100k": 3.129691222361363,
+    "glove100_100k": 1.0136134747354206,
+    "sift_100k": 2.6972902900167197
+  },
+  "global_gcc_gap_interpretation": "PRIOR_LANES_ARE_RISK_TOLERANT_NONDEPLOYABLE_AND_USE_DISTINCT_QUERY_SPLITS; THEY_CAN_FALL_BELOW_THE_POINTWISE_SAFE_MONOTONE_COST",
+  "hnswlib_faiss_contrast": {
+    "arxiv_nomic_100k": 1.765504939321465,
+    "glove100_100k": 0.5314543440960512,
+    "sift_100k": 0.9456154362636989
+  },
+  "prefix_queries": 500,
+  "prefix_equivalence": true,
+  "fallback_reuses_state": true,
+  "checkpoint_additional_ndc": 0,
+  "trace_pilot_complete": true,
+  "rcrs_complete": false,
+  "online_oracle_used": false,
+  "bootstrap": 1000,
+  "bootstrap_seed": 991,
+  "evidence": "EXPLORATORY_FAST_BOOTSTRAP",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}
