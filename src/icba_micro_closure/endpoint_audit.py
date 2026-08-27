@@ -30,10 +30,12 @@ def binom_cdf(k: int, n: int, p: float) -> float:
     if p >= 1.0:
         return 0.0
     q = 1.0 - p
-    term = q ** n
+    log_term = (math.lgamma(n + 1) - math.lgamma(k + 1) - math.lgamma(n - k + 1)
+                + k * math.log(p) + (n - k) * math.log(q))
+    term = math.exp(log_term) if log_term > -745 else 0.0
     total = term
-    for i in range(k):
-        term *= (n - i) / (i + 1) * p / q
+    for i in range(k, 0, -1):
+        term *= i / (n - i + 1) * q / p
         total += term
     return min(1.0, max(0.0, total))
 
@@ -99,9 +101,11 @@ def audit(path: Path) -> dict[str, object]:
     with gzip.open(path, "rt", newline="") as handle:
         for row in csv.DictReader(handle):
             first = first or row
-            qid, ef = int(row["query_id"]), int(row["ef_search"])
+            qid = int(row["query_id"])
+            ef = int(row.get("ef_search") or row["budget"])
             by_query[qid][ef] = float(row["recall_at_10"])
-            label_consistent &= row["success"].lower() == "true" and not row["error_code"]
+            if "success" in row:
+                label_consistent &= row["success"].lower() == "true" and not row["error_code"]
     assert first is not None
     complete = all(tuple(sorted(v)) == GRID for v in by_query.values())
     monotone = sum(any(v[b] > v[c] for b, c in zip(GRID, GRID[1:])) for v in by_query.values())
@@ -126,7 +130,8 @@ def audit(path: Path) -> dict[str, object]:
     lo, hi = cp_interval(max_fail, n)
     out: dict[str, object] = {
         "dataset": first["dataset"], "implementation": path.parent.name,
-        "history": first["insertion_order"], "seed": first["graph_seed"],
+        "history": first.get("insertion_order") or first["history"],
+        "seed": first.get("graph_seed") or first["seed"],
         "graph_hash": first["graph_hash"], "queries": n, "grid_complete": complete,
         "protocol_consistent": label_consistent, "nonmonotone_queries": monotone,
         "right_censored_queries": sum(v is None for v in stable.values()),
