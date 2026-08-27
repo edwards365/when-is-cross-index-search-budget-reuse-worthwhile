@@ -1,0 +1,31 @@
+\section{ECSE upper bounds}
+Let $\widehat{\mathcal C}_k$ be a confidence set over a finite closed-world
+environment library and let
+$\widehat b_k(x)=\max_{\theta\in\widehat{\mathcal C}_k}
+\widehat B_\theta(x)$, with fail-closed fallback to a separately certified
+endpoint. If the sets are nested and the response functions are frozen,
+then $\widehat b_{k+1}(x)\le\widehat b_k(x)$ pointwise whenever both sets
+are valid and nonempty. This is an execution-cost statement; acquisition
+cost need not be monotone.
+
+For a fixed closed-world target, suppose
+$\Pr_S\{\theta\in\widehat{\mathcal C}_k\}\ge1-\alpha$ and
+$\Pr_X\{\widehat B_\theta(X)<B^*_\theta(X)\}\le\delta_q$, with the
+evaluation query independent of sentinel sampling. On the coverage event,
+$\widehat b_k\ge\widehat B_\theta$, and hence
+\[
+ \Pr_S\{R_\theta(\widehat b_k)\le\delta_q\}\ge1-\alpha.
+\]
+This statement is not a probability guarantee over a new environment.
+
+If normalized execution cost is one-Lipschitz and the response-library
+diameter is bounded by $D$, then
+\[
+ T_k-T_{\rm oracle}\le
+ D\Pr\{\theta\notin\widehat{\mathcal C}_k\}
+ +\mathbb E[\operatorname{diam}(\widehat{\mathcal C}_k,X)
+             1\{\theta\in\widehat{\mathcal C}_k\}]
+ +G_{\rm fb}\Pr\{\text{fail closed}\}.
+\]
+Sentinel, truth, certification, and controller work is then added and
+amortized over workload $N$.
