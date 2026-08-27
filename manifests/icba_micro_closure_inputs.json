@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "audit_time_utc": "2026-08-27T18:50:31.495Z",
+  "status": "PAUSED_DISK_BELOW_10_GIB",
+  "frozen_base": {
+    "branch": "exp/icba_theory_lock",
+    "commit": "ed8d1e0d84c075fddbbc4d8aa5e77a57683a2fb6"
+  },
+  "worktree": {
+    "branch": "exp/icba_micro_closure",
+    "head": "ed8d1e0d84c075fddbbc4d8aa5e77a57683a2fb6",
+    "clean": true
+  },
+  "resource_gate": {
+    "available_disk_bytes": 10233819136,
+    "minimum_disk_bytes": 10737418240,
+    "passed": false
+  },
+  "recovery_bundle": {
+    "path": "/home/wlk/projects/icba_theory_lock_ed8d1e0_incremental.bundle",
+    "sha256": "336dd347bbbab343bd83b7bad877cf2ae5b056780ab5e37a50431eb444dbe124",
+    "prerequisite_commit": "b374e9b788eb572f59b826e8b5c9532e44a5129a",
+    "verified": true
+  },
+  "data_firewall": {
+    "validation_dev_opened": false,
+    "formal_test_opened": false,
+    "new_graph_built": false,
+    "replay_started": false
+  }
+}
