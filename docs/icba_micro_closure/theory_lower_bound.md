@@ -50,4 +50,8 @@ A finite-`K` pairwise corollary follows immediately by selecting any pair of env
 - Restricted T4 remains a Graph-ANNS combinatorial proposition and is not promoted to a general theorem.
 - Certification, target-information value and prefix recovery results remain separate upper-bound or execution-interface components.
 
-Gate G1 remains pending exhaustive counterexample tests over the preregistered finite grids.
+## Gate G1
+
+`GATE_G1_PASS_RESTRICTED_ALIGNED_RESPONSE_CLASS`.
+
+The bound is strictly positive on the natural fully aliased separated-budget class, varies explicitly with visible-state total variation, and correctly vanishes at perfect identification or zero budget separation. Eight deterministic test families cover state counts 2--8, budget levels 2--6, randomized mixtures, TV endpoints, zero mass, nonmonotone quality, right censoring and rejected unaligned inputs. These computations check edge cases; the displayed common-part argument, not enumeration, is the proof. The restriction to deterministic aligned budget responses remains part of the theorem and prevents a broader general-ICBA claim.
