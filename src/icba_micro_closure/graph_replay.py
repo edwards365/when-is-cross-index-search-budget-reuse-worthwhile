@@ -26,7 +26,7 @@ def load_graph(path):
 def distance(a,b,ids): return sum(a[q]!=b[q] for q in ids)
 
 def evaluate(target,candidates,eval_ids,endpoint):
-    observed=under=recall=ndc=oracle_ndc=fixed_ndc=censored=0.0; n=len(eval_ids)
+    observed=under=recall=ndc=oracle_ndc=fixed_ndc=censored=0.0; n=len(eval_ids); per=[]
     for q in eval_ids:
         truth=target["stable"][q]
         vals=[x["stable"][q] for x in candidates]
@@ -37,12 +37,17 @@ def evaluate(target,candidates,eval_ids,endpoint):
             observed+=1; under += chosen<truth
             oracle_ndc += target["curves"][q][truth][1]
         recall += target["curves"][q][chosen][0]
-        ndc += target["curves"][q][chosen][1]
-        fixed_ndc += target["curves"][q][endpoint][1]
+        chosen_ndc=target["curves"][q][chosen][1]; endpoint_ndc=target["curves"][q][endpoint][1]
+        ndc += chosen_ndc; fixed_ndc += endpoint_ndc
+        per.append((endpoint_ndc-chosen_ndc, chosen_ndc, bool(truth is None or chosen<truth)))
+    ordered=sorted(per,key=lambda x:x[0],reverse=True); trimmed=ordered[max(1,math.ceil(0.01*n)):]
+    p95=sorted(x[1] for x in per)[math.ceil(0.95*n)-1]
     return {"queries":n,"observed_queries":int(observed),"right_censored_queries":int(censored),
             "under_rate_conservative":under/n,"under_rate_observed":(under-censored)/observed if observed else math.nan,
             "mean_recall":recall/n,"mean_ndc":ndc/n,"oracle_mean_ndc_observed":oracle_ndc/observed if observed else math.nan,
-            "fixed_mean_ndc":fixed_ndc/n,"ndc_saving_vs_fixed":1-ndc/fixed_ndc if fixed_ndc else math.nan}
+            "p95_ndc":p95,"fixed_mean_ndc":fixed_ndc/n,"ndc_saving_vs_fixed":1-ndc/fixed_ndc if fixed_ndc else math.nan,
+            "top1pct_deleted_ndc_saving":sum(x[0] for x in trimmed)/sum(x[0]+x[1] for x in trimmed),
+            "top1pct_deleted_under_rate":sum(x[2] for x in trimmed)/len(trimmed)}
 
 def main():
     p=argparse.ArgumentParser(); p.add_argument("--root",type=Path,required=True); p.add_argument("--split",type=Path,required=True); p.add_argument("--endpoint",type=Path,required=True); p.add_argument("--output-dir",type=Path,required=True); a=p.parse_args()
