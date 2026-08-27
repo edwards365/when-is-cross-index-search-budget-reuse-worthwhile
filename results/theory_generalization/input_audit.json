@@ -1,0 +1,677 @@
+{
+  "cross_index": {
+    "commit": "b82abf6bab8aae54b23aee5ccce5cde0ba5a3412",
+    "tree_files": 1107,
+    "selected_evidence_files": 269,
+    "checksum_ok": 17,
+    "checksum_problem": 0,
+    "checksum_detail": [
+      {
+        "path": "docs/cross_index/g1/final_report.md",
+        "expected": "963f7f26e86940761d47485e5d85662355c089fdcda43ef3214515960f0b2da4",
+        "actual": "963f7f26e86940761d47485e5d85662355c089fdcda43ef3214515960f0b2da4",
+        "status": "OK"
+      },
+      {
+        "path": "docs/cross_index/g1/theory.md",
+        "expected": "49afecc511e65608c71c875015ce6add7c581d663744d938f47fb39989e10543",
+        "actual": "49afecc511e65608c71c875015ce6add7c581d663744d938f47fb39989e10543",
+        "status": "OK"
+      },
+      {
+        "path": "manifests/cross_index_g1_final_decision.json",
+        "expected": "345ffb6f47b65366595807874e7f6f12d437388e09b0670f1e93d0bae0624a63",
+        "actual": "345ffb6f47b65366595807874e7f6f12d437388e09b0670f1e93d0bae0624a63",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/derived/oracle_headroom.csv",
+        "expected": "49ea5cfd9e928b07b968cb39f63a968e97845639b67ae0b13bf12448a7c7d159",
+        "actual": "bd27c439c9708bc289e52bbfd2d89761d53ec52d157c8fce6238ac08aa8b2eec",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/cross_index/g1/derived/per_query_effort.csv",
+        "expected": "5e11f182103266e05b7a79a219dd02d9e119787095ca1e5ecb1691b27182bdcf",
+        "actual": "9a9d2c25ac62ba29953abd81e63233fe7bbde9499d9d95714695e36a6ce7e84c",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/cross_index/g1/derived/per_query_effort.parquet.NOT_ESTIMABLE",
+        "expected": "0dc5dbda686002b5ce62d5c0e94b6ae16c0ec56606f81b266c5f11b59b573e82",
+        "actual": "0dc5dbda686002b5ce62d5c0e94b6ae16c0ec56606f81b266c5f11b59b573e82",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/derived/price_of_index_blindness.csv",
+        "expected": "90a4773c92f17a25706e58f5fb457cff503dcfd33c34caf1d030abb8ac0ddbb0",
+        "actual": "4704a8044516bbe4be28f2aa2e7bfe7f1d0e9612edf9518cab60a620be5962ed",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/cross_index/g1/derived/rank_inversion.csv",
+        "expected": "e3a61d77fe2353e27e0a1efc866cb9c418eee3b88e3190b438641c3fb86f1ecf",
+        "actual": "2389e3865d3a07a739a7a5d6ccd8ba1abd2ddaeae21284b9792d67dd73b640c4",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/cross_index/g1/derived/transfer_regret.csv",
+        "expected": "5a902af99b4f05bb9613e176f74d53f4622e85928e7dd37f13253ac65bfed1f8",
+        "actual": "248f1b9d1a8aefc0a59e224a6cef22819592e7de7b471f32f4928d873507acee",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/cross_index/g1/figures/budget_variation.pdf",
+        "expected": "3ee5fce6c6623c95870aba233ab4db07c464d0a91270258585efe21a390893af",
+        "actual": "3ee5fce6c6623c95870aba233ab4db07c464d0a91270258585efe21a390893af",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/figures/budget_variation.png",
+        "expected": "2920af00e63abdd45a550ebf9e7441c8ec473ebb1564674429b19215906ba9ad",
+        "actual": "2920af00e63abdd45a550ebf9e7441c8ec473ebb1564674429b19215906ba9ad",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/figures/price_of_blindness.pdf",
+        "expected": "00c083a8cfd01a8eb9b6e6f91cd4f8ca1424f19c5a66df55fdffcc0325a97a98",
+        "actual": "00c083a8cfd01a8eb9b6e6f91cd4f8ca1424f19c5a66df55fdffcc0325a97a98",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/figures/price_of_blindness.png",
+        "expected": "32c3f567128705eaa45202200b88f588a9bfcf3850a1ad0b68ce907b63e20773",
+        "actual": "32c3f567128705eaa45202200b88f588a9bfcf3850a1ad0b68ce907b63e20773",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/figures/rank_inversion.pdf",
+        "expected": "5b34a87ca7a951ab38cf0e2e37f550e83c0b40143fac53f7bccadfd00e71a4e6",
+        "actual": "5b34a87ca7a951ab38cf0e2e37f550e83c0b40143fac53f7bccadfd00e71a4e6",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/figures/rank_inversion.png",
+        "expected": "fa0185b6502608c7e0e9fd134bcd8a9bce8d8ea54c29a2669fb2b3876a3fbd73",
+        "actual": "fa0185b6502608c7e0e9fd134bcd8a9bce8d8ea54c29a2669fb2b3876a3fbd73",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/figures/transfer_regret.pdf",
+        "expected": "c2a734f5557bcf22938d633c265daddae24283af626668401056352e364135bd",
+        "actual": "c2a734f5557bcf22938d633c265daddae24283af626668401056352e364135bd",
+        "status": "OK"
+      },
+      {
+        "path": "results/cross_index/g1/figures/transfer_regret.png",
+        "expected": "e6978817c4c3324b2be34809290e61088e4b747b772cdf8284df1f006b6e05c8",
+        "actual": "e6978817c4c3324b2be34809290e61088e4b747b772cdf8284df1f006b6e05c8",
+        "status": "OK"
+      }
+    ],
+    "sample_evidence_paths": [
+      "theory/__init__.py",
+      "theory/assumptions.md",
+      "theory/candidate_edge_models.md",
+      "theory/complexity.md",
+      "theory/counterexamples.md",
+      "theory/definitions.md",
+      "theory/geometry_guarded_resistance.md",
+      "theory/hnsw_algorithm4.md",
+      "theory/known_results.md",
+      "theory/lemmas.md",
+      "theory/local_global_models.md",
+      "theory/localization.md",
+      "theory/math_validation.py",
+      "theory/notation.md",
+      "theory/phase1_theorem_boundary.md",
+      "theory/phase2_counterexamples.md",
+      "theory/phase2_proof_status.yaml",
+      "theory/progress_cone.md",
+      "theory/project_theorems.md",
+      "theory/proof_attempts.md",
+      "theory/proof_status.yaml",
+      "theory/reading_notes/README.md",
+      "theory/reading_notes/ann_collision_and_benchmarks.md",
+      "theory/reading_notes/hnsw.md",
+      "theory/reading_notes/literature_catalog.md",
+      "theory/reading_notes/modern_projection_collision.md",
+      "theory/reading_notes/navigable_graphs_2024.md",
+      "theory/reading_notes/query_guarantees.md",
+      "theory/reading_notes/resistance_sparsification.md",
+      "theory/reading_notes/spectral_algorithms.md",
+      "theory/reading_notes/submodular_logdet.md",
+      "theory/reading_notes/worst_case_ann_2023.md",
+      "theory/search_counterexamples.py",
+      "theory/search_models.md",
+      "theory/source_claim_map.csv",
+      "theory/stability_margin.md",
+      "theory/tests/test_greedy_optimum.py",
+      "theory/tests/test_rank_one_and_kron.py",
+      "theory/tests/test_registry.py",
+      "theory/theory_experiment_map.md"
+    ]
+  },
+  "tournament": {
+    "commit": "80c505dcc3ec13855c700a0f59df3c042aa281ec",
+    "tree_files": 926,
+    "selected_evidence_files": 261,
+    "checksum_ok": 20,
+    "checksum_problem": 0,
+    "checksum_detail": [
+      {
+        "path": "docs/rebuild_algorithm/tournament/exploratory_report.md",
+        "expected": "ff1fbb4b80b4e9d3bf08f788e5281d6d3cf1f73044c1a0831f7efe280b33937e",
+        "actual": "ff1fbb4b80b4e9d3bf08f788e5281d6d3cf1f73044c1a0831f7efe280b33937e",
+        "status": "OK"
+      },
+      {
+        "path": "docs/rebuild_algorithm/tournament/midday_brief.md",
+        "expected": "be7920f5295514cc5faae5d88ad0b7cb74209b9786364632bd7e3ff688c0f4ae",
+        "actual": "be7920f5295514cc5faae5d88ad0b7cb74209b9786364632bd7e3ff688c0f4ae",
+        "status": "OK"
+      },
+      {
+        "path": "manifests/rebuild_algorithm_tournament_decision.json",
+        "expected": "12f79618b4588a28871a229b948422ef6e6f5acce249f032bb9c8f2aa37f97e9",
+        "actual": "12f79618b4588a28871a229b948422ef6e6f5acce249f032bb9c8f2aa37f97e9",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/cost_autopsy.csv",
+        "expected": "adfd3c277a06e5ece80d72ba7eb5d46f7e041a7d3967d37735a117ab7eb25414",
+        "actual": "73b6b34f18239118ee4d20d47b17d8cd540f6616806ea528b52e60aaecdada08",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/cost_waterfall.pdf",
+        "expected": "5081a6d0d47e70d68cd119bb75303aa91d5dbf5c7a6bdee3939d371ce56e1992",
+        "actual": "5081a6d0d47e70d68cd119bb75303aa91d5dbf5c7a6bdee3939d371ce56e1992",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/cost_waterfall.png",
+        "expected": "d3af25ec6faeff59ffae49ecd503d6cc3cde8a0f886aef838301e00660e62e55",
+        "actual": "d3af25ec6faeff59ffae49ecd503d6cc3cde8a0f886aef838301e00660e62e55",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/gate_heatmap.pdf",
+        "expected": "199f33366f216d7904ec39306a686576de0ae1df9655be01251747c36e43c4fe",
+        "actual": "199f33366f216d7904ec39306a686576de0ae1df9655be01251747c36e43c4fe",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/gate_heatmap.png",
+        "expected": "ae761061da5f8c82fd629f7beeb350007b954fce700542a2c02825420922d642",
+        "actual": "ae761061da5f8c82fd629f7beeb350007b954fce700542a2c02825420922d642",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/net_gain_comparison.pdf",
+        "expected": "42ee5a51ab91c74b0c5360ad8228d2fb2943ab885ee65e3945f487c90d9fea3f",
+        "actual": "42ee5a51ab91c74b0c5360ad8228d2fb2943ab885ee65e3945f487c90d9fea3f",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/net_gain_comparison.png",
+        "expected": "0dc729202759f01fc51d2475201a8cfbc6d049ef94aed2e74c3f0f621795b093",
+        "actual": "0dc729202759f01fc51d2475201a8cfbc6d049ef94aed2e74c3f0f621795b093",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/oracle_retention.pdf",
+        "expected": "158ebbaa9daa74197cbb349f1ed45ef28c006e765e49454375ff92102e95bd46",
+        "actual": "158ebbaa9daa74197cbb349f1ed45ef28c006e765e49454375ff92102e95bd46",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/oracle_retention.png",
+        "expected": "a13770e1d0b467f67b63643d59b50f40684bf4c7506c37f320329f9eead15f22",
+        "actual": "a13770e1d0b467f67b63643d59b50f40684bf4c7506c37f320329f9eead15f22",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/rpc_sample_complexity.pdf",
+        "expected": "629aa246ed754ceeaea6cc7feea7d4ddf2d72c8957383d24a830b0ebddb89b9a",
+        "actual": "629aa246ed754ceeaea6cc7feea7d4ddf2d72c8957383d24a830b0ebddb89b9a",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/rpc_sample_complexity.png",
+        "expected": "8ff71ec3358799efeb901e11d5a7bd0e2af3414bcc3177132c78c4fe4502c203",
+        "actual": "8ff71ec3358799efeb901e11d5a7bd0e2af3414bcc3177132c78c4fe4502c203",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/safety_efficiency_scatter.pdf",
+        "expected": "93ec1cf2dae6d0f41aa21f6bd62248722fd85008e758755922f24e528daaf8ca",
+        "actual": "93ec1cf2dae6d0f41aa21f6bd62248722fd85008e758755922f24e528daaf8ca",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/figures/safety_efficiency_scatter.png",
+        "expected": "b4476f16294271f402734270fdb139956fb67414c0a66697053e9592001b6c03",
+        "actual": "b4476f16294271f402734270fdb139956fb67414c0a66697053e9592001b6c03",
+        "status": "OK"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/gcc_results.csv",
+        "expected": "c537decfce60ff4a9d941e89201529492dc5bff845ddbafb4254526f6f30d38c",
+        "actual": "fb8d0b4a48157df519c927b04fd6bb895c7f2acf1137539f7756a93c4899d7cd",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/rpc_results.csv",
+        "expected": "849dd35a13c087d69d1d84a272726abf1513c17725d5d9e60edaf15a934046f4",
+        "actual": "86a6a9a99259c2951bdb5fa1b3b359655899c671b8237c6d23a37260631ffb2c",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/rsse_bounds.csv",
+        "expected": "0c91a0b1ebc41d5638d30d0211fff601c5cb2a45619f07b0d8a5625ecba0040e",
+        "actual": "13e8ed8d7d2f2da35a8ba1a8cc150aeeac1429073105b07be1d96c3f0c4f12cb",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rebuild_algorithm/tournament/unified_gate_table.csv",
+        "expected": "4daf704f8d51f513f138326d481cc915d6172cb4c0f39ce69db2d8b943cb3a64",
+        "actual": "a19bf08a50cc698ca5322c472663d466152051184d9facc8c37458871a260471",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      }
+    ],
+    "sample_evidence_paths": [
+      "theory/__init__.py",
+      "theory/assumptions.md",
+      "theory/candidate_edge_models.md",
+      "theory/complexity.md",
+      "theory/counterexamples.md",
+      "theory/definitions.md",
+      "theory/geometry_guarded_resistance.md",
+      "theory/hnsw_algorithm4.md",
+      "theory/known_results.md",
+      "theory/lemmas.md",
+      "theory/local_global_models.md",
+      "theory/localization.md",
+      "theory/math_validation.py",
+      "theory/notation.md",
+      "theory/phase1_theorem_boundary.md",
+      "theory/phase2_counterexamples.md",
+      "theory/phase2_proof_status.yaml",
+      "theory/progress_cone.md",
+      "theory/project_theorems.md",
+      "theory/proof_attempts.md",
+      "theory/proof_status.yaml",
+      "theory/reading_notes/README.md",
+      "theory/reading_notes/ann_collision_and_benchmarks.md",
+      "theory/reading_notes/hnsw.md",
+      "theory/reading_notes/literature_catalog.md",
+      "theory/reading_notes/modern_projection_collision.md",
+      "theory/reading_notes/navigable_graphs_2024.md",
+      "theory/reading_notes/query_guarantees.md",
+      "theory/reading_notes/resistance_sparsification.md",
+      "theory/reading_notes/spectral_algorithms.md",
+      "theory/reading_notes/submodular_logdet.md",
+      "theory/reading_notes/worst_case_ann_2023.md",
+      "theory/search_counterexamples.py",
+      "theory/search_models.md",
+      "theory/source_claim_map.csv",
+      "theory/stability_margin.md",
+      "theory/tests/test_greedy_optimum.py",
+      "theory/tests/test_rank_one_and_kron.py",
+      "theory/tests/test_registry.py",
+      "theory/theory_experiment_map.md"
+    ]
+  },
+  "rcrs_fast": {
+    "commit": "01c491f712700bd146227c44db18848dd41d356a",
+    "tree_files": 1133,
+    "selected_evidence_files": 281,
+    "checksum_ok": 18,
+    "checksum_problem": 0,
+    "checksum_detail": [
+      {
+        "path": "docs/rcrs_fast/final_report.md",
+        "expected": "f148b6b99fa7d67f726f35eeab80c1a283c50c094ede2481ab81b7d2b9f7ab49",
+        "actual": "f148b6b99fa7d67f726f35eeab80c1a283c50c094ede2481ab81b7d2b9f7ab49",
+        "status": "OK"
+      },
+      {
+        "path": "docs/rcrs_fast/input_audit.md",
+        "expected": "025fe4426950ec395af8b6d4b6d081a914f96e9656bd8b86ceffbdc766a1ef8a",
+        "actual": "025fe4426950ec395af8b6d4b6d081a914f96e9656bd8b86ceffbdc766a1ef8a",
+        "status": "OK"
+      },
+      {
+        "path": "docs/rcrs_fast/resumability_spike.md",
+        "expected": "58b2302afb1ba7dceea49a22b21e907d5f303ce9c8d0a6a97d362e5fcad057df",
+        "actual": "58b2302afb1ba7dceea49a22b21e907d5f303ce9c8d0a6a97d362e5fcad057df",
+        "status": "OK"
+      },
+      {
+        "path": "docs/rcrs_fast/theory_mvp.md",
+        "expected": "39622cbf8b8be2fa67047760f49090108c6ffe4a2c9fd823d3f9047cd94e89ee",
+        "actual": "39622cbf8b8be2fa67047760f49090108c6ffe4a2c9fd823d3f9047cd94e89ee",
+        "status": "OK"
+      },
+      {
+        "path": "figures/rcrs_fast/implementation_contrast.pdf",
+        "expected": "53360dfe5a6f15ca5dfe9e6a467065e3d42a34c022d60c19c4b01d7378f03ea2",
+        "actual": "53360dfe5a6f15ca5dfe9e6a467065e3d42a34c022d60c19c4b01d7378f03ea2",
+        "status": "OK"
+      },
+      {
+        "path": "figures/rcrs_fast/implementation_contrast.png",
+        "expected": "7f65fc76a8f97c9180a7ab79e8c22fbbfdebccb6554b45aa0ebea33ab5da620f",
+        "actual": "7f65fc76a8f97c9180a7ab79e8c22fbbfdebccb6554b45aa0ebea33ab5da620f",
+        "status": "OK"
+      },
+      {
+        "path": "figures/rcrs_fast/monotone_gap.pdf",
+        "expected": "26fb186c2fb7eddfe30b048d6897b487b452246c81ed30cd3c263a1ae9f45660",
+        "actual": "26fb186c2fb7eddfe30b048d6897b487b452246c81ed30cd3c263a1ae9f45660",
+        "status": "OK"
+      },
+      {
+        "path": "figures/rcrs_fast/monotone_gap.png",
+        "expected": "512a7f66bf6eca86f355945f7a5384e2dbde967f5e17fd51d6f444a987e2023b",
+        "actual": "512a7f66bf6eca86f355945f7a5384e2dbde967f5e17fd51d6f444a987e2023b",
+        "status": "OK"
+      },
+      {
+        "path": "manifests/rcrs_fast_decision.json",
+        "expected": "808960ace219f1adc07fe1ab35e2f473fa21f4c16ec3b31baadfac3ec8f44205",
+        "actual": "808960ace219f1adc07fe1ab35e2f473fa21f4c16ec3b31baadfac3ec8f44205",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_fast/absolute_regret.csv",
+        "expected": "c4c4c394ce6b9911276711f976574dbbba9e2fec8f06c3b270ddc521190b67a8",
+        "actual": "7fbd1eb5b1e7db91268913da9e88db3af1c75586b43826e594cdb730725cfae7",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rcrs_fast/implementation_contrast.csv",
+        "expected": "de0b0bacdd9a82096007befd99275b16095925fd6d667e26b18875111cdc9f01",
+        "actual": "5b838ea0c81b53d3c138a8e34af1057a14f71fbbec0aac035d547ed859b82c46",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rcrs_fast/monotone_gap.csv",
+        "expected": "543fd5db84a84eab66432991c4761c8f33362fea3cbf06784e84725d1e7ce183",
+        "actual": "79f89372c43dcf0316396ddd2fdda553b65c00aebfa0d93476ee26c1943df891",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rcrs_fast/monotone_tax.csv",
+        "expected": "43b6796202425b51eced1a766989f13b2616fe3469268c3775803cacc803d4c0",
+        "actual": "e82fd30486c446c6326eb61c287865965e53f1fd16e0a8bdfd4ae3545e301598",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rcrs_fast/prefix_equivalence.csv",
+        "expected": "e4a561940d0fb0f8f4df30eb070b69aa2f9c253b44e59f9b874170a9a937da3c",
+        "actual": "e4a561940d0fb0f8f4df30eb070b69aa2f9c253b44e59f9b874170a9a937da3c",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_fast/prefix_spike.out",
+        "expected": "b99d370fc15801ba0f20b41e0d2baf9fdedf04b89ecf10bdc48dfd11e1ddccbb",
+        "actual": "b99d370fc15801ba0f20b41e0d2baf9fdedf04b89ecf10bdc48dfd11e1ddccbb",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_fast/sprint_c_summary.json",
+        "expected": "1afe7a21029293bbb17b6ebec1245d6333f2ab6d37573ba9ce7a1b69c09b416c",
+        "actual": "1afe7a21029293bbb17b6ebec1245d6333f2ab6d37573ba9ce7a1b69c09b416c",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_fast/trace_pilot.csv",
+        "expected": "8c3bed1d4abf4a8bcd1bb1f86ead71c05eb61d86cab52bb52a68da2cc3924b1f",
+        "actual": "8c3bed1d4abf4a8bcd1bb1f86ead71c05eb61d86cab52bb52a68da2cc3924b1f",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_fast/trace_pilot.parquet",
+        "expected": "f79ca613d117b80876a6a2bf12d51f90f7229c238b323fae1f7e6510cc4e2a60",
+        "actual": "f79ca613d117b80876a6a2bf12d51f90f7229c238b323fae1f7e6510cc4e2a60",
+        "status": "OK"
+      }
+    ],
+    "sample_evidence_paths": [
+      "theory/__init__.py",
+      "theory/assumptions.md",
+      "theory/candidate_edge_models.md",
+      "theory/complexity.md",
+      "theory/counterexamples.md",
+      "theory/definitions.md",
+      "theory/geometry_guarded_resistance.md",
+      "theory/hnsw_algorithm4.md",
+      "theory/known_results.md",
+      "theory/lemmas.md",
+      "theory/local_global_models.md",
+      "theory/localization.md",
+      "theory/math_validation.py",
+      "theory/notation.md",
+      "theory/phase1_theorem_boundary.md",
+      "theory/phase2_counterexamples.md",
+      "theory/phase2_proof_status.yaml",
+      "theory/progress_cone.md",
+      "theory/project_theorems.md",
+      "theory/proof_attempts.md",
+      "theory/proof_status.yaml",
+      "theory/reading_notes/README.md",
+      "theory/reading_notes/ann_collision_and_benchmarks.md",
+      "theory/reading_notes/hnsw.md",
+      "theory/reading_notes/literature_catalog.md",
+      "theory/reading_notes/modern_projection_collision.md",
+      "theory/reading_notes/navigable_graphs_2024.md",
+      "theory/reading_notes/query_guarantees.md",
+      "theory/reading_notes/resistance_sparsification.md",
+      "theory/reading_notes/spectral_algorithms.md",
+      "theory/reading_notes/submodular_logdet.md",
+      "theory/reading_notes/worst_case_ann_2023.md",
+      "theory/search_counterexamples.py",
+      "theory/search_models.md",
+      "theory/source_claim_map.csv",
+      "theory/stability_margin.md",
+      "theory/tests/test_greedy_optimum.py",
+      "theory/tests/test_rank_one_and_kron.py",
+      "theory/tests/test_registry.py",
+      "theory/theory_experiment_map.md"
+    ]
+  },
+  "rcrs_signal": {
+    "commit": "07ffc38187187d7edaf5e7c8165ebf4678ea1003",
+    "tree_files": 1164,
+    "selected_evidence_files": 294,
+    "checksum_ok": 21,
+    "checksum_problem": 0,
+    "checksum_detail": [
+      {
+        "path": "docs/rcrs_signal/input_audit.md",
+        "expected": "9c0cb2cae7682eda38532ab7889a9d73c343e12bcd57bd601a338d1eddd9e000",
+        "actual": "9c0cb2cae7682eda38532ab7889a9d73c343e12bcd57bd601a338d1eddd9e000",
+        "status": "OK"
+      },
+      {
+        "path": "docs/rcrs_signal/risk_matched_theory.md",
+        "expected": "b1244603f2edd1d821824813b607c5334a83bac7f4abb915bbf497e5e2084daa",
+        "actual": "b1244603f2edd1d821824813b607c5334a83bac7f4abb915bbf497e5e2084daa",
+        "status": "OK"
+      },
+      {
+        "path": "docs/rcrs_signal/signal_pilot_report.md",
+        "expected": "5ad79be87c7f4f88b94f68d3097a1891ddc71970a73241a4533b84357aae40d2",
+        "actual": "5ad79be87c7f4f88b94f68d3097a1891ddc71970a73241a4533b84357aae40d2",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/final_decision.json",
+        "expected": "40f6e20c320b70ff0bd195876ee4f2616532773de19b1dcbff99d5e6b3a3e1f0",
+        "actual": "40f6e20c320b70ff0bd195876ee4f2616532773de19b1dcbff99d5e6b3a3e1f0",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove/seed17_equivalence.csv",
+        "expected": "5d3a069c1c66fa2bae5c137ac56cd61ce1d2056486c225a4ec8bbff83e1773a4",
+        "actual": "5d3a069c1c66fa2bae5c137ac56cd61ce1d2056486c225a4ec8bbff83e1773a4",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove/seed17_trace.csv",
+        "expected": "48bace95b6d4243e352c1934af62cff217bab7f70ced06500639658f4ea26da5",
+        "actual": "48bace95b6d4243e352c1934af62cff217bab7f70ced06500639658f4ea26da5",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove/seed29_equivalence.csv",
+        "expected": "9307ea9acf000ed4098dc8151617632087fb76aaa9bcccf35df54b065f60560c",
+        "actual": "9307ea9acf000ed4098dc8151617632087fb76aaa9bcccf35df54b065f60560c",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove/seed29_trace.csv",
+        "expected": "b3b9062822a9980ad536c71ad223a29dcaf17f9b8678dc2875d32538078edbe9",
+        "actual": "b3b9062822a9980ad536c71ad223a29dcaf17f9b8678dc2875d32538078edbe9",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove/seed7_equivalence.csv",
+        "expected": "0eb78967bf0a5019b3aab2836db42ee8f317045e047fb242e80c15b1b55af84b",
+        "actual": "0eb78967bf0a5019b3aab2836db42ee8f317045e047fb242e80c15b1b55af84b",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove/seed7_trace.csv",
+        "expected": "46ec668bd38ea3618cd0f23187854a73b2838d7932030ea63b4ff051960e9c12",
+        "actual": "46ec668bd38ea3618cd0f23187854a73b2838d7932030ea63b4ff051960e9c12",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove_design_eval_per_query.csv",
+        "expected": "4c3ebff7785b01a682870c4f169e048852745518cc93adc1e963e24b0e1fa7f6",
+        "actual": "4c3ebff7785b01a682870c4f169e048852745518cc93adc1e963e24b0e1fa7f6",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove_signal_summary.json",
+        "expected": "676a16742b0448a03656947231d3bec144b9ee44715387948ac8b45aac37ef20",
+        "actual": "676a16742b0448a03656947231d3bec144b9ee44715387948ac8b45aac37ef20",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/glove_threshold_calibration.csv",
+        "expected": "607959ae242706030e1082e2f84fc6bd7691cc4db3bcd18a5846e085b268041f",
+        "actual": "607959ae242706030e1082e2f84fc6bd7691cc4db3bcd18a5846e085b268041f",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/risk_matched_monotone.csv",
+        "expected": "138ea28dbb1b981c4a05c8a7ffc5bdc0df6e4324a89cfa3ff2bd5a8cecabe302",
+        "actual": "14680bce5e3badb2eb482f86f0776794c64a08c6a82eaff3776322d788d0de4d",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rcrs_signal/sift_coverage_risk.csv",
+        "expected": "4d46b62778652e74b12b4ad37fc8f276fe721760bc3fbed9c505fa9081cb1f8f",
+        "actual": "4d46b62778652e74b12b4ad37fc8f276fe721760bc3fbed9c505fa9081cb1f8f",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/sift_prefix.out",
+        "expected": "b99d370fc15801ba0f20b41e0d2baf9fdedf04b89ecf10bdc48dfd11e1ddccbb",
+        "actual": "b99d370fc15801ba0f20b41e0d2baf9fdedf04b89ecf10bdc48dfd11e1ddccbb",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/sift_prefix_equivalence.csv",
+        "expected": "e4a561940d0fb0f8f4df30eb070b69aa2f9c253b44e59f9b874170a9a937da3c",
+        "actual": "e4a561940d0fb0f8f4df30eb070b69aa2f9c253b44e59f9b874170a9a937da3c",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/sift_signal_metrics.csv",
+        "expected": "f41a237a31388148e2f79d992f4b9e970f26bc46dc3c94a34f847e097405d1a0",
+        "actual": "8aabddde39a85bb05fdda4f392187b300be805b8bda35a56f837a5faae0c730e",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      },
+      {
+        "path": "results/rcrs_signal/sift_signal_summary.json",
+        "expected": "0ed4bed5b3fb174c776bffb682faa1cfd28fca4df9371508b0f1c8c14cd5510f",
+        "actual": "0ed4bed5b3fb174c776bffb682faa1cfd28fca4df9371508b0f1c8c14cd5510f",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/sift_trace_labels.csv",
+        "expected": "f068ad80165358335cdaf70e98237c7c1253e8dd70d099a7481fb3a0d0aef56c",
+        "actual": "f068ad80165358335cdaf70e98237c7c1253e8dd70d099a7481fb3a0d0aef56c",
+        "status": "OK"
+      },
+      {
+        "path": "results/rcrs_signal/tax_normalization.csv",
+        "expected": "3e48a34a3c9842699b62b6c465a5370c5a0d4d5e48b2bb1119d859698e96ba84",
+        "actual": "e7c3ecfac2d40b0f158a0c2bdd3ca0324b1941f5e48a14d2991f3999e15a1974",
+        "status": "LINE_ENDING_NORMALIZATION_EQUIVALENT"
+      }
+    ],
+    "sample_evidence_paths": [
+      "theory/__init__.py",
+      "theory/assumptions.md",
+      "theory/candidate_edge_models.md",
+      "theory/complexity.md",
+      "theory/counterexamples.md",
+      "theory/definitions.md",
+      "theory/geometry_guarded_resistance.md",
+      "theory/hnsw_algorithm4.md",
+      "theory/known_results.md",
+      "theory/lemmas.md",
+      "theory/local_global_models.md",
+      "theory/localization.md",
+      "theory/math_validation.py",
+      "theory/notation.md",
+      "theory/phase1_theorem_boundary.md",
+      "theory/phase2_counterexamples.md",
+      "theory/phase2_proof_status.yaml",
+      "theory/progress_cone.md",
+      "theory/project_theorems.md",
+      "theory/proof_attempts.md",
+      "theory/proof_status.yaml",
+      "theory/reading_notes/README.md",
+      "theory/reading_notes/ann_collision_and_benchmarks.md",
+      "theory/reading_notes/hnsw.md",
+      "theory/reading_notes/literature_catalog.md",
+      "theory/reading_notes/modern_projection_collision.md",
+      "theory/reading_notes/navigable_graphs_2024.md",
+      "theory/reading_notes/query_guarantees.md",
+      "theory/reading_notes/resistance_sparsification.md",
+      "theory/reading_notes/spectral_algorithms.md",
+      "theory/reading_notes/submodular_logdet.md",
+      "theory/reading_notes/worst_case_ann_2023.md",
+      "theory/search_counterexamples.py",
+      "theory/search_models.md",
+      "theory/source_claim_map.csv",
+      "theory/stability_margin.md",
+      "theory/tests/test_greedy_optimum.py",
+      "theory/tests/test_rank_one_and_kron.py",
+      "theory/tests/test_registry.py",
+      "theory/theory_experiment_map.md"
+    ]
+  },
+  "definition_notes": {
+    "quality_target": "Recall@10 threshold tau=0.9 in RCRS signal; other frozen experiments must be read from their own manifests.",
+    "budget": "Frozen ordered ef/search-list grid; no interpolation is treated as an observed budget.",
+    "minimal_sufficient_budget": "Smallest observed budget attaining target at that point.",
+    "minimal_stable_sufficient_budget": "Smallest budget after which every larger frozen budget attains target.",
+    "right_censoring": "No stable sufficient budget exists on the frozen grid; record B>e_max.",
+    "ndc": "Native distance-computation count; implementation-local and not automatically cross-implementation comparable.",
+    "split_rule": "Cross-Index, Tournament, RCRS-fast and RCRS-signal query splits are distinct evidence units; Global/GCC/Oracle numbers are not pooled across splits.",
+    "risk_rule": "Pointwise safety, empirical marginal risk and certified population risk remain separate."
+  },
+  "firewall": {
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false,
+    "new_graphs_built": false
+  }
+}
