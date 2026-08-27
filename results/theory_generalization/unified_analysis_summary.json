@@ -1,0 +1,16 @@
+{
+  "graphs": 81,
+  "raw_rows": 972000,
+  "source_target_pairs": 648,
+  "risk_rows": 2592,
+  "bootstrap": 5000,
+  "seed": 991,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "split": "frozen design-eval queries 250:1000",
+  "notes": [
+    "NDC is implementation-local",
+    "right-censored safe cost above grid is not identified",
+    "T4 remains proof-sketch-only"
+  ]
+}
