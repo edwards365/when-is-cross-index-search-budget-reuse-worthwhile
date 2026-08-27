@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "decision": "CLOSED_WORLD_ONLY_NOT_OPEN_WORLD_PORTABLE",
+  "frozen_base": "ed8d1e0d84c075fddbbc4d8aa5e77a57683a2fb6",
+  "branch": "exp/icba_micro_closure",
+  "master_seed": 991,
+  "gates": {
+    "G0": "PASS_WITH_DATASET_BOUNDARY",
+    "G1": "PASS_RESTRICTED_ALIGNED_RESPONSE_CLASS",
+    "G2": "PASS_FINITE_CLOSED_WORLD_CLASS",
+    "G3": "CLOSED_WORLD_PASS_OPEN_WORLD_FAIL",
+    "G4": "FAIL"
+  },
+  "endpoint": {"safe_graphs": 54, "right_censored_graphs": 17, "no_practical_endpoint_graphs": 10, "hnswlib_safe_datasets": ["sift_100k", "arxiv_nomic_100k"], "hnswlib_unsafe_dataset": "glove100_100k"},
+  "synthetic": {"bound_cells": 1152, "ecse_cells": 37632, "positive_lower_bound_cells": 864, "lower_exact_ratio_range": [0.5, 1.0], "main_max_under_budget_risk": 0.009132542526373902},
+  "open_world_hnswlib_under_budget": {"sift_100k": 0.09318996415770608, "glove100_100k": 0.1959378733572282, "arxiv_nomic_100k": 0.07034050179211469},
+  "deployable_lane": "NOT_ESTIMABLE_NO_DEPLOYABLE_SOURCE_POLICY",
+  "algorithm_implementation_authorized": false,
+  "large_cpu_rental_recommended": false,
+  "icba_v2": "THEORY_ONLY_OPEN_WORLD_EXTENSION",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}
