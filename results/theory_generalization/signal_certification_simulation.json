@@ -1,0 +1,22 @@
+{
+  "seed": 991,
+  "n": 20000,
+  "models": [
+    {
+      "model": "A",
+      "auroc": 0.8565742831665861,
+      "auprc": 0.9779144092804535,
+      "threshold": 0.7,
+      "stop_rate": 0.68785,
+      "unsafe_given_stop": 0.031038743912190157
+    },
+    {
+      "model": "B_monotone_transform",
+      "auroc": 0.8565742831665861,
+      "auprc": 0.9779144092804535,
+      "threshold": 0.7,
+      "stop_rate": 0.1689,
+      "unsafe_given_stop": 0.0076968620485494375
+    }
+  ]
+}
