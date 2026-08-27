@@ -1,0 +1,13 @@
+{
+  "phase": "Phase 6 optional non-Graph method-family pilot",
+  "decision": "SKIPPED_OPTIONAL_METHOD_FAMILY_PILOT",
+  "timestamp_timezone": "2026-08-27T13:04:26+08:00",
+  "reason": "The filesystem has approximately 11 GiB free, only about 1 GiB above the preregistered 10 GiB hard-stop threshold. Building and retaining an IVF-Flat pilot would create avoidable stop-threshold risk and could displace the required frozen-data analysis, figures, reports, and checksums.",
+  "evidence_level": "NOT_RUN",
+  "scope_effect": "No empirical non-Graph generalization claim is permitted. Mathematical ICBA statements remain mechanism-general only under their stated assumptions; direct empirical evidence remains limited to the frozen graph-ANNS records.",
+  "data_firewall": {
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false,
+    "new_index_built": false
+  }
+}
