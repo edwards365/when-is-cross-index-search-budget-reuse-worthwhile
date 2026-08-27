@@ -44,7 +44,17 @@ The full objective additionally contains `(A_sentinel+A_truth+A_cert)/N`. For ii
 
 ## T-M7 matching target
 
-The preregistered matching class is a finite two-environment model with aligned budget responses, binary iid sentinel observations, a nested exact likelihood confidence set and a common safe endpoint. Source-only minimax loss is controlled below by the overlap--separation theorem. ECSE's execution regret is controlled above by the environment-error term plus confidence-set diameter. Synthetic Phase 4 must calculate the exact minimax value and lower/upper ratio; until that calculation succeeds, matching and Gate G2 remain pending.
+The preregistered matching class is a finite two-environment model with aligned budget responses, binary iid sentinel observations, a nested exact likelihood confidence set and a common safe endpoint. Source-only minimax loss is controlled below by the overlap--separation theorem. ECSE's execution regret is controlled above by the environment-error term plus confidence-set diameter.
+
+In the natural two-environment mutually singular sentinel class (`p=0` versus `p=1`) with positive budget separation, eight sentinels identify the target exactly: across 24 preregistered positive-gap main-risk cells, identification error, under-budget risk and execution overcost are all zero, ambiguity size is one, and probe-adjusted cost at `N=10^5` is `1.6e-7`. The source lower bound retains 50%--100% of exact source minimax loss (mean 86.81%). Thus ECSE reaches the target Oracle while source-only loss remains strictly positive.
+
+The broader grid exposes a necessary accounting qualification. When `Delta=0`, portability loss is zero, but an exact confidence set can rarely become empty and invoke the conservative fixed endpoint. That positive fail-closed/certification cost is not migration tax. Total cost therefore decomposes into migration, certification/fallback and acquisition terms; only the migration component is forced to vanish at zero budget separation.
+
+## Gate G2
+
+`GATE_G2_PASS_FINITE_CLOSED_WORLD_CLASS`.
+
+The construction is complete, its finite-sample safety conditions and probe cost are explicit, nested sets give monotone execution envelopes, and the mutually singular two-environment class supplies an exact lower/upper closure. This pass does not establish open-world safety or Graph-ANNS deployment.
 
 ## Lane labels
 

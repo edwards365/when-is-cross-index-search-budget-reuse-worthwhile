@@ -78,3 +78,11 @@ def test_exact_confidence_constructor_has_conservative_coverage_small_n():
             if target.name not in path[n]:
                 failure += probability
         assert failure <= alpha + 1e-12
+
+
+def test_mutually_singular_two_environment_class_identifies_exactly():
+    envs = [E.BernoulliEnvironment("zero", 0.0, (0.2, 0.8)),
+            E.BernoulliEnvironment("one", 1.0, (0.6, 1.0))]
+    for target, observation in ((envs[0], 0), (envs[1], 1)):
+        path = E.nested_confidence_path(envs, [observation] * 8, (0, 8), 0.05)
+        assert path[8] == frozenset({target.name})
