@@ -1,0 +1,26 @@
+\section{A finite-environment overlap--separation lower bound}
+Let $b_j(z)\in[0,1]$ denote a deterministic normalized sufficient-budget
+response on a common visible state space and
+$\ell_j(a,z)=\lambda(b_j(z)-a)_+ +(a-b_j(z))_+$.
+For two environments suppose the measurable set
+$A_\Delta=\{z:b_1(z)-b_0(z)\ge\Delta\}$ has
+$P_j(A_\Delta)\ge\rho$ and $b_1-b_0\ge\Delta$ on that set. Then every
+possibly randomized policy measurable with respect to $Z$ satisfies
+\[
+ \inf_\pi\sup_{j\in\{0,1\}}\mathbb E_j\ell_j(\pi(Z),U)
+ \ge {\min\{\lambda,1\}\Delta\over2}
+       [\rho-\operatorname{TV}(P_0^Z,P_1^Z)]_+ .
+\]
+Indeed, on the common part $\mu=P_0^Z\wedge P_1^Z$ and on
+$A_\Delta$, for every realized action,
+\[
+ (a-b_0)_++\lambda(b_1-a)_+
+ \ge \min\{\lambda,1\}(b_1-b_0)
+ \ge \min\{\lambda,1\}\Delta.
+\]
+Moreover $\mu(A_\Delta)\ge[\rho-\mathrm{TV}]_+$. Integration bounds
+the sum of the two risks, division by two bounds their average, and the
+maximum dominates the average. The pointwise inequality also proves the
+randomized-policy case. Right-censored budgets require an independently
+valid lower interval for $\Delta$ and may not be replaced by the maximum
+observed grid point.
