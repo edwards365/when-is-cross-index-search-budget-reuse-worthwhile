@@ -1,0 +1,6 @@
+gate,status,evidence
+G0_ENDPOINT,PASS_WITH_DATASET_BOUNDARY,hnswlib safe on SIFT and Arxiv 18/18 graphs; GloVe 0/9
+G1_LOWER_BOUND,PASS_RESTRICTED_ALIGNED_RESPONSE_CLASS,positive overlap-separation bound; finite edge tests pass
+G2_CONSTRUCTIVE_UPPER,PASS_FINITE_CLOSED_WORLD_CLASS,K=2 singular-sentinel class reaches Oracle at k=8
+G3_GRAPH_MECHANISM,CLOSED_WORLD_PASS_OPEN_WORLD_FAIL,closed exact identification; all open-world implementation/dataset cells exceed delta_q=0.05
+G4_DEPLOYMENT,FAIL,only labeled-sentinel plus source-Oracle lane estimable; open-world unsafe
