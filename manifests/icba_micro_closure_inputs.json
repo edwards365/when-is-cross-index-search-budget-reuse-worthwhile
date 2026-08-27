@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "audit_time_utc": "2026-08-27T18:50:31.495Z",
-  "status": "PAUSED_DISK_BELOW_10_GIB",
+  "status": "COMPLETE_WITH_LOW_DISK_COMPACT_OUTPUTS",
   "frozen_base": {
     "branch": "exp/icba_theory_lock",
     "commit": "ed8d1e0d84c075fddbbc4d8aa5e77a57683a2fb6"
   },
   "worktree": {
     "branch": "exp/icba_micro_closure",
-    "head": "ed8d1e0d84c075fddbbc4d8aa5e77a57683a2fb6",
+    "head_at_worktree_creation": "ed8d1e0d84c075fddbbc4d8aa5e77a57683a2fb6",
     "clean": true
   },
   "resource_gate": {
@@ -26,6 +26,8 @@
     "validation_dev_opened": false,
     "formal_test_opened": false,
     "new_graph_built": false,
-    "replay_started": false
-  }
+    "frozen_design_replay_completed": true
+  },
+  "resource_response": "Only compact CSV/JSON and required figures were generated below the 10 GiB threshold; query-level Parquet and other large intermediates were skipped.",
+  "final_decision": "CLOSED_WORLD_ONLY_NOT_OPEN_WORLD_PORTABLE"
 }
