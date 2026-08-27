@@ -1,0 +1,56 @@
+{
+  "task": "ICBA THEORY DEEPENING AND METHOD-DERIVATION LOCK SPRINT",
+  "frozen_parent": "b374e9b788eb572f59b826e8b5c9532e44a5129a",
+  "branch": "exp/icba_theory_lock",
+  "decision": "THEORY_LOCKED_T4_AS_RESTRICTED_PROPOSITION",
+  "method_derivation": "AUTHORIZED_CONCEPTUALLY_NEW_PREREGISTRATION_REQUIRED",
+  "backup": {
+    "type": "complete_local_git_bundle",
+    "path": "/home/wlk/projects/icba_theory_generalization_b374e9b.bundle",
+    "sha256": "8b5088167fdf170d9ea033f187bb5896cea4873e401e24512eb32b76699f6e72",
+    "github_push_performed": false
+  },
+  "main_results": {
+    "I": "FORMALLY_PROVED_UNDER_EXPLICIT_CONDITIONS",
+    "II_barrier": "FORMALLY_PROVED",
+    "II_T4_matching": "PROVED_UNDER_EXPLICIT_CONDITIONS_RESTRICTED_PROPOSITION",
+    "III": "FORMALLY_PROVED_UNDER_EXPLICIT_CONDITIONS",
+    "IV_information": "FORMALLY_PROVED",
+    "IV_dynamic_program": "PROVED_UNDER_EXPLICIT_FINITE_MARKOV_LAGRANGIAN_CONDITIONS"
+  },
+  "counterexample_to_locked_results_found": false,
+  "boundary_counterexamples_recorded": true,
+  "empirical": {
+    "graphs": 81,
+    "query_budget_rows": 972000,
+    "directed_pairs": 648,
+    "risk_cells": 2592,
+    "zero_or_approx_zero_information_tax_pairs": 36,
+    "source_aliasing_pairs": 594,
+    "positive_exact_barrier_pairs": 594,
+    "barrier_identity_pairs_passed": 648,
+    "build_sensitivity_rows": 18,
+    "leave_one_out_rows": 135
+  },
+  "glove_autopsy": {
+    "policies": 16,
+    "failures_min": 32,
+    "failures_max": 181,
+    "calibration_n": 256,
+    "classification": {"POINTWISE_UNSAFE": 16},
+    "multiplicity_primary_cause": false
+  },
+  "target_state_oracle": {
+    "evidence": "NON_DEPLOYABLE_TARGET_STATE_ORACLE_VALUE",
+    "glove_saving_fraction_range": [0.4533908375,0.4668848540],
+    "glove_censoring_range": [0.2799479167,0.30078125],
+    "sift_seed7_saving_fraction": 0.7706138107,
+    "wall_clock_overhead": "NOT_ESTIMABLE"
+  },
+  "right_censoring": "OBSERVED_ONLY_AND_CLIPPED_LOWER_BOUND; CONSERVATIVE ZERO_RISK UPPER COST UNBOUNDED WITHOUT ABOVE_GRID ASSUMPTION",
+  "mathematical_scope": "ordered budgeted decision systems under the explicit information, risk, integrability, calibration, and acquisition-cost assumptions",
+  "empirical_scope": "frozen train-side hnswlib, Faiss HNSW, and Vamana matrix; actionable effect mainly hnswlib",
+  "future_method_must": "refine source alias cells with cheap prefix-preserving target state, use a risk-valid fallback, account for all costs, and certify one complete frozen policy",
+  "data_firewall": {"validation_dev_accessed": false, "formal_test_accessed": false},
+  "completed_within_target": true
+}
