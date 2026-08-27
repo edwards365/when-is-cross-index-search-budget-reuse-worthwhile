@@ -1,0 +1,18 @@
+# RCRS input and lineage audit
+
+Status: `PHASE0_LINEAGE_PASS_UNUSED_QUERY_AUDIT_PENDING`.
+
+The isolated worktree is `/home/wlk/projects/navigation-aware-resistance-hnsw-rcrs`, branch `exp/rcrs_theory_algorithm`, rooted at Cross-Index final commit `b82abf6bab8aae54b23aee5ccce5cde0ba5a3412`. The Rebuild Tournament final commit `80c505dcc3ec13855c700a0f59df3c042aa281ec` is not an ancestor or descendant: both branches have merge base `f43486d1d35efb147d060e9dc8baa36dc56586a7`. It is therefore retained as read-only evidence at `/home/wlk/projects/navigation-aware-resistance-hnsw-rebuild-tournament`; no merge was performed. The original dirty worktrees and their untracked logs/dependencies were not modified.
+
+Cross-Index contains exactly 81 graph configurations and 972,000 rows: 3 datasets × 3 index families × 3 histories × 3 graph seeds × 1,000 repeated query IDs × 12 frozen budgets. Tournament uses 27 graphs and 648,000 rows: 27 × 2,000 queries × 12 budgets; equivalently `648000/(27×1000)=24` because every graph contains 1,000 calibration plus 1,000 audit queries, each at 12 budgets. These query IDs repeat across graphs and budgets by paired-design intent, not as independent observations.
+
+The inherited primary threshold is Recall@10 `tau=0.90`; the frozen budget ladder is `{10,16,24,32,48,64,96,128,192,256,384,512}`, with right-censored stable budget encoded as 1024. A stable sufficient budget is the smallest frozen budget meeting the threshold at that and every larger frozen budget. Ties use the smallest qualifying ladder value. Queries failing at the endpoint are right-censored and must not be treated as observed cost at 1024. The fixed safe budget is selected per graph from design queries as the smallest ladder point reaching the frozen aggregate target. Budget values have index-specific operational semantics, so absolute HNSW/Vamana budget values are not directly equated.
+
+`exact_ndc` is the exact number of query-to-index distance-function calls. hnswlib uses the instrumented CountingSpace and native-label equivalence checks; Faiss and Vamana use their independently audited native/instrumented counters. NDC is comparable as a count of distance evaluations, but differences in primitive distance cost and implementation overhead prohibit interpreting it as wall-clock equivalence. Target Oracle opportunity is `(C_fixed-C_target_oracle)/C_fixed`; negative values are `NEGATIVE_ORACLE_GAIN`. Oracle retention is defined only when target Oracle opportunity is positive.
+
+The frozen hnswlib rows explicitly write `search_prefix_resumable=False` in `run_cross_index_g1_hnswlib_100k.py`. They store returned top-k, Recall, NDC and latency, but not candidate queue, top-candidate queue, visited set, frontier, expansion order or checkpoint state. Existing results therefore cannot establish resumability and only support offline theory/design analysis.
+
+Environment: Linux 5.15 x86_64; two AMD EPYC 7542 sockets, 32 cores/socket, two threads/core; GCC/G++ 9.4.0; Python 3.11.16; hnswlib is the project-venv compiled extension. At audit time approximately 10.68 GiB remained, above but close to the mandatory 10 GiB stop line, so no new graph matrix is authorized during the audit.
+
+The Cross-Index manifest reports zero base overlap and zero prior-query overlap for its train-side queries, while prior hardness, OCGT-v3 and Rebuild Tax split manifests remain distinct. Validation-dev and formal-test are still recorded as unaccessed. Before RCRS training or calibration, a deterministic set-difference audit over every prior train-side source ID must freeze mutually disjoint `rcrs_design`, `rcrs_calibration` and `rcrs_design_eval`; until that completes, this audit does not authorize reading any new query vector.
+
