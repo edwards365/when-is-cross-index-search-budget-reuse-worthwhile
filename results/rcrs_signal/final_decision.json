@@ -1,0 +1,99 @@
+{
+  "label": "STOP_RCRS_NO_CERTIFIED_STOPPING_SIGNAL",
+  "scope": "MINIMAL_CROSS_REBUILD_SEED_PILOT",
+  "frozen_start": "01c491f712700bd146227c44db18848dd41d356a",
+  "query_split_commit": "11a24b5",
+  "materialization_commit": "c0e184e",
+  "query_sha256": "b69de4be8788e01cd61a67d6f3ab302de56cfcc3e0d3f19948b478acca58e9c7",
+  "truth_sha256": "aca6e0f84a8cafc9facbb6dd488d5f9b932a0f6a978b176013d5b067a42eedca",
+  "preprocessing_correction": "The first temporary materialization omitted the preregistered L2 normalization. It was invalidated before policy selection; all GloVe traces and decisions were recomputed after exact Gate A normalization.",
+  "prefix_equivalence": {
+    "7": {
+      "queries": 768,
+      "all_topk_equal": true,
+      "all_ndc_equal": true,
+      "all_trace_equal": true
+    },
+    "17": {
+      "queries": 768,
+      "all_topk_equal": true,
+      "all_ndc_equal": true,
+      "all_trace_equal": true
+    },
+    "29": {
+      "queries": 768,
+      "all_topk_equal": true,
+      "all_ndc_equal": true,
+      "all_trace_equal": true
+    }
+  },
+  "sift_design_signal": {
+    "logistic_auroc": 0.9070455013913222,
+    "logistic_auprc": 0.9810331736652476,
+    "best_empirical_risk_le_5pct": {
+      "threshold_quantile": 0.375,
+      "threshold": 0.9021301282414269,
+      "stop_coverage": 1.0,
+      "under_target_rate": 0.028,
+      "mean_ndc": 882.726,
+      "fixed_mean_ndc": 2583.826,
+      "gross_ndc_gain": 0.6583647660484878
+    },
+    "evidence": "SIFT_DESIGN_GROUPED_CROSSFIT",
+    "online_features_exclude_truth": true
+  },
+  "glove_gate": {
+    "scope": "MINIMAL_CROSS_REBUILD_SEED_PILOT",
+    "model": "L2 logistic C=1 seed=991",
+    "candidate_threshold_count": 16,
+    "bonferroni_family_alpha": 0.05,
+    "certified_candidate_count": 0,
+    "selected_policy": "fixed_e0_fallback",
+    "selected_threshold": null,
+    "calibration": {
+      "split": "calibration",
+      "threshold": 1.9999209500486284,
+      "n": 256,
+      "failures": 32,
+      "failure_rate": 0.125,
+      "bonferroni_cp_upper": 0.1913260755065061,
+      "stop_coverage": 0.0,
+      "mean_recall": 0.9480468750000001,
+      "fixed_mean_recall": 0.9480468750000001,
+      "recall_difference": 0.0,
+      "mean_ndc": 4304.46875,
+      "fixed_mean_ndc": 4304.46875,
+      "gross_ndc_gain": 0.0
+    },
+    "design_eval": {
+      "split": "design_eval",
+      "threshold": 1.9999209500486284,
+      "n": 256,
+      "failures": 45,
+      "failure_rate": 0.17578125,
+      "bonferroni_cp_upper": 0.24933615558087419,
+      "stop_coverage": 0.0,
+      "mean_recall": 0.9382812500000001,
+      "fixed_mean_recall": 0.9382812500000001,
+      "recall_difference": 0.0,
+      "mean_ndc": 4342.8125,
+      "fixed_mean_ndc": 4342.8125,
+      "gross_ndc_gain": 0.0
+    },
+    "decision": "STOP_RCRS_NO_CERTIFIED_STOPPING_SIGNAL",
+    "cross_history_confirmation": false,
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false
+  },
+  "gates": {
+    "S": false,
+    "E": false,
+    "P": true,
+    "R": true,
+    "G": false
+  },
+  "cross_history_confirmation": false,
+  "new_indexes_built": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}

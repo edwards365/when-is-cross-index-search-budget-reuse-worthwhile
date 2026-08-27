@@ -1,0 +1,15 @@
+{
+  "logistic_auroc": 0.9070455013913222,
+  "logistic_auprc": 0.9810331736652476,
+  "best_empirical_risk_le_5pct": {
+    "threshold_quantile": 0.375,
+    "threshold": 0.9021301282414269,
+    "stop_coverage": 1.0,
+    "under_target_rate": 0.028,
+    "mean_ndc": 882.726,
+    "fixed_mean_ndc": 2583.826,
+    "gross_ndc_gain": 0.6583647660484878
+  },
+  "evidence": "SIFT_DESIGN_GROUPED_CROSSFIT",
+  "online_features_exclude_truth": true
+}

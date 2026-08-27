@@ -816,10 +816,11 @@
   "validation_dev_accessed": false,
   "formal_test_accessed": false,
   "vectors_read": true,
-  "query_content_sha256": "be6c9a7a2ea66784e6f42fd8c46f43221e271d80096997f86d84eb2aac3cf734",
-  "truth_content_sha256": "9f7d22ee3d72018eb4b9e1c0677dd0bba7ad487d75a07b31d054c1c17da29470",
-  "truth_method": "exact inner product against frozen train[0:100000]",
+  "query_content_sha256": "b69de4be8788e01cd61a67d6f3ab302de56cfcc3e0d3f19948b478acca58e9c7",
+  "truth_content_sha256": "aca6e0f84a8cafc9facbb6dd488d5f9b932a0f6a978b176013d5b067a42eedca",
+  "truth_method": "exact inner product against L2-normalized frozen train[0:100000]",
   "query_count": 768,
   "truth_k": 10,
-  "materializer": "materialize_rcrs_signal_queries.py"
+  "materializer": "materialize_rcrs_signal_queries.py",
+  "preprocessing": "L2-normalize base and queries exactly as frozen Gate A ingest"
 }

@@ -1,0 +1,43 @@
+{
+  "scope": "MINIMAL_CROSS_REBUILD_SEED_PILOT",
+  "model": "L2 logistic C=1 seed=991",
+  "candidate_threshold_count": 16,
+  "bonferroni_family_alpha": 0.05,
+  "certified_candidate_count": 0,
+  "selected_policy": "fixed_e0_fallback",
+  "selected_threshold": null,
+  "calibration": {
+    "split": "calibration",
+    "threshold": 1.9999209500486284,
+    "n": 256,
+    "failures": 32,
+    "failure_rate": 0.125,
+    "bonferroni_cp_upper": 0.1913260755065061,
+    "stop_coverage": 0.0,
+    "mean_recall": 0.9480468750000001,
+    "fixed_mean_recall": 0.9480468750000001,
+    "recall_difference": 0.0,
+    "mean_ndc": 4304.46875,
+    "fixed_mean_ndc": 4304.46875,
+    "gross_ndc_gain": 0.0
+  },
+  "design_eval": {
+    "split": "design_eval",
+    "threshold": 1.9999209500486284,
+    "n": 256,
+    "failures": 45,
+    "failure_rate": 0.17578125,
+    "bonferroni_cp_upper": 0.24933615558087419,
+    "stop_coverage": 0.0,
+    "mean_recall": 0.9382812500000001,
+    "fixed_mean_recall": 0.9382812500000001,
+    "recall_difference": 0.0,
+    "mean_ndc": 4342.8125,
+    "fixed_mean_ndc": 4342.8125,
+    "gross_ndc_gain": 0.0
+  },
+  "decision": "STOP_RCRS_NO_CERTIFIED_STOPPING_SIGNAL",
+  "cross_history_confirmation": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}
