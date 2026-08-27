@@ -1,0 +1,7 @@
+question,closest_reviewed_work,covered_by_prior_work,current_position
+Index-instance-conditioned query difficulty,Tao; Adaptive-ef,Query adaptation is covered but explicit rebuild-conditioned portability was not found,TO_OUR_KNOWLEDGE_UNDER_REVIEWED_SCOPE
+Old per-query budget policy after index rebuild,Adaptive ANN and Graph-ANNS sources,No direct theorem or controlled rebuild-transfer study found,TO_OUR_KNOWLEDGE_UNDER_REVIEWED_SCOPE
+Rank inversion to safe-budget regret,Order-restricted inference and ranking regret,Related mathematical tools exist but the exact safe-budget matching bound was not found,NOVEL_COMBINATION_CLAIM_ONLY
+Risk-certified HNSW prefix stopping,Conformal risk control; Tao; Adaptive-ef,Certification and adaptive ANN exist separately; exact target-native resumable HNSW certification not found,TO_OUR_KNOWLEDGE_UNDER_REVIEWED_SCOPE
+Information ordering of ANN budget policies,Blackwell comparison of experiments,General decision-theoretic principle is established; ANN specialization is an application,DO_NOT_CLAIM_GENERAL_THEOREM_NOVELTY
+Signal-certification gap,ROC ranking and conformal/PAC risk control,General distinction is known; use explicit ANN counterexample as explanatory contribution,DO_NOT_CLAIM_GENERAL_PRINCIPLE_NOVELTY
