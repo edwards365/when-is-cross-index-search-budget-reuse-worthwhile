@@ -815,5 +815,11 @@
   "overlap_with_prior_queries": 0,
   "validation_dev_accessed": false,
   "formal_test_accessed": false,
-  "vectors_read": false
+  "vectors_read": true,
+  "query_content_sha256": "be6c9a7a2ea66784e6f42fd8c46f43221e271d80096997f86d84eb2aac3cf734",
+  "truth_content_sha256": "9f7d22ee3d72018eb4b9e1c0677dd0bba7ad487d75a07b31d054c1c17da29470",
+  "truth_method": "exact inner product against frozen train[0:100000]",
+  "query_count": 768,
+  "truth_k": 10,
+  "materializer": "materialize_rcrs_signal_queries.py"
 }
