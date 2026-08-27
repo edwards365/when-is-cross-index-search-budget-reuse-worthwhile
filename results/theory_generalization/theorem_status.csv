@@ -1,0 +1,9 @@
+id,status,scope,remaining_obligation
+T1,FORMALLY_PROVED,Nested feasible policy classes,None
+T2,FORMALLY_PROVED,Zero-risk source-summary policies,Measure-theoretic editorial review
+T3,FORMALLY_PROVED,Ordered finite grid and population essential-supremum form,Confirm code orientation
+T4,PROOF_SKETCH_ONLY,Finite uncensored grid with additive costs,Exhaustive verification and exact penalty audit
+T5,FORMALLY_PROVED,Finite empirical marginal-risk optimization,Complete censoring interval integration
+T6,FORMALLY_PROVED,IID calibration and prespecified finite family,Generate power tables and Monte Carlo
+T7,FORMALLY_PROVED,Ranking versus threshold risk,Execute continuous simulation
+T8,FORMALLY_PROVED,Information-class separation,Resumability remains implementation-specific empirical evidence
