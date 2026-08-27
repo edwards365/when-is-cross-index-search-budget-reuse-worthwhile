@@ -1,0 +1,8 @@
+{
+  "master_seed": 991,
+  "nondiscriminative": "separation=0 keeps ambiguity unless sampling noise wrongly excludes models",
+  "perfect_single_probe_identification": "Bernoulli endpoint models are mutually singular only at p=0 versus p=1",
+  "zero_gap": "gap_steps=0 has zero minimax tax and zero lower bound",
+  "unsafe_endpoint": "not simulated as feasible; ECSE theorem requires a separately safe endpoint",
+  "parquet": "NOT_MATERIALIZED_DISK_BELOW_10_GIB"
+}

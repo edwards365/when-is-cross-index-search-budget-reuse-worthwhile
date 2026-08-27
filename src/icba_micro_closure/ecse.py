@@ -7,8 +7,10 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
+from functools import lru_cache
 
 
+@lru_cache(maxsize=None)
 def binom_pmf(x: int, n: int, p: float) -> float:
     if not 0 <= x <= n or not 0 <= p <= 1:
         return 0.0
@@ -19,6 +21,7 @@ def binom_pmf(x: int, n: int, p: float) -> float:
     return math.comb(n, x) * p**x * (1-p)**(n-x)
 
 
+@lru_cache(maxsize=None)
 def exact_equal_tail_accepts(successes: int, n: int, p: float, alpha: float) -> bool:
     """Conservative exact two-sided binomial acceptance test."""
     lower = sum(binom_pmf(i, n, p) for i in range(successes + 1))

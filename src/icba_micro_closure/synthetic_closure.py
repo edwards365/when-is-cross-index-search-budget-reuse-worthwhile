@@ -105,22 +105,23 @@ def main():
     parser.add_argument("--output-dir", type=Path, required=True)
     args = parser.parse_args(); args.output_dir.mkdir(parents=True, exist_ok=True)
     bounds = []; grid = []
-    for k_env, levels, gap, separation, delta_q, alpha in itertools.product(KS, LEVELS, GAPS, SEPARATIONS, DELTAS, ALPHAS):
+    for k_env, levels, gap, separation, alpha in itertools.product(KS, LEVELS, GAPS, SEPARATIONS, ALPHAS):
         envs, actions = make_library(k_env, levels, gap, separation)
         minimax = exact_source_minimax(envs, actions)
         lower = pair_lower_bound(envs)
         bound_ratio = lower/minimax if minimax else (1.0 if lower == 0 else math.inf)
         path = exact_ecse_path(envs, alpha)
-        key = {"K": k_env, "levels": levels, "gap_steps": gap, "separation": separation,
-               "delta_q": delta_q, "alpha": alpha, "exact_source_minimax": minimax,
-               "source_lower_bound": lower, "lower_exact_ratio": bound_ratio}
-        bounds.append(key)
-        for row in path:
-            full = dict(key); full.update(row)
-            full["safe"] = row["under_budget_risk"] <= delta_q + 1e-12
-            for n in WORKLOADS:
-                full[f"probe_adjusted_cost_N{n}"] = row["over_budget_cost"] + row["k"]*(SENTINEL_UNIT_COST+TRUTH_UNIT_COST)/n
-            grid.append(full)
+        for delta_q in DELTAS:
+            key = {"K": k_env, "levels": levels, "gap_steps": gap, "separation": separation,
+                   "delta_q": delta_q, "alpha": alpha, "exact_source_minimax": minimax,
+                   "source_lower_bound": lower, "lower_exact_ratio": bound_ratio}
+            bounds.append(key)
+            for row in path:
+                full = dict(key); full.update(row)
+                full["safe"] = row["under_budget_risk"] <= delta_q + 1e-12
+                for n in WORKLOADS:
+                    full[f"probe_adjusted_cost_N{n}"] = row["over_budget_cost"] + row["k"]*(SENTINEL_UNIT_COST+TRUTH_UNIT_COST)/n
+                grid.append(full)
     def write_csv(path, rows):
         tmp = path.with_suffix(path.suffix+".tmp")
         with tmp.open("w", newline="") as h:
