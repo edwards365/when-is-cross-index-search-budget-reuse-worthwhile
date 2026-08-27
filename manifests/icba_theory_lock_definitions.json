@@ -1,0 +1,24 @@
+{
+  "phase": "ICBA THEORY DEEPENING AND METHOD-DERIVATION LOCK SPRINT",
+  "frozen_parent": "b374e9b788eb572f59b826e8b5c9532e44a5129a",
+  "branch": "exp/icba_theory_lock",
+  "budget_grid_cross_index": [10,16,24,32,48,64,96,128,192,256,384,512],
+  "quality_metric": "Recall@10",
+  "quality_target": 0.9,
+  "cost": "native exact distance computations; implementation-local",
+  "stable_budget": "least observed budget whose complete upper frozen-grid tail attains target",
+  "pointwise_safety": "allocation >= target stable budget almost surely",
+  "marginal_risk": "P(allocation < target stable budget) <= delta",
+  "conditional_risk": "failure probability conditional on a named information cell",
+  "source_summary": "frozen source stable budget; no adaptive binning",
+  "target_filtration": "increasing target-native checkpoint information in one execution",
+  "right_censoring": "stable budget exceeds frozen maximum; clipped cost is a lower bound",
+  "unified_split": "frozen Cross-Index design-evaluation queries only",
+  "bootstrap": {"query_replicates": 5000, "seed": 991},
+  "backup": {
+    "path": "/home/wlk/projects/icba_theory_generalization_b374e9b.bundle",
+    "sha256": "8b5088167fdf170d9ea033f187bb5896cea4873e401e24512eb32b76699f6e72"
+  },
+  "firewall": {"validation_dev_accessed": false, "formal_test_accessed": false},
+  "locked": true
+}
