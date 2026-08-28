@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "stage": "FAST_DECISION",
+  "confirmatory": false,
+  "seed": 991,
+  "bootstrap_reps": 1000,
+  "sentinel_subsamples_per_build": 300,
+  "frozen_base": "77e0d430bc04b819276b570a96eedb339a66c043",
+  "decision": "OPEN_WORLD_IMPOSSIBILITY_SUPPORTED_STRUCTURE_UNRESOLVED",
+  "sealed_data_accessed": false,
+  "artifacts": {
+    "docs/icba_open_world/fast_decision_brief.md": "7191dee4bf20235b5a3eb1fe6f637a09fe407908d64b574b27e91afa2200bc57",
+    "docs/icba_open_world/theorem_statements_fast.md": "a15b5573fed62dc9f908d3ba21749e2a518ed4efb3a0225b94eee6081106769c",
+    "results/icba_open_world/fast_gate_table.csv": "5e2b23d684c55622f554b1883af92521e9ac8984b1609dc48bcc4111820c1db4",
+    "results/icba_open_world/literature_assumption_matrix_fast.csv": "0c3a07c18b224776d388a87ebd3bdc8f774e6900467a718c7c7a89e471b9504b",
+    "figures/icba_open_world/fast_feasible_closed_open_risk.png": "64d8abb41835f3090246514a440c6cc2609624c7d80f236f052b1b6871a26909",
+    "figures/icba_open_world/fast_feasible_closed_open_risk.pdf": "e243d1fc60f03dba7dc5427a79d402555ce817a5e7d973ca466cb4dc91751617",
+    "figures/icba_open_world/fast_sentinel_k_risk.png": "cf18675de19f3f59b0875b5df6490b09932ee3b58eaec5e7b39c1d9cf6bed164",
+    "figures/icba_open_world/fast_sentinel_k_risk.pdf": "abbabf9411aa998a4c3d1ef7bbd44bfcd593543173653adb3c443d19b7c68b13",
+    "figures/icba_open_world/fast_observable_response_distance.png": "090d526a261737f8252bcbc8cd31c0118eba02ffd9764a2ba8a2de225a4ce61f",
+    "figures/icba_open_world/fast_observable_response_distance.pdf": "29673a6789f22ffd2ab0003b1a13af1c9c0f4fa63c34dfdeed83805d6c43fcc4",
+    "figures/icba_open_world/fast_risk_decomposition.png": "86e2b57e8a847004fa790b80fa42683c10ee5041c3535b214ded686f0e8d0286",
+    "figures/icba_open_world/fast_risk_decomposition.pdf": "2156a00b9537f8ec2f39c0757fa7ee903e3ef6ed1f85df7605860f9267633e43"
+  }
+}

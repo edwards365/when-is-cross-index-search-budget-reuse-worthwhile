@@ -1,0 +1,7 @@
+gate,status,evidence
+A,PASS,81 graphs; 972000 rows; 648 directed pairs; 123/123 SHA256
+B,PASS,Feasible-only open-world risk and top-1%-deleted risk exceed 0.05 for all three implementations
+C,PASS_STRUCTURAL_FAILURE,All six SIFT/Arxiv implementation cells remain above 0.05 at k=256; no decreasing-to-safe trend
+D_Z0,FAIL,94 empirical Z0-near/response-far collision candidates across frozen directed pairs
+D_Z1,NOT_ESTIMABLE,No common frozen deployable unlabeled runtime fingerprint across implementations
+THEORY_DIRECTION,OPEN_WORLD_IMPOSSIBILITY,Endpoint control and more labeled sentinels do not remove risk; deployable observables fail/absent
