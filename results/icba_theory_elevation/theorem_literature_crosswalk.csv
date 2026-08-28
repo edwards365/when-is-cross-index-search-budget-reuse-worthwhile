@@ -1,0 +1,6 @@
+result,closest_classical_template,overlap_level,retained_distinctive_content,recommended_status,required_revision
+T-OW1a,"Le Cam two-point; constrained-risk inequality; reject option",HIGH,"ordered one-sided under-budget versus conservative/fallback mapping; Z0 semantics",FORMAL_PROOF_COMPLETE_CLASSICAL_COROLLARY,"state joint/conditional observation law and fallback semantics"
+T-OW1b,"product experiments; KL tensorization; Pinsker",VERY_HIGH,"labeled/unlabeled probe-channel separation and support-misspecification warning",FORMAL_PROOF_COMPLETE_CLASSICAL_COROLLARY,"restrict iid claim; adaptive transcript needs chain-rule theorem; separate exponential-rate claim"
+T-OW2,"no-free-lunch; hierarchical exchangeability requirement",VERY_HIGH,"fixed-build versus random-build scope guard for Graph-ANNS",FORMAL_PROOF_COMPLETE_SCOPE_LEMMA,"distinguish undefined-without-Pi from uniform impossibility over Pi"
+T-OW3,"event partition and union bound",COMPLETE,"domain-specific failure taxonomy only",FORMAL_ACCOUNTING_IDENTITY_UNDER_EVENT_DEFINITIONS,"remove from main-theorem novelty list; rename probe event"
+T-OW5,"Clopper-Pearson; Hoeffding/Bonferroni; hierarchical inference",VERY_HIGH,"m/n/k/M uncertainty-layer map",FORMAL_CLASSICAL_SUBRESULTS_PLUS_PROOF_SKETCH,"supply nested finite-sample theorem or present as design calculus"
