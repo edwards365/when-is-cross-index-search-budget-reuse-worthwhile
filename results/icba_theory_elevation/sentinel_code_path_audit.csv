@@ -1,0 +1,10 @@
+check,status,evidence
+k_values,PASS,"KS=(32,64,128,256)"
+replicates,PASS,REPS=300
+master_seed,PASS,SEED=991
+sample_method,PASS,persistent RNG; rng.sample without replacement on every replicate
+k_dependency,PASS,each replicate samples exactly k sentinel indices
+cache_key,PASS_NO_CACHE,"no result cache; aggregation key=(dataset,implementation,k), target loops explicit, seed fixed"
+query_split,PASS,256 sentinel and 744 disjoint evaluation IDs asserted by frozen audit
+build_cluster_unit,PASS,full_bootstrap groups target graph/build before resampling
+meta_distribution_claim,PASS_LIMITED,"nine builds are fixed-design evidence, not a 5% meta-distribution certificate"

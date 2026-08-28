@@ -1,0 +1,7 @@
+result,status,scope,reason
+T-OW1a,FORMAL_PROOF_COMPLETE,"finite ordered grid; common query law; monotone loss; finite safe thresholds; randomized policy; explicit fallback","maximal coupling converts observation indistinguishability into under-budget versus conservative/fallback tradeoff"
+T-OW1b,FORMAL_PROOF_COMPLETE,"same scope with k target probes and joint probe laws","same coupling with Q^k; iid KL tensorization plus Pinsker corollary"
+T-OW1-nonmonotone,RESTRICTED_PROPOSITION,"incompatible safe-action sets","coupling applies but ordered Delta and minimal-safe-budget representation do not"
+T-OW1-censoring,RESTRICTED_PROPOSITION,"only disjoint identified threshold intervals","unidentified thresholds cannot instantiate the premise"
+T-OW1-multienvironment,PROOF_SKETCH,"finite packing if a sharper K dependence is desired","two-environment witness already proves arbitrary-class minimax impossibility"
+ECSE-matching-upper-bound,CONJECTURE,"correct finite support with labeled probes and Oracle base policy","support/probe/Oracle/rounding/censoring gaps prevent a general match"

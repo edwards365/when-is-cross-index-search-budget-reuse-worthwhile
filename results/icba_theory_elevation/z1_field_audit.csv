@@ -1,0 +1,52 @@
+field,implementation,dataset,available_per_query,available_per_budget,requires_ground_truth,available_online,instrumentation_cost,storage_cost,semantic_equivalent_across_implementations,current_provenance,status
+exact_ndc,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,True,runtime distance counter,DEPLOYABLE_EXISTING
+exact_ndc,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,True,runtime distance counter,DEPLOYABLE_EXISTING
+exact_ndc,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,True,runtime distance counter,DEPLOYABLE_EXISTING
+returned_top10_ids,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,True,native result IDs,DEPLOYABLE_EXISTING
+returned_top10_ids,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,True,native result IDs,DEPLOYABLE_EXISTING
+returned_top10_ids,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,True,native result IDs,DEPLOYABLE_EXISTING
+returned_top10_distances,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,False,native result distances,DEPLOYABLE_EXISTING
+returned_top10_distances,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,native result distances,NOT_AVAILABLE
+returned_top10_distances,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,native result distances,NOT_AVAILABLE
+kth_result_distance,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,False,returned_top10_distances,DEPLOYABLE_EXISTING
+kth_result_distance,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,returned_top10_distances,NOT_AVAILABLE
+kth_result_distance,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,returned_top10_distances,NOT_AVAILABLE
+first_second_distance_gap,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,False,returned_top10_distances,DEPLOYABLE_EXISTING
+first_second_distance_gap,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,returned_top10_distances,NOT_AVAILABLE
+first_second_distance_gap,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,returned_top10_distances,NOT_AVAILABLE
+query_latency_ns,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,low,low_to_medium,False,runtime clock,DEPLOYABLE_EXISTING
+query_latency_ns,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,runtime clock,NOT_AVAILABLE
+query_latency_ns,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,low,low_to_medium,False,runtime clock,NOT_AVAILABLE
+entry_point,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,none,low_to_medium,False,index runtime metadata,DEPLOYABLE_EXISTING
+entry_point,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,none,low_to_medium,False,index runtime metadata,NOT_AVAILABLE
+entry_point,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,none,low_to_medium,False,index runtime metadata,NOT_AVAILABLE
+max_level,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,none,low_to_medium,False,index metadata,DEPLOYABLE_EXISTING
+max_level,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,none,low_to_medium,False,index metadata,NOT_AVAILABLE
+max_level,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,False,none,low_to_medium,False,index metadata,NOT_AVAILABLE
+visited_expansions,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+visited_expansions,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+visited_expansions,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+frontier_size,hnswlib,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+frontier_size,faiss,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+frontier_size,vamana,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+candidate_queue_size,hnswlib,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+candidate_queue_size,faiss,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+candidate_queue_size,vamana,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+top_candidate_heap,hnswlib,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+top_candidate_heap,faiss,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+top_candidate_heap,vamana,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,medium,low_to_medium,False,search instrumentation,DEPLOYABLE_REQUIRES_INSTRUMENTATION
+checkpoint_churn,hnswlib,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,False,repeated returned IDs,DEPLOYABLE_EXISTING
+checkpoint_churn,faiss,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,False,repeated returned IDs,DEPLOYABLE_EXISTING
+checkpoint_churn,vamana,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,False,repeated returned IDs,DEPLOYABLE_EXISTING
+returned_neighbor_stability,hnswlib,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,True,returned_top10_ids,DEPLOYABLE_EXISTING
+returned_neighbor_stability,faiss,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,True,returned_top10_ids,DEPLOYABLE_EXISTING
+returned_neighbor_stability,vamana,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,True,returned_top10_ids,DEPLOYABLE_EXISTING
+fixed_probe_marginal_work,hnswlib,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,True,exact_ndc,DEPLOYABLE_EXISTING
+fixed_probe_marginal_work,faiss,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,True,exact_ndc,DEPLOYABLE_EXISTING
+fixed_probe_marginal_work,vamana,SIFT/Arxiv/GloVe frozen schema,False,True,False,True,low,low_to_medium,True,exact_ndc,DEPLOYABLE_EXISTING
+recall_at_10,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,True,True,False,high,low_to_medium,False,exact target truth,LABEL_DEPENDENT
+recall_at_10,faiss,SIFT/Arxiv/GloVe frozen schema,True,True,True,False,high,low_to_medium,False,exact target truth,LABEL_DEPENDENT
+recall_at_10,vamana,SIFT/Arxiv/GloVe frozen schema,True,True,True,False,high,low_to_medium,False,exact target truth,LABEL_DEPENDENT
+stable_sufficient_budget,hnswlib,SIFT/Arxiv/GloVe frozen schema,True,False,True,False,high,low_to_medium,False,complete labeled source curve,SOURCE_ORACLE
+stable_sufficient_budget,faiss,SIFT/Arxiv/GloVe frozen schema,True,False,True,False,high,low_to_medium,False,complete labeled source curve,SOURCE_ORACLE
+stable_sufficient_budget,vamana,SIFT/Arxiv/GloVe frozen schema,True,False,True,False,high,low_to_medium,False,complete labeled source curve,SOURCE_ORACLE

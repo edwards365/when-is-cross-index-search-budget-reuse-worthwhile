@@ -1,0 +1,7 @@
+# Executive brief
+
+This stage conditionally strengthens the Graph-ANNS result into a Hidden-Environment Safe Budgeting framework while preserving a baseline-integrity limitation. T-OW1a and T-OW1b are formally proved for a finite ordered budget grid: indistinguishable environments force an under-budget versus conservative/fallback tradeoff `U+CF >= rho(1-TV)`, with finite target probes entering through the joint observation law. T-OW2 formally separates within-build query safety from build-level reliability. T-OW5 shows that, with zero bad units and alpha 0.05, 29/59/299 independent units are required for delta 0.10/0.05/0.01; nine builds give upper bound 0.28313. T-OW3 is retained only as a restricted event decomposition.
+
+The frozen HNSWlib schema contains deployable unlabeled Z1 information. In the nine-build SIFT pilot, NDC and fixed-probe fingerprints have positive build-resampled association with budget response, but nearest-build under-budget risk remains 11.90% and 9.53%, respectively, above the 5% target. No recovery Gate passes end to end. The decision is `GENERAL_THEORY_STRENGTHENED_NO_RECOVERY_CHANNEL`, with pilot label `Z1_PILOT_FAILED_RESPONSE_CONTROL`. Algorithm design and formal testing are not authorized.
+
+The inherited 123-entry micro-closure checksum claim is not reproducible from Git (111 matches, eight mismatches, four absent cache files). Work continued only after explicit user override using the current 59/59 Full Seal output hashes and native seal test. Exact Full Seal reproduction must not be claimed.

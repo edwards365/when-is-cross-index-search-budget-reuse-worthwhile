@@ -1,0 +1,12 @@
+gate,status,evidence
+BASELINE,CONDITIONAL_OVERRIDE,"59/59 Full Seal outputs pass; legacy 123 list gives 111 match, 8 mismatch, 4 absent"
+THEORY_DEFINITION,PASS,"Hidden-Environment Safe Budgeting scopes and Z0-Z3 locked"
+T-OW1,PASS,"T-OW1a and T-OW1b formal in stated restricted scope"
+T-OW2,PASS,"minimal unseen-environment counterexample"
+T-OW3,PASS_RESTRICTED,"sequential event decomposition only"
+T-OW5,PASS_RESTRICTED,"m/n/k/M separated; zero-event counts verified"
+Z1-A,PASS,"deployable unlabeled HNSWlib runtime fields exist"
+Z1-B,PASS_PARTIAL,"NDC and fixed-probe increment bootstrap lower bounds exceed zero"
+Z1-C,FAIL,"nearest-build under-budget risk 9.53%-11.90% average, above 5%"
+Z1-D,NOT_REACHED,"complexity not adjudicated after safety-control failure"
+FINAL,GENERAL_THEORY_STRENGTHENED_NO_RECOVERY_CHANNEL,"theory strengthened; no end-to-end structured recovery Gate"

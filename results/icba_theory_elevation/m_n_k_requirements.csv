@@ -1,0 +1,9 @@
+layer,symbol,alpha,target_delta,zero_event_required_count,upper_bound_at_count_9,assumption
+within_build_query,n,0.05,0.1,29,,iid Bernoulli units at named layer
+within_build_query,n,0.05,0.05,59,,iid Bernoulli units at named layer
+within_build_query,n,0.05,0.01,299,,iid Bernoulli units at named layer
+random_build_meta,m,0.05,0.1,29,0.2831288355631135,iid Bernoulli units at named layer
+random_build_meta,m,0.05,0.05,59,0.2831288355631135,iid Bernoulli units at named layer
+random_build_meta,m,0.05,0.01,299,0.2831288355631135,iid Bernoulli units at named layer
+target_probe_testing,k,0.05,,NOT_IDENTIFIABLE_WITHOUT_CHANNEL_SEPARATION,,requires specified Z1/Z2 law and positive KL/TV separation
+candidate_selection,M,0.05,,LOG_M_OVER_ALPHA_SCALING,,finite candidate class with simultaneous or split evaluation

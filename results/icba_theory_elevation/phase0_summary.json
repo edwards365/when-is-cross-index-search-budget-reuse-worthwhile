@@ -1,0 +1,32 @@
+{
+  "conditional_baseline": "a9f88bbcfd9b2c2f3e8a27e1471e16628b60cdb0",
+  "full_seal_checksum_entries": 59,
+  "full_seal_checksum_ok": 59,
+  "legacy_microclosure_checksum_entries": 123,
+  "legacy_microclosure_git_blob_ok": 111,
+  "legacy_microclosure_git_blob_bad": [
+    "results/icba_micro_closure/cost_break_even.csv",
+    "results/icba_micro_closure/endpoint_audit.csv",
+    "results/icba_micro_closure/environment_sets.csv",
+    "results/icba_micro_closure/graph_replay.csv",
+    "results/icba_micro_closure/open_world_leave_build_out.csv",
+    "results/icba_micro_closure/synthetic_bounds.csv",
+    "results/icba_micro_closure/synthetic_grid.csv",
+    "results/icba_micro_closure/unified_gate_table.csv"
+  ],
+  "legacy_microclosure_git_blob_absent": [
+    "src/icba_micro_closure/__pycache__/ecse.cpython-38.pyc",
+    "src/icba_micro_closure/__pycache__/endpoint_audit.cpython-38.pyc",
+    "src/icba_micro_closure/__pycache__/lower_bound.cpython-38.pyc",
+    "src/icba_micro_closure/__pycache__/synthetic_closure.cpython-38.pyc"
+  ],
+  "graphs": 81,
+  "query_budget_rows": 972000,
+  "directed_pairs": 648,
+  "undirected_pairs": 324,
+  "directed_collision_candidates": 94,
+  "deduplicated_undirected_collisions": 47,
+  "distinct_builds_in_collisions": 70,
+  "manual_override": "USER_DIRECTED_CONTINUE_2026-08-28",
+  "sealed_data_accessed": false
+}

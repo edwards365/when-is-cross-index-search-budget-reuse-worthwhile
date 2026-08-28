@@ -1,0 +1,6 @@
+result,status,scope,evidence_or_limit
+T-OW3-sequential-union,FORMAL_PROOF_COMPLETE,"named events with deployment failure contained in their union","disjoint sequential partition plus union bound"
+T-OW3-general-four-marginal-sum,REFUTED,"unrestricted named risk components","labels do not imply event containment; overlap and interaction unresolved"
+T-OW3-excess-risk,RESTRICTED_PROPOSITION,"specified intermediate policies and signed increments","telescoping identity exists but increments need not be nonnegative"
+T-OW3-Shapley,RESTRICTED_PROPOSITION,"frozen factorial descriptive attribution","noncausal and design-dependent"
+T-OW3-overall,RESTRICTED_PROPOSITION,"Graph-ANNS frozen evidence","not all conditional components are identified"

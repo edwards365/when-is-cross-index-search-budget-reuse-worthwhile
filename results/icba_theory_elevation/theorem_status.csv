@@ -1,0 +1,7 @@
+theorem,status,scope
+T-OW1a,FORMAL_PROOF_COMPLETE,"finite ordered grid; common query law; monotone loss; finite thresholds; fallback"
+T-OW1b,FORMAL_PROOF_COMPLETE,"same scope with joint k-probe observation law"
+T-OW1-multienvironment,PROOF_SKETCH,"optional sharper K-environment rate; unnecessary for embedded two-point impossibility"
+T-OW2,FORMAL_PROOF_COMPLETE,"no meta-environment assumption implies no unseen-build certificate"
+T-OW3,RESTRICTED_PROPOSITION,"formal sequential event bound; empirical components incompletely identified"
+T-OW5,PROOF_SKETCH,"formal zero-event subresults; general dependent hierarchy not closed"
