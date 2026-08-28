@@ -1,0 +1,7 @@
+theorem,status,scope,evidence_or_obstacle
+T-OW0,FORMAL_PROOF_COMPLETE,population endpoint feasibility over fixed finite action set,direct minimum-risk argument; finite-sample non-certification explicitly excluded
+T-OW1,RESTRICTED_PROPOSITION,two environments finite grid randomized policy probes summarized by total variation,Le Cam coupling gives safety-versus-conservatism lower bound; multi-environment and general censoring extension not proved
+T-OW2,FORMAL_PROOF_COMPLETE,no meta-environment assumption,explicit unseen-build counterexample separates query certificates from build reliability
+T-OW3,RESTRICTED_PROPOSITION,event-defined endpoint/base/support/probe failures,union bound is formal but numerical component identification is absent from frozen factorial design
+T-OW4,REFUTED_AS_CURRENT_RECOVERY_ASSUMPTION,Z0/Z1 deployable observables,Z0 has empirical collisions and fails recovery Gate; Z1 unavailable; Lipschitz recovery not adopted
+T-OW5,PROOF_SKETCH,hierarchical finite-sample route,n controls within-build binomial risk; m controls build-level uncertainty; k controls environment testing; M requires multiplicity correction
