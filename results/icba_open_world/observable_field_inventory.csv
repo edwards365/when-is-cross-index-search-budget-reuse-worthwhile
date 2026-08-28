@@ -1,0 +1,24 @@
+field,classification,reason
+dataset,DEPLOYMENT_OBSERVABLE,declared index collection
+implementation,DEPLOYMENT_OBSERVABLE,declared serving implementation
+base_size,DEPLOYMENT_OBSERVABLE,index metadata
+query_id,OFFLINE_ONLY,evaluation bookkeeping
+query_split,OFFLINE_ONLY,frozen design partition
+query_vector_hash,OFFLINE_ONLY,membership audit
+truth_hash,REQUIRES_TARGET_LABEL,exact top-10 truth provenance
+graph_seed,DEPLOYMENT_OBSERVABLE,build metadata if retained
+insertion_order/history,DEPLOYMENT_OBSERVABLE,known construction history label; not query response
+graph_hash,OFFLINE_ONLY,integrity identifier
+construction_wall_time,OFFLINE_ONLY,post-build audit
+peak_build_memory,OFFLINE_ONLY,post-build audit
+ef_search/budget,DEPLOYMENT_OBSERVABLE,chosen action
+returned_top10_ids,DEPLOYMENT_OBSERVABLE,native search output
+returned_top10_distances,DEPLOYMENT_OBSERVABLE,unlabeled native search output; absent in compact Faiss/Vamana tables
+recall_at_10,REQUIRES_TARGET_LABEL,requires exact target truth
+exact_ndc,DEPLOYMENT_OBSERVABLE,runtime distance-count counter
+query_latency_ns,DEPLOYMENT_OBSERVABLE,runtime counter; absent in compact Faiss/Vamana tables
+entry_point/max_level,DEPLOYMENT_OBSERVABLE,index metadata; absent in compact Faiss/Vamana tables
+stable_sufficient_budget,SOURCE_ORACLE,requires complete labeled source budget curve per query
+target_sentinel_stable_budget,REQUIRES_TARGET_LABEL,uses labeled target Recall across budget grid
+endpoint_status,OFFLINE_ONLY,derived from labeled target failures
+visited/frontier/prefix trajectory,UNKNOWN_PROVENANCE,not present in 81-graph Cross-Index schema
