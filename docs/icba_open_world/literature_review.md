@@ -1,0 +1,3 @@
+# Directed literature review
+
+The core matrix contains 12 closest primary works spanning domain-adaptation impossibility, distribution-free conditional coverage, conformal risk control, multi-environment and hierarchical inference, invariant-learning failures, learning-augmented robustness, OOD abstention, ANN adaptive termination and risk-controlled early exit. Broad no-assumption impossibility and hierarchical exchangeability are existing ideas. The potentially distinctive unit is a finite-budget, build-by-query hidden-environment decision with a joint safety-versus-conservatism lower bound, finite labeled probes and fallback cost. This remains a restricted proposition rather than a general new theory.

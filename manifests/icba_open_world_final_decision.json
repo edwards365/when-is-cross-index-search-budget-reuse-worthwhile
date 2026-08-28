@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "stage": "FULL_SEAL",
+  "frozen_base": "77e0d430bc04b819276b570a96eedb339a66c043",
+  "decision": "OPEN_WORLD_IMPOSSIBILITY_SUPPORTED_STRUCTURE_UNRESOLVED",
+  "bootstrap_reps": 5000,
+  "seed": 991,
+  "graphs": 81,
+  "query_budget_rows": 972000,
+  "directed_pairs": 648,
+  "endpoint_strata": {
+    "certified": 54,
+    "right_censored": 17,
+    "no_practical_safe": 10
+  },
+  "sealed_data_accessed": false,
+  "algorithm_design_authorized": false,
+  "checksum_file": "results/icba_open_world/checksums.sha256"
+}

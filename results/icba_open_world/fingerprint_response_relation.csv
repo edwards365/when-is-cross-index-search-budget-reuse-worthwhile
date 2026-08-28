@@ -1,0 +1,5 @@
+channel,status,reason
+Z0,FAIL_GATE_D,empirical collisions and no held-out risk bound <=0.05
+Z1,NOT_ESTIMABLE,UNLABELED_FINGERPRINT_NOT_AVAILABLE across implementations
+Z2,NON_DEPLOYABLE,requires labeled target sentinel
+Z3,ORACLE_ONLY,per-query source Oracle
