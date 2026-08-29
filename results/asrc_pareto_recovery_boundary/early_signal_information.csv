@@ -1,0 +1,3 @@
+dataset,early_signal,adaptation_gain,reason,evidence_label
+sift_100k,not evaluated,NOT_ESTIMABLE,no pre-registered information model beyond fixed design,EXPLORATORY_PARETO_AUDIT
+arxiv_nomic_100k,not evaluated,NOT_ESTIMABLE,no pre-registered information model beyond fixed design,EXPLORATORY_PARETO_AUDIT

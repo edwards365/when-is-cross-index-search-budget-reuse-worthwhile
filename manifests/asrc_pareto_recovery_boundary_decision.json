@@ -1,0 +1,19 @@
+{
+  "verdict": "THEORY_BOUNDARY_STRENGTHENED_METHOD_UNRESOLVED",
+  "parent": "43626099f8b92c64c0f8e7e5210c22376864b98e",
+  "branch": "exp/asrc_pareto_recovery_boundary",
+  "evidence_label": "EXPLORATORY_PARETO_AUDIT",
+  "asrc_status": "EXPLORATORY_NO_INDEPENDENT_PARETO_ADVANTAGE",
+  "h3_headroom": {
+    "sift": 0.14792640454302797,
+    "arxiv": 0.17385043186905325
+  },
+  "active_sentinel_executed": true,
+  "active_sentinel_status": "DESIGN_ONLY_NOT_ESTIMABLE",
+  "independent_confirmation_authorized": false,
+  "new_method_derivation_authorized": "DESIGN_ONLY",
+  "truth_cost": "NOT_ESTIMABLE",
+  "scope": "FIXED_TARGET_DESIGN_ONLY",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}

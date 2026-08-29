@@ -1,0 +1,12 @@
+gate,status,evidence
+I,PASS,parent 45-item checksum and frozen commit verified
+S,PASS_FIXED_TARGET,unified event; target-build risk UCB <5%
+P,SEE_PARETO,ASRC compared with all fixed stages and mixtures
+T,IN_PROGRESS,T-PR1..T-PR6 pending document lock
+H,IN_PROGRESS,H3/H4 computed as non-deployable upper bounds
+C,SYMBOLIC_COST_ONLY,truth cost not measured
+O,FIXED_TARGET_DESIGN_ONLY,no new independent build
+P,FAIL_INCREMENT,ASRC lacks >=5% same-risk same-label improvement with positive cluster CI in both datasets
+H,PASS_UPPER_BOUND_ONLY,H3/H4 headroom 14.8% SIFT and 17.4% Arxiv; Oracle lanes non-deployable
+C,SYMBOLIC_COST_ONLY,truth cost not measured
+O,FIXED_TARGET_DESIGN_ONLY,no independent outer build
