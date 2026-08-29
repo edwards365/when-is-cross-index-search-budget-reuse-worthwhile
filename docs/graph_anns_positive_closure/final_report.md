@@ -1,0 +1,3 @@
+# Final report
+
+Verdict: **POSITIVE_EFFECT_NOT_REPLICATED_WITHOUT_QUERY_OVERLAP**. The zero-overlap firewall passed. B2-250 safety was 576/576 cycle-pairs, but build-cluster mean effects versus B1 were negative on SIFT and Arxiv. Top-1% deletion did not change the decision. B5 likewise showed no positive mean advantage. ASRC averaged about 120 target labels and large apparent NDC savings, but cannot override the preregistered B2 replication stop and lacks fully estimable truth cost. Claims are restricted to fixed-target/cross-fitted design evidence; no outer-build or general confidence-sequence claim is made.

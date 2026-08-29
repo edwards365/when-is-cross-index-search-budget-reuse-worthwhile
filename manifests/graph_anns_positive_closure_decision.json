@@ -1,0 +1,18 @@
+{
+  "verdict": "POSITIVE_EFFECT_NOT_REPLICATED_WITHOUT_QUERY_OVERLAP",
+  "frozen_base": "81299c9fc4238c7cd6e22167cc7b41c4c7eadfa7",
+  "branch": "exp/graph_anns_positive_method_closure",
+  "seed": 991,
+  "crossfit_firewall": "PASS",
+  "claims": [
+    "CROSS_FITTED_DESIGN_EVIDENCE",
+    "FIXED_TARGET_ANYTIME_PAC_SAFETY"
+  ],
+  "forbidden_access": {
+    "validation_dev": false,
+    "formal_test": false
+  },
+  "ground_truth_generation_cost": "NOT_ESTIMABLE",
+  "legacy_checksum_limit": "111/123",
+  "method_extension_stopped": true
+}

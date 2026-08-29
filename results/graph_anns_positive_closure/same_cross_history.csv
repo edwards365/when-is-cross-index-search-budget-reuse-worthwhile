@@ -1,0 +1,2 @@
+comparison,status,reason,legacy_label
+same_query_positive_recovery_vs_crossfit,NOT_RUN_AS_METHOD,history forbidden; legacy paired-query effect used only as frozen reference,PAIRED_QUERY_REPLAY_NOT_NEW_QUERY_GENERALIZATION

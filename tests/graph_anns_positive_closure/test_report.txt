@@ -1,0 +1,12 @@
+PASS role disjoint
+PASS evaluation firewall
+PASS no history
+PASS no source shift floor
+PASS nested stages
+PASS alpha sum <= .05
+PASS candidate order 11 to 0
+PASS certified fallback
+PASS B5 disjoint roles
+PASS seed and grid
+PASS gate manifest
+PASS forbidden access false

@@ -1,0 +1,9 @@
+gate,status,evidence
+I,PASS,41/41 frozen SHA256; legacy 111/123 limitation disclosed
+X,PASS,48/48 role-pair intersections zero
+T,PASS,A1-A6 restricted fixed-target results documented
+S,PASS_WITH_LIMIT,B2 576/576 cycle-pairs safe; ASRC aggregate not universally safe
+M,FAIL,"B2 means: SIFT -0.0735, Arxiv -0.1249"
+A,FAIL,B2 improvement below 5% stop threshold; ASRC cannot rescue failed replication
+B,NOT_ESTIMABLE,ground-truth generation cost has no measured log
+V,FAIL,top-1% deletion does not restore required B2 positive effect
