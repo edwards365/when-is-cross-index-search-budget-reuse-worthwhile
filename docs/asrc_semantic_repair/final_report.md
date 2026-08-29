@@ -1,0 +1,3 @@
+# Final report
+
+Final decision: **B2_EFFECT_JOINTLY_CONFOUNDED_ASRC_REMAINS_EXPLORATORY**. The original preregistered decision remains historical. Unified-event ASRC has target-build mean absolute risk about 1.1%, labels 117.50 (Arxiv) and 130.55 (SIFT), and savings versus B1-max 38.56% and 33.45%. Against closest-stage RM-B1/RM-B2, however, Arxiv is negative and SIFT is below the 10%/5% joint gate. Endpoint infeasibility is zero on Arxiv and 0.0444% on SIFT, so the semantic mismatch does not explain the main discrepancy. Truth cost is not measured; break-even is symbolic. Scope is fixed-target only.

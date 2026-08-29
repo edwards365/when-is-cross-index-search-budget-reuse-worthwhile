@@ -1,0 +1,5 @@
+channel,original_event,repaired_event,status
+evaluation,underbudget OR censoring,shared Z_abs,VERIFIED
+ASRC sentinel,underbudget only,shared Z_abs,MISMATCH_REPAIRED
+B1 terminal,underbudget only,shared Z_abs,MISMATCH_REPAIRED
+mechanism diagnostic,not explicit,shared Z_rec,ADDED

@@ -1,0 +1,8 @@
+gate,status,evidence
+0,PASS,frozen inputs readable; 6a8cbcf hashes passed; no sealed access
+E,PASS_REPAIRED,one shared Z_abs/Z_rec; synthetic tests pass; old CSV unchanged
+C,NOT_IDENTIFIABLE,reuse explains <50%; calibration-size pattern nonmonotone; legacy 750 is descriptive
+S,PASS_FIXED_TARGET,target-build bootstrap upper absolute risk <.05 on both datasets; top-1 query sensitivity NOT_ESTIMABLE
+M,FAIL,closest-stage RM-B1/RM-B2 increments fail 10%/5% jointly across datasets
+B,SYMBOLIC_BREAK_EVEN_ONLY,truth generation timing absent
+O,FIXED_TARGET_ONLY_NOT_OPEN_WORLD_CERTIFIED,no new outer build

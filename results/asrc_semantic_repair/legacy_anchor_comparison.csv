@@ -1,0 +1,2 @@
+legacy_commit,setting,role,direct_causal_comparison,reason,evidence_label
+81299c9,paired-query replay / about 750 source calibration queries,DESCRIPTIVE_ANCHOR_ONLY,False,sample size and query reuse differ jointly,LEGACY
