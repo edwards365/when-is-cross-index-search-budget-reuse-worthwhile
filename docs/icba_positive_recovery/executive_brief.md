@@ -1,0 +1,5 @@
+# Positive recovery closure — executive brief
+
+The previous M1 was confirmed to be a no-op: 576/576 target shifts were zero and its cost/risk matched M0. Correct B2 target-only recalibration relative to the raw source predictor passed fixed-target design safety in all 144 directed pairs at k=256 and reduced online NDC relative to B1 by 29.4% on SIFT and 26.2% on Arxiv on average; target-build bootstrap lower bounds were 24.8% and 17.0%. The gain survived removal of the highest-benefit 1% queries. This validates the positive mechanism: target residual information can safely remove the conservative source portability tax.
+
+History is not the source of the main gain. B3 minus B2 target-build bootstrap intervals crossed zero in both datasets, with no target-truth reduction and no stable 1% cost advantage. B5 and real truth-generation cost are not independently estimable from the frozen split. Final decision: `POSITIVE_MECHANISM_STANDARD_BASELINE_ONLY`. Preserve B2 as the correct standard baseline; do not promote a novel history-assisted method or claim deployable net gain/outer-build certification.

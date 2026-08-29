@@ -1,0 +1,8 @@
+gate,status,evidence,consequence
+I,PASS,"48/48 hashes; M0/M1 no-op; complete overlap matrix; B2 firewall fields false","protocol valid as paired replay"
+S,PASS_K256_ONLY,"B2 144/144 at k=256; top1 deletion 144/144; k128 141/144","FIXED_TARGET_DESIGN_SAFETY"
+D,PASS,"B2 vs B1 bootstrap: SIFT 0.2481..0.3334; Arxiv 0.1699..0.3679; top1 robust","safe deconservatization has value"
+H,FAIL,"B3 vs B2: SIFT CI -0.0873..0.1125; Arxiv -0.0924..0.1026; no truth reduction","history not promoted"
+R,PASS_DESIGN_STAGE,"2/2 datasets; target-cluster bootstrap; top1 robust; LOOH reported","outer build not certified"
+V,PARTIAL_NOT_ESTIMABLE,"calibration search included; truth generation and B5 full retrain NOT_ESTIMABLE","design-stage mechanism only"
+FINAL,POSITIVE_MECHANISM_STANDARD_BASELINE_ONLY,"B2 is safe and valuable fixed-target standard recalibration; B3 adds no identified history value","do not promote a novel history method"

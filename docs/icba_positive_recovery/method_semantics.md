@@ -1,0 +1,5 @@
+# Method semantics
+
+All methods share the frozen raw source L2-logistic predictor and 12-level ordered budget grid. B0 deploys the raw prediction and is non-deployable risk reference. B1 adds the maximum positive source-confirm residual and is the existing conservative M0. B1+ is the old upward-only M1; its 576 target shifts are all zero, so it is exactly a no-op up to 1.82e-12 serialization noise. B2 discards the B1 shift and calibrates the maximum target-sentinel residual relative to the raw predictor; code-level fields record that it reads neither source shift, history donors, nor target evaluation during calibration. B3 is the frozen leave-one-history-out M2 using the identical raw predictor, sentinels, evaluation queries, seed, grid and safety rule. B4 remains the frozen fingerprint-gated secondary reference without feature search. B5 cannot be independently estimated because target design/confirm IDs overlap the target evaluation IDs; Oracle substitution is forbidden. B6 is the certified fixed-safe endpoint.
+
+All evidence is `PAIRED_QUERY_REPLAY_NOT_NEW_QUERY_GENERALIZATION`, `OUTER_BUILD_NOT_CERTIFIED`, and `EXPLORATORY_DESIGN`.
