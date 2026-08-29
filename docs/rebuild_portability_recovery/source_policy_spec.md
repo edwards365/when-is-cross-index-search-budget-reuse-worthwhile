@@ -1,0 +1,3 @@
+# Deployable source-policy specification
+
+Evidence label: `EXPLORATORY_DESIGN`. Each source build trains one fixed L2 logistic model (`C=1`, seed 991) on `cross_index_design` labels. Inputs are only permitted static query fields, source statistics, and the reusable first-prefix checkpoint; target labels and per-query source Oracle values are not inputs. The output is the minimum predicted safe index on the frozen 12-level grid. Independent source residual calibration uses the disjoint `cross_index_confirm` split. All 18 source-build gates passed. Prefix search effort is included in NDC; repeated search is prohibited.

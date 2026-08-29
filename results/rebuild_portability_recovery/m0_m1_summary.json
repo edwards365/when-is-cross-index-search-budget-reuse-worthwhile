@@ -1,0 +1,19 @@
+{
+  "evidence_label": "EXPLORATORY_DESIGN_SIMULATION",
+  "formal_test_accessed": false,
+  "k256_all_pass": true,
+  "m0_gate_pass": 144,
+  "m0_pairs": 144,
+  "m1_gate_pass_by_k": {
+    "128": 144,
+    "256": 144,
+    "32": 144,
+    "64": 144
+  },
+  "m1_rows": 576,
+  "m1_total_pairs_by_k": 144,
+  "schema_version": "1.0",
+  "seed": 991,
+  "sentinel_reps": 500,
+  "validation_dev_accessed": false
+}

@@ -1,0 +1,7 @@
+"gate","status","basis"
+"S","PASS_M1_ALL_K","144/144 at k=32,64,128,256"
+"B","DESIGN_STAGE_BUILD_EVIDENCE","nine builds; no outer 5% certification"
+"V1","FAIL","M2/M3 do not reduce target truth by 50%"
+"V2","NOT_ESTIMABLE","truth and full-retrain cost unavailable"
+"V3","NOT_PRIMARY","M1 already safe without refusal"
+"FINAL","TARGET_ONLY_RECALIBRATION_SUFFICIENT_NO_NEW_METHOD","M1 safe; no historical method value gate passed"

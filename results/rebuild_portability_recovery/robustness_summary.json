@@ -1,0 +1,14 @@
+{
+  "evidence_label": "EXPLORATORY_DESIGN_SIMULATION",
+  "m0_fixed_equivalent_pairs_le_1pct": 16,
+  "m1_k256_median_incremental_saving_vs_m0": 0.0,
+  "m1_k256_pairs": 144,
+  "m1_k256_target_shift_zero_pairs": 144,
+  "same_history_all_pass": true,
+  "same_history_pairs": 36,
+  "same_history_pass_by_dataset": {
+    "arxiv_nomic_100k": 1.0,
+    "sift_100k": 1.0
+  },
+  "top1_deletion": "PENDING_PER_QUERY_RECOMPUTATION"
+}

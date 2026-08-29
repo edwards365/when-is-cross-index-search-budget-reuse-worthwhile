@@ -1,0 +1,367 @@
+{
+  "C": 1.0,
+  "all_source_gates_pass": true,
+  "alpha": 0.05,
+  "builds": 18,
+  "evidence_label": "EXPLORATORY_DESIGN_SIMULATION",
+  "failed_builds": [],
+  "features": [
+    "log1p_first_exact_ndc",
+    "log1p_first_latency_ns",
+    "log1p_first_kth_distance",
+    "first_second_relative_gap",
+    "max_level"
+  ],
+  "formal_test_accessed": false,
+  "inventory": [
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed43__cluster_block_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed43__natural_source_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed43__random.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed59__cluster_block_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed59__natural_source_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed59__random.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed71__cluster_block_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed71__natural_source_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/sift_100k__seed71__random.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed43__cluster_block_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed43__natural_source_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed43__random.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed59__cluster_block_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed59__natural_source_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed59__random.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed71__cluster_block_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed71__natural_source_order.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    },
+    {
+      "budgets": [
+        10,
+        16,
+        24,
+        32,
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512
+      ],
+      "path": "results/cross_index/g1/main/hnswlib/arxiv_nomic_100k__seed71__random.csv.gz",
+      "queries": 750,
+      "rows": 12000
+    }
+  ],
+  "label": "source minimal stable sufficient budget; censored clipped to endpoint and counted unsafe",
+  "penalty": "L2",
+  "quality_target": 0.9,
+  "schema_version": "1.0",
+  "seed": 991,
+  "source_calibration": "per-source-build maximum observed positive residual; no target labels",
+  "validation_dev_accessed": false
+}
