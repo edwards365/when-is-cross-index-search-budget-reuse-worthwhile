@@ -1,0 +1,10 @@
+theorem_id,title,status,proof_complete,assumptions_complete,counterexample_tested,classical_overlap,novelty_label,fixed_target,meta_environment,open_world,paper_role,dependency,empirical_instantiation_available
+T-OO1,Information monotonicity and decomposition,FORMAL_PROOF_COMPLETE,true,true,true,very_high,IDENTITY_OR_DEFINITION,true,conditional,false,definition,"nested information and fixed feasible class",yes
+T-OO2,Oracle headroom does not imply observable recovery,FORMAL_PROOF_COMPLETE,true,true,true,very_high,CLASSICAL_APPLICATION,true,conditional,minimax_witness,counterexample,"T-OO1 definitions",yes
+T-OO3,Observability-limited safe recovery lower bound,FORMAL_PROOF_COMPLETE,true,true,true,very_high,CLASSICAL_APPLICATION,true,conditional,minimax_declared_class,MAIN_THEOREM_I,"Le Cam testing reduction; adaptive KL",collision_witness_only
+T-OO4,Multi-environment qualification,RESTRICTED_PROPOSITION,true,true,true,very_high,CLASSICAL_APPLICATION,true,conditional,minimax_declared_class,appendix,"Fano; disjoint action regions",no
+T-OO5,Margin-based positive recovery,FORMAL_PROOF_COMPLETE,true,true,true,high,RESTRICTED_DOMAIN_PROPOSITION,true,false,false,MAIN_THEOREM_II,"uniform estimation event; risk and cost margins",assumptions_not_verified
+T-OO6,Independent certification and fallback,FORMAL_PROOF_COMPLETE,true,true,true,high,NEW_COMBINATION_OF_CLASSICAL_RESULTS,true,false,false,MAIN_THEOREM_II,"independent split; valid UCB; safe fallback",certification_formula_only
+T-OO7,Accuracy and decision regret separate,FORMAL_PROOF_COMPLETE,true,true,true,very_high,RESTRICTED_DOMAIN_PROPOSITION,true,conditional,false,evaluation_principle,"cost-weighted confusion identity",yes
+T-OO8,Adaptive target-evidence complexity,PARTIALLY_MATCHED_RATE,true,true,true,high,NEW_COMBINATION_OF_CLASSICAL_RESULTS,true,conditional,minimax_declared_pair,MAIN_THEOREM_I,"adaptive KL; data processing; known binary channel upper bound",lower_bound_only
+RACS,Risk-Aware Certified Selection,THEORETICAL_METHOD_TEMPLATE,true,true,true,high,NEW_COMBINATION_OF_CLASSICAL_RESULTS,true,false,false,method_consequence,"T-OO5 and T-OO6",no

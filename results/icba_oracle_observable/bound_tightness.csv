@@ -1,0 +1,9 @@
+bound_id,theorem_id,instance,lower_or_upper_bound,exact_value,gap,status
+B01,T-OO1,nested finite experiment,R_theta <= R_m <= R_0,equality possible at either inclusion,0,TIGHT_BY_CONSTRUCTION
+B11,T-OO3,binary transcript pair 1,1/2,1/2,0,EXACT_LE_CAM_CONSTANT
+B12,T-OO3,binary transcript pair 2,1/4,1/4,0,EXACT_LE_CAM_CONSTANT
+B13,T-OO3,binary transcript pair 3,0,0,0,EXACT_LE_CAM_CONSTANT
+B14,T-OO3,binary transcript pair 4,1/3,1/3,0,EXACT_LE_CAM_CONSTANT
+B-CP-29,T-OO6,"delta=1/10, alpha=1/20, zero failures",29,29,0,EXACT_CLOPPER_PEARSON_THRESHOLD
+B-CP-59,T-OO6,"delta=1/20, alpha=1/20, zero failures",59,59,0,EXACT_CLOPPER_PEARSON_THRESHOLD
+B-CP-299,T-OO6,"delta=1/100, alpha=1/20, zero failures",299,299,0,EXACT_CLOPPER_PEARSON_THRESHOLD

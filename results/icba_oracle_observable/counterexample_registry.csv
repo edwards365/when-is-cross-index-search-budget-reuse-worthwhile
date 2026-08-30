@@ -1,0 +1,13 @@
+counterexample_id,title,theorem_or_boundary,finite_instance,verified_consequence,status,validation_split_accessed,formal_test_accessed
+C1,Positive oracle headroom and zero observable value,T-OO2,1,0,VERIFIED_EXACT_ENUMERATION,false,false
+C2,Arbitrarily many degenerate sentinels add no value,T-OO2/T-OO3,P0^m=P1^m,TV=0 for every m,VERIFIED_EXACT_ENUMERATION,false,false
+C3,Perfect environment identification with common optimal action,T-OO7,accuracy=1,observable gain=0,VERIFIED_EXACT_ENUMERATION,false,false
+C4,Low exact accuracy with arbitrarily small regret,T-OO7,accuracy=1/2,regret<=epsilon/2,VERIFIED_EXACT_ENUMERATION,false,false
+C5,Meta-average safe but pointwise unsafe,safety semantics,E risk=1/100,risk(theta1)=1,VERIFIED_EXACT_ENUMERATION,false,false
+C6,Current-target certificate does not cover unseen build,T-OO6,current risk=0,unseen risk=1,VERIFIED_EXACT_ENUMERATION,false,false
+C7,Selection/certification reuse inflates false acceptance,T-OO6,single-action zero probability=1-delta,any-zero probability=1-delta^M,VERIFIED_EXACT_ENUMERATION,false,false
+C8,Zero risk margin prevents stable strict classification,T-OO5,rho=delta,both empirical sides have positive probability,VERIFIED_EXACT_ENUMERATION,false,false
+C9,Zero cost margin makes exact label arbitrary,T-OO5/T-OO7,Gamma_C=0,value-equivalent actions,VERIFIED_EXACT_ENUMERATION,false,false
+C10,Truth cost reverses search-only gain,cost model,search 10 to 8,total=11 at N=100,VERIFIED_EXACT_ENUMERATION,false,false
+C11,Safe fallback has zero observable gain,RACS,risk=0,gain=0,VERIFIED_EXACT_ENUMERATION,false,false
+C12,Source collision forces unsafe or conservative ordered budget,T-OO2/T-OO3,same metadata,safe budgets 1 and 2,VERIFIED_EXACT_ENUMERATION,false,false

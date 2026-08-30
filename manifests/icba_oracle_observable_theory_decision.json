@@ -1,0 +1,60 @@
+{
+  "task": "ICBA ORACLE-OBSERVABLE RECOVERY THEORY CLOSURE",
+  "repository": "edwards365/navigation-aware-resistance-hnsw",
+  "parent_commit": "ea4da8d4d981383bee00a1245ec450bfeddf2c4a",
+  "frozen_branch": "exp/active_recovery_headroom_reaudit",
+  "theory_branch": "exp/icba_oracle_observable_theory",
+  "decision": "NEGATIVE_POSITIVE_THEORY_CHAIN_CLOSED_RESTRICTED_GRAPH_ANNS",
+  "scope": "FIXED_TARGET_POSITIVE_RESULTS_AND_DECLARED_CLASS_MINIMAX_LOWER_BOUNDS",
+  "theorem_status": {
+    "T-OO1": "FORMAL_PROOF_COMPLETE__IDENTITY_OR_DEFINITION",
+    "T-OO2": "FORMAL_PROOF_COMPLETE__CLASSICAL_APPLICATION",
+    "T-OO3": "FORMAL_PROOF_COMPLETE__CLASSICAL_APPLICATION",
+    "T-OO4": "RESTRICTED_PROPOSITION__TWO_ENVIRONMENT_WITNESS_SUFFICIENT",
+    "T-OO5": "FORMAL_PROOF_COMPLETE__RESTRICTED_DOMAIN_PROPOSITION",
+    "T-OO6": "FORMAL_PROOF_COMPLETE__NEW_COMBINATION_OF_CLASSICAL_RESULTS",
+    "T-OO7": "FORMAL_PROOF_COMPLETE__RESTRICTED_DOMAIN_PROPOSITION",
+    "T-OO8": "PARTIALLY_MATCHED_RATE__LOWER_COMPLETE_UPPER_RESTRICTED"
+  },
+  "gates": {
+    "negative_theory": "PASS",
+    "positive_theory": "PASS_CONDITIONAL_FIXED_TARGET",
+    "lower_upper_connection": "PASS_PARTIAL_KNOWN_BINARY_FINITE_ALPHABET_CHANNEL",
+    "method_derivation": "PASS_THEORETICAL_TEMPLATE",
+    "generality": "PASS_FORMAL_ABSTRACTION_ONLY"
+  },
+  "selected_main_results": [
+    "T-OO3_PLUS_T-OO8_TRANSCRIPT_CONSEQUENCE",
+    "T-OO5_PLUS_T-OO6_AND_RACS"
+  ],
+  "racs_status": "THEORETICAL_METHOD_TEMPLATE",
+  "graph_anns_positive_channel_verified": false,
+  "open_world_upper_bound": false,
+  "general_joint_m_n_k_M_rate": false,
+  "confirmatory_or_deployable_label_generated": false,
+  "exact_validation": {
+    "validation_rows": 9,
+    "counterexamples": 12,
+    "tightness_rows": 8,
+    "status": "PASS"
+  },
+  "sealed_splits": {
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false
+  },
+  "new_experiments": {
+    "new_graphs": false,
+    "large_search": false,
+    "model_training": false,
+    "formal_evaluation": false
+  },
+  "legacy_integrity_limit": {
+    "expected_entries": 123,
+    "matching_entries": 111,
+    "mismatched_csv": 8,
+    "absent_pycache": 4,
+    "experimental_outputs_modified": false
+  },
+  "method_fulltext_limitation": "ANNiE_AND_QBAT_ATTACHMENTS_NOT_PRESENT_IN_CURRENT_SCRATCH_AT_FINAL_AUDIT; NO_FIRST_METHOD_CLAIM",
+  "created_utc_date": "2026-08-30"
+}
