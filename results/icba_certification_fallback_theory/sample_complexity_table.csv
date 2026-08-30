@@ -1,0 +1,28 @@
+method,delta,alpha,family_size_L,gamma,beta_false_rejection,m_sufficient,criterion,scope
+zero_failure_clopper_pearson_bonferroni,0.1,0.05,1,,,29,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.1,0.05,5,,,44,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.1,0.05,20,,,57,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.05,0.05,1,,,59,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.05,0.05,5,,,90,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.05,0.05,20,,,117,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.01,0.05,1,,,299,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.01,0.05,5,,,459,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+zero_failure_clopper_pearson_bonferroni,0.01,0.05,20,,,597,"U_CP(0,m,alpha/L)<=delta",fixed target; iid certification queries
+hoeffding_bonferroni_power,0.1,0.05,1,0.02,0.1,13189,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.1,0.05,1,0.02,asymptotic,1265,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.1,0.05,5,0.02,0.1,16776,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.1,0.05,5,0.02,asymptotic,1944,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.1,0.05,20,0.02,0.1,19654,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.1,0.05,20,0.02,asymptotic,2529,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.05,0.05,1,0.01,0.1,52756,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.05,0.05,1,0.01,asymptotic,2659,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.05,0.05,5,0.01,0.1,67103,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.05,0.05,5,0.01,asymptotic,4088,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.05,0.05,20,0.01,0.1,78614,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.05,0.05,20,0.01,asymptotic,5318,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.01,0.05,1,0.002,0.1,1318888,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.01,0.05,1,0.002,asymptotic,13814,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.01,0.05,5,0.002,0.1,1677557,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.01,0.05,5,0.002,asymptotic,21235,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion
+hoeffding_bonferroni_power,0.01,0.05,20,0.002,0.1,1965326,P(safe-but-rejected)<=beta,fixed target; finite family
+bernoulli_kl_leading_order,0.01,0.05,20,0.002,asymptotic,27627,leading log(L/alpha)/kl(delta-gamma||delta),rate guide; exact deployment uses binomial inversion

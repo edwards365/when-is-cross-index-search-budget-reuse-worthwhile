@@ -1,0 +1,27 @@
+{
+  "task": "ICBA CERTIFICATION-FALLBACK POSITIVE THEORY CLOSURE",
+  "decision": "POSITIVE_RECOVERY_THEORY_CLOSED_FIXED_TARGET",
+  "frozen_experiment_commit": "97ca42a120fff015885bba509e8aa90178aabfa2",
+  "theory_reference_commit": "4e728d437038816a7706e9cb802d19274aa691b9",
+  "branch": "exp/icba_certification_fallback_theory",
+  "experimental_decision_preserved": "FAILURE_DOMINATED_BY_CERTIFICATION_AND_FALLBACK",
+  "theorems": {
+    "T-CF1": "FORMAL_PROOF_COMPLETE",
+    "T-CF2": "FORMAL_PROOF_COMPLETE",
+    "T-CF3": "FORMAL_PROOF_COMPLETE",
+    "T-CF4": "FORMAL_PROOF_COMPLETE",
+    "T-CF5": "FORMAL_PROOF_COMPLETE",
+    "T-CF6": "FORMAL_PROOF_COMPLETE_CONDITIONAL"
+  },
+  "fixed_target_safety": true,
+  "open_world_recovery": false,
+  "ordered_power_result": "PROVED_FOR_LOCKED_NESTED_FAMILY_NOT_UNIVERSAL",
+  "method_template_authorization": "THEORY_AND_PREREGISTRATION_ONLY",
+  "highest_novelty": "NEW_COMBINATION_OF_CLASSICAL_RESULTS",
+  "legacy_integrity_condition": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "experimental_results_modified": false,
+  "counterexamples_required": 12,
+  "counterexamples_verified": 14
+}

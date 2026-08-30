@@ -1,0 +1,15 @@
+case_id,construction,computed_value,expected_relation,passed
+CE01_ORACLE_POSITIVE_DEPLOYMENT_NEGATIVE,"baseline=10, oracle=8, evidence=300, N=100",-1.0,oracle_headroom>0 and deployed_gain<0,True
+CE02_MEAN_POSITIVE_P95_NEGATIVE,baseline cost 10; recovery cost 0 w.p. .94 and 11 w.p. .06,mean_gain=9.340000;p95_change=1.000000,mean_gain>0 and p95_change>0,True
+CE03_SAFE_BUT_REJECTED,"true risk=0, m=58, zero failures, delta=.05, alpha=.05",0.05033933833042009,CP upper > delta,True
+CE04_UNSAFE_BUT_ACCEPTED,"true risk=.06, m=59, zero failures, delta=.05, alpha=.05",0.02597427070054444,0 < acceptance probability <= alpha,True
+CE05_NON_NESTED_FAILURE_EVENTS,"two queries with Z1=(1,0), Z2=(0,1)",False,pointwise nesting is false,True
+CE06_ENDPOINT_CENSORING_SEMANTICS,max-budget endpoint censored; naive under-budget=0; absolute failure=1,naive=0;absolute=1,naive and absolute events differ,True
+CE07_POST_SELECTION_COVERAGE_FAILURE,"100 unsafe actions, risk=.06, reuse 59 certification draws for selection",0.9280479933834817,family false acceptance > alpha,True
+CE08_BONFERRONI_OVERCONSERVATIVE,"m=59, zero failures, delta=.05, alpha=.05, L=10",single=0.04950761;bonferroni=0.08588783,single accepts and Bonferroni rejects,True
+CE09_SMALL_MARGIN_SAMPLE_EXPLOSION,"gamma=.001, alpha=.05, L=10, beta=.10",7293277,sufficient m exceeds one million,True
+CE10_FALLBACK_GAP_DESTROYS_VALUE,"oracle headroom=2, rejection=.20, fallback gap=15",-1.0,cost margin after fallback is negative,True
+CE11_NO_FINITE_BREAK_EVEN,"headroom=2, selection regret=1, rejection=.1, gap=10",0.0,break-even denominator <= 0,True
+CE12_FIXED_TARGET_NOT_OPEN_WORLD,one policy has risk 0 on certified G0 and risk 1 on unseen G1,r_G0=0;r_G1=1,fixed-target safety does not imply uniform safety,True
+CE13_FALLBACK_LADDER_ECONOMIC_FAILURE,accept rung cost 9 w.p. .5; fallback 10; evidence tax 1.5,1.0,ladder costs more than direct fixed-safe,True
+CE14_NESTED_BAND_STRICT_RADIUS_GAIN,"one-sided DKW vs Bonferroni-Hoeffding, m=500, L=10",dkw=0.05473328;bonferroni=0.07278954,nested DKW radius is strictly smaller,True

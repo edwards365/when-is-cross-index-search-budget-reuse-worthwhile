@@ -1,0 +1,7 @@
+theorem_id,title,proof_status,novelty_class,scope,qualification
+T-CF1,Certification--Fallback Tax identity,FORMAL_PROOF_COMPLETE,IDENTITY_OR_DEFINITION,fixed target and optional explicit joint environment law,exact expectation identity; no p95 implication
+T-CF2,positive net deployment value and break-even,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,fixed target,necessary and sufficient after all costs share units
+T-CF3,ordered independent certification and safe selection,FORMAL_PROOF_COMPLETE,NEW_COMBINATION_OF_CLASSICAL_RESULTS,fixed target,"Bonferroni, fixed sequence, and nested DKW variants"
+T-CF4,safety margin and certification sample complexity,FORMAL_PROOF_COMPLETE,CLASSICAL_APPLICATION,fixed target,CP/Hoeffding/Bernoulli-KL; no build-count claim
+T-CF5,ordered fallback ladder cost and safety,FORMAL_PROOF_COMPLETE,NEW_COMBINATION_OF_CLASSICAL_RESULTS,fixed target,strict value requires expected saved gap to exceed evidence/control tax
+T-CF6,stable-by-construction interface,FORMAL_PROOF_COMPLETE_CONDITIONAL,RESTRICTED_DOMAIN_PROPOSITION,source-target pair satisfying assumed metric bound,no validated deployable graph distance
