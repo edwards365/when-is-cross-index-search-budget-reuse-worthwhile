@@ -1,0 +1,9 @@
+{
+  "decision": "FAILURE_DOMINATED_BY_CERTIFICATION_AND_FALLBACK",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_ACTIVE_CHANNEL_GATE",
+  "frozen_input": "a3db1c0a0dcb23826389ffa958759063a6163ef2",
+  "theory_reference": "4e728d437038816a7706e9cb802d19274aa691b9",
+  "legacy": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123",
+  "active_racs_authorized": false,
+  "reason": "Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate"
+}

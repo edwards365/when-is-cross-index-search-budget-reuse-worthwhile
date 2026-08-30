@@ -1,0 +1,11 @@
+dataset,assumption,metric,status,note
+arxiv_nomic_100k,positive_cost_margin,0.0,PARTIALLY_SUPPORTED,
+arxiv_nomic_100k,risk_separation_from_0.05,0.044,EMPIRICALLY_SUPPORTED,
+arxiv_nomic_100k,uniform_cost_estimation_m191,11.961183246073347,PARTIALLY_SUPPORTED,
+arxiv_nomic_100k,oracle_action_entropy_bits,2.3253456021336945,EMPIRICALLY_SUPPORTED,
+arxiv_nomic_100k,deployable_active_identification,,FAILED,Perfect-selection upper bound fails joint mean/tail gate
+sift_100k,positive_cost_margin,0.0,PARTIALLY_SUPPORTED,
+sift_100k,risk_separation_from_0.05,0.042,EMPIRICALLY_SUPPORTED,
+sift_100k,uniform_cost_estimation_m191,13.203811518324642,PARTIALLY_SUPPORTED,
+sift_100k,oracle_action_entropy_bits,2.0900068294372223,EMPIRICALLY_SUPPORTED,
+sift_100k,deployable_active_identification,,FAILED,Perfect-selection upper bound fails joint mean/tail gate

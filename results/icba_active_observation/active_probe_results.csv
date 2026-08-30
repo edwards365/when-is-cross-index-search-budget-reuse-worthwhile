@@ -1,0 +1,8 @@
+lane,status,deployable,reason
+A0_uniform,EARLY_STOPPED_BY_ORACLE_DOMINANCE,True,Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate
+A1_source_budget,EARLY_STOPPED_BY_ORACLE_DOMINANCE,True,Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate
+A2_source_uncertainty,EARLY_STOPPED_BY_ORACLE_DOMINANCE,True,Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate
+A3_deployable_disagreement,EARLY_STOPPED_BY_ORACLE_DOMINANCE,True,Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate
+A4_target_label_disagreement_oracle,UPPER_BOUND_FAILED,False,Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate
+A5_decision_regret_oracle,UPPER_BOUND_FAILED,False,Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate
+A6_information_oracle,UPPER_BOUND_FAILED,False,Perfect-selection plus real-certification upper bound fails joint two-dataset mean/tail gate

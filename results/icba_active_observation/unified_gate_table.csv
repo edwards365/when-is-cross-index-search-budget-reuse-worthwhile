@@ -1,0 +1,13 @@
+dataset,gate,pass,value,threshold
+arxiv_nomic_100k,S,False,0.075445731709649,risk UCB <= 0.05
+arxiv_nomic_100k,E,True,0.1354412642787993,gain >= 0.05
+arxiv_nomic_100k,P,False,4548.0,p95 <= 2856.0
+arxiv_nomic_100k,R,True,142.05358398697916,> 0
+arxiv_nomic_100k,L,False,,active label-value improvement
+arxiv_nomic_100k,O,False,,oracle active probe passes S/E/P/R
+sift_100k,S,False,0.075445731709649,risk UCB <= 0.05
+sift_100k,E,False,0.0185516043462869,gain >= 0.05
+sift_100k,P,False,4383.0,p95 <= 2545.0
+sift_100k,R,False,-10.019178243012853,> 0
+sift_100k,L,False,,active label-value improvement
+sift_100k,O,False,,oracle active probe passes S/E/P/R
