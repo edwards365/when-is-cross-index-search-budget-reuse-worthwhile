@@ -1,0 +1,9 @@
+patch_id,location,old_text_or_semantics,replacement,reason
+P01,T-SC5 budget noun,ef,expansion-prefix/checkpoint count,removes unit conflation
+P02,T-SC5 tie assumption,fixed tie-breaking,declared total priority key including secondary ID,makes replay proposition well-defined
+P03,introduction edge,path edge,first successful candidate-queue insertion parent,unique under event log
+P04,intruder charge,+1 ef,+1 prior expansion in restricted model,no ef claim
+P05,endpoint,max ef,infinity/right-censored/uncertified,prevents false success
+P06,T-SC10 positive link,structural distance to budget,structural certificate to expansion surrogate; empirical to ef,scope correction
+P07,safe-set closure,raw fixed ef,resumable best-so-far prefix only,counterexample-safe
+P08,pilot role,theorem validation,empirical bridge test,prevents inference reversal
