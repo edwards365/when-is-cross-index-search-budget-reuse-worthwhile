@@ -1,0 +1,16 @@
+semantic_id,object,implementation_location,exact_semantics,theory_consequence,status
+S01,requested ef,caller/index `ef_`,"base argument max(ef_,k)",not an actual-work cap,OBSERVABLE
+S02,top-candidate capacity,top_candidates heap,admit while size<ef or better; trim >ef,capacity/retention rule,OBSERVABLE
+S03,candidate queue,candidate_set heap,separate from retained heap,not hard capped by ef,OBSERVABLE_WITH_TRACER
+S04,actual expansions,candidate pops expanded,loop-dependent,may exceed ef,OBSERVABLE_WITH_TRACER
+S05,NDC,distance-function calls,neighbor dependent,no deterministic Lipschitz map from ef,OBSERVABLE_WITH_COUNTER
+S06,wall time,timer around query,hardware/runtime dependent,not theorem-controlled,OBSERVABLE
+S07,visited,visited_array tag,marked before distance/admission,rejected nodes remain visited,OBSERVABLE_WITH_TRACER
+S08,stop rule bare-bone,candidate_dist > lowerBound,break,depends on retained heap,OBSERVABLE_WITH_TRACER
+S09,stop rule filter/deletion,candidate_dist > lowerBound && top_candidates.size()==ef,break,different branch,OBSERVABLE_WITH_TRACER
+S10,tie rule,CompareByFirst distance only,equal keys comparator-equivalent,no portable total order,NEEDS_EXPLICIT_SECONDARY_KEY
+S11,fixed-ef rerun,new search call,fresh visited/candidate state,not resumable prefix,VERIFIED
+S12,B_ef,minimum successful requested ef on declared grid,independent runs,endpoint-aware/right-censored,DEFINED
+S13,B_exp,minimum successful checkpoint in resumable deterministic search,prefix action,not native ef,DEFINED
+S14,bridge,B_exp to B_ef,none universal proved,empirical calibration only,NOT_PROVED
+S15,intruder,noncertificate competitor popped before required certificate node,trace event,count acts on expansion theorem only,OBSERVABLE_WITH_TRACER
