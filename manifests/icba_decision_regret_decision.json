@@ -1,0 +1,15 @@
+{
+  "label": "ORACLE_GAP_CONFIRMED_CURRENT_SIGNAL_FAMILY_RETIRED",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_DECISION_AUDIT",
+  "parent": "ea4da8d4d981383bee00a1245ec450bfeddf2c4a",
+  "legacy_limit": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123",
+  "frozen_inputs_reproduced": true,
+  "strict_oracle_headroom": true,
+  "current_signal_family_retired": true,
+  "independent_confirmation_authorized": false,
+  "cost_status": "SEARCH_ONLY_GAIN_TRUTH_AND_CONTROL_COST_NOT_ESTIMABLE",
+  "parquet_status": "PARQUET_ENGINE_NOT_AVAILABLE",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "new_graphs": false
+}

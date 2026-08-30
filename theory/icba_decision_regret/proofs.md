@@ -1,0 +1,3 @@
+# Proofs
+
+T-DR1 is algebraic cancellation; monotonicity follows because every $Z_1$-policy is representable as a $Z_2$-policy under compatibility. T-DR2 is the classical Le Cam testing inequality applied to the action-induced loss gap. T-DR3 applies a union bound over finite actions to cost and risk concentration, then compares errors with margins. T-DR4 follows from $\mathbb E L=\sum_{ij}P(Y=i,\hat Y=j)L_{ij}$; accuracy retains only diagonal mass. T-DR5 conditions on the selection transcript, applies the independent certificate bound, and notes fallback is safe by assumption. T-DR6 remains open because neither a dominance proof nor two-dataset robust gain survived fallback semantics.

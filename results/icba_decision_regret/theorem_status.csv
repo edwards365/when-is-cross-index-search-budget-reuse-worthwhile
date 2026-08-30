@@ -1,0 +1,7 @@
+theorem,status,scope
+T-DR1,FORMAL_PROOF_COMPLETE,identity and compatible-information monotonicity
+T-DR2,CLASSICAL_APPLICATION,Le Cam two-point lower bound instantiated for safe recovery
+T-DR3,CLASSICAL_APPLICATION,finite-action concentration with cost and risk margins
+T-DR4,FORMAL_PROOF_COMPLETE,finite counterexample and exhaustive accuracy-regret separation
+T-DR5,RESTRICTED_PROPOSITION,independent certification with corrected multiplicity and fallback
+T-DR6,CONJECTURE,strict active acquisition advantage not proved or observed

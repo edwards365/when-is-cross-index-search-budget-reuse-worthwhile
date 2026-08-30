@@ -1,0 +1,3 @@
+dataset,lane,safety_gate,observable_gain_gate,robustness_gate,decision_regret_gate,cost_gate,all_method_gates
+arxiv_nomic_100k,source_uncertainty_stratified,True,True,False,True,SEARCH_ONLY_GAIN_TRUTH_AND_CONTROL_COST_NOT_ESTIMABLE,False
+sift_100k,source_uncertainty_stratified,True,False,False,True,SEARCH_ONLY_GAIN_TRUTH_AND_CONTROL_COST_NOT_ESTIMABLE,False

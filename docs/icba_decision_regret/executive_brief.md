@@ -1,0 +1,3 @@
+# Executive brief
+
+Corrected and strictly certified Oracle headroom remains. Current active sentinel does not convert it into two-dataset deployable value once fallback is enforced. Accuracy alone was not a sufficient evaluation, but cost-sensitive replay also fails the unified Gate. The signal family should be retired; independent confirmation is not authorized. Classical components are T-DR1 identity/monotonicity, T-DR2 Le Cam, and T-DR3 concentration. The project-specific contribution is the observable/identifiability decomposition and deployment-semantic audit. Graph-ANNS still lacks an observable signal that survives certification and total-cost accounting.
