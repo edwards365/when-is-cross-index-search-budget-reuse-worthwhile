@@ -1,0 +1,54 @@
+{
+  "frozen_input": "904de537f16798eac9f68da549f2741d92e2b1c2",
+  "method_internal_name": "CERTIFIED_RECOVERY_AUDITOR_WITH_RESIDUAL_LADDER",
+  "status": "PREREGISTERED_BEFORE_NEW_PILOT_RESULTS",
+  "evidence_level": "EXPLORATORY_DESIGN",
+  "datasets": [
+    "sift_100k",
+    "arxiv_nomic_100k"
+  ],
+  "seed": 991,
+  "primary_workload": 100000,
+  "workloads": [
+    1000,
+    10000,
+    100000,
+    1000000,
+    10000000
+  ],
+  "alpha": 0.05,
+  "delta": 0.05,
+  "objective_order": [
+    "safety",
+    "p95",
+    "total_cost_N1e5",
+    "build_robustness",
+    "label_efficiency",
+    "complexity"
+  ],
+  "rungs": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "budget_grid_levels": 12,
+  "query_roles": [
+    "source_train",
+    "target_selection",
+    "target_certification",
+    "target_evaluation"
+  ],
+  "stop_rules": [
+    "LOW_DISK_PILOT_ONLY",
+    "INVALID_TRACE_INSTRUMENTATION",
+    "NO_DEPLOYABLE_BASE_POLICY_CLOSE_RECOVERY_ROUTE"
+  ],
+  "sealed_access_prohibited": [
+    "validation-dev",
+    "formal-test",
+    "GloVe"
+  ],
+  "full_confirmation_requires_all_pilot_gates": true,
+  "content_sha256": "9cc4e50266c1e80ff4e056e185c11ebdcd1ab1b420d087f678bea322d33b10e5"
+}

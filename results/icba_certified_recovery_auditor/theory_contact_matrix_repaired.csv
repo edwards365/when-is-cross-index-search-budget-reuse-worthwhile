@@ -1,0 +1,17 @@
+assumption_id,dataset,empirical_metric,point_estimate,confidence_interval,pass,evidence_level,failure_reason
+A_NESTED_EVENTS,arxiv_nomic_100k,nonzero failure-event and cost-order violations,,NOT_ESTIMABLE,False,EXPLORATORY_FIXED_TARGET,Actual per-query budget action absent; old stage/NDC violation is not a rung test
+A_POSITIVE_SAFETY_MARGIN,arxiv_nomic_100k,median evaluation safety margin,0.026,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_SAFE_RUNG_EXISTS,arxiv_nomic_100k,safe candidates exist retrospectively,0.9131944444444444,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_FALSE_REJECTION_CONTROLLABLE,arxiv_nomic_100k,best supported allocation,0.0381944444444444,see clustered bootstrap table,True,EXPLORATORY_FIXED_TARGET,
+A_FALLBACK_GAP_REDUCIBLE,arxiv_nomic_100k,cheap fallback nondeployable upper bound,0.4714064175291347,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_POSITIVE_COST_MARGIN,arxiv_nomic_100k,median frozen safe-action cost margin is zero,,NOT_ESTIMABLE,False,EXPLORATORY_FIXED_TARGET,median frozen safe-action cost margin is zero
+A_FIXED_TARGET_INDEPENDENCE,arxiv_nomic_100k,frozen disjoint query roles,1.0,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_OUTER_BUILD_SUPPORT,arxiv_nomic_100k,only 9 builds per dataset; outer-build confirmation absent,18.0,NOT_ESTIMABLE,False,EXPLORATORY_FIXED_TARGET,only 9 builds per dataset; outer-build confirmation absent
+A_NESTED_EVENTS,sift_100k,nonzero failure-event and cost-order violations,,NOT_ESTIMABLE,False,EXPLORATORY_FIXED_TARGET,Actual per-query budget action absent; old stage/NDC violation is not a rung test
+A_POSITIVE_SAFETY_MARGIN,sift_100k,median evaluation safety margin,0.034,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_SAFE_RUNG_EXISTS,sift_100k,safe candidates exist retrospectively,0.9756944444444444,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_FALSE_REJECTION_CONTROLLABLE,sift_100k,best supported allocation,0.0833333333333333,see clustered bootstrap table,False,EXPLORATORY_FIXED_TARGET,best supported allocation
+A_FALLBACK_GAP_REDUCIBLE,sift_100k,cheap fallback nondeployable upper bound,0.4174565239343266,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_POSITIVE_COST_MARGIN,sift_100k,median frozen safe-action cost margin is zero,,NOT_ESTIMABLE,False,EXPLORATORY_FIXED_TARGET,median frozen safe-action cost margin is zero
+A_FIXED_TARGET_INDEPENDENCE,sift_100k,frozen disjoint query roles,1.0,NOT_ESTIMABLE,True,EXPLORATORY_FIXED_TARGET,
+A_OUTER_BUILD_SUPPORT,sift_100k,only 9 builds per dataset; outer-build confirmation absent,18.0,NOT_ESTIMABLE,False,EXPLORATORY_FIXED_TARGET,only 9 builds per dataset; outer-build confirmation absent

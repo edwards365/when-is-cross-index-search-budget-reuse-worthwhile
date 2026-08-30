@@ -1,0 +1,14 @@
+{
+  "branch": "exp/icba_certified_recovery_auditor",
+  "confirmation": "NOT_RUN_DUE_F1",
+  "decision": "NO_DEPLOYABLE_BASE_POLICY_CLOSE_RECOVERY_ROUTE",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_LOW_DISK_PILOT_ONLY",
+  "formal_test_accessed": false,
+  "frozen_commit": "904de537f16798eac9f68da549f2741d92e2b1c2",
+  "glove_accessed": false,
+  "new_index_built": false,
+  "pilot": "NOT_RUN_DUE_F1",
+  "preregistration_sha256": "9cc4e50266c1e80ff4e056e185c11ebdcd1ab1b420d087f678bea322d33b10e5",
+  "schema_version": "1.0",
+  "validation_dev_accessed": false
+}

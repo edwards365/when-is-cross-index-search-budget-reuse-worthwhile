@@ -1,0 +1,3 @@
+dataset,status,mean,p95,p99
+sift_100k,NOT_ESTIMABLE,NA,NA,NA
+arxiv_nomic_100k,NOT_ESTIMABLE,NA,NA,NA
