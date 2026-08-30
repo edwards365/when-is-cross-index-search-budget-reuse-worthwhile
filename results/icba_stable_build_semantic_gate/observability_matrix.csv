@@ -1,0 +1,25 @@
+field,currently_observable,modification,cost,semantic_interference,serializable,exact_replay,theory_assumption
+query ID,yes,no,low,none,yes,yes,protocol
+build ID,external,no,low,none,yes,yes,environment
+source/target ID,yes,no,low,none,yes,yes,edge event
+requested ef,yes,no,low,none,yes,yes,action
+actual expansions,yes,project tracer,low,low,yes,yes,work
+actual NDC,yes,counting metric,low,low,yes,yes,work
+wall-clock,yes,no,low,timer noise,yes,no,cost
+upper-layer path,yes,project tracer,medium,low,yes,yes,entry
+base-layer expansion order,yes,project tracer,medium,low,yes,yes,prefix
+candidate queue insertion order,yes,project tracer,high,low,yes,yes,introduction
+introduction parent edge,reconstructible,project tracer,medium,low,yes,yes,certificate
+priority key,yes,project tracer,medium,low,yes,conditional,frontier
+top-candidate heap state,no,extend tracer,high,memory/timing,yes,yes,lowerBound
+lowerBound changes,reconstructible,project tracer,medium,low,yes,yes,stop
+visited state,reconstructible,project tracer,high,memory,yes,yes,discovery
+first safe discovery,no,extend tracer plus design truth,high,truth/timing,yes,yes,safety
+endpoint status,external,no,low,none,yes,yes,censoring
+top-k result at checkpoint,no,extend tracer,high,memory,yes,yes,safety
+candidate set at checkpoint,no,extend tracer,high,memory,yes,yes,frontier
+backup path,no,offline derive from full trace,high,none offline,yes,conditional,backup
+edge layer,yes,project tracer,low,low,yes,yes,layer
+tie event,no,extend tracer,medium,low,yes,yes,total order
+filtered/deleted node,no,extend tracer,medium,low,yes,yes,branch
+search stop reason,no,extend tracer,low,low,yes,yes,termination
