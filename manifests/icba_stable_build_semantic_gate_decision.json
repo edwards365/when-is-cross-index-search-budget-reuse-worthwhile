@@ -1,0 +1,61 @@
+{
+  "task": "ICBA_STABLE_BY_CONSTRUCTION_DIRECTED_PRIOR_ART_AND_SEMANTIC_CLOSURE_GATE",
+  "frozen_theory_commit": "dca81b23ce3cfe7ca95e3b3362fb3129cf24f937",
+  "recovery_reference_commit": "be393d3c3b0a2450edefb3b2889f0511dfd8919f",
+  "certification_reference_commit": "41a44bd930679b5e933034a1496d2fe42e1ae018",
+  "ordered_semantics_reference_commit": "904de537f16798eac9f68da549f2741d92e2b1c2",
+  "branch": "exp/icba_stable_build_semantic_gate",
+  "workspace_mode": "ISOLATED_STAGING_SERVER_WORKTREE_NOT_MOUNTED",
+  "verdict": "READY_WITH_THEOREM_DOWNGRADE_EMPIRICAL_BRIDGE",
+  "interface": "EMPIRICALLY_CALIBRATED_EF_PILOT",
+  "pilot_authorized": true,
+  "pilot_scope": "design_and_independent_calibration_only_after_trace_extension",
+  "direct_prior_found": false,
+  "level_a_fulltext_count": 10,
+  "level_a_new_this_round": 2,
+  "hnswlib": {
+    "pinned_commit": "3f3429661187e4c24a490a0f148fc6bc89042b3d",
+    "version": "0.8.0",
+    "functions": ["searchKnn", "searchBaseLayerST"],
+    "native_modified": false,
+    "distance": "L2_squared_or_inner_product_as_benchmark_configuration",
+    "exact_runtime_compiler_simd": "NOT_ESTIMABLE_FROM_FROZEN_ARTIFACTS"
+  },
+  "semantic_decisions": {
+    "ef": "retained_top_candidate_capacity_and_stopping_parameter_via_max_ef_k_not_work_cap",
+    "budget_units_distinct": true,
+    "B_ef_to_B_exp_bridge": "IMPLEMENTATION_BRIDGE_NOT_PROVED",
+    "raw_fixed_ef_upward_closure": "COUNTEREXAMPLE_FOUND",
+    "resumable_best_so_far_closure": "FORMAL_PROOF_COMPLETE",
+    "introduction_edge": "first_successful_candidate_queue_insertion_parent_under_total_event_order"
+  },
+  "theorems": {
+    "T-SC5": "FORMAL_PROOF_RESTRICTED",
+    "T-SC5_native_ef_interpretation": "THEOREM_INVALID_FOR_EF_ACTION",
+    "T-SC10_negative": "FORMAL_PROOF_RESTRICTED",
+    "T-SC10_native_ef_positive": "EMPIRICAL_CALIBRATION_ONLY"
+  },
+  "observability": {
+    "required_fields": 24,
+    "currently_observable_or_reconstructible": 16,
+    "current_ratio": 0.6667,
+    "obtainable_after_declared_extension": 24,
+    "extension_required": true
+  },
+  "algorithm_readiness": "PSEUDOCODE_ONLY",
+  "semantic_checks": {"passed": 16, "failed": 0},
+  "unit_tests": {"passed": 6, "failed": 0, "framework": "python_unittest"},
+  "sealed_data": {
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false,
+    "evaluation_truth_accessed": false
+  },
+  "frozen_results_modified": false,
+  "claim_deletions": [
+    "first_stable_or_rebuild_portable_ANNS",
+    "T-SC5_directly_guarantees_native_ef",
+    "one_intruder_implies_one_more_ef",
+    "raw_fixed_ef_recall_is_upward_closed",
+    "edge_overlap_controls_safe_budget"
+  ]
+}
