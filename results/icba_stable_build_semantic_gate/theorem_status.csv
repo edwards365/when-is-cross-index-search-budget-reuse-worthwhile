@@ -1,0 +1,10 @@
+result_id,statement,status,assumptions_or_basis,disposition
+T-SC5a,certificate disruption union bound,FORMAL_PROOF_COMPLETE,classical event decomposition,not a major novelty
+T-SC5b,deterministic expansion-prefix delay,FORMAL_PROOF_RESTRICTED,total tie order; frozen discovery/insertion; bounded prior intruders,does not mention native ef
+T-SC5c,native hnswlib ef delay,THEOREM_INVALID_FOR_EF_ACTION,required ef/prefix bridge absent,delete old interpretation
+T-SC10a,generic overlap cannot control budget,FORMAL_PROOF_RESTRICTED,finite counterexamples; declared budget action,valid negative boundary
+T-SC10b,robust certificate controls expansion surrogate,FORMAL_PROOF_RESTRICTED,same abstract assumptions as T-SC5b,restricted structural result
+T-SC10c,structure controls B_ef,EMPIRICAL_CALIBRATION_ONLY,independent calibration queries,not theorem implication
+Bridge-1,B_ef <= psi(B_exp),IMPLEMENTATION_BRIDGE_NOT_PROVED,native independent search semantics,Interface C
+Closure-raw,fixed-ef raw recall upward closure,COUNTEREXAMPLE_FOUND,distance ties/non-total order,must not assume
+Closure-prefix,resumable best-so-far envelope,FORMAL_PROOF_COMPLETE,same run retains best-so-far,definition-level monotonicity
