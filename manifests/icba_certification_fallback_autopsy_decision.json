@@ -1,0 +1,16 @@
+{
+  "decision": "MIXED_CERTIFICATION_AND_FALLBACK_BOTTLENECK",
+  "frozen_input": "97ca42a120fff015885bba509e8aa90178aabfa2",
+  "parent_decision": "FAILURE_DOMINATED_BY_CERTIFICATION_AND_FALLBACK",
+  "theory_reference": "4e728d437038816a7706e9cb802d19274aa691b9",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET",
+  "safety_event_unified": true,
+  "ordered_policy_assumption": "FAILED",
+  "method_implementation_authorized": false,
+  "stable_by_construction_pivot": true,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "gloVe_sealed_accessed": false,
+  "cost_status": "SYMBOLIC_COST_ONLY",
+  "legacy": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123"
+}

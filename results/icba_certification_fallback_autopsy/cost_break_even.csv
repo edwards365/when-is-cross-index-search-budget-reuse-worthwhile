@@ -1,0 +1,11 @@
+dataset,N,formula,search_component,truth_component,control_component,status
+arxiv_nomic_100k,1000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+sift_100k,1000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+arxiv_nomic_100k,10000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+sift_100k,10000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+arxiv_nomic_100k,100000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+sift_100k,100000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+arxiv_nomic_100k,1000000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+sift_100k,1000000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+arxiv_nomic_100k,10000000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY
+sift_100k,10000000,C_search + (C_truth + C_selection + C_certification)/N + C_control,ESTIMABLE_FROM_MEAN_NDC,SYMBOLIC,SYMBOLIC,SYMBOLIC_COST_ONLY

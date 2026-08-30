@@ -1,0 +1,11 @@
+dataset,gate,pass,evidence
+arxiv_nomic_100k,Safety,False,unsafe acceptance=0.044147
+arxiv_nomic_100k,Efficiency,True,best perfect-selection gain=0.135441
+arxiv_nomic_100k,Tail,False,p95=4548.0 vs H2=2856.0
+arxiv_nomic_100k,Fallback,False,no deployable intermediate fallback; ordered structure failed
+arxiv_nomic_100k,Deployability,False,only Oracle/cheap fallback upper bounds restore joint value
+sift_100k,Safety,False,unsafe acceptance=0.018353
+sift_100k,Efficiency,False,best perfect-selection gain=0.018552
+sift_100k,Tail,False,p95=4383.0 vs H2=2545.0
+sift_100k,Fallback,False,no deployable intermediate fallback; ordered structure failed
+sift_100k,Deployability,False,only Oracle/cheap fallback upper bounds restore joint value

@@ -1,0 +1,7 @@
+dataset,metric,factor,shapley_cost_contribution,share
+arxiv_nomic_100k,mean_ndc,misselection,31.90224950675677,0.11019023046385247
+arxiv_nomic_100k,mean_ndc,real_rejection,121.13603968338984,0.41840335200701284
+arxiv_nomic_100k,mean_ndc,fixed_fallback,136.48147469874186,0.47140641752913476
+sift_100k,mean_ndc,misselection,45.76728641503909,0.10506257604141528
+sift_100k,mean_ndc,real_rejection,207.999898084609,0.477480900024258
+sift_100k,mean_ndc,fixed_fallback,181.8521210559076,0.41745652393432664
