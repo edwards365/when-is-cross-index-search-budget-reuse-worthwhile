@@ -16,7 +16,7 @@ The project now focuses on three linked goals:
 
 ## Current scientific status
 
-**Latest sealed decision:** `THEORY_BOUNDARY_STRENGTHENED_METHOD_UNRESOLVED`
+**Latest sealed decision:** \`THEORY_BOUNDARY_STRENGTHENED_METHOD_UNRESOLVED\`
 
 What is established:
 
@@ -56,28 +56,28 @@ Important scope boundaries:
 
 ## Core problem formulation
 
-For environment/build (E), query (q), ordered budget (b), and loss threshold (	au), define the minimum stable sufficient budget
+For environment/build \(E\), query \(q\), ordered budget \(b\), and loss threshold \(\tau\), define the minimum stable sufficient budget:
 
-[
+$$
 b_E^*(q)
 =
-min
-left\{
+\min
+\left\{
 b:
 L_E(q,b')\le\tau
-	ext{ for every } b'\succeq b
-ight\}.
-]
+\text{ for every } b'\succeq b
+\right\}.
+$$
 
 The stable definition accommodates small non-monotone fluctuations on a finite budget grid.
 
-The central object is therefore not only query difficulty. It is the environment-conditioned response
+The central object is therefore not only query difficulty. It is the environment-conditioned response:
 
-[
+$$
 (q,E) \mapsto b_E^*(q).
-]
+$$
 
-A policy trained on source build (E_s) observes incomplete information about target build (E_t). When observationally similar builds require conflicting safe budgets, any environment-blind policy must pay through under-budget risk, conservative cost, or fallback.
+A policy trained on source build \(E_s\) observes incomplete information about target build \(E_t\). When observationally similar builds require conflicting safe budgets, any environment-blind policy must pay through under-budget risk, conservative cost, or fallback.
 
 The lower-bound machinery is Le Cam/testing based and is presented as a problem-specific application rather than a new generic testing technique.
 
@@ -91,7 +91,7 @@ The lower-bound machinery is Le Cam/testing based and is presented as a problem-
 | Fixed-target finite-sample certificate | Established | Classical CP/LTT/RCPS application |
 | Query/build hierarchical distinction | Established as a scope limit | Nine builds do not certify a 5% outer tail |
 | Active recovery label complexity | Partial | Classical threshold-testing rates only |
-| Joint (m,n,k,M) recovery theorem | Open | No matched theorem yet |
+| Joint \(m,n,k,M\) recovery theorem | Open | No matched theorem yet |
 | Safety–truth–search–fallback frontier | Open | Truth cost is not yet measured |
 
 ## Graph-ANNS small-closure tracker
@@ -122,15 +122,15 @@ Given a target rebuild, RACS considers a frozen candidate family such as:
 - profile or retrain a target-specific policy;
 - use a fixed safe endpoint.
 
-For candidate policy (pi_j), a target certificate produces a risk upper bound (U_j). The eligible set is
+For candidate policy \(\pi_j\), a target certificate produces a risk upper bound \(U_j\). The eligible set is:
 
-[
+$$
 \mathcal A=\{j:U_j\le\delta\}.
-]
+$$
 
-For an anticipated workload (N), RACS selects
+For an anticipated workload \(N\), RACS selects:
 
-[
+$$
 \widehat j
 =
 \arg\min_{j\in\mathcal A}
@@ -139,7 +139,7 @@ C_{\mathrm{setup},j}
 +
 N C_{\mathrm{online},j}
 \right].
-]
+$$
 
 If no candidate is certified, it falls back to the fixed safe endpoint.
 
@@ -147,17 +147,17 @@ RACS is a **planned method**, not a confirmed contribution. Its validation requi
 
 ## Key experimental stages
 
-| Stage | Branch | Main conclusion |
+| Stage | Branch or commit | Main conclusion |
 |---|---|---|
-| Cross-index boundary | [`exp/cross_index`](https://github.com/edwards365/navigation-aware-resistance-hnsw/branches) | Operational cross-history effect does not generalize uniformly across implementations |
-| Theory lock | [`exp/icba_theory_lock`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_theory_lock) | Negative framework locked; one proposition restricted |
-| Micro closure | [`exp/icba_micro_closure`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_micro_closure) | Closed-world recovery does not imply open-world portability |
-| Open-world autopsy | [`exp/icba_open_world_autopsy`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_open_world_autopsy) | Support/identifiability failure remains after endpoint controls |
-| Theory elevation | [`exp/icba_theory_elevation`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_theory_elevation) | General theory strengthened; no deployable recovery channel |
-| Positive recovery closure | [`exp/icba_positive_recovery_closure`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_positive_recovery_closure) | Target recalibration works; history adds no stable value |
-| Zero-overlap method closure | [`exp/graph_anns_positive_method_closure`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/graph_anns_positive_method_closure) | Earlier positive effect does not replicate as a new method |
-| ASRC semantic repair | [`exp/asrc_semantic_repair`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/asrc_semantic_repair) | Fixed-target safety survives repair; method increment fails |
-| Pareto/recovery audit | [`exp/asrc_pareto_recovery_boundary`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/asrc_pareto_recovery_boundary) | Theory boundary strengthened; method remains unresolved |
+| Cross-index boundary | [\`b82abf6\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/commit/b82abf6bab8aae54b23aee5ccce5cde0ba5a3412) | Operational cross-history effect does not generalize uniformly across implementations |
+| Theory lock | [\`exp/icba_theory_lock\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_theory_lock) | Negative framework locked; one proposition restricted |
+| Micro closure | [\`exp/icba_micro_closure\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_micro_closure) | Closed-world recovery does not imply open-world portability |
+| Open-world autopsy | [\`exp/icba_open_world_autopsy\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_open_world_autopsy) | Support/identifiability failure remains after endpoint controls |
+| Theory elevation | [\`exp/icba_theory_elevation\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_theory_elevation) | General theory strengthened; no deployable recovery channel |
+| Positive recovery closure | [\`exp/icba_positive_recovery_closure\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/icba_positive_recovery_closure) | Target recalibration works; history adds no stable value |
+| Zero-overlap method closure | [\`exp/graph_anns_positive_method_closure\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/graph_anns_positive_method_closure) | Earlier positive effect does not replicate as a new method |
+| ASRC semantic repair | [\`exp/asrc_semantic_repair\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/asrc_semantic_repair) | Fixed-target safety survives repair; method increment fails |
+| Pareto/recovery audit | [\`exp/asrc_pareto_recovery_boundary\`](https://github.com/edwards365/navigation-aware-resistance-hnsw/tree/exp/asrc_pareto_recovery_boundary) | Theory boundary strengthened; method remains unresolved |
 
 Each sealed stage retains its own report, decision manifest, derived tables, tests, and checksums.
 
@@ -181,7 +181,7 @@ A neural early-exit setting is a possible later second domain for a broader hidd
 - Oracle lanes are labeled non-deployable.
 - Design, calibration, evaluation, validation, and formal-test roles are kept distinct.
 - Query-level resampling is not used as a substitute for independent build uncertainty.
-- Missing costs are reported as `NOT_ESTIMABLE`.
+- Missing costs are reported as \`NOT_ESTIMABLE\`.
 - The legacy 123-item baseline checksum is only conditionally reproducible: 111 entries match, eight differ, and four untracked cache files are absent.
 - Newer stages maintain their own checksums and do not overwrite frozen outputs.
 
