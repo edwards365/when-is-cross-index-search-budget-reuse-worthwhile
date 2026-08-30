@@ -1,0 +1,17 @@
+case_id,property,witness,status
+CE01,ef is not expansion cap,ef=1; five expansions,PASS
+CE02,fixed-ef traces need not be prefix-equivalent,equal-key branches,PASS
+CE03,one intruder adds one abstract expansion,finite queue witness,PASS
+CE04,one intruder need not raise global ef threshold,frontier-width witness,PASS
+CE05,critical edge retention insufficient under tie change,equal keys reorder,PASS
+CE06,introduction parent not graph intrinsic,two incoming edges,PASS
+CE07,raw fixed-ef recall nonmonotone,tie-sensitive top-k,PASS
+CE08,endpoint infeasible,B=infinity beyond grid,PASS
+CE09,same expansions different NDC,degree variation,PASS
+CE10,same mean NDC worse p95,finite vectors,PASS
+CE11,fixed ef reruns versus resumable prefix,state reset,PASS
+CE12,serialized replay consistency,canonical tiny state,PASS
+CE13,visited before admission,rejected node remains visited,PASS
+CE14,ef versus NDC,same ef varying degrees,PASS
+CE15,requested ef versus capacity,"capacity=max(ef,k)",PASS
+CE16,best-so-far prefix closure,running envelope,PASS
