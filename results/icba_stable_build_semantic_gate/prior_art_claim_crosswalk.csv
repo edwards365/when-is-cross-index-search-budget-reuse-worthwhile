@@ -1,0 +1,11 @@
+claim_id,claim,decision,basis,qualification
+C01,Stable graph construction is new,DELETE,NSG/Vamana/FreshDiskANN/MARGO,broad claim false
+C02,Rebuild or insertion-order sensitivity is new,DELETE,Elliott and Clark,phenomenon known
+C03,T-SC5 directly guarantees hnswlib ef,DELETE,source audit plus CE01/CE02,implementation bridge not proved
+C04,One priority intruder costs one ef,DELETE,ef is not expansion counter,unit mismatch
+C05,Raw fixed-ef recall is upward closed,DELETE,CE07 tie-sensitive witness,only resumable envelope is closed
+C06,Edge overlap controls safe budget,DELETE,prior counterexamples/T-SC10,false generally
+C07,Cross-build query-effort stability is a distinct systems objective,RETAIN_NARROW,no four-condition direct prior,do not say first
+C08,"ef, expansion, NDC, and time need separate contracts",RETAIN,hnswlib source audit,implementation-specific contribution
+C09,Trace-certificate repair plus empirical ef calibration,RETAIN_AS_TEMPLATE,Yang/MARGO/repair priors overlap,not validated algorithm
+C10,Endpoint/right-censor aware budget response,RETAIN_NARROW,no direct checked counterpart,Graph-ANNS scope only
