@@ -1,0 +1,11 @@
+theorem_id,project_object,closest_prior,overlap,novelty_class,extra_assumptions,verdict
+T-SC1,deterministic replay,MonaVec; deterministic implementations,same object,IDENTITY_OR_DEFINITION,deterministic total function,not novel
+T-SC2,one-sided budget coupling,generic coupling/union bound; ANNiE object,same proof template different object,RESTRICTED_DOMAIN_PROPOSITION,upward safe set; grid; endpoints,Graph-ANNS action/censoring specialization
+T-SC3,budget to cost,cost-sensitive decisions,partial,RESTRICTED_DOMAIN_PROPOSITION,pathwise NDC/latency regularity,no p95 without tail premise
+T-SC4,effective-margin certification,LTT; RCPS; CRC,direct statistical module,CLASSICAL_APPLICATION,iid independent target certificate,delete general novelty
+T-SC5,critical path retention,Yang et al. Thm 4.1/4.2; NSG/Vamana,strong structural overlap,POTENTIAL_NEW_GRAPH_ANNS_RESULT,robust trace and frontier intrusion,budget/censor/certification link remains narrow
+T-SC6,consensus edge frequency,Hoeffding/union bound,direct classical,CLASSICAL_APPLICATION,independent builds; fixed edge universe,no budget implication
+T-SC7,diameter migration tax,two-point minimax/reject risk,same template different object,RESTRICTED_DOMAIN_PROPOSITION,explicit asymmetric loss,Graph-ANNS interpretation only
+T-SC8,break-even,cost accounting,exact identity,IDENTITY_OR_DEFINITION,common units; positive denominator,not a theorem novelty
+T-SC9,structural nonimplications,none single,constructive boundary,COUNTEREXAMPLE_ONLY,finite graphs,useful negative result
+T-SC10,surrogate impossibility/restricted certificate,Yang et al.; Steiner-Hardness,partial/strong,POTENTIAL_NEW_GRAPH_ANNS_RESULT,deterministic trace; margins; backups,most independent but restricted

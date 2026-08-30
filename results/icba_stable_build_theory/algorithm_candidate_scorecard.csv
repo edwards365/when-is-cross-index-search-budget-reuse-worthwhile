@@ -1,0 +1,6 @@
+route,no_direct_prior,nontrivial_graph_theory,assumptions_testable,budget_response_interface,deployable_method,build_cost_reasonable,two_dataset_potential,engineering_control,novelty,recall_safety,p95_safety,low_target_label_need,open_world_potential,two_day_pilot,database_A_potential,top_ML_potential,rank,disposition
+A_CANONICAL,2,0,5,0,4,5,4,5,1,3,3,5,1,5,2,1,5,BASELINE
+B_CONSENSUS,4,1,4,1,3,2,4,3,3,2,2,4,2,3,3,2,2,FALLBACK
+C_CRITICAL_PATH,3,4,3,5,3,3,4,2,4,3,2,3,3,2,4,3,3,PRIMARY_CORE
+D_BEST_OF_R,2,1,4,3,3,1,4,4,2,3,3,1,2,4,2,1,4,COMPARATOR
+E_STABILIZE_THEN_CERTIFY,4,4,3,5,5,2,5,2,4,4,3,2,3,2,5,3,1,PRIMARY

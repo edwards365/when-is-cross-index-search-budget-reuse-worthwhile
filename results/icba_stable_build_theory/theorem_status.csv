@@ -1,0 +1,11 @@
+theorem_id,proof_status,novelty_class,scope,assumptions_observable
+T-SC1,FORMAL_PROOF_COMPLETE,IDENTITY_OR_DEFINITION,stated model,yes with declared fields
+T-SC2,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,stated model,yes with declared fields
+T-SC3,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,stated model,yes with declared fields
+T-SC4,FORMAL_PROOF_COMPLETE,CLASSICAL_APPLICATION,fixed target only,yes with declared fields
+T-SC5,FORMAL_PROOF_RESTRICTED,POTENTIAL_NEW_GRAPH_ANNS_RESULT,restricted deterministic trace model,"experimentally approximable, not uniform"
+T-SC6,FORMAL_PROOF_COMPLETE,CLASSICAL_APPLICATION,stated model,yes with declared fields
+T-SC7,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,stated model,yes with declared fields
+T-SC8,FORMAL_PROOF_COMPLETE,IDENTITY_OR_DEFINITION,stated model,yes with declared fields
+T-SC9,COUNTEREXAMPLE_VERIFIED,COUNTEREXAMPLE_ONLY,stated model,yes with declared fields
+T-SC10,FORMAL_PROOF_RESTRICTED,POTENTIAL_NEW_GRAPH_ANNS_RESULT,restricted deterministic trace model,"experimentally approximable, not uniform"

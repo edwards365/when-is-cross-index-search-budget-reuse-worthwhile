@@ -1,0 +1,17 @@
+case_id,nonimplication,witness,status,evidence_type
+CE01,high edge overlap; large budget shift,Jaccard>.75; immediate vs delayed/unreachable,PASS,finite executable
+CE02,low edge overlap; same budget,irrelevant branches differ,PASS,finite executable
+CE03,deterministic but low recall,target unreachable,PASS,finite
+CE04,consensus drops rare bridge,p=.1; theta=.5,PASS,algebraic
+CE05,critical top1 path; topk unstable,second target path removed,PASS,finite
+CE06,recall stable; NDC changes,six decoys,PASS,finite
+CE07,same mean; p95 differs,"[1x95,101x5] vs [6x100]",PASS,numeric
+CE08,canonical order update sensitive,early bridge changes descendants,PASS,finite construction
+CE09,local similarity; entry path differs,entry component changed,PASS,finite
+CE10,ties destroy trace certificate,equal priorities,PASS,finite
+CE11,nonmonotone recall,"0,1,0,1",PASS,numeric
+CE12,endpoint infeasible false stability,grid overflow,PASS,numeric
+CE13,fixed target not open world,risk 0 vs 1,PASS,finite
+CE14,mean gain not p95 gain,mean 5; p96 100,PASS,numeric
+CE15,margin eaten by shift,.02-.03<0,PASS,numeric
+CE16,no finite break-even,net gain<=0,PASS,algebraic

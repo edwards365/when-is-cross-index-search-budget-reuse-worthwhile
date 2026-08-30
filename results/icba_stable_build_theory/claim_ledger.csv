@@ -1,0 +1,13 @@
+claim_id,claim,status,basis,qualification
+C01,build environment changes query-budget response,SAFE_TO_CLAIM,Elliott; ANNiE; frozen premise,do not say first
+C02,determinism differs from budget stability,SAFE_TO_CLAIM,T-SC1; CE03/CE08,canonical is baseline
+C03,budget-response stability differs from edge overlap,SAFE_TO_CLAIM,CE01/CE02,general nonimplication
+C04,critical structure controls migration,SAFE_WITH_NARROW_SCOPE,T-SC5/T-SC10,restricted trace model only
+C05,stable build lowers certification burden,SAFE_WITH_NARROW_SCOPE,T-SC4,requires validated eta and positive gamma_eff
+C06,Stabilize-then-Certify template,SAFE_WITH_NARROW_SCOPE,algorithm audit,not validated algorithm
+C07,finite build/service break-even condition,SAFE_TO_CLAIM,T-SC8 identity,mean only
+C08,first stable Graph-ANNS method,DO_NOT_CLAIM,FreshDiskANN/deterministic/pruning priors,no direct comparison supports first
+C09,edge overlap controls budget,DO_NOT_CLAIM,CE01,false generally
+C10,no target evidence needed,DO_NOT_CLAIM,fixed-target certificate required,open-world unresolved
+C11,new generic concentration/sample complexity,DO_NOT_CLAIM,LTT/RCPS/CRC/Hoeffding,classical
+C12,NeurIPS general theory closed,DO_NOT_CLAIM,restricted assumptions,database-first
