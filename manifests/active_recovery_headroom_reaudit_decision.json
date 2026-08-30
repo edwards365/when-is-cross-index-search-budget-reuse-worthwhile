@@ -1,0 +1,14 @@
+{
+  "label": "CORRECTED_HEADROOM_CONFIRMED_NO_DEPLOYABLE_SIGNAL",
+  "scope": "FIXED_TARGET_DESIGN_ONLY",
+  "evidence": "EXPLORATORY_HEADROOM_REAUDIT",
+  "parent": "5f4d04f6e836059c98024b01f4929bcd406cdcc1",
+  "legacy_checksum_limit": "111/123",
+  "gate_h": "H-Strong",
+  "active_sentinel_executed": true,
+  "deployable_early_signal": "NO_DEPLOYABLE_EARLY_SIGNAL",
+  "truth_cost": "SEARCH_COST_POSITIVE_TRUTH_COST_UNKNOWN",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "new_graphs": false
+}

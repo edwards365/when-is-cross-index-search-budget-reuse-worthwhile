@@ -1,0 +1,7 @@
+claim,status,scope
+T-PR1,CLASSICAL_APPLICATION,Alpha controls false certification; beta controls failure to identify.
+T-PR2,RESTRICTED_PROPOSITION,Finite-J fixed-target margin bound with explicit constants; not outer-build.
+T-PR3,CLASSICAL_APPLICATION,Bernoulli KL lower bound; only gamma-rate partial match.
+T-PR4,CONJECTURE,No deployable early signal was found; adaptive advantage not proved.
+T-PR5,RESTRICTED_PROPOSITION,59-build zero-event heuristic requires ideal independent builds.
+T-PR6,PROOF_SKETCH,Symbolic break-even only; truth cost unavailable.
