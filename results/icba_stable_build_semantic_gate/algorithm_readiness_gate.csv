@@ -1,0 +1,18 @@
+item_id,component,status,frozen_definition,constraint
+A01,critical edge,FROZEN,first successful insertion parent before first safe checkpoint,labeled design only
+A02,path impact,FROZEN,weighted design/shadow frequency,pre-register weights
+A03,frontier margin,FROZEN,gap to closest noncertificate competitor; tie zero,total key required
+A04,intruder risk,FROZEN,shadow frequency or upper bound of prior pops,not ef delta
+A05,backup edge,FROZEN,observed in r_min shadows and replay-admissible,trace dependent
+A06,edge weight,FROZEN,lambda_c c + lambda_p p + lambda_b b + lambda_m clip(m) - lambda_i i,coefficients design-only
+A07,shadow aggregation,FROZEN,mean plus preregistered lower confidence bound,no evaluation tuning
+A08,degree overflow,FROZEN,mandatory first then diversity prune; invalid if mandatory>cap,rollback
+A09,connectivity,FROZEN,entry directed reachability plus weak connectivity,rollback on failure
+A10,layer scope,FROZEN,layer 0 only,upper layers unchanged
+A11,entry point,FROZEN,unchanged,manifested
+A12,operation order,FROZEN,post-build repair then reverse-prune audit then serialization,verify protected survival
+A13,complexity,BOUNDED_SPEC,linear trace aggregation plus local sort/prune,graph reachability extra
+A14,memory,BOUNDED_SPEC,per-edge aggregates under byte cap,full trace exported then discarded
+A15,serialization,FROZEN,native index plus sidecar manifest and SHA256,versioned schema
+A16,invalid certificate fallback,FROZEN,unmodified build or declared consensus route,no inferred safety
+A17,labeled vs unlabeled,FROZEN,unlabeled is trace-stability heuristic only,no safety-critical wording
