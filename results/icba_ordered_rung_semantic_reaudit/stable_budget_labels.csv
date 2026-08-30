@@ -1,0 +1,3 @@
+dataset,status,reason
+sift_100k,NOT_ESTIMABLE,No stable endpoint budget labels in frozen query records
+arxiv_nomic_100k,NOT_ESTIMABLE,No stable endpoint budget labels in frozen query records

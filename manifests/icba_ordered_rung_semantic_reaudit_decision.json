@@ -1,0 +1,16 @@
+{
+  "decision": "EXISTING_STAGE_FAMILY_NOT_ORDERED_BUT_THEORY_UNREFUTED",
+  "frozen_input": "83c7171f04b622088e39dc3fd9ea850437ae5fdc",
+  "prior_decision": "MIXED_CERTIFICATION_AND_FALLBACK_BOTTLENECK",
+  "evidence_level": "FIXED_TARGET_EXPLORATORY_DESIGN",
+  "deployable_base_policy": "DEPLOYABLE_BASE_POLICY_MISSING",
+  "actual_budget_action": "NOT_ESTIMABLE",
+  "stable_event_nesting": "NOT_ESTIMABLE",
+  "ordered_stage_family": "FAILED_BUT_GENERAL_THEORY_UNREFUTED",
+  "method_implementation_authorized": false,
+  "stable_by_construction_pivot": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "gloVe_accessed": false,
+  "legacy": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123"
+}

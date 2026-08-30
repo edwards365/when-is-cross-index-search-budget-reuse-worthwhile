@@ -1,0 +1,7 @@
+dataset,gate,pass,reason
+sift_100k,A_semantic_budget,False,DEPLOYABLE_BASE_POLICY_MISSING
+sift_100k,B_certificate,False,"unsafe acceptance diagnostic is nonzero/inconclusive, not automatic invalidation"
+sift_100k,C_deployable_value,False,No deployable intermediate fallback and p95 frontier fails
+arxiv_nomic_100k,A_semantic_budget,False,DEPLOYABLE_BASE_POLICY_MISSING
+arxiv_nomic_100k,B_certificate,False,"unsafe acceptance diagnostic is nonzero/inconclusive, not automatic invalidation"
+arxiv_nomic_100k,C_deployable_value,False,No deployable intermediate fallback and p95 frontier fails

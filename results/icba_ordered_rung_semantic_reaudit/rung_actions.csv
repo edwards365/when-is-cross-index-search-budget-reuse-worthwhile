@@ -1,0 +1,9 @@
+dataset,rung_id,base_budget,rung_budget,next_rung_budget,budget_monotone,evidence_level,reason
+arxiv_nomic_100k,0,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING
+arxiv_nomic_100k,1,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING
+arxiv_nomic_100k,2,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING
+arxiv_nomic_100k,3,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING
+sift_100k,0,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING
+sift_100k,1,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING
+sift_100k,2,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING
+sift_100k,3,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET,Frozen records contain stage/NDC but no actual per-query budget action; DEPLOYABLE_BASE_POLICY_MISSING

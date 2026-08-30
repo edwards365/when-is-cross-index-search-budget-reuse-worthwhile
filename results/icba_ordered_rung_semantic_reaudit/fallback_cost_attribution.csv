@@ -1,0 +1,5 @@
+dataset,component,contribution
+sift_100k,safe_but_rejected,see rejection_quadrants_corrected.csv
+sift_100k,fallback,see fallback_frontier.csv
+arxiv_nomic_100k,safe_but_rejected,see rejection_quadrants_corrected.csv
+arxiv_nomic_100k,fallback,see fallback_frontier.csv

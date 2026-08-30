@@ -1,0 +1,3 @@
+dataset,stable_event_nesting,raw_event_nesting,endpoint_violation_rate,evidence_level
+sift_100k,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET
+arxiv_nomic_100k,NOT_ESTIMABLE,NOT_ESTIMABLE,NOT_ESTIMABLE,EXPLORATORY_FIXED_TARGET
