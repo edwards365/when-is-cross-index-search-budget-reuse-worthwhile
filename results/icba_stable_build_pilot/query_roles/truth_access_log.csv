@@ -1,5 +1,5 @@
-role,truth_access_permitted,truth_accessed_at_freeze,purpose
-design,1,0,repair design traces
-bridge_calibration,1,0,dual-endpoint empirical bridge calibration
+role,truth_access_permitted,truth_accessed,purpose
+design,1,1,repair design traces and first-safe checkpoints
+bridge_calibration,1,1,dual-endpoint empirical bridge calibration
 certification_reserved,0,0,sealed until authorized certification
 evaluation_reserved,0,0,sealed until authorized evaluation

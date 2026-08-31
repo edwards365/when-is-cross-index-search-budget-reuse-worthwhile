@@ -1,0 +1,64 @@
+{
+  "artifacts": {
+    "bridge_calibration_queries.f32bin": {
+      "bytes": 128016,
+      "sha256": "b9c053572bd1f300a789354ea3964606e164c5c1fee5917c2b7aa28417ee6625"
+    },
+    "bridge_calibration_smoke100_queries.f32bin": {
+      "bytes": 51216,
+      "sha256": "e4dfda5c6e6da76a41f7c7fe37b371c6ab4b6f45db281685015cc9ae8edd1787"
+    },
+    "bridge_calibration_smoke100_truth.u32bin": {
+      "bytes": 4016,
+      "sha256": "bd4e27b98cd07f274ee5d9286a421e87a63090b830b71408f058f601d1c20065"
+    },
+    "bridge_calibration_truth.u32bin": {
+      "bytes": 10016,
+      "sha256": "150d1ec778ee71c8eca604415adbba8cdc2091db8e9c3bd8d4dad9a17bbe4671"
+    },
+    "design_queries.f32bin": {
+      "bytes": 128016,
+      "sha256": "22646f49803ba45bd299f30e264ce8f45c96416880db1ab060e7a0f7eb752da9"
+    },
+    "design_smoke100_queries.f32bin": {
+      "bytes": 51216,
+      "sha256": "0f8c3a88ca2b7a21cfec53364259df3120926e68267ca873d88aa42e585b1ced"
+    },
+    "design_smoke100_truth.u32bin": {
+      "bytes": 4016,
+      "sha256": "aed2066f7dd146b2c0366505a862d548d9ae0c981db741cbb81ce11aa75d8912"
+    },
+    "design_truth.u32bin": {
+      "bytes": 10016,
+      "sha256": "fc42a74870514fc9b096d1d64ce4efaf8126f8111f29bfab0571dc15b1be7b78"
+    },
+    "input_manifest.json": {
+      "bytes": 2073,
+      "sha256": "b95c6c90d5e0f074160c5bc48ac0b23d6884225e511055508c38a43dacd55cda"
+    },
+    "order.u32bin": {
+      "bytes": 400008,
+      "sha256": "0435905f82755084619fdd5ad8b65f313aff1efacdabc09eceedcfc8f284660d"
+    },
+    "points.f32bin": {
+      "bytes": 51200016,
+      "sha256": "73715f9243728946d121cebe72860122ee1d7f67cabcc658cbae2ae6ae094df6"
+    }
+  },
+  "created_utc": "2026-08-31T03:13:39.109838+00:00",
+  "dimensions": 128,
+  "insertion_order": "natural_external_label_0_to_99999",
+  "points": 100000,
+  "raw_hdf5": "/home/wlk/projects/navigation-aware-resistance-hnsw/data/raw/sift-128-euclidean.hdf5",
+  "raw_hdf5_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+  "roles_accessed": [
+    "design",
+    "bridge_calibration"
+  ],
+  "roles_sealed": [
+    "certification_reserved",
+    "evaluation_reserved"
+  ],
+  "schema_version": 1,
+  "status": "PREPARED_FROM_FROZEN_INPUTS"
+}
