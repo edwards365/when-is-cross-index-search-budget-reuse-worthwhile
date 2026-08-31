@@ -1,0 +1,12 @@
+{
+  "attempt": 1,
+  "evaluation_accessed": false,
+  "future_confirm_accessed": false,
+  "head": "48fb36560f613e4a909434907ca2a32b1d1373f4",
+  "last_complete_event": "arxiv_nomic_100k sentinel truth acquisition",
+  "observed_failure_mode": "external signal-style termination without Python exception or failure event",
+  "preservation": "all complete and partial raw files retained unchanged in this directory",
+  "raw_action_outcomes_used_for_recovery_decisions": false,
+  "recovery": "repeat the unchanged committed protocol in a new detached process session",
+  "status": "INTERRUPTED_SENTINEL_ATTEMPT_RETAINED"
+}

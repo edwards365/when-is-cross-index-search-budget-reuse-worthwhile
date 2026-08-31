@@ -1,0 +1,7 @@
+status=PASS
+queries=256
+ef_count=12
+rows=3072
+endpoint_failures=0
+native_tracer_topk_all_successes_equal=1
+native_tracer_ndc_all_successes_equal=1
