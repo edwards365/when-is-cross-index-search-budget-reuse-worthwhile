@@ -247,6 +247,7 @@ int main(int argc, char** argv) {
         std::ofstream query_file(*output / "query_points.csv");
         std::ofstream summary_file(*output / "query_trace_summary.csv");
         std::ofstream trace_file(*output / "query_trace_events.csv");
+        std::ofstream contract_file(*output / "query_trace_contract24.csv");
         query_file.precision(std::numeric_limits<float>::max_digits10);
         query_file << "query_id,source_id";
         for (std::size_t dimension = 0; dimension < dimensions; ++dimension)
@@ -257,6 +258,13 @@ int main(int argc, char** argv) {
         trace_file << "query_id,ef,event_index,phase,layer,source,target,distance_to_query,"
                       "lower_bound_before,result_size_before,event\n";
         trace_file.precision(std::numeric_limits<float>::max_digits10);
+        contract_file << "query_id,build_id,source_target_id,requested_ef,actual_expansions,"
+                         "actual_ndc,wall_clock_ns,upper_layer_path,base_layer_expansion_order,"
+                         "candidate_queue_insertion_order,introduction_parent_edge,"
+                         "composite_priority_key,top_candidate_heap_state,lower_bound_change,"
+                         "visited_state,first_safe_discovery,endpoint_status,checkpoint_top_k,"
+                         "checkpoint_candidate_set,backup_path,edge_layer,tie_event,"
+                         "filter_deletion_state,search_stop_reason\n";
         for (std::size_t query_id = 0; query_id < traced_queries; ++query_id) {
             const std::size_t source_id = (query_id * 13) % n;
             Point query = base[source_id];
@@ -270,6 +278,9 @@ int main(int argc, char** argv) {
                 auto traced = narhnsw::HnswQueryTracer<float>::search(index, query.data(), k, ef,
                                                                       query_id);
                 const long traced_ndc = space.count();
+                traced.contract.actual_ndc = static_cast<std::size_t>(traced_ndc);
+                traced.contract.build_id = "synthetic_seed7";
+                traced.contract.source_target_id = std::to_string(source_id);
                 const auto observed = labels_from_heap(traced.results);
                 index.setEf(ef);
                 space.reset();
@@ -305,6 +316,23 @@ int main(int argc, char** argv) {
                                << ',' << event.target << ',' << event.distance_to_query << ','
                                << event.lower_bound_before << ',' << event.result_size_before << ','
                                << event.event << '\n';
+                const auto& c = traced.contract;
+                contract_file << c.query_id << ",\"" << c.build_id << "\",\""
+                              << c.source_target_id << "\"," << c.requested_ef << ','
+                              << c.actual_expansions << ',' << c.actual_ndc << ','
+                              << c.wall_clock_ns << ",\"" << c.upper_layer_path << "\",\""
+                              << c.base_layer_expansion_order << "\",\""
+                              << c.candidate_queue_insertion_order << "\",\""
+                              << c.introduction_parent_edge << "\",\""
+                              << c.composite_priority_key << "\",\""
+                              << c.top_candidate_heap_state << "\",\""
+                              << c.lower_bound_change << "\",\"" << c.visited_state
+                              << "\",\"" << c.first_safe_discovery << "\",\""
+                              << c.endpoint_status << "\",\"" << c.checkpoint_top_k
+                              << "\",\"" << c.checkpoint_candidate_set << "\",\""
+                              << c.backup_path << "\",\"" << c.edge_layer << "\",\""
+                              << c.tie_event << "\",\"" << c.filter_deletion_state
+                              << "\",\"" << c.search_stop_reason << "\"\n";
             }
         }
 

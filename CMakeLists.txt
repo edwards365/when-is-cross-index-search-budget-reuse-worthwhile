@@ -19,6 +19,9 @@ target_link_libraries(narhnsw_smoke PRIVATE narhnsw_core)
 add_executable(hnsw_instrumented_smoke cpp/src/hnsw_instrumented_smoke.cpp)
 target_include_directories(hnsw_instrumented_smoke PRIVATE cpp/include third_party/hnswlib)
 
+add_executable(hnsw_sift_trace_equivalence cpp/src/hnsw_sift_trace_equivalence.cpp)
+target_include_directories(hnsw_sift_trace_equivalence PRIVATE cpp/include third_party/hnswlib)
+
 add_executable(hnsw_apply_selection_plan cpp/src/hnsw_apply_selection_plan.cpp)
 target_include_directories(hnsw_apply_selection_plan PRIVATE cpp/include third_party/hnswlib)
 
