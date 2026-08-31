@@ -1,0 +1,17 @@
+left_role,right_role,overlap_count
+design,design,250
+design,bridge_calibration,0
+design,certification_reserved,0
+design,evaluation_reserved,0
+bridge_calibration,design,0
+bridge_calibration,bridge_calibration,250
+bridge_calibration,certification_reserved,0
+bridge_calibration,evaluation_reserved,0
+certification_reserved,design,0
+certification_reserved,bridge_calibration,0
+certification_reserved,certification_reserved,250
+certification_reserved,evaluation_reserved,0
+evaluation_reserved,design,0
+evaluation_reserved,bridge_calibration,0
+evaluation_reserved,certification_reserved,0
+evaluation_reserved,evaluation_reserved,250
