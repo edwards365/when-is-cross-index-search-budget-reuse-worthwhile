@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "PASS_PRE_TRUTH_INSTRUMENTATION_VERIFICATION",
+  "scope": "OUTCOME_FREE_SYNTHETIC_ONLY_NOT_CIBS_POSITIVE_EVIDENCE",
+  "verification_time": "2026-09-01T06:35:00+08:00",
+  "parent_head": "c83d82a77672910b394c842774176640b243aef7",
+  "truth_firewall": {
+    "sentinel_truth_accessed": false,
+    "sentinel_action_outcomes_accessed": false,
+    "evaluation_accessed": false,
+    "future_confirm_accessed": false,
+    "historical_outcomes_used": false
+  },
+  "instrumentation": {
+    "runner_path": "cpp/src/icba_cibs_stage1_runner.cpp",
+    "runner_source_sha256": "e10b47b40548163fe50a804b16d556adb94d2d6995e105bdd2845173cd208889",
+    "orchestrator_path": "scripts/icba_cibs_stage1/run_build_and_fallback_gates.py",
+    "orchestrator_sha256": "88b70cd33e4e3213234d44950241290232f2bd0b5dd6fbf75a971557368d0803",
+    "hnswalg_sha256": "0fb2c1b1d3aae1ea959b536f96844f3f3ae6a2f32ce063f2c31f93d84a7e5c32",
+    "compiler": "g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0",
+    "compiler_binary_sha256": "0c0b987719385f8e242819dfef6a3e97b4b2540ce4035dbc11565df2966bd69e",
+    "flags": [
+      "-std=c++17",
+      "-O3",
+      "-DNDEBUG",
+      "-DNO_MANUAL_VECTORIZATION",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic"
+    ],
+    "compiled_binary_sha256": "f53da03fb1e4c5623a0b437709306e3783c4f61565e82d905a326535809136ed"
+  },
+  "synthetic_case": {
+    "generator": "numpy.random.Generator(PCG64)",
+    "base_seed": 991,
+    "order_seed": 2026083101,
+    "rows": 100000,
+    "dimensions": 4,
+    "design_queries": 32,
+    "build_id": "SYNTHETIC_G1",
+    "hnsw_seed": 1009,
+    "M": 16,
+    "efConstruction": 100,
+    "base_sha256": "f80397589031d4a39ca8463b9bf338a19c5696ece611db44f190b528dbe6e06e",
+    "queries_sha256": "fb8c1660f144525032b93186f8f0e03941e325e1aac3e0b7f3d709b59d375ee8",
+    "order_sha256": "51f32041e42d494eed35bb7a40a0d9d9507d333bc6417c875bf89e3f3a59d7a2",
+    "index_sha256": "14b4b7c71e7edd06a017cdc146e47d5b7d302cf46dc0bcd333cb4858df36bd20",
+    "roundtrip_index_sha256": "14b4b7c71e7edd06a017cdc146e47d5b7d302cf46dc0bcd333cb4858df36bd20",
+    "connectivity_sha256": "4dbc0a8f5e1fc5dc216e5a69a20fa04ecfa7116b5b2c1c2db9402c40ae8323e4",
+    "directed_reachable_count": 100000,
+    "num_deleted": 0,
+    "raw_ef_grid": [10, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512],
+    "raw_equivalence_rows": 384,
+    "raw_equivalence_sha256": "d4945aafcf8dc1e2c02d526d7ffd98d502c50c4d5621c1e8be62a7e5e7b7bd6a",
+    "fallback_ef": 100000,
+    "fallback_design_rows": 32,
+    "fallback_design_sha256": "88b93f5571d4d1a247cd269b4dbb3126559004f50b77176cd803aebb290580ef",
+    "native_tracer_top10": "PASS_ALL_416_ROWS",
+    "native_tracer_exact_ndc": "PASS_ALL_416_ROWS",
+    "native_bruteforce_exact_top10": "PASS_ALL_32_FALLBACK_ROWS",
+    "full_layer0_expansion": "PASS_100000_OF_100000_ALL_32_FALLBACK_ROWS",
+    "save_load_replay": "PASS_BYTE_IDENTICAL_AND_QUERY_IDENTICAL"
+  },
+  "static_tests": "PASS_11_OF_11",
+  "resource_gate_before_synthetic_build": {
+    "free_bytes": 13550059520,
+    "required_bytes": 8734174792,
+    "status": "PASS"
+  },
+  "positive_cibs_evidence": false
+}

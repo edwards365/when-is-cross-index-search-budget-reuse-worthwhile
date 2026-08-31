@@ -10,6 +10,7 @@
 #include <iostream>
 #include <queue>
 #include <set>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <sys/resource.h>
@@ -172,73 +173,6 @@ Inspection inspect(const Index& index) {
 
 using Result = std::vector<std::pair<float, hnswlib::labeltype>>;
 
-struct LeanTrace {
-  std::priority_queue<std::pair<float, hnswlib::labeltype>> results;
-  std::size_t base_expansions{};
-};
-
-LeanTrace lean_trace(const Index& index, const void* query, std::size_t k, std::size_t ef) {
-  using InternalQueue = std::priority_queue<
-      std::pair<float, hnswlib::tableint>,
-      std::vector<std::pair<float, hnswlib::tableint>>,
-      Index::CompareByFirst>;
-  LeanTrace trace;
-  hnswlib::tableint current = index.enterpoint_node_;
-  float current_distance =
-      index.fstdistfunc_(query, index.getDataByInternalId(current), index.dist_func_param_);
-  for (int layer = index.maxlevel_; layer > 0; --layer) {
-    bool changed = true;
-    while (changed) {
-      changed = false;
-      for (const auto candidate : neighbors(index, current, layer)) {
-        const float distance = index.fstdistfunc_(
-            query, index.getDataByInternalId(candidate), index.dist_func_param_);
-        if (distance < current_distance) {
-          current_distance = distance;
-          current = candidate;
-          changed = true;
-        }
-      }
-    }
-  }
-  InternalQueue top_candidates;
-  InternalQueue candidate_set;
-  const float entry_distance =
-      index.fstdistfunc_(query, index.getDataByInternalId(current), index.dist_func_param_);
-  float lower_bound = entry_distance;
-  top_candidates.emplace(entry_distance, current);
-  candidate_set.emplace(-entry_distance, current);
-  std::vector<char> visited(index.cur_element_count.load(), 0);
-  visited[current] = 1;
-  const auto search_ef = std::max(ef, k);
-  while (!candidate_set.empty()) {
-    const auto current_pair = candidate_set.top();
-    const float candidate_distance = -current_pair.first;
-    if (candidate_distance > lower_bound) break;
-    candidate_set.pop();
-    ++trace.base_expansions;
-    for (const auto candidate : neighbors(index, current_pair.second)) {
-      if (visited[candidate]) continue;
-      visited[candidate] = 1;
-      const float distance = index.fstdistfunc_(
-          query, index.getDataByInternalId(candidate), index.dist_func_param_);
-      if (top_candidates.size() < search_ef || lower_bound > distance) {
-        candidate_set.emplace(-distance, candidate);
-        top_candidates.emplace(distance, candidate);
-        if (top_candidates.size() > search_ef) top_candidates.pop();
-        if (!top_candidates.empty()) lower_bound = top_candidates.top().first;
-      }
-    }
-  }
-  while (top_candidates.size() > k) top_candidates.pop();
-  while (!top_candidates.empty()) {
-    const auto value = top_candidates.top();
-    trace.results.emplace(value.first, index.getExternalLabel(value.second));
-    top_candidates.pop();
-  }
-  return trace;
-}
-
 Result canonical(
     std::priority_queue<std::pair<float, hnswlib::labeltype>> queue) {
   Result result;
@@ -269,6 +203,91 @@ std::string labels_string(const Result& result) {
     text += std::to_string(result[index].second);
   }
   return text;
+}
+
+struct LeanTrace {
+  std::priority_queue<std::pair<float, hnswlib::labeltype>> results;
+  std::size_t base_expansions{};
+  std::size_t visited_count{};
+};
+
+using InternalQueue =
+    std::priority_queue<std::pair<float, hnswlib::tableint>,
+                        std::vector<std::pair<float, hnswlib::tableint>>,
+                        Index::CompareByFirst>;
+
+float query_distance(const Index& index, const void* query, hnswlib::tableint node) {
+  return index.fstdistfunc_(query, index.getDataByInternalId(node), index.dist_func_param_);
+}
+
+LeanTrace lean_search(const Index& index, const void* query, std::size_t k, std::size_t ef) {
+  if (index.cur_element_count.load() == 0) return {};
+  auto current = index.enterpoint_node_;
+  float current_distance = query_distance(index, query, current);
+  for (int layer = index.maxlevel_; layer > 0; --layer) {
+    bool changed = true;
+    while (changed) {
+      changed = false;
+      for (const auto candidate : neighbors(index, current, layer)) {
+        const float candidate_distance = query_distance(index, query, candidate);
+        if (candidate_distance < current_distance) {
+          current_distance = candidate_distance;
+          current = candidate;
+          changed = true;
+        }
+      }
+    }
+  }
+
+  const std::size_t search_ef = std::max(ef, k);
+  InternalQueue top_candidates;
+  InternalQueue candidate_set;
+  const float entry_distance = query_distance(index, query, current);
+  float lower_bound = entry_distance;
+  top_candidates.emplace(entry_distance, current);
+  candidate_set.emplace(-entry_distance, current);
+  std::vector<std::uint8_t> visited(index.cur_element_count.load(), 0);
+  visited[current] = 1;
+  std::size_t visited_count = 1;
+  std::size_t expansions = 0;
+  while (!candidate_set.empty()) {
+    const auto current_pair = candidate_set.top();
+    const float candidate_distance = -current_pair.first;
+    if (candidate_distance > lower_bound) break;
+    candidate_set.pop();
+    ++expansions;
+    for (const auto neighbor : neighbors(index, current_pair.second)) {
+      if (visited[neighbor]) continue;
+      visited[neighbor] = 1;
+      ++visited_count;
+      const float neighbor_distance = query_distance(index, query, neighbor);
+      if (top_candidates.size() < search_ef || lower_bound > neighbor_distance) {
+        candidate_set.emplace(-neighbor_distance, neighbor);
+        top_candidates.emplace(neighbor_distance, neighbor);
+        if (top_candidates.size() > search_ef) top_candidates.pop();
+        if (!top_candidates.empty()) lower_bound = top_candidates.top().first;
+      }
+    }
+  }
+  while (top_candidates.size() > k) top_candidates.pop();
+  LeanTrace trace;
+  trace.base_expansions = expansions;
+  trace.visited_count = visited_count;
+  while (!top_candidates.empty()) {
+    const auto result = top_candidates.top();
+    trace.results.emplace(result.first, index.getExternalLabel(result.second));
+    top_candidates.pop();
+  }
+  return trace;
+}
+
+std::vector<std::size_t> parse_efs(const std::string& raw) {
+  std::vector<std::size_t> values;
+  std::stringstream stream(raw);
+  std::string token;
+  while (std::getline(stream, token, ',')) values.push_back(std::stoull(token));
+  if (values.empty()) throw std::runtime_error("empty ef grid");
+  return values;
 }
 
 int command_build(int argc, char** argv) {
@@ -375,11 +394,16 @@ int command_design(int argc, char** argv) {
     throw std::runtime_error("design input shape or ef mismatch");
   CountingL2Space space(dimensions);
   Index index(&space, argv[2], false);
+  CountingL2Space replay_space(dimensions);
+  Index replay(&replay_space, argv[2], false);
   index.setEf(ef);
+  replay.setEf(ef);
   std::ofstream csv(argv[7]);
-  csv << "query_row,requested_ef,native_ndc,tracer_ndc,actual_expansions,wall_clock_ns,"
+  csv << "query_row,requested_ef,native_ndc,tracer_ndc,replay_ndc,actual_expansions,"
+         "visited_count,wall_clock_ns,"
          "native_tracer_topk_equal,native_tracer_ndc_equal,native_bruteforce_exact_topk,"
-         "boundary_distance_tie,native_labels,tracer_labels,bruteforce_labels\n";
+         "replay_topk_equal,replay_ndc_equal,boundary_distance_tie,native_labels,"
+         "tracer_labels,bruteforce_labels,replay_labels\n";
   bool all_pass = true;
   for (std::size_t query_row = 0; query_row < queries.rows; ++query_row) {
     const float* query = queries.values.data() + query_row * dimensions;
@@ -392,7 +416,7 @@ int command_design(int argc, char** argv) {
     const auto native_ndc = space.count();
     const auto native = canonical(native_queue);
     space.reset();
-    const auto traced_raw = lean_trace(index, query, 10, ef);
+    const auto traced_raw = lean_search(index, query, 10, ef);
     const auto tracer_ndc = space.count();
     const auto traced = canonical(traced_raw.results);
     space.reset();
@@ -412,12 +436,21 @@ int command_design(int argc, char** argv) {
     const bool topk_equal = exact_equal(native, traced);
     const bool ndc_equal = native_ndc == tracer_ndc;
     const bool exact_topk = exact_equal(native, brute);
+    replay_space.reset();
+    const auto replay_result = canonical(replay.searchKnn(query, 10));
+    const auto replay_ndc = replay_space.count();
+    const bool replay_topk_equal = exact_equal(native, replay_result);
+    const bool replay_ndc_equal = native_ndc == replay_ndc;
     const bool expansions_full = traced_raw.base_expansions == base.rows;
-    all_pass = all_pass && topk_equal && ndc_equal && exact_topk && !boundary_tie && expansions_full;
+    const bool visited_full = traced_raw.visited_count == base.rows;
+    all_pass = all_pass && topk_equal && ndc_equal && exact_topk && replay_topk_equal &&
+               replay_ndc_equal && expansions_full && visited_full;
     csv << query_row << ',' << ef << ',' << native_ndc << ',' << tracer_ndc << ','
-        << traced_raw.base_expansions << ',' << wall << ',' << topk_equal << ',' << ndc_equal
-        << ',' << exact_topk << ',' << boundary_tie << ',' << labels_string(native) << ','
-        << labels_string(traced) << ',' << labels_string(brute) << '\n';
+        << replay_ndc << ',' << traced_raw.base_expansions << ',' << traced_raw.visited_count
+        << ',' << wall << ',' << topk_equal << ',' << ndc_equal << ',' << exact_topk << ','
+        << replay_topk_equal << ',' << replay_ndc_equal << ',' << boundary_tie << ','
+        << labels_string(native) << ',' << labels_string(traced) << ','
+        << labels_string(brute) << ',' << labels_string(replay_result) << '\n';
   }
   std::ofstream meta(argv[8]);
   write_key(meta, "status", all_pass ? "PASS" : "FAIL");
@@ -426,7 +459,52 @@ int command_design(int argc, char** argv) {
   write_key(meta, "native_tracer_topk_all_equal", all_pass);
   write_key(meta, "native_tracer_ndc_all_equal", all_pass);
   write_key(meta, "native_bruteforce_exact_top10_all_equal", all_pass);
+  write_key(meta, "native_save_load_replay_all_equal", all_pass);
   write_key(meta, "full_expansion_all_queries", all_pass);
+  return all_pass ? 0 : 1;
+}
+
+int command_equivalence(int argc, char** argv) {
+  if (argc != 8)
+    throw std::runtime_error("usage: runner equivalence INDEX QUERIES DIM EFS CSV META");
+  const auto queries = read_matrix(argv[3]);
+  const auto dimensions = static_cast<std::size_t>(std::stoull(argv[4]));
+  const auto efs = parse_efs(argv[5]);
+  if (queries.columns != dimensions) throw std::runtime_error("equivalence shape mismatch");
+  CountingL2Space space(dimensions);
+  Index index(&space, argv[2], false);
+  std::ofstream csv(argv[6]);
+  csv << "query_row,requested_ef,native_ndc,tracer_ndc,actual_expansions,visited_count,"
+         "native_tracer_topk_equal,native_tracer_ndc_equal\n";
+  bool all_pass = true;
+  std::size_t rows = 0;
+  for (std::size_t query_row = 0; query_row < queries.rows; ++query_row) {
+    const float* query = queries.values.data() + query_row * dimensions;
+    for (const auto ef : efs) {
+      index.setEf(ef);
+      space.reset();
+      const auto native = canonical(index.searchKnn(query, 10));
+      const auto native_ndc = space.count();
+      space.reset();
+      const auto traced_raw = lean_search(index, query, 10, ef);
+      const auto tracer_ndc = space.count();
+      const auto traced = canonical(traced_raw.results);
+      const bool topk_equal = exact_equal(native, traced);
+      const bool ndc_equal = native_ndc == tracer_ndc;
+      all_pass = all_pass && topk_equal && ndc_equal;
+      ++rows;
+      csv << query_row << ',' << ef << ',' << native_ndc << ',' << tracer_ndc << ','
+          << traced_raw.base_expansions << ',' << traced_raw.visited_count << ','
+          << topk_equal << ',' << ndc_equal << '\n';
+    }
+  }
+  std::ofstream meta(argv[7]);
+  write_key(meta, "status", all_pass ? "PASS" : "FAIL");
+  write_key(meta, "queries", queries.rows);
+  write_key(meta, "ef_count", efs.size());
+  write_key(meta, "rows", rows);
+  write_key(meta, "native_tracer_topk_all_equal", all_pass);
+  write_key(meta, "native_tracer_ndc_all_equal", all_pass);
   return all_pass ? 0 : 1;
 }
 }  // namespace
@@ -438,6 +516,7 @@ int main(int argc, char** argv) {
     if (command == "build") return command_build(argc, argv);
     if (command == "inspect") return command_inspect(argc, argv);
     if (command == "design") return command_design(argc, argv);
+    if (command == "equivalence") return command_equivalence(argc, argv);
     throw std::runtime_error("unknown command: " + command);
   } catch (const std::exception& error) {
     std::cerr << error.what() << '\n';

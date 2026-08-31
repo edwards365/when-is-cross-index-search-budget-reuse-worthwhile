@@ -30,6 +30,7 @@ DATASETS = {
     "arxiv_nomic_100k": {"dimensions": 768},
 }
 BUILD_SEEDS = {"G1": 1009, "G2": 1013, "G3": 1019}
+RAW_EFS = "10,16,24,32,48,64,96,128,192,256,384,512"
 FLAGS = [
     "-std=c++17",
     "-O3",
@@ -152,10 +153,14 @@ def summarize_design(path: Path) -> dict:
         raise RuntimeError("INVALID_CIBS_NDC_INSTRUMENTATION native/tracer NDC")
     if not all(row["native_bruteforce_exact_topk"] == "1" for row in rows):
         raise RuntimeError("NO_VALID_FIXED_SAFE_FALLBACK exact top-k")
-    if not all(row["boundary_distance_tie"] == "0" for row in rows):
-        raise RuntimeError("NO_VALID_FIXED_SAFE_FALLBACK boundary tie")
     if not all(value == 100000 for value in expansions):
         raise RuntimeError("NO_VALID_FIXED_SAFE_FALLBACK incomplete enumeration")
+    if not all(int(row["visited_count"]) == 100000 for row in rows):
+        raise RuntimeError("NO_VALID_FIXED_SAFE_FALLBACK incomplete visitation")
+    if not all(row["replay_topk_equal"] == "1" for row in rows):
+        raise RuntimeError("NO_VALID_FIXED_SAFE_FALLBACK native replay top-k")
+    if not all(row["replay_ndc_equal"] == "1" for row in rows):
+        raise RuntimeError("NO_VALID_FIXED_SAFE_FALLBACK native replay NDC")
     return {
         "queries": len(rows),
         "requested_ef": 100000,
@@ -171,6 +176,8 @@ def summarize_design(path: Path) -> dict:
         "native_tracer_top10": "PASS_ALL",
         "native_tracer_exact_ndc": "PASS_ALL",
         "native_bruteforce_exact_top10": "PASS_ALL",
+        "native_save_load_replay": "PASS_ALL",
+        "distance_tie_rule": "distance_then_label; ties accepted only when exact outputs agree",
         "endpoint": "native_top10_no_filter",
         "recall_target": 0.9,
         "trigger": "EMPTY_SIMULTANEOUS_CERTIFIED_SET",
@@ -184,6 +191,7 @@ def main() -> None:
     ARTIFACTS.mkdir(parents=True)
     LOG.touch(exist_ok=False)
     event("start", head=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip())
+    instrumentation_head = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
     tests = subprocess.run(
         [
             "/home/wlk/projects/navigation-aware-resistance-hnsw/.venv/bin/python",
@@ -283,12 +291,39 @@ def main() -> None:
                 "implementation": "hnswlib_v0.8.0_3f3429661187e4c24a490a0f148fc6bc89042b3d",
                 "status": "PASS_BUILD_CONNECTIVITY_REPLAY",
             }
+            design_queries = ROOT / runtime_manifest["datasets"][dataset]["queries"]["cibs_design"]["runtime_path"]
+            equivalence_csv = Path(str(prefix) + "__raw_equivalence.csv")
+            equivalence_meta_path = Path(str(prefix) + "__raw_equivalence.meta")
+            run(
+                [
+                    str(runner),
+                    "equivalence",
+                    str(artifact),
+                    str(design_queries),
+                    str(dataset_spec["dimensions"]),
+                    RAW_EFS,
+                    str(equivalence_csv),
+                    str(equivalence_meta_path),
+                ],
+                Path(str(prefix) + "__raw_equivalence.log"),
+            )
+            equivalence_meta = parse_meta(equivalence_meta_path)
+            if equivalence_meta["status"] != "PASS" or equivalence_meta["rows"] != 384:
+                raise RuntimeError(f"INVALID_CIBS_NDC_INSTRUMENTATION: {dataset}/{build_id}")
+            record["raw_action_equivalence"] = {
+                "ef_grid": [10, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512],
+                "design_queries": 32,
+                "rows": equivalence_meta["rows"],
+                "results_path": str(equivalence_csv.relative_to(ROOT)),
+                "results_sha256": sha256(equivalence_csv),
+                "native_tracer_top10": "PASS_ALL",
+                "native_tracer_exact_ndc": "PASS_ALL",
+            }
             records.append(record)
             event("build_pass", dataset=dataset, build_id=build_id, artifact_sha256=artifact_sha)
             if build_id == "G1":
                 design_csv = Path(str(prefix) + "__fallback_design.csv")
                 design_meta = Path(str(prefix) + "__fallback_design.meta")
-                design_queries = ROOT / runtime_manifest["datasets"][dataset]["queries"]["cibs_design"]["runtime_path"]
                 run(
                     [
                         str(runner),
@@ -323,6 +358,7 @@ def main() -> None:
         "schema_version": 1,
         "status": "PASS_BUILD_REALIZATION_BEFORE_SENTINEL",
         "preregistered_head": "1bb9d7c219234f4e5e75b9b963b95715af98e4aa",
+        "instrumentation_head": instrumentation_head,
         "compiler": compiler,
         "resource_checks": resource_checks,
         "runtime_input_manifest": str((RUNTIME / "runtime_input_manifest.json").relative_to(ROOT)),
