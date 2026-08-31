@@ -205,6 +205,55 @@ std::string labels_string(const Result& result) {
   return text;
 }
 
+std::vector<std::string> split_simple_csv(const std::string& line) {
+  std::vector<std::string> fields;
+  std::stringstream stream(line);
+  std::string field;
+  while (std::getline(stream, field, ',')) fields.push_back(field);
+  return fields;
+}
+
+std::vector<hnswlib::labeltype> parse_labels(const std::string& raw) {
+  std::vector<hnswlib::labeltype> labels;
+  std::stringstream stream(raw);
+  std::string token;
+  while (std::getline(stream, token, ';')) {
+    if (!token.empty()) labels.push_back(static_cast<hnswlib::labeltype>(std::stoull(token)));
+  }
+  return labels;
+}
+
+std::vector<std::vector<hnswlib::labeltype>> read_truth_labels(
+    const std::filesystem::path& path) {
+  std::ifstream input(path);
+  if (!input) throw std::runtime_error("cannot open truth CSV: " + path.string());
+  std::string line;
+  if (!std::getline(input, line) ||
+      line != "query_row,truth_acquisition_ndc,truth_acquisition_wall_clock_ns,"
+              "boundary_distance_tie,truth_labels")
+    throw std::runtime_error("unexpected truth CSV header");
+  std::vector<std::vector<hnswlib::labeltype>> truth;
+  while (std::getline(input, line)) {
+    const auto fields = split_simple_csv(line);
+    if (fields.size() != 5 || std::stoull(fields[0]) != truth.size())
+      throw std::runtime_error("invalid truth CSV row");
+    auto labels = parse_labels(fields[4]);
+    if (labels.size() != 10 || std::set<hnswlib::labeltype>(labels.begin(), labels.end()).size() != 10)
+      throw std::runtime_error("truth row is not an exact unique top-10");
+    truth.push_back(std::move(labels));
+  }
+  return truth;
+}
+
+float scalar_l2(const float* left, const float* right, std::size_t dimensions) {
+  float result = 0.0F;
+  for (std::size_t index = 0; index < dimensions; ++index) {
+    const float delta = left[index] - right[index];
+    result += delta * delta;
+  }
+  return result;
+}
+
 struct LeanTrace {
   std::priority_queue<std::pair<float, hnswlib::labeltype>> results;
   std::size_t base_expansions{};
@@ -507,6 +556,137 @@ int command_equivalence(int argc, char** argv) {
   write_key(meta, "native_tracer_ndc_all_equal", all_pass);
   return all_pass ? 0 : 1;
 }
+
+int command_truth(int argc, char** argv) {
+  if (argc != 7)
+    throw std::runtime_error("usage: runner truth BASE QUERIES DIM CSV META");
+  const auto base = read_matrix(argv[2]);
+  const auto queries = read_matrix(argv[3]);
+  const auto dimensions = static_cast<std::size_t>(std::stoull(argv[4]));
+  if (base.rows != 100000 || base.columns != dimensions || queries.columns != dimensions)
+    throw std::runtime_error("truth input shape mismatch");
+  std::ofstream csv(argv[5]);
+  if (!csv) throw std::runtime_error("cannot write truth CSV");
+  csv << "query_row,truth_acquisition_ndc,truth_acquisition_wall_clock_ns,"
+         "boundary_distance_tie,truth_labels\n";
+  std::uint64_t total_wall_ns = 0;
+  std::size_t boundary_ties = 0;
+  for (std::size_t query_row = 0; query_row < queries.rows; ++query_row) {
+    const float* query = queries.values.data() + query_row * dimensions;
+    const auto started = std::chrono::steady_clock::now();
+    Result all;
+    all.reserve(base.rows);
+    for (std::size_t label = 0; label < base.rows; ++label) {
+      all.emplace_back(
+          scalar_l2(query, base.values.data() + label * dimensions, dimensions), label);
+    }
+    std::sort(all.begin(), all.end(), [](const auto& left, const auto& right) {
+      if (left.first != right.first) return left.first < right.first;
+      return left.second < right.second;
+    });
+    const auto wall_ns = static_cast<std::uint64_t>(
+        std::chrono::duration_cast<std::chrono::nanoseconds>(
+            std::chrono::steady_clock::now() - started)
+            .count());
+    total_wall_ns += wall_ns;
+    const bool boundary_tie = all[9].first == all[10].first;
+    boundary_ties += boundary_tie;
+    const Result exact(all.begin(), all.begin() + 10);
+    csv << query_row << ',' << base.rows << ',' << wall_ns << ',' << boundary_tie << ','
+        << labels_string(exact) << '\n';
+  }
+  std::ofstream meta(argv[6]);
+  if (!meta) throw std::runtime_error("cannot write truth metadata");
+  write_key(meta, "status", "PASS");
+  write_key(meta, "queries", queries.rows);
+  write_key(meta, "base_rows", base.rows);
+  write_key(meta, "truth_acquisition_ndc_per_query", base.rows);
+  write_key(meta, "truth_acquisition_total_ndc", base.rows * queries.rows);
+  write_key(meta, "truth_acquisition_total_wall_clock_ns", total_wall_ns);
+  write_key(meta, "boundary_distance_ties", boundary_ties);
+  write_key(meta, "tie_rule", "distance_then_label");
+  return 0;
+}
+
+int command_sentinel(int argc, char** argv) {
+  if (argc != 8)
+    throw std::runtime_error("usage: runner sentinel INDEX QUERIES DIM EFS TRUTH CSV");
+  const auto queries = read_matrix(argv[3]);
+  const auto dimensions = static_cast<std::size_t>(std::stoull(argv[4]));
+  const auto efs = parse_efs(argv[5]);
+  const auto truth = read_truth_labels(argv[6]);
+  if (queries.columns != dimensions || truth.size() != queries.rows)
+    throw std::runtime_error("sentinel input shape or truth-count mismatch");
+  CountingL2Space space(dimensions);
+  Index index(&space, argv[2], false);
+  if (index.cur_element_count.load() != 100000 || index.num_deleted_.load() != 0)
+    throw std::runtime_error("sentinel index count/deletion gate failed");
+  std::ofstream csv(argv[7]);
+  if (!csv) throw std::runtime_error("cannot write sentinel CSV");
+  auto meta_path = std::filesystem::path(argv[7]);
+  meta_path.replace_extension(".meta");
+  csv << "query_row,requested_ef,raw_recall_at_10,Z_abs,native_ndc,tracer_ndc,"
+         "actual_expansions,visited_count,wall_clock_ns,endpoint_status,"
+         "native_tracer_topk_equal,native_tracer_ndc_equal,native_labels\n";
+  bool instrumentation_valid = true;
+  std::size_t endpoint_failures = 0;
+  std::size_t rows = 0;
+  for (std::size_t query_row = 0; query_row < queries.rows; ++query_row) {
+    const float* query = queries.values.data() + query_row * dimensions;
+    const std::set<hnswlib::labeltype> exact(truth[query_row].begin(), truth[query_row].end());
+    for (const auto ef : efs) {
+      ++rows;
+      const auto action_started = std::chrono::steady_clock::now();
+      std::uint64_t charged_ndc = 0;
+      try {
+        index.setEf(ef);
+        space.reset();
+        const auto native = canonical(index.searchKnn(query, 10));
+        const auto wall_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
+                                 std::chrono::steady_clock::now() - action_started)
+                                 .count();
+        const auto native_ndc = space.count();
+        charged_ndc = native_ndc;
+        space.reset();
+        const auto traced_raw = lean_search(index, query, 10, ef);
+        const auto tracer_ndc = space.count();
+        const auto traced = canonical(traced_raw.results);
+        const bool topk_equal = exact_equal(native, traced);
+        const bool ndc_equal = native_ndc == tracer_ndc;
+        instrumentation_valid = instrumentation_valid && topk_equal && ndc_equal;
+        std::size_t matches = 0;
+        for (const auto& item : native) matches += exact.count(item.second);
+        const double recall = static_cast<double>(matches) / 10.0;
+        const bool endpoint_ok = native.size() == 10;
+        endpoint_failures += !endpoint_ok;
+        const bool failure = recall < 0.90 || !endpoint_ok;
+        csv << query_row << ',' << ef << ',' << std::fixed << std::setprecision(6) << recall
+            << ',' << failure << ',' << native_ndc << ',' << tracer_ndc << ','
+            << traced_raw.base_expansions << ',' << traced_raw.visited_count << ',' << wall_ns
+            << ',' << (endpoint_ok ? "PASS" : "INFEASIBLE_TOPK_SIZE") << ',' << topk_equal
+            << ',' << ndc_equal << ',' << labels_string(native) << '\n';
+      } catch (const std::exception&) {
+        ++endpoint_failures;
+        const auto wall_ns = std::chrono::duration_cast<std::chrono::nanoseconds>(
+                                 std::chrono::steady_clock::now() - action_started)
+                                 .count();
+        if (charged_ndc == 0) charged_ndc = space.count();
+        csv << query_row << ',' << ef << ",0.000000,1," << charged_ndc
+            << ",0,0,0," << wall_ns << ",EXECUTION_FAILURE,0,0,\n";
+      }
+    }
+  }
+  std::ofstream meta(meta_path);
+  if (!meta) throw std::runtime_error("cannot write sentinel metadata");
+  write_key(meta, "status", instrumentation_valid ? "PASS" : "INVALID_CIBS_NDC_INSTRUMENTATION");
+  write_key(meta, "queries", queries.rows);
+  write_key(meta, "ef_count", efs.size());
+  write_key(meta, "rows", rows);
+  write_key(meta, "endpoint_failures", endpoint_failures);
+  write_key(meta, "native_tracer_topk_all_successes_equal", instrumentation_valid);
+  write_key(meta, "native_tracer_ndc_all_successes_equal", instrumentation_valid);
+  return instrumentation_valid ? 0 : 1;
+}
 }  // namespace
 
 int main(int argc, char** argv) {
@@ -517,6 +697,8 @@ int main(int argc, char** argv) {
     if (command == "inspect") return command_inspect(argc, argv);
     if (command == "design") return command_design(argc, argv);
     if (command == "equivalence") return command_equivalence(argc, argv);
+    if (command == "truth") return command_truth(argc, argv);
+    if (command == "sentinel") return command_sentinel(argc, argv);
     throw std::runtime_error("unknown command: " + command);
   } catch (const std::exception& error) {
     std::cerr << error.what() << '\n';

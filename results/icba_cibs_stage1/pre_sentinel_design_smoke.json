@@ -1,0 +1,16 @@
+{
+  "action_rows": 384,
+  "actions_sha256": "6f7fb7aaa82058b00df5df0fdb155ac5bdcb5f5da3357e5be7d581fb7620203b",
+  "dataset": "sift_100k",
+  "endpoint_failures": 0,
+  "native_tracer_ndc_equivalence": "PASS_ALL",
+  "native_tracer_top10_equivalence": "PASS_ALL",
+  "outcome_free_stage1_tests": "PASS_16_OF_16",
+  "python_regression_tests": "PASS_80_OF_80",
+  "query_role": "cibs_design",
+  "status": "PASS_PRE_SENTINEL_DESIGN_SMOKE",
+  "cmake_ctest_smoke": "PASS_3_OF_3",
+  "truth_boundary_distance_ties": 0,
+  "truth_queries": 32,
+  "truth_sha256": "8f86276fa074a2d3550674227affd2ef4b6d73d0a11a53da1d6e293e4c471c64"
+}
