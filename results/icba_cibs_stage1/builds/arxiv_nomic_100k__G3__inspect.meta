@@ -1,0 +1,15 @@
+status=PASS
+current_count=100000
+max_elements=100000
+num_deleted=0
+entry_point=49431
+directed_reachable_count=100000
+valid_ids=1
+no_self_loops=1
+no_duplicates=1
+degree_cap=1
+labels_complete=1
+graph_hash_fnv64=2574877672345585274
+roundtrip_graph_hash_fnv64=2574877672345585274
+roundtrip_graph_equal=1
+roundtrip_connectivity_equal=1

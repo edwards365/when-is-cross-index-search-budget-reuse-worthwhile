@@ -1,0 +1,124 @@
+{
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "base_array_sha256": "9fc6c6e71329832643a6c1e57eecd32e632bf90b1a5a4bed83587dbab70de107",
+      "normalized": true,
+      "queries": {
+        "cibs_design": {
+          "runtime_path": "results/icba_cibs_stage1/runtime/queries/arxiv_nomic_100k__cibs_design.f32bin",
+          "runtime_sha256": "9552e6c60f30fb2f60e2f170c6f2a639b6971a161f4a77872c85db8f098a1384",
+          "shape": [
+            32,
+            768
+          ],
+          "source_npy": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_design__queries.npy",
+          "source_npy_sha256": "0423431640abdc7f98a7e62a781da18435de86d2bcc4ba089bf3ebebfc0ee40b"
+        },
+        "cibs_evaluation": {
+          "runtime_path": "results/icba_cibs_stage1/runtime/queries/arxiv_nomic_100k__cibs_evaluation.f32bin",
+          "runtime_sha256": "dfdd804fca6c47c8f62d90d63419e951542b62713d483a76c4981da29f3407ac",
+          "shape": [
+            500,
+            768
+          ],
+          "source_npy": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_evaluation__queries.npy",
+          "source_npy_sha256": "b39f16d5a5696639a1c8483bd9d67bf173c9550b8cb302a31ce6a8a6535d684a"
+        },
+        "cibs_sentinel": {
+          "runtime_path": "results/icba_cibs_stage1/runtime/queries/arxiv_nomic_100k__cibs_sentinel.f32bin",
+          "runtime_sha256": "e6ab74cb55f1067231317a5d4f10a2e31af1c07f392b40496427a5e1fa8963c9",
+          "shape": [
+            256,
+            768
+          ],
+          "source_npy": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_sentinel__queries.npy",
+          "source_npy_sha256": "44c5362aafb9d9f4bd01ca2d7224a26f6e93fc40d1ff39f168dca3dc8a9fc3a5"
+        }
+      },
+      "runtime_base_path": "results/icba_cibs_stage1/runtime/base/arxiv_nomic_100k.f32bin",
+      "runtime_base_sha256": "91b0bd677dcde49b6bf03f9a6687f3689e9ea82a09aeba88c63e78def3b21b04",
+      "shape": [
+        100000,
+        768
+      ],
+      "source": "/home/wlk/projects/navigation-aware-resistance-hnsw/data/raw/arxiv-nomic-768-normalized.hdf5",
+      "source_member_read": "train"
+    },
+    "sift_100k": {
+      "base_array_sha256": "d0ad618c42429e9e2261e37e7ecaf042af58e47117ad62d5935457e129d0ab21",
+      "normalized": false,
+      "queries": {
+        "cibs_design": {
+          "runtime_path": "results/icba_cibs_stage1/runtime/queries/sift_100k__cibs_design.f32bin",
+          "runtime_sha256": "a1b6ba7d62310025c6aab6123d585121b816bb9f8c7844aaf40c77115f03c0d7",
+          "shape": [
+            32,
+            128
+          ],
+          "source_npy": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_design__queries.npy",
+          "source_npy_sha256": "f927b94680908b946c1359063fb71296947f8970b12b3cadc61956d1b58ee887"
+        },
+        "cibs_evaluation": {
+          "runtime_path": "results/icba_cibs_stage1/runtime/queries/sift_100k__cibs_evaluation.f32bin",
+          "runtime_sha256": "8ecf42c7a6e50bf34ed06310ebc231f9499a4642375c3b60d1ffc44b2e16b4fa",
+          "shape": [
+            500,
+            128
+          ],
+          "source_npy": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_evaluation__queries.npy",
+          "source_npy_sha256": "e9eb13a6539c570d367c4821024369ddad4f94804ab485f5ef4f994a132a45e7"
+        },
+        "cibs_sentinel": {
+          "runtime_path": "results/icba_cibs_stage1/runtime/queries/sift_100k__cibs_sentinel.f32bin",
+          "runtime_sha256": "952981a045a471fb0c2f30bab10dca11f80c34967999dce791ba6a7a5864a4c7",
+          "shape": [
+            256,
+            128
+          ],
+          "source_npy": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_sentinel__queries.npy",
+          "source_npy_sha256": "abbd94fb8bb27109d55fd91e33a8217ab4060c961782c41e4f03a091cff67c5d"
+        }
+      },
+      "runtime_base_path": "results/icba_cibs_stage1/runtime/base/sift_100k.f32bin",
+      "runtime_base_sha256": "73715f9243728946d121cebe72860122ee1d7f67cabcc658cbae2ae6ae094df6",
+      "shape": [
+        100000,
+        128
+      ],
+      "source": "/home/wlk/projects/navigation-aware-resistance-hnsw/data/raw/sift-128-euclidean.hdf5",
+      "source_member_read": "train"
+    }
+  },
+  "hdf5_members_read": [
+    "train"
+  ],
+  "orders": {
+    "G1": {
+      "runtime_path": "results/icba_cibs_stage1/runtime/orders/G1.u32bin",
+      "runtime_sha256": "51f32041e42d494eed35bb7a40a0d9d9507d333bc6417c875bf89e3f3a59d7a2",
+      "source_npy": "results/icba_cibs_stage1/phase1/build_preregistration/G1__insertion_order.npy",
+      "source_npy_sha256": "a323d4c467172c1fe7ec32beda7a1a4218b7274c575dc0760845a13291c94901"
+    },
+    "G2": {
+      "runtime_path": "results/icba_cibs_stage1/runtime/orders/G2.u32bin",
+      "runtime_sha256": "43affb90e49c8045086af558b63801c0609f7d8f1697d7c4e11d89d87097428b",
+      "source_npy": "results/icba_cibs_stage1/phase1/build_preregistration/G2__insertion_order.npy",
+      "source_npy_sha256": "f9c6c3b92e5ed775555c11b03e769d6b0d3b885abc1d8bd549e42df6e20e8c68"
+    },
+    "G3": {
+      "runtime_path": "results/icba_cibs_stage1/runtime/orders/G3.u32bin",
+      "runtime_sha256": "e57791463aac231ab250cbe4de5465c6e918b47901dc279b9eaed615bd1f051a",
+      "source_npy": "results/icba_cibs_stage1/phase1/build_preregistration/G3__insertion_order.npy",
+      "source_npy_sha256": "501d59bfffe5bb469b08285c1c76b061eee67c45fb746a29aabffee3280a1c4c"
+    }
+  },
+  "resource_gate": {
+    "free_bytes": 13514280960,
+    "required_bytes": 8734174792,
+    "status": "PASS"
+  },
+  "schema_version": 1,
+  "status": "PASS_TRAIN_ONLY_RUNTIME_INPUT_MATERIALIZATION",
+  "truth_artifacts_read": [],
+  "truth_members_read": []
+}

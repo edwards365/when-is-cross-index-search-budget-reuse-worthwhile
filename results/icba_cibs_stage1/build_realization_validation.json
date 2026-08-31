@@ -1,0 +1,9 @@
+{
+  "builds": 6,
+  "fallback_queries": 64,
+  "gate_sha256": "1c3f029b9cdd42c5b68312dd742043b95eeb592081497f7383f89768c5ce640d",
+  "manifest_sha256": "01ee25b39d666b70b7cce28ce0a271c9299db528cfb8813eccfe8c7548922e85",
+  "raw_action_rows": 2304,
+  "status": "PASS_INDEPENDENT_BUILD_REALIZATION_VALIDATION",
+  "validator": "independent read-only hash/schema/CSV/event-chain replay"
+}

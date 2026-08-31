@@ -1,0 +1,21 @@
+In file included from cpp/src/icba_cibs_stage1_runner.cpp:1:
+third_party/hnswlib/hnswlib/hnswlib.h: In member function ‘virtual bool hnswlib::BaseFilterFunctor::operator()(hnswlib::labeltype)’:
+third_party/hnswlib/hnswlib/hnswlib.h:130:48: warning: unused parameter ‘id’ [-Wunused-parameter]
+  130 |     virtual bool operator()(hnswlib::labeltype id) { return true; }
+      |                             ~~~~~~~~~~~~~~~~~~~^~
+In file included from third_party/hnswlib/hnswlib/hnswlib.h:228,
+                 from cpp/src/icba_cibs_stage1_runner.cpp:1:
+third_party/hnswlib/hnswlib/hnswalg.h: In instantiation of ‘hnswlib::HierarchicalNSW<dist_t>::HierarchicalNSW(hnswlib::SpaceInterface<dist_t>*, const string&, bool, size_t, bool) [with dist_t = float; std::string = std::__cxx11::basic_string<char>; size_t = long unsigned int]’:
+cpp/src/icba_cibs_stage1_runner.cpp:341:37:   required from here
+third_party/hnswlib/hnswlib/hnswalg.h:81:14: warning: unused parameter ‘nmslib’ [-Wunused-parameter]
+   81 |         bool nmslib = false,
+      |         ~~~~~^~~~~~~~~~~~~~
+In file included from third_party/hnswlib/hnswlib/hnswlib.h:228,
+                 from cpp/src/icba_cibs_stage1_runner.cpp:1:
+third_party/hnswlib/hnswlib/hnswalg.h: In instantiation of ‘hnswlib::tableint hnswlib::HierarchicalNSW<dist_t>::mutuallyConnectNewElement(const void*, hnswlib::tableint, std::priority_queue<std::pair<dist_t, unsigned int>, std::vector<std::pair<dist_t, unsigned int> >, hnswlib::HierarchicalNSW<dist_t>::CompareByFirst>&, int, bool) [with dist_t = float; hnswlib::tableint = unsigned int]’:
+third_party/hnswlib/hnswlib/hnswalg.h:1253:27:   required from ‘hnswlib::tableint hnswlib::HierarchicalNSW<dist_t>::addPoint(const void*, hnswlib::labeltype, int) [with dist_t = float; hnswlib::tableint = unsigned int; hnswlib::labeltype = long unsigned int]’
+third_party/hnswlib/hnswlib/hnswalg.h:962:13:   required from ‘void hnswlib::HierarchicalNSW<dist_t>::addPoint(const void*, hnswlib::labeltype, bool) [with dist_t = float; hnswlib::labeltype = long unsigned int]’
+cpp/src/icba_cibs_stage1_runner.cpp:311:92:   required from here
+third_party/hnswlib/hnswlib/hnswalg.h:507:21: warning: unused parameter ‘data_point’ [-Wunused-parameter]
+  507 |         const void *data_point,
+      |         ~~~~~~~~~~~~^~~~~~~~~~

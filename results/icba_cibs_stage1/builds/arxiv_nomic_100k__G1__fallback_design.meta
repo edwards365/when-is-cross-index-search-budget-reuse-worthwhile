@@ -1,0 +1,8 @@
+status=PASS
+queries=32
+requested_ef=100000
+native_tracer_topk_all_equal=1
+native_tracer_ndc_all_equal=1
+native_bruteforce_exact_top10_all_equal=1
+native_save_load_replay_all_equal=1
+full_expansion_all_queries=1

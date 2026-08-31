@@ -1,0 +1,6 @@
+status=PASS
+queries=32
+ef_count=12
+rows=384
+native_tracer_topk_all_equal=1
+native_tracer_ndc_all_equal=1

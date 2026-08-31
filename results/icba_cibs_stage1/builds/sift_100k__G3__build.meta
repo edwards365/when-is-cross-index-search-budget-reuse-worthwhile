@@ -1,0 +1,12 @@
+status=PASS
+rows=100000
+dimensions=128
+seed=1019
+M=16
+efConstruction=100
+build_threads=1
+build_time_ns=27123495145
+build_distance_computations=147663057
+peak_rss_kib=130864
+entry_point=49431
+max_level=4
