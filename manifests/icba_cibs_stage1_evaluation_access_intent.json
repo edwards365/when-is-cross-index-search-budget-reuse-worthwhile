@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "ARMED_AFTER_SELECTED_ACTION_FREEZE_BEFORE_EVALUATION_ACCESS",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "selected_action_commit": "44e206674612f6630373aa49375c27059d0f3040",
+  "selected_action_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "access_policy": "evaluation truth/action flags are conservatively set to 1 in the committed access log before opening evaluation; future-confirm remains sealed",
+  "datasets": {
+    "sift_100k": {
+      "role": "cibs_evaluation",
+      "count": 500,
+      "queries_file_sha256": "e9eb13a6539c570d367c4821024369ddad4f94804ab485f5ef4f994a132a45e7",
+      "source_ids_file_sha256": "93db95c768c8ef55455467f70b4426cfaba94df4c22e93c44daca9ec849f6388"
+    },
+    "arxiv_nomic_100k": {
+      "role": "cibs_evaluation",
+      "count": 500,
+      "queries_file_sha256": "b39f16d5a5696639a1c8483bd9d67bf173c9550b8cb302a31ce6a8a6535d684a",
+      "source_ids_file_sha256": "8e0cc5c32cd408543e995fe424337fa39a62d9696af8603b88f7538de2c8a7ac"
+    }
+  },
+  "evaluation_reselection_allowed": false,
+  "future_confirm_accessed": false,
+  "positive_cibs_evidence": false
+}
