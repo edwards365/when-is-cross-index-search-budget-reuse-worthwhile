@@ -1,0 +1,15 @@
+counterexample_id,name,finite_witness,verified_quantity,expected_failure,test_status
+CE01,Per-action coverage is not family-wise,M=36 independent 5% errors,0.841958,post-selection family error exceeds 5%,PASS
+CE02,Mean recall does not control failure risk,94 perfect and 6 zero-recall queries,0.06,mean .94 but event risk .06,PASS
+CE03,Raw ef need not be monotone,recall 1.0 at ef40 and .9 at ef80,-0.1,larger ef has lower raw recall,PASS
+CE04,Budget proxy can reverse NDC,ef20/NDC100 vs ef40/NDC80,20,lower ef has worse NDC,PASS
+CE05,Mean gain can worsen p95,A:94x0+6x100; B:100x7,-1,A mean lower and tail worse,PASS
+CE06,Sentinel/evaluation reversal,sentinel A1/B2; evaluation A3/B2,2,selected winner reverses,PASS
+CE07,Post-hoc candidate invalidates certificate,20 unadjusted 95% intervals,0.641514,family error exceeds 5%,PASS
+CE08,Empty safe set cannot force choice,"UCB .08,.09 with delta .05",0,no certified action,PASS
+CE09,Endpoint imputation hides failures,10 of 100 endpoints unreachable,0.1,true failure rate exceeds delta,PASS
+CE10,Shared truth is not free search,truth100 plus 36 searches x10,460,search cost omitted by shortcut,PASS
+CE11,Query bootstrap misses portfolio reversal,P1 prefers A; P2 prefers B,1,outer-build conclusion fails,PASS
+CE12,No finite break-even when g<=0,offline1000 and g=-.1,INF,no finite N,PASS
+CE13,Negative covariance hurts pairing,"varA=varB=1,cov=-.5",3,paired variance exceeds independent 2,PASS
+CE14,Bonferroni can be conservative,36 perfectly correlated tests,0.00138889,effective family error need not scale by 36,PASS
