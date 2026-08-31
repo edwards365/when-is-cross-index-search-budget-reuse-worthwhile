@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "protocol": "ICBA_STABLE_BUILD_DUAL_ENDPOINT_PILOT",
+  "status": "FROZEN_BEFORE_STABLE_RESULTS",
+  "algorithm": "CFSR-Lite",
+  "scope": {
+    "layer": 0,
+    "post_build": true,
+    "upper_layers_unchanged": true,
+    "entry_point_unchanged": true,
+    "degree_cap_unchanged": true,
+    "rollback_on_invariant_failure": true
+  },
+  "build_roles": {
+    "shadow_design_seeds": [7, 17, 29],
+    "held_out_baseline_seeds": [43, 61, 89],
+    "paired_stable_seeds": [43, 61, 89],
+    "smoke_shadow_seeds": [7, 17],
+    "smoke_paired_seed": 43,
+    "best_of_r_forbidden": true
+  },
+  "candidate_sources": [
+    "paired_baseline_layer0_neighbors",
+    "three_shadow_layer0_neighbor_union",
+    "design_introduction_edges",
+    "design_backup_edges"
+  ],
+  "normalization": "within-source percentile rank; missing statistic receives rank 0",
+  "score": {
+    "critical_frequency": 0.45,
+    "backup_utility": 0.20,
+    "presence_stability": 0.20,
+    "frontier_margin": 0.10,
+    "intruder_association_penalty": -0.05,
+    "absolute_weight_sum": 1.0
+  },
+  "protection": {
+    "mandatory_critical": "highest positive-critical candidate per source",
+    "backup": "highest positive-backup nonmandatory candidate per source",
+    "remaining_slots": "frozen score descending then node ID ascending",
+    "mandatory_overflow": "rollback_source",
+    "silent_mandatory_deletion_forbidden": true
+  },
+  "tie_break": [
+    "score_descending",
+    "frontier_margin_descending_if_positive",
+    "node_id_ascending"
+  ],
+  "ablations": ["NO_FRONTIER", "NO_BACKUP"],
+  "ablation_authorization": "only_after_main_configuration_passes_SIFT_mechanism_gate",
+  "ef_smoke": [10, 20, 40],
+  "ef_full": [10, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96, 128],
+  "master_seed": 991,
+  "forbidden": [
+    "outcome_driven_weight_change",
+    "candidate_outside_frozen_union",
+    "evaluation_truth",
+    "certification_reserved_truth",
+    "best_of_r"
+  ]
+}
