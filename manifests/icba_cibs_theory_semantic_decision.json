@@ -1,0 +1,64 @@
+{
+  "task": "ICBA CIBS THEORY, PRIOR-ART AND SEMANTIC LOCK",
+  "method_name": "Certified Index-Build Selection",
+  "method_acronym": "CIBS",
+  "frozen_base_commit": "3918d415afb6076b9b42a9ed2aac3c00ed1ddde9",
+  "branch": "exp/icba_cibs_theory_semantic_lock",
+  "primary_decision": "CIBS_FIXED_THEORY_AND_SEMANTICS_LOCKED",
+  "race_secondary_status": "CIBS_RACE_THEORY_TEMPLATE_AUTHORIZED",
+  "cibs_fixed_pilot_authorized": true,
+  "cibs_race_implementation_authorized": false,
+  "direct_prior_art": "NO_DIRECT_SEVEN_CONDITION_PRIOR_FOUND",
+  "maximum_novelty": "NEW_COMBINATION_OF_CLASSICAL_RESULTS",
+  "level_a_fulltexts_this_round": 12,
+  "fulltext_unverified": [
+    "QBAT: Model-based Query Budget Autotuner for Clustering-based Approximate Nearest Neighbor Search"
+  ],
+  "theorems": {
+    "T-CIBS1": "FORMAL_PROOF_COMPLETE",
+    "T-CIBS2": "FORMAL_PROOF_COMPLETE",
+    "T-CIBS3": "FORMAL_PROOF_RESTRICTED",
+    "T-CIBS4": "CLASSICAL_APPLICATION",
+    "T-CIBS5": "FORMAL_PROOF_COMPLETE",
+    "T-CIBS6": "FORMAL_PROOF_RESTRICTED",
+    "T-CIBS7": "FORMAL_PROOF_COMPLETE"
+  },
+  "exact_cp": {
+    "main_K3_L12_n256_max_failures": 3,
+    "low_cost_K2_L12_n128_max_failures": 0,
+    "alternate_K3_L12_n250_max_failures": 3
+  },
+  "counterexamples_verified": 14,
+  "deployable_output": [
+    "one serialized index",
+    "one raw global fixed-ef",
+    "one fixed-target certificate",
+    "one preregistered fallback"
+  ],
+  "scope": {
+    "fixed_target": true,
+    "named_portfolio": true,
+    "open_world": false,
+    "next_rebuild": false,
+    "query_shift": false
+  },
+  "empirical_status": "EXPLORATORY_OFFLINE_SIMULATION_ONLY",
+  "access": {
+    "server_worktree_mounted": false,
+    "validation_dev": "NOT_ACCESSED",
+    "formal_test": "NOT_ACCESSED",
+    "sentinel_truth": "NOT_ACCESSED",
+    "evaluation_truth": "NOT_ACCESSED",
+    "future_confirm_truth": "NOT_ACCESSED",
+    "real_cibs_experiment": "NOT_RUN"
+  },
+  "gate_results": {
+    "L_literature": "PASS_WITH_NARROW_REPOSITIONING",
+    "T_theory": "PASS",
+    "S_semantics": "PASS",
+    "P_protocol": "PASS_CONTRACT_ONLY",
+    "D_deployment": "PASS_CONTRACT_ONLY",
+    "N_novelty": "PASS_GRAPH_ANNS_COMBINATION_ONLY",
+    "E_falsifiability": "PASS"
+  }
+}
