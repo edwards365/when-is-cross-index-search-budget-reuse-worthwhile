@@ -22,6 +22,9 @@ target_include_directories(hnsw_instrumented_smoke PRIVATE cpp/include third_par
 add_executable(hnsw_sift_trace_equivalence cpp/src/hnsw_sift_trace_equivalence.cpp)
 target_include_directories(hnsw_sift_trace_equivalence PRIVATE cpp/include third_party/hnswlib)
 
+add_executable(hnsw_design_checkpoint_trace cpp/src/hnsw_design_checkpoint_trace.cpp)
+target_include_directories(hnsw_design_checkpoint_trace PRIVATE cpp/include third_party/hnswlib)
+
 add_executable(hnsw_apply_selection_plan cpp/src/hnsw_apply_selection_plan.cpp)
 target_include_directories(hnsw_apply_selection_plan PRIVATE cpp/include third_party/hnswlib)
 

@@ -60,12 +60,20 @@ struct TraceContract24 {
 };
 
 template <typename dist_t>
+struct TraceCheckpoint {
+    std::size_t expansion_count{};
+    std::vector<hnswlib::tableint> top_k_internal;
+    std::vector<hnswlib::tableint> candidate_set_internal;
+};
+
+template <typename dist_t>
 struct TracedQueryResult {
     std::priority_queue<std::pair<dist_t, hnswlib::labeltype>> results;
     std::vector<QueryTraceEvent<dist_t>> events;
     std::size_t upper_evaluations{};
     std::size_t base_evaluations{};
     std::size_t base_expansions{};
+    std::vector<TraceCheckpoint<dist_t>> checkpoints;
     TraceContract24<dist_t> contract;
 };
 
@@ -163,6 +171,9 @@ class HnswQueryTracer {
                 if (top_candidates.size() > search_ef) top_candidates.pop();
                 if (!top_candidates.empty()) lower_bound = top_candidates.top().first;
             }
+            trace.checkpoints.push_back(
+                {trace.base_expansions, top_k_snapshot(top_candidates, k),
+                 queue_snapshot(candidate_set)});
         }
 
         while (top_candidates.size() > k) top_candidates.pop();
@@ -190,6 +201,22 @@ class HnswQueryTracer {
         const auto degree = index.getListCount(raw);
         const auto* neighbors = reinterpret_cast<const hnswlib::tableint*>(raw + 1);
         return {neighbors, neighbors + degree};
+    }
+
+    static std::vector<hnswlib::tableint> queue_snapshot(InternalQueue queue) {
+        std::vector<hnswlib::tableint> result;
+        result.reserve(queue.size());
+        while (!queue.empty()) {
+            result.push_back(queue.top().second);
+            queue.pop();
+        }
+        return result;
+    }
+
+    static std::vector<hnswlib::tableint> top_k_snapshot(InternalQueue queue,
+                                                          std::size_t k) {
+        while (queue.size() > k) queue.pop();
+        return queue_snapshot(std::move(queue));
     }
 
     static void append(TracedQueryResult<dist_t>& trace, std::size_t query_id,
