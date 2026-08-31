@@ -1,5 +1,3 @@
-# Cost Break Even Report
+# Cost and break-even
 
-Evidence: `RESOURCE_GATE_AUDIT_ONLY`
-
-No empirical build/search cost was measured. Break-even is NOT_ESTIMABLE; only the storage budget that triggered the stop rule is reported.
+No efficacy gate passed, so no finite break-even workload is claimed. Certification was not accessed and its cost remains symbolic. Wall-clock is `WALL_CLOCK_EXPLORATORY_ONLY`.

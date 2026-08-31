@@ -1,5 +1,3 @@
-# Arxiv Pilot Report
+# Arxiv pilot report
 
-Evidence: `RESOURCE_GATE_AUDIT_ONLY`
-
-Arxiv pilot: NOT_RUN_DUE_STORAGE_GATE because SIFT smoke was not authorized.
+`NOT_RUN`: the preregistered SIFT smoke gate failed. Running Arxiv to search for a positive result was forbidden.

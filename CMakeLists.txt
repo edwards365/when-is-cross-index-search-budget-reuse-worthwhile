@@ -25,6 +25,9 @@ target_include_directories(hnsw_sift_trace_equivalence PRIVATE cpp/include third
 add_executable(hnsw_design_checkpoint_trace cpp/src/hnsw_design_checkpoint_trace.cpp)
 target_include_directories(hnsw_design_checkpoint_trace PRIVATE cpp/include third_party/hnswlib)
 
+add_executable(hnsw_repair_invariant_check cpp/src/hnsw_repair_invariant_check.cpp)
+target_include_directories(hnsw_repair_invariant_check PRIVATE cpp/include third_party/hnswlib)
+
 add_executable(hnsw_apply_selection_plan cpp/src/hnsw_apply_selection_plan.cpp)
 target_include_directories(hnsw_apply_selection_plan PRIVATE cpp/include third_party/hnswlib)
 

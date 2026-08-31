@@ -1,7 +1,9 @@
-gate,status,reason
-RESOURCE,FAIL,EXPECTED_ADDITIONS_PLUS_5G_EXCEED_FREE
-INSTRUMENTATION,NOT_RUN,RESOURCE_GATE
-SMOKE,NOT_RUN,RESOURCE_GATE
-SIFT,NOT_RUN,RESOURCE_GATE
-ARXIV,NOT_RUN,RESOURCE_GATE
-CONFIRMATION,NOT_AUTHORIZED,RESOURCE_GATE
+gate,status,evidence
+resource,PASS,15.024 GiB after recovery; 5 GiB reserve maintained
+instrumentation,PASS,24/24 fields; synthetic 22/22; SIFT native/tracer 300/300
+query_roles,PASS,4x250; non-diagonal overlap 0; reserved roles sealed
+repair_invariants,PASS,10/10; protected 1522/1522; reachability 100000/100000
+smoke_effect,FAIL,calibration B_exp and B_ef both worsened
+full_sift,NOT_AUTHORIZED,EARLY_STRUCTURAL_SURROGATE_FAILURE
+arxiv,NOT_AUTHORIZED,SIFT smoke gate failed
+independent_confirmation,NOT_AUTHORIZED,final decision is a stop label

@@ -179,6 +179,25 @@ int main(int argc, char** argv) {
                    << row.target_to_source_immediate << ',' << source_final << ',' << target_final
                    << ',' << row.original_degree << ',' << row.selected_degree << '\n';
         }
+        auto index_path = output;
+        index_path.replace_filename(output.stem().string() + "_stable_index.bin");
+        treatment_index.saveIndex(index_path.string());
+        auto metadata_path = output;
+        metadata_path.replace_filename(output.stem().string() + "_metadata.json");
+        std::ofstream metadata(metadata_path);
+        metadata << "{\n"
+                 << "  \"status\": \"complete\",\n"
+                 << "  \"seed\": " << seed << ",\n"
+                 << "  \"points\": " << points.rows << ",\n"
+                 << "  \"changed_sources\": " << treatment_plan.size() << ",\n"
+                 << "  \"proposed_added\": " << added << ",\n"
+                 << "  \"proposed_added_reciprocal_final\": " << reciprocal_final << ",\n"
+                 << "  \"entry_point\": " << treatment_index.enterpoint_node_ << ",\n"
+                 << "  \"max_degree_layer0\": " << treatment_index.maxM0_ << ",\n"
+                 << "  \"formal_test_members_accessed\": false,\n"
+                 << "  \"certification_reserved_accessed\": false,\n"
+                 << "  \"evaluation_reserved_accessed\": false\n"
+                 << "}\n";
         std::cout << "points=" << points.rows << " planned_centers=" << treatment_plan.size()
                   << " proposed_added=" << added
                   << " proposed_added_reciprocal_final=" << reciprocal_final << '\n';

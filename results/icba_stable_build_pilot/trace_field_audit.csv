@@ -1,2 +1,2 @@
-required_fields,passed_fields,status
-24,0,NOT_RUN_DUE_STORAGE_GATE
+field_count,synthetic_rows,sift_rows,complete_rows,missing_rows,status
+24,768,300,1068,0,PASS

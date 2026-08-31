@@ -1,0 +1,14 @@
+{
+  "calibration": {
+    "affected_trace_rate": 0.39,
+    "endpoint_delta": -0.0033333333333334103,
+    "mean_ndc_delta": -6.076666666666654,
+    "recall_delta": -0.0019999999999998908
+  },
+  "design": {
+    "affected_trace_rate": 0.9833333333333333,
+    "endpoint_delta": 0.013333333333333308,
+    "mean_ndc_delta": -75.05000000000001,
+    "recall_delta": 0.014666666666666606
+  }
+}

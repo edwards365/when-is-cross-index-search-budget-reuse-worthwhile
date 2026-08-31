@@ -1,2 +1,3 @@
-dataset,queries,ef_values,status
-sift_100k,0,0,NOT_RUN_DUE_STORAGE_GATE
+graph,queries,efs,comparisons,topk_equal,ndc_equal
+baseline_b7,100,3,300,300,300
+stable_b43,100,3,300,300,300

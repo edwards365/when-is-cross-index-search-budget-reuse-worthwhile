@@ -1,3 +1,5 @@
-dataset,mean,p50,p95,p99,status
-sift_100k,NA,NA,NA,NA,NOT_RUN_DUE_STORAGE_GATE
-arxiv_nomic_100k,NA,NA,NA,NA,NOT_RUN_DUE_STORAGE_GATE
+dataset,query_role,graph,mean_ndc,p95_ndc,mean_final_recall
+sift_100k,design,baseline,498.07666666666665,835.0,0.8743333333333334
+sift_100k,design,stable,423.0266666666666,694.0,0.889
+sift_100k,calibration,baseline,509.49,849.0,0.8823333333333333
+sift_100k,calibration,stable,503.41333333333336,833.0,0.8803333333333334

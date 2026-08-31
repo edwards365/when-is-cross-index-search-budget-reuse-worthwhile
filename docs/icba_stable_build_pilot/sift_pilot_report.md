@@ -1,5 +1,3 @@
-# Sift Pilot Report
+# SIFT pilot report
 
-Evidence: `RESOURCE_GATE_AUDIT_ONLY`
-
-SIFT full pilot: NOT_RUN_DUE_STORAGE_GATE. No scientific outcome is inferred.
+Only the preregistered micro smoke was run. The full 3+3 paired SIFT pilot was not authorized after the smoke stop.

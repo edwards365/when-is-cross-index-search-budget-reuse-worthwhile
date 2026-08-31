@@ -1,3 +1,2 @@
-dataset,repetitions,status
-sift_100k,0,NOT_RUN_DUE_STORAGE_GATE
-arxiv_nomic_100k,0,NOT_RUN_DUE_STORAGE_GATE
+dataset,paired_builds,bootstrap_replicates,status,limitation
+sift_100k,1,0,NOT_ESTIMABLE_SINGLE_SMOKE_BUILD,PILOT_BUILD_UNCERTAINTY_UNDERPOWERED

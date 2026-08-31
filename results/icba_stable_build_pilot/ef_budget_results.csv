@@ -1,0 +1,5 @@
+dataset,query_role,graph,mean_B_ef_feasible,B_ef_feasible_rate,ef_grid,bridge_status
+sift_100k,design,baseline,19.68421052631579,0.95,10;20;40,EMPIRICAL_ONLY
+sift_100k,design,stable,18.49462365591398,0.93,10;20;40,EMPIRICAL_ONLY
+sift_100k,calibration,baseline,19.791666666666668,0.96,10;20;40,EMPIRICAL_ONLY
+sift_100k,calibration,stable,20.309278350515463,0.97,10;20;40,EMPIRICAL_ONLY

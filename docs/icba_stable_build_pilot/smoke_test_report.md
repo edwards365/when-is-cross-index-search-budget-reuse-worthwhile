@@ -1,5 +1,3 @@
-# Smoke Test Report
+# SIFT micro smoke report
 
-Evidence: `RESOURCE_GATE_AUDIT_ONLY`
-
-SIFT smoke: NOT_RUN_DUE_STORAGE_GATE. Therefore tracer fields, equivalence, repair effect, B_exp, B_ef and invariants are NOT_ESTIMABLE.
+Infrastructure and repair gates passed: 24/24 tracer fields, native/tracer equality, 10/10 invariants, 1,522/1,522 mandatory edges survived, and 39% of calibration traces changed. Independent calibration mean B_exp changed 13.991 to 14.380; mean B_ef changed 19.792 to 20.309. This triggered `EARLY_STRUCTURAL_SURROGATE_FAILURE`.

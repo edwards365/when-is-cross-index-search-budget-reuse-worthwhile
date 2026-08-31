@@ -1,5 +1,3 @@
 # Limitations
 
-Evidence: `RESOURCE_GATE_AUDIT_ONLY`
-
-This is a resource-gated stop, not evidence for or against CFSR-Lite. Three-build outer uncertainty and all quality/tail claims remain untested.
+This is a one-paired-build smoke with 100 design and 100 calibration queries at three ef values. `PILOT_BUILD_UNCERTAINTY_UNDERPOWERED`; bootstrap, LOBO and top-1% robustness were not estimable after the mandatory early stop.

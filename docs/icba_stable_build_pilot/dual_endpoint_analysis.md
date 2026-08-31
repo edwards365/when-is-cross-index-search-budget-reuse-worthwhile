@@ -1,5 +1,3 @@
-# Dual Endpoint Analysis
+# Dual-endpoint analysis
 
-Evidence: `RESOURCE_GATE_AUDIT_ONLY`
-
-B_exp and B_ef are both NOT_ESTIMABLE. No quadrant label is assigned; T-SC5 is not claimed to control native ef.
+On independent bridge-calibration queries both mean B_exp and mean B_ef worsened. The smoke quadrant is `NO_BUDGET_CONTRACTION`; this is exploratory single-build evidence and not an outer-build certification.

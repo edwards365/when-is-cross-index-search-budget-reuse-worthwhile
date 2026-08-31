@@ -1,5 +1,5 @@
-dataset,endpoint,infeasible,right_censored,status
-sift_100k,B_exp,NA,NA,NOT_ESTIMABLE
-sift_100k,B_ef,NA,NA,NOT_ESTIMABLE
-arxiv_nomic_100k,B_exp,NA,NA,NOT_ESTIMABLE
-arxiv_nomic_100k,B_ef,NA,NA,NOT_ESTIMABLE
+dataset,query_role,graph,endpoint_feasible_rate,right_censor_rate
+sift_100k,design,baseline,0.7066666666666667,0.29333333333333333
+sift_100k,design,stable,0.72,0.28
+sift_100k,calibration,baseline,0.7133333333333334,0.2866666666666666
+sift_100k,calibration,stable,0.71,0.29000000000000004
