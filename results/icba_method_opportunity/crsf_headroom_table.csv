@@ -1,0 +1,10 @@
+component,dataset,value,deployable,evidence_level,limitation
+prefix_resume_equivalence,sift_100k,100/100,true,FROZEN_EMPIRICAL_EVIDENCE,legacy RCRS prefix audit
+tracer_readiness,sift_100k,24/24; native equality 600/600,true,FROZEN_EMPIRICAL_EVIDENCE,instrumentation only
+real_deployment_relative_gain,arxiv_nomic_100k,0.1434368405,true,EXPLORATORY_OFFLINE_SIMULATION,frozen replay
+real_deployment_relative_gain,sift_100k,-0.0875463699,true,EXPLORATORY_OFFLINE_SIMULATION,frozen replay
+perfect_certification_gain,arxiv_nomic_100k,0.1524600978,false,NON_DEPLOYABLE_ORACLE,perfect certification
+perfect_certification_gain,sift_100k,0.1649870421,false,NON_DEPLOYABLE_ORACLE,perfect certification
+perfect_cheap_fallback_gain,arxiv_nomic_100k,0.2504211978,false,NON_DEPLOYABLE_ORACLE,perfect cheap fallback
+perfect_cheap_fallback_gain,sift_100k,0.1632992750,false,NON_DEPLOYABLE_ORACLE,perfect cheap fallback
+existing_observable_signal,both,STOP_RCRS_NO_CERTIFIED_STOPPING_SIGNAL,false,FROZEN_EMPIRICAL_EVIDENCE,does not refute new target-specific signal

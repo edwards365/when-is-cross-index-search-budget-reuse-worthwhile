@@ -1,0 +1,6 @@
+action,serialized,implemented,cost_measurable,positive_nonoracle,status
+reuse,false,partial,partial,false,NOT_DEPLOYABLE_SOURCE_POLICY
+recalibrate,true,true,partial,true,TARGET_ONLY_RECALIBRATION_SUFFICIENT
+light_retrain,false,counterfactual_only,false,NOT_ESTIMABLE,NOT_DEPLOYABLE
+full_retrain,false,false,false,NOT_ESTIMABLE,NOT_DEPLOYABLE
+fixed_fallback,true,true,partial,baseline,DEPLOYABLE_BASELINE

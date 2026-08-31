@@ -1,0 +1,11 @@
+paper_id,route,title,venue,url,level,full_text_status,overlap,complete_route_coverage,direct_prior_threat
+A04,RPA,FreshDiskANN: A Fast and Accurate Graph-Based ANN Index for Streaming Similarity Search,arXiv/SOSP-era system,https://arxiv.org/abs/2105.09613,A,REUSED_FROZEN_FULL_TEXT,index maintenance; no certified rebuild action selection,false,CRITICAL
+A06,DBRSC,Revisiting the Index Construction of Proximity Graph-Based ANNS,arXiv,https://arxiv.org/abs/2410.01231,A,REUSED_FROZEN_FULL_TEXT,path-rank construction overlap; no direct budget-response safety objective,false,CRITICAL
+A09,CRSF,ANNiE: A Learned Query Cost Estimator for Graph-Based ANNS,PVLDB,https://doi.org/10.14778/3836663.3836728,A,REUSED_FROZEN_FULL_TEXT,fixed-index learned query cost; mandatory baseline,false,CRITICAL
+A10,CRSF,QBAT: Model-based Query Budget Autotuner for Clustering-based ANNS,PVLDB,https://doi.org/10.14778/3836663.3836675,A,REUSED_FROZEN_FULL_TEXT,budget autotuning; mandatory baseline,false,HIGH
+A12,CRSF,DARTH: Holistic Test-time Adaptation for ANNS,PACMMOD,https://dl.acm.org/doi/10.1145/3725401,A,REUSED_FROZEN_FULL_TEXT,learned test-time termination; strong systems neighbor,false,HIGH
+A14,CIBS,Learn then Test,AOAS,https://doi.org/10.1214/24-AOAS1998,A,REUSED_FROZEN_FULL_TEXT,multiple-testing risk control; required safety interface,false,CRITICAL
+A16,CIBS,Distribution-Free Risk-Controlling Prediction Sets,JACM,https://doi.org/10.1145/3478535,A,REUSED_FROZEN_FULL_TEXT,distribution-free risk control; required baseline,false,CRITICAL
+A21,CIBS,Optimal Best Arm Identification with Fixed Confidence,COLT,https://proceedings.mlr.press/v49/garivier16a.html,A,REUSED_FROZEN_FULL_TEXT,fixed-confidence identification; different feedback/cost object,false,HIGH
+A22,CIBS,Best Arm Identification with Safety Constraints,AISTATS,https://arxiv.org/abs/2111.12151,A,REUSED_FROZEN_FULL_TEXT,safe best-arm identification; different Graph-ANNS object,false,HIGH
+L10,DBRSC,MARGO: Select Edges Wisely,PVLDB,https://www.vldb.org/pvldb/vol18/p3820-wang.pdf,A,REUSED_FROZEN_FULL_TEXT,monotonic-path edge importance and layout; no logical safe build-budget selection,false,CRITICAL

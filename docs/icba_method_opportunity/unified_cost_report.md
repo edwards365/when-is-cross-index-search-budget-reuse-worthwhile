@@ -1,0 +1,3 @@
+# Unified cost report
+
+No route has a valid common-unit total-cost estimate. CIBS has observed build CPU seconds and an online budget proxy, but distance computations, truth acquisition, certification search and fallback have not been converted to one unit; its result is `SYMBOLIC_COST_ONLY`. The minimum pilot must time paired candidate builds and searches under fixed hardware while recording distance computations, then evaluate N in {1e3,1e4,1e5,1e6,1e7}. Until then break-even is `PILOT_MEASUREMENT_REQUIRED`, not a finite numeric claim. CRSF, RPA and DBRSC have more missing components and no finite frozen break-even.

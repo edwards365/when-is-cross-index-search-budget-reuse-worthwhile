@@ -1,0 +1,5 @@
+route,theory_interface,covered_component,uncovered_component,status
+CIBS,LTT/RCPS plus fixed-confidence identification,simultaneous safety and action identification,paired full-information Graph-ANNS build-budget action; amortized build cost; nested build/query uncertainty,PARTIAL_OVERLAP_REDEFINE
+CRSF,fixed-target risk control,learned stopping and budget tuning,certified continue-not-restart with complete fallback cost,STRONG_SYSTEMS_PRIOR_THREAT
+RPA,monitor/retrain decision,index maintenance and recalibration,three or more serialized costed recovery actions,GENERIC_MONITOR_RETRAIN_THREAT
+DBRSC,path-aware graph construction,path rank and monotonic-path importance,finite direct budget-response optimizer with risk and Recall constraints,STRONG_CONSTRUCTION_PRIOR_THREAT

@@ -1,0 +1,3 @@
+# NeurIPS and database red team
+
+CIBS will be rejected as generic multiple testing unless the paper makes the paired Graph-ANNS build-budget object, endpoint censoring, nested build uncertainty and amortized cost essential. It will be rejected as Best-of-R if candidates are selected after results or build costs are omitted. It will be rejected as unsafe if per-action CP bounds are used after selection. A database venue additionally requires serialized indexes, fixed hardware costs and p95. An ML venue requires a nontrivial simultaneous/structured selection result beyond applying Bonferroni. Therefore the next authorization is feasibility pilot plus method derivation, not full algorithm claim.

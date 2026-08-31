@@ -1,0 +1,9 @@
+finding,value,direction,evidence_level
+design_trace_affected,0.9833333333,mechanism_reaches_design_queries,EXPLORATORY_OFFLINE_SIMULATION
+calibration_trace_affected,0.39,nonzero_structural_effect,EXPLORATORY_OFFLINE_SIMULATION
+calibration_B_exp,13.9907->14.3803,worse,EXPLORATORY_OFFLINE_SIMULATION
+calibration_B_ef,19.7917->20.3093,worse,EXPLORATORY_OFFLINE_SIMULATION
+calibration_mean_NDC,509.49->503.4133,better_mean_only,EXPLORATORY_OFFLINE_SIMULATION
+calibration_p95_NDC,849->833,better_tail_point_estimate,EXPLORATORY_OFFLINE_SIMULATION
+calibration_Recall_delta,-0.002,fails_-0.001_constraint,EXPLORATORY_OFFLINE_SIMULATION
+finite_second_generation_algorithm,NOT_ESTIMABLE,missing,NOT_ESTIMABLE

@@ -1,0 +1,22 @@
+{
+  "algorithm_implementation_authorized": false,
+  "certification_reserved_accessed": false,
+  "evaluation_reserved_accessed": false,
+  "evidence_level": "EXPLORATORY_OFFLINE_SIMULATION",
+  "fallback_route": "CRSF",
+  "fallback_route_label": "DEFER_LONG_TERM_HIGH_RISK",
+  "final_decision": "PROMOTE_CERTIFIED_INDEX_BUILD_SELECTION",
+  "formal_test_accessed": false,
+  "frozen_start": "7417147e9ce2e526973cd47b3b390c0ae2bb7c65",
+  "legacy": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123",
+  "method_derivation_authorized": true,
+  "primary_route": "CIBS",
+  "primary_route_label": "PROMOTE_TO_FEASIBILITY_PILOT",
+  "remaining_gap": "REAL_NDC_P95_LOBO_AND_COMMON_UNIT_COST_PILOT",
+  "retired_routes": {
+    "DBRSC": "RETIRED_BY_FROZEN_EVIDENCE",
+    "RPA": "BASELINE_ONLY"
+  },
+  "schema_version": 1,
+  "validation_dev_accessed": false
+}

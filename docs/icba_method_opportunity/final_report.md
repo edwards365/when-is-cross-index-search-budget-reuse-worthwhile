@@ -1,0 +1,3 @@
+# Final report
+
+Final label: `PROMOTE_CERTIFIED_INDEX_BUILD_SELECTION`. Primary: CIBS (`PROMOTE_TO_FEASIBILITY_PILOT`). Fallback: CRSF (`DEFER_LONG_TERM_HIGH_RISK`). RPA is `BASELINE_ONLY`; DBRSC is `RETIRED_BY_FROZEN_EVIDENCE`. The selection follows the prescribed lexicographic order, not the score total. CIBS passes the safety sensitivity analysis only with simultaneous control, defines a deployable index+budget output, and preserves two-dataset headroom. Its sole consolidated nonstructural gap is a fixed-protocol pilot measuring real NDC/p95, LOBO/top1 robustness and all costs in one unit. Method derivation is authorized; algorithm implementation and confirmatory claims are not. No sealed query role or prohibited test set was accessed.
