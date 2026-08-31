@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "PRE_TRUTH_CONTRACT_AMENDMENT_FROZEN",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "outcome_independent": true,
+  "stage1_truth_access_before_freeze": false,
+  "frozen_base": "b0190169cdb758aa5311c7d13fbfd4fd724020f0",
+  "quality_target": {
+    "metric": "Recall@10",
+    "operator": ">=",
+    "value": 0.9,
+    "sources": [
+      {"path": "docs/icba_theory_lock/definition_lock.md", "sha256": "b3a0c85e2a1f2bfacdd24883bfdd74f09516a1921a6a0ee25c80b3e2f6420809"},
+      {"path": "docs/hardness_portability_100k/preregistered_protocol.md", "sha256": "6b23bc41753a8ebf17c6a1f8acb4b32d24b54f693befb1ea495106560e292409"}
+    ]
+  },
+  "raw_fixed_ef_grid": [10, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512],
+  "grid_source": {"path": "manifests/hardness_portability_100k/preregistration.json", "sha256": "0b4706003bc9caa024be12c15b27d8854f2e6b3dc347df1fe547c2f60a1aeb87"},
+  "fallback": {
+    "per_dataset_build": "G1",
+    "requested_ef": 100000,
+    "base_cardinality": 100000,
+    "k": 10,
+    "trigger": "EMPTY_SIMULTANEOUS_CERTIFIED_SET",
+    "implementation": "hnswlib v0.8.0",
+    "implementation_commit": "3f3429661187e4c24a490a0f148fc6bc89042b3d",
+    "hnswalg_sha256": "0fb2c1b1d3aae1ea959b536f96844f3f3ae6a2f32ce063f2c31f93d84a7e5c32",
+    "required_invariants": [
+      "current_count_equals_max_elements_equals_100000",
+      "labels_unique_and_complete",
+      "zero_deleted_elements",
+      "no_filter",
+      "no_stop_condition",
+      "all_nodes_layer0_directed_reachable_from_entry_point",
+      "native_equals_bruteforce_exact_top10_on_independent_design_queries",
+      "native_equals_tracer_top10",
+      "save_load_replay_exact"
+    ],
+    "failure_label": "NO_VALID_FIXED_SAFE_FALLBACK",
+    "historical_result_repair_forbidden": true
+  },
+  "fallback_cost_accounting": {
+    "include": ["mean", "p50", "p95", "p99", "ndc", "actual_expansions", "requested_ef", "wall_clock", "offline_cost", "serialization", "storage", "break_even"],
+    "truth_cost_channels": ["truth_available", "truth_acquisition_included"],
+    "lower_ef_on_cost_failure_forbidden": true
+  },
+  "positive_evidence": false,
+  "forbidden": [
+    "validation_dev",
+    "formal_test",
+    "certification_reserved",
+    "evaluation_reserved_before_selected_action_freeze",
+    "future_confirm",
+    "glove",
+    "gpu_method_search",
+    "outcome_driven_tuning",
+    "open_world_claim",
+    "confirmatory_claim",
+    "sota_claim",
+    "cibs_race_claim"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "PASS_OUTCOME_FREE_FALLBACK_CONTRACT_TESTS",
+  "run_time_utc": "2026-08-31T13:50:26Z",
+  "truth_or_action_outcomes_read": false,
+  "test_command": "python3 -m unittest -v tests/icba_cibs_stage1/test_fallback_contract.py",
+  "tests_run": 5,
+  "failures": 0,
+  "errors": 0,
+  "test_cases": [
+    "pinned_source_has_required_capacity_semantics",
+    "connected_graphs_enumerate_all_nodes_at_ef_n",
+    "directed_reachability_is_sufficient",
+    "disconnected_graph_fails_closed",
+    "preconditions_reject_count_deletion_or_filter"
+  ],
+  "implementation": {
+    "name": "hnswlib",
+    "version": "v0.8.0",
+    "commit": "3f3429661187e4c24a490a0f148fc6bc89042b3d",
+    "hnswalg_sha256": "0fb2c1b1d3aae1ea959b536f96844f3f3ae6a2f32ce063f2c31f93d84a7e5c32"
+  },
+  "environment": {
+    "python": "3.8.10",
+    "kernel": "Linux 5.15.0-139-generic x86_64"
+  },
+  "scope": "Static implementation check and synthetic proof tests only; actual G1 connectivity and native-vs-bruteforce tests remain mandatory before sentinel access."
+}
