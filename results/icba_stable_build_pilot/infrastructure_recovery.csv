@@ -1,0 +1,11 @@
+metric,value,unit,status
+initial_root_free,5780381696,bytes,MEASURED
+final_root_free,16132358144,bytes,MEASURED
+mandatory_root_reserve,5368709120,bytes,PROTOCOL
+post_reserve_headroom,10763649024,bytes,MEASURED
+post_reserve_headroom,10.0244293213,GiB,PASS_MINIMUM
+historical_results_deleted,0,count,VERIFIED
+unknown_logs_deleted,0,count,VERIFIED
+frozen_indexes_deleted,0,count,VERIFIED
+modified_source_deleted,0,count,VERIFIED
+recovery_gate,1,boolean,PASS_MINIMUM_10_GIB_HEADROOM
