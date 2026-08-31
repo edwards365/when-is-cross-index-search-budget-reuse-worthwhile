@@ -1,0 +1,8 @@
+theorem_id,title,status,classification,assumptions,guarantee,limitation
+T-CIBS1,Fixed-family simultaneous safe selection,FORMAL_PROOF_COMPLETE,CLASSICAL_APPLICATION,frozen finite family; valid simultaneous UCBs; query sampling assumptions,P(r(a_hat)<=delta)>=1-alpha for any selected certified action,fallback needs separate safety basis
+T-CIBS2,Bonferroni exact-binomial instance,FORMAL_PROOF_COMPLETE,CLASSICAL_APPLICATION,iid Bernoulli failures per action across queries; M=KL,finite-sample family-wise risk control,may be conservative under dependence
+T-CIBS3,Cost near-optimality,FORMAL_PROOF_RESTRICTED,RESTRICTED_DOMAIN_PROPOSITION,simultaneous mean-cost concentration; comparison optimum is certified,2 eta_max regret to best certified action,ideal safe optimum comparison also needs its certification
+T-CIBS4,Paired full-information variance,CLASSICAL_APPLICATION,CLASSICAL_APPLICATION,finite second moments,"Var(D)=Var(A)+Var(B)-2Cov(A,B)",no unconditional power dominance
+T-CIBS5,Build-service break-even,FORMAL_PROOF_COMPLETE,CLASSICAL_APPLICATION,consistent cost units; realized per-query gain g,N*=offline/g for g>0,mean conclusion says nothing about p95
+T-CIBS6,Fixed-candidate lower bound,FORMAL_PROOF_RESTRICTED,CLASSICAL_APPLICATION,two distinguishable joint observation laws; fixed confidence,Omega(log(1/beta)/gap^2) in regular Bernoulli/sub-Gaussian cases,classical specialization; constants/model dependent
+T-CIBS7,Fixed-target/open-world boundary,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,only named-portfolio target-query data,certificate limited to named portfolio and P_Q,outer-build claim needs extra build distribution/units
