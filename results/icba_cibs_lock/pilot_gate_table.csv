@@ -1,0 +1,12 @@
+gate_id,scope,metric,pass_condition,stop_condition,evidence_role,status_before_pilot
+G_RECALL,both datasets,Recall@10 delta,>=-0.001,below -0.001,evaluation,UNMEASURED
+G_MEAN_NDC,both datasets,net mean NDC gain,>=1%,proxy does not translate or gain <1%,evaluation plus offline accounting,UNMEASURED
+G_P95,both datasets,p95 NDC delta,<=0,>0,evaluation,UNMEASURED
+G_SAFETY,both datasets,unsafe selected,controlled at registered alpha,certificate failure,sentinel and independent evaluation,UNMEASURED
+G_ENDPOINT,both datasets,endpoint failure,not worse,worsens,evaluation,UNMEASURED
+G_BREAK_EVEN,both datasets,workload N*,finite,g<=0 or infeasible workload,offline logs plus evaluation,UNMEASURED
+G_ROBUSTNESS,both datasets,top-1% deletion gain,>0,<=0,evaluation,UNMEASURED
+G_PORTFOLIO,both datasets,single-build dominance,not dominated by one selected seed,one build drives result,independent portfolio,UNMEASURED
+G_MULTIPLICITY,both datasets,certified set availability,usable,all rejected/unusable,sentinel,UNMEASURED
+G_ROLES,global,pairwise overlap,0,any overlap or truth contamination,role manifest,REQUIRED_BEFORE_RUN
+G_REPLAY,global,artifact hash replay,exact,any artifact cannot replay,artifact manifest,REQUIRED_BEFORE_RUN
