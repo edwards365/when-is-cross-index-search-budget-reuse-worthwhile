@@ -1,0 +1,14 @@
+field,type,role,allowed_source,frozen_before,semantics,forbidden_use
+build_id,string,action,build manifest,sentinel access,immutable serialized build identity,post-hoc seed selection
+build_seed,integer,generation,preregistration,sentinel access,legal random seed,outcome-driven generation
+insertion_order_sha256,hex,generation,preregistration,sentinel access,exact insertion-order identity,silent reorder
+raw_fixed_ef,integer,action,preregistered grid,sentinel access,global raw search setting; not expansion cap,monotone-envelope relabeling
+query_role,enum,sampling,role manifest,truth access,sentinel/evaluation/future_confirm/design,role overlap or borrowing
+query_sha256,hex,sampling,role manifest,truth access,hash of ordered query IDs,untracked mutation
+failure,boolean,risk,raw recall and endpoint status,analysis,1 iff recall<tau or endpoint infeasible,max-ef success imputation
+risk_ucb,float,certificate,sentinel only,selection,simultaneous one-sided UCB,evaluation-driven tuning
+mean_ndc,float,primary cost,candidate searches,selection,mean actual distance computations,budget proxy substitution
+p95_ndc,float,tail gate,candidate searches/evaluation,tie-break rule frozen,separate tail statistic,weighted mean hiding
+truth_cost,float,offline cost,accounting log,analysis plan,incremental exact-truth acquisition,multiply by K without reason
+candidate_search_cost,float,offline cost,action execution log,analysis plan,all evaluated action searches,omit because truth shared
+fallback,string,deployment,preregistration,sentinel access,external fixed-safe action,forced unsafe candidate
