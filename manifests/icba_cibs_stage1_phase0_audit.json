@@ -1,0 +1,73 @@
+{
+  "schema_version": "icba_cibs_stage1_phase0_audit_v1",
+  "audit_time_utc": "2026-08-31T13:08:54Z",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "phase_status": "STOPPED_BEFORE_PHASE1",
+  "primary_blocker": "BLOCKED_MISSING_RECALL_TARGET",
+  "fallback_status": "NO_VALID_FIXED_SAFE_FALLBACK",
+  "final_pilot_label": null,
+  "frozen_commit": "b0190169cdb758aa5311c7d13fbfd4fd724020f0",
+  "branch": "exp/icba_cibs_fixed_stage1_pilot",
+  "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw-cibs-stage1",
+  "head_before_audit_record": "b0190169cdb758aa5311c7d13fbfd4fd724020f0",
+  "clean_before_audit_record": true,
+  "theory_lock_checksums": {
+    "declared": 28,
+    "verified": 28,
+    "status": "PASS_28_OF_28"
+  },
+  "legacy_restriction": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123",
+  "truth_firewall": {
+    "sentinel_truth_accessed": false,
+    "evaluation_truth_accessed": false,
+    "future_confirm_truth_accessed": false,
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false,
+    "physical_hdf5_rehashed": false,
+    "graphs_built": false,
+    "compiled": false,
+    "queries_run": false
+  },
+  "inputs": {
+    "sift_manifest_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+    "sift_hdf5_size_bytes": 525128288,
+    "arxiv_manifest_sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+    "arxiv_hdf5_size_bytes": 4135431488,
+    "hnswlib_commit": "3f3429661187e4c24a490a0f148fc6bc89042b3d",
+    "hnswlib_version": "0.8.0",
+    "compiler": "g++ 9.4.0",
+    "cmake": "3.16.3",
+    "python": "3.8.10"
+  },
+  "resources": {
+    "filesystem_available_bytes": 13681238016,
+    "dev_shm_available_bytes": 136782774272,
+    "ram_available_bytes": 256482873344,
+    "projected_additions_bytes": 3365465672,
+    "mandatory_reserve_bytes": 5368709120,
+    "required_free_bytes": 8734174792,
+    "headroom_bytes": 4947063224,
+    "gate": "PASS_RECHECK_BEFORE_BUILD"
+  },
+  "contract_audit": {
+    "recall_target_tau": null,
+    "recall_target_status": "MISSING_FROM_FROZEN_CIBS_CONTRACT",
+    "delta": 0.05,
+    "alpha": 0.05,
+    "main_K": 3,
+    "main_L": 12,
+    "main_M": 36,
+    "main_n": 256,
+    "raw_ef_grid": null,
+    "fixed_safe_fallback": null
+  },
+  "next_permitted_action": "PRE_TRUTH_CONTRACT_AMENDMENT_ONLY",
+  "prohibited_until_resolved": [
+    "phase1_preregistration_commit",
+    "build",
+    "compile",
+    "sentinel_truth_access",
+    "query_execution",
+    "evaluation_access"
+  ]
+}
