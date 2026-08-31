@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "STOPPED_QUERY_FIREWALL_AUDIT_GAP",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "detected_at": "2026-09-01T07:10:38+08:00",
+  "execution_commit": "48fb36560f613e4a909434907ca2a32b1d1373f4",
+  "terminated_process_group": 1407925,
+  "reason": "The committed sentinel runner opened sentinel truth and action outcomes without durably updating the tracked truth_access_log.csv. The supervisor stopped the process tree fail-closed before selection or evaluation.",
+  "outcome_values_inspected_by_supervisor": false,
+  "selection_performed": false,
+  "selected_action_manifest_created": false,
+  "evaluation_accessed": false,
+  "future_confirm_accessed": false,
+  "positive_cibs_evidence": false,
+  "observed_access": {
+    "sift_100k": {
+      "cibs_design_truth": true,
+      "cibs_design_action_outcome": true,
+      "cibs_sentinel_truth": true,
+      "cibs_sentinel_action_outcome": true
+    },
+    "arxiv_nomic_100k": {
+      "cibs_design_truth": true,
+      "cibs_design_action_outcome": true,
+      "cibs_sentinel_truth": true,
+      "cibs_sentinel_action_outcome": true
+    }
+  },
+  "truth_access_log_repair": {
+    "path": "results/icba_cibs_stage1/phase1/query_roles/truth_access_log.csv",
+    "sha256": "942e5ddf6f3091d349aa5c3b2d18f322eeab3e8059ee5cf97a2a0529cbc45396",
+    "policy": "design and sentinel truth/action flags set conservatively to 1 for both datasets; evaluation and future-confirm remain 0"
+  },
+  "partial_artifacts": [
+    {
+      "path": "results/icba_cibs_stage1/sentinel_events.jsonl",
+      "sha256": "b72082254219e0240eeb980ce0df16e012fb84553b5f27ba9b36128e12cf3196",
+      "state": "complete_through_arxiv_truth"
+    },
+    {
+      "path": "results/icba_cibs_stage1/sentinel/sift_100k__sentinel_truth.csv",
+      "sha256": "9baa80f75f86fb80263d85b99861f3357f7030993cd7775a7013e362617f3c24",
+      "state": "complete"
+    },
+    {
+      "path": "results/icba_cibs_stage1/sentinel/sift_100k__G1__sentinel_actions.csv",
+      "sha256": "9606a256183e9f0c91791cfc05daea693751ce5713a7855f0445a0fbb3ce1f81",
+      "state": "complete"
+    },
+    {
+      "path": "results/icba_cibs_stage1/sentinel/sift_100k__G2__sentinel_actions.csv",
+      "sha256": "6c47c4551cf4df300b348f441512d779042af9c7f264b71e9414af00321c065b",
+      "state": "complete"
+    },
+    {
+      "path": "results/icba_cibs_stage1/sentinel/sift_100k__G3__sentinel_actions.csv",
+      "sha256": "39ce4062de0697719ecc91957da0c60e91a41b8269e3b4c18fa6fd51d7cfb359",
+      "state": "complete"
+    },
+    {
+      "path": "results/icba_cibs_stage1/sentinel/arxiv_nomic_100k__sentinel_truth.csv",
+      "sha256": "d263621605dc241c751ea6843b8ff6df8c0ab0b3207124e5d31b83188b40485b",
+      "state": "complete"
+    },
+    {
+      "path": "results/icba_cibs_stage1/sentinel/arxiv_nomic_100k__G1__sentinel_actions.csv",
+      "sha256": "927bd5c69a13294475b86a824a217252df5d4ca3e5651cebd7d96ac2851405a1",
+      "state": "partial_terminated_no_meta_no_command_completion"
+    }
+  ],
+  "next_permitted_action": "Commit a non-outcome-driven audit-only repair, quarantine this attempt without deleting it, then replay the unchanged frozen sentinel procedure from the beginning. Evaluation remains forbidden until a new selected-action manifest is frozen and committed."
+}

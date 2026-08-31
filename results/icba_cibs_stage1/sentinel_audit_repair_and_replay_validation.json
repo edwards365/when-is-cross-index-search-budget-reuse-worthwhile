@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "PASS_NON_OUTCOME_DRIVEN_AUDIT_REPAIR_AND_UNCHANGED_SENTINEL_REPLAY",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "positive_cibs_evidence": false,
+  "attempt1": {
+    "execution_commit": "48fb36560f613e4a909434907ca2a32b1d1373f4",
+    "terminated_process_group": 1407925,
+    "failure": "truth_access_log.csv was not durably updated before sentinel truth/action access",
+    "outcome_values_inspected_for_recovery": false,
+    "selection_performed": false,
+    "evaluation_accessed": false,
+    "future_confirm_accessed": false,
+    "preservation_commit": "bfc1651131109957a97f6be592a2473445b46dff"
+  },
+  "audit_repair": {
+    "nature": "access-accounting only; no measurement, certification, selection, baseline, or tie-break rule changed",
+    "truth_access_log_path": "results/icba_cibs_stage1/phase1/query_roles/truth_access_log.csv",
+    "truth_access_log_sha256": "942e5ddf6f3091d349aa5c3b2d18f322eeab3e8059ee5cf97a2a0529cbc45396",
+    "design_and_sentinel_truth_action_flags": 1,
+    "evaluation_and_future_confirm_truth_action_flags": 0
+  },
+  "replay": {
+    "execution_commit": "bfc1651131109957a97f6be592a2473445b46dff",
+    "procedure_changed_from_attempt1": false,
+    "status": "PASS_SENTINEL_SELECTION_FROZEN",
+    "selected_action_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+    "sentinel_certificate_sha256": "9dcd8e3fc25027e8cd9ba943d6ee8a502bc7d11c87c45666164bd2c171fef7ab",
+    "rows_recomputed": {
+      "sift_100k": 9216,
+      "arxiv_nomic_100k": 9216
+    },
+    "certified_alpha_over_36": {
+      "sift_100k": 17,
+      "arxiv_nomic_100k": 22
+    },
+    "selected_B4_CIBS_FIXED": {
+      "sift_100k": "G3:ef=96",
+      "arxiv_nomic_100k": "G2:ef=48"
+    },
+    "overlap_replay_equal_excluding_wall_clock": {
+      "sift_truth_rows": 256,
+      "sift_G1_rows": 3072,
+      "sift_G2_rows": 3072,
+      "sift_G3_rows": 3072,
+      "arxiv_truth_rows": 256,
+      "arxiv_G1_complete_prefix_rows": 1641,
+      "arxiv_G1_trailing_incomplete_row_ignored": 1
+    }
+  },
+  "evaluation_accessed": false,
+  "future_confirm_accessed": false,
+  "next_permitted_action": "Commit and push this selected-action freeze and validation before any evaluation access."
+}

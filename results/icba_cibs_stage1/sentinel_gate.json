@@ -1,0 +1,10 @@
+{
+  "evaluation_access_authorized_next": true,
+  "evaluation_reselection_allowed": false,
+  "future_confirm_accessed": false,
+  "positive_cibs_evidence": false,
+  "schema_version": 1,
+  "selected_action_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "sentinel_certificate_sha256": "9dcd8e3fc25027e8cd9ba943d6ee8a502bc7d11c87c45666164bd2c171fef7ab",
+  "status": "PASS_SENTINEL_SELECTION_FROZEN"
+}

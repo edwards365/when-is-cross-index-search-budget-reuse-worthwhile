@@ -1,0 +1,21 @@
+{
+  "action_rows": 18432,
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "B1": "G1:ef=64",
+      "B4_CIBS_FIXED": "G2:ef=48",
+      "certified_alpha_over_36": 22,
+      "truth_sha256": "afb302b44af7fe82c224ba51fb63962cbcf6cc65120917aea532fea14ab2c82b"
+    },
+    "sift_100k": {
+      "B1": "G1:ef=96",
+      "B4_CIBS_FIXED": "G3:ef=96",
+      "certified_alpha_over_36": 17,
+      "truth_sha256": "d44c63c1506de5639672291f45853f3d3e7c07beecf9f1affc665a64e7915c85"
+    }
+  },
+  "gate_sha256": "5d9f73f6b20dd15c50ba428d2add0b46c3dc2a301f8f28b07dd66b2f2caf72ee",
+  "selected_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "sentinel_certificate_sha256": "9dcd8e3fc25027e8cd9ba943d6ee8a502bc7d11c87c45666164bd2c171fef7ab",
+  "status": "PASS_INDEPENDENT_SENTINEL_SELECTION_REPLAY"
+}

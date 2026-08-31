@@ -1,0 +1,28 @@
+{
+  "certified": {
+    "arxiv_nomic_100k": 22,
+    "sift_100k": 17
+  },
+  "evaluation_accessed": false,
+  "future_confirm_accessed": false,
+  "replay_rows": {
+    "arxiv_G1_partial": 1641,
+    "arxiv_truth": 256,
+    "sift_G1": 3072,
+    "sift_G2": 3072,
+    "sift_G3": 3072,
+    "sift_truth": 256
+  },
+  "rows": {
+    "arxiv_nomic_100k": 9216,
+    "sift_100k": 9216
+  },
+  "selected": {
+    "arxiv_nomic_100k": "G2:ef=48",
+    "sift_100k": "G3:ef=96"
+  },
+  "selected_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "sentinel_certificate_sha256": "9dcd8e3fc25027e8cd9ba943d6ee8a502bc7d11c87c45666164bd2c171fef7ab",
+  "status": "PASS_INDEPENDENT_SENTINEL_SELECTION_AND_REPLAY_VALIDATION",
+  "truth_access_log_sha256": "942e5ddf6f3091d349aa5c3b2d18f322eeab3e8059ee5cf97a2a0529cbc45396"
+}

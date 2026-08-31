@@ -1,0 +1,12 @@
+{
+  "action_rows_by_build": {
+    "arxiv_nomic_100k/G1": 1641,
+    "sift_100k/G1": 3072,
+    "sift_100k/G2": 3072,
+    "sift_100k/G3": 3072
+  },
+  "action_rows_replayed": 10857,
+  "excluded_nondeterministic_field": "wall_clock_ns",
+  "status": "PASS_INTERRUPTED_SENTINEL_DETERMINISTIC_REPLAY",
+  "truth_queries_replayed": 512
+}

@@ -1,0 +1,14 @@
+{
+  "attempt": 2,
+  "canonical_selection_accepted": false,
+  "evaluation_accessed": false,
+  "future_confirm_accessed": false,
+  "head": "bfc1651131109957a97f6be592a2473445b46dff",
+  "independent_selection_replay": "PASS",
+  "reason_retained_noncanonical": "sentinel completed, but the tracked access-log repair had not been committed before this replay",
+  "recovery": "commit the non-outcome-driven access audit, then replay the unchanged frozen sentinel procedure",
+  "selected_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "sentinel_certificate_sha256": "9dcd8e3fc25027e8cd9ba943d6ee8a502bc7d11c87c45666164bd2c171fef7ab",
+  "selection_rule_or_parameters_changed": false,
+  "status": "RETAINED_COMPLETE_PRELOGCOMMIT_SENTINEL_ATTEMPT"
+}
