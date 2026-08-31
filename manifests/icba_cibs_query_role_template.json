@@ -1,0 +1,20 @@
+{
+  "status": "UNPOPULATED_TEMPLATE_NO_QUERY_OR_TRUTH_ACCESS",
+  "master_seed": null,
+  "roles": {
+    "cibs_sentinel": {"query_count": null, "ordered_query_id_sha256": null, "truth_access": "SELECTION_AND_CERTIFICATION_ONLY"},
+    "cibs_evaluation": {"query_count": null, "ordered_query_id_sha256": null, "truth_access": "AFTER_ACTION_FREEZE_ONLY"},
+    "cibs_future_confirm": {"query_count": null, "ordered_query_id_sha256": null, "truth_access": "SEALED"},
+    "cibs_design": {"query_count": 0, "ordered_query_id_sha256": null, "truth_access": "OPTIONAL_DEVELOPMENT_ONLY"}
+  },
+  "pairwise_overlap": {
+    "cibs_sentinel__cibs_evaluation": null,
+    "cibs_sentinel__cibs_future_confirm": null,
+    "cibs_evaluation__cibs_future_confirm": null
+  },
+  "required_overlap_value_before_run": 0,
+  "validation_dev": "SEALED",
+  "formal_test": "SEALED",
+  "future_confirm_sealing_declaration": "Must be signed and hashed before any pilot truth access",
+  "rule_if_sentinel_count_below_256": "Use the actual frozen count and recompute exact CP; never borrow evaluation queries"
+}
