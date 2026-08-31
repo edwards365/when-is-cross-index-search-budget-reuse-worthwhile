@@ -1,0 +1,4 @@
+setting,K,L,M,n,alpha,delta,alpha_per_action,max_certifiable_failures,ucb_at_max,ucb_at_next,zero_failure_ucb,zero_failure_min_n,method
+main,3,12,36,256,0.05,0.05,0.001388888888888889,3,0.04847011813277262,0.05494821081357332,0.025372760986095606,129,one-sided Clopper-Pearson plus Bonferroni
+low_cost,2,12,24,128,0.05,0.05,0.0020833333333333333,0,0.04708798510235187,0.06387989996404543,0.04708798510235187,121,one-sided Clopper-Pearson plus Bonferroni
+alternate_if_only_250_sentinel,3,12,36,250,0.05,0.05,0.001388888888888889,3,0.04961098680203266,0.05622713402593215,0.02597373038696847,129,one-sided Clopper-Pearson plus Bonferroni
