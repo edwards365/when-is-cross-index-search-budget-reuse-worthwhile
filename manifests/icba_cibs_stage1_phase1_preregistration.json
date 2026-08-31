@@ -1,0 +1,224 @@
+{
+  "ablation": {
+    "K": 2,
+    "L": 12,
+    "M": 24,
+    "authorized_after_main_completion_only": true,
+    "maximum_failures_for_certificate": 0,
+    "sentinel_n": 128
+  },
+  "baselines": {
+    "B0": "fixed-safe G1 raw ef=100000 full enumeration",
+    "B1": "G1-only fair certification across L=12 using alpha/L; same cost-aware tie-break; B0 if empty",
+    "B2": "registered single action G1 raw ef=512",
+    "B3": "one frozen random build G2 raw ef=512",
+    "B4": "CIBS-Fixed selected once from all 36 actions",
+    "B5": "post-hoc per-query oracle over all 36 actions; nondeployable"
+  },
+  "build_manifest": "manifests/icba_cibs_stage1_build_candidates.json",
+  "build_manifest_sha256": "05f1d80d810ddb03d6985a34975dc9068438c859c85896a4089cc15c1579b6d4",
+  "certificate_semantics": {
+    "evaluation": "HELD_OUT_RISK_DIAGNOSTIC",
+    "report_condition": "CONDITIONAL_ON_ONE_REGISTERED_PORTFOLIO",
+    "sentinel": "PROCEDURE_CERTIFICATE"
+  },
+  "contract_amendment_commit": "31ca05fcc40eb2ec1705f51fb0a66a9e95052f85",
+  "costs": {
+    "fallback_enters_mean_and_tail": true,
+    "include": [
+      "per_build_construction",
+      "peak_memory",
+      "index_storage",
+      "truth",
+      "36_action_search",
+      "selection",
+      "certification",
+      "serialization",
+      "storage",
+      "fallback"
+    ],
+    "truth_channels": [
+      "truth_available",
+      "truth_acquisition_included"
+    ],
+    "workload_N": [
+      1000,
+      10000,
+      100000,
+      1000000,
+      10000000
+    ]
+  },
+  "environment": {
+    "GPU_authorized": false,
+    "compiler_version": "g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0",
+    "h5py": "3.11.0",
+    "numpy": "1.26.4",
+    "python": "3.11.16"
+  },
+  "evaluation_rule": "freeze selected-action manifest and hash before evaluation truth; evaluation cannot reselect",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "failure_event": "Z_abs=1 iff Recall@10<0.90 or endpoint infeasible or query execution fails",
+  "forbidden": [
+    "validation_dev",
+    "formal_test",
+    "certification_reserved",
+    "future_confirm",
+    "glove",
+    "GPU_method_search",
+    "outcome_driven_tuning",
+    "raw_recall_envelope",
+    "open_world_claim",
+    "confirmatory_claim",
+    "SOTA_claim",
+    "CIBS_Race_claim"
+  ],
+  "frozen_base": "b0190169cdb758aa5311c7d13fbfd4fd724020f0",
+  "main": {
+    "K": 3,
+    "L": 12,
+    "M": 36,
+    "maximum_execution_failures": 3,
+    "sentinel_n": 256
+  },
+  "main_failure_thresholds": {
+    "fourth_failure_forbids_certification": true,
+    "n_250_max_certifiable_failures": 3,
+    "n_256_max_certifiable_failures": 3
+  },
+  "measurements_per_action": [
+    "raw_Recall@10",
+    "Z_abs",
+    "endpoint_status",
+    "exact_NDC",
+    "actual_expansions",
+    "requested_raw_ef",
+    "wall_clock_ns"
+  ],
+  "minimum_gate_both_datasets": {
+    "certificate_valid": true,
+    "delete_top_1_percent_gain_positive": true,
+    "endpoint_not_worse": true,
+    "evaluation_no_clear_conflict": true,
+    "finite_break_even": true,
+    "mean_ndc_gain_relative_B1_min": 0.01,
+    "p95_ndc_delta_max": 0,
+    "recall_delta_min": -0.001
+  },
+  "multiplicity": "one-sided exact Clopper-Pearson UCB at alpha/M independently for every action; certify iff UCB<=0.05",
+  "promotion_gate": [
+    "recall_noninferiority_interval_support",
+    "mean_gain_CI_lower_bound_gt_0",
+    "p95_delta_CI_upper_bound_le_0_or_no_clear_worsening",
+    "same_direction_both_datasets",
+    "no_contamination_or_replay_failure",
+    "complete_cost_break_even_reasonable"
+  ],
+  "protocol": "ICBA_CIBS_FIXED_STAGE_I_REAL_NDC_PILOT",
+  "quality_target": {
+    "metric": "Recall@10",
+    "operator": ">=",
+    "value": 0.9
+  },
+  "query_role_manifest": "manifests/icba_cibs_stage1_query_roles.json",
+  "query_role_manifest_sha256": "399417534dad61aab5c8496fefac8678f406a4cda7148f33fa8ec913df93581f",
+  "raw_fixed_ef_grid": [
+    10,
+    16,
+    24,
+    32,
+    48,
+    64,
+    96,
+    128,
+    192,
+    256,
+    384,
+    512
+  ],
+  "required_machine_tests": [
+    "frozen_lock_28_of_28",
+    "query_role_pairwise_overlap_zero",
+    "historical_source_id_overlap_zero",
+    "truth_firewall_access_log",
+    "build_set_immutability",
+    "insertion_order_hash_and_replay",
+    "resource_gate_before_every_build",
+    "compiler_flags_and_scalar_mode_replay",
+    "native_tracer_top10_equivalence",
+    "native_tracer_exact_ndc_equivalence",
+    "synthetic_fallback_full_enumeration",
+    "actual_G1_layer0_directed_connectivity",
+    "fallback_native_bruteforce_exact_top10",
+    "index_save_load_replay",
+    "CP_reference_vectors",
+    "Bonferroni_family_size",
+    "action_matrix_36_cells_per_query",
+    "requested_ef_ndc_expansion_separation",
+    "selection_tie_break_replay",
+    "evaluation_sealed_until_action_hash",
+    "cost_ledger_completeness",
+    "artifact_checksum_replay",
+    "query_failure_boundary",
+    "baseline_action_equivalence"
+  ],
+  "resource_gate": {
+    "free_bytes": 13679554560,
+    "headroom_bytes": 4945379768,
+    "projected_additions_bytes": 3365465672,
+    "required_bytes": 8734174792,
+    "reserve_bytes": 5368709120,
+    "status": "PASS"
+  },
+  "risk": {
+    "alpha": 0.05,
+    "delta": 0.05,
+    "family_size": 36,
+    "one_sided": true
+  },
+  "schema_version": 1,
+  "selection": {
+    "certified_set": "actions with simultaneous CP UCB<=0.05",
+    "empty_set": "fixed-safe G1 raw ef=100000 fallback after all fallback gates pass",
+    "primary": "minimum sentinel mean NDC",
+    "raw_recall_monotonicity_assumed": false,
+    "right_censoring_counted_as_success": false,
+    "tie_break": [
+      "lower_sentinel_p95_NDC",
+      "lower_raw_ef",
+      "lower_build_id"
+    ]
+  },
+  "statistics": {
+    "bootstrap_seed": 991,
+    "interval": "paired percentile 95%",
+    "paired_query_bootstrap_replicates": 5000,
+    "relative_to": [
+      "B0",
+      "B1"
+    ],
+    "report": [
+      "Recall@10",
+      "risk_CP",
+      "endpoint",
+      "mean_NDC",
+      "p50_NDC",
+      "p95_NDC",
+      "p99_NDC",
+      "expansions",
+      "raw_ef",
+      "wall_clock",
+      "index_size",
+      "peak_memory"
+    ],
+    "robustness": [
+      "delete_top_1_percent_largest_per_query_NDC_gains",
+      "build_effects",
+      "leave_one_build_out",
+      "remove_selected_build",
+      "selection_stability"
+    ]
+  },
+  "status": "PHASE1_PREREGISTERED_BEFORE_TRUTH_OR_ACTION_OUTCOMES",
+  "truth_or_action_outcomes_read_during_freeze": false
+}

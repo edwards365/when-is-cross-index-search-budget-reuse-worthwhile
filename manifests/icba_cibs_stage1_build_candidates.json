@@ -1,0 +1,82 @@
+{
+  "allowed_variation": [
+    "hnsw_random_seed",
+    "insertion_order"
+  ],
+  "artifact_hash_required_before_sentinel": true,
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "artifact_paths": {
+        "arxiv_nomic_100k": "artifacts/icba_cibs_stage1/arxiv_nomic_100k/G1.bin",
+        "sift_100k": "artifacts/icba_cibs_stage1/sift_100k/G1.bin"
+      },
+      "artifact_sha256_at_preregistration": "PENDING_BUILD_REALIZATION_BEFORE_SENTINEL",
+      "build_failure_policy": "RECORD_AND_STOP_NO_REPLACEMENT",
+      "build_id": "G1",
+      "hnsw_random_seed": 1009,
+      "insertion_order_file_sha256": "a323d4c467172c1fe7ec32beda7a1a4218b7274c575dc0760845a13291c94901",
+      "insertion_order_le_u32_sha256": "f1377a1001fb3c823cdfe62ef0f71d67896780c929eded90b0a5783ed0a8e0ca",
+      "insertion_order_path": "results/icba_cibs_stage1/phase1/build_preregistration/G1__insertion_order.npy",
+      "insertion_order_rng": "numpy.random.Generator(PCG64)",
+      "insertion_order_seed": 2026083101
+    },
+    {
+      "artifact_paths": {
+        "arxiv_nomic_100k": "artifacts/icba_cibs_stage1/arxiv_nomic_100k/G2.bin",
+        "sift_100k": "artifacts/icba_cibs_stage1/sift_100k/G2.bin"
+      },
+      "artifact_sha256_at_preregistration": "PENDING_BUILD_REALIZATION_BEFORE_SENTINEL",
+      "build_failure_policy": "RECORD_AND_STOP_NO_REPLACEMENT",
+      "build_id": "G2",
+      "hnsw_random_seed": 1013,
+      "insertion_order_file_sha256": "f9c6c3b92e5ed775555c11b03e769d6b0d3b885abc1d8bd549e42df6e20e8c68",
+      "insertion_order_le_u32_sha256": "bc186534a3cf9911cfd458b16b529ed1679d662214e65e361e77cb4f74977b6e",
+      "insertion_order_path": "results/icba_cibs_stage1/phase1/build_preregistration/G2__insertion_order.npy",
+      "insertion_order_rng": "numpy.random.Generator(PCG64)",
+      "insertion_order_seed": 2026083102
+    },
+    {
+      "artifact_paths": {
+        "arxiv_nomic_100k": "artifacts/icba_cibs_stage1/arxiv_nomic_100k/G3.bin",
+        "sift_100k": "artifacts/icba_cibs_stage1/sift_100k/G3.bin"
+      },
+      "artifact_sha256_at_preregistration": "PENDING_BUILD_REALIZATION_BEFORE_SENTINEL",
+      "build_failure_policy": "RECORD_AND_STOP_NO_REPLACEMENT",
+      "build_id": "G3",
+      "hnsw_random_seed": 1019,
+      "insertion_order_file_sha256": "501d59bfffe5bb469b08285c1c76b061eee67c45fb746a29aabffee3280a1c4c",
+      "insertion_order_le_u32_sha256": "9cdff82683b93511a49591f3ac7d8a9275d6736a9b1b83193bbca1f88ac0c5ed",
+      "insertion_order_path": "results/icba_cibs_stage1/phase1/build_preregistration/G3__insertion_order.npy",
+      "insertion_order_rng": "numpy.random.Generator(PCG64)",
+      "insertion_order_seed": 2026083103
+    }
+  ],
+  "fallback_build_id": "G1",
+  "frozen_equal_fields": {
+    "M": 16,
+    "base_count": 100000,
+    "build_threads": 1,
+    "compiler": "GCC_9.4.0",
+    "compiler_flags": [
+      "-O3",
+      "-DNDEBUG",
+      "-DNO_MANUAL_VECTORIZATION",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic"
+    ],
+    "efConstruction": 100,
+    "implementation": "hnswlib_v0.8.0_commit_3f3429661187e4c24a490a0f148fc6bc89042b3d",
+    "k": 10,
+    "language_standard": "c++17",
+    "metric": "squared_l2",
+    "query_threads": 1,
+    "simd": "NO_MANUAL_VECTORIZATION_SCALAR"
+  },
+  "no_failed_build_discard": true,
+  "no_seed_replacement": true,
+  "random_single_build_baseline": "G2",
+  "schema_version": 1,
+  "status": "FROZEN_BEFORE_BUILD_AND_STAGE1_OUTCOMES"
+}

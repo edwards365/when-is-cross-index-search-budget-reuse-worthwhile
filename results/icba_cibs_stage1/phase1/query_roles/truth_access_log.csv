@@ -1,0 +1,9 @@
+dataset,role,query_vectors_materialized,truth_accessed,action_outcome_accessed,next_permitted_access
+sift_100k,cibs_design,1,0,0,FALLBACK_DESIGN_TEST_ONLY
+sift_100k,cibs_sentinel,1,0,0,AFTER_BUILD_AND_FALLBACK_GATES
+sift_100k,cibs_evaluation,1,0,0,AFTER_SELECTED_ACTION_MANIFEST_FREEZE
+sift_100k,cibs_future_confirm,1,0,0,NEVER_IN_STAGE_I
+arxiv_nomic_100k,cibs_design,1,0,0,FALLBACK_DESIGN_TEST_ONLY
+arxiv_nomic_100k,cibs_sentinel,1,0,0,AFTER_BUILD_AND_FALLBACK_GATES
+arxiv_nomic_100k,cibs_evaluation,1,0,0,AFTER_SELECTED_ACTION_MANIFEST_FREEZE
+arxiv_nomic_100k,cibs_future_confirm,1,0,0,NEVER_IN_STAGE_I

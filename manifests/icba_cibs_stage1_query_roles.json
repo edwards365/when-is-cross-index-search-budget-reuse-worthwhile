@@ -1,0 +1,206 @@
+{
+  "certification_reserved_accessed": false,
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "base_content_sha256": "9fc6c6e71329832643a6c1e57eecd32e632bf90b1a5a4bed83587dbab70de107",
+      "base_source_id_range": [
+        0,
+        99999
+      ],
+      "historical_source_id_artifacts": [
+        {
+          "count": 1000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-cibs-stage1/results/hardness_portability_100k/query_inputs/arxiv_nomic_100k_source_ids.npy",
+          "sha256": "87929fd6f43f790084196a2ec414b637de77a54a8aaaf4be71997e7d65ce4dda"
+        },
+        {
+          "count": 1000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-hardness-100k/results/cross_index/g1/query_inputs/arxiv_nomic_100k_source_ids.npy",
+          "sha256": "e72c57c31c30f8cf53c582c51f9370db14ff3349a7ad669c7fa544bc41bb32e8"
+        },
+        {
+          "count": 2000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-hardness-100k/results/rebuild_tax/validation_inputs/arxiv_nomic_100k_source_ids.npy",
+          "sha256": "c4852ee166630f95fc0d44e0753357284b36760938119186630723a6035304ab"
+        },
+        {
+          "count": 1000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw/results/raw/phase2_gatea_development_data_v2/arxiv-nomic-768-normalized_query_source_ids.npy",
+          "sha256": "d3ff8b2cfec5bae64d040ad8fcb456928b3743986206f35a06f17a87fe0bd139"
+        }
+      ],
+      "known_historical_source_id_union_count": 4997,
+      "normalization": "unit_l2_float32",
+      "pairwise_source_id_overlap": {
+        "cibs_design__cibs_evaluation": 0,
+        "cibs_design__cibs_future_confirm": 0,
+        "cibs_design__cibs_sentinel": 0,
+        "cibs_evaluation__cibs_future_confirm": 0,
+        "cibs_sentinel__cibs_evaluation": 0,
+        "cibs_sentinel__cibs_future_confirm": 0
+      },
+      "roles": {
+        "cibs_design": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 32,
+          "dimensions": 768,
+          "ordered_source_ids_le_i64_sha256": "94a8ca07ee4b658af267cfcf905645750cf7edadbb9975e975fee87ba2739024",
+          "queries_file_sha256": "0423431640abdc7f98a7e62a781da18435de86d2bcc4ba089bf3ebebfc0ee40b",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_design__queries.npy",
+          "source_ids_file_sha256": "b8b1bc2b5bea5ad538233e57789726ad0f3cad7737273894ac31c3fdd0cac32e",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_design__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        },
+        "cibs_evaluation": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 500,
+          "dimensions": 768,
+          "ordered_source_ids_le_i64_sha256": "d0bde003604bddcd3b1b8c4992423a8c3c195c84401848d07c24ab02459c45a8",
+          "queries_file_sha256": "b39f16d5a5696639a1c8483bd9d67bf173c9550b8cb302a31ce6a8a6535d684a",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_evaluation__queries.npy",
+          "source_ids_file_sha256": "8e0cc5c32cd408543e995fe424337fa39a62d9696af8603b88f7538de2c8a7ac",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_evaluation__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        },
+        "cibs_future_confirm": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 244,
+          "dimensions": 768,
+          "ordered_source_ids_le_i64_sha256": "687881ac004d5fdfa83e011acdbf6f6197d0fc727ed6bf04d9c95a6d20e871de",
+          "queries_file_sha256": "ceb22e8518bbe8ac94fec4eaddb45d9aa3d9896f282233a910efa89c0158717f",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_future_confirm__queries.npy",
+          "source_ids_file_sha256": "b31e8a59b0258d9efefc02da14b8aac0ee7ff735164b554b79bdada285df4cae",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_future_confirm__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        },
+        "cibs_sentinel": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 256,
+          "dimensions": 768,
+          "ordered_source_ids_le_i64_sha256": "190eb90d0dae2173ddfd5668e89018a8e0a7c0b2c0ec2f14f26d6167262f0b25",
+          "queries_file_sha256": "44c5362aafb9d9f4bd01ca2d7224a26f6e93fc40d1ff39f168dca3dc8a9fc3a5",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_sentinel__queries.npy",
+          "source_ids_file_sha256": "b4d8543ac237731d618cb6734f64adab13fcf7216728876699fe48ab99ead4b5",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/arxiv_nomic_100k__cibs_sentinel__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        }
+      },
+      "selected_base_source_id_overlap": 0,
+      "selected_historical_source_id_overlap": 0,
+      "source_hdf5": "/home/wlk/projects/navigation-aware-resistance-hnsw/data/raw/arxiv-nomic-768-normalized.hdf5",
+      "source_manifest_sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+      "source_member_read": "train",
+      "source_sha256_provenance": "frozen manifest; physical HDF5 not rehashed because sealed members share container"
+    },
+    "sift_100k": {
+      "base_content_sha256": "d0ad618c42429e9e2261e37e7ecaf042af58e47117ad62d5935457e129d0ab21",
+      "base_source_id_range": [
+        0,
+        99999
+      ],
+      "historical_source_id_artifacts": [
+        {
+          "count": 1000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-cibs-stage1/results/hardness_portability_100k/query_inputs/sift_100k_source_ids.npy",
+          "sha256": "ac23c76cb267873b0df3bda89521c1cc64e7853e871a7a37e391ac50b007af76"
+        },
+        {
+          "count": 1000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-hardness-100k/results/cross_index/g1/query_inputs/sift_100k_source_ids.npy",
+          "sha256": "749ddbadf0ceff755dafb5b73a215c9edc55e96d0e81c046244697c696c583e1"
+        },
+        {
+          "count": 2000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-hardness-100k/results/rebuild_tax/validation_inputs/sift_100k_source_ids.npy",
+          "sha256": "71dd89abd0b3ee9c614b05d4be8d495d3fea22779baf03d22c96a84e199dcad8"
+        },
+        {
+          "count": 1000,
+          "path": "/home/wlk/projects/navigation-aware-resistance-hnsw/results/raw/phase2_gatea_development_data_v2/sift-128-euclidean_query_source_ids.npy",
+          "sha256": "3cdf52671bd37f05feac5b74cd0c46b37bc51ba57f331dbf0df80f77a1f62e7a"
+        }
+      ],
+      "known_historical_source_id_union_count": 4994,
+      "normalization": "none_float32",
+      "pairwise_source_id_overlap": {
+        "cibs_design__cibs_evaluation": 0,
+        "cibs_design__cibs_future_confirm": 0,
+        "cibs_design__cibs_sentinel": 0,
+        "cibs_evaluation__cibs_future_confirm": 0,
+        "cibs_sentinel__cibs_evaluation": 0,
+        "cibs_sentinel__cibs_future_confirm": 0
+      },
+      "roles": {
+        "cibs_design": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 32,
+          "dimensions": 128,
+          "ordered_source_ids_le_i64_sha256": "3aee399b736b9bd2f84630f309d1fe202f4ae72966ccbebdc1695e37792d1cfc",
+          "queries_file_sha256": "f927b94680908b946c1359063fb71296947f8970b12b3cadc61956d1b58ee887",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_design__queries.npy",
+          "source_ids_file_sha256": "e94e9ae23693213da204f0a9a0101e891728510078e2741505d17b53b093831f",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_design__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        },
+        "cibs_evaluation": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 500,
+          "dimensions": 128,
+          "ordered_source_ids_le_i64_sha256": "59cab9981a83bfcf61d2914321081f9f268f01e6a8bfb4f0909141391c2eb694",
+          "queries_file_sha256": "e9eb13a6539c570d367c4821024369ddad4f94804ab485f5ef4f994a132a45e7",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_evaluation__queries.npy",
+          "source_ids_file_sha256": "93db95c768c8ef55455467f70b4426cfaba94df4c22e93c44daca9ec849f6388",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_evaluation__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        },
+        "cibs_future_confirm": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 244,
+          "dimensions": 128,
+          "ordered_source_ids_le_i64_sha256": "239b67b0064c9bde3d96a977ef00b18412c5c1c4d575606b7c25c43bdb466fb2",
+          "queries_file_sha256": "f992d1f3df435058b72362c0105aaa2f9366d0a85be9dfa21728d0a91f76cd35",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_future_confirm__queries.npy",
+          "source_ids_file_sha256": "c257a8a7e9fd1ca18bff996c457c664aab8b9fa5a8dc8527ea7433ae5f5b9c35",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_future_confirm__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        },
+        "cibs_sentinel": {
+          "action_outcome_accessed_at_freeze": false,
+          "count": 256,
+          "dimensions": 128,
+          "ordered_source_ids_le_i64_sha256": "5087d72798a0aa4eb46eff1a26cdc3c907c18bbea188dd83168689e58c41a09d",
+          "queries_file_sha256": "abbd94fb8bb27109d55fd91e33a8217ab4060c961782c41e4f03a091cff67c5d",
+          "queries_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_sentinel__queries.npy",
+          "source_ids_file_sha256": "c06c48d83450a75fd60a4635fee6725570925033b4f27e1c0fc9eb22b1d16738",
+          "source_ids_path": "results/icba_cibs_stage1/phase1/query_roles/sift_100k__cibs_sentinel__source_ids.npy",
+          "truth_accessed_at_freeze": false
+        }
+      },
+      "selected_base_source_id_overlap": 0,
+      "selected_historical_source_id_overlap": 0,
+      "source_hdf5": "/home/wlk/projects/navigation-aware-resistance-hnsw/data/raw/sift-128-euclidean.hdf5",
+      "source_manifest_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+      "source_member_read": "train",
+      "source_sha256_provenance": "frozen manifest; physical HDF5 not rehashed because sealed members share container"
+    }
+  },
+  "evaluation_reserved_accessed": false,
+  "formal_test_accessed": false,
+  "future_confirm_accessed": false,
+  "historical_action_results_consulted": false,
+  "inference_scope": "conditional_on_the_frozen_finite_query_pool_and_one_registered_build_portfolio",
+  "master_seed": 20260831,
+  "rng": "numpy.random.Generator(PCG64)",
+  "role_sizes": {
+    "cibs_design": 32,
+    "cibs_evaluation": 500,
+    "cibs_future_confirm": 244,
+    "cibs_sentinel": 256
+  },
+  "schema_version": 1,
+  "semantics": "FROZEN_FINITE_POOL_WITHOUT_REPLACEMENT",
+  "status": "FROZEN_BEFORE_STAGE1_TRUTH_OR_ACTION_OUTCOMES",
+  "truth_access_log": "results/icba_cibs_stage1/phase1/query_roles/truth_access_log.csv",
+  "truth_access_log_sha256": "ddb26e65185da4f2e8bde4a5d46a8f0af9c05892c2b702d3986701ae202250ad",
+  "validation_dev_accessed": false
+}
