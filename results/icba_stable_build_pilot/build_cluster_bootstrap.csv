@@ -1,0 +1,3 @@
+dataset,repetitions,status
+sift_100k,0,NOT_RUN_DUE_STORAGE_GATE
+arxiv_nomic_100k,0,NOT_RUN_DUE_STORAGE_GATE

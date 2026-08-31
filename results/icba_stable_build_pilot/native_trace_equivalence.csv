@@ -1,0 +1,2 @@
+dataset,queries,ef_values,status
+sift_100k,0,0,NOT_RUN_DUE_STORAGE_GATE

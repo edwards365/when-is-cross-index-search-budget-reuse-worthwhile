@@ -1,0 +1,3 @@
+dataset,metric,value,status
+sift_100k,all,NA,NOT_RUN_DUE_STORAGE_GATE
+arxiv_nomic_100k,all,NA,NOT_RUN_DUE_STORAGE_GATE

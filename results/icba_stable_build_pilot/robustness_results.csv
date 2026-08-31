@@ -1,0 +1,4 @@
+dataset,analysis,status
+sift_100k,top1_delete,NOT_RUN
+sift_100k,leave_one_build_out,NOT_RUN
+arxiv_nomic_100k,all,NOT_RUN

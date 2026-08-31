@@ -1,0 +1,22 @@
+{
+  "arxiv_pilot": "NOT_RUN",
+  "branch": "exp/icba_stable_build_dual_endpoint_pilot",
+  "certification_reserved_accessed": false,
+  "cfsr_lite": "NOT_IMPLEMENTED",
+  "decision": "INSUFFICIENT_STORAGE_FOR_REPRODUCIBLE_PILOT",
+  "evaluation_reserved_accessed": false,
+  "expected_additions_bytes": 468969472,
+  "formal_test_accessed": false,
+  "free_bytes": 5781733376,
+  "frozen_commit": "f7f08ce1f82e23eb4b14cdc08db1190301dc82af",
+  "independent_confirmation_authorized": false,
+  "mandatory_reserve_bytes": 5368709120,
+  "native_trace_equivalence": "NOT_RUN",
+  "query_roles": "NOT_MATERIALIZED",
+  "resource_gate": "FAIL",
+  "schema_version": "1.0",
+  "sift_pilot": "NOT_RUN",
+  "sift_smoke": "NOT_RUN",
+  "tracer_fields_passed": 0,
+  "validation_dev_accessed": false
+}

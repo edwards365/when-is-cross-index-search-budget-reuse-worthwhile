@@ -1,0 +1,5 @@
+dataset,endpoint,infeasible,right_censored,status
+sift_100k,B_exp,NA,NA,NOT_ESTIMABLE
+sift_100k,B_ef,NA,NA,NOT_ESTIMABLE
+arxiv_nomic_100k,B_exp,NA,NA,NOT_ESTIMABLE
+arxiv_nomic_100k,B_ef,NA,NA,NOT_ESTIMABLE

@@ -1,0 +1,5 @@
+role,count,status
+design,0,NOT_MATERIALIZED
+bridge_calibration,0,NOT_MATERIALIZED
+certification_reserved,0,SEALED_NOT_ACCESSED
+evaluation_reserved,0,SEALED_NOT_ACCESSED
