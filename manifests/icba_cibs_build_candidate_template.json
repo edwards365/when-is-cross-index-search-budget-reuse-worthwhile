@@ -1,0 +1,28 @@
+{
+  "status": "UNPOPULATED_TEMPLATE_NO_BUILD_RUN",
+  "allowed_variation": ["random_seed", "insertion_order"],
+  "frozen_equal_fields": [
+    "dataset_sha256",
+    "graph_M",
+    "efConstruction",
+    "distance_metric",
+    "compiler_and_flags",
+    "thread_count",
+    "SIMD_mode",
+    "index_implementation"
+  ],
+  "candidates": [],
+  "required_candidate_fields": [
+    "build_id",
+    "seed",
+    "insertion_order_sha256",
+    "artifact_sha256",
+    "build_time",
+    "peak_memory",
+    "index_size",
+    "build_status"
+  ],
+  "preregistration_rule": "Freeze all candidates before sentinel outcomes",
+  "failure_rule": "Do not discard failed builds",
+  "truth_rule": "No sentinel, evaluation, or future-confirm truth in generation"
+}
