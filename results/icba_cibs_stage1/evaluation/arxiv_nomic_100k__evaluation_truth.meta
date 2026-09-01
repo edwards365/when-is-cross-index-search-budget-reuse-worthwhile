@@ -1,0 +1,8 @@
+status=PASS
+queries=500
+base_rows=100000
+truth_acquisition_ndc_per_query=100000
+truth_acquisition_total_ndc=50000000
+truth_acquisition_total_wall_clock_ns=59391194731
+boundary_distance_ties=0
+tie_rule=distance_then_label

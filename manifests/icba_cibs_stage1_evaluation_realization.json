@@ -1,0 +1,548 @@
+{
+  "compiler": {
+    "binary": "results/icba_cibs_stage1/runtime/tools/icba_cibs_stage1_evaluation_runner",
+    "binary_sha256": "1b8e63b31f558cf883825dc232ec696a44be54eebc36dd61f8ab017e0db41e5a",
+    "compiler": "g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0",
+    "flags": [
+      "-std=c++17",
+      "-O3",
+      "-DNDEBUG",
+      "-DNO_MANUAL_VECTORIZATION",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic"
+    ],
+    "simd": "NO_MANUAL_VECTORIZATION_SCALAR",
+    "source": "cpp/src/icba_cibs_stage1_runner.cpp",
+    "source_sha256": "775389ee018db757e7674e1cb2bd2431ecef64adb026838ddb76e0393dca3361",
+    "threads": 1
+  },
+  "conditionality": "CONDITIONAL_ON_ONE_REGISTERED_PORTFOLIO",
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "B5_deployable": false,
+      "B5_oracle_rule": "per query minimum NDC among the 36 target-feasible actions; tie raw ef then build; B0 if none",
+      "comparisons": {
+        "B4_vs_B0": {
+          "mean_ndc_relative_gain": 0.9918230472226781,
+          "mean_ndc_relative_gain_95_interval": [
+            0.9917077815684174,
+            0.9919424502036728
+          ],
+          "p95_ndc_delta": -99075.95,
+          "p95_ndc_delta_95_interval": [
+            -99115.85,
+            -99040.54875
+          ],
+          "paired_query_bootstrap_replicates": 5000,
+          "recall_delta": -0.021599999999999994,
+          "recall_delta_95_interval": [
+            -0.0276,
+            -0.016199999999999996
+          ],
+          "seed": 991
+        },
+        "B4_vs_B1": {
+          "mean_ndc_relative_gain": 0.20043259254627804,
+          "mean_ndc_relative_gain_95_interval": [
+            0.19585306524380303,
+            0.20499853803687026
+          ],
+          "p95_ndc_delta": -271.2499999999998,
+          "p95_ndc_delta_95_interval": [
+            -308.14999999999986,
+            -247.34999999999968
+          ],
+          "paired_query_bootstrap_replicates": 5000,
+          "recall_delta": -0.008199999999999999,
+          "recall_delta_95_interval": [
+            -0.013599999999999998,
+            -0.0031999999999999997
+          ],
+          "seed": 991
+        }
+      },
+      "delete_top_1_percent_gain": {
+        "deleted_queries": 5,
+        "mean_absolute_ndc_gain_after_deleting_largest_1_percent": 203.06060606060606,
+        "positive_after_deletion": true
+      },
+      "methods": {
+        "B0": {
+          "build_id_counts": {
+            "G1": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 0,
+          "max_build_peak_rss_kib": 630464,
+          "mean_expansions": 100000.0,
+          "mean_index_size_bytes": 322049984.0,
+          "mean_ndc": 100090.342,
+          "mean_recall_at_10": 1.0,
+          "mean_wall_clock_ns": 138731313.448,
+          "n": 500,
+          "p50_ndc": 100089.0,
+          "p95_expansions": 100000.0,
+          "p95_ndc": 100131.0,
+          "p95_wall_clock_ns": 141720543.45,
+          "p99_ndc": 100146.03,
+          "p99_wall_clock_ns": 150594734.59,
+          "requested_ef_counts": {
+            "100000": 500
+          },
+          "risk_cp_95_ucb": 0.005973551516349557
+        },
+        "B1": {
+          "build_id_counts": {
+            "G1": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 10,
+          "max_build_peak_rss_kib": 630464,
+          "mean_expansions": 64.994,
+          "mean_index_size_bytes": 322049984.0,
+          "mean_ndc": 1023.596,
+          "mean_recall_at_10": 0.9866,
+          "mean_wall_clock_ns": 766163.908,
+          "n": 500,
+          "p50_ndc": 1019.5,
+          "p95_expansions": 68.0,
+          "p95_ndc": 1326.2999999999997,
+          "p95_wall_clock_ns": 997664.9499999998,
+          "p99_ndc": 1446.08,
+          "p99_wall_clock_ns": 1087430.5,
+          "requested_ef_counts": {
+            "64": 500
+          },
+          "risk_cp_95_ucb": 0.03368827233114448
+        },
+        "B2": {
+          "build_id_counts": {
+            "G1": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 0,
+          "max_build_peak_rss_kib": 630464,
+          "mean_expansions": 512.132,
+          "mean_index_size_bytes": 322049984.0,
+          "mean_ndc": 4916.0,
+          "mean_recall_at_10": 0.9997999999999999,
+          "mean_wall_clock_ns": 4357628.732,
+          "n": 500,
+          "p50_ndc": 4855.5,
+          "p95_expansions": 513.0,
+          "p95_ndc": 6575.0999999999985,
+          "p95_wall_clock_ns": 6046245.949999999,
+          "p99_ndc": 7225.839999999999,
+          "p99_wall_clock_ns": 6756575.109999999,
+          "requested_ef_counts": {
+            "512": 500
+          },
+          "risk_cp_95_ucb": 0.005973551516349557
+        },
+        "B3": {
+          "build_id_counts": {
+            "G2": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 1,
+          "max_build_peak_rss_kib": 630392,
+          "mean_expansions": 512.128,
+          "mean_index_size_bytes": 322057668.0,
+          "mean_ndc": 4907.056,
+          "mean_recall_at_10": 0.9986,
+          "mean_wall_clock_ns": 4272146.172,
+          "n": 500,
+          "p50_ndc": 4862.0,
+          "p95_expansions": 513.0,
+          "p95_ndc": 6617.549999999999,
+          "p95_wall_clock_ns": 5981706.55,
+          "p99_ndc": 7177.09,
+          "p99_wall_clock_ns": 6623761.5,
+          "requested_ef_counts": {
+            "512": 500
+          },
+          "risk_cp_95_ucb": 0.00945228220807518
+        },
+        "B4_CIBS_FIXED": {
+          "build_id_counts": {
+            "G2": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 22,
+          "max_build_peak_rss_kib": 630392,
+          "mean_expansions": 49.128,
+          "mean_index_size_bytes": 322057668.0,
+          "mean_ndc": 818.434,
+          "mean_recall_at_10": 0.9783999999999999,
+          "mean_wall_clock_ns": 615390.036,
+          "n": 500,
+          "p50_ndc": 808.0,
+          "p95_expansions": 53.0,
+          "p95_ndc": 1055.05,
+          "p95_wall_clock_ns": 791298.9499999998,
+          "p99_ndc": 1139.1699999999998,
+          "p99_wall_clock_ns": 856816.5,
+          "requested_ef_counts": {
+            "48": 500
+          },
+          "risk_cp_95_ucb": 0.062235678440444864
+        },
+        "B5_ORACLE": {
+          "build_id_counts": {
+            "G1": 132,
+            "G2": 175,
+            "G3": 193
+          },
+          "endpoint_failures": 0,
+          "failures": 0,
+          "max_build_peak_rss_kib": 630768,
+          "mean_expansions": 16.314,
+          "mean_index_size_bytes": 322055193.208,
+          "mean_ndc": 369.426,
+          "mean_recall_at_10": 0.9422,
+          "mean_wall_clock_ns": 315726.338,
+          "n": 500,
+          "p50_ndc": 296.5,
+          "p95_expansions": 35.0,
+          "p95_ndc": 775.3499999999997,
+          "p95_wall_clock_ns": 593120.9999999997,
+          "p99_ndc": 1129.9399999999982,
+          "p99_wall_clock_ns": 1015690.0899999981,
+          "requested_ef_counts": {
+            "10": 373,
+            "16": 67,
+            "24": 32,
+            "32": 9,
+            "48": 15,
+            "96": 2,
+            "128": 1,
+            "192": 1
+          },
+          "risk_cp_95_ucb": 0.005973551516349557
+        }
+      },
+      "selected_actions_reused_without_reselection": {
+        "B1": "G1:ef=64",
+        "B4_CIBS_FIXED": "G2:ef=48"
+      },
+      "truth": {
+        "cost": {
+          "base_rows": 100000,
+          "boundary_distance_ties": false,
+          "queries": 500,
+          "status": "PASS",
+          "tie_rule": "distance_then_label",
+          "truth_acquisition_ndc_per_query": 100000,
+          "truth_acquisition_total_ndc": 50000000,
+          "truth_acquisition_total_wall_clock_ns": 59391194731
+        },
+        "meta_path": "results/icba_cibs_stage1/evaluation/arxiv_nomic_100k__evaluation_truth.meta",
+        "meta_sha256": "850ec97691b5276636e5609cbb07a52f34e6a18c0b617c4dc23757abc8283a60",
+        "path": "results/icba_cibs_stage1/evaluation/arxiv_nomic_100k__evaluation_truth.csv",
+        "sha256": "36c58867fd507a657da0cce13cfffb9f000ee3b38e302c1c0cb872c9b120c8d3"
+      }
+    },
+    "sift_100k": {
+      "B5_deployable": false,
+      "B5_oracle_rule": "per query minimum NDC among the 36 target-feasible actions; tie raw ef then build; B0 if none",
+      "comparisons": {
+        "B4_vs_B0": {
+          "mean_ndc_relative_gain": 0.9874556726596653,
+          "mean_ndc_relative_gain_95_interval": [
+            0.9872452211713225,
+            0.9876658398508807
+          ],
+          "p95_ndc_delta": -98531.8,
+          "p95_ndc_delta_95_interval": [
+            -98559.45999999999,
+            -98511.94875
+          ],
+          "paired_query_bootstrap_replicates": 5000,
+          "recall_delta": -0.0092,
+          "recall_delta_95_interval": [
+            -0.012799999999999997,
+            -0.006199999999999999
+          ],
+          "seed": 991
+        },
+        "B4_vs_B1": {
+          "mean_ndc_relative_gain": 0.004683476871171014,
+          "mean_ndc_relative_gain_95_interval": [
+            0.0010208981771565881,
+            0.00835179541170296
+          ],
+          "p95_ndc_delta": 10.950000000000045,
+          "p95_ndc_delta_95_interval": [
+            -18.052499999999952,
+            27.800000000000182
+          ],
+          "paired_query_bootstrap_replicates": 5000,
+          "recall_delta": -0.004199999999999999,
+          "recall_delta_95_interval": [
+            -0.007799999999999999,
+            -0.001
+          ],
+          "seed": 991
+        }
+      },
+      "delete_top_1_percent_gain": {
+        "deleted_queries": 5,
+        "mean_absolute_ndc_gain_after_deleting_largest_1_percent": 4.680808080808081,
+        "positive_after_deletion": true
+      },
+      "methods": {
+        "B0": {
+          "build_id_counts": {
+            "G1": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 0,
+          "max_build_peak_rss_kib": 130756,
+          "mean_expansions": 100000.0,
+          "mean_index_size_bytes": 66049984.0,
+          "mean_ndc": 100088.906,
+          "mean_recall_at_10": 1.0,
+          "mean_wall_clock_ns": 63769558.92,
+          "n": 500,
+          "p50_ndc": 100087.0,
+          "p95_expansions": 100000.0,
+          "p95_ndc": 100123.05,
+          "p95_wall_clock_ns": 64464686.45,
+          "p99_ndc": 100140.02,
+          "p99_wall_clock_ns": 64781941.99,
+          "requested_ef_counts": {
+            "100000": 500
+          },
+          "risk_cp_95_ucb": 0.005973551516349557
+        },
+        "B1": {
+          "build_id_counts": {
+            "G1": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 1,
+          "max_build_peak_rss_kib": 130756,
+          "mean_expansions": 96.532,
+          "mean_index_size_bytes": 66049984.0,
+          "mean_ndc": 1261.456,
+          "mean_recall_at_10": 0.995,
+          "mean_wall_clock_ns": 201551.788,
+          "n": 500,
+          "p50_ndc": 1297.5,
+          "p95_expansions": 99.0,
+          "p95_ndc": 1580.2999999999997,
+          "p95_wall_clock_ns": 251300.5,
+          "p99_ndc": 1651.11,
+          "p99_wall_clock_ns": 268819.59,
+          "requested_ef_counts": {
+            "96": 500
+          },
+          "risk_cp_95_ucb": 0.00945228220807518
+        },
+        "B2": {
+          "build_id_counts": {
+            "G1": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 0,
+          "max_build_peak_rss_kib": 130756,
+          "mean_expansions": 512.108,
+          "mean_index_size_bytes": 66049984.0,
+          "mean_ndc": 4277.728,
+          "mean_recall_at_10": 0.9997999999999999,
+          "mean_wall_clock_ns": 757105.078,
+          "n": 500,
+          "p50_ndc": 4409.5,
+          "p95_expansions": 513.0,
+          "p95_ndc": 5518.999999999999,
+          "p95_wall_clock_ns": 949265.9499999998,
+          "p99_ndc": 5846.429999999999,
+          "p99_wall_clock_ns": 992271.5899999997,
+          "requested_ef_counts": {
+            "512": 500
+          },
+          "risk_cp_95_ucb": 0.005973551516349557
+        },
+        "B3": {
+          "build_id_counts": {
+            "G2": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 0,
+          "max_build_peak_rss_kib": 130480,
+          "mean_expansions": 512.104,
+          "mean_index_size_bytes": 66057668.0,
+          "mean_ndc": 4273.678,
+          "mean_recall_at_10": 0.9997999999999999,
+          "mean_wall_clock_ns": 754690.066,
+          "n": 500,
+          "p50_ndc": 4393.5,
+          "p95_expansions": 513.0,
+          "p95_ndc": 5504.45,
+          "p95_wall_clock_ns": 950835.0,
+          "p99_ndc": 5868.669999999999,
+          "p99_wall_clock_ns": 991875.2099999998,
+          "requested_ef_counts": {
+            "512": 500
+          },
+          "risk_cp_95_ucb": 0.005973551516349557
+        },
+        "B4_CIBS_FIXED": {
+          "build_id_counts": {
+            "G3": 500
+          },
+          "endpoint_failures": 0,
+          "failures": 6,
+          "max_build_peak_rss_kib": 130864,
+          "mean_expansions": 96.566,
+          "mean_index_size_bytes": 66056512.0,
+          "mean_ndc": 1255.548,
+          "mean_recall_at_10": 0.9907999999999999,
+          "mean_wall_clock_ns": 201739.408,
+          "n": 500,
+          "p50_ndc": 1292.5,
+          "p95_expansions": 98.0,
+          "p95_ndc": 1591.2499999999998,
+          "p95_wall_clock_ns": 254026.05,
+          "p99_ndc": 1679.01,
+          "p99_wall_clock_ns": 266777.3,
+          "requested_ef_counts": {
+            "96": 500
+          },
+          "risk_cp_95_ucb": 0.023546585483971323
+        },
+        "B5_ORACLE": {
+          "build_id_counts": {
+            "G1": 159,
+            "G2": 157,
+            "G3": 184
+          },
+          "endpoint_failures": 0,
+          "failures": 0,
+          "max_build_peak_rss_kib": 130864,
+          "mean_expansions": 18.71,
+          "mean_index_size_bytes": 66054799.08,
+          "mean_ndc": 381.048,
+          "mean_recall_at_10": 0.9344,
+          "mean_wall_clock_ns": 64139.868,
+          "n": 500,
+          "p50_ndc": 320.5,
+          "p95_expansions": 48.0,
+          "p95_ndc": 775.4499999999996,
+          "p95_wall_clock_ns": 112702.49999999984,
+          "p99_ndc": 1106.1499999999999,
+          "p99_wall_clock_ns": 160903.09999999998,
+          "requested_ef_counts": {
+            "10": 288,
+            "16": 110,
+            "24": 53,
+            "32": 24,
+            "48": 18,
+            "64": 6,
+            "96": 1
+          },
+          "risk_cp_95_ucb": 0.005973551516349557
+        }
+      },
+      "selected_actions_reused_without_reselection": {
+        "B1": "G1:ef=96",
+        "B4_CIBS_FIXED": "G3:ef=96"
+      },
+      "truth": {
+        "cost": {
+          "base_rows": 100000,
+          "boundary_distance_ties": false,
+          "queries": 500,
+          "status": "PASS",
+          "tie_rule": "distance_then_label",
+          "truth_acquisition_ndc_per_query": 100000,
+          "truth_acquisition_total_ndc": 50000000,
+          "truth_acquisition_total_wall_clock_ns": 11906327630
+        },
+        "meta_path": "results/icba_cibs_stage1/evaluation/sift_100k__evaluation_truth.meta",
+        "meta_sha256": "be691e9351b8f3b156f174d875be65488454627c1cbd846ea6248a4145bb277e",
+        "path": "results/icba_cibs_stage1/evaluation/sift_100k__evaluation_truth.csv",
+        "sha256": "75d693646d03f58394c9df38b046315dd4ad3ad6b046907fc634d10edbf05da8"
+      }
+    }
+  },
+  "evaluation_accessed": true,
+  "evaluation_execution_commit": "0eac6a5e7203fd69f51ca59bb630c9b9238530a9",
+  "evaluation_reselection_performed": false,
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "future_confirm_accessed": false,
+  "positive_cibs_evidence": false,
+  "raw_files": {
+    "arxiv_nomic_100k": {
+      "B0": {
+        "path": "results/icba_cibs_stage1/evaluation/arxiv_nomic_100k__B0_fixed_safe.csv",
+        "rows": 500,
+        "sha256": "411a0be864a9097d3946af9e2d3ed685d724d07638363c5f13bf1abf7166a094"
+      },
+      "all_actions": [
+        {
+          "build_id": "G1",
+          "path": "results/icba_cibs_stage1/evaluation/arxiv_nomic_100k__G1__evaluation_all_actions.csv",
+          "rows": 6000,
+          "sha256": "878419c6b8e9d2b981fe4412cbe3885b666ea49f93d37bdc8d32efcb9fd81b2f"
+        },
+        {
+          "build_id": "G2",
+          "path": "results/icba_cibs_stage1/evaluation/arxiv_nomic_100k__G2__evaluation_all_actions.csv",
+          "rows": 6000,
+          "sha256": "2b6cfa69f769522bd4add44e9c677521f0fbbca4a9554f4b608cce80e670adec"
+        },
+        {
+          "build_id": "G3",
+          "path": "results/icba_cibs_stage1/evaluation/arxiv_nomic_100k__G3__evaluation_all_actions.csv",
+          "rows": 6000,
+          "sha256": "37f22322ed493a830ef30136ad5450bb791dee63029b10bec3c5763a55c7902c"
+        }
+      ]
+    },
+    "sift_100k": {
+      "B0": {
+        "path": "results/icba_cibs_stage1/evaluation/sift_100k__B0_fixed_safe.csv",
+        "rows": 500,
+        "sha256": "20a2888131290c561db53f4e6a50f0e8a3a1a56827173fc4c66b64ea0036eb51"
+      },
+      "all_actions": [
+        {
+          "build_id": "G1",
+          "path": "results/icba_cibs_stage1/evaluation/sift_100k__G1__evaluation_all_actions.csv",
+          "rows": 6000,
+          "sha256": "60874eeadb363c91fadf77703afe9e58d9211fc25ede5713622b19dd00295d32"
+        },
+        {
+          "build_id": "G2",
+          "path": "results/icba_cibs_stage1/evaluation/sift_100k__G2__evaluation_all_actions.csv",
+          "rows": 6000,
+          "sha256": "1c518ceebe2d2d0524b5886d2c9b06f2ebab3f259e3e1fb1f1a42c3af51d6bcd"
+        },
+        {
+          "build_id": "G3",
+          "path": "results/icba_cibs_stage1/evaluation/sift_100k__G3__evaluation_all_actions.csv",
+          "rows": 6000,
+          "sha256": "e37ab463b873444d0d5fdd792fab9fc890a8a0ef14bb674c327ee8ae88a46e12"
+        }
+      ]
+    }
+  },
+  "resource_gate": {
+    "free_bytes": 11904991232,
+    "projected_additions_bytes": 3365465672,
+    "required_bytes": 8734174792,
+    "reserve_bytes": 5368709120,
+    "status": "PASS"
+  },
+  "schema_version": 1,
+  "selected_action_commit": "44e206674612f6630373aa49375c27059d0f3040",
+  "selected_action_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "statistics": {
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 991,
+    "interval": "paired percentile 95%"
+  },
+  "status": "PASS_EVALUATION_HELD_OUT_RISK_DIAGNOSTIC"
+}

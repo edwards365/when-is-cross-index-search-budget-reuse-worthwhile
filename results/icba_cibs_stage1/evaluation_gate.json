@@ -1,0 +1,10 @@
+{
+  "evaluation_manifest_sha256": "a760cdc07b3dd03d2ebcb6bd214b4186f53096ae5c7f03643f11e24f7d08e94b",
+  "evaluation_reselection_performed": false,
+  "future_confirm_accessed": false,
+  "next": "MAIN_STAGE1_ANALYSIS_AND_PREREGISTERED_K2_ABLATION",
+  "positive_cibs_evidence": false,
+  "schema_version": 1,
+  "selected_action_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "status": "PASS_EVALUATION_COMPLETE_NO_RESELECTION"
+}
