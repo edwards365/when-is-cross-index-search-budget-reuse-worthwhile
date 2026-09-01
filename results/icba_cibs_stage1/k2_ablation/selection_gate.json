@@ -1,0 +1,8 @@
+{
+  "evaluation_access_used_for_selection": false,
+  "future_confirm_accessed": false,
+  "manifest_sha256": "38c367e949c08a2483a638df9f0058c587065139c1ae02766b8735e89c15f1f2",
+  "may_not_replace_main_K3": true,
+  "schema_version": 1,
+  "status": "PASS_K2_SELECTION_FROZEN_BEFORE_K2_EVALUATION_LINKAGE"
+}
