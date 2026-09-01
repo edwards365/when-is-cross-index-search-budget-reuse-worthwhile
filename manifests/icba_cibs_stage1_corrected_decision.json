@@ -1,0 +1,21 @@
+{
+  "authorize_cibs_race": false,
+  "authorize_independent_portfolio_confirmation": false,
+  "corrected_protocol_label": "CIBS_RECALL_OR_TAIL_GATE_FAILED",
+  "evidence_level": "EXPLORATORY_REPLAY_EQUIVALENT_WITH_PROTOCOL_DEVIATION",
+  "frozen_stage1_commit": "10363a3a8a9abe0170af02b0b7ba29ffbf8f4621",
+  "future_confirm_accessed": false,
+  "original_label": "CIBS_FIXED_STAGE1_FAILED_MINIMUM_GATE",
+  "original_manifest": "manifests/icba_cibs_stage1_decision.json",
+  "original_manifest_sha256": "29c8803980eabc59a62e9b97595169e72981d672a1744509cce560d71157c505",
+  "schema_version": 1,
+  "scientific_result_changed": false,
+  "secondary_reasons": [
+    "RECALL_NONINFERIORITY_FAILED_BOTH_DATASETS",
+    "SIFT_MEAN_NDC_GAIN_FAILED",
+    "SIFT_P95_FAILED",
+    "SIFT_NO_FINITE_BREAK_EVEN",
+    "ARXIV_BREAK_EVEN_EXCEEDS_MAIN_HORIZON"
+  ],
+  "status": "CORRECTED_LABEL_SUPERSEDES_LABEL_ONLY"
+}
