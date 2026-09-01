@@ -1,0 +1,233 @@
+{
+  "component_identifiability": {
+    "selection_and_certification": "combined with Python orchestration in exact supervisor residual",
+    "serialization": "combined with inspection/save-load replay command",
+    "storage": "exact bytes"
+  },
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "action_search_36_wall_clock_ns": {
+        "G1": 8659362652,
+        "G2": 8655470125,
+        "G3": 8672642569
+      },
+      "fallback_design_command_ns": 15975019887,
+      "fallback_online": {
+        "build_id_counts": {
+          "G1": 500
+        },
+        "endpoint_failures": 0,
+        "failures": 0,
+        "max_build_peak_rss_kib": 630464,
+        "mean_expansions": 100000.0,
+        "mean_index_size_bytes": 322049984.0,
+        "mean_ndc": 100090.342,
+        "mean_recall_at_10": 1.0,
+        "mean_wall_clock_ns": 138731313.448,
+        "n": 500,
+        "p50_ndc": 100089.0,
+        "p95_expansions": 100000.0,
+        "p95_ndc": 100131.0,
+        "p95_wall_clock_ns": 141720543.45,
+        "p99_ndc": 100146.03,
+        "p99_wall_clock_ns": 150594734.59,
+        "requested_ef_counts": {
+          "100000": 500
+        },
+        "risk_cp_95_ucb": 0.005973551516349557
+      },
+      "incremental_B4_vs_B1": {
+        "break_even_queries": 2146508,
+        "extra_fixed_wall_clock_ns": 323637321629,
+        "extra_storage_bytes": 644114180,
+        "finite_break_even": true,
+        "per_query_wall_clock_saving_ns": 150773.8720000001
+      },
+      "realization": {
+        "G1": {
+          "build_command_ns": 149291617482,
+          "index_size_bytes": 322049984,
+          "inspection_serialization_replay_command_ns": 1239752699,
+          "peak_rss_kib": 630464,
+          "raw_equivalence_command_ns": 1399403631
+        },
+        "G2": {
+          "build_command_ns": 150423334534,
+          "index_size_bytes": 322057668,
+          "inspection_serialization_replay_command_ns": 1248521433,
+          "peak_rss_kib": 630392,
+          "raw_equivalence_command_ns": 1371061579
+        },
+        "G3": {
+          "build_command_ns": 148501835700,
+          "index_size_bytes": 322056512,
+          "inspection_serialization_replay_command_ns": 1254211952,
+          "peak_rss_kib": 630768,
+          "raw_equivalence_command_ns": 1390423123
+        }
+      },
+      "selection_certification_orchestration_shared_residual_ns_conservative_full_charge": 2119820614,
+      "truth_acquisition": {
+        "evaluation_diagnostic_ns": 59625877955,
+        "sentinel_ns": 30613082178
+      },
+      "workloads": [
+        {
+          "N": 1000,
+          "truth_available_B1_ns": 177331320259.0,
+          "truth_available_B4_ns": 500817868016.0,
+          "truth_included_B1_ns": 207944402437.0,
+          "truth_included_B4_ns": 531430950194.0
+        },
+        {
+          "N": 10000,
+          "truth_available_B1_ns": 184226795431.0,
+          "truth_available_B4_ns": 506356378340.0,
+          "truth_included_B1_ns": 214839877609.0,
+          "truth_included_B4_ns": 536969460518.0
+        },
+        {
+          "N": 100000,
+          "truth_available_B1_ns": 253181547151.0,
+          "truth_available_B4_ns": 561741481580.0,
+          "truth_included_B1_ns": 283794629329.0,
+          "truth_included_B4_ns": 592354563758.0
+        },
+        {
+          "N": 1000000,
+          "truth_available_B1_ns": 942729064351.0,
+          "truth_available_B4_ns": 1115592513980.0,
+          "truth_included_B1_ns": 973342146529.0,
+          "truth_included_B4_ns": 1146205596158.0
+        },
+        {
+          "N": 10000000,
+          "truth_available_B1_ns": 7838204236351.001,
+          "truth_available_B4_ns": 6654102837980.0,
+          "truth_included_B1_ns": 7868817318529.001,
+          "truth_included_B4_ns": 6684715920158.0
+        }
+      ]
+    },
+    "sift_100k": {
+      "action_search_36_wall_clock_ns": {
+        "G1": 1673892972,
+        "G2": 1690390870,
+        "G3": 1689431756
+      },
+      "fallback_design_command_ns": 6951720139,
+      "fallback_online": {
+        "build_id_counts": {
+          "G1": 500
+        },
+        "endpoint_failures": 0,
+        "failures": 0,
+        "max_build_peak_rss_kib": 130756,
+        "mean_expansions": 100000.0,
+        "mean_index_size_bytes": 66049984.0,
+        "mean_ndc": 100088.906,
+        "mean_recall_at_10": 1.0,
+        "mean_wall_clock_ns": 63769558.92,
+        "n": 500,
+        "p50_ndc": 100087.0,
+        "p95_expansions": 100000.0,
+        "p95_ndc": 100123.05,
+        "p95_wall_clock_ns": 64464686.45,
+        "p99_ndc": 100140.02,
+        "p99_wall_clock_ns": 64781941.99,
+        "requested_ef_counts": {
+          "100000": 500
+        },
+        "risk_cp_95_ucb": 0.005973551516349557
+      },
+      "incremental_B4_vs_B1": {
+        "break_even_queries": "NO_FINITE_BREAK_EVEN",
+        "extra_fixed_wall_clock_ns": 62138694221,
+        "extra_storage_bytes": 132114180,
+        "finite_break_even": false,
+        "per_query_wall_clock_saving_ns": -187.61999999999534
+      },
+      "realization": {
+        "G1": {
+          "build_command_ns": 27029714153,
+          "index_size_bytes": 66049984,
+          "inspection_serialization_replay_command_ns": 611351633,
+          "peak_rss_kib": 130756,
+          "raw_equivalence_command_ns": 347591542
+        },
+        "G2": {
+          "build_command_ns": 27408247265,
+          "index_size_bytes": 66057668,
+          "inspection_serialization_replay_command_ns": 628483646,
+          "peak_rss_kib": 130480,
+          "raw_equivalence_command_ns": 355048169
+        },
+        "G3": {
+          "build_command_ns": 27272071784,
+          "index_size_bytes": 66056512,
+          "inspection_serialization_replay_command_ns": 621276542,
+          "peak_rss_kib": 130864,
+          "raw_equivalence_command_ns": 353923575
+        }
+      },
+      "selection_certification_orchestration_shared_residual_ns_conservative_full_charge": 2119820614,
+      "truth_acquisition": {
+        "evaluation_diagnostic_ns": 11959848984,
+        "sentinel_ns": 6161537794
+      },
+      "workloads": [
+        {
+          "N": 1000,
+          "truth_available_B1_ns": 36815822227.0,
+          "truth_available_B4_ns": 98954704068.0,
+          "truth_included_B1_ns": 42977360021.0,
+          "truth_included_B4_ns": 105116241862.0
+        },
+        {
+          "N": 10000,
+          "truth_available_B1_ns": 38629788319.0,
+          "truth_available_B4_ns": 100770358740.0,
+          "truth_included_B1_ns": 44791326113.0,
+          "truth_included_B4_ns": 106931896534.0
+        },
+        {
+          "N": 100000,
+          "truth_available_B1_ns": 56769449239.0,
+          "truth_available_B4_ns": 118926905460.0,
+          "truth_included_B1_ns": 62930987033.0,
+          "truth_included_B4_ns": 125088443254.0
+        },
+        {
+          "N": 1000000,
+          "truth_available_B1_ns": 238166058439.0,
+          "truth_available_B4_ns": 300492372660.0,
+          "truth_included_B1_ns": 244327596233.0,
+          "truth_included_B4_ns": 306653910454.0
+        },
+        {
+          "N": 10000000,
+          "truth_available_B1_ns": 2052132150439.0,
+          "truth_available_B4_ns": 2116147044660.0,
+          "truth_included_B1_ns": 2058293688233.0,
+          "truth_included_B4_ns": 2122308582454.0
+        }
+      ]
+    }
+  },
+  "evaluation_supervisor": {
+    "command_ns": 342395897075,
+    "residual_ns": 4894400858,
+    "total_ns": 347290297933
+  },
+  "schema_version": 1,
+  "sentinel_supervisor": {
+    "command_ns": 71938468924,
+    "residual_ns": 2119820614,
+    "total_ns": 74058289538
+  },
+  "status": "PASS_COMPLETE_COST_LEDGER_WITH_COMBINED_COMPONENT_DISCLOSURE",
+  "truth_channels": [
+    "truth_available",
+    "truth_acquisition_included"
+  ]
+}

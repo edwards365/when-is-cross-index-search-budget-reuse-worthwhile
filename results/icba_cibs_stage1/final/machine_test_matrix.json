@@ -1,0 +1,174 @@
+{
+  "checks": [
+    {
+      "detail": "PASS_28_OF_28",
+      "id": "T01",
+      "name": "frozen lock 28/28",
+      "status": "PASS"
+    },
+    {
+      "detail": "max=0",
+      "id": "T02",
+      "name": "query-role pairwise overlap zero",
+      "status": "PASS"
+    },
+    {
+      "detail": "sum=0",
+      "id": "T03",
+      "name": "historical source-ID overlap zero",
+      "status": "PASS"
+    },
+    {
+      "detail": "2/2 dataset roles sealed",
+      "id": "T04",
+      "name": "future-confirm firewall",
+      "status": "PASS"
+    },
+    {
+      "detail": "builds=6 replacements=0",
+      "id": "T05",
+      "name": "build-set immutability",
+      "status": "PASS"
+    },
+    {
+      "detail": "all 6 builds hashed",
+      "id": "T06",
+      "name": "insertion-order hash and replay",
+      "status": "PASS"
+    },
+    {
+      "detail": "checks=7",
+      "id": "T07",
+      "name": "resource gate before every build",
+      "status": "PASS"
+    },
+    {
+      "detail": "g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0",
+      "id": "T08",
+      "name": "compiler flags and scalar replay",
+      "status": "PASS"
+    },
+    {
+      "detail": "PASS_ALL_EVALUATION_ROWS",
+      "id": "T09",
+      "name": "native/tracer top-10 equivalence",
+      "status": "PASS"
+    },
+    {
+      "detail": "all 6 design matrices",
+      "id": "T10",
+      "name": "native/tracer exact NDC equivalence",
+      "status": "PASS"
+    },
+    {
+      "detail": "PASS_5_OF_5",
+      "id": "T11",
+      "name": "synthetic fallback full enumeration",
+      "status": "PASS"
+    },
+    {
+      "detail": "PASS_100000_OF_100000_BOTH_DATASETS",
+      "id": "T12",
+      "name": "actual G1 layer-0 connectivity",
+      "status": "PASS"
+    },
+    {
+      "detail": "PASS_ALL_DESIGN_QUERIES",
+      "id": "T13",
+      "name": "fallback native/bruteforce exact top-10",
+      "status": "PASS"
+    },
+    {
+      "detail": "PASS_ALL_SIX_INDEXES",
+      "id": "T14",
+      "name": "index save/load replay",
+      "status": "PASS"
+    },
+    {
+      "detail": "n=256: <=3 only",
+      "id": "T15",
+      "name": "CP reference vectors",
+      "status": "PASS"
+    },
+    {
+      "detail": "alpha/36",
+      "id": "T16",
+      "name": "Bonferroni family size",
+      "status": "PASS"
+    },
+    {
+      "detail": "18000 rows per dataset",
+      "id": "T17",
+      "name": "action matrix 36 cells/query",
+      "status": "PASS"
+    },
+    {
+      "detail": "distinct columns",
+      "id": "T18",
+      "name": "ef/NDC/expansion separation",
+      "status": "PASS"
+    },
+    {
+      "detail": "both frozen selections replayed",
+      "id": "T19",
+      "name": "selection tie-break replay",
+      "status": "PASS"
+    },
+    {
+      "detail": "44e206674612f6630373aa49375c27059d0f3040",
+      "id": "T20",
+      "name": "evaluation sealed until action hash",
+      "status": "PASS"
+    },
+    {
+      "detail": "PASS_COMPLETE_COST_LEDGER_WITH_COMBINED_COMPONENT_DISCLOSURE",
+      "id": "T21",
+      "name": "cost ledger completeness",
+      "status": "PASS"
+    },
+    {
+      "detail": "PASS_EVALUATION_INDEPENDENT_REPLAY",
+      "id": "T22",
+      "name": "artifact checksum replay",
+      "status": "PASS"
+    },
+    {
+      "detail": "Z_abs replayed for 36000 rows",
+      "id": "T23",
+      "name": "query failure boundary",
+      "status": "PASS"
+    },
+    {
+      "detail": "B1/B4 frozen lookup",
+      "id": "T24",
+      "name": "baseline action equivalence",
+      "status": "PASS"
+    },
+    {
+      "detail": "n=128 M=24",
+      "id": "T25",
+      "name": "K2 zero-failure certificate",
+      "status": "PASS"
+    },
+    {
+      "detail": "false",
+      "id": "T26",
+      "name": "evaluation no reselection",
+      "status": "PASS"
+    },
+    {
+      "detail": "false across main and K2",
+      "id": "T27",
+      "name": "future-confirm remains unopened",
+      "status": "PASS"
+    },
+    {
+      "detail": "7/7",
+      "id": "T28",
+      "name": "core seven manifests present",
+      "status": "PASS"
+    }
+  ],
+  "schema_version": 1,
+  "status": "PASS_28_OF_28_MACHINE_CHECKS"
+}

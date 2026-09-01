@@ -1,0 +1,97 @@
+{
+  "authorize_cibs_race": false,
+  "authorize_independent_portfolio_confirmation": false,
+  "conditionality": "CONDITIONAL_ON_ONE_REGISTERED_PORTFOLIO",
+  "core_manifests": [
+    "manifests/icba_cibs_stage1_pre_truth_contract_amendment.json",
+    "manifests/icba_cibs_stage1_phase1_preregistration.json",
+    "manifests/icba_cibs_stage1_build_candidates.json",
+    "manifests/icba_cibs_stage1_query_roles.json",
+    "manifests/icba_cibs_stage1_build_realization.json",
+    "manifests/icba_cibs_stage1_selected_actions.json",
+    "manifests/icba_cibs_stage1_evaluation_realization.json"
+  ],
+  "decision_generation_parent_commit": "3d8fb1f14db909ca458b384f4f09f6ab040bf98f",
+  "evaluation_reselection_performed": false,
+  "evidence_checksums": "manifests/icba_cibs_stage1_evidence_checksums.sha256",
+  "evidence_checksums_sha256": "fb1390540fed734349802c8709af5a186b9e71ed69f1e2cc2b2553c9427f9909",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "failed_minimum_gate": {
+    "both_datasets_pass": false,
+    "datasets": {
+      "arxiv_nomic_100k": {
+        "checks": {
+          "delete_top_1_percent_gain_positive": true,
+          "endpoint_not_worse": true,
+          "evaluation_no_clear_conflict": true,
+          "finite_break_even": true,
+          "p95_ndc_delta_le_0": true,
+          "procedure_certificate_valid": true,
+          "recall_delta_ge_minus_0_001": false,
+          "relative_B1_mean_ndc_gain_ge_0_01": true
+        },
+        "pass": false
+      },
+      "sift_100k": {
+        "checks": {
+          "delete_top_1_percent_gain_positive": true,
+          "endpoint_not_worse": true,
+          "evaluation_no_clear_conflict": true,
+          "finite_break_even": false,
+          "p95_ndc_delta_le_0": false,
+          "procedure_certificate_valid": true,
+          "recall_delta_ge_minus_0_001": false,
+          "relative_B1_mean_ndc_gain_ge_0_01": false
+        },
+        "pass": false
+      }
+    }
+  },
+  "figures": [
+    "figures/icba_cibs_stage1/01_sift_100k_mean_recall_at_10.png",
+    "figures/icba_cibs_stage1/01_sift_100k_mean_recall_at_10.pdf",
+    "figures/icba_cibs_stage1/02_sift_100k_mean_ndc.png",
+    "figures/icba_cibs_stage1/02_sift_100k_mean_ndc.pdf",
+    "figures/icba_cibs_stage1/03_sift_100k_p95_ndc.png",
+    "figures/icba_cibs_stage1/03_sift_100k_p95_ndc.pdf",
+    "figures/icba_cibs_stage1/07_sift_100k_build_effect.png",
+    "figures/icba_cibs_stage1/07_sift_100k_build_effect.pdf",
+    "figures/icba_cibs_stage1/09_sift_100k_gain_ecdf.png",
+    "figures/icba_cibs_stage1/09_sift_100k_gain_ecdf.pdf",
+    "figures/icba_cibs_stage1/04_arxiv_nomic_100k_mean_recall_at_10.png",
+    "figures/icba_cibs_stage1/04_arxiv_nomic_100k_mean_recall_at_10.pdf",
+    "figures/icba_cibs_stage1/05_arxiv_nomic_100k_mean_ndc.png",
+    "figures/icba_cibs_stage1/05_arxiv_nomic_100k_mean_ndc.pdf",
+    "figures/icba_cibs_stage1/06_arxiv_nomic_100k_p95_ndc.png",
+    "figures/icba_cibs_stage1/06_arxiv_nomic_100k_p95_ndc.pdf",
+    "figures/icba_cibs_stage1/08_arxiv_nomic_100k_build_effect.png",
+    "figures/icba_cibs_stage1/08_arxiv_nomic_100k_build_effect.pdf",
+    "figures/icba_cibs_stage1/10_arxiv_nomic_100k_gain_ecdf.png",
+    "figures/icba_cibs_stage1/10_arxiv_nomic_100k_gain_ecdf.pdf",
+    "figures/icba_cibs_stage1/11_complete_cost_break_even.png",
+    "figures/icba_cibs_stage1/11_complete_cost_break_even.pdf",
+    "figures/icba_cibs_stage1/12_minimum_gate_matrix.png",
+    "figures/icba_cibs_stage1/12_minimum_gate_matrix.pdf"
+  ],
+  "final_label": "CIBS_FIXED_STAGE1_FAILED_MINIMUM_GATE",
+  "future_confirm_accessed": false,
+  "machine_test_matrix": "results/icba_cibs_stage1/final/machine_test_matrix.json",
+  "machine_test_status": "PASS_28_OF_28_MACHINE_CHECKS",
+  "main_K3_replaced_by_K2": false,
+  "minimum_gate_both_datasets_pass": false,
+  "positive_cibs_evidence": false,
+  "promotion_gate_pass": false,
+  "reports": [
+    "reports/icba_cibs_stage1/01_executive_decision.md",
+    "reports/icba_cibs_stage1/02_protocol_and_isolation.md",
+    "reports/icba_cibs_stage1/03_build_and_fallback.md",
+    "reports/icba_cibs_stage1/04_sentinel_certificate.md",
+    "reports/icba_cibs_stage1/05_held_out_evaluation.md",
+    "reports/icba_cibs_stage1/06_robustness_and_build_effects.md",
+    "reports/icba_cibs_stage1/07_cost_and_break_even.md",
+    "reports/icba_cibs_stage1/08_k2_ablation.md"
+  ],
+  "schema_version": 1,
+  "status": "SEALED_FINAL_DECISION",
+  "supplementary_K2_manifest": "manifests/icba_cibs_stage1_k2_selected_actions.json"
+}
