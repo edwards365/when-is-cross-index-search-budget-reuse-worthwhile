@@ -1,0 +1,214 @@
+{
+  "all_x_0_to_n_checked": true,
+  "alpha_per_action": 0.001388888888888889,
+  "cp_ucb_ge_hypergeom_ucb_for_all_x": true,
+  "observed_failure_rows": [
+    {
+      "binomial_cp_ucb": 0.025372760986095606,
+      "cp_is_conservative": true,
+      "failures": 0,
+      "finite_population_hypergeom_ucb": 0.021
+    },
+    {
+      "binomial_cp_ucb": 0.034115547464395705,
+      "cp_is_conservative": true,
+      "failures": 1,
+      "finite_population_hypergeom_ucb": 0.03
+    },
+    {
+      "binomial_cp_ucb": 0.04160245085765393,
+      "cp_is_conservative": true,
+      "failures": 2,
+      "finite_population_hypergeom_ucb": 0.037
+    },
+    {
+      "binomial_cp_ucb": 0.04847011813277262,
+      "cp_is_conservative": true,
+      "failures": 3,
+      "finite_population_hypergeom_ucb": 0.043
+    },
+    {
+      "binomial_cp_ucb": 0.06115101385313349,
+      "cp_is_conservative": true,
+      "failures": 5,
+      "finite_population_hypergeom_ucb": 0.055
+    },
+    {
+      "binomial_cp_ucb": 0.07297434736433196,
+      "cp_is_conservative": true,
+      "failures": 7,
+      "finite_population_hypergeom_ucb": 0.066
+    },
+    {
+      "binomial_cp_ucb": 0.07866780767854825,
+      "cp_is_conservative": true,
+      "failures": 8,
+      "finite_population_hypergeom_ucb": 0.072
+    },
+    {
+      "binomial_cp_ucb": 0.08424734475594807,
+      "cp_is_conservative": true,
+      "failures": 9,
+      "finite_population_hypergeom_ucb": 0.077
+    },
+    {
+      "binomial_cp_ucb": 0.09512613490864273,
+      "cp_is_conservative": true,
+      "failures": 11,
+      "finite_population_hypergeom_ucb": 0.088
+    },
+    {
+      "binomial_cp_ucb": 0.11089816436676111,
+      "cp_is_conservative": true,
+      "failures": 14,
+      "finite_population_hypergeom_ucb": 0.103
+    },
+    {
+      "binomial_cp_ucb": 0.12112938630494433,
+      "cp_is_conservative": true,
+      "failures": 16,
+      "finite_population_hypergeom_ucb": 0.113
+    },
+    {
+      "binomial_cp_ucb": 0.13117727147345978,
+      "cp_is_conservative": true,
+      "failures": 18,
+      "finite_population_hypergeom_ucb": 0.122
+    },
+    {
+      "binomial_cp_ucb": 0.13614098358682528,
+      "cp_is_conservative": true,
+      "failures": 19,
+      "finite_population_hypergeom_ucb": 0.127
+    },
+    {
+      "binomial_cp_ucb": 0.14106823780321298,
+      "cp_is_conservative": true,
+      "failures": 20,
+      "finite_population_hypergeom_ucb": 0.132
+    },
+    {
+      "binomial_cp_ucb": 0.1604562417065644,
+      "cp_is_conservative": true,
+      "failures": 24,
+      "finite_population_hypergeom_ucb": 0.151
+    },
+    {
+      "binomial_cp_ucb": 0.179410742119283,
+      "cp_is_conservative": true,
+      "failures": 28,
+      "finite_population_hypergeom_ucb": 0.169
+    },
+    {
+      "binomial_cp_ucb": 0.20719403971207567,
+      "cp_is_conservative": true,
+      "failures": 34,
+      "finite_population_hypergeom_ucb": 0.197
+    },
+    {
+      "binomial_cp_ucb": 0.21175978065327966,
+      "cp_is_conservative": true,
+      "failures": 35,
+      "finite_population_hypergeom_ucb": 0.201
+    },
+    {
+      "binomial_cp_ucb": 0.21630878056186997,
+      "cp_is_conservative": true,
+      "failures": 36,
+      "finite_population_hypergeom_ucb": 0.206
+    },
+    {
+      "binomial_cp_ucb": 0.26976534589510315,
+      "cp_is_conservative": true,
+      "failures": 48,
+      "finite_population_hypergeom_ucb": 0.258
+    },
+    {
+      "binomial_cp_ucb": 0.2784981361244008,
+      "cp_is_conservative": true,
+      "failures": 50,
+      "finite_population_hypergeom_ucb": 0.267
+    },
+    {
+      "binomial_cp_ucb": 0.2871867920508411,
+      "cp_is_conservative": true,
+      "failures": 52,
+      "finite_population_hypergeom_ucb": 0.275
+    },
+    {
+      "binomial_cp_ucb": 0.29151515830705743,
+      "cp_is_conservative": true,
+      "failures": 53,
+      "finite_population_hypergeom_ucb": 0.28
+    },
+    {
+      "binomial_cp_ucb": 0.30872714411373947,
+      "cp_is_conservative": true,
+      "failures": 57,
+      "finite_population_hypergeom_ucb": 0.297
+    },
+    {
+      "binomial_cp_ucb": 0.3172749150488832,
+      "cp_is_conservative": true,
+      "failures": 59,
+      "finite_population_hypergeom_ucb": 0.305
+    },
+    {
+      "binomial_cp_ucb": 0.42945566192577783,
+      "cp_is_conservative": true,
+      "failures": 86,
+      "finite_population_hypergeom_ucb": 0.416
+    },
+    {
+      "binomial_cp_ucb": 0.47369185406955916,
+      "cp_is_conservative": true,
+      "failures": 97,
+      "finite_population_hypergeom_ucb": 0.46
+    },
+    {
+      "binomial_cp_ucb": 0.4776758795126356,
+      "cp_is_conservative": true,
+      "failures": 98,
+      "finite_population_hypergeom_ucb": 0.464
+    },
+    {
+      "binomial_cp_ucb": 0.4856257494820936,
+      "cp_is_conservative": true,
+      "failures": 100,
+      "finite_population_hypergeom_ucb": 0.472
+    },
+    {
+      "binomial_cp_ucb": 0.49355159523681696,
+      "cp_is_conservative": true,
+      "failures": 102,
+      "finite_population_hypergeom_ucb": 0.48
+    },
+    {
+      "binomial_cp_ucb": 0.4975055850953848,
+      "cp_is_conservative": true,
+      "failures": 103,
+      "finite_population_hypergeom_ucb": 0.484
+    },
+    {
+      "binomial_cp_ucb": 0.6058839363935165,
+      "cp_is_conservative": true,
+      "failures": 131,
+      "finite_population_hypergeom_ucb": 0.593
+    },
+    {
+      "binomial_cp_ucb": 0.6805864585335867,
+      "cp_is_conservative": true,
+      "failures": 151,
+      "finite_population_hypergeom_ucb": 0.668
+    },
+    {
+      "binomial_cp_ucb": 0.6842610842516329,
+      "cp_is_conservative": true,
+      "failures": 152,
+      "finite_population_hypergeom_ucb": 0.672
+    }
+  ],
+  "population": 1000,
+  "sample_without_replacement": 256,
+  "status": "FINITE_POOL_CP_CONSERVATIVE_VERIFIED"
+}

@@ -1,0 +1,3 @@
+dataset,sentinel_deployable_point_actions,sentinel_deployable_ci_actions,evaluation_oracle_best_ci_action,oracle_is_deployable
+sift_100k,0,0,NONE,False
+arxiv_nomic_100k,1,0,NONE,False

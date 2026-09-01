@@ -1,0 +1,34 @@
+{
+  "bootstrap": {
+    "replicates": 5000,
+    "seed": 991
+  },
+  "decision_label": "CIBS_ROUTE_CLOSED_NO_TWO_DATASET_JOINT_FEASIBILITY",
+  "evidence_level": "EXPLORATORY_REPLAY_EQUIVALENT_WITH_PROTOCOL_DEVIATION",
+  "finite_pool_status": "FINITE_POOL_CP_CONSERVATIVE_VERIFIED",
+  "frozen_input_commit": "10363a3a8a9abe0170af02b0b7ba29ffbf8f4621",
+  "point_and_ci_feasible_counts": {
+    "arxiv_nomic_100k": {
+      "ci": 0,
+      "point": 1
+    },
+    "sift_100k": {
+      "ci": 0,
+      "point": 0
+    }
+  },
+  "prohibited_access_confirmed": [
+    "future-confirm",
+    "validation-dev",
+    "formal-test"
+  ],
+  "qni_authorized": false,
+  "race_authorized": false,
+  "reasons": [
+    "SIFT_CI_JOINT_SET_EMPTY",
+    "ARXIV_CI_JOINT_SET_EMPTY",
+    "NO_TWO_DATASET_JOINT_FEASIBILITY",
+    "ARXIV_GAIN_DOMINATED_BY_QUALITY_SLACK_CONSUMPTION"
+  ],
+  "schema_version": 1
+}

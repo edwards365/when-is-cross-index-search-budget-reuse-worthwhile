@@ -1,0 +1,3 @@
+dataset,B1_action,CIBS_action,total_ndc_saving,lower_ef_effect,build_effect_at_B1_ef,interaction,lower_ef_share_of_total,build_share_of_total,interaction_share_of_total,recall_declined,mechanism_label
+sift_100k,G1:ef=96,G3:ef=96,5.907999999999902,0.0,5.907999999999902,0.0,0.0,1.0,0.0,True,BUILD_OR_MIXED_EFFECT
+arxiv_nomic_100k,G1:ef=64,G2:ef=48,205.16200000000003,194.11400000000003,10.70399999999995,0.34400000000005093,0.9461498718086195,0.05217340443161964,0.0016767237597608274,True,GAIN_DOMINATED_BY_QUALITY_SLACK_CONSUMPTION
