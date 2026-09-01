@@ -1,0 +1,979 @@
+{
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "build_effects": [
+        {
+          "mean_ndc_range": 10.703125,
+          "mean_recall_range": 0.00390625,
+          "per_build": {
+            "G1": {
+              "failures": 97,
+              "mean_expansions": 12.328125,
+              "mean_ndc": 315.27734375,
+              "mean_recall_at_10": 0.853125,
+              "mean_wall_clock_ns": 283367.64453125,
+              "n": 256,
+              "p95_ndc": 415.0
+            },
+            "G2": {
+              "failures": 103,
+              "mean_expansions": 12.3984375,
+              "mean_ndc": 304.57421875,
+              "mean_recall_at_10": 0.849609375,
+              "mean_wall_clock_ns": 278682.33984375,
+              "n": 256,
+              "p95_ndc": 416.0
+            },
+            "G3": {
+              "failures": 98,
+              "mean_expansions": 12.44140625,
+              "mean_ndc": 308.69921875,
+              "mean_recall_at_10": 0.853515625,
+              "mean_wall_clock_ns": 282071.83203125,
+              "n": 256,
+              "p95_ndc": 414.25
+            }
+          },
+          "requested_ef": 10
+        },
+        {
+          "mean_ndc_range": 12.4765625,
+          "mean_recall_range": 0.008593749999999956,
+          "per_build": {
+            "G1": {
+              "failures": 53,
+              "mean_expansions": 18.02734375,
+              "mean_ndc": 400.30859375,
+              "mean_recall_at_10": 0.916796875,
+              "mean_wall_clock_ns": 297750.03125,
+              "n": 256,
+              "p95_ndc": 524.0
+            },
+            "G2": {
+              "failures": 59,
+              "mean_expansions": 18.0234375,
+              "mean_ndc": 387.83203125,
+              "mean_recall_at_10": 0.908203125,
+              "mean_wall_clock_ns": 289486.2890625,
+              "n": 256,
+              "p95_ndc": 517.25
+            },
+            "G3": {
+              "failures": 50,
+              "mean_expansions": 18.0,
+              "mean_ndc": 391.72265625,
+              "mean_recall_at_10": 0.908984375,
+              "mean_wall_clock_ns": 293552.8125,
+              "n": 256,
+              "p95_ndc": 514.0
+            }
+          },
+          "requested_ef": 16
+        },
+        {
+          "mean_ndc_range": 11.6171875,
+          "mean_recall_range": 0.0031250000000000444,
+          "per_build": {
+            "G1": {
+              "failures": 28,
+              "mean_expansions": 25.5234375,
+              "mean_ndc": 505.48828125,
+              "mean_recall_at_10": 0.95078125,
+              "mean_wall_clock_ns": 376694.30078125,
+              "n": 256,
+              "p95_ndc": 645.5
+            },
+            "G2": {
+              "failures": 35,
+              "mean_expansions": 25.59375,
+              "mean_ndc": 493.87109375,
+              "mean_recall_at_10": 0.94765625,
+              "mean_wall_clock_ns": 371003.19921875,
+              "n": 256,
+              "p95_ndc": 627.75
+            },
+            "G3": {
+              "failures": 24,
+              "mean_expansions": 25.625,
+              "mean_ndc": 497.12890625,
+              "mean_recall_at_10": 0.94765625,
+              "mean_wall_clock_ns": 381214.12890625,
+              "n": 256,
+              "p95_ndc": 646.25
+            }
+          },
+          "requested_ef": 24
+        },
+        {
+          "mean_ndc_range": 12.1171875,
+          "mean_recall_range": 0.005078125000000044,
+          "per_build": {
+            "G1": {
+              "failures": 20,
+              "mean_expansions": 33.34765625,
+              "mean_ndc": 610.44140625,
+              "mean_recall_at_10": 0.96796875,
+              "mean_wall_clock_ns": 451461.44140625,
+              "n": 256,
+              "p95_ndc": 757.0
+            },
+            "G2": {
+              "failures": 20,
+              "mean_expansions": 33.33984375,
+              "mean_ndc": 598.32421875,
+              "mean_recall_at_10": 0.966796875,
+              "mean_wall_clock_ns": 445287.73046875,
+              "n": 256,
+              "p95_ndc": 755.5
+            },
+            "G3": {
+              "failures": 18,
+              "mean_expansions": 33.2890625,
+              "mean_ndc": 599.41796875,
+              "mean_recall_at_10": 0.962890625,
+              "mean_wall_clock_ns": 444489.2890625,
+              "n": 256,
+              "p95_ndc": 762.25
+            }
+          },
+          "requested_ef": 32
+        },
+        {
+          "mean_ndc_range": 9.11328125,
+          "mean_recall_range": 0.004687499999999956,
+          "per_build": {
+            "G1": {
+              "failures": 7,
+              "mean_expansions": 49.00390625,
+              "mean_ndc": 804.8125,
+              "mean_recall_at_10": 0.985546875,
+              "mean_wall_clock_ns": 608325.03125,
+              "n": 256,
+              "p95_ndc": 1015.5
+            },
+            "G2": {
+              "failures": 2,
+              "mean_expansions": 49.04296875,
+              "mean_ndc": 795.69921875,
+              "mean_recall_at_10": 0.986328125,
+              "mean_wall_clock_ns": 603923.6796875,
+              "n": 256,
+              "p95_ndc": 1018.0
+            },
+            "G3": {
+              "failures": 8,
+              "mean_expansions": 49.03125,
+              "mean_ndc": 797.38671875,
+              "mean_recall_at_10": 0.981640625,
+              "mean_wall_clock_ns": 614502.015625,
+              "n": 256,
+              "p95_ndc": 1013.5
+            }
+          },
+          "requested_ef": 48
+        },
+        {
+          "mean_ndc_range": 11.12890625,
+          "mean_recall_range": 0.004296874999999978,
+          "per_build": {
+            "G1": {
+              "failures": 1,
+              "mean_expansions": 64.796875,
+              "mean_ndc": 991.796875,
+              "mean_recall_at_10": 0.99375,
+              "mean_wall_clock_ns": 739170.82421875,
+              "n": 256,
+              "p95_ndc": 1255.5
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 64.85546875,
+              "mean_ndc": 980.66796875,
+              "mean_recall_at_10": 0.993359375,
+              "mean_wall_clock_ns": 735627.78125,
+              "n": 256,
+              "p95_ndc": 1251.25
+            },
+            "G3": {
+              "failures": 3,
+              "mean_expansions": 64.77734375,
+              "mean_ndc": 981.83203125,
+              "mean_recall_at_10": 0.989453125,
+              "mean_wall_clock_ns": 734799.0546875,
+              "n": 256,
+              "p95_ndc": 1244.5
+            }
+          },
+          "requested_ef": 64
+        },
+        {
+          "mean_ndc_range": 10.2265625,
+          "mean_recall_range": 0.001953125,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 96.59375,
+              "mean_ndc": 1339.41796875,
+              "mean_recall_at_10": 0.99609375,
+              "mean_wall_clock_ns": 1025282.8984375,
+              "n": 256,
+              "p95_ndc": 1702.25
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 96.72265625,
+              "mean_ndc": 1329.19140625,
+              "mean_recall_at_10": 0.99765625,
+              "mean_wall_clock_ns": 1022026.3046875,
+              "n": 256,
+              "p95_ndc": 1697.75
+            },
+            "G3": {
+              "failures": 1,
+              "mean_expansions": 96.76171875,
+              "mean_ndc": 1332.12109375,
+              "mean_recall_at_10": 0.995703125,
+              "mean_wall_clock_ns": 1034016.9609375,
+              "n": 256,
+              "p95_ndc": 1700.75
+            }
+          },
+          "requested_ef": 96
+        },
+        {
+          "mean_ndc_range": 6.296875,
+          "mean_recall_range": 0.001953125,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 128.46484375,
+              "mean_ndc": 1657.578125,
+              "mean_recall_at_10": 0.996875,
+              "mean_wall_clock_ns": 1270533.87890625,
+              "n": 256,
+              "p95_ndc": 2136.25
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 128.53515625,
+              "mean_ndc": 1651.28125,
+              "mean_recall_at_10": 0.998828125,
+              "mean_wall_clock_ns": 1264423.3125,
+              "n": 256,
+              "p95_ndc": 2134.75
+            },
+            "G3": {
+              "failures": 1,
+              "mean_expansions": 128.63671875,
+              "mean_ndc": 1655.3515625,
+              "mean_recall_at_10": 0.997265625,
+              "mean_wall_clock_ns": 1257640.953125,
+              "n": 256,
+              "p95_ndc": 2123.25
+            }
+          },
+          "requested_ef": 128
+        },
+        {
+          "mean_ndc_range": 6.65234375,
+          "mean_recall_range": 0.0015625000000000222,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 192.36328125,
+              "mean_ndc": 2257.5546875,
+              "mean_recall_at_10": 0.9984375,
+              "mean_wall_clock_ns": 1763046.12109375,
+              "n": 256,
+              "p95_ndc": 2913.0
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 192.52734375,
+              "mean_ndc": 2250.90234375,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 1768458.59765625,
+              "n": 256,
+              "p95_ndc": 2918.0
+            },
+            "G3": {
+              "failures": 1,
+              "mean_expansions": 192.47265625,
+              "mean_ndc": 2256.0859375,
+              "mean_recall_at_10": 0.9984375,
+              "mean_wall_clock_ns": 1762811.3203125,
+              "n": 256,
+              "p95_ndc": 2930.25
+            }
+          },
+          "requested_ef": 192
+        },
+        {
+          "mean_ndc_range": 7.7265625,
+          "mean_recall_range": 0.0015625000000000222,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 256.35546875,
+              "mean_ndc": 2809.46484375,
+              "mean_recall_at_10": 0.9984375,
+              "mean_wall_clock_ns": 2197118.6953125,
+              "n": 256,
+              "p95_ndc": 3663.5
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 256.35546875,
+              "mean_ndc": 2801.73828125,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 2209255.10546875,
+              "n": 256,
+              "p95_ndc": 3682.75
+            },
+            "G3": {
+              "failures": 0,
+              "mean_expansions": 256.30078125,
+              "mean_ndc": 2806.28515625,
+              "mean_recall_at_10": 0.999609375,
+              "mean_wall_clock_ns": 2218005.109375,
+              "n": 256,
+              "p95_ndc": 3667.75
+            }
+          },
+          "requested_ef": 256
+        },
+        {
+          "mean_ndc_range": 15.7734375,
+          "mean_recall_range": 0.0007812499999999556,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 384.265625,
+              "mean_ndc": 3818.12109375,
+              "mean_recall_at_10": 0.99921875,
+              "mean_wall_clock_ns": 3170477.83984375,
+              "n": 256,
+              "p95_ndc": 5098.0
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 384.21484375,
+              "mean_ndc": 3802.34765625,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 3169096.01953125,
+              "n": 256,
+              "p95_ndc": 5049.0
+            },
+            "G3": {
+              "failures": 0,
+              "mean_expansions": 384.19921875,
+              "mean_ndc": 3811.67578125,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 3191999.7109375,
+              "n": 256,
+              "p95_ndc": 5074.25
+            }
+          },
+          "requested_ef": 384
+        },
+        {
+          "mean_ndc_range": 16.58984375,
+          "mean_recall_range": 0.0003906249999999778,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 512.18359375,
+              "mean_ndc": 4738.875,
+              "mean_recall_at_10": 0.999609375,
+              "mean_wall_clock_ns": 4160627.51171875,
+              "n": 256,
+              "p95_ndc": 6339.5
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 512.16015625,
+              "mean_ndc": 4722.28515625,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 4171766.1171875,
+              "n": 256,
+              "p95_ndc": 6347.25
+            },
+            "G3": {
+              "failures": 0,
+              "mean_expansions": 512.15625,
+              "mean_ndc": 4731.71875,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 4177199.27734375,
+              "n": 256,
+              "p95_ndc": 6341.0
+            }
+          },
+          "requested_ef": 512
+        }
+      ],
+      "dataset": "arxiv_nomic_100k",
+      "frozen_selected_action": "G2:ef=48",
+      "leave_one_build_out": {
+        "G1": {
+          "evaluation": {
+            "action_id": "G2:ef=48",
+            "failures": 22,
+            "mean_ndc": 818.434,
+            "mean_recall_at_10": 0.9783999999999999,
+            "mean_wall_clock_ns": 615390.036,
+            "n": 500,
+            "p95_ndc": 1055.05
+          },
+          "selected": "G2:ef=48"
+        },
+        "G2": {
+          "evaluation": {
+            "action_id": "G3:ef=64",
+            "failures": 11,
+            "mean_ndc": 1008.69,
+            "mean_recall_at_10": 0.9862000000000001,
+            "mean_wall_clock_ns": 755450.242,
+            "n": 500,
+            "p95_ndc": 1302.4499999999996
+          },
+          "selected": "G3:ef=64"
+        },
+        "G3": {
+          "evaluation": {
+            "action_id": "G2:ef=48",
+            "failures": 22,
+            "mean_ndc": 818.434,
+            "mean_recall_at_10": 0.9783999999999999,
+            "mean_wall_clock_ns": 615390.036,
+            "n": 500,
+            "p95_ndc": 1055.05
+          },
+          "selected": "G2:ef=48"
+        }
+      },
+      "selected_action_removed": {
+        "evaluation": {
+          "action_id": "G2:ef=64",
+          "failures": 14,
+          "mean_ndc": 1012.892,
+          "mean_recall_at_10": 0.9853999999999999,
+          "mean_wall_clock_ns": 753590.278,
+          "n": 500,
+          "p95_ndc": 1303.05
+        },
+        "selected": "G2:ef=64"
+      },
+      "selected_build_removed": {
+        "evaluation": {
+          "action_id": "G3:ef=64",
+          "failures": 11,
+          "mean_ndc": 1008.69,
+          "mean_recall_at_10": 0.9862000000000001,
+          "mean_wall_clock_ns": 755450.242,
+          "n": 500,
+          "p95_ndc": 1302.4499999999996
+        },
+        "selected": "G3:ef=64"
+      },
+      "selection_replay": "PASS",
+      "selection_stability": {
+        "conditioning": "bootstrap over sentinel queries within the originally simultaneous-certified set",
+        "frequencies": {
+          "G2:ef=48": 5000
+        },
+        "frozen_action_frequency": 1.0,
+        "replicates": 5000,
+        "seed": 991
+      }
+    },
+    "sift_100k": {
+      "build_effects": [
+        {
+          "mean_ndc_range": 9.03515625,
+          "mean_recall_range": 0.017968749999999978,
+          "per_build": {
+            "G1": {
+              "failures": 131,
+              "mean_expansions": 12.71484375,
+              "mean_ndc": 298.29296875,
+              "mean_recall_at_10": 0.783203125,
+              "mean_wall_clock_ns": 60267.10546875,
+              "n": 256,
+              "p95_ndc": 400.25
+            },
+            "G2": {
+              "failures": 151,
+              "mean_expansions": 12.9453125,
+              "mean_ndc": 292.4375,
+              "mean_recall_at_10": 0.765234375,
+              "mean_wall_clock_ns": 62401.3359375,
+              "n": 256,
+              "p95_ndc": 378.5
+            },
+            "G3": {
+              "failures": 152,
+              "mean_expansions": 12.58203125,
+              "mean_ndc": 289.2578125,
+              "mean_recall_at_10": 0.775,
+              "mean_wall_clock_ns": 62380.33984375,
+              "n": 256,
+              "p95_ndc": 388.0
+            }
+          },
+          "requested_ef": 10
+        },
+        {
+          "mean_ndc_range": 9.02734375,
+          "mean_recall_range": 0.017187500000000022,
+          "per_build": {
+            "G1": {
+              "failures": 86,
+              "mean_expansions": 18.4765625,
+              "mean_ndc": 379.49609375,
+              "mean_recall_at_10": 0.871484375,
+              "mean_wall_clock_ns": 52392.8515625,
+              "n": 256,
+              "p95_ndc": 490.25
+            },
+            "G2": {
+              "failures": 100,
+              "mean_expansions": 18.56640625,
+              "mean_ndc": 371.65625,
+              "mean_recall_at_10": 0.854296875,
+              "mean_wall_clock_ns": 53245.15625,
+              "n": 256,
+              "p95_ndc": 484.75
+            },
+            "G3": {
+              "failures": 102,
+              "mean_expansions": 18.30859375,
+              "mean_ndc": 370.46875,
+              "mean_recall_at_10": 0.855078125,
+              "mean_wall_clock_ns": 52590.359375,
+              "n": 256,
+              "p95_ndc": 474.75
+            }
+          },
+          "requested_ef": 16
+        },
+        {
+          "mean_ndc_range": 6.53515625,
+          "mean_recall_range": 0.0027343749999999556,
+          "per_build": {
+            "G1": {
+              "failures": 48,
+              "mean_expansions": 25.75,
+              "mean_ndc": 474.65234375,
+              "mean_recall_at_10": 0.9203125,
+              "mean_wall_clock_ns": 66486.67578125,
+              "n": 256,
+              "p95_ndc": 596.5
+            },
+            "G2": {
+              "failures": 52,
+              "mean_expansions": 25.91015625,
+              "mean_ndc": 468.35546875,
+              "mean_recall_at_10": 0.917578125,
+              "mean_wall_clock_ns": 67257.0625,
+              "n": 256,
+              "p95_ndc": 589.25
+            },
+            "G3": {
+              "failures": 57,
+              "mean_expansions": 25.8515625,
+              "mean_ndc": 468.1171875,
+              "mean_recall_at_10": 0.91875,
+              "mean_wall_clock_ns": 67525.2265625,
+              "n": 256,
+              "p95_ndc": 598.75
+            }
+          },
+          "requested_ef": 24
+        },
+        {
+          "mean_ndc_range": 11.1171875,
+          "mean_recall_range": 0.003515625000000022,
+          "per_build": {
+            "G1": {
+              "failures": 35,
+              "mean_expansions": 33.515625,
+              "mean_ndc": 574.125,
+              "mean_recall_at_10": 0.946484375,
+              "mean_wall_clock_ns": 81079.09375,
+              "n": 256,
+              "p95_ndc": 719.25
+            },
+            "G2": {
+              "failures": 34,
+              "mean_expansions": 33.4296875,
+              "mean_ndc": 563.0078125,
+              "mean_recall_at_10": 0.943359375,
+              "mean_wall_clock_ns": 80389.91796875,
+              "n": 256,
+              "p95_ndc": 714.0
+            },
+            "G3": {
+              "failures": 36,
+              "mean_expansions": 33.57421875,
+              "mean_ndc": 563.67578125,
+              "mean_recall_at_10": 0.94296875,
+              "mean_wall_clock_ns": 80752.96484375,
+              "n": 256,
+              "p95_ndc": 712.75
+            }
+          },
+          "requested_ef": 32
+        },
+        {
+          "mean_ndc_range": 9.125,
+          "mean_recall_range": 0.003515624999999911,
+          "per_build": {
+            "G1": {
+              "failures": 19,
+              "mean_expansions": 49.04296875,
+              "mean_ndc": 755.74609375,
+              "mean_recall_at_10": 0.969921875,
+              "mean_wall_clock_ns": 114041.02734375,
+              "n": 256,
+              "p95_ndc": 943.5
+            },
+            "G2": {
+              "failures": 16,
+              "mean_expansions": 49.21484375,
+              "mean_ndc": 747.09765625,
+              "mean_recall_at_10": 0.9703125,
+              "mean_wall_clock_ns": 115697.52734375,
+              "n": 256,
+              "p95_ndc": 936.5
+            },
+            "G3": {
+              "failures": 14,
+              "mean_expansions": 49.2734375,
+              "mean_ndc": 746.62109375,
+              "mean_recall_at_10": 0.9734375,
+              "mean_wall_clock_ns": 115920.625,
+              "n": 256,
+              "p95_ndc": 933.0
+            }
+          },
+          "requested_ef": 48
+        },
+        {
+          "mean_ndc_range": 9.625,
+          "mean_recall_range": 0.0003906249999999778,
+          "per_build": {
+            "G1": {
+              "failures": 11,
+              "mean_expansions": 64.75390625,
+              "mean_ndc": 927.62890625,
+              "mean_recall_at_10": 0.982421875,
+              "mean_wall_clock_ns": 138495.4296875,
+              "n": 256,
+              "p95_ndc": 1160.25
+            },
+            "G2": {
+              "failures": 9,
+              "mean_expansions": 64.9765625,
+              "mean_ndc": 919.76171875,
+              "mean_recall_at_10": 0.9828125,
+              "mean_wall_clock_ns": 138967.2578125,
+              "n": 256,
+              "p95_ndc": 1157.0
+            },
+            "G3": {
+              "failures": 8,
+              "mean_expansions": 64.87109375,
+              "mean_ndc": 918.00390625,
+              "mean_recall_at_10": 0.9828125,
+              "mean_wall_clock_ns": 139448.48828125,
+              "n": 256,
+              "p95_ndc": 1150.0
+            }
+          },
+          "requested_ef": 64
+        },
+        {
+          "mean_ndc_range": 6.203125,
+          "mean_recall_range": 0.0015625000000000222,
+          "per_build": {
+            "G1": {
+              "failures": 1,
+              "mean_expansions": 96.51953125,
+              "mean_ndc": 1245.7421875,
+              "mean_recall_at_10": 0.992578125,
+              "mean_wall_clock_ns": 199381.34765625,
+              "n": 256,
+              "p95_ndc": 1560.5
+            },
+            "G2": {
+              "failures": 5,
+              "mean_expansions": 96.6640625,
+              "mean_ndc": 1239.5390625,
+              "mean_recall_at_10": 0.993359375,
+              "mean_wall_clock_ns": 202188.35546875,
+              "n": 256,
+              "p95_ndc": 1572.0
+            },
+            "G3": {
+              "failures": 2,
+              "mean_expansions": 96.59765625,
+              "mean_ndc": 1239.75,
+              "mean_recall_at_10": 0.991796875,
+              "mean_wall_clock_ns": 202638.3203125,
+              "n": 256,
+              "p95_ndc": 1578.25
+            }
+          },
+          "requested_ef": 96
+        },
+        {
+          "mean_ndc_range": 9.0390625,
+          "mean_recall_range": 0.001953125,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 128.44921875,
+              "mean_ndc": 1543.87109375,
+              "mean_recall_at_10": 0.99765625,
+              "mean_wall_clock_ns": 243795.7109375,
+              "n": 256,
+              "p95_ndc": 1947.25
+            },
+            "G2": {
+              "failures": 2,
+              "mean_expansions": 128.51953125,
+              "mean_ndc": 1535.09375,
+              "mean_recall_at_10": 0.995703125,
+              "mean_wall_clock_ns": 246796.66015625,
+              "n": 256,
+              "p95_ndc": 1955.0
+            },
+            "G3": {
+              "failures": 2,
+              "mean_expansions": 128.4921875,
+              "mean_ndc": 1534.83203125,
+              "mean_recall_at_10": 0.995703125,
+              "mean_wall_clock_ns": 246119.8515625,
+              "n": 256,
+              "p95_ndc": 1967.25
+            }
+          },
+          "requested_ef": 128
+        },
+        {
+          "mean_ndc_range": 11.8125,
+          "mean_recall_range": 0.0003906249999999778,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 192.24609375,
+              "mean_ndc": 2086.5625,
+              "mean_recall_at_10": 0.998828125,
+              "mean_wall_clock_ns": 352289.6953125,
+              "n": 256,
+              "p95_ndc": 2667.75
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 192.33984375,
+              "mean_ndc": 2076.85546875,
+              "mean_recall_at_10": 0.9984375,
+              "mean_wall_clock_ns": 357485.2265625,
+              "n": 256,
+              "p95_ndc": 2687.25
+            },
+            "G3": {
+              "failures": 0,
+              "mean_expansions": 192.34765625,
+              "mean_ndc": 2074.75,
+              "mean_recall_at_10": 0.9984375,
+              "mean_wall_clock_ns": 357959.9296875,
+              "n": 256,
+              "p95_ndc": 2676.75
+            }
+          },
+          "requested_ef": 192
+        },
+        {
+          "mean_ndc_range": 11.8046875,
+          "mean_recall_range": 0.0015625000000000222,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 256.2109375,
+              "mean_ndc": 2579.37890625,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 430967.8203125,
+              "n": 256,
+              "p95_ndc": 3308.25
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 256.3046875,
+              "mean_ndc": 2567.57421875,
+              "mean_recall_at_10": 0.9984375,
+              "mean_wall_clock_ns": 434746.2578125,
+              "n": 256,
+              "p95_ndc": 3314.75
+            },
+            "G3": {
+              "failures": 0,
+              "mean_expansions": 256.27734375,
+              "mean_ndc": 2569.265625,
+              "mean_recall_at_10": 0.999609375,
+              "mean_wall_clock_ns": 436488.58203125,
+              "n": 256,
+              "p95_ndc": 3340.5
+            }
+          },
+          "requested_ef": 256
+        },
+        {
+          "mean_ndc_range": 7.6875,
+          "mean_recall_range": 0.0003906249999999778,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 384.0859375,
+              "mean_ndc": 3460.5390625,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 620231.1875,
+              "n": 256,
+              "p95_ndc": 4500.75
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 384.1953125,
+              "mean_ndc": 3452.8515625,
+              "mean_recall_at_10": 0.999609375,
+              "mean_wall_clock_ns": 628426.41796875,
+              "n": 256,
+              "p95_ndc": 4495.5
+            },
+            "G3": {
+              "failures": 0,
+              "mean_expansions": 384.140625,
+              "mean_ndc": 3455.375,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 631064.24609375,
+              "n": 256,
+              "p95_ndc": 4528.5
+            }
+          },
+          "requested_ef": 384
+        },
+        {
+          "mean_ndc_range": 5.15625,
+          "mean_recall_range": 0.0,
+          "per_build": {
+            "G1": {
+              "failures": 0,
+              "mean_expansions": 512.078125,
+              "mean_ndc": 4250.58203125,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 753082.03515625,
+              "n": 256,
+              "p95_ndc": 5528.75
+            },
+            "G2": {
+              "failures": 0,
+              "mean_expansions": 512.1484375,
+              "mean_ndc": 4245.42578125,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 761919.81640625,
+              "n": 256,
+              "p95_ndc": 5516.75
+            },
+            "G3": {
+              "failures": 0,
+              "mean_expansions": 512.1015625,
+              "mean_ndc": 4249.2890625,
+              "mean_recall_at_10": 1.0,
+              "mean_wall_clock_ns": 765181.68359375,
+              "n": 256,
+              "p95_ndc": 5556.5
+            }
+          },
+          "requested_ef": 512
+        }
+      ],
+      "dataset": "sift_100k",
+      "frozen_selected_action": "G3:ef=96",
+      "leave_one_build_out": {
+        "G1": {
+          "evaluation": {
+            "action_id": "G3:ef=96",
+            "failures": 6,
+            "mean_ndc": 1255.548,
+            "mean_recall_at_10": 0.9907999999999999,
+            "mean_wall_clock_ns": 201739.408,
+            "n": 500,
+            "p95_ndc": 1591.2499999999998
+          },
+          "selected": "G3:ef=96"
+        },
+        "G2": {
+          "evaluation": {
+            "action_id": "G3:ef=96",
+            "failures": 6,
+            "mean_ndc": 1255.548,
+            "mean_recall_at_10": 0.9907999999999999,
+            "mean_wall_clock_ns": 201739.408,
+            "n": 500,
+            "p95_ndc": 1591.2499999999998
+          },
+          "selected": "G3:ef=96"
+        },
+        "G3": {
+          "evaluation": {
+            "action_id": "G1:ef=96",
+            "failures": 1,
+            "mean_ndc": 1261.456,
+            "mean_recall_at_10": 0.995,
+            "mean_wall_clock_ns": 201551.788,
+            "n": 500,
+            "p95_ndc": 1580.2999999999997
+          },
+          "selected": "G1:ef=96"
+        }
+      },
+      "selected_action_removed": {
+        "evaluation": {
+          "action_id": "G1:ef=96",
+          "failures": 1,
+          "mean_ndc": 1261.456,
+          "mean_recall_at_10": 0.995,
+          "mean_wall_clock_ns": 201551.788,
+          "n": 500,
+          "p95_ndc": 1580.2999999999997
+        },
+        "selected": "G1:ef=96"
+      },
+      "selected_build_removed": {
+        "evaluation": {
+          "action_id": "G1:ef=96",
+          "failures": 1,
+          "mean_ndc": 1261.456,
+          "mean_recall_at_10": 0.995,
+          "mean_wall_clock_ns": 201551.788,
+          "n": 500,
+          "p95_ndc": 1580.2999999999997
+        },
+        "selected": "G1:ef=96"
+      },
+      "selection_replay": "PASS",
+      "selection_stability": {
+        "conditioning": "bootstrap over sentinel queries within the originally simultaneous-certified set",
+        "frequencies": {
+          "G1:ef=96": 277,
+          "G3:ef=96": 4723
+        },
+        "frozen_action_frequency": 0.9446,
+        "replicates": 5000,
+        "seed": 991
+      }
+    }
+  },
+  "schema_version": 1,
+  "status": "PASS_ROBUSTNESS_ANALYSIS"
+}

@@ -1,0 +1,304 @@
+{
+  "datasets": {
+    "arxiv_nomic_100k": {
+      "action_search_36": {
+        "ndc_by_build": {
+          "G1": 5183779,
+          "G2": 5150391,
+          "G3": 5163373
+        },
+        "wall_clock_ns_by_build": {
+          "G1": 4184027192,
+          "G2": 4180233338,
+          "G3": 4196429431
+        }
+      },
+      "construction": {
+        "G1": {
+          "build_time_ns": 148644159718,
+          "peak_rss_kib": 630464
+        },
+        "G2": {
+          "build_time_ns": 149811803699,
+          "peak_rss_kib": 630392
+        },
+        "G3": {
+          "build_time_ns": 147865779054,
+          "peak_rss_kib": 630768
+        }
+      },
+      "dataset": "arxiv_nomic_100k",
+      "fallback_evaluation": {
+        "build_id_counts": {
+          "G1": 500
+        },
+        "endpoint_failures": 0,
+        "failures": 0,
+        "max_build_peak_rss_kib": 630464,
+        "mean_expansions": 100000.0,
+        "mean_index_size_bytes": 322049984.0,
+        "mean_ndc": 100090.342,
+        "mean_recall_at_10": 1.0,
+        "mean_wall_clock_ns": 138731313.448,
+        "n": 500,
+        "p50_ndc": 100089.0,
+        "p95_expansions": 100000.0,
+        "p95_ndc": 100131.0,
+        "p95_wall_clock_ns": 141720543.45,
+        "p99_ndc": 100146.03,
+        "p99_wall_clock_ns": 150594734.59,
+        "requested_ef_counts": {
+          "100000": 500
+        },
+        "risk_cp_95_ucb": 0.005973551516349557
+      },
+      "incremental_B4_vs_B1": {
+        "break_even_queries": 2029890,
+        "extra_fixed_wall_clock_ns": 306054245522,
+        "extra_index_storage_bytes": 644114180,
+        "finite_wall_clock_break_even": true,
+        "per_query_wall_clock_saving_ns": 150773.8720000001
+      },
+      "index_storage_bytes": {
+        "G1": 322049984,
+        "G2": 322057668,
+        "G3": 322056512
+      },
+      "selection_and_certification": "included in measured sentinel supervisor residual; not separately identifiable",
+      "serialization_and_replay": "included in build/inspection commands; not separately identifiable from input IO",
+      "storage_snapshot_all_stage1_results_bytes": 377933185,
+      "truth": {
+        "evaluation_diagnostic": {
+          "base_rows": 100000,
+          "boundary_distance_ties": false,
+          "queries": 500,
+          "status": "PASS",
+          "tie_rule": "distance_then_label",
+          "truth_acquisition_ndc_per_query": 100000,
+          "truth_acquisition_total_ndc": 50000000,
+          "truth_acquisition_total_wall_clock_ns": 59391194731
+        },
+        "sentinel": {
+          "base_rows": 100000,
+          "boundary_distance_ties": 0,
+          "queries": 256,
+          "status": "PASS",
+          "tie_rule": "distance_then_label",
+          "truth_acquisition_ndc_per_query": 100000,
+          "truth_acquisition_total_ndc": 25600000,
+          "truth_acquisition_total_wall_clock_ns": 30382265061
+        }
+      },
+      "workloads": [
+        {
+          "N": 1000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 183976615879.0,
+            "B4_total_wall_clock_ns": 489880087529.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 153594350818.0,
+            "B4_total_wall_clock_ns": 459497822468.0
+          }
+        },
+        {
+          "N": 10000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 190872091051.0,
+            "B4_total_wall_clock_ns": 495418597853.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 160489825990.0,
+            "B4_total_wall_clock_ns": 465036332792.0
+          }
+        },
+        {
+          "N": 100000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 259826842771.0,
+            "B4_total_wall_clock_ns": 550803701093.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 229444577710.0,
+            "B4_total_wall_clock_ns": 520421436032.0
+          }
+        },
+        {
+          "N": 1000000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 949374359971.0,
+            "B4_total_wall_clock_ns": 1104654733493.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 918992094910.0,
+            "B4_total_wall_clock_ns": 1074272468432.0
+          }
+        },
+        {
+          "N": 10000000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 7844849531971.001,
+            "B4_total_wall_clock_ns": 6643165057493.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 7814467266910.001,
+            "B4_total_wall_clock_ns": 6612782792432.0
+          }
+        }
+      ]
+    },
+    "sift_100k": {
+      "action_search_36": {
+        "ndc_by_build": {
+          "G1": 4755614,
+          "G2": 4730792,
+          "G3": 4730728
+        },
+        "wall_clock_ns_by_build": {
+          "G1": 796802555,
+          "G2": 806277374,
+          "G3": 808466078
+        }
+      },
+      "construction": {
+        "G1": {
+          "build_time_ns": 26884790118,
+          "peak_rss_kib": 130756
+        },
+        "G2": {
+          "build_time_ns": 27260105576,
+          "peak_rss_kib": 130480
+        },
+        "G3": {
+          "build_time_ns": 27123495145,
+          "peak_rss_kib": 130864
+        }
+      },
+      "dataset": "sift_100k",
+      "fallback_evaluation": {
+        "build_id_counts": {
+          "G1": 500
+        },
+        "endpoint_failures": 0,
+        "failures": 0,
+        "max_build_peak_rss_kib": 130756,
+        "mean_expansions": 100000.0,
+        "mean_index_size_bytes": 66049984.0,
+        "mean_ndc": 100088.906,
+        "mean_recall_at_10": 1.0,
+        "mean_wall_clock_ns": 63769558.92,
+        "n": 500,
+        "p50_ndc": 100087.0,
+        "p95_expansions": 100000.0,
+        "p95_ndc": 100123.05,
+        "p95_wall_clock_ns": 64464686.45,
+        "p99_ndc": 100140.02,
+        "p99_wall_clock_ns": 64781941.99,
+        "requested_ef_counts": {
+          "100000": 500
+        },
+        "risk_cp_95_ucb": 0.005973551516349557
+      },
+      "incremental_B4_vs_B1": {
+        "break_even_queries": "NO_FINITE_BREAK_EVEN",
+        "extra_fixed_wall_clock_ns": 55998344173,
+        "extra_index_storage_bytes": 132114180,
+        "finite_wall_clock_break_even": false,
+        "per_query_wall_clock_saving_ns": -187.61999999999534
+      },
+      "index_storage_bytes": {
+        "G1": 66049984,
+        "G2": 66057668,
+        "G3": 66056512
+      },
+      "selection_and_certification": "included in measured sentinel supervisor residual; not separately identifiable",
+      "serialization_and_replay": "included in build/inspection commands; not separately identifiable from input IO",
+      "storage_snapshot_all_stage1_results_bytes": 377933185,
+      "truth": {
+        "evaluation_diagnostic": {
+          "base_rows": 100000,
+          "boundary_distance_ties": false,
+          "queries": 500,
+          "status": "PASS",
+          "tie_rule": "distance_then_label",
+          "truth_acquisition_ndc_per_query": 100000,
+          "truth_acquisition_total_ndc": 50000000,
+          "truth_acquisition_total_wall_clock_ns": 11906327630
+        },
+        "sentinel": {
+          "base_rows": 100000,
+          "boundary_distance_ties": 0,
+          "queries": 256,
+          "status": "PASS",
+          "tie_rule": "distance_then_label",
+          "truth_acquisition_ndc_per_query": 100000,
+          "truth_acquisition_total_ndc": 25600000,
+          "truth_acquisition_total_wall_clock_ns": 6107579400
+        }
+      },
+      "workloads": [
+        {
+          "N": 1000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 33990723861.0,
+            "B4_total_wall_clock_ns": 89989255654.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 27883144461.0,
+            "B4_total_wall_clock_ns": 83881676254.0
+          }
+        },
+        {
+          "N": 10000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 35804689953.0,
+            "B4_total_wall_clock_ns": 91804910326.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 29697110553.0,
+            "B4_total_wall_clock_ns": 85697330926.0
+          }
+        },
+        {
+          "N": 100000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 53944350873.0,
+            "B4_total_wall_clock_ns": 109961457046.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 47836771473.0,
+            "B4_total_wall_clock_ns": 103853877646.0
+          }
+        },
+        {
+          "N": 1000000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 235340960073.0,
+            "B4_total_wall_clock_ns": 291526924246.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 229233380673.0,
+            "B4_total_wall_clock_ns": 285419344846.0
+          }
+        },
+        {
+          "N": 10000000,
+          "truth_acquisition_included": {
+            "B1_total_wall_clock_ns": 2049307052073.0,
+            "B4_total_wall_clock_ns": 2107181596246.0
+          },
+          "truth_available": {
+            "B1_total_wall_clock_ns": 2043199472673.0,
+            "B4_total_wall_clock_ns": 2101074016846.0
+          }
+        }
+      ]
+    }
+  },
+  "schema_version": 1,
+  "status": "PASS_COST_ACCOUNTING",
+  "truth_channels": [
+    "truth_available",
+    "truth_acquisition_included"
+  ]
+}

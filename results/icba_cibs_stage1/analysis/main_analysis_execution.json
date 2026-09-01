@@ -1,0 +1,10 @@
+{
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 991,
+  "elapsed_ns": 16078136125,
+  "evaluation_sha256": "a760cdc07b3dd03d2ebcb6bd214b4186f53096ae5c7f03643f11e24f7d08e94b",
+  "preregistration_sha256": "176c9286e58527b5cc78682fc0d214dff0b82ed588e97d1ad33945b9dcb49162",
+  "schema_version": 1,
+  "sentinel_certificate_status": "PASS_SENTINEL_PROCEDURE_CERTIFICATE",
+  "status": "PASS_MAIN_ANALYSIS_EXECUTION"
+}

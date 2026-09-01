@@ -1,0 +1,70 @@
+{
+  "conditionality": "CONDITIONAL_ON_ONE_REGISTERED_PORTFOLIO",
+  "evaluation_manifest_sha256": "a760cdc07b3dd03d2ebcb6bd214b4186f53096ae5c7f03643f11e24f7d08e94b",
+  "evaluation_reselection_performed": false,
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_STAGE_I",
+  "future_confirm_accessed": false,
+  "minimum_gate": {
+    "both_datasets_pass": false,
+    "datasets": {
+      "arxiv_nomic_100k": {
+        "checks": {
+          "delete_top_1_percent_gain_positive": true,
+          "endpoint_not_worse": true,
+          "evaluation_no_clear_conflict": true,
+          "finite_break_even": true,
+          "p95_ndc_delta_le_0": true,
+          "procedure_certificate_valid": true,
+          "recall_delta_ge_minus_0_001": false,
+          "relative_B1_mean_ndc_gain_ge_0_01": true
+        },
+        "pass": false
+      },
+      "sift_100k": {
+        "checks": {
+          "delete_top_1_percent_gain_positive": true,
+          "endpoint_not_worse": true,
+          "evaluation_no_clear_conflict": true,
+          "finite_break_even": false,
+          "p95_ndc_delta_le_0": false,
+          "procedure_certificate_valid": true,
+          "recall_delta_ge_minus_0_001": false,
+          "relative_B1_mean_ndc_gain_ge_0_01": false
+        },
+        "pass": false
+      }
+    }
+  },
+  "next": "PREREGISTERED_K2_L12_N128_M24_ZERO_FAILURE_ABLATION",
+  "positive_cibs_evidence": false,
+  "promotion_gate": {
+    "datasets": {
+      "arxiv_nomic_100k": {
+        "checks": {
+          "complete_cost_break_even_reasonable": true,
+          "mean_gain_CI_lower_bound_gt_0": true,
+          "no_contamination_or_replay_failure": true,
+          "p95_no_clear_worsening": true,
+          "recall_noninferiority_interval_support": false
+        },
+        "pass": false
+      },
+      "sift_100k": {
+        "checks": {
+          "complete_cost_break_even_reasonable": false,
+          "mean_gain_CI_lower_bound_gt_0": true,
+          "no_contamination_or_replay_failure": true,
+          "p95_no_clear_worsening": true,
+          "recall_noninferiority_interval_support": false
+        },
+        "pass": false
+      }
+    },
+    "pass": false,
+    "same_direction_both_datasets": true
+  },
+  "schema_version": 1,
+  "selected_action_manifest_sha256": "a25a2918bf5fd25da20444db616662ae91195934ec89da19d878c40735624343",
+  "sentinel_certificate_sha256": "9dcd8e3fc25027e8cd9ba943d6ee8a502bc7d11c87c45666164bd2c171fef7ab",
+  "status": "MAIN_K3_ANALYSIS_COMPLETE_MINIMUM_GATE_FAILED"
+}
