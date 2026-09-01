@@ -1,0 +1,10 @@
+{
+  "evaluation_reselection_performed": false,
+  "future_confirm_accessed": false,
+  "main_K3_replaced": false,
+  "next": "FINAL_REPORTS_FIGURES_CHECKSUMS_AND_DECISION",
+  "result_sha256": "1b7ef89143d1314953d53e62c867e3eb2d32a963b8cc47e0bdab2182bf277cba",
+  "schema_version": 1,
+  "selection_manifest_sha256": "38c367e949c08a2483a638df9f0058c587065139c1ae02766b8735e89c15f1f2",
+  "status": "PASS_K2_ABLATION_SEALED_DOES_NOT_REPLACE_MAIN"
+}
