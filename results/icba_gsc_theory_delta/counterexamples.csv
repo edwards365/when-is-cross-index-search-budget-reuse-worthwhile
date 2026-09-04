@@ -1,0 +1,17 @@
+counterexample_id,category,finite_construction,quantity,expected_failure,formal_consequence,status
+CE01,edge-to-endpoint,100 edges; two graphs share 99 but one altered bridge makes endpoint infeasible,0.99,high Jaccard but endpoint state flips,edge overlap does not control Z,VERIFIED
+CE02,D_C_vs_D_Z,C=10 for every query/build; one build has Z=1 on one query,0,D_C=0 while D_Z>0,cost dispersion alone cannot certify risk,VERIFIED
+CE03,average-vs-maximum,n=1000; one query changes from safe to failed,0.001,mean disagreement .001 but maximum query risk 1,average response misses tail query,VERIFIED
+CE04,mean-p95,A:94 zeros+6 hundreds; B:100 sevens,-1,A mean 6<7 but p95 100>7,mean gain does not imply tail gain,VERIFIED
+CE05,p95-vs-recall,A p95 improves but 10/100 queries fall below tau; B has no failures,10,tail pass with hard recall failure,metrics need separate gates,VERIFIED
+CE06,zero-margin,r=delta and CP threshold near boundary,0,acceptance probability is not guaranteed high,gamma>0 is needed for power,VERIFIED
+CE07,fallback-tax,online gain 1; rejection .2; fallback gap 8; control 0,-0.6,1-.2*8<0,oracle/online gain can be net negative,VERIFIED
+CE08,baseline-inclusion,baseline r=.01; candidate r=.20 selected outside family event,0.19,safe baseline does not rescue invalid candidate selection,baseline must be in valid simultaneous event,VERIFIED
+CE09,adaptive-certification,20 unadjusted 95% tests; choose minimum observed risk,0.641514,family error 1-.95^20,post-certification selection breaks 95% claim,VERIFIED
+CE10,raw-ef,recall ef40=1.0; ef80=.9 on same query,-0.1,larger raw ef lowers recall,no raw-ef monotone envelope,VERIFIED
+CE11,prefix-vs-ef,prefix expansions monotone but ef maps to different seeds/order,1,prefix theorem does not identify raw ef behavior,expansion theorem cannot be relabeled,VERIFIED
+CE12,empty-pool,all generated candidates have UCB>.05,0,selector forced to choose unsafe action,fallback is required,VERIFIED
+CE13,stability-cost,D_C decreases by 50%; operator cost=1000; online gain=.1/query,-999.9,cost shrink does not pay operator cost,stability objective not service value,VERIFIED
+CE14,cross-dataset,"dataset A gain +2%, dataset B gain -2%",-2,"one track passes, other violates tolerance",joint claim needs intersection gate,VERIFIED
+CE15,multi-track-selection,10 tracks each with 95% valid evaluation result,0.401263,post-selection error 1-.95^10,fresh holdout/adjustment required,VERIFIED
+CE16,query-vs-build-bootstrap,within-build query SE=.01; two-build means reverse sign,1,query CI significant but build cluster not,sampling unit mismatch,VERIFIED
