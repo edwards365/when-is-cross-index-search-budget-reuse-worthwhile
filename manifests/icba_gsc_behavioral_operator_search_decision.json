@@ -4,7 +4,7 @@
   "evidence_level": "EXPLORATORY_FIXED_TARGET_GSC",
   "branch": "exp/icba_gsc_behavioral_operator_search",
   "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
-  "head": "d56e30279d0af204026463ad4878372ba56cbba7",
+  "head": "2fa98c9451949df97cd5ff50241ad8057f1da303",
   "frozen_refs": {
     "cibs_closure": "736c3799a92bf31f503c37e8eaaf680f84398aa5",
     "cfsr_lite_pilot": "7417147e9ce2e526973cd47b3b390c0ae2bb7c65",
@@ -68,7 +68,9 @@
     "certification_accessed": false,
     "evaluation_accessed": false,
     "future_confirm_accessed": false,
-    "registry_tests_passed": 3
+    "registry_tests_passed": 12,
+    "api": "scripts/icba_gsc/operator_api.py",
+    "api_tests_passed": 9
   },
   "cost_definition_version": "GSC_DELTA_V1",
   "T-GSC3_power_version": "CORRECTED_TWO_TERM_HOEFFDING",
@@ -86,7 +88,7 @@
     "evaluation_accessed": false,
     "operator_trials_started": false
   },
-  "phase2": {"status": "PROPOSAL_REGISTRY_VALIDATED", "configs": 8, "operator_trials_run": 0, "tests_passed": 3, "certification_accessed": false},
+  "phase2": {"status": "OPERATOR_API_VALIDATED", "configs": 8, "operator_trials_run": 0, "tests_passed": 12, "certification_accessed": false, "evaluation_accessed": false, "future_confirm_accessed": false, "api": "scripts/icba_gsc/operator_api.py"},
   "phase3": {"status": "NOT_STARTED"},
   "phase4": {"status": "NOT_STARTED"},
   "decision_label": null,
