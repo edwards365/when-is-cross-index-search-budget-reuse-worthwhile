@@ -1,0 +1,16 @@
+assumption_id,assumption,theorem_or_module,classification,observable_field_or_test,required_scope,failure_interpretation,current_status
+A01,final candidate family frozen before certification,T-GSC1,design-only,manifest timestamp and hash,registered finite family,adaptive validity fails if modified after certificate views,REQUIRED
+A02,certification sample independent of generation/validation,T-GSC1,certification-only,role IDs and split hash; no overlap,target query distribution,certificate invalid if reused adaptively,REQUIRED
+A03,endpoint-aware failure semantics fixed,all risk theorems,directly observable,raw recall and endpoint status,same tau across actions,imputation can hide failures,REQUIRED
+A04,candidate count M and alpha ledger fixed,T-GSC1/T-GSC3,design-only,operator registry and alpha record,finite search,unregistered tracks inflate error,REQUIRED
+A05,positive safety margin gamma,T-GSC3,certification-only,estimated margin with independent uncertainty,fixed target,safe candidate may be rejected,NOT_ESTIMABLE_BEFORE_CERTIFICATION
+A06,D_Z measured separately from D_C,T-GSC5,approximately testable,per-query response matrix,same P_Q,D_C reduction cannot be interpreted as risk reduction,REQUIRED
+A07,priority margin for trace repair,T-GSC5 structural layer,approximately testable,frontier score gap and trace fields,fixed implementation,without margin no prefix claim,DESIGN_REQUIRED
+A08,raw ef-to-expansion map,T-GSC5 structural layer,not estimable without new proof,paired trace experiment cannot certify globally,raw ef claim,prefix result cannot transfer,NOT_ASSUMED
+A09,candidate generator attains good action,T-GSC7,not estimable in theory alone,independent candidate-pool evaluation,registered track,conditional theorem has no force if pool empty,EMPIRICAL_ONLY
+A10,online gain G_online positive,T-GSC4,directly observable,mean NDC and wall-clock logs,declared workload,D<=0 means no break-even,UNMEASURED
+A11,fallback gap and rejection probability measured,T-GSC4,directly observable,fallback/action logs,service workload,fallback tax can erase gain,UNMEASURED
+A12,outer build support/exchangeability,open-world extension,not estimable,independent build clusters,open-world claim,fixed-target certificate cannot extend,NOT_AVAILABLE
+A13,operator trial budget <=24 and generations <=3,T-GSC6,design-only,registry count,proposal/validation only,unbounded search changes M/selection,REQUIRED
+A14,final evaluation read once after freeze,T-GSC6/7,design-only,access log,held-out evaluation,multiple looks need adjustment,REQUIRED
+A15,query/build bootstrap unit is correct,all empirical bridge claims,directly observable,bootstrap manifest,query vs build cluster,wrong unit overstates certainty,REQUIRED
