@@ -64,7 +64,17 @@
   "p95_cvar_separated": true,
   "heldout_build_evidence_level": "HELDOUT_BUILD_ROBUSTNESS_EVIDENCE",
   "theory_status": "GSC_THEORY_VALID_CONDITIONAL_EMPIRICAL_BRIDGE_REQUIRED",
-  "phase1": {"status": "NOT_STARTED"},
+  "phase1": {
+    "status": "COMPLETED_FROZEN72_SLACK_AUDIT",
+    "source_role": "FROZEN_SENTINEL_AUDIT_ONLY",
+    "action_cells": 72,
+    "datasets": ["sift_100k", "arxiv_nomic_100k"],
+    "descriptive_slack_screen": "Z_abs_rate<=0.05",
+    "future_confirm_accessed": false,
+    "certification_accessed": false,
+    "evaluation_accessed": false,
+    "operator_trials_started": false
+  },
   "phase2": {"status": "NOT_STARTED"},
   "phase3": {"status": "NOT_STARTED"},
   "phase4": {"status": "NOT_STARTED"},
