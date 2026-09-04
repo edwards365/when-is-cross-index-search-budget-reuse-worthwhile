@@ -1,0 +1,24 @@
+{
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_CALS_SEMANTIC_REPAIR",
+  "branch": "exp/icba_cals_semantic_repair_reaudit",
+  "base_commit": "60ad9461ced9a55b8a6e239a40b26a9c388c6b9c",
+  "portal_subsets": 256,
+  "datasets": [
+    "SIFT-100K",
+    "Arxiv-Nomic-100K"
+  ],
+  "efs": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "query_roles": {
+    "selection": "0-199",
+    "holdout": "200-499"
+  },
+  "prior_verdict_withdrawn": true,
+  "decision_label": "CALS_RESCUE_REQUIRES_PORTAL_COMPLEMENTARITY",
+  "p95_ndc_status": "NOT_ESTIMABLE",
+  "oracle_status": "NON_DEPLOYABLE_UPPER_BOUND"
+}
