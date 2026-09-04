@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "task": "ICBA GSC THEORY INHERITANCE, MATHEMATICAL DELTA AND PRIOR-ART FORENSICS",
+  "starting_commit": "736c3799a92bf31f503c37e8eaaf680f84398aa5",
+  "branch": "exp/icba_gsc_theory_prior_delta_lock",
+  "primary_decision": "GSC_THEORY_VALID_CONDITIONAL_EMPIRICAL_BRIDGE_REQUIRED",
+  "maximum_novelty": "NEW_COMBINATION_OF_CLASSICAL_RESULTS",
+  "direct_prior_art": "NO_DIRECT_GSC_SEVEN_CONDITION_PRIOR_FOUND",
+  "level_counts": {"A_fulltext": 15, "B_partial": 6, "C_fragment_or_secondary": 5},
+  "theorem_status": {
+    "T-GSC1": "FORMAL_PROOF_COMPLETE",
+    "T-GSC2": "FORMAL_PROOF_COMPLETE",
+    "T-GSC3": "FORMAL_PROOF_COMPLETE",
+    "T-GSC4": "FORMAL_PROOF_COMPLETE",
+    "T-GSC5": "FORMAL_PROOF_RESTRICTED",
+    "T-GSC6": "FORMAL_PROOF_COMPLETE",
+    "T-GSC7": "FORMAL_PROOF_COMPLETE",
+    "T-GSC8": "FORMAL_PROOF_RESTRICTED"
+  },
+  "fixed_target_certification_after_adaptive_generation": "STRICTLY_VALID_IF_FINAL_FAMILY_FROZEN_AND_CERTIFICATION_INDEPENDENT",
+  "behavioral_stability_general_claim": "FALSE_NON_IMPLICATION",
+  "restricted_structure_claim": "RISK_DIFFERENCE_BOUND_BY_DIRECT_FAILURE_DISAGREEMENT_ONLY; TRACE_PREFIX REQUIRES EXTRA ASSUMPTIONS",
+  "cibs_route_status": "NO_TWO_DATASET_CI_SUPPORTED_JOINT_FEASIBLE_ACTION_IN_LATEST_FROZEN_CLOSURE",
+  "gsc_experiment_continue": true,
+  "gsc_final_evaluation_access": "NOT_ACCESSED",
+  "validation_dev": "NOT_ACCESSED",
+  "formal_test": "NOT_ACCESSED",
+  "future_confirm": "NOT_ACCESSED",
+  "counterexamples_verified": 16,
+  "historical_123_checksum": "111_MATCHING_8_MISMATCHED_4_UNTRACKED_PYCACHE; NOT_REPAIRED_BY_THIS_DELTA"
+}
