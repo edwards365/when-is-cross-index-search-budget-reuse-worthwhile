@@ -1,0 +1,35 @@
+{
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_CALS_SELECTION_COST_SEAL",
+  "branch": "exp/icba_cals_reproducibility_selection_cost_seal",
+  "base_commit": "f5527e691ff91598de30fd59464ada6e96c65f00",
+  "decision_label": "CALS_FIXED_PORTAL_MECHANISM_REPLICATED_SAFETY_UNMET",
+  "gates": {
+    "MECHANISM_GATE": true,
+    "SELECTION_TRANSFER_GATE": true,
+    "ABSOLUTE_SAFETY_GATE": false,
+    "ECONOMIC_GATE": false,
+    "ROBUSTNESS_GATE": true
+  },
+  "query_roles": {
+    "selection": "0-199",
+    "holdout": "200-499",
+    "intersection": 0,
+    "sealed_access": false
+  },
+  "id_roundtrip": {
+    "checks": 6000,
+    "failures": 0
+  },
+  "native_tracer": {
+    "checks": 4800,
+    "failures": 0
+  },
+  "portal_subsets": 256,
+  "bootstrap": {
+    "outer_unit": "build",
+    "resamples": 5000,
+    "seed": 991
+  },
+  "oracle_status": "NON_DEPLOYABLE_ORACLE_UPPER_BOUND",
+  "independent_method_pilot_authorized": false
+}

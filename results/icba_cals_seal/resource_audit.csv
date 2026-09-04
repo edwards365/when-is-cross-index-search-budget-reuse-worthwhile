@@ -1,0 +1,2 @@
+timestamp,branch,parent_commit,root_free_gib,ram_available_gib,frozen_indexes_present,prior_checksums_ok,active_experiment_processes,status
+2026-09-05T00:30:45+08:00,exp/icba_cals_reproducibility_selection_cost_seal,f5527e691ff91598de30fd59464ada6e96c65f00,18,239,6,TRUE,0,PASS_WITH_5_GIB_RESERVE

@@ -1,0 +1,9 @@
+portal_rule_id,portal_external_label,portal_internal_tableint,build_id
+native_top_layer,23686,2266,arxiv_b17
+dataset_medoid,25213,3732,arxiv_b17
+farthest_from_medoid,63420,4815,arxiv_b17
+fixed_label_991,34624,991,arxiv_b17
+fixed_label_4177,34220,4177,arxiv_b17
+high_out_degree,56782,46,arxiv_b17
+fixed_label_7001,44919,7001,arxiv_b17
+fixed_label_8888,60307,8888,arxiv_b17

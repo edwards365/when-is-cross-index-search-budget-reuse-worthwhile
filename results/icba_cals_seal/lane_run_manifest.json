@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "sift",
+    "build": "sift_b7",
+    "role": "selection",
+    "output": "results/icba_cals_seal/lanes_sift_b7_selection.csv",
+    "seconds": 0.6632261276245117,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/sift_100k-original-b7/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_selection_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_sift_b7.csv sift_b7 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_sift_b7_selection.csv"
+  },
+  {
+    "dataset": "sift",
+    "build": "sift_b7",
+    "role": "holdout",
+    "output": "results/icba_cals_seal/lanes_sift_b7_holdout.csv",
+    "seconds": 0.9642612934112549,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/sift_100k-original-b7/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/attainability_holdout_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_sift_b7.csv sift_b7 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_sift_b7_holdout.csv"
+  },
+  {
+    "dataset": "sift",
+    "build": "sift_b17",
+    "role": "selection",
+    "output": "results/icba_cals_seal/lanes_sift_b17_selection.csv",
+    "seconds": 0.6767992973327637,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/sift_100k-original-b17/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_selection_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_sift_b17.csv sift_b17 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_sift_b17_selection.csv"
+  },
+  {
+    "dataset": "sift",
+    "build": "sift_b17",
+    "role": "holdout",
+    "output": "results/icba_cals_seal/lanes_sift_b17_holdout.csv",
+    "seconds": 0.9668347835540771,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/sift_100k-original-b17/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/attainability_holdout_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_sift_b17.csv sift_b17 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_sift_b17_holdout.csv"
+  },
+  {
+    "dataset": "sift",
+    "build": "sift_b29",
+    "role": "selection",
+    "output": "results/icba_cals_seal/lanes_sift_b29_selection.csv",
+    "seconds": 0.6877193450927734,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/sift_100k-original-b29/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_selection_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_sift_b29.csv sift_b29 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_sift_b29_selection.csv"
+  },
+  {
+    "dataset": "sift",
+    "build": "sift_b29",
+    "role": "holdout",
+    "output": "results/icba_cals_seal/lanes_sift_b29_holdout.csv",
+    "seconds": 0.965435266494751,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/sift_100k-original-b29/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/attainability_holdout_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_sift_b29.csv sift_b29 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_sift_b29_holdout.csv"
+  },
+  {
+    "dataset": "arxiv",
+    "build": "arxiv_b7",
+    "role": "selection",
+    "output": "results/icba_cals_seal/lanes_arxiv_b7_selection.csv",
+    "seconds": 1.8127787113189697,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/arxiv_nomic_100k-original-b7/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_arxiv100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_arxiv100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_selection_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_arxiv_b7.csv arxiv_b7 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_arxiv_b7_selection.csv"
+  },
+  {
+    "dataset": "arxiv",
+    "build": "arxiv_b7",
+    "role": "holdout",
+    "output": "results/icba_cals_seal/lanes_arxiv_b7_holdout.csv",
+    "seconds": 2.5366508960723877,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/arxiv_nomic_100k-original-b7/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_arxiv100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_arxiv100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/attainability_holdout_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_arxiv_b7.csv arxiv_b7 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_arxiv_b7_holdout.csv"
+  },
+  {
+    "dataset": "arxiv",
+    "build": "arxiv_b17",
+    "role": "selection",
+    "output": "results/icba_cals_seal/lanes_arxiv_b17_selection.csv",
+    "seconds": 1.8435301780700684,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/arxiv_nomic_100k-original-b17/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_arxiv100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_arxiv100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_selection_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_arxiv_b17.csv arxiv_b17 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_arxiv_b17_selection.csv"
+  },
+  {
+    "dataset": "arxiv",
+    "build": "arxiv_b17",
+    "role": "holdout",
+    "output": "results/icba_cals_seal/lanes_arxiv_b17_holdout.csv",
+    "seconds": 2.500039577484131,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/arxiv_nomic_100k-original-b17/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_arxiv100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_arxiv100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/attainability_holdout_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_arxiv_b17.csv arxiv_b17 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_arxiv_b17_holdout.csv"
+  },
+  {
+    "dataset": "arxiv",
+    "build": "arxiv_b29",
+    "role": "selection",
+    "output": "results/icba_cals_seal/lanes_arxiv_b29_selection.csv",
+    "seconds": 1.7980244159698486,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/arxiv_nomic_100k-original-b29/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_arxiv100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_arxiv100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_selection_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_arxiv_b29.csv arxiv_b29 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_arxiv_b29_selection.csv"
+  },
+  {
+    "dataset": "arxiv",
+    "build": "arxiv_b29",
+    "role": "holdout",
+    "output": "results/icba_cals_seal/lanes_arxiv_b29_holdout.csv",
+    "seconds": 2.586475133895874,
+    "command": "/home/wlk/projects/navigation-aware-resistance-hnsw/build/cals_fixed_portal_runner /home/wlk/projects/navigation-aware-resistance-hnsw/results/gate_a/raw/arxiv_nomic_100k-original-b29/index.bin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_queries_arxiv100k.fbin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_oracle/design_truth_arxiv100k.ibin /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/attainability_holdout_ids.csv 8,16,32,64 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/portal_registry_arxiv_b29.csv arxiv_b29 /home/wlk/projects/navigation-aware-resistance-hnsw/results/icba_cals_seal/lanes_arxiv_b29_holdout.csv"
+  }
+]

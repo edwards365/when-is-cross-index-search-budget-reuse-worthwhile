@@ -1,0 +1,9 @@
+portal_rule_id,portal_external_label,portal_internal_tableint,build_id
+native_top_layer,50763,2266,sift_b29
+dataset_medoid,8069,3732,sift_b29
+farthest_from_medoid,9950,4815,sift_b29
+fixed_label_991,56818,991,sift_b29
+fixed_label_4177,72119,4177,sift_b29
+high_out_degree,78233,46,sift_b29
+fixed_label_7001,37481,7001,sift_b29
+fixed_label_8888,76354,8888,sift_b29

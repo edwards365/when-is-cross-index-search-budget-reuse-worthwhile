@@ -1,0 +1,10 @@
+role,dataset,query_id_range,accessed,purpose
+portal_selection,SIFT-100K,0-199,yes,selection
+attainability_holdout,SIFT-100K,200-499,yes,holdout_evaluation
+portal_selection,Arxiv-Nomic-100K,0-199,yes,selection
+attainability_holdout,Arxiv-Nomic-100K,200-499,yes,holdout_evaluation
+certification,both,SEALED,no,forbidden
+evaluation,both,SEALED,no,forbidden
+future_confirm,both,SEALED,no,forbidden
+validation-dev,both,SEALED,no,forbidden
+formal-test,both,SEALED,no,forbidden
