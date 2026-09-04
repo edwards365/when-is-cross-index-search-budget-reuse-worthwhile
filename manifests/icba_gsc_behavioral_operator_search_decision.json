@@ -4,7 +4,7 @@
   "evidence_level": "EXPLORATORY_FIXED_TARGET_GSC",
   "branch": "exp/icba_gsc_behavioral_operator_search",
   "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
-  "head": "31c480e2f1b14edbfa4c50f03f883d298e264511",
+  "head": "4d0460dde46f50c4d07580caa706f84364a6073f",
   "frozen_refs": {
     "cibs_closure": "736c3799a92bf31f503c37e8eaaf680f84398aa5",
     "cfsr_lite_pilot": "7417147e9ce2e526973cd47b3b390c0ae2bb7c65",
