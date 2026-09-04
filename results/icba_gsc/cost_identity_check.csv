@@ -1,0 +1,13 @@
+quantity,value,status
+operator_trials,0,NOT_STARTED
+candidate_actions,0,NOT_STARTED
+certified_actions,0,NOT_STARTED
+G_candidate,,NOT_ESTIMABLE_NO_ACTION
+p_R,,NOT_ESTIMABLE_NO_CERTIFICATION
+DeltaC_f,,NOT_ESTIMABLE_NO_FALLBACK
+C_control,,NOT_ESTIMABLE_NO_CONTROL_LEDGER
+C_offline,,NOT_ESTIMABLE_NO_ACTION
+D,,NOT_ESTIMABLE_NO_ACTION
+C_mixed,,NOT_ESTIMABLE_NO_ACTION
+baseline_minus_mixed,,NOT_ESTIMABLE_NO_ACTION
+identity_residual,,NOT_RUN

@@ -1,0 +1,9 @@
+operator_id,novelty_role,primary_use,eligible_for_GSC_METHOD_CANDIDATE
+O0,FROZEN_BASELINE,control,no
+O1,STRONG_COMPONENT_OVERLAP,determinism baseline,no
+O2,PARTIAL_MECHANISM_OVERLAP,proposal and trace ablation,no
+O3,STRONG_COMPONENT_OVERLAP,behavioural mechanism baseline,no
+O4,DOMAIN_SPECIFIC_NEW_COMBINATION,primary response-weighted pruning,yes
+O5,PARTIAL_MECHANISM_OVERLAP,proposal-only consensus diagnostic,no
+O6,DOMAIN_SPECIFIC_NEW_COMBINATION,primary response-aware insertion,yes
+O7,DOMAIN_SPECIFIC_NEW_COMBINATION,only after O4 or O6 single-operator gate,conditional

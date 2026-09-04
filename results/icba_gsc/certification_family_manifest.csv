@@ -1,0 +1,5 @@
+family,graphs_K,raw_ef_levels_L,actual_M_cert,certification_status,notes
+realized_primary_action,0,0,0,NOT_STARTED,one action will be frozen before certification
+primary_plus_recertified_fallback,0,0,0,NOT_STARTED,only if fallback is independently recertified
+simultaneous_KxL_family,0,0,0,NOT_STARTED,M_cert must equal realized K*L
+search_cap_not_cert_family,24,0,0,NOT_A_CERTIFICATION_FAMILY,trial cap is never M_cert

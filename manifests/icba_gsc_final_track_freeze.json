@@ -1,0 +1,18 @@
+{
+  "schema_version": "icba_gsc_final_track_freeze_v1",
+  "status": "NOT_YET_FROZEN_NO_CERTIFICATION_ACCESS",
+  "track_name": null,
+  "selection_rule": "feasible safety first; primary metric second; noninferiority third; construction and memory cost fourth",
+  "selected_graph_hash": null,
+  "selected_raw_ef": null,
+  "selected_operator_lineage": null,
+  "selected_before_certification": false,
+  "selected_before_evaluation": false,
+  "primary_metric": null,
+  "noninferiority_metrics": ["Recall", "endpoint rate", "p99 NDC", "mean NDC"],
+  "thresholds": {"recall_delta_min": -0.001, "stability_half_gate": 0.10, "mean_half_gate": 0.015, "p95_half_gate": 0.025},
+  "fallback_action": "fixed-safe (to be frozen with selected action)",
+  "query_role_hashes": {},
+  "timestamp": "2026-09-04T10:30:00Z",
+  "code_commit": "498879dd3e6c31684f033e9ebfdf7cca1771ee52"
+}
