@@ -1,0 +1,9 @@
+config_id,operator,profile,track_candidates,parameters,allowed_inputs,status,certification_eligible
+O4-CONSERVATIVE,O4,conservative,Stability|Mean|Tail,"critical_q=0.90;backup_quota=1;intruder_penalty=0.25;frontier_tiebreak=positive_only",proposal+validation traces,REGISTERED_NOT_RUN,no
+O4-BALANCED,O4,balanced,Stability|Mean|Tail,"critical_q=0.80;backup_quota=1;intruder_penalty=0.25;frontier_tiebreak=positive_only",proposal+validation traces,REGISTERED_NOT_RUN,no
+O4-ROBUST,O4,robust,Stability|Mean|Tail,"critical_q=0.70;backup_quota=2;intruder_penalty=0.50;frontier_tiebreak=positive_only",proposal+validation traces,REGISTERED_NOT_RUN,no
+O4-TIEONLY,O4,tie_only,Stability|Mean|Tail,"critical_q=0.90;backup_quota=1;intruder_penalty=0.00;frontier_tiebreak=positive_only",proposal+validation traces,REGISTERED_NOT_RUN,no
+O6-CONSERVATIVE,O6,conservative,Stability|Mean|Tail,"reorder_fraction=0.05;critical_first=true;fixed_id_tiebreak=true;density_guard=true",proposal+validation traces,REGISTERED_NOT_RUN,no
+O6-BALANCED,O6,balanced,Stability|Mean|Tail,"reorder_fraction=0.10;critical_first=true;fixed_id_tiebreak=true;density_guard=true",proposal+validation traces,REGISTERED_NOT_RUN,no
+O6-ROBUST,O6,robust,Stability|Mean|Tail,"reorder_fraction=0.20;critical_first=true;fixed_id_tiebreak=true;density_guard=true",proposal+validation traces,REGISTERED_NOT_RUN,no
+O6-TIEONLY,O6,tie_only,Stability|Mean|Tail,"reorder_fraction=0.05;critical_first=false;fixed_id_tiebreak=true;density_guard=true",proposal+validation traces,REGISTERED_NOT_RUN,no

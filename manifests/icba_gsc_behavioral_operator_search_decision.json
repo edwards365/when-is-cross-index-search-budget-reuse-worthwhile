@@ -59,6 +59,17 @@
   "current_candidate_graph_count": 0,
   "current_build_x_ef_action_count": 0,
   "current_primary_track": null,
+  "operator_proposal": {
+    "status": "REGISTERED_PRE_CERTIFICATION",
+    "operators": ["O4", "O6"],
+    "configs": 8,
+    "conservative_configs_required": true,
+    "operator_trials_run": 0,
+    "certification_accessed": false,
+    "evaluation_accessed": false,
+    "future_confirm_accessed": false,
+    "registry_tests_passed": 3
+  },
   "cost_definition_version": "GSC_DELTA_V1",
   "T-GSC3_power_version": "CORRECTED_TWO_TERM_HOEFFDING",
   "p95_cvar_separated": true,
@@ -75,7 +86,7 @@
     "evaluation_accessed": false,
     "operator_trials_started": false
   },
-  "phase2": {"status": "NOT_STARTED"},
+  "phase2": {"status": "PROPOSAL_REGISTRY_VALIDATED", "configs": 8, "operator_trials_run": 0, "tests_passed": 3, "certification_accessed": false},
   "phase3": {"status": "NOT_STARTED"},
   "phase4": {"status": "NOT_STARTED"},
   "decision_label": null,
