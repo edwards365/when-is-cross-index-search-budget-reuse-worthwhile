@@ -1,0 +1,10 @@
+field,value
+baseline_edge_rows,166294
+trace_path,results/post_e0/d0d_coverage/runs/sift_10k-b17/original_only_trace_edges.csv.gz
+proposal_query_id_max_exclusive,200
+trace_rows_used,20616
+proposal_query_count_used,79
+candidate_pool_definition,baseline layer0 neighbors union proposal-role original-only trace targets
+certification_accessed,False
+evaluation_accessed,False
+future_confirm_accessed,False

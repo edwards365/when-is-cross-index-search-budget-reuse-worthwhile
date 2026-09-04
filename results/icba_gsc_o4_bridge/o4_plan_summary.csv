@@ -1,0 +1,5 @@
+config_id,operator,profile,critical_q,backup_quota,intruder_penalty,nodes,baseline_directed_edges,candidate_pool_extra_edges,trace_rows_used,proposal_queries_used,changed_positions,planned_directed_edges,status
+O4-CONSERVATIVE,O4,conservative,0.9,1,0.25,10000,166294,10251,20616,79,135734,166294,PLAN_READY_PROPOSAL_ONLY
+O4-BALANCED,O4,balanced,0.8,1,0.25,10000,166294,10251,20616,79,135734,166294,PLAN_READY_PROPOSAL_ONLY
+O4-ROBUST,O4,robust,0.7,2,0.5,10000,166294,10251,20616,79,135734,166294,PLAN_READY_PROPOSAL_ONLY
+O4-TIEONLY,O4,tieonly,0.9,1,0.0,10000,166294,10251,20616,79,135734,166294,PLAN_READY_PROPOSAL_ONLY

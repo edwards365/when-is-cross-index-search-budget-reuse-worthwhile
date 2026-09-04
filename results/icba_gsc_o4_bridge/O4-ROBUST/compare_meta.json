@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "run_id": "O4-ROBUST",
+  "harmed_query_ef_pairs": 105,
+  "original_only_trace_edge_rows": 1847,
+  "trace_matches_native_search": true,
+  "new_ef_points": false,
+  "validation_dev_accessed": false,
+  "formal_test_members_accessed": false
+}

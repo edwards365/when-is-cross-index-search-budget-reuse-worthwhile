@@ -1,0 +1,9 @@
+test_id,status,evidence
+U01_noop_native_tracer,PASS,"NOOP compare: 1500 query-ef rows, harmed=0, trace_matches_native_search=true"
+U02_plan_degree,PASS,4 configs preserve 166294 directed layer0 edges
+U03_nonempty_mutation,PASS,4 configs changed 135734 layer0 positions; edge hash changed
+U04_upper_layers,PASS,upper hash unchanged for every config
+U05_reload,PASS,all reloaded indexes validate and compare equal
+U06_graph_invariants,PASS,no self loops/duplicates/out-of-range; degree <= maxM0
+U07_o4_trace_native,PASS,D0-D and evaluator native/tracer equality true
+U08_role_firewall,PASS,sealed roles unopened; validation arm only after prereg freeze

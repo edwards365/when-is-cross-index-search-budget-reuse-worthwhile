@@ -1,0 +1,11 @@
+check,status,evidence
+frozen_parent,PASS,934a4d7845f296239a6f44ea1b7581074211c2eb
+o4_configs_registered_before_previous_validation,PASS,operator_proposal_plan.csv committed before 4d0460dde smoke
+configs_used,PASS,exactly O4-CONSERVATIVE/BALANCED/ROBUST/TIEONLY; no new params
+proposal_role,PASS,79 query IDs with original-only trace rows among registered 0-199
+validation_arm,PASS,original 500 IDs 200-699; delayed preregistered operator arm
+certification_role,PASS,not opened
+evaluation_role,PASS,not opened
+future_role,PASS,not opened
+algorithm_definition_changed,PASS,none; bridge only writes layer0 adjacency
+full_preregistration_verifiable,PARTIAL,"O4 was registered; candidate-pool provenance is trace-derived delayed arm, not confirmatory"

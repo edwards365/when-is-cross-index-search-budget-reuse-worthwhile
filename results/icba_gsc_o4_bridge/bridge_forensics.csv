@@ -1,0 +1,9 @@
+stage,status,detail
+proposal_api,FOUND,scripts/icba_gsc/operator_api.py response_weighted_prune; proposal-only
+object,FOUND,hnswlib HierarchicalNSW layer0 adjacency; public get_linklist0/saveIndex/loadIndex
+proposal_to_mutation,FIXED,Python plan generator -> CSV edge plan -> C++ direct layer0 writeback
+mutation_to_serialization,FIXED,saveIndex output under new O4 directory
+reload_to_search,FIXED,reload checksum and evaluator/D0-D replay
+prior_failure,ANALYSIS_GRAPH_ONLY,old O4 smoke only used 256-node structural fixture; no index writeback
+certification,NOT_RUN,forbidden by bridge protocol
+evaluation,NOT_RUN,forbidden by bridge protocol

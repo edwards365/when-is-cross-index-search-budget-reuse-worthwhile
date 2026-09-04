@@ -1,0 +1,33 @@
+config_id,metric,value,status,detail
+O4-CONSERVATIVE,changed_layer0_positions,135734,ESTIMATED,direct layer0 positions changed
+O4-CONSERVATIVE,nodes_with_changed_positions,NOT_ESTIMATED,NOT_ESTIMABLE,edge hash/position audit did not retain per-node diff vector
+O4-CONSERVATIVE,modified_edge_visit_rate,NOT_ESTIMATED,NOT_ESTIMABLE,D0-D coverage records removed edges for harmed query-ef pairs only
+O4-CONSERVATIVE,harmed_query_ef_pairs,105,ESTIMATED,D0-D paired trace replay
+O4-CONSERVATIVE,removed_edge_coverage_rows,1847,ESTIMATED,D0-D coverage rows
+O4-CONSERVATIVE,target_missed_true_top10_rows,97,ESTIMATED,coverage rows targeting missed truth
+O4-CONSERVATIVE,strict_progress_rows,101,ESTIMATED,coverage rows
+O4-CONSERVATIVE,beam_admissible_rows,468,ESTIMATED,coverage rows
+O4-BALANCED,changed_layer0_positions,135734,ESTIMATED,direct layer0 positions changed
+O4-BALANCED,nodes_with_changed_positions,NOT_ESTIMATED,NOT_ESTIMABLE,edge hash/position audit did not retain per-node diff vector
+O4-BALANCED,modified_edge_visit_rate,NOT_ESTIMATED,NOT_ESTIMABLE,D0-D coverage records removed edges for harmed query-ef pairs only
+O4-BALANCED,harmed_query_ef_pairs,105,ESTIMATED,D0-D paired trace replay
+O4-BALANCED,removed_edge_coverage_rows,1847,ESTIMATED,D0-D coverage rows
+O4-BALANCED,target_missed_true_top10_rows,97,ESTIMATED,coverage rows targeting missed truth
+O4-BALANCED,strict_progress_rows,101,ESTIMATED,coverage rows
+O4-BALANCED,beam_admissible_rows,468,ESTIMATED,coverage rows
+O4-ROBUST,changed_layer0_positions,135734,ESTIMATED,direct layer0 positions changed
+O4-ROBUST,nodes_with_changed_positions,NOT_ESTIMATED,NOT_ESTIMABLE,edge hash/position audit did not retain per-node diff vector
+O4-ROBUST,modified_edge_visit_rate,NOT_ESTIMATED,NOT_ESTIMABLE,D0-D coverage records removed edges for harmed query-ef pairs only
+O4-ROBUST,harmed_query_ef_pairs,105,ESTIMATED,D0-D paired trace replay
+O4-ROBUST,removed_edge_coverage_rows,1847,ESTIMATED,D0-D coverage rows
+O4-ROBUST,target_missed_true_top10_rows,97,ESTIMATED,coverage rows targeting missed truth
+O4-ROBUST,strict_progress_rows,101,ESTIMATED,coverage rows
+O4-ROBUST,beam_admissible_rows,468,ESTIMATED,coverage rows
+O4-TIEONLY,changed_layer0_positions,135734,ESTIMATED,direct layer0 positions changed
+O4-TIEONLY,nodes_with_changed_positions,NOT_ESTIMATED,NOT_ESTIMABLE,edge hash/position audit did not retain per-node diff vector
+O4-TIEONLY,modified_edge_visit_rate,NOT_ESTIMATED,NOT_ESTIMABLE,D0-D coverage records removed edges for harmed query-ef pairs only
+O4-TIEONLY,harmed_query_ef_pairs,105,ESTIMATED,D0-D paired trace replay
+O4-TIEONLY,removed_edge_coverage_rows,1847,ESTIMATED,D0-D coverage rows
+O4-TIEONLY,target_missed_true_top10_rows,97,ESTIMATED,coverage rows targeting missed truth
+O4-TIEONLY,strict_progress_rows,101,ESTIMATED,coverage rows
+O4-TIEONLY,beam_admissible_rows,468,ESTIMATED,coverage rows

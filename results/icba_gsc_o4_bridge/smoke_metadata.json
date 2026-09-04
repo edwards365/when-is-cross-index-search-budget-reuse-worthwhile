@@ -1,0 +1,31 @@
+{
+  "status": "O4_SMOKE_SAFETY_GATE_FAILED",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_GSC_O4_IMPLEMENTATION_BRIDGE",
+  "branch": "exp/icba_gsc_o4_bridge_completion",
+  "parent_commit": "934a4d7845f296239a6f44ea1b7581074211c2eb",
+  "dataset": "sift_10k_subset",
+  "train_points": 10000,
+  "proposal_queries_registered": 200,
+  "proposal_trace_queries_used": 79,
+  "validation_queries": 500,
+  "configs": [
+    "O4-CONSERVATIVE",
+    "O4-BALANCED",
+    "O4-ROBUST",
+    "O4-TIEONLY"
+  ],
+  "efs": [
+    16,
+    32,
+    64
+  ],
+  "fixed_seed": 991,
+  "builds": 1,
+  "rounds": 3,
+  "bridge_writeback": true,
+  "certification_accessed": false,
+  "evaluation_accessed": false,
+  "future_confirm_accessed": false,
+  "status_scope": "DELAYED_PREREGISTERED_OPERATOR_ARM_SINGLE_BUILD_EXPLORATORY_SMOKE",
+  "previous_decision_preserved": "GSC_NO_OPERATOR_SIGNAL_AT_SMOKE"
+}

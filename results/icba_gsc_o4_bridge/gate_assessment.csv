@@ -1,0 +1,10 @@
+gate,status,evidence
+bridge_writeback_reload,PASS,4/4 configs changed 135734 positions; edge hash changed; reload equal; upper hash unchanged
+native_trace_equivalence,PASS,all O4 compare metadata trace_matches_native_search=true
+recall_noninferiority,FAIL,ef16 and ef32 recall deltas below -0.001 for all O4 configs
+mean_half_gate,FAIL,mean NDC penalty +2.00% to +3.28%; no >=1.5% saving
+p95_noninferiority,FAIL,p95 NDC penalty +1.41% to +3.36%
+endpoint_safety,PASS,no endpoint-infeasible rows in evaluator
+new_pareto_point,FAIL,O4 dominated by O0 on recall and NDC
+certification,NOT_RUN,explicitly prohibited in bridge smoke
+multi_build_confirmation,NOT_AUTHORIZED,single-build safety gate failed

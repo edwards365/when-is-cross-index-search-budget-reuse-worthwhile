@@ -1,0 +1,12 @@
+{
+  "status": "O4_BRIDGE_REPLAY_COMPLETE",
+  "nodes": 10000,
+  "directed_edges": 166294,
+  "changed_positions": 135734,
+  "before_edge_hash": "12991543055693636784",
+  "after_edge_hash": "13813064439504938057",
+  "upper_hash_before": "16539941739903983100",
+  "upper_hash_after": "16539941739903983100",
+  "upper_unchanged": true,
+  "reload_equal": true
+}

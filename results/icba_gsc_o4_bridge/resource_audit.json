@@ -1,0 +1,16 @@
+{
+  "timestamp_utc": "2026-09-04T11:22:16Z",
+  "branch": "exp/icba_gsc_o4_bridge_completion",
+  "head": "934a4d7845f296239a6f44ea1b7581074211c2eb",
+  "free_bytes": 19161333760,
+  "free_gib": 17.845382690429688,
+  "required_reserve_gib": 5.0,
+  "new_output_bytes": 38123369,
+  "resource_gate": "PASS",
+  "other_users_processes_observed": "lcy VSCode python env/Pylance only; no project experiment process",
+  "forbidden_roles_accessed": false,
+  "figures_png": 8,
+  "figures_pdf": 8,
+  "docs_count": 10,
+  "tests_count": 2
+}

@@ -1,0 +1,8 @@
+check,status,detail
+query_role_nonoverlap,PASS,proposal 0-199 and validation 200-699; sealed 700-999 unopened
+native_tracer_equality,PASS,evaluator and D0-D compare both report trace_matches_native_search=true
+top1pct_query_deletion,PASS,reported per config/ef; safety direction unchanged
+leave_one_build_out,NOT_ESTIMABLE,only one delayed-preregistration build
+multi_build_dispersion,NOT_ESTIMABLE,single-build exploratory smoke
+certification,NOT_RUN,protocol forbids certification in this bridge
+evaluation,NOT_RUN,validation arm only; no final evaluation

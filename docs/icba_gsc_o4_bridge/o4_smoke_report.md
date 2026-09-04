@@ -1,0 +1,5 @@
+# O4 delayed-preregistered smoke
+
+The bridge was exercised on one frozen 10K SIFT baseline with raw ef 16, 32, and 64. All four registered O4 profiles produced the same realized adjacency under the frozen proposal trace pool (135,734 changed layer-0 positions out of 166,294 directed edges). Search replay is executable and tracer/native equality holds. However, safety fails: at ef=16 recall is 0.9252 (−0.0158 vs 0.9410 baseline) and at ef=32 recall is 0.9802 (−0.0042 vs 0.9844 baseline); ef=64 recall is unchanged at 0.9968. Mean NDC increases by 2.00%, 2.40%, and 3.28% at ef 16/32/64; p95 increases by 3.36%, 1.41%, and 2.32%; p99 increases by 3.31%, 4.28%, and 2.21%. All figures are from the delayed preregistered validation arm and are single-build exploratory smoke, not certification.
+
+The paired query bootstrap uses 5,000 resamples with seed 991; no cross-ef cherry-pick is used. The recall non-inferiority threshold (−0.001) and the half-gate are failed. No multi-build confirmation is authorized.

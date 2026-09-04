@@ -1,0 +1,88 @@
+{
+  "manifest_schema": "icba_gsc_o4_bridge_decision_v1",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_GSC_O4_IMPLEMENTATION_BRIDGE",
+  "branch": "exp/icba_gsc_o4_bridge_completion",
+  "frozen_parent_commit": "934a4d7845f296239a6f44ea1b7581074211c2eb",
+  "theory_reference": "7fec8aa40da3f2d6495b6ea0d187edb0b25f83e6",
+  "cfsr_reference": "7417147e9ce2e526973cd47b3b390c0ae2bb7c65",
+  "stable_reference": "f7f08ce1f82e23eb4b14cdc08db1190301dc82af",
+  "previous_gsc_decision": "GSC_NO_OPERATOR_SIGNAL_AT_SMOKE",
+  "decision_label": "O4_SMOKE_SAFETY_GATE_FAILED",
+  "decision_rationale": [
+    "bridge_writeback_reload_passed",
+    "native_tracer_equality_passed",
+    "recall_noninferiority_failed_at_ef_16_and_32",
+    "mean_half_gate_failed",
+    "p95_noninferiority_failed",
+    "o4_dominated_by_o0"
+  ],
+  "scope": "single-build delayed-preregistered SIFT-10K smoke; no certification/final evaluation/future confirmation",
+  "dataset": {
+    "name": "sift_10k_subset",
+    "train_points": 10000,
+    "proposal_queries_registered": 200,
+    "validation_queries": 500,
+    "proposal_trace_queries_used": 79,
+    "efs": [
+      16,
+      32,
+      64
+    ],
+    "fixed_seed": 991,
+    "builds": 1,
+    "evaluator_rounds": 3
+  },
+  "registered_configs": [
+    "O4-CONSERVATIVE",
+    "O4-BALANCED",
+    "O4-ROBUST",
+    "O4-TIEONLY"
+  ],
+  "candidate_pool_provenance": "baseline layer0 neighbors union existing original-only trace targets filtered to proposal IDs 0-199",
+  "algorithm_semantics_changed": false,
+  "bridge": {
+    "status": "PASS",
+    "changed_positions": 135734,
+    "baseline_directed_edges": 166294,
+    "upper_layers_unchanged": true,
+    "reload_equal": true,
+    "all_graph_invariants_pass": true
+  },
+  "unit_tests": {
+    "new_bridge_tests": 8,
+    "old_gsc_tests_passed_with_pythonpath": 17,
+    "certification_accessed": false,
+    "evaluation_accessed": false,
+    "future_confirm_accessed": false
+  },
+  "statistics": {
+    "paired_query_bootstrap_replicates": 5000,
+    "seed": 991,
+    "ci": "95% percentile",
+    "cluster_scope": "single build; exploratory query-paired",
+    "top1pct_query_deletion": true,
+    "loto": "NOT_ESTIMABLE_SINGLE_BUILD"
+  },
+  "gate": {
+    "recall_noninferiority_threshold": -0.001,
+    "half_gate_mean_saving_pct": 1.5,
+    "half_gate_p95_saving_pct": 2.5,
+    "recall_noninferiority": "FAIL",
+    "mean_half_gate": "FAIL",
+    "p95_noninferiority": "FAIL",
+    "endpoint": "PASS",
+    "new_pareto": "FAIL"
+  },
+  "forbidden_roles_accessed": false,
+  "legacy_previous_decision_preserved": true,
+  "output_counts": {
+    "docs": 10,
+    "result_csv": 21,
+    "figures_png": 8,
+    "figures_pdf": 8,
+    "tests": 2
+  },
+  "head_at_manifest_creation": "934a4d7845f296239a6f44ea1b7581074211c2eb",
+  "push_remote": "github (origin is read-only bundle)",
+  "created_utc": "2026-09-04T11:22:16Z"
+}
