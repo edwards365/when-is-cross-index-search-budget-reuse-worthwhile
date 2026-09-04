@@ -1,0 +1,23 @@
+claim_id,claim,class,status,allowed_scope,evidence_needed,forbidden_extension
+CL01,build history is a hidden condition variable,A,ALLOWED_WITH_CURRENT_EVIDENCE,Graph-ANNS budget decisions,inherited theory,none beyond scope
+CL02,source-only open-world transfer has risk/cost barriers,A,ALLOWED_WITH_RESTRICTED_SCOPE,declared environment class,outer assumptions for stronger version,unconditional impossibility for all settings
+CL03,Oracle headroom differs from observable gain,A,ALLOWED_WITH_CURRENT_EVIDENCE,oracle is upper bound,none,oracle gain equals deployment gain
+CL04,adaptive Generate then independent Certify is safe,C,RESTRICTED_THEOREM,frozen finite family/fixed target,split and alpha ledger,new adaptive inference theory
+CL05,ordinary CIBS has no two-dataset CI joint-feasible action,A,ALLOWED_WITH_FROZEN_CLOSURE_SCOPE,latest closure only,preserve frozen evidence level,general Graph-ANNS impossibility
+CL06,CFSR-Lite failure does not refute all stabilization,A,ALLOWED_WITH_RESTRICTED_SCOPE,tested operator family only,new operator evaluation,all stabilization impossible
+CL07,GSC creates a new Pareto point,B,PILOT_ONLY,registered datasets/tracks,independent NDC/Recall/p95,theory claim
+CL08,stabilization reduces cross-build response dispersion,B,PILOT_ONLY,measured D_Z/D_C,per-query responses and build clusters,D_C alone controls D_Z
+CL09,GSC reduces rejection/fallback,B,PILOT_ONLY,fixed-target service,acceptance/fallback logs,guaranteed reduction
+CL10,GSC has finite total-cost break-even,B,PILOT_ONLY,declared workload,all offline costs,proxy/oracle substitution
+CL11,response disagreement controls risk difference,C,RESTRICTED_THEOREM,fixed target and estimable disagreement,D_Z certificate,structure alone controls risk
+CL12,trace repair controls expansion-prefix,C,RESTRICTED_THEOREM,priority margin and fixed implementation,trace proof,raw-ef transfer
+CL13,first stable Graph-ANNS,D,DO_NOT_CLAIM,none,none,any scope
+CL14,first safe construction selection,D,DO_NOT_CLAIM,none,none,any scope
+CL15,first rebuild-portable ANNS,D,DO_NOT_CLAIM,none,none,any scope
+CL16,new generic Le Cam/KL lower bound,D,DO_NOT_CLAIM,none,none,any scope
+CL17,edge overlap guarantees budget stability,D,DO_NOT_CLAIM,none,none,any scope
+CL18,raw ef equals expansion,D,DO_NOT_CLAIM,none,none,any scope
+CL19,fixed-ef Recall is monotone,D,DO_NOT_CLAIM,none,none,any scope
+CL20,no target evidence needed,D,DO_NOT_CLAIM,none,none,any scope
+CL21,open-world safety solved,D,DO_NOT_CLAIM,none,none,any scope
+CL22,all metrics SOTA,D,DO_NOT_CLAIM,none,none,any scope
