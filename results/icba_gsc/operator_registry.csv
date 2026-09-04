@@ -1,0 +1,9 @@
+operator_id,name,allowed_inputs,status,deployable
+O0,raw_frozen_deterministic_fixed_safe,raw/frozen traces only,REGISTERED,YES
+O1,deterministic_construction,frozen build metadata,REGISTERED,YES
+O2,trace_guided_bridge_overlay,proposal+validation traces only,REGISTERED,YES
+O3,budget_response_local_repair,proposal+validation traces only,REGISTERED,YES
+O4,response_weighted_robust_pruning,proposal+validation traces only,REGISTERED,YES
+O5,multi_build_consensus,proposal only,REGISTERED,NO
+O6,response_aware_insertion_schedule,proposal+validation traces only,REGISTERED,YES
+O7,max_two_operator_combination,only after single-operator gate,REGISTERED,CONDITIONAL

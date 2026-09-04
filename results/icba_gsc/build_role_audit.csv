@@ -1,0 +1,5 @@
+dataset,role,source,build_scope,phase0_status
+sift_100k,history,frozen_gate_a_9_build_families,read_only_reuse,PASS
+sift_100k,candidate,none,no_new_build_in_phase0,PASS
+arxiv_nomic_100k,history,frozen_gate_a_9_build_families,read_only_reuse,PASS
+arxiv_nomic_100k,candidate,none,no_new_build_in_phase0,PASS

@@ -1,0 +1,52 @@
+{
+  "schema_version": "icba_gsc_behavioral_operator_search_v1",
+  "protocol": "ICBA GSC BEHAVIORAL OPERATOR SEARCH AND SMALL-CLOSURE SPRINT",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_GSC",
+  "branch": "exp/icba_gsc_behavioral_operator_search",
+  "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
+  "head": "759e605044491bb911dc74a6839cedd89a200d1b",
+  "frozen_refs": {
+    "cibs_closure": "736c3799a92bf31f503c37e8eaaf680f84398aa5",
+    "cfsr_lite_pilot": "7417147e9ce2e526973cd47b3b390c0ae2bb7c65",
+    "stable_semantic_gate": "f7f08ce1f82e23eb4b14cdc08db1190301dc82af",
+    "theory_lock": "b0190169cdb758aa5311c7d13fbfd4fd724020f0",
+    "theory_reference_1": "4e728d437038816a7706e9cb802d19274aa691b9",
+    "theory_reference_2": "41a44bd930679b5e933034a1496d2fe42e1ae018"
+  },
+  "inputs": {
+    "sift_100k": {
+      "path": "data/raw/sift-128-euclidean.hdf5",
+      "bytes": 525128288,
+      "source_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984"
+    },
+    "arxiv_nomic_100k": {
+      "path": "data/raw/arxiv-nomic-768-normalized.hdf5",
+      "bytes": 4135431488,
+      "source_sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414"
+    },
+    "glove_100k": {"status": "SEALED_NOT_USED"},
+    "hnswlib": {"version": "0.8.0", "source_commit": "3f3429661187e4c24a490a0f148fc6bc89042b3d"}
+  },
+  "resources": {
+    "available_kib": 18467468,
+    "mandatory_reserve_kib": 5242880,
+    "minimum_experiment_kib": 10485760,
+    "gate": "PASS_RECHECK_BEFORE_EACH_BUILD"
+  },
+  "query_firewall": {
+    "roles": ["gsc_operator_proposal", "operator_validation", "candidate_selection", "safety_certification", "final_evaluation", "future_confirm"],
+    "non_diagonal_overlap_required": 0,
+    "future_confirm": "SEALED",
+    "certification_and_evaluation": "NOT_ACCESSED_PHASE0",
+    "validation_dev": "SEALED",
+    "formal_test": "SEALED"
+  },
+  "operator_search_limits": {"max_configs": 24, "max_generations": 3, "max_per_generation": 8, "max_combination_size": 2},
+  "phase0": {"status": "PASS_RESOURCE_AND_INPUT_AUDIT", "queries_run": false, "operators_run": false},
+  "phase1": {"status": "NOT_STARTED"},
+  "phase2": {"status": "NOT_STARTED"},
+  "phase3": {"status": "NOT_STARTED"},
+  "phase4": {"status": "NOT_STARTED"},
+  "decision_label": null,
+  "legacy_restriction": "CIBS_ROUTE_CLOSED_NO_TWO_DATASET_JOINT_FEASIBILITY"
+}
