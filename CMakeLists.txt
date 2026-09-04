@@ -36,6 +36,8 @@ target_include_directories(hnsw_replay_layer0_plan PRIVATE cpp/include third_par
 
 add_executable(hnsw_e0_evaluate_index cpp/src/hnsw_e0_evaluate_index.cpp)
 add_executable(icba_o4_bridge cpp/src/icba_o4_bridge.cpp)
+add_executable(cals_mechanical_smoke cpp/src/cals_mechanical_smoke.cpp)
+target_include_directories(cals_mechanical_smoke PRIVATE cpp/include third_party/hnswlib)
 target_include_directories(icba_o4_bridge PRIVATE cpp/include third_party/hnswlib)
 target_include_directories(hnsw_e0_evaluate_index PRIVATE cpp/include third_party/hnswlib)
 

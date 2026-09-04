@@ -1,0 +1,9 @@
+portal_id,portal_label,portal_type,provenance
+2266,native_top_layer,FIXED_RULE,graph/data-only; no query truth
+3732,dataset_medoid,FIXED_RULE,graph/data-only; no query truth
+4815,farthest_from_medoid,FIXED_RULE,graph/data-only; no query truth
+991,fixed_seed_991,FIXED_RULE,graph/data-only; no query truth
+4177,fixed_seed_4177,FIXED_RULE,graph/data-only; no query truth
+46,high_out_degree,FIXED_RULE,graph/data-only; no query truth
+7001,fixed_seed_7001,FIXED_RULE,graph/data-only; no query truth
+8888,fixed_seed_8888,FIXED_RULE,graph/data-only; no query truth

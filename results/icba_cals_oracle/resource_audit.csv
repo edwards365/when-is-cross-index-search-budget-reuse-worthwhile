@@ -1,0 +1,9 @@
+check,value,status
+root_free_bytes,19274964992,PASS
+projected_new_bytes_cals_outputs,23684828,PASS
+required_reserved_free_margin,>=5GiB after projected additions,PASS
+hnswlib_commit,3f3429661187e4c24a490a0f148fc6bc89042b3d,READ_ONLY_INPUT
+compiler,g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0,RECORDED
+parquet_engine,pyarrow/fastparquet/duckdb unavailable,NOT_WRITTEN_CSV_SUBSTITUTE
+forbidden_dataset_access,GloVe/Faiss/Vamana/validation-dev/formal-test,NOT_ACCESSED
+theory_commit_replayability,6dbe4892... not local ancestor; external bundle provenance only,LIMITATION

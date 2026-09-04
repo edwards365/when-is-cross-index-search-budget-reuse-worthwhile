@@ -1,0 +1,66 @@
+{
+  "experiment": "ICBA CALS Oracle Attainability and Mechanical-Bridge Audit",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_CALS_AUDIT",
+  "branch": "exp/icba_cals_oracle_attainability",
+  "head": "c9c4915cf626d6170132c7beafd2dbbc58b44776",
+  "seed": 991,
+  "tau": 0.99,
+  "delta": 0.05,
+  "gamma": 0.01,
+  "datasets": [
+    "Arxiv-Nomic-100K",
+    "SIFT-100K"
+  ],
+  "builds": [
+    "b17",
+    "b29",
+    "b7"
+  ],
+  "portal_count": 8,
+  "portal_labels": "FIXED_RULE",
+  "sealed_roles": [
+    "certification_reserved",
+    "evaluation_reserved",
+    "future_confirmation"
+  ],
+  "mechanical_rows": 72000,
+  "parquet": "NOT_WRITTEN_PYARROW_UNAVAILABLE",
+  "oracle_non_deployable": true,
+  "forbidden_access": [
+    "GloVe",
+    "Faiss",
+    "Vamana",
+    "validation-dev",
+    "formal-test"
+  ],
+  "status": "FINAL",
+  "final_label": "NO_ADDITIVE_RESCUE_ATTAINABILITY",
+  "mechanical_bridge": "PASS",
+  "oracle_attainability": "FAILED_FIXED_TARGET",
+  "cost_status": "SYMBOLIC_COST_ONLY",
+  "theory_provenance": "EXTERNAL_BUNDLE_NOT_LOCAL_ANCESTOR",
+  "frozen_input_sha256": {
+    "data/raw/sift-128-euclidean.hdf5": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+    "data/raw/arxiv-nomic-768-normalized.hdf5": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+    "results/icba_cals_oracle/design_queries_100k.fbin": "dbf999ea846600989e8a815aa6dbb0dd937f4daddd12e6306f79656f78fc2ee8",
+    "results/icba_cals_oracle/design_truth_100k.ibin": "bee9f9a076a2770bbc8739081fb7fe4920f7905dd519bc1314d92b2002e86efd",
+    "results/icba_cals_oracle/design_queries_arxiv100k.fbin": "faeb8c9649e8727b008defc61058543f8409d21591ff1af6cffffad6aa1836a4",
+    "results/icba_cals_oracle/design_truth_arxiv100k.ibin": "c88d864d6e0fe5dbf90818973f5a5171904c5c93944bc9eca860ee90b32c7379"
+  },
+  "requested_theory_commit": "6dbe4892ea4c7a2f1a22226c9d62f27b6654ba21",
+  "theory_bundle_sha256": "336dd347bbbab343bd83b7bad877cf2ae5b056780ab5e37a50431eb444dbe124",
+  "index_reuse": [
+    "sift_100k-original-b7",
+    "sift_100k-original-b17",
+    "sift_100k-original-b29",
+    "arxiv_nomic_100k-original-b7",
+    "arxiv_nomic_100k-original-b17",
+    "arxiv_nomic_100k-original-b29"
+  ],
+  "portal_rule": "8 fixed ids; native entrypoint per build plus fixed graph/data ids",
+  "query_counts": {
+    "SIFT-100K": 500,
+    "Arxiv-Nomic-100K": 500
+  },
+  "bootstrap_replicates": 5000
+}

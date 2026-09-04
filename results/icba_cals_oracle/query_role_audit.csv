@@ -1,0 +1,11 @@
+dataset,role,count,truth_access,overlap_with_other_roles,query_pool_sha256
+SIFT-100K,portal_selection,200,DESIGN_ONLY,0,dbf999ea846600989e8a815aa6dbb0dd937f4daddd12e6306f79656f78fc2ee8
+SIFT-100K,attainability_holdout,300,DESIGN_ONLY,0,dbf999ea846600989e8a815aa6dbb0dd937f4daddd12e6306f79656f78fc2ee8
+SIFT-100K,certification_reserved,0,SEALED,0,EMPTY_SEALED
+SIFT-100K,evaluation_reserved,0,SEALED,0,EMPTY_SEALED
+SIFT-100K,future_confirmation,0,SEALED,0,EMPTY_SEALED
+Arxiv-Nomic-100K,portal_selection,200,DESIGN_ONLY,0,faeb8c9649e8727b008defc61058543f8409d21591ff1af6cffffad6aa1836a4
+Arxiv-Nomic-100K,attainability_holdout,300,DESIGN_ONLY,0,faeb8c9649e8727b008defc61058543f8409d21591ff1af6cffffad6aa1836a4
+Arxiv-Nomic-100K,certification_reserved,0,SEALED,0,EMPTY_SEALED
+Arxiv-Nomic-100K,evaluation_reserved,0,SEALED,0,EMPTY_SEALED
+Arxiv-Nomic-100K,future_confirmation,0,SEALED,0,EMPTY_SEALED

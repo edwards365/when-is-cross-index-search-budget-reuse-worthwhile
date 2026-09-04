@@ -1,0 +1,6 @@
+check,status,n_rows,failures
+primary_candidate_preserved,PASS,72000,0
+candidate_subset_union,PASS,72000,0
+union_recall_ge_primary,PASS,72000,0
+alternate_repeat,PASS,72000,0
+mechanical_failures,PASS,72000,0

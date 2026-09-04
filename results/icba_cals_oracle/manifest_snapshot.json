@@ -1,0 +1,42 @@
+{
+  "experiment": "ICBA CALS Oracle Attainability and Mechanical-Bridge Audit",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_CALS_AUDIT",
+  "branch": "exp/icba_cals_oracle_attainability",
+  "head": "c9c4915cf626d6170132c7beafd2dbbc58b44776",
+  "seed": 991,
+  "tau": 0.99,
+  "delta": 0.05,
+  "gamma": 0.01,
+  "datasets": [
+    "Arxiv-Nomic-100K",
+    "SIFT-100K"
+  ],
+  "builds": [
+    "b17",
+    "b29",
+    "b7"
+  ],
+  "portal_count": 8,
+  "portal_labels": "FIXED_RULE",
+  "sealed_roles": [
+    "certification_reserved",
+    "evaluation_reserved",
+    "future_confirmation"
+  ],
+  "mechanical_rows": 72000,
+  "parquet": "NOT_WRITTEN_PYARROW_UNAVAILABLE",
+  "oracle_non_deployable": true,
+  "forbidden_access": [
+    "GloVe",
+    "Faiss",
+    "Vamana",
+    "validation-dev",
+    "formal-test"
+  ],
+  "status": "FINAL",
+  "final_label": "NO_ADDITIVE_RESCUE_ATTAINABILITY",
+  "mechanical_bridge": "PASS",
+  "oracle_attainability": "FAILED_FIXED_TARGET",
+  "cost_status": "SYMBOLIC_COST_ONLY",
+  "theory_provenance": "EXTERNAL_BUNDLE_NOT_LOCAL_ANCESTOR"
+}
