@@ -1,0 +1,9 @@
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O4", "reason": "VALIDATED_STRUCTURAL_ONLY", "run_id": "O4-CONSERVATIVE"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O4", "reason": "VALIDATED_STRUCTURAL_ONLY", "run_id": "O4-BALANCED"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O4", "reason": "VALIDATED_STRUCTURAL_ONLY", "run_id": "O4-ROBUST"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O4", "reason": "VALIDATED_STRUCTURAL_ONLY", "run_id": "O4-TIEONLY"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O0", "reason": "VALIDATED", "run_id": "O0-BASELINE"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O6", "reason": "VALIDATED", "run_id": "O6-CONSERVATIVE"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O6", "reason": "VALIDATED", "run_id": "O6-BALANCED"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O6", "reason": "VALIDATED", "run_id": "O6-ROBUST"}
+{"data_role": "operator_validation", "entered_next_generation": false, "operator": "O6", "reason": "VALIDATED", "run_id": "O6-TIEONLY"}

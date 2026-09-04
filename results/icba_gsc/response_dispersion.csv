@@ -1,0 +1,5 @@
+dataset,metric,estimate,status
+sift_10k_subset,D_Z,,NOT_ESTIMABLE_SINGLE_VALIDATION_BUILD
+sift_10k_subset,D_C,,NOT_ESTIMABLE_SINGLE_VALIDATION_BUILD
+sift_10k_subset,rank_inversion,,NOT_ESTIMABLE_SINGLE_VALIDATION_BUILD
+sift_10k_subset,build_cluster_ci,,NOT_ESTIMABLE_SINGLE_VALIDATION_BUILD

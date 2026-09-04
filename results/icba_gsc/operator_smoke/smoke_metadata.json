@@ -1,0 +1,19 @@
+{
+  "status": "OPERATOR_VALIDATION_SMOKE_COMPLETE",
+  "dataset": "sift_10k_subset",
+  "train_points": 10000,
+  "proposal_queries": 200,
+  "validation_queries": 500,
+  "efs": [
+    16,
+    32,
+    64
+  ],
+  "operator_trials": 8,
+  "baseline_controls": 1,
+  "generated_hnsw_indexes": 5,
+  "certification_accessed": false,
+  "evaluation_accessed": false,
+  "future_confirm_accessed": false,
+  "primary_metric_scope": "operator_validation_only"
+}

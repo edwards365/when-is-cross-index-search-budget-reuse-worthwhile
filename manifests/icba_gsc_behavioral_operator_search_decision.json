@@ -34,7 +34,7 @@
     "gate": "PASS_RECHECK_BEFORE_EACH_BUILD"
   },
   "query_firewall": {
-    "roles": ["gsc_operator_proposal", "operator_validation", "candidate_selection", "safety_certification", "final_evaluation", "future_confirm"],
+    "roles": ["gsc_operator_proposal", "gsc_operator_validation", "gsc_candidate_selection", "gsc_safety_certification", "gsc_final_evaluation", "gsc_future_confirm"],
     "non_diagonal_overlap_required": 0,
     "future_confirm": "SEALED",
     "certification_and_evaluation": "NOT_ACCESSED_PHASE0",
@@ -43,8 +43,8 @@
   },
   "operator_search_limits": {"max_configs": 24, "max_generations": 3, "max_per_generation": 8, "max_combination_size": 2},
   "phase0": {"status": "PASS_RESOURCE_AND_INPUT_AUDIT", "queries_run": false, "operators_run": false},
-  "actual_operator_trials": 0,
-  "actual_generated_graphs": 0,
+  "actual_operator_trials": 8,
+  "actual_generated_graphs": 8,
   "actual_candidate_selection_actions": 0,
   "actual_certified_actions": 0,
   "actual_M_cert": 0,
@@ -56,15 +56,15 @@
   "future_confirm_access_count": 0,
   "certification_per_query_viewed": false,
   "operator_adjusted_from_cert_or_eval": false,
-  "current_candidate_graph_count": 0,
-  "current_build_x_ef_action_count": 0,
+  "current_candidate_graph_count": 8,
+  "current_build_x_ef_action_count": 15,
   "current_primary_track": null,
   "operator_proposal": {
-    "status": "REGISTERED_PRE_CERTIFICATION",
+    "status": "VALIDATED_SMOKE_STOP",
     "operators": ["O4", "O6"],
     "configs": 8,
     "conservative_configs_required": true,
-    "operator_trials_run": 0,
+    "operator_trials_run": 8,
     "certification_accessed": false,
     "evaluation_accessed": false,
     "future_confirm_accessed": false,
@@ -86,11 +86,11 @@
     "future_confirm_accessed": false,
     "certification_accessed": false,
     "evaluation_accessed": false,
-    "operator_trials_started": false
+    "operator_trials_started": true
   },
   "phase2": {"status": "OPERATOR_API_VALIDATED", "configs": 8, "operator_trials_run": 0, "tests_passed": 12, "certification_accessed": false, "evaluation_accessed": false, "future_confirm_accessed": false, "api": "scripts/icba_gsc/operator_api.py"},
-  "phase3": {"status": "NOT_STARTED"},
+  "phase3": {"status": "GSC_NO_OPERATOR_SIGNAL_AT_SMOKE", "dataset": "sift_10k_subset", "operator_trials_run": 8, "baseline_controls": 1, "generated_graphs": 8, "operator_validation_queries": 500, "proposal_queries": 200, "efs": [16, 32, 64], "o4_structural_only": 4, "o6_hnsw_replayed": 4, "entered_phase4": false, "entered_arxiv": false, "certification_accessed": false, "evaluation_accessed": false, "future_confirm_accessed": false},
   "phase4": {"status": "NOT_STARTED"},
-  "decision_label": null,
+  "decision_label": "GSC_NO_OPERATOR_SIGNAL_AT_SMOKE",
   "legacy_restriction": "CIBS_ROUTE_CLOSED_NO_TWO_DATASET_JOINT_FEASIBILITY"
 }

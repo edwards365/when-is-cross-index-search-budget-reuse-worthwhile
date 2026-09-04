@@ -1,0 +1,7 @@
+check,status,detail
+query_role_nonoverlap,PASS,proposal/validation disjoint; sealed roles not accessed
+tracer_native_topk,PASS,C++ evaluator equality check
+certification_accessed,PASS,false
+evaluation_accessed,PASS,false
+future_confirm_accessed,PASS,false
+o4_degree_and_self_loop,PASS,all four profiles
