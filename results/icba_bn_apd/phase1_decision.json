@@ -1,0 +1,15 @@
+{
+  "decision": "ORACLE_MARGINAL_RESCUE_ONLY_NO_DEPLOYABLE_TRIGGER",
+  "gates": {
+    "two_datasets_positive_portal_value": true,
+    "state_conditioned_advantage": false,
+    "candidate_lower_bound_feasible": true,
+    "non_oracle": true,
+    "role_firewall": true
+  },
+  "evidence_level": "EXPLORATORY_DEVELOPMENT",
+  "used_roles": [
+    "bn_apd_replay_development"
+  ],
+  "sealed_access": false
+}

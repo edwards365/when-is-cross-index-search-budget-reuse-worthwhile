@@ -1,0 +1,15 @@
+{
+  "decision_label": "ORACLE_MARGINAL_RESCUE_ONLY_NO_DEPLOYABLE_TRIGGER",
+  "evidence_level": "EXPLORATORY_DEVELOPMENT",
+  "branch": "exp/icba_bn_apd_budget_reallocation",
+  "base_commit": "e129ea37915138c00280983bc4306dd9d8442e13",
+  "phase1_gate_passed": false,
+  "entered_shared_implementation": false,
+  "optimization_rounds": 0,
+  "candidate_count": 0,
+  "sealed_roles_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "certification_evaluation_future_accessed": false,
+  "next_authorized_task": "OBSERVABLE_TRIGGER_INSTRUMENTATION_GATE_ONLY"
+}

@@ -1,0 +1,6 @@
+gate,passed
+two_datasets_positive_portal_value,True
+state_conditioned_advantage,False
+candidate_lower_bound_feasible,True
+non_oracle,True
+role_firewall,True
