@@ -1,0 +1,31 @@
+{
+  "action_hash": "508fbc116f05f715119c31c32de43105d22bb66586aa98a96b718d1d4a9e4652",
+  "budget_grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "budget_grid_hash": "0727a095dd4a8e4c0b33fcc5a626a5d87432403bbe1e4ebc11cd7441881fac65",
+  "code_commit": "c0a68f844d358be6d2fe1725c219bc3a0002b61d",
+  "creation_timestamp": "2026-09-05T14:17:31.435218+00:00",
+  "dataset": "arxiv_nomic_100k",
+  "evidence_scope": "HISTORICAL_SOURCE_DEVELOPMENT_NOT_A_TARGET_SAFETY_CERTIFICATE",
+  "failure_event_hash": "600d3a23fb3a06a07ac91b1aac48acbb9c3a4af69cdc97e1435aa61cf391d176",
+  "historical_source_mean_ndc": 1631.278,
+  "historical_source_risk": 0.041,
+  "implementation": "hnswlib_original",
+  "policy_id": "SOURCE_GLOBAL_FIXED_EF__arxiv_nomic_100k__b17",
+  "policy_type": "SOURCE_GLOBAL_FIXED_EF",
+  "raw_ef": 120,
+  "selection_rule": "min mean NDC subject to historical source risk <= 0.05",
+  "source_build_hash": "27cbf070a8e21e4a78f126a95a9ee08acd8dca4ea66e15dfceb464a09eafb29f",
+  "source_build_id": "arxiv_nomic_100k-original-b17",
+  "source_query_ids_hash": "b1c32e2197c96b83093960b247b9a8eac730c9527f14fa7691c116b77d679a63",
+  "source_query_role": "HISTORICAL_SOURCE_DEVELOPMENT",
+  "source_truth_hash": "c6fb281b7021052387ee0cd89d331959406dc7faaa2a7a33aa14fbc201b6be9a",
+  "status": "SERIALIZED_HISTORICAL_SOURCE_DEVELOPMENT",
+  "tau": 0.99
+}

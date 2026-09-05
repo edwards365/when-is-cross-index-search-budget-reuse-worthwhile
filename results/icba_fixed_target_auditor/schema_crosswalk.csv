@@ -1,0 +1,14 @@
+required_field,recovered_field,status
+dataset,dataset,PRESENT
+implementation,method,PRESENT
+build_seed,build_seed,PRESENT
+control_seed,control_seed,PRESENT
+query_id,query_id,PRESENT
+raw_ef,ef_search,PRESENT
+Recall@10,recall_at_10,PRESENT
+NDC,ndc,PRESENT
+wall_clock,latency_ns,PRESENT_EXPLORATORY
+visited,visited_nodes,PRESENT
+endpoint,derived_from_finite_grid,DERIVABLE_RIGHT_CENSORED
+exact_truth_hash,data_manifest.truth_file_sha256,PRESENT
+query_role,data_manifest.role,HISTORICAL_DEVELOPMENT

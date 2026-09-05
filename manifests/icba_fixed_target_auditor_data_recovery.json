@@ -1,0 +1,22 @@
+{
+  "decision": "FINITE_GRID_DATA_RECOVERED_NOT_12_LEVEL",
+  "main_runs": 81,
+  "main_query_rows_with_latency_repeats": 1656000,
+  "main_unique_query_budget_units": 552000,
+  "common_main_grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "original_972000_12_level_claim_exactly_recovered": false,
+  "checksums_checked": 243,
+  "checksum_mismatches": 0,
+  "source_policies_serialized": 6,
+  "source_policy_scope": "HISTORICAL_SOURCE_DEVELOPMENT_NOT_TARGET_CERTIFICATE",
+  "future_confirm_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false
+}

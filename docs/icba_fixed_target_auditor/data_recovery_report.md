@@ -1,0 +1,3 @@
+# Data recovery report
+
+The repository contains the original 81-run Gate-A matrix and 1,000 queries per run. All 243 declared main-run checksums replay exactly. The actual common main grid is `{10,20,40,80,120,200}` with three latency repeats, yielding 1,458,000 physical rows and 486,000 unique query-budget units. Supplemental midpoint runs also exist, but they are not uniformly available across every run. The exact historical claim of 972,000 records on a twelve-level grid is therefore not reproduced. The correct recovery verdict is `FINITE_GRID_DATA_RECOVERED_NOT_12_LEVEL`. Data are referenced read-only and not copied.
