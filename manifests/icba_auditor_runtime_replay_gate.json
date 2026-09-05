@@ -1,0 +1,19 @@
+{
+  "phase": "FROZEN_ACTION_FAMILY_AND_REPLAY_GATE",
+  "architecture": "SELECT_ONE_THEN_CERTIFY",
+  "shared_certification_alpha": 0.025,
+  "comparator": "FROZEN_FAMILY_BONFERRONI_CP",
+  "action_family_size": 7,
+  "fixed_target_builds": 6,
+  "decisions": {"A6_REJECT_ABSTAIN_NO_SAFE_ACTION": 6},
+  "runtime_alignment": "PASS",
+  "real_input_gate": "FAIL",
+  "source_policy_gate": "FAIL",
+  "future_confirmation_authorized": false,
+  "future_confirm_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "oracle_cost": "NOT_ESTIMABLE",
+  "break_even": "NOT_ESTIMABLE",
+  "next_phase": "FINAL_METHOD_CLOSURE_AND_SEAL"
+}

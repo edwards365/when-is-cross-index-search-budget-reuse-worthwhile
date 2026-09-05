@@ -1,0 +1,10 @@
+gate,status,evidence
+runtime_alignment,PASS,24/24 code-level tests
+real_input,FAIL,complete 12-level grid and endpoint fields absent
+source_policy,FAIL,no independent serialized SOURCE_GLOBAL_FIXED_EF
+independent_safety,NOT_ESTIMABLE,certification role unavailable in frozen input
+decision_value_vs_two_baselines,NOT_ESTIMABLE,no legal selected action
+p95_within_5_percent,NOT_ESTIMABLE,no per-query deployed action cost vector
+finite_break_even_N_le_1e7,NOT_ESTIMABLE,full cost absent and online benefit unobserved
+build_robustness_2_of_3,NOT_ESTIMABLE,no legal non-abstain action
+future_confirmation_authorized,FAIL,upstream gates not satisfied
