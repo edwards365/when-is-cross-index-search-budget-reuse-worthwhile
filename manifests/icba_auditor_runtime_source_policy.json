@@ -1,0 +1,17 @@
+{
+  "phase": "SOURCE_GLOBAL_FIXED_EF_AND_ROLE_AUDIT",
+  "status": "ICBA_NO_DEPLOYABLE_SOURCE_POLICY",
+  "source_policy_serialized": false,
+  "reason": [
+    "NO_INDEPENDENT_SOURCE_SELECTION_ROLE",
+    "COMPLETE_12_LEVEL_BUDGET_GRID_ABSENT"
+  ],
+  "observed_budget_grid": [8, 16, 32, 64],
+  "required_budget_grid": [8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384],
+  "allowed_continuation": ["TARGET_ONLY_FIXED_ACTION_AUDIT", "ABSTAIN_NO_SAFE_ACTION"],
+  "future_confirm_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "evidence_level": "RETROSPECTIVE_DEVELOPMENT_ONLY",
+  "next_gate": "FROZEN_ACTION_FAMILY_AND_SELECT_ONE_THEN_CERTIFY_REPLAY"
+}
