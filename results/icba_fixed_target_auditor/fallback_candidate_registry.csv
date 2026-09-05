@@ -1,0 +1,7 @@
+dataset,target_build,raw_ef,status_before_certification,alpha_share
+sift_100k,sift_100k-original-b7,200,FALLBACK_CANDIDATE,0.025
+sift_100k,sift_100k-original-b17,200,FALLBACK_CANDIDATE,0.025
+sift_100k,sift_100k-original-b29,200,FALLBACK_CANDIDATE,0.025
+arxiv_nomic_100k,arxiv_nomic_100k-original-b7,200,FALLBACK_CANDIDATE,0.025
+arxiv_nomic_100k,arxiv_nomic_100k-original-b17,200,FALLBACK_CANDIDATE,0.025
+arxiv_nomic_100k,arxiv_nomic_100k-original-b29,200,FALLBACK_CANDIDATE,0.025

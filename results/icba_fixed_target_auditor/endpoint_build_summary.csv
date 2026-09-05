@@ -1,0 +1,7 @@
+dataset,build,safe_endpoint_queries,right_censored_queries,right_censored_rate
+sift_100k,sift_100k-original-b7,987,13,0.013
+sift_100k,sift_100k-original-b17,984,16,0.016
+sift_100k,sift_100k-original-b29,981,19,0.019
+arxiv_nomic_100k,arxiv_nomic_100k-original-b7,983,17,0.017
+arxiv_nomic_100k,arxiv_nomic_100k-original-b17,990,10,0.01
+arxiv_nomic_100k,arxiv_nomic_100k-original-b29,985,15,0.015

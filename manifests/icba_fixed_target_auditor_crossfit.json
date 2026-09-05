@@ -1,0 +1,14 @@
+{
+  "decisions": 60,
+  "deployed_action_counts": {
+    "A5": 32,
+    "A6": 24,
+    "A1": 4
+  },
+  "outcomes": {
+    "SAFE_ACCEPTANCE": 36,
+    "SAFE_BUT_REJECTED": 24
+  },
+  "future_confirm_accessed": false,
+  "evidence": "RETROSPECTIVE_CROSSFIT"
+}
