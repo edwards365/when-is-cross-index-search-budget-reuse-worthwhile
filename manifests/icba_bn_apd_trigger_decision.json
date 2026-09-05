@@ -1,0 +1,10 @@
+{
+  "decision": "OBSERVABLE_TRIGGER_NOT_SUPPORTED_CLOSE_BN_APD_ROUTE",
+  "evidence_level": "EXPLORATORY_DEVELOPMENT_OBSERVABLE_TRIGGER_GATE",
+  "instrumentation_rows": 12000,
+  "analysis_rows": 9000,
+  "native_tracer_mismatches": 0,
+  "passed_rule_count": 0,
+  "sealed_access": false,
+  "independent_confirmation": false
+}

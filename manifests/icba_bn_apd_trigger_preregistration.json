@@ -1,0 +1,35 @@
+{
+  "stage": "ICBA_BN_APD_OBSERVABLE_TRIGGER_INSTRUMENTATION_GATE",
+  "frozen_parent": "cef9af309a379b2e2ac339ed15752afc0b97b9db",
+  "branch": "exp/icba_bn_apd_observable_trigger_gate",
+  "evidence_level": "EXPLORATORY_DEVELOPMENT_OBSERVABLE_TRIGGER_GATE",
+  "query_role": "bn_apd_replay_development",
+  "proposal_ids": "0-249",
+  "validation_ids": "250-499",
+  "independent_confirmation": false,
+  "sealed_roles_accessed": false,
+  "fixed_ef": [8, 16, 32, 64],
+  "fixed_windows": [4, 8, 16],
+  "fixed_candidate_yield_thresholds": [0.1, 0.25, 0.5],
+  "gate": {
+    "minimum_validation_coverage": 0.1,
+    "median_advantage_strictly_positive": true,
+    "both_datasets_positive": true,
+    "minimum_positive_builds_per_dataset": 2,
+    "builds_per_dataset": 3,
+    "top_1pct_deletion_positive": true,
+    "leave_one_build_out_positive": true
+  },
+  "forbidden": [
+    "validation-dev",
+    "formal-test",
+    "certification",
+    "evaluation",
+    "future-confirm",
+    "GloVe",
+    "new portals",
+    "graph modification",
+    "model racing",
+    "truth-derived trigger features"
+  ]
+}

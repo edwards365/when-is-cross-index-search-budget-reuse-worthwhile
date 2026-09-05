@@ -1,0 +1,9 @@
+rule,sift_pass,arxiv_pass,both_pass
+HIGH_DUPLICATION_Q50,False,False,False
+HIGH_FRONTIER_RATIO_Q50,False,False,False
+LOW_YIELD_010_W8,False,False,False
+LOW_YIELD_025_W8,False,False,False
+LOW_YIELD_050_W8,False,False,False
+STAGNATION_W16,False,False,False
+STAGNATION_W4,False,False,False
+STAGNATION_W8,False,False,False
