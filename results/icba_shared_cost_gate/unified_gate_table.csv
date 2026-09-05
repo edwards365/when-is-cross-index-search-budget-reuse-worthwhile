@@ -1,0 +1,7 @@
+gate,passed
+quality_candidates_present_both_datasets,True
+two_of_three_builds_positive_space,True
+top1pct_positive_space,True
+candidate_union_margin_ge_010,True
+required_compression_le_050,False
+shared_real_cost_estimable,False

@@ -1,0 +1,12 @@
+{
+  "decision": "SHARED_COST_ONLY_ORACLE_BOUND_NO_IMPLEMENTATION",
+  "frozen_parent": "e2e5a5d86042b76220199582e152c1391d52a794",
+  "evidence_levels": [
+    "COST_REALIZABILITY_AUDIT",
+    "EXPLORATORY_DEVELOPMENT",
+    "NON_DEPLOYABLE_LOWER_BOUND"
+  ],
+  "microbenchmark_authorized": false,
+  "shared_cost": "NOT_ESTIMABLE",
+  "sealed_roles_accessed": false
+}

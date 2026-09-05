@@ -1,0 +1,19 @@
+dataset,build,raw_ef,portal_rule_ids,candidate_union_cost_lower_bound_mean,independent_aux_cost_mean,candidate_kappa_lb_median,semantics
+arxiv,arxiv_b17,8,native_top_layer;fixed_label_4177;fixed_label_7001;fixed_label_8888,384.696,1657.208,0.006867492866682531,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b17,16,fixed_label_991;fixed_label_4177;high_out_degree;fixed_label_7001,509.914,2163.9,0.007994953742640875,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b17,32,farthest_from_medoid;fixed_label_991;fixed_label_4177;fixed_label_7001,863.176,3441.556,0.009643657148135528,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b29,8,native_top_layer;farthest_from_medoid;fixed_label_991;fixed_label_8888,380.692,1614.578,0.007022475373253936,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b29,16,native_top_layer;farthest_from_medoid;fixed_label_991;fixed_label_8888,507.594,2094.648,0.00832313391370548,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b29,32,farthest_from_medoid;fixed_label_991;fixed_label_4177;fixed_label_7001,858.15,3391.878,0.00972877358490566,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b7,8,native_top_layer;farthest_from_medoid;fixed_label_991;fixed_label_7001,380.464,1577.474,0.0071505193265985,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b7,16,farthest_from_medoid;fixed_label_4177;fixed_label_7001;fixed_label_8888,506.262,2068.42,0.008350732963684826,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+arxiv,arxiv_b7,32,farthest_from_medoid;fixed_label_991;fixed_label_4177;fixed_label_7001,858.572,3394.712,0.009757498701286282,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b17,8,farthest_from_medoid;high_out_degree;fixed_label_7001;fixed_label_8888,359.14,1627.066,0.007426670932015487,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b17,16,dataset_medoid;farthest_from_medoid;fixed_label_7001;fixed_label_8888,478.326,2071.784,0.008845051588735404,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b17,32,dataset_medoid;farthest_from_medoid;fixed_label_991;fixed_label_7001,791.778,3261.064,0.010231814809877178,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b29,8,native_top_layer;fixed_label_991;high_out_degree;fixed_label_8888,357.39,1622.066,0.007843137968613616,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b29,16,native_top_layer;farthest_from_medoid;fixed_label_991;high_out_degree,472.122,2122.968,0.008591041255377165,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b29,32,dataset_medoid;fixed_label_991;high_out_degree;fixed_label_7001,786.398,3339.91,0.009944064636420136,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b7,8,native_top_layer;high_out_degree;fixed_label_7001;fixed_label_8888,363.698,1612.218,0.007743760834723449,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b7,16,dataset_medoid;fixed_label_991;fixed_label_7001;fixed_label_8888,480.088,2161.22,0.008428366653135781,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
+sift,sift_b7,32,native_top_layer;dataset_medoid;high_out_degree;fixed_label_8888,794.904,3354.61,0.00991456218425317,CANDIDATE_SET_COST_LOWER_BOUND; not visited/NDC overlap; shared wall-clock NOT_ESTIMABLE
