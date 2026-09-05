@@ -1,0 +1,8 @@
+{
+  "decision": "BN_APD_ROUTE_CLOSED_NO_GLOBAL_FIXED_SPLIT",
+  "instrumentation_rows": 12000,
+  "outcome_joined_rows": 9000,
+  "true_lobo": true,
+  "shared_frontier_cost": "NOT_ESTIMABLE",
+  "sealed_roles_accessed": false
+}

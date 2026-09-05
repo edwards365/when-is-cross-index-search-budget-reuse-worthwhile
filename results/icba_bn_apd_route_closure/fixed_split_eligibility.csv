@@ -1,0 +1,3 @@
+dataset,full_query_delta_value,positive_builds,builds,top1pct_delta,pooled_ci_low,ideal_lower_bound_below_native,trigger_free,fixed_split_pass
+arxiv,-7.57669432412537e-05,0,3,-7.718863493303916e-05,-0.00021035108526742876,True,True,False
+sift,-9.808319505070272e-05,0,3,-0.00010002920437385967,-0.0002729263574858318,True,True,False

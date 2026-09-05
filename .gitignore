@@ -48,3 +48,5 @@ secrets/
 credentials/
 *.pem
 *.key
+__pycache__/
+*.pyc

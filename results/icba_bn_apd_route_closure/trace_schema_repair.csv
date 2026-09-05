@@ -1,0 +1,6 @@
+old_name,repaired_name,note
+kth_distance,ef_heap_lower_bound,candidate-heap lower bound; not final top-10 kth distance
+frontier_kth_ratio,frontier_lower_bound_ratio,candidate-heap lower bound; not final top-10 kth distance
+kth_improvement_w4,lower_bound_improvement_w4,candidate-heap lower bound; not final top-10 kth distance
+kth_improvement_w8,lower_bound_improvement_w8,candidate-heap lower bound; not final top-10 kth distance
+kth_improvement_w16,lower_bound_improvement_w16,candidate-heap lower bound; not final top-10 kth distance

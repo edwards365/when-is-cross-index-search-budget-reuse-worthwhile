@@ -30,7 +30,7 @@ struct Trace {
   std::size_t upper_steps{}, expansions{}, evaluations{}, visited{}, duplicate_edges{};
   std::size_t pushes{}, pops{}, enqueued{}, pruned{}, max_queue{};
   double improve4{}, improve8{}, improve16{}, yield4{}, yield8{}, yield16{};
-  float frontier_min{}, kth_distance{}, frontier_kth_ratio{};
+  float frontier_min{}, ef_heap_lower_bound{}, frontier_lower_bound_ratio{};
   std::uint64_t expansion_hash{1469598103934665603ULL};
   std::string stop_reason{"candidate_exhausted"};
 };
@@ -62,7 +62,7 @@ Trace trace(const Index& idx, const float* q, std::size_t ef, std::size_t k) {
     lower_history.push_back(lower); yields.push_back(new_enqueued);
   }
   t.frontier_min=candidates.empty()?std::numeric_limits<float>::quiet_NaN():-candidates.top().first;
-  t.kth_distance=lower; t.frontier_kth_ratio=(!candidates.empty() && lower>0.0F)?t.frontier_min/lower:std::numeric_limits<float>::quiet_NaN();
+  t.ef_heap_lower_bound=lower; t.frontier_lower_bound_ratio=(!candidates.empty() && lower>0.0F)?t.frontier_min/lower:std::numeric_limits<float>::quiet_NaN();
   t.improve4=window_improvement(lower_history,4);t.improve8=window_improvement(lower_history,8);t.improve16=window_improvement(lower_history,16);
   t.yield4=window_yield(yields,4);t.yield8=window_yield(yields,8);t.yield16=window_yield(yields,16);
   while(top.size()>k)top.pop(); while(!top.empty()){auto z=top.top();top.pop();t.topk.emplace_back(z.first,idx.getExternalLabel(z.second));} std::sort(t.topk.begin(),t.topk.end()); return t;
@@ -71,7 +71,7 @@ Trace trace(const Index& idx, const float* q, std::size_t ef, std::size_t k) {
 int main(int argc,char** argv){try{
   if(argc!=7){std::cerr<<"usage: bn_apd_observable_trace INDEX QUERIES QUERY_IDS EFS BUILD OUTPUT\n";return 2;}
   Matrix q=matrix(argv[2]); auto qids=ids(argv[3]); auto grid=efs(argv[4]); hnswlib::L2Space space(q.d); Index idx(&space,argv[1],false); std::ofstream out(argv[6]); if(!out)throw std::runtime_error("output unavailable");
-  out<<"query_id,build_id,raw_ef,upper_steps,base_expansions,distance_evaluations,visited_count,duplicate_neighbor_edges,duplicate_ratio,queue_pushes,queue_pops,max_queue_size,enqueued,pruned,candidate_yield_w4,candidate_yield_w8,candidate_yield_w16,kth_improvement_w4,kth_improvement_w8,kth_improvement_w16,frontier_min_distance,kth_distance,frontier_kth_ratio,stop_reason,expansion_hash,native_tracer_equal\n"<<std::setprecision(std::numeric_limits<double>::max_digits10);
-  for(auto ef:grid)for(auto qi:qids){if(qi>=q.n)throw std::runtime_error("query id out of range");const float* x=q.x.data()+qi*q.d;idx.setEf(ef);auto native_result=ordered(idx.searchKnn(x,10));auto z=trace(idx,x,ef,10);bool equal=native_result==z.topk;const auto denom=z.duplicate_edges+z.visited-1;out<<qi<<','<<argv[5]<<','<<ef<<','<<z.upper_steps<<','<<z.expansions<<','<<z.evaluations<<','<<z.visited<<','<<z.duplicate_edges<<','<<(denom?static_cast<double>(z.duplicate_edges)/denom:0.0)<<','<<z.pushes<<','<<z.pops<<','<<z.max_queue<<','<<z.enqueued<<','<<z.pruned<<','<<z.yield4<<','<<z.yield8<<','<<z.yield16<<','<<z.improve4<<','<<z.improve8<<','<<z.improve16<<','<<z.frontier_min<<','<<z.kth_distance<<','<<z.frontier_kth_ratio<<','<<z.stop_reason<<','<<z.expansion_hash<<','<<equal<<'\n';if(!equal)throw std::runtime_error("native/tracer top-k mismatch");}
+  out<<"query_id,build_id,raw_ef,upper_steps,base_expansions,distance_evaluations,visited_count,duplicate_neighbor_edges,duplicate_ratio,queue_pushes,queue_pops,max_queue_size,enqueued,pruned,candidate_yield_w4,candidate_yield_w8,candidate_yield_w16,lower_bound_improvement_w4,lower_bound_improvement_w8,lower_bound_improvement_w16,frontier_min_distance,ef_heap_lower_bound,frontier_lower_bound_ratio,stop_reason,expansion_hash,native_tracer_equal\n"<<std::setprecision(std::numeric_limits<double>::max_digits10);
+  for(auto ef:grid)for(auto qi:qids){if(qi>=q.n)throw std::runtime_error("query id out of range");const float* x=q.x.data()+qi*q.d;idx.setEf(ef);auto native_result=ordered(idx.searchKnn(x,10));auto z=trace(idx,x,ef,10);bool equal=native_result==z.topk;const auto denom=z.duplicate_edges+z.visited-1;out<<qi<<','<<argv[5]<<','<<ef<<','<<z.upper_steps<<','<<z.expansions<<','<<z.evaluations<<','<<z.visited<<','<<z.duplicate_edges<<','<<(denom?static_cast<double>(z.duplicate_edges)/denom:0.0)<<','<<z.pushes<<','<<z.pops<<','<<z.max_queue<<','<<z.enqueued<<','<<z.pruned<<','<<z.yield4<<','<<z.yield8<<','<<z.yield16<<','<<z.improve4<<','<<z.improve8<<','<<z.improve16<<','<<z.frontier_min<<','<<z.ef_heap_lower_bound<<','<<z.frontier_lower_bound_ratio<<','<<z.stop_reason<<','<<z.expansion_hash<<','<<equal<<'\n';if(!equal)throw std::runtime_error("native/tracer top-k mismatch");}
   std::cout<<"status=complete queries="<<qids.size()<<" efs="<<grid.size()<<"\n";return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<'\n';return 1;}}

@@ -1,0 +1,8 @@
+gate,passed
+trigger_semantic_repair,True
+true_lobo_completed,True
+fixed_split_all_query_positive,False
+fixed_split_two_of_three_builds,False
+fixed_split_top1pct_positive,False
+fixed_split_query_ci_positive,False
+shared_frontier_real_cost,False
