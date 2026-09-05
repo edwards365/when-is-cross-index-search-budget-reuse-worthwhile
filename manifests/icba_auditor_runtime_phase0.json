@@ -1,0 +1,27 @@
+{
+  "phase": "PHASE0_INPUT_AND_SEMANTIC_AUDIT",
+  "frozen_start": "69d4b2aa89625be2e96fa0ff184af5378959dcfb",
+  "alignment_reference": "0004ad9916ad4dc0efce915789eac9bafa352f02",
+  "alignment_reference_status": "ALIGNMENT_COMMIT_NOT_MOUNTED_REQUIREMENTS_RECONSTRUCTED_FROM_AUDIT",
+  "evidence_level": "RETROSPECTIVE_DEVELOPMENT_ONLY",
+  "legacy_baseline": "LEGACY_BASELINE_CONDITIONALLY_REPRODUCED: 111/123 matched, 8 mismatched, 4 untracked __pycache__ entries",
+  "future_confirm_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "source_policy_serialized": false,
+  "full_budget_grid_status": "NOT_ESTIMABLE_FROM_PRIOR_AUDITOR_OUTPUT",
+  "endpoint_status": "NOT_ESTIMABLE_PRIOR_VALUES_HARD_CODED",
+  "wall_clock_and_full_cost": "NOT_ESTIMABLE",
+  "query_role_status": "NOT_ESTIMABLE_PRIOR_GATE_FAILED",
+  "withdrawn_evidence": [
+    "PER_QUERY_OUTCOME_SELECTED_A5_A6",
+    "CONSTANT_ZERO_REGRET",
+    "AGGREGATED_MEAN_P95_P99",
+    "NEXT_EF_FIXED_SAFE",
+    "HARD_CODED_ENDPOINT_AND_CENSORING",
+    "HISTORICAL_500_QUERY_CERTIFICATION",
+    "MISSING_MULTIPLICITY",
+    "INCORRECT_ACTION_REGISTRY"
+  ],
+  "next_gate": "P1_P7_ALIGNMENT_AND_24_TESTS"
+}

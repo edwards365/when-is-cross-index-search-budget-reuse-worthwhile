@@ -1,0 +1,2 @@
+gate,tests_passed,tests_total,status,runtime_seconds,future_confirm_accessed
+runtime_alignment,24,24,ICBA_THEORY_ALGORITHM_ALIGNMENT_PASS,0.38,false

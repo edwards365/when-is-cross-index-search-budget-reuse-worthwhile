@@ -1,0 +1,13 @@
+{
+  "gate": "RUNTIME_ALIGNMENT",
+  "status": "ICBA_THEORY_ALGORITHM_ALIGNMENT_PASS",
+  "tests_passed": 24,
+  "tests_total": 24,
+  "runtime_seconds": 0.38,
+  "future_confirm_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "source_policy_status": "PENDING",
+  "next_gate": "SOURCE_GLOBAL_FIXED_EF_AND_ROLE_AUDIT",
+  "evidence_level": "CODE_LEVEL_ALIGNMENT_ONLY"
+}
