@@ -1,0 +1,3 @@
+# Final report
+
+The original 81 Gate-A runs were recovered with 243/243 checksum matches. Their common action grid is six levels rather than twelve. Six source policies were serialized from historical source development and all selected ef=120. Five-fold retrospective cross-fit across 12 directed pairs produced 36 safe acceptances and 24 safe-but-rejected abstentions, with zero unsafe acceptance. However, every accepted deployment used ef=200, exactly matching Always Fallback cost, while search-only decision regret versus the fixed-pair safe Oracle was significantly positive for both datasets. Gate R3 therefore failed and no prospective access was authorized. Final decision: `ICBA_DECISION_REGRET_NOT_IMPROVED`.

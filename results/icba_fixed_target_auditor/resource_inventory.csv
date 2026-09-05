@@ -1,0 +1,3 @@
+resource,total_bytes,available_bytes,status
+root_filesystem,2014574526464,18158149632,PASS_GT_5_GIB
+memory,270282723328,256109387776,AVAILABLE
