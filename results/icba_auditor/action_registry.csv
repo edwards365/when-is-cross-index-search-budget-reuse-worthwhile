@@ -1,0 +1,8 @@
+action_id,action,status,reason
+A0,REUSE_SOURCE_POLICY,NOT_ESTIMABLE,no serialized source policy contract in frozen inputs
+A1,CONSERVATIVE_REUSE,NOT_ESTIMABLE,no fixed global safety correction artifact
+A2,TARGET_RECALIBRATION,RETROSPECTIVE_PROXY,fixed-ef target profiling only
+A3,TARGET_REPROFILE_OR_RETRAIN,TARGET_FIXED_EF_PROFILING,profiling is available; full retraining cost not available
+A4,FULL_RETRAINING,NOT_IMPLEMENTED_REAL_COST_NOT_ESTIMABLE,no serialized model/training pipeline
+A5,FIXED_SAFE_FALLBACK,RETROSPECTIVE_PROXY,next native ef in frozen grid
+A6,REJECT_ABSTAIN,DEPLOYABLE_DECISION,safe endpoint or finite break-even unavailable

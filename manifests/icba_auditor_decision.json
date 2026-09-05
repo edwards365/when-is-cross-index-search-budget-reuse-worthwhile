@@ -1,0 +1,8 @@
+{
+  "decision": "ICBA_UNIFIED_METHOD_NOT_READY_FOR_PROSPECTIVE_CONFIRMATION",
+  "evidence_level": "RETROSPECTIVE_METHOD_VALIDATION",
+  "future_confirm_accessed": false,
+  "sealed_roles_accessed": false,
+  "source_policy_serialized": false,
+  "full_retraining_cost": "NOT_ESTIMABLE"
+}

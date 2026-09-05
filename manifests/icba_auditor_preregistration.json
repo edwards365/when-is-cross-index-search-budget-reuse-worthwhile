@@ -1,0 +1,16 @@
+{
+  "tau": 0.99,
+  "delta": 0.05,
+  "alpha": 0.05,
+  "seed": 991,
+  "actions": [
+    "REUSE_SOURCE_POLICY",
+    "TARGET_RECALIBRATION",
+    "TARGET_REPROFILE_OR_RETRAIN",
+    "FIXED_SAFE_FALLBACK",
+    "REJECT_NO_SAFE_ENDPOINT",
+    "REJECT_NO_FINITE_BREAK_EVEN",
+    "INSUFFICIENT_EVIDENCE"
+  ],
+  "future_confirm_frozen": true
+}

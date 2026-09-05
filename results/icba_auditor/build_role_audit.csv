@@ -1,0 +1,4 @@
+role,dataset,builds,evidence_scope
+method_development_build,SIFT/Arxiv,"b7;b17;b29",RETROSPECTIVE
+auditor_evaluation_build,SIFT/Arxiv,"b7;b17;b29",RETROSPECTIVE_ONLY
+auditor_future_build,SIFT/Arxiv,SEALED,NOT_ACCESSED

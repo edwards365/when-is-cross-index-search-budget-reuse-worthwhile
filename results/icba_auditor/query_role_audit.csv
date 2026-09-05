@@ -1,0 +1,5 @@
+role,dataset,query_range,overlap_status,accessed
+auditor_selection,SIFT/Arxiv,0-199,DISJOINT_WITH_HISTORICAL_ROLES,RETROSPECTIVE_ONLY
+auditor_certification,SIFT/Arxiv,200-455,NOT_ESTIMABLE_IN_FROZEN_INPUTS,NO
+auditor_evaluation,SIFT/Arxiv,456-499,NOT_ESTIMABLE_IN_FROZEN_INPUTS,NO
+auditor_future_confirm,SIFT/Arxiv,SEALED,SEALED,NO

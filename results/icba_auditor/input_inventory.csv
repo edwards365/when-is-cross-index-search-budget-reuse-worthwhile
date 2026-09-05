@@ -1,0 +1,7 @@
+dataset,build,source,rows,roles,truth_access
+arxiv,arxiv_b17,frozen CALS subset,500,historical development/retrospective,post-hoc only
+arxiv,arxiv_b29,frozen CALS subset,500,historical development/retrospective,post-hoc only
+arxiv,arxiv_b7,frozen CALS subset,500,historical development/retrospective,post-hoc only
+sift,sift_b17,frozen CALS subset,500,historical development/retrospective,post-hoc only
+sift,sift_b29,frozen CALS subset,500,historical development/retrospective,post-hoc only
+sift,sift_b7,frozen CALS subset,500,historical development/retrospective,post-hoc only

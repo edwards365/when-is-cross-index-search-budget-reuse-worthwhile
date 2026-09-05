@@ -1,0 +1,19 @@
+dataset,build,raw_ef,endpoint_infeasible,safe_grid_ef,right_censored,event_definition,evidence_level
+arxiv,arxiv_b17,8,False,16,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b17,16,False,32,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b17,32,False,64,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b29,8,False,16,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b29,16,False,32,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b29,32,False,64,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b7,8,False,16,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b7,16,False,32,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+arxiv,arxiv_b7,32,False,64,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b17,8,False,16,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b17,16,False,32,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b17,32,False,64,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b29,8,False,16,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b29,16,False,32,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b29,32,False,64,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b7,8,False,16,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b7,16,False,32,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
+sift,sift_b7,32,False,64,False,Recall<tau OR no safe endpoint,FIXED_TARGET_AUDIT
