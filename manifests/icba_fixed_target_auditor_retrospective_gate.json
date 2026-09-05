@@ -1,0 +1,18 @@
+{
+  "R1_nontrivial": true,
+  "R2_simulated_safety": true,
+  "R3_decision_value": false,
+  "R3_reason": "accepted ICBA actions all use ef=200, equal to Always Fallback cost, while abstention rejects safe actions; search-only regret is positive",
+  "R4_tail": true,
+  "R4_delta_p95_vs_fallback": 0.0,
+  "R5_robustness": false,
+  "R5_reason": "no positive decision-value direction to test",
+  "R6_method_frozen": true,
+  "accepted_decisions": 36,
+  "abstained_decisions": 24,
+  "unsafe_acceptance": 0,
+  "safe_but_rejected": 24,
+  "future_confirm_authorized": false,
+  "future_confirm_accessed": false,
+  "decision": "ICBA_DECISION_REGRET_NOT_IMPROVED"
+}

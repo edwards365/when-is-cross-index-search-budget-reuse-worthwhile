@@ -1,0 +1,7 @@
+dataset,held_out_build,remaining_builds,mean_search_regret,positive_regret_persists
+arxiv_nomic_100k,7,2,671.8333333333331,True
+arxiv_nomic_100k,17,2,772.9245833333332,True
+arxiv_nomic_100k,29,2,676.1162499999998,True
+sift_100k,7,2,412.29499999999996,True
+sift_100k,17,2,442.720625,True
+sift_100k,29,2,498.5156250000001,True

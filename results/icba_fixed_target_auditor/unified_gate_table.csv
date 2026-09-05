@@ -1,0 +1,10 @@
+gate,status_or_reason
+R1_nontrivial,True
+R2_simulated_safety,True
+R3_decision_value,False
+R3_reason,"accepted ICBA actions all use ef=200, equal to Always Fallback cost, while abstention rejects safe actions; search-only regret is positive"
+R4_tail,True
+R4_delta_p95_vs_fallback,0.0
+R5_robustness,False
+R5_reason,no positive decision-value direction to test
+R6_method_frozen,True
