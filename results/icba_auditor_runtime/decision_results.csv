@@ -1,0 +1,7 @@
+dataset,build,selected_action,decision
+sift,sift_b7,A6,ABSTAIN_NO_SAFE_ACTION
+sift,sift_b17,A6,ABSTAIN_NO_SAFE_ACTION
+sift,sift_b29,A6,ABSTAIN_NO_SAFE_ACTION
+arxiv,arxiv_b7,A6,ABSTAIN_NO_SAFE_ACTION
+arxiv,arxiv_b17,A6,ABSTAIN_NO_SAFE_ACTION
+arxiv,arxiv_b29,A6,ABSTAIN_NO_SAFE_ACTION

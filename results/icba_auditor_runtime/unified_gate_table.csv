@@ -1,0 +1,9 @@
+gate,status
+A_runtime_alignment,PASS
+B_real_input,FAIL
+C_safety,ABSTAIN_ONLY
+D_method_value,NOT_ESTIMABLE
+E_tail,NOT_ESTIMABLE
+F_cost,NOT_ESTIMABLE
+G_robustness,NOT_ESTIMABLE
+future_confirm,NOT_AUTHORIZED

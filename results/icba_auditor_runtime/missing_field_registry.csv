@@ -1,0 +1,9 @@
+field,status
+complete_12_level_grid,NOT_ESTIMABLE
+endpoint_infeasible_raw,NOT_ESTIMABLE
+right_censored_raw,NOT_ESTIMABLE
+per_query_wall_clock,NOT_ESTIMABLE
+complete_accounting,NOT_ESTIMABLE
+independent_source_selection,NOT_ESTIMABLE
+independent_certification,NOT_ESTIMABLE
+independent_evaluation,NOT_ESTIMABLE

@@ -1,0 +1,17 @@
+{
+  "tau": 0.99,
+  "delta": 0.05,
+  "alpha": 0.05,
+  "multiplicity": "BONFERRONI_CP",
+  "seed": 991,
+  "action_family": [
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6"
+  ],
+  "future_confirm_frozen": true
+}
