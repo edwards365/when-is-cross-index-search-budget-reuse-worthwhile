@@ -18,13 +18,13 @@ def rows(name: str):
 
 def main() -> None:
     numeric = rows("numeric_reconciliation.csv")
-    required = {"physical_rows", "unique_query_budget_units", "actual_common_budget_grid", "historical_972000_claim"}
+    required = {"current_gate_a_main_physical_rows", "current_gate_a_main_unique_query_budget_units", "actual_common_budget_grid", "historical_972000_cross_index", "historical_648000_tournament"}
     assert required <= {r["metric_name"] for r in numeric}
-    assert {r["conflict_status"] for r in numeric} >= {"CONFLICT", "NOT_REPRODUCED"}
+    assert {r["conflict_status"] for r in numeric} >= {"RECONCILED_BY_CONTEXT", "SUPERSEDED_BY_RAW_AUDIT"}
     assert len({r["metric_name"] + "|" + r["source_file"] for r in numeric}) == len(numeric)
     assert all(r["evidence_level"] in {"E0", "E1", "E2", "E3", "E4"} for r in rows("evidence_registry.csv"))
     d = json.loads(MAN.read_text(encoding="utf-8"))
-    assert d["decision"] == "BLOCKED_BY_EVIDENCE_INTEGRITY"
+    assert d["decision"] == "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES"
     assert d["confirmatory_query_accessed"] is False
     assert d["future_replication_accessed"] is False
     print("paper_evidence_lock checks: PASS")

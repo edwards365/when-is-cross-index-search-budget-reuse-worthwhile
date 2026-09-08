@@ -1,6 +1,6 @@
 gate,name,status,evidence
-P0,evidence completeness,FAIL,"1,458,000/486,000 conflicts with 1,656,000/552,000; 972,000 and 648,000 claims unresolved"
+P0,evidence completeness,PASS_WITH_CONTEXT,"Raw Gate-A audit gives 1,656,000/552,000; 972,000 is Cross-Index and 648,000 is Tournament; 1,458,000/486,000 is a superseded six-budget projection"
 P1,claim–evidence closure,PASS_WITH_SCOPE,C1–C5 registered with explicit E4 requirements and hnswlib scope
-P2,build-level power,BLOCKED,"18–24 is preregistered, but variance/power cannot be certified from conflicted historical rows"
-P3,resource feasibility,CONDITIONAL,"current audit is resource-feasible, but exact confirmatory storage/runtime is deferred"
+P2,build-level power,BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES,"Numeric conflict is repaired, but only three same-method endpoint builds per primary dataset are available; 18–24 new builds remain a design plan, not certified 80% power"
+P3,resource feasibility,CONDITIONAL,Root has limited free space; confirmatory artifacts must use /home/wlk/data500 and a pilot must measure runtime
 P4,sealed roles,PASS,future_confirm_accessed=false; validation_dev=false; formal_test=false in audited manifest

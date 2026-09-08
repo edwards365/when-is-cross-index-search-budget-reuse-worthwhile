@@ -1,6 +1,7 @@
 resource,estimate,unit,source,basis,evidence_level,note
-current_root_free_gib,17.880,observed,server filesystem,resource audit,E2,root free space at audit
+current_root_free_gib,17.866,observed,server filesystem,resource audit,E2,root free space at audit
 historical_build_seconds,min=25.04s;median=38.32s;max=148.37s,completed Gate-A runs,manifests/gate_a/completed_run_matrix.json,existing artifacts,E1,not a confirmatory runtime guarantee
 confirmatory_builds,36–48 total (18–24 per dataset),builds,protocol,E4 contract,E4,must be recalculated before execution
-confirmatory_storage,NOT_ESTIMABLE_BEFORE_ARTIFACT_RECONCILIATION,bytes,protocol,no new build,E4,do not reserve from unresolved row counts
-confirmatory_wall_clock,NOT_ESTIMABLE_BEFORE_ARTIFACT_RECONCILIATION,hours,protocol,no new build,E4,current round does not run experiments
+historical_main_rows,1656000,rows,raw Gate-A files,raw audit,E2,"1,656,000 reconciled; 552,000 unique query-budget units"
+confirmatory_storage,CONDITIONAL_USE_DATA500,bytes,/home/wlk/data500 (observed separately),resource plan,E4,Do not place 36–48 new builds on the 18 GiB root filesystem
+confirmatory_wall_clock,NOT_ESTIMABLE_BEFORE_PILOT,hours,protocol,no new build,E4,Pilot runtime must be measured before full matrix

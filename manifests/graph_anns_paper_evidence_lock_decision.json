@@ -1,8 +1,8 @@
 {
-  "decision": "BLOCKED_BY_EVIDENCE_INTEGRITY",
+  "decision": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
   "branch": "exp/graph_anns_paper_evidence_claim_lock",
-  "head": "0f5a2bec55cc62e9f9754358c1691eb965afe856",
-  "parent_anchor": "0f5a2bec55cc62e9f9754358c1691eb965afe856",
+  "head": "6b6aa286ea6d2628017848936ee9ab540767d517",
+  "parent_anchor": "6b6aa286ea6d2628017848936ee9ab540767d517",
   "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
   "main_worktree_only": true,
   "confirmatory_experiment_run": false,
@@ -20,18 +20,27 @@
     200
   ],
   "gate_status": {
-    "P0": "FAIL",
+    "P0": "PASS_WITH_CONTEXT",
     "P1": "PASS_WITH_SCOPE",
-    "P2": "BLOCKED",
+    "P2": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
     "P3": "CONDITIONAL",
     "P4": "PASS"
   },
   "evidence_level_distribution": {
-    "E0": 2,
-    "E1": 2,
+    "E0": 0,
+    "E1": 4,
     "E2": 4,
     "E3": 0,
     "E4": 0
+  },
+  "numeric_reconciliation": {
+    "gate_a_main_physical_rows": 1656000,
+    "gate_a_main_unique_query_budget_units": 552000,
+    "cross_index_rows": 972000,
+    "tournament_rows": 648000,
+    "historical_directed_pairs": 648,
+    "historical_undirected_pairs": 324,
+    "fixed_target_directed_pairs": 12
   },
   "artifacts": {
     "final_report": "docs/paper_evidence_lock/final_report.md",
