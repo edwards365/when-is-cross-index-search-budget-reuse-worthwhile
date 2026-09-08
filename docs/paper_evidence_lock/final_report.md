@@ -4,7 +4,7 @@
 `BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES`
 
 ## Scope and provenance
-- Branch: `exp/graph_anns_paper_evidence_claim_lock`; HEAD/parent anchor: `6b6aa286ea6d2628017848936ee9ab540767d517`.
+- Branch: `exp/graph_anns_paper_evidence_claim_lock`; HEAD/parent anchor: `9fe44938561d47ce3688549e51f7217fe4940840`.
 - Worktree: `/home/wlk/projects/navigation-aware-resistance-hnsw` (the existing ANNS main worktree; no new Codex task or worktree was created).
 - Anchor commits parsed: 8/8.
 - Evidence levels: E0=unresolved historical rows before repair, E1=exploratory historical, E2=conditionally reproduced; no E3/E4 result was created in this round.

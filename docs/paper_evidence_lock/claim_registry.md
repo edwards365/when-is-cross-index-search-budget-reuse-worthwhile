@@ -1,6 +1,6 @@
 # Claim registry
 
-Scope is frozen to hnswlib × {SIFT-100K, Arxiv-Nomic-100K}. Current branch: `exp/graph_anns_paper_evidence_claim_lock` at `6b6aa286ea6d2628017848936ee9ab540767d517`.
+Scope is frozen to hnswlib × {SIFT-100K, Arxiv-Nomic-100K}. Current branch: `exp/graph_anns_paper_evidence_claim_lock` at `9fe44938561d47ce3688549e51f7217fe4940840`.
 
 | ID | Claim | Current evidence | E4 confirmation needed | Allowed wording | Prohibited wording |
 |---|---|---|---|---|---|

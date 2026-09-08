@@ -1,8 +1,8 @@
 {
   "decision": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
   "branch": "exp/graph_anns_paper_evidence_claim_lock",
-  "head": "6b6aa286ea6d2628017848936ee9ab540767d517",
-  "parent_anchor": "6b6aa286ea6d2628017848936ee9ab540767d517",
+  "head": "9fe44938561d47ce3688549e51f7217fe4940840",
+  "parent_anchor": "9fe44938561d47ce3688549e51f7217fe4940840",
   "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
   "main_worktree_only": true,
   "confirmatory_experiment_run": false,
