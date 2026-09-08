@@ -1,0 +1,42 @@
+{
+  "decision": "BLOCKED_BY_EVIDENCE_INTEGRITY",
+  "branch": "exp/graph_anns_paper_evidence_claim_lock",
+  "head": "0f5a2bec55cc62e9f9754358c1691eb965afe856",
+  "parent_anchor": "0f5a2bec55cc62e9f9754358c1691eb965afe856",
+  "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
+  "main_worktree_only": true,
+  "confirmatory_experiment_run": false,
+  "confirmatory_query_accessed": false,
+  "future_replication_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "early_exit_continued": false,
+  "actual_budget_grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "gate_status": {
+    "P0": "FAIL",
+    "P1": "PASS_WITH_SCOPE",
+    "P2": "BLOCKED",
+    "P3": "CONDITIONAL",
+    "P4": "PASS"
+  },
+  "evidence_level_distribution": {
+    "E0": 2,
+    "E1": 2,
+    "E2": 4,
+    "E3": 0,
+    "E4": 0
+  },
+  "artifacts": {
+    "final_report": "docs/paper_evidence_lock/final_report.md",
+    "confirmatory_protocol": "docs/paper_evidence_lock/confirmatory_protocol.md",
+    "numeric_reconciliation": "results/paper_evidence_lock/numeric_reconciliation.csv",
+    "decision_manifest": "manifests/graph_anns_paper_evidence_lock_decision.json"
+  }
+}

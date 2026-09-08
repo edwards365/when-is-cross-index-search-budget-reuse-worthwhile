@@ -1,0 +1,9 @@
+commit,locally_available,subject,evidence_level
+b82abf6bab8aae54b23aee5ccce5cde0ba5a3412,YES,Freeze Cross-Index G1 and G2 final decision,E1
+80c505dcc3ec13855c700a0f59df3c042aa281ec,YES,Freeze rebuild algorithm tournament decision,E1
+b374e9b788eb572f59b826e8b5c9532e44a5129a,YES,theory: seal verified ICBA artifact hashes,E1
+ed8d1e0d84c075fddbbc4d8aa5e77a57683a2fb6,YES,theory-lock: seal final ICBA method-derivation decision,E1
+77e0d430bc04b819276b570a96eedb339a66c043,YES,chore: seal micro-closure artifact checksums,E1
+a9f88bbcfd9b2c2f3e8a27e1471e16628b60cdb0,YES,decision: seal ICBA open-world autopsy,E1
+6339c512d81abbe49ff11b526676ec4d6d571453,YES,Complete ICBA theory elevation and Z1 pilot,E1
+0f5a2bec55cc62e9f9754358c1691eb965afe856,YES,seal fixed-target auditor closure,E2

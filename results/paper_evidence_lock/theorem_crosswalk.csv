@@ -1,0 +1,4 @@
+main_result,topic,status,required_components,source,limitation
+Main Result I,environment-blind transfer lower bound,CLASSICAL_APPLICATION,"finite environments, observable transcript, conflicting safe actions, TV/testing affinity",docs/icba_auditor/theorem_algorithm_crosswalk.md,scope restricted; no open-world claim
+Main Result II,recovery necessary conditions,DOMAIN_SPECIFIC_RESTRICTED_PROPOSITION,"endpoint, margin, identifiability, target evidence, fallback",docs/icba_auditor/theorem_algorithm_crosswalk.md,counterexamples must be stated with finite-action assumptions
+Main Result III,deployment value and tail-cost barrier,NEW_COMBINATION_OF_CLASSICAL_RESULTS,d = G_online - R_selection - P(F)ΔC_f - C_control,docs/icba_fixed_target_auditor/cost_report.md,cost terms are not fully estimable in current history

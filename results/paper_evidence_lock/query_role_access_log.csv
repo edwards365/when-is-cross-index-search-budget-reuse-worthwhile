@@ -1,0 +1,6 @@
+role,accessed,source,note
+protocol_design,NO_QUERY_READ,this_round,Only manifests and text reports were inspected
+confirmatory_query,FALSE,manifests/icba_fixed_target_auditor_data_recovery.json,Sealed role not accessed
+future_replication,FALSE,manifests/icba_fixed_target_auditor_data_recovery.json,Sealed role not accessed
+validation-dev,FALSE,manifests/icba_fixed_target_auditor_data_recovery.json,Reserved validation role not accessed
+formal-test,FALSE,manifests/icba_fixed_target_auditor_data_recovery.json,Formal-test role not accessed
