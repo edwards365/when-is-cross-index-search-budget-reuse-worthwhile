@@ -1,0 +1,15 @@
+{
+  "bootstrap_intermediate_gib": 0.1,
+  "exact_truth_gib": 0.01,
+  "figures_reports_gib": 0.2,
+  "free_gib": 902.6590461730957,
+  "mandatory_reserve_gib": 5.0,
+  "passes_stress_envelope": true,
+  "raw_search_records_gib": 4.0,
+  "raw_vectors_gib": 0.43,
+  "runtime_repeats_gib": 2.0,
+  "serialized_indices_gib": 15.0,
+  "stress_envelope_gib": 651.672,
+  "temporary_peak_gib": 20.0,
+  "trace_gib": 0.0
+}

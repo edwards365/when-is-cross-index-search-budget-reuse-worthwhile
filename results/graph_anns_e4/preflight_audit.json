@@ -1,0 +1,24 @@
+{
+  "builds": 48,
+  "confirmatory_vectors_accessed": false,
+  "forbidden_role_overlaps": 0,
+  "formal_test_accessed": false,
+  "free_gib": 902.6590461730957,
+  "future_replication_accessed": false,
+  "head": "6829bbc377ca113fd8f8a94499a4af753dd95aa3",
+  "lid_orders": {
+    "arxiv_nomic_100k": {
+      "expected_sha256": "ee882bfa029deeac3c5f25842caf17911649b81f107bd65ad88aa94364d26c42",
+      "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-cibs-stage1/results/hardness_portability_100k/lid_orders/arxiv_nomic_100k_order.npy",
+      "sha256": "ee882bfa029deeac3c5f25842caf17911649b81f107bd65ad88aa94364d26c42"
+    },
+    "sift_100k": {
+      "expected_sha256": "68902a231481acb67601c492a82019921f136fa623c69b00c6ca360c2fce5cfa",
+      "path": "/home/wlk/projects/navigation-aware-resistance-hnsw-cibs-stage1/results/hardness_portability_100k/lid_orders/sift_100k_order.npy",
+      "sha256": "68902a231481acb67601c492a82019921f136fa623c69b00c6ca360c2fce5cfa"
+    }
+  },
+  "python": "3.11.16",
+  "resource_gate": true,
+  "validation_dev_accessed": false
+}
