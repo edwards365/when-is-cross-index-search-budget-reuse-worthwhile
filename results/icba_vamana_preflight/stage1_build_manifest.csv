@@ -1,0 +1,13 @@
+build_id,role,permutation_seed,dataset,metric,degree,l_build,alpha,beam_width,threads
+V01,source,1103,SIFT-registered,squared_l2,32,64,1.2,1,1
+V02,source,1207,SIFT-registered,squared_l2,32,64,1.2,1,1
+V03,source,1301,SIFT-registered,squared_l2,32,64,1.2,1,1
+V04,source,1409,SIFT-registered,squared_l2,32,64,1.2,1,1
+V05,source,1511,SIFT-registered,squared_l2,32,64,1.2,1,1
+V06,source,1601,SIFT-registered,squared_l2,32,64,1.2,1,1
+V07,target,2101,SIFT-registered,squared_l2,32,64,1.2,1,1
+V08,target,2203,SIFT-registered,squared_l2,32,64,1.2,1,1
+V09,target,2309,SIFT-registered,squared_l2,32,64,1.2,1,1
+V10,target,2411,SIFT-registered,squared_l2,32,64,1.2,1,1
+V11,target,2503,SIFT-registered,squared_l2,32,64,1.2,1,1
+V12,target,2609,SIFT-registered,squared_l2,32,64,1.2,1,1

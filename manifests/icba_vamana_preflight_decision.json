@@ -1,0 +1,25 @@
+{
+  "decision": "READY_FOR_VAMANA_STAGE1",
+  "evidence_scope": "IMPLEMENTATION_SEMANTIC_PREFLIGHT_ONLY",
+  "theory_base": "802c8cadaf39b5b7e8edfa45b07140d6a6ee0933",
+  "diskann_commit": "8fb4d42e6a8bff0cff4db976a55c5fb99faaf475",
+  "reproducibility_class": "BYTE_IDENTICAL",
+  "cost_bridge": "ESTABLISHED_INTERNAL_ONLY",
+  "gates": {
+    "P1": true,
+    "P2": true,
+    "P3": true,
+    "P4": true,
+    "P5": true,
+    "P6": true,
+    "P7": true,
+    "P8": true,
+    "P9": true,
+    "P10": true,
+    "P11": true,
+    "P12": true
+  },
+  "sealed_roles_accessed": false,
+  "stage1_authorized": true,
+  "scientific_claim": null
+}

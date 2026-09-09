@@ -1,0 +1,7 @@
+l_value,recall_equal,mean_cmps_equal,mean_hops_equal,query_recalls_equal,query_cmps_equal,query_hops_equal,result_ids_hash_equal,query_count,result_ids_hash
+16,True,True,True,True,True,True,True,500,7281816641803770302
+32,True,True,True,True,True,True,True,500,8497063764219488738
+64,True,True,True,True,True,True,True,500,7961689899340708707
+128,True,True,True,True,True,True,True,500,3365446998842364348
+256,True,True,True,True,True,True,True,500,3365446998842364348
+512,True,True,True,True,True,True,True,500,3365446998842364348

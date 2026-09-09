@@ -1,0 +1,38 @@
+{
+  "vamana_design": {
+    "count": 750,
+    "id_range": [
+      0,
+      749
+    ],
+    "ids_sha256": "27ed182fceb98f4b50e20da7480e9de855c4359a522d57b75f0b408b3b5fec61",
+    "access_state": "NOT_ACCESSED_IN_PREFLIGHT"
+  },
+  "vamana_evaluation": {
+    "count": 750,
+    "id_range": [
+      750,
+      1499
+    ],
+    "ids_sha256": "95ae8c1350d9a8bee891e912a0cc1acbe153cce8bc143cf2573b55eba5a350d7",
+    "access_state": "NOT_ACCESSED_IN_PREFLIGHT"
+  },
+  "vamana_runtime": {
+    "count": 750,
+    "id_range": [
+      1500,
+      2249
+    ],
+    "ids_sha256": "3d84114e94a91d2196388a41ca2b4b23453306ec393975d773c413d57b19b84f",
+    "access_state": "NOT_ACCESSED_IN_PREFLIGHT"
+  },
+  "vamana_future_replication": {
+    "count": 750,
+    "id_range": [
+      2250,
+      2999
+    ],
+    "ids_sha256": "029c8b46d9ac05a1afba92e2f54b2e20d77f4ecfec060acc8e44efcdf1b7eb60",
+    "access_state": "IDS_ONLY"
+  }
+}
