@@ -1,0 +1,17 @@
+{
+  "python": "3.11.16",
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+  "numpy": "1.26.4",
+  "pandas": "2.2.3",
+  "seed": 991,
+  "bootstrap": 5000,
+  "efs": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "frozen_parent": "f7e0b6233c05a96b09dd6a03d4eb4e2246fa9e5a"
+}

@@ -1,0 +1,5 @@
+# NDC transport estimand note
+
+The earlier unfiltered pair-average ROM values (~21.75% SIFT, ~16.07% Arxiv) average pair-level ratios over the broader joint-endpoint calculation. The sealed robust values (19.45%, 14.88%) pool only units on which transported and target-reference actions are safe, aggregate numerator and denominator before division, and prevent unsafe low-cost actions from becoming benefits. They are lower because endpoint/unsafe units are excluded and denominator weighting reduces small-unit amplification. This safety-adjusted definition was added post-confirmatory and is reported as such, not represented as preregistered.
+
+Absolute mean NDC differences are 128.46 (SIFT) and 90.79 (Arxiv). Mean-of-ratios values are 23.87% and 17.06%; these describe the average unit-relative burden, whereas ratio-of-means describes aggregate cost burden. Low-denominator sensitivity remains in the frozen semantic reanalysis. The 178%/244% figures remain named only “global ef=120 versus per-query target Oracle mean per-query relative NDC regret”; they are not transport tax.

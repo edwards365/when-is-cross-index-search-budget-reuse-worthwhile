@@ -1,0 +1,7 @@
+dataset,order,estimate,ci_low,ci_high,unit,reason,paper_usable_as_primary_ci
+sift_100k,random,0.356,0.210666666667,0.333333333333,seed_within_fixed_order,non-smooth support/range statistic; duplicate-seed n-out-of-n resamples reduce effective distinct environments,False
+sift_100k,lid_ascending,0.374666666667,0.230666666667,0.350666666667,seed_within_fixed_order,non-smooth support/range statistic; duplicate-seed n-out-of-n resamples reduce effective distinct environments,False
+sift_100k,lid_descending,0.394666666667,0.246666666667,0.372,seed_within_fixed_order,non-smooth support/range statistic; duplicate-seed n-out-of-n resamples reduce effective distinct environments,False
+arxiv_nomic_100k,random,0.337333333333,0.213333333333,0.317333333333,seed_within_fixed_order,non-smooth support/range statistic; duplicate-seed n-out-of-n resamples reduce effective distinct environments,False
+arxiv_nomic_100k,lid_ascending,0.373333333333,0.232,0.352,seed_within_fixed_order,non-smooth support/range statistic; duplicate-seed n-out-of-n resamples reduce effective distinct environments,False
+arxiv_nomic_100k,lid_descending,0.334666666667,0.212,0.314666666667,seed_within_fixed_order,non-smooth support/range statistic; duplicate-seed n-out-of-n resamples reduce effective distinct environments,False

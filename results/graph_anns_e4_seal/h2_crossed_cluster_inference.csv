@@ -1,0 +1,3 @@
+dataset,risk_increment,risk_ci_low,risk_ci_high,safe_rom_tax,safe_rom_ci_low,safe_rom_ci_high,resampling
+sift_100k,0.215734299517,0.207407971014,0.223997644928,0.194472095841,0.182599466258,0.206594534821,source-seed block x query; shared pair structure retained
+arxiv_nomic_100k,0.17120531401,0.162014432367,0.180611292271,0.148793063699,0.137200545348,0.164104377182,source-seed block x query; shared pair structure retained

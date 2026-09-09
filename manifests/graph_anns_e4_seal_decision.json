@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "frozen_parent": "f7e0b6233c05a96b09dd6a03d4eb4e2246fa9e5a",
+  "evidence_level": "POST_CONFIRMATORY_CODE_STATISTICAL_SEMANTIC_SEAL",
+  "final_label": "E4_CODE_STATISTICAL_SEAL_PASS_H1_H2_CONFIRMED",
+  "scientific_label": "E4_H1_H2_TRANSPORT_CONFIRMED_TWO_DATASETS",
+  "deployment_label": "NO_DEPLOYABLE_VALUE",
+  "gates": {
+    "A_reproducibility": "PASS",
+    "B_h1_statistical_validity": "PASS",
+    "C_h2_robustness": "PASS",
+    "D_semantic_integrity": "PASS",
+    "E_deployment_honesty": "PASS"
+  },
+  "legacy_bootstrap_anomalies": 6,
+  "builds": 48,
+  "pairs_per_dataset": 552,
+  "tests_required": 20,
+  "new_ann_search": false,
+  "new_index_build": false,
+  "future_replication_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "full_cost": "NOT_ESTIMABLE"
+}

@@ -1,0 +1,6 @@
+estimand_id,name,formal_definition,population_scope,resampling_unit,descriptive_or_inferential,allowed_claim,forbidden_claim
+H1-A,full-family variation coverage,P_q(max_G B_G(q)-min_G B_G(q)>0),24 registered builds,none; descriptive support/range,descriptive,variation exists in registered build family,population CI from ordinary range bootstrap
+H1-B,within-seed cross-order disagreement,"E[1{B_(s,o)!=B_(s,o')} | o!=o']","seed, query, three fixed orders",crossed seed-query,inferential over registered environments,fixed-order treatments disagree within seed,unseen order-distribution guarantee
+H1-C,within-order cross-seed disagreement,"E[1{B_(s,o)!=B_(s',o)} | s!=s']","query, seeds within fixed order",crossed seed-query,inferential over registered environments,construction seeds disagree within fixed order,universal unseen-build guarantee
+H2-R,Oracle transport risk increment,E[Z_t(B_s)-Z_t(B_t)],directed builds and evaluation queries,source-seed x query,post-confirmatory mechanism inference,transport creates a frozen-family risk barrier,deployable Oracle policy
+H2-C,safe adjusted ROM NDC tax,sum(C_t(B_s)-C_t(B_t))/sum(C_t(B_t)) on safe units,safe transport units,source-seed x query,post-confirmatory mechanism inference,safe transport creates compute tax,unsafe low-cost action is a gain

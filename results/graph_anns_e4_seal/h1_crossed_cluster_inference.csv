@@ -1,0 +1,5 @@
+dataset,estimand_id,disagreement,disagreement_ci_low,disagreement_ci_high,absolute_difference,absolute_ci_low,absolute_ci_high,resampling
+sift_100k,H1-B,0.574277777778,0.552407733333,0.5967994,23.96,22.1412411111,25.82913,crossed seed-query; fixed order factor
+sift_100k,H1-C,0.13246031746,0.111530942857,0.148421022222,3.41793650794,2.80533961905,3.89022850794,crossed seed-query; fixed order factor
+arxiv_nomic_100k,H1-B,0.452333333333,0.428730944444,0.475676777778,15.7711111111,14.2738302222,17.3939135556,crossed seed-query; fixed order factor
+arxiv_nomic_100k,H1-C,0.126174603175,0.105611069841,0.141928926984,3.21523809524,2.6213,3.71448650794,crossed seed-query; fixed order factor

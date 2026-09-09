@@ -1,0 +1,2 @@
+run_a,run_b,scope,status
+results/graph_anns_e4_seal,/tmp/e4seal_run2,all_core_csv,BYTE_IDENTICAL

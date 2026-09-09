@@ -1,0 +1,3 @@
+# Limitations
+
+Only two 100K datasets, hnswlib, eight construction seeds, three fixed insertion-order treatments, six ef levels, and the frozen query roles are covered. Orders are fixed factors, not sampled from an order population. Eight seeds limit outer-environment generalization. Oracle transport uses evaluation outcomes and is nondeployable. The robust safety-adjusted cost estimand was defined post-confirmatory. Wall-clock and complete economic costs are not sufficiently controlled and remain `NOT_ESTIMABLE`. No future-replication, validation-dev, formal-test, certification-reserved, GloVe, or new truth was accessed.

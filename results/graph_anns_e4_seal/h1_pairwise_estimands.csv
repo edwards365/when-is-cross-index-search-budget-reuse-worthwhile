@@ -1,0 +1,5 @@
+dataset,estimand_id,disagreement,absolute_budget_difference
+sift_100k,H1-B,0.574277777778,23.96
+sift_100k,H1-C,0.13246031746,3.41793650794
+arxiv_nomic_100k,H1-B,0.452333333333,15.7711111111
+arxiv_nomic_100k,H1-C,0.126174603175,3.21523809524
