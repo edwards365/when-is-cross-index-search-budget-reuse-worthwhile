@@ -1,0 +1,7 @@
+dataset,order,estimate,ci_low,ci_high,unit
+sift_100k,random,0.356,0.21066666666666667,0.3333333333333333,seed_within_fixed_order
+sift_100k,lid_ascending,0.37466666666666665,0.23066666666666666,0.3506666666666667,seed_within_fixed_order
+sift_100k,lid_descending,0.39466666666666667,0.24666666666666667,0.372,seed_within_fixed_order
+arxiv_nomic_100k,random,0.3373333333333333,0.21333333333333335,0.31733333333333336,seed_within_fixed_order
+arxiv_nomic_100k,lid_ascending,0.37333333333333335,0.232,0.352,seed_within_fixed_order
+arxiv_nomic_100k,lid_descending,0.33466666666666667,0.212,0.31466666666666665,seed_within_fixed_order

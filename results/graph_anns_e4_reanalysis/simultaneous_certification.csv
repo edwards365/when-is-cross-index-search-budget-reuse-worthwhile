@@ -1,0 +1,3 @@
+dataset,builds,point_below,per_target_certified,simultaneously_certified,meta_average_risk
+arxiv_nomic_100k,24,24,12,8,0.03322222222222222
+sift_100k,24,24,15,8,0.03238888888888889

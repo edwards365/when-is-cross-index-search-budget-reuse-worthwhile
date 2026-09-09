@@ -1,0 +1,190 @@
+[
+  {
+    "path": "docs/graph_anns_e4/claim_evidence_table.md",
+    "sha256": "35cdb02379220eac6bd74b142064cdb4361347a22120ad07adbfcfdebd3bbb23"
+  },
+  {
+    "path": "docs/graph_anns_e4/evidence_scope.md",
+    "sha256": "3de21f2c0eb0c79645bdde883d1cfd25b36968bc9391b05bb1461678789d2f80"
+  },
+  {
+    "path": "docs/graph_anns_e4/executive_summary.md",
+    "sha256": "8ac77fb2ea62a20208b58870a568b754e9a4f485cb061245807ce3c3a3fa07d7"
+  },
+  {
+    "path": "docs/graph_anns_e4/final_report.md",
+    "sha256": "5717dfc3f5d0fd8ab1de66c6eb89c67339ff3ebf086fead6047a79bee111b761"
+  },
+  {
+    "path": "docs/graph_anns_e4/limitations.md",
+    "sha256": "4178d329da5112ab40c2a7f86c98dca122fd528e8502a53360e83ba880a25a70"
+  },
+  {
+    "path": "docs/graph_anns_e4/paper_story_update.md",
+    "sha256": "7b240777bd362d7e7163def203824be3e742a51a14c1c69d71f07d44b48caf9a"
+  },
+  {
+    "path": "docs/graph_anns_e4/preregistered_protocol.md",
+    "sha256": "73acb45e6042943c8f7cecee20f989407becb2f0ec276ce6579d591fcdf6f45d"
+  },
+  {
+    "path": "docs/graph_anns_e4/protocol_deviation_report.md",
+    "sha256": "f776269a35768d753605e3462d00c5920c96ba12d25902d966a745dddc67d782"
+  },
+  {
+    "path": "docs/graph_anns_e4/runtime_methodology.md",
+    "sha256": "4b8b60c326b93f321ed387f61abbd50d99d270b7bc9c5a3df28f365fa3a4dd6b"
+  },
+  {
+    "path": "results/graph_anns_e4/break_even.csv",
+    "sha256": "759a6de1cec3ed1219f500053661cd6c2f3b58b30ba67bb6ed87e0549f27ca88"
+  },
+  {
+    "path": "results/graph_anns_e4/build_cluster_bootstrap.csv",
+    "sha256": "4e96fe9e9675d60eacfbfa74b260634621b5c9e36bd1002155eb8b9d5dbca89d"
+  },
+  {
+    "path": "results/graph_anns_e4/build_manifest.csv",
+    "sha256": "84cefa732ec9789235feb69af9109b5b5f41d7d9c142e34ed171cba76754f8e2"
+  },
+  {
+    "path": "results/graph_anns_e4/checksums.sha256",
+    "sha256": "4e3475683a3140ff3dd479aa0576e62cd42338c5b55fb34b0e95c048d7f60625"
+  },
+  {
+    "path": "results/graph_anns_e4/dataset_heterogeneity.csv",
+    "sha256": "f47aef06563b51a31cb8ba707fbca204890c76d53276cadc35395a9c3abf20b2"
+  },
+  {
+    "path": "results/graph_anns_e4/directed_pair_transfer.csv",
+    "sha256": "3bc9005e47ac4ab0e296b1c404c2d6c4fa1f5147306abee785da3a51fae93e7b"
+  },
+  {
+    "path": "results/graph_anns_e4/endpoint_audit.csv",
+    "sha256": "ad1e5ae3dec0589321b46ea699d9789f6e52385fb27c9eb557ebb0ed238cbb0f"
+  },
+  {
+    "path": "results/graph_anns_e4/index_checksums.csv",
+    "sha256": "1b601ae5f59bdc6a7e70505712267428175e1aa96adbfb8f5aba7f581e499001"
+  },
+  {
+    "path": "results/graph_anns_e4/leave_one_build_out.csv",
+    "sha256": "7c381ef363aeb1b4766329bf8399f1367a48159b28de1e68b5e24a22967359ba"
+  },
+  {
+    "path": "results/graph_anns_e4/per_build_summary.csv",
+    "sha256": "0c52cc858d20f08161d79e6ecb810de96f906e53dddeb01e8f2885723b05643e"
+  },
+  {
+    "path": "results/graph_anns_e4/per_query_budget_response.parquet",
+    "sha256": "e6c74908465245f05e40c988951348afcf13c630a9d366f6ea08aedc4cb59267"
+  },
+  {
+    "path": "results/graph_anns_e4/preflight_audit.json",
+    "sha256": "c5ef70c062134e86160622ddbf2e93d3450a2124cf87890e7f7e3b6729a0ef7f"
+  },
+  {
+    "path": "results/graph_anns_e4/preflight_checksums.sha256",
+    "sha256": "3ae948500f28f096ee220e8dd0db9f4d7be8e801f9d5bb80ab623d9f46bd8a5c"
+  },
+  {
+    "path": "results/graph_anns_e4/preflight_resource_budget.json",
+    "sha256": "35141f43e80ab3ac98b6ba1ecb60e3e4f8b87c28b5d8551712368f97413fbe53"
+  },
+  {
+    "path": "results/graph_anns_e4/query_paired_bootstrap.csv",
+    "sha256": "5025575bc1f25e8f4bf5b23eb97dc757a7b9f745b9e404b6bc9e6d9dd65a903a"
+  },
+  {
+    "path": "results/graph_anns_e4/risk_constrained_regret.csv",
+    "sha256": "62fb45b1987a2a1ba9c3c63ae251a791f3a610bef81fc1e05165fee683e61acd"
+  },
+  {
+    "path": "results/graph_anns_e4/role_overlap.csv",
+    "sha256": "4f4ec4935e9c3404d1f776bffae6ba286d559aecbdac8fc31a59b4ae06d8417a"
+  },
+  {
+    "path": "results/graph_anns_e4/runtime_summary.csv",
+    "sha256": "3a41cc1400442b023dcab32d04e4d840f99c49a312a8a334ab496f13f10b3501"
+  },
+  {
+    "path": "results/graph_anns_e4/top1pct_robustness.csv",
+    "sha256": "155254c54c4432ac264d00f02145e150127c13417d09f62246c89a4204c79a4f"
+  },
+  {
+    "path": "results/graph_anns_e4/unified_gate_table.csv",
+    "sha256": "789a8924bd41347d9219a65ddd9acbbb9c86ea062244dd5c8a62e56113f23399"
+  },
+  {
+    "path": "figures/graph_anns_e4/budget_response_dispersion.pdf",
+    "sha256": "3c067bfe58ecd420b3e934e0d1c3084ff1a1947b818befb9a22f92f068fefcb0"
+  },
+  {
+    "path": "figures/graph_anns_e4/budget_response_dispersion.png",
+    "sha256": "5aa86a1f35023e04a76c1f00a2b42c972f8b674b0755d2e85e15e4ddaf741e58"
+  },
+  {
+    "path": "figures/graph_anns_e4/build_cluster_intervals.pdf",
+    "sha256": "ce4fdcbeac99153af5ead3823e807d8f7eb6e6073fe4476722c6e2a3e374c069"
+  },
+  {
+    "path": "figures/graph_anns_e4/build_cluster_intervals.png",
+    "sha256": "e421fb0375c42987d4e01c42f94ba495e70187bdb83cdfb23fb799cfec6acb6a"
+  },
+  {
+    "path": "figures/graph_anns_e4/conservative_tax.pdf",
+    "sha256": "1d9fb358eb06bdd710f806d8f033c016e6cd54b5d30996255df50b5a10060a2d"
+  },
+  {
+    "path": "figures/graph_anns_e4/conservative_tax.png",
+    "sha256": "7fc472af800e1dd4eb392523d182767afa6838f55beff49a43e7c1fe1da27aed"
+  },
+  {
+    "path": "figures/graph_anns_e4/endpoint_feasibility.pdf",
+    "sha256": "4e7f21175968758ca1ab0ed27382e39c0b86481cfdf34aed7909fe6fae6f2f5c"
+  },
+  {
+    "path": "figures/graph_anns_e4/endpoint_feasibility.png",
+    "sha256": "dabd4a3750125de62230e575c0f19ad3e0720b0fea59067c027fbb82c00b15dd"
+  },
+  {
+    "path": "figures/graph_anns_e4/heterogeneity_explanation.pdf",
+    "sha256": "6fb61896b4dadd9e2adad9858e66ca4abf06d8ac74e1907d6237701632e60f31"
+  },
+  {
+    "path": "figures/graph_anns_e4/heterogeneity_explanation.png",
+    "sha256": "6d28261b6c85891be5b3ba3d0950ada988cbd8cfa1e06bb36fa0aa375872f9fe"
+  },
+  {
+    "path": "figures/graph_anns_e4/mean_tail_tradeoff.pdf",
+    "sha256": "afdfa2e65efce31db2f7c2e60a45722f2b038c8d27ebf369cee85508886182ab"
+  },
+  {
+    "path": "figures/graph_anns_e4/mean_tail_tradeoff.png",
+    "sha256": "afeb7049636b587b3c7964fe0d634ea3d0117424fa19a7728545a0bd8f79ab6f"
+  },
+  {
+    "path": "figures/graph_anns_e4/ndc_vs_wallclock.pdf",
+    "sha256": "9e6398de4c4f5837a353b8a95b2418e0bb0f8d316a404906e5dc9152b1195d03"
+  },
+  {
+    "path": "figures/graph_anns_e4/ndc_vs_wallclock.png",
+    "sha256": "8a479eddcbbcafa7a61473a3c68891958066bb7cb771e8678c94b9d78d6ffc18"
+  },
+  {
+    "path": "figures/graph_anns_e4/transfer_risk_by_dataset.pdf",
+    "sha256": "a381df600eb4b30eef396b6b07c42d96d2e7aa85fd9a8ea99f25e1787dfbbe91"
+  },
+  {
+    "path": "figures/graph_anns_e4/transfer_risk_by_dataset.png",
+    "sha256": "e113e29567ef2697f32aea1cff66fd57feb9e1c749d6eafe97334af07b4fc902"
+  },
+  {
+    "path": "tests/graph_anns_e4/test_outputs.py",
+    "sha256": "0ca67b165813c3dda91f216691f943dcc60fd1527b70774310e9f2cfe410b76b"
+  },
+  {
+    "path": "tests/graph_anns_e4/test_preflight.py",
+    "sha256": "533e883303e84d00571ce658a9f1bd83586a23e47ccdb52be7bff46ba94371ec"
+  }
+]

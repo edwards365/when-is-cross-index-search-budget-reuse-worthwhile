@@ -1,0 +1,5 @@
+dataset,metric,estimate,ci_low,ci_high,unit
+sift_100k,H1_nonzero_fraction,0.7686666666666666,0.763,0.7738333333333333,seed_block_keep_three_orders
+sift_100k,H2_ROM_tax,0.21749129211429272,0.21568063819634709,0.21924013312939689,seed_block_keep_three_orders
+arxiv_nomic_100k,H1_nonzero_fraction,0.6233333333333333,0.6183333333333333,0.6286666666666667,seed_block_keep_three_orders
+arxiv_nomic_100k,H2_ROM_tax,0.16074913469344662,0.1591351508617829,0.16237885557654375,seed_block_keep_three_orders

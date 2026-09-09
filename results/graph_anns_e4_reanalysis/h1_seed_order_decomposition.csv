@@ -1,0 +1,3 @@
+dataset,query_id,seed_variance,fixed_order_variance,seed_order_interaction,total_build_variance
+arxiv_nomic_100k,624.5,25.025,303.7328703703704,49.8375,378.59537037037035
+sift_100k,624.5,22.804398148148152,521.187962962963,46.4712962962963,590.4636574074074

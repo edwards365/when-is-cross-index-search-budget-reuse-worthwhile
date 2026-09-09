@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "evidence_level": "POST_CONFIRMATORY_SEMANTIC_AND_FACTORIAL_REANALYSIS",
+  "label": "E4_H1_H2_TRANSPORT_CONFIRMED_TWO_DATASETS",
+  "deployment_label": "NO_DEPLOYABLE_VALUE",
+  "frozen_parent": "c676cdd577b1542dcffa9771887d4a768025c009",
+  "build_artifacts": 48,
+  "factorial_design": "2 datasets x 8 construction seeds x 3 fixed insertion regimes",
+  "query_mapping_valid": true,
+  "oracle_transport_pairs_per_dataset": 552,
+  "original_e4_modified": false,
+  "future_replication_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "legacy_limit": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123",
+  "gates": [
+    {
+      "dataset": "sift_100k",
+      "H1": "STRONG_PASS",
+      "H2": "STRONG_PASS",
+      "H3": "NO_CERTIFIED_SOURCE_ACTION"
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "H1": "STRONG_PASS",
+      "H2": "STRONG_PASS",
+      "H3": "SAFE_BUT_ECONOMICALLY_DOMINATED"
+    }
+  ]
+}
