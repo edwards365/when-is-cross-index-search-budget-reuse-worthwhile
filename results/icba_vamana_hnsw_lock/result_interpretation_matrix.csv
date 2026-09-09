@@ -1,0 +1,8 @@
+result_label,minimum_condition,paper_location,permitted_interpretation,forbidden_interpretation
+VAMANA_STRONG_CROSS_FAMILY_REPLICATION_TWO_DATASETS,"both datasets pass detection and materiality",main_RQ3,"registered DiskANN3/Vamana two-dataset cross-family replication","all Graph-ANNS universality"
+VAMANA_DATA_OPERATOR_CONDITIONAL_REPLICATION,"one dataset passes; other weak or null",main_interaction,"data-by-operator conditional replication","unconditional family effect"
+VAMANA_BUDGET_HETEROGENEITY_WITH_WEAK_OPERATIONAL_CONSEQUENCE,"H1 passes; risk/cost materiality weak",main_boundary,"mechanism heterogeneity with weak operational consequence","deployment harm"
+VAMANA_REGISTERED_REGIME_BOUNDARY_RESULT,"structure or response changes below materiality",main_boundary_or_limitations,"registered regime boundary","scientific replication"
+HNSW_EFFECT_NOT_REPLICATED_IN_REGISTERED_VAMANA,"both datasets precisely exclude minimum effect",main_boundary_or_limitations,"powered nonreplication in registered Vamana","absence in all Vamana"
+VAMANA_EXTERNAL_VALIDITY_INCONCLUSIVE,"intervals too wide or build count inadequate",appendix,"insufficient evidence","null effect"
+VAMANA_EXTERNAL_VALIDITY_INVALID_SEMANTIC_BRIDGE,"budget randomness cost or replay semantic failure",limitations,"engineering/semantic invalidity","scientific negative result"
