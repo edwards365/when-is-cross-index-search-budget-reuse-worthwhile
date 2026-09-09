@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "parent": "6dce847f6102fa212f9eb1ef0b2e8bbae266a4af",
+  "final_label": "E4_FINAL_HOTFIX_PASS_FREEZE_HNSWLIB_EVIDENCE",
+  "scientific_label": "E4_H1_H2_TRANSPORT_CONFIRMED_REGISTERED_HNSWLIB_FAMILY",
+  "deployment_label": "NO_DEPLOYABLE_VALUE",
+  "abstention_status": "PARTIAL_TARGET_ABSTENTION_REQUIRED",
+  "parent_replay": "BYTE_IDENTICAL",
+  "gates": {
+    "A_h1a4": "PASS",
+    "B_risk_alignment": "PASS",
+    "C_event_completeness": "PASS",
+    "D_certification_decision": "PASS",
+    "E_reproducibility": "PASS"
+  },
+  "sift_abstain": 5,
+  "arxiv_abstain": 8,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "future_replication_accessed": false,
+  "new_ann_search": false,
+  "new_index_build": false
+}

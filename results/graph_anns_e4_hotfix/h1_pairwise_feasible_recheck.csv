@@ -1,0 +1,5 @@
+dataset,estimand_id,scope,total_comparisons,jointly_feasible_comparisons,censoring_mismatch_comparisons,categorical_disagreement,jointly_feasible_disagreement,jointly_feasible_absolute_difference,effective_denominator
+sift_100k,H1-B,within_seed_cross_order,18000,17744,224,0.574277777778,0.569939134355,22.5259242561,17744
+sift_100k,H1-C,within_order_cross_seed,63000,62469,54,0.13246031746,0.132721830028,3.33365349213,62469
+arxiv_nomic_100k,H1-B,within_seed_cross_order,18000,17647,254,0.452333333333,0.446988156627,14.4171813906,17647
+arxiv_nomic_100k,H1-C,within_order_cross_seed,63000,62181,56,0.126174603175,0.126935880735,3.12893005902,62181

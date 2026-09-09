@@ -1,0 +1,3 @@
+dataset,all_feasible_count,all_feasible_rate,mixed_feasible_censored_count,mixed_feasible_censored_rate,all_censored_count,all_censored_rate,query_count,state_count_check,estimand,semantic_scope
+sift_100k,732,0.976,18,0.024,0,0,750,750,MIXED_FEASIBLE_CENSORED_STATE_RATE,registered-grid feasibility/censoring-state heterogeneity
+arxiv_nomic_100k,730,0.973333333333,19,0.0253333333333,1,0.00133333333333,750,750,MIXED_FEASIBLE_CENSORED_STATE_RATE,registered-grid feasibility/censoring-state heterogeneity
