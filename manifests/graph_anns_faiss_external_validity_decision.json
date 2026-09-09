@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "parent": "dd16073167a70fb5e82575279c35b838fee05922",
+  "final_label": "FAISS_HNSW_STRONG_EXTERNAL_REPLICATION_TWO_DATASETS",
+  "scope_label": "REGISTERED_HNSW_IMPLEMENTATIONS",
+  "builds_per_dataset": 24,
+  "directed_pairs_per_dataset": 552,
+  "confirmatory_queries": 750,
+  "bootstrap": 5000,
+  "seed": 991,
+  "gates": {
+    "provenance": true,
+    "semantics": true,
+    "native_reload_equivalence": true,
+    "SIFT_H1_H2": true,
+    "Arxiv_H1_H2": true,
+    "LOBO": true,
+    "top1pct_deletion": true
+  },
+  "deployment_diagnostic": "SECONDARY_NO_METHOD_DEVELOPED",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "future_replication_vectors_accessed": false,
+  "hdf5_test_member_accessed": false
+}

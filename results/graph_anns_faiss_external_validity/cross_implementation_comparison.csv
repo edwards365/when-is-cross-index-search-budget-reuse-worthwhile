@@ -1,0 +1,3 @@
+dataset,absolute_transport_risk,source_reference_risk,incremental_transport_risk,safe_rom_ndc_tax,safe_mean_of_ratios,pairs,queries_per_pair,hnswlib_risk_increment,hnswlib_rom_ndc_tax,faiss_to_hnswlib_risk_ratio,faiss_to_hnswlib_rom_ratio
+sift_100k,0.195780193237,0.00183333333333,0.193946859903,0.206100390404,0.2045049239,552,750,0.215734299517,0.194472095841,0.899007994267,1.05979415459
+arxiv_nomic_100k,0.17034057971,0.00211111111111,0.168229468599,0.188550347661,0.171111241813,552,750,0.17120531401,0.148793063699,0.982618264928,1.26719850357

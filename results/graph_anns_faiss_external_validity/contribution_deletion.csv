@@ -1,0 +1,3 @@
+dataset,analysis,deleted_queries,risk_increment,safe_rom_ndc_tax
+sift_100k,delete_top_contribution_1pct_queries,8,0.191953298957,0.200308892464
+arxiv_nomic_100k,delete_top_contribution_1pct_queries,8,0.165914684167,0.179683183809

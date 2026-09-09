@@ -1,0 +1,14 @@
+{
+  "grid": [
+    16,
+    32,
+    64,
+    128,
+    256,
+    512
+  ],
+  "selection": "pre-evaluation fixed six-level native efSearch grid",
+  "recall_threshold": 0.95,
+  "right_censoring": "bottom",
+  "seed": 991
+}

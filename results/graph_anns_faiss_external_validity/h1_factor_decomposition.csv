@@ -1,0 +1,2 @@
+factor,seed_factor_estimable,reason
+registered_build_permutation,False,Faiss does not expose a reproducible HNSW construction RNG seed

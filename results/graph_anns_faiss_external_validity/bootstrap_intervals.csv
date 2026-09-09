@@ -1,0 +1,3 @@
+dataset,risk_ci_low,risk_ci_high,rom_ci_low,rom_ci_high,bootstrap,seed,scope
+sift_100k,0.184992693237,0.202976147343,0.192508445325,0.220124400402,5000,991,registered_build_family_conditional_query_distribution
+arxiv_nomic_100k,0.159379227053,0.177381642512,0.173389016973,0.20344546755,5000,991,registered_build_family_conditional_query_distribution

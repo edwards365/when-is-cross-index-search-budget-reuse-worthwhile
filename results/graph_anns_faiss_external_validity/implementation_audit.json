@@ -1,0 +1,11 @@
+{
+  "faiss_version": "1.15.0",
+  "compile_options": "OPTIMIZE DD AVX2 ",
+  "cpu": "x86_64",
+  "threads": 1,
+  "metric": "L2; Arxiv vectors inherited normalized",
+  "M": 16,
+  "efConstruction": 100,
+  "build_random_seed_control": "not exposed; permutation only",
+  "sealed_test_members_read": false
+}

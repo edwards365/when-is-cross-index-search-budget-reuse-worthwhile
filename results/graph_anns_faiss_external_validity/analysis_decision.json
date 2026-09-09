@@ -1,0 +1,7 @@
+{
+  "pilot_label": "FAISS_HNSW_STRONG_EXTERNAL_REPLICATION_TWO_DATASETS",
+  "expand_authorized": true,
+  "scope": "REGISTERED_HNSW_IMPLEMENTATIONS",
+  "bootstrap": 5000,
+  "seed": 991
+}

@@ -1,0 +1,5 @@
+dataset,scope,effective_queries,positive_diameter_rate,mean_diameter,median_diameter,p90_diameter,p95_diameter,pairwise_disagreement_rate,jointly_feasible_mean_abs_diff
+sift_100k,all_builds_feasible,742,0.804582210243,52.5714285714,48,112,112,0.389556232665,14.951755928
+sift_100k,at_least_two_feasible,750,0.802666666667,53.8666666667,48,112,224,0.388945940709,15.0894012788
+arxiv_nomic_100k,all_builds_feasible,744,0.725806451613,45.8279569892,16,112,224,0.336435444912,13.4408602151
+arxiv_nomic_100k,at_least_two_feasible,750,0.728,47.8506666667,16,112,224,0.337425571807,13.7522467746

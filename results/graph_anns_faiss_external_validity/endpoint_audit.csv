@@ -1,0 +1,3 @@
+dataset,endpoint_rate,mixed_feasible_censored_rate,all_censored_count,raw_nonmonotone_rate
+sift_100k,0.00183333333333,0.0106666666667,0,0
+arxiv_nomic_100k,0.00211111111111,0.008,0,0
