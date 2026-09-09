@@ -1,0 +1,14 @@
+gate_id,gate_group,statistic,threshold,unit,required_scope,pass_rule,failure_label
+D1,detection,effect_direction,"preregistered positive direction",categorical,both_datasets,"direction matches",NO_DETECTION
+D2,detection,uncertainty,"CI excludes zero or deterministic replay noise",effect_unit,both_datasets,"exclude null/noise",INCONCLUSIVE
+D3,detection,leave_one_build_out,"no sign flip",binary,both_datasets,"all omissions retain sign",SINGLE_BUILD_DRIVEN
+D4,detection,top_one_percent_query_deletion,"no sign flip",binary,both_datasets,"direction retained",QUERY_OUTLIER_DRIVEN
+D5,detection,build_concentration,"not dominated by one build",binary,both_datasets,"influence audit passes",SINGLE_BUILD_DRIVEN
+M1,materiality,transport_category_change,10,percent,per_dataset,"M1 or M2",WEAK_HETEROGENEITY
+M2,materiality,jointly_feasible_budget_disagreement,5,percent,per_dataset,"M1 or M2",WEAK_HETEROGENEITY
+M3,materiality,asymmetric_migration_risk_increment,2,percentage_points,per_dataset,"M3 or M4",WEAK_OPERATIONAL_CONSEQUENCE
+M4,materiality,within_implementation_rom_cost_tax,3,percent,per_dataset,"M3 or M4",WEAK_OPERATIONAL_CONSEQUENCE
+P1,preflight,identical_config_replay,"within frozen replay tolerance",binary,before_pilot,"pass",NO_REPRODUCIBLE_VAMANA_BUILD_ENVIRONMENT
+P2,preflight,environment_contrast,"nonzero artifact or graph-summary change",binary,before_pilot,"pass",NO_REPRODUCIBLE_VAMANA_BUILD_ENVIRONMENT
+P3,preflight,save_load_trace,"exact on non-held-out toy queries",binary,before_pilot,"pass",INVALID_SEMANTIC_BRIDGE
+S1,stage_two,Stage_I_result,"Detection and Materiality pass",binary,both_datasets_or_registered_conditional,"pass before scaling",DO_NOT_SCALE
