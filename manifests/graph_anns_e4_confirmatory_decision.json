@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "label": "E4_STRONG_CONFIRMATION_TWO_DATASETS",
+  "parent_commit": "6829bbc377ca113fd8f8a94499a4af753dd95aa3",
+  "preregistration_commit": "9d69be57fb67d566637c19b2c45bce1288d61f3f",
+  "builds": 48,
+  "builds_succeeded": 48,
+  "confirmatory_queries_per_dataset": 1000,
+  "dataset_gates": {
+    "sift_100k": "STRONG_SUPPORT",
+    "arxiv_nomic_100k": "STRONG_SUPPORT"
+  },
+  "deployment_gates": {
+    "sift_100k": {
+      "mean_recall_difference_vs_fixed_safe": -0.0027111111111111086,
+      "mean_runtime_gain": 0.3564840635359905,
+      "p95_runtime_change": -0.3551779971230329,
+      "gate": "SCIENTIFIC_ONLY_EVIDENCE"
+    },
+    "arxiv_nomic_100k": {
+      "mean_recall_difference_vs_fixed_safe": -0.0024388888888891014,
+      "mean_runtime_gain": 0.3461623700947759,
+      "p95_runtime_change": -0.3721115108355414,
+      "gate": "SCIENTIFIC_ONLY_EVIDENCE"
+    }
+  },
+  "native_instrumented_equivalence": "VERIFIED_BY_RUNNER_EVERY_QUERY",
+  "future_replication_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "legacy_limit": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123_RETAINED",
+  "ndc_supported": true,
+  "runtime_direction_supported": true
+}

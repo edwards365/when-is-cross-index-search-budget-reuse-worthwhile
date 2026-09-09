@@ -1,0 +1,3 @@
+dataset,analysis,risk,mean_ndc_regret,direction_preserved
+sift_100k,drop_top_gain_1pct,0.02266988384490208,1.8046428360064373,True
+arxiv_nomic_100k,drop_top_gain_1pct,0.02356637863315004,2.4660319355278624,True

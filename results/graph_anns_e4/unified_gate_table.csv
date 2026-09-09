@@ -1,0 +1,3 @@
+dataset,support_route,budget_change_fraction,mean_budget_diameter,endpoint_conversion_fraction,risk_estimate,risk_ci_low,risk_ci_high,ndc_regret,ndc_regret_ci_low,ndc_regret_ci_high,direction_fraction,drop_max_build_effect,dataset_gate
+sift_100k,safe_regret,0.892,43.13,0.026,0.03238888888888889,0.029833333333333333,0.03488888888888889,1.7833298835237577,1.7388416329423093,1.8303112505346169,1.0,1.7741728020197318,STRONG_SUPPORT
+arxiv_nomic_100k,safe_regret,0.759,29.72945891783567,0.025,0.03322222222222222,0.02994444444444445,0.03638888888888889,2.4382870132815095,2.3835354137531795,2.4970146683701917,1.0,2.428617842411846,STRONG_SUPPORT
