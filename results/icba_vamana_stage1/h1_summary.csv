@@ -1,0 +1,3 @@
+dataset,queries,builds,category_change_rate,jointly_feasible_budget_inconsistency_rate,all_finite_rate,mixed_finite_censored_rate,all_censored_rate,mean_diameter_all,mean_diameter_at_least_two,detection_gate,materiality_gate
+SIFT-100K,750,12,0.7106666666666667,0.708,0.9973333333333333,0.0026666666666666666,0.0,41.45454545454545,42.26133333333333,True,True
+Arxiv-Nomic-100K,750,12,0.4826666666666667,0.4746666666666667,0.992,0.008,0.0,32.81720430107527,35.076101468624834,True,True

@@ -1,0 +1,257 @@
+{
+  "decision": "VAMANA_STRONG_EXTERNAL_REPLICATION_TWO_DATASETS",
+  "implementation_validity": "VALID_SEMANTIC_BRIDGE_INHERITED_AND_REAUDITED",
+  "evidence_scope": "REGISTERED_BUILD_FAMILY_CONDITIONAL_QUERY_INFERENCE",
+  "datasets": {
+    "SIFT-100K": {
+      "dataset": "SIFT-100K",
+      "queries": 750,
+      "builds": 12,
+      "primary_pairs": 36,
+      "category_change_rate": 0.7106666666666667,
+      "jointly_feasible_budget_inconsistency_rate": 0.708,
+      "all_finite_rate": 0.9973333333333333,
+      "mixed_finite_censored_rate": 0.0026666666666666666,
+      "all_censored_rate": 0.0,
+      "mean_diameter_all": 41.45454545454545,
+      "mean_diameter_at_least_two": 42.26133333333333,
+      "transport_risk": 0.16862962962962963,
+      "delta_risk": 0.16862962962962963,
+      "cost_tax_ratio_of_means": 0.010038208269580684,
+      "bootstrap95": {
+        "transport_risk": [
+          0.15648055555555554,
+          0.1810009259259259
+        ],
+        "delta_risk": [
+          0.15648055555555554,
+          0.1810009259259259
+        ],
+        "cost_tax_ratio_of_means": [
+          -0.009422742371225598,
+          0.03038009484174292
+        ],
+        "category_change_rate": [
+          0.6786666666666666,
+          0.744
+        ]
+      },
+      "events": {
+        "BOTH_RIGHT_CENSORED": 0.00022222222222222223,
+        "SOURCE_ONLY_RIGHT_CENSORED": 0.0008888888888888889,
+        "TARGET_ONLY_RIGHT_CENSORED": 0.00022222222222222223,
+        "UNDER_BUDGET_UNSAFE": 0.1672962962962963,
+        "EXACT_BUDGET_SAFE": 0.6500370370370371,
+        "OVER_BUDGET_SAFE": 0.18133333333333335,
+        "OVER_BUDGET_UNSAFE": 0.0
+      },
+      "robustness": {
+        "drop_top1pct_risk": {
+          "risk": 0.1636384028712427,
+          "cost_tax": 0.01730594080605674
+        },
+        "drop_top1pct_cost": {
+          "risk": 0.1683116494691192,
+          "cost_tax": -0.0029593439891846263
+        },
+        "lobo": [
+          {
+            "omitted_build": "V01",
+            "transport_risk": 0.1676888888888889,
+            "cost_tax": 0.010648772790892602
+          },
+          {
+            "omitted_build": "V02",
+            "transport_risk": 0.168,
+            "cost_tax": 0.011053361682232143
+          },
+          {
+            "omitted_build": "V03",
+            "transport_risk": 0.16755555555555557,
+            "cost_tax": 0.01330077062110746
+          },
+          {
+            "omitted_build": "V04",
+            "transport_risk": 0.1695111111111111,
+            "cost_tax": 0.011303338412723907
+          },
+          {
+            "omitted_build": "V05",
+            "transport_risk": 0.1691111111111111,
+            "cost_tax": 0.0050158371024775494
+          },
+          {
+            "omitted_build": "V06",
+            "transport_risk": 0.16991111111111112,
+            "cost_tax": 0.008904711826652312
+          },
+          {
+            "omitted_build": "V07",
+            "transport_risk": 0.16991111111111112,
+            "cost_tax": 0.008917469100115705
+          },
+          {
+            "omitted_build": "V08",
+            "transport_risk": 0.16444444444444445,
+            "cost_tax": 0.01981441747073398
+          },
+          {
+            "omitted_build": "V09",
+            "transport_risk": 0.16586666666666666,
+            "cost_tax": 0.012830884623312944
+          },
+          {
+            "omitted_build": "V10",
+            "transport_risk": 0.16924444444444445,
+            "cost_tax": 0.008586046703532801
+          },
+          {
+            "omitted_build": "V11",
+            "transport_risk": 0.17106666666666667,
+            "cost_tax": 0.004639570024997264
+          },
+          {
+            "omitted_build": "V12",
+            "transport_risk": 0.17124444444444445,
+            "cost_tax": 0.005600576832337056
+          }
+        ],
+        "raw_nonmonotone_rate": 0.0
+      },
+      "detection_gate": true,
+      "materiality_gate": true
+    },
+    "Arxiv-Nomic-100K": {
+      "dataset": "Arxiv-Nomic-100K",
+      "queries": 750,
+      "builds": 12,
+      "primary_pairs": 36,
+      "category_change_rate": 0.4826666666666667,
+      "jointly_feasible_budget_inconsistency_rate": 0.4746666666666667,
+      "all_finite_rate": 0.992,
+      "mixed_finite_censored_rate": 0.008,
+      "all_censored_rate": 0.0,
+      "mean_diameter_all": 32.81720430107527,
+      "mean_diameter_at_least_two": 35.076101468624834,
+      "transport_risk": 0.11374074074074074,
+      "delta_risk": 0.11374074074074074,
+      "cost_tax_ratio_of_means": 0.01108503294750851,
+      "bootstrap95": {
+        "transport_risk": [
+          0.10199907407407406,
+          0.1260009259259259
+        ],
+        "delta_risk": [
+          0.10199907407407406,
+          0.1260009259259259
+        ],
+        "cost_tax_ratio_of_means": [
+          -0.010470368674507666,
+          0.032166910540423414
+        ],
+        "category_change_rate": [
+          0.44666666666666666,
+          0.5186666666666667
+        ]
+      },
+      "events": {
+        "BOTH_RIGHT_CENSORED": 0.0012592592592592592,
+        "SOURCE_ONLY_RIGHT_CENSORED": 0.000962962962962963,
+        "TARGET_ONLY_RIGHT_CENSORED": 0.0007407407407407407,
+        "UNDER_BUDGET_UNSAFE": 0.11077777777777778,
+        "EXACT_BUDGET_SAFE": 0.7675925925925926,
+        "OVER_BUDGET_SAFE": 0.11866666666666667,
+        "OVER_BUDGET_UNSAFE": 0.0
+      },
+      "robustness": {
+        "drop_top1pct_risk": {
+          "risk": 0.10722296994167788,
+          "cost_tax": 0.019470430232785718
+        },
+        "drop_top1pct_cost": {
+          "risk": 0.11365335726035591,
+          "cost_tax": -0.0033115123784438483
+        },
+        "lobo": [
+          {
+            "omitted_build": "V01",
+            "transport_risk": 0.11364444444444445,
+            "cost_tax": 0.012818476775528609
+          },
+          {
+            "omitted_build": "V02",
+            "transport_risk": 0.11346666666666666,
+            "cost_tax": 0.014173133935547977
+          },
+          {
+            "omitted_build": "V03",
+            "transport_risk": 0.11426666666666667,
+            "cost_tax": 0.006301527112096972
+          },
+          {
+            "omitted_build": "V04",
+            "transport_risk": 0.11475555555555556,
+            "cost_tax": 0.01002687098452415
+          },
+          {
+            "omitted_build": "V05",
+            "transport_risk": 0.1131111111111111,
+            "cost_tax": 0.009615258358324219
+          },
+          {
+            "omitted_build": "V06",
+            "transport_risk": 0.1132,
+            "cost_tax": 0.013573972294271153
+          },
+          {
+            "omitted_build": "V07",
+            "transport_risk": 0.11124444444444445,
+            "cost_tax": 0.018608176925125397
+          },
+          {
+            "omitted_build": "V08",
+            "transport_risk": 0.11408888888888889,
+            "cost_tax": 0.00859143087847225
+          },
+          {
+            "omitted_build": "V09",
+            "transport_risk": 0.11595555555555556,
+            "cost_tax": 0.004723387811325308
+          },
+          {
+            "omitted_build": "V10",
+            "transport_risk": 0.11422222222222222,
+            "cost_tax": 0.017101573519871183
+          },
+          {
+            "omitted_build": "V11",
+            "transport_risk": 0.11453333333333333,
+            "cost_tax": 0.009710025946382705
+          },
+          {
+            "omitted_build": "V12",
+            "transport_risk": 0.1124,
+            "cost_tax": 0.007919979488749007
+          }
+        ],
+        "raw_nonmonotone_rate": 0.0
+      },
+      "detection_gate": true,
+      "materiality_gate": true
+    }
+  },
+  "gates": {
+    "SIFT_detection": true,
+    "SIFT_materiality": true,
+    "Arxiv_detection": true,
+    "Arxiv_materiality": true,
+    "no_single_build_direction_flip": true,
+    "event_completeness": true,
+    "query_role_firewall": true
+  },
+  "allow_graph_anns_title": true,
+  "title_scope_restriction": "registered HNSW and DiskANN3/Vamana-style build operators",
+  "sealed_roles_accessed": false,
+  "prior_e4_vectors_hash_audit_only": true,
+  "prior_e4_truth_accessed": false
+}

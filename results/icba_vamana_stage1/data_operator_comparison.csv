@@ -1,0 +1,3 @@
+dataset,operator,detection,materiality,risk_direction,cost_direction
+SIFT-100K,DiskANN3_Vamana,PASS,PASS,POSITIVE,WEAK_POSITIVE_CI_CROSSES_ZERO
+Arxiv-Nomic-100K,DiskANN3_Vamana,PASS,PASS,POSITIVE,WEAK_POSITIVE_CI_CROSSES_ZERO

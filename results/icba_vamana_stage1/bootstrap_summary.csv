@@ -1,0 +1,9 @@
+dataset,estimand,point,ci_low,ci_high,replicates,seed,scope
+SIFT-100K,transport_risk,0.16862962962962963,0.15648055555555554,0.1810009259259259,5000,991,query distribution conditional on registered 12-build family
+SIFT-100K,delta_risk,0.16862962962962963,0.15648055555555554,0.1810009259259259,5000,991,query distribution conditional on registered 12-build family
+SIFT-100K,cost_tax_ratio_of_means,0.010038208269580684,-0.009422742371225598,0.03038009484174292,5000,991,query distribution conditional on registered 12-build family
+SIFT-100K,category_change_rate,0.7106666666666667,0.6786666666666666,0.744,5000,991,query distribution conditional on registered 12-build family
+Arxiv-Nomic-100K,transport_risk,0.11374074074074074,0.10199907407407406,0.1260009259259259,5000,991,query distribution conditional on registered 12-build family
+Arxiv-Nomic-100K,delta_risk,0.11374074074074074,0.10199907407407406,0.1260009259259259,5000,991,query distribution conditional on registered 12-build family
+Arxiv-Nomic-100K,cost_tax_ratio_of_means,0.01108503294750851,-0.010470368674507666,0.032166910540423414,5000,991,query distribution conditional on registered 12-build family
+Arxiv-Nomic-100K,category_change_rate,0.4826666666666667,0.44666666666666666,0.5186666666666667,5000,991,query distribution conditional on registered 12-build family

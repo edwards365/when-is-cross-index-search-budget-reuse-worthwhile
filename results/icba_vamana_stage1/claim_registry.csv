@@ -1,0 +1,7 @@
+status,claim
+ALLOW,Independent input-order Vamana builds exhibit per-query minimum-safe-budget heterogeneity on the registered SIFT and Arxiv corpora.
+ALLOW,Transporting a source-build budget creates material safety risk in both registered datasets.
+ALLOW,The registered phenomenon extends beyond HNSW to this DiskANN3/Vamana-style graph-build operator.
+FORBID,Open-world Vamana or all Graph-ANNS implementations are proven.
+FORBID,Raw HNSW efSearch/NDC and Vamana l_value/cmps are numerically comparable.
+FORBID,The experiment establishes a recovery algorithm or deployment benefit.

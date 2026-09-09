@@ -1,0 +1,3 @@
+dataset,new_queries,prior_e4_queries_hashed_audit_only,content_overlap,prior_truth_accessed
+SIFT-100K,750,1000,0,False
+Arxiv-Nomic-100K,750,1000,0,False
