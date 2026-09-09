@@ -1,0 +1,12 @@
+cost_name,unit,mode,aggregation,cross_family_comparable,rule
+requested_l_value,count,in_memory,raw,no,"native action not efSearch"
+beam_width,count,in_memory,raw,no,"fixed at one; changing it changes action family"
+distance_computations,count,in_memory,"mean median p95 p99",conditional,"compare within exact implementation only"
+hops,count,in_memory,"mean median p95 p99",no,"not necessarily visited count"
+visited_nodes,count,in_memory,"mean median p95 p99",conditional,"only if exact counter exposed"
+wall_clock,nanoseconds,in_memory,"mean median p95 p99",no,"same hardware binary warmup and threads"
+io_operations,count,ssd,"mean median p95 p99",no,"separate provider regime"
+io_bytes,bytes,ssd,"mean median p95 p99",no,"separate provider regime"
+build_time,seconds,build,"per build and total",no,"not search cost"
+index_size,bytes,build,"per serialized artifact",conditional,"same format/commit only"
+rom_cost_tax,percent,in_memory,"relative within implementation",yes,"ratio to preregistered target-safe comparator"
