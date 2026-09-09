@@ -1,28 +1,51 @@
 {
   "audit": "P3_RESOURCE_AUDIT",
   "branch": "exp/graph_anns_paper_evidence_claim_lock",
-  "base_head": "eedef56",
+  "base_head": "cb34f88518590c1ff38897307b24225b2e4be09b",
   "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
-  "data500_path": "/home/wlk/data500/graph_anns_paper_evidence_lock",
-  "storage_gate": "PASS_STORAGE_ONLY",
-  "runtime_gate": "NOT_ESTIMABLE_BEFORE_PILOT",
-  "overall_p3": "CONDITIONAL",
-  "root_free_gib": 17.17,
-  "data500_free_gib": 902.659,
-  "historical_gate_a_bytes": 16346353993,
-  "historical_gate_a_runs": 113,
-  "observed_artifact_per_run_gib": 0.134723,
-  "planned_confirmatory_builds": 48,
-  "storage_stress_multiplier": 100,
-  "projected_payload_gib": 646.672,
-  "mandatory_reserve_gib": 5.0,
-  "projected_total_with_reserve_gib": 651.672,
-  "data500_remaining_margin_gib": 250.987,
+  "storage_gate": "PASS",
+  "runtime_gate": "PASS",
+  "overall_p3": "PASS",
   "confirmatory_experiment_started": false,
   "confirmatory_query_accessed": false,
   "future_replication_accessed": false,
-  "validation_dev_accessed": false,
-  "formal_test_accessed": false,
-  "decision": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
-  "next_allowed_step": "run_only_the_preregistered_runtime_pilot_after_P3_authorization"
+  "decision": "READY_FOR_CONFIRMATORY_HNSWLIB_REBUILD_MATRIX",
+  "resource_analysis": {
+    "status": "PASS",
+    "data500_path": "/home/wlk/data500/graph_anns_paper_evidence_lock",
+    "data500_free_gib": 902.65905,
+    "planned_builds_per_dataset": 24,
+    "planned_confirmatory_queries_per_dataset": 1000,
+    "latency_repetitions": 3,
+    "historical_per_dataset": {
+      "sift_100k": {
+        "historical_runs": 4,
+        "build_seconds_median": 25.222636153499998,
+        "build_seconds_max": 25.348128933,
+        "search_seconds_median": 2.353496607,
+        "search_seconds_max": 2.355883839,
+        "index_size_bytes_max": 66059640
+      },
+      "arxiv_nomic_100k": {
+        "historical_runs": 6,
+        "build_seconds_median": 144.19991795049998,
+        "build_seconds_max": 147.500408264,
+        "search_seconds_median": 14.589091973,
+        "search_seconds_max": 14.624125751,
+        "index_size_bytes_max": 322059640
+      }
+    },
+    "truth_seconds": {
+      "sift_100k": 11.726037200001883,
+      "arxiv_nomic_100k": 35.15951500000665
+    },
+    "historical_compute_upper_hours": 1.2785474097466691,
+    "runtime_safety_multiplier": 4.0,
+    "confirmatory_compute_envelope_hours": 5.114189638986677,
+    "operator_timebox_hours": "8-14",
+    "hard_max_hours": 20,
+    "storage_stress_multiplier": 100.0,
+    "projected_total_with_reserve_gib": 651.67165251696,
+    "remaining_margin_gib": 250.987397470833
+  }
 }

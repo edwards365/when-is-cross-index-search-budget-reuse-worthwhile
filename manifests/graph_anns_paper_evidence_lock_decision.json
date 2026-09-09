@@ -1,8 +1,8 @@
 {
-  "decision": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
+  "decision": "READY_FOR_CONFIRMATORY_HNSWLIB_REBUILD_MATRIX",
   "branch": "exp/graph_anns_paper_evidence_claim_lock",
-  "head": "208129dce0a322678f34147b110959b418ddab14",
-  "parent_anchor": "208129dce0a322678f34147b110959b418ddab14",
+  "head": "cb34f88518590c1ff38897307b24225b2e4be09b",
+  "parent_anchor": "cb34f88518590c1ff38897307b24225b2e4be09b",
   "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
   "main_worktree_only": true,
   "confirmatory_experiment_run": false,
@@ -23,7 +23,7 @@
     "P0": "PASS_WITH_CONTEXT",
     "P1": "PASS_WITH_SCOPE",
     "P2": "PASS",
-    "P3": "CONDITIONAL",
+    "P3": "PASS",
     "P4": "PASS"
   },
   "evidence_level_distribution": {
@@ -86,6 +86,44 @@
       }
     }
   },
+  "p3_resource_analysis": {
+    "status": "PASS",
+    "data500_path": "/home/wlk/data500/graph_anns_paper_evidence_lock",
+    "data500_free_gib": 902.65905,
+    "planned_builds_per_dataset": 24,
+    "planned_confirmatory_queries_per_dataset": 1000,
+    "latency_repetitions": 3,
+    "historical_per_dataset": {
+      "sift_100k": {
+        "historical_runs": 4,
+        "build_seconds_median": 25.222636153499998,
+        "build_seconds_max": 25.348128933,
+        "search_seconds_median": 2.353496607,
+        "search_seconds_max": 2.355883839,
+        "index_size_bytes_max": 66059640
+      },
+      "arxiv_nomic_100k": {
+        "historical_runs": 6,
+        "build_seconds_median": 144.19991795049998,
+        "build_seconds_max": 147.500408264,
+        "search_seconds_median": 14.589091973,
+        "search_seconds_max": 14.624125751,
+        "index_size_bytes_max": 322059640
+      }
+    },
+    "truth_seconds": {
+      "sift_100k": 11.726037200001883,
+      "arxiv_nomic_100k": 35.15951500000665
+    },
+    "historical_compute_upper_hours": 1.2785474097466691,
+    "runtime_safety_multiplier": 4.0,
+    "confirmatory_compute_envelope_hours": 5.114189638986677,
+    "operator_timebox_hours": "8-14",
+    "hard_max_hours": 20,
+    "storage_stress_multiplier": 100.0,
+    "projected_total_with_reserve_gib": 651.67165251696,
+    "remaining_margin_gib": 250.987397470833
+  },
   "numeric_reconciliation": {
     "gate_a_main_physical_rows": 1656000,
     "gate_a_main_unique_query_budget_units": 552000,
@@ -100,6 +138,7 @@
     "confirmatory_protocol": "docs/paper_evidence_lock/confirmatory_protocol.md",
     "numeric_reconciliation": "results/paper_evidence_lock/numeric_reconciliation.csv",
     "build_power_analysis": "results/paper_evidence_lock/build_power_analysis.csv",
+    "p3_resource_audit": "results/paper_evidence_lock/p3_resource_audit.csv",
     "decision_manifest": "manifests/graph_anns_paper_evidence_lock_decision.json"
   }
 }

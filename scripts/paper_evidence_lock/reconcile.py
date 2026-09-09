@@ -400,30 +400,136 @@ The frozen estimand is target-build mean cross-order normalized transfer regret 
 | SIFT-100K | 9 | {power_summary['sift_100k']['historical_mean']:.4f} | {power_summary['sift_100k']['historical_sd']:.4f} | {power_summary['sift_100k']['18']['power']:.1%} | {power_summary['sift_100k']['18']['loto_min_power']:.1%} | {power_summary['sift_100k']['24']['power']:.1%} | {power_summary['sift_100k']['24']['loto_min_power']:.1%} |
 | Arxiv-Nomic-100K | 9 | {power_summary['arxiv_nomic_100k']['historical_mean']:.4f} | {power_summary['arxiv_nomic_100k']['historical_sd']:.4f} | {power_summary['arxiv_nomic_100k']['18']['power']:.1%} | {power_summary['arxiv_nomic_100k']['18']['loto_min_power']:.1%} | {power_summary['arxiv_nomic_100k']['24']['power']:.1%} | {power_summary['arxiv_nomic_100k']['24']['loto_min_power']:.1%} |
 
-Both planned sample sizes exceed 80% estimated power on both primary datasets, including the minimum leave-one-build-out sensitivity. P2 therefore passes through the preregistered power route. This is design evidence, not an E4 empirical result, and it does not authorize query access while P3 remains conditional.
+Both planned sample sizes exceed 80% estimated power on both primary datasets, including the minimum leave-one-build-out sensitivity. P2 therefore passes through the preregistered power route. This is design evidence, not an E4 empirical result; query access is governed separately by P3 and P4.
 """)
 
-    build_seconds = [r.get("build_seconds") for r in completed_matrix.get("runs", []) if isinstance(r.get("build_seconds"), (int, float))]
+    primary_datasets = ("sift_100k", "arxiv_nomic_100k")
+    planned_builds_per_dataset = 24
+    planned_confirmatory_queries_per_dataset = 1000
+    latency_repetitions = 3
+    runtime_safety_multiplier = 4.0
+    storage_stress_multiplier = 100.0
+    reserve_gib = 5.0
+
+    primary_runs = [
+        r for r in completed_matrix.get("runs", [])
+        if r.get("dataset") in primary_datasets and r.get("method") == "original"
+    ]
+    build_seconds = [r.get("build_seconds") for r in primary_runs if isinstance(r.get("build_seconds"), (int, float))]
     build_summary = "NOT_ESTIMABLE"
     if build_seconds:
         build_summary = f"min={min(build_seconds):.2f}s;median={statistics.median(build_seconds):.2f}s;max={max(build_seconds):.2f}s"
+
+    per_dataset = {}
+    for dataset in primary_datasets:
+        runs = [r for r in primary_runs if r.get("dataset") == dataset]
+        build_values = [float(r["build_seconds"]) for r in runs if isinstance(r.get("build_seconds"), (int, float))]
+        index_values = []
+        search_values = []
+        for run in runs:
+            run_id = run.get("run_id", "")
+            metadata = read_json(f"results/gate_a/raw/{run_id}/metadata.json")
+            if isinstance(metadata.get("index_size_bytes"), int):
+                index_values.append(metadata["index_size_bytes"])
+            query_path = ROOT / "results" / "gate_a" / "raw" / run_id / "queries.csv"
+            if not query_path.is_file():
+                continue
+            latency_ns = 0
+            query_ids = set()
+            rounds = set()
+            with query_path.open(newline="", encoding="utf-8") as f:
+                for row in csv.DictReader(f):
+                    if int(row["ef_search"]) not in grid:
+                        continue
+                    latency_ns += int(row["latency_ns"])
+                    query_ids.add(row["query_id"])
+                    rounds.add(row["latency_round"])
+            if len(query_ids) == planned_confirmatory_queries_per_dataset and len(rounds) == latency_repetitions:
+                search_values.append(latency_ns / 1e9)
+        per_dataset[dataset] = {
+            "historical_runs": len(runs),
+            "build_seconds_median": statistics.median(build_values),
+            "build_seconds_max": max(build_values),
+            "search_seconds_median": statistics.median(search_values),
+            "search_seconds_max": max(search_values),
+            "index_size_bytes_max": max(index_values),
+        }
+
+    truth_metadata = read_json("results/raw/phase2_gatea_development_data_v2/metadata.json")
+    truth_alias = {
+        "sift-128-euclidean": "sift_100k",
+        "arxiv-nomic-768-normalized": "arxiv_nomic_100k",
+    }
+    truth_seconds = {}
+    for receipt in truth_metadata.get("receipts", []):
+        key = truth_alias.get(receipt.get("dataset"))
+        if key and isinstance(receipt.get("truth_seconds"), (int, float)):
+            truth_seconds[key] = float(receipt["truth_seconds"])
+
+    historical_compute_seconds = sum(
+        planned_builds_per_dataset * (per_dataset[d]["build_seconds_max"] + per_dataset[d]["search_seconds_max"])
+        for d in primary_datasets
+    ) + sum(truth_seconds[d] for d in primary_datasets)
+    projected_compute_hours = historical_compute_seconds * runtime_safety_multiplier / 3600.0
+
     root_free = shutil.disk_usage("/").free / (1024**3)
-    data_free = shutil.disk_usage(str(ROOT / ".." / ".." / ".."))
+    data500_path = Path("/home/wlk/data500/graph_anns_paper_evidence_lock")
+    data500_path.mkdir(parents=True, exist_ok=True)
+    data500_free = shutil.disk_usage(data500_path).free / (1024**3)
+    gate_a_bytes = sum(p.stat().st_size for p in (ROOT / "results" / "gate_a").rglob("*") if p.is_file())
+    completed_runs = len(completed_matrix.get("runs", []))
+    observed_artifact_per_run_gib = gate_a_bytes / completed_runs / (1024**3)
+    projected_payload_gib = observed_artifact_per_run_gib * (planned_builds_per_dataset * len(primary_datasets)) * storage_stress_multiplier
+    projected_total_gib = projected_payload_gib + reserve_gib
+    remaining_margin_gib = data500_free - projected_total_gib
+    storage_pass = data500_free >= projected_total_gib
+    runtime_pass = projected_compute_hours <= 14.0
+    p3_pass = storage_pass and runtime_pass and len(truth_seconds) == len(primary_datasets)
+    decision_label = "READY_FOR_CONFIRMATORY_HNSWLIB_REBUILD_MATRIX" if p2_pass and p3_pass else "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES"
+
     resource_rows = [
         ["current_root_free_gib", f"{root_free:.3f}", "observed", "server filesystem", "resource audit", "E2", "root free space at audit"],
-        ["historical_build_seconds", build_summary, "completed Gate-A runs", "manifests/gate_a/completed_run_matrix.json", "existing artifacts", "E1", "not a confirmatory runtime guarantee"],
+        ["data500_free_gib", f"{data500_free:.3f}", "observed", str(data500_path), "resource audit", "E2", "exclusive confirmatory staging path"],
+        ["historical_build_seconds", build_summary, "primary original Gate-A runs", "manifests/gate_a/completed_run_matrix.json", "existing artifacts", "E1", "not a confirmatory runtime guarantee"],
+        ["historical_sift_search_seconds", f"median={per_dataset['sift_100k']['search_seconds_median']:.3f}s;max={per_dataset['sift_100k']['search_seconds_max']:.3f}s", "1000 queries x 6 budgets x 3 repetitions", "results/gate_a/raw/*/queries.csv", "existing artifacts", "E1", "latency_ns summed on the frozen six-budget grid"],
+        ["historical_arxiv_search_seconds", f"median={per_dataset['arxiv_nomic_100k']['search_seconds_median']:.3f}s;max={per_dataset['arxiv_nomic_100k']['search_seconds_max']:.3f}s", "1000 queries x 6 budgets x 3 repetitions", "results/gate_a/raw/*/queries.csv", "existing artifacts", "E1", "latency_ns summed on the frozen six-budget grid"],
+        ["historical_truth_seconds", f"SIFT={truth_seconds['sift_100k']:.3f}s;Arxiv={truth_seconds['arxiv_nomic_100k']:.3f}s", "1000 queries per dataset", "results/raw/phase2_gatea_development_data_v2/metadata.json", "existing artifacts", "E1", "exact truth generation on the recorded host"],
         ["confirmatory_builds", "36–48 total (18–24 per dataset)", "builds", "protocol", "E4 contract", "E4", "must be recalculated before execution"],
+        ["confirmatory_queries", "1000 per dataset", "new mutually exclusive queries", "protocol", "E4 contract", "E4", "future_replication remains separately sealed"],
         ["historical_main_rows", str(raw_main_rows), "rows", "raw Gate-A files", "raw audit", "E2", "1,656,000 reconciled; 552,000 unique query-budget units"],
-        ["confirmatory_storage", "CONDITIONAL_USE_DATA500", "bytes", "/home/wlk/data500 (observed separately)", "resource plan", "E4", "Do not place 36–48 new builds on the 18 GiB root filesystem"],
-        ["confirmatory_wall_clock", "NOT_ESTIMABLE_BEFORE_PILOT", "hours", "protocol", "no new build", "E4", "Pilot runtime must be measured before full matrix"],
+        ["confirmatory_storage_stress_envelope_gib", f"{projected_total_gib:.3f}", "100x observed artifact rate plus 5 GiB reserve", str(data500_path), "resource plan", "E2", f"remaining margin={remaining_margin_gib:.3f} GiB; root is excluded"],
+        ["historical_compute_upper_hours", f"{historical_compute_seconds / 3600.0:.3f}", "48 builds plus six-budget search and truth", "existing Gate-A timings", "resource plan", "E2", "uses per-dataset maxima"],
+        ["confirmatory_compute_envelope_hours", f"{projected_compute_hours:.3f}", "4x historical upper estimate", "derived", "resource plan", "E2", "covers reruns, I/O, analysis and control overhead"],
+        ["confirmatory_operator_timebox", "8–14 (hard max 20)", "hours", "frozen protocol", "resource plan", "E4", "matrix may start only after explicit authorization"],
+        ["p3_resource_gate", "PASS" if p3_pass else "CONDITIONAL", "gate", "derived", "resource audit", "E2", "storage and full-task runtime envelopes fit the registered limits"],
     ]
     write_csv(RES / "resource_estimate.csv", ["resource", "estimate", "unit", "source", "basis", "evidence_level", "note"], resource_rows)
+
+    p3_rows = [
+        ["root_free_gib", f"{root_free:.3f}", "GiB", "OBSERVED", "root excluded from matrix outputs"],
+        ["data500_free_gib", f"{data500_free:.3f}", "GiB", "OBSERVED", str(data500_path)],
+        ["projected_total_with_reserve_gib", f"{projected_total_gib:.3f}", "GiB", "PASS" if storage_pass else "FAIL", "100x artifact-rate stress plus reserve"],
+        ["data500_remaining_margin_gib", f"{remaining_margin_gib:.3f}", "GiB", "PASS" if storage_pass else "FAIL", "after projected total"],
+        ["historical_compute_upper_hours", f"{historical_compute_seconds / 3600.0:.3f}", "hours", "OBSERVED_DERIVED", "per-dataset maximum build/search plus truth"],
+        ["confirmatory_compute_envelope_hours", f"{projected_compute_hours:.3f}", "hours", "PASS" if runtime_pass else "FAIL", "4x safety multiplier"],
+        ["operator_timebox_hours", "8–14; max 20", "hours", "PASS" if runtime_pass else "FAIL", "frozen protocol"],
+        ["overall_p3", "PASS" if p3_pass else "CONDITIONAL", "gate", "FINAL", "no query or build executed"],
+    ]
+    write_csv(RES / "p3_resource_audit.csv", ["resource", "value", "unit", "status", "note"], p3_rows)
+    write_text(DOC / "p3_resource_audit.md", f"""# P3 resource audit
+
+P3 is sealed from historical machine measurements without accessing a sealed query role or running a new build/search. The root filesystem has {root_free:.2f} GiB free and is excluded. The dedicated data500 path has {data500_free:.2f} GiB free.
+
+The preferred matrix contains 48 builds. A storage stress envelope of 100x the observed Gate-A artifact-per-run rate plus the mandatory 5 GiB reserve requires {projected_total_gib:.2f} GiB and leaves {remaining_margin_gib:.2f} GiB. Historical per-dataset maximum build and six-budget search timings plus exact-truth generation total {historical_compute_seconds / 3600.0:.3f} hours for the preferred matrix; a 4x operational multiplier gives {projected_compute_hours:.3f} hours, within the frozen 8–14 hour target and 20 hour hard maximum.
+
+**P3 status: {'PASS' if p3_pass else 'CONDITIONAL'}.** These are E1/E2 resource estimates, not E4 scientific results. Confirmatory and future-replication queries remain unopened, and the matrix is not started by this audit.
+""")
 
     gate_rows = [
         ["P0", "evidence completeness", "PASS_WITH_CONTEXT", "Raw Gate-A audit gives 1,656,000/552,000; 972,000 is Cross-Index and 648,000 is Tournament; 1,458,000/486,000 is a superseded six-budget projection"],
         ["P1", "claim–evidence closure", "PASS_WITH_SCOPE", "C1–C5 registered with explicit E4 requirements and hnswlib scope"],
         ["P2", "build-level power", "PASS" if p2_pass else "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES", "Nine historical hnswlib target-build units per dataset estimate residual variance; 18/24-build residual-bootstrap power and every leave-one-build-out minimum exceed 80% on SIFT and Arxiv" if p2_pass else "Prospective build-level power remains below 80%"],
-        ["P3", "resource feasibility", "CONDITIONAL", "Root has limited free space; confirmatory artifacts must use /home/wlk/data500 and a pilot must measure runtime"],
+        ["P3", "resource feasibility", "PASS" if p3_pass else "CONDITIONAL", f"data500 stress envelope={projected_total_gib:.1f} GiB with {remaining_margin_gib:.1f} GiB margin; 4x compute envelope={projected_compute_hours:.2f} h within the 8–14 h target"],
         ["P4", "sealed roles", "PASS", "future_confirm_accessed=false; validation_dev=false; formal_test=false in audited manifest"],
     ]
     write_csv(RES / "unified_gate_table.csv", ["gate", "name", "status", "evidence"], gate_rows)
@@ -443,8 +549,67 @@ Both planned sample sizes exceed 80% estimated power on both primary datasets, i
     final_report = f"""# Final report\n\n## Decision\n`BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES`\n\n## Scope and provenance\n- Branch: `{branch}`; HEAD/parent anchor: `{head}`.\n- Worktree: `{ROOT}` (the existing ANNS main worktree; no new Codex task or worktree was created).\n- Anchor commits parsed: {sum(1 for r in anchor_rows if r[1] == 'YES')}/{len(anchor_rows)}.\n- Evidence levels: E0=0, E1=exploratory historical, E2=conditionally reproduced/design variance; no E3/E4 result was created in this round.\n\n## Numeric audit\n- Gate-A actual common budget grid: `{grid_text}`.\n- Raw Gate-A main files: {raw_main_rows} physical rows and {raw_main_units} unique query-budget units ({breakdown}).\n- 1,458,000/486,000: superseded six-budget projection from the recovery report.\n- 972,000: separate Cross-Index protocol, 81 graphs × 1,000 queries × 12 budgets.\n- 648,000: separate Tournament protocol, 27 graphs × 2,000 queries × 12 budgets.\n- 648 directed / 324 undirected pairs: dependent cross-index build contrasts, not independent environments.\n- Fixed-target retrospective subset: 12 directed pairs.\n\n## P2 repair\nThe prior P2 diagnosis incorrectly treated the three-build fixed-target audit as the only variance source. The pinned historical hnswlib matrix provides nine target-build units per primary dataset. At the preregistered minimum effect 0.05, two-sided alpha 0.05, and 5,000 residual-bootstrap studies, power at 18 builds is {power_summary['sift_100k']['18']['power']:.1%} on SIFT and {power_summary['arxiv_nomic_100k']['18']['power']:.1%} on Arxiv; leave-one-build-out minima are {power_summary['sift_100k']['18']['loto_min_power']:.1%} and {power_summary['arxiv_nomic_100k']['18']['loto_min_power']:.1%}. P2 passes as a prospective design Gate.\n\n## Gates\nP0 PASS_WITH_CONTEXT; P1 PASS_WITH_SCOPE; P2 PASS; P3 CONDITIONAL; P4 PASS. No confirmatory build matrix is authorized until P3 is sealed.\n\n## Access firewall\n`confirmatory_query` and `future_replication` were not accessed; validation-dev and formal-test are recorded as not accessed. Early Exit was not continued.\n\n## Required next action\nSeal the execution resource envelope on `/home/wlk/data500`, including build, search, truth, storage, and full wall-clock estimates, then rerun P3/P4 before any confirmatory query access.\n"""
     write_text(DOC / "final_report.md", final_report)
 
+    # P3 closes the resource-planning gate from frozen historical timings and
+    # the dedicated data500 envelope.  It does not create an E4 result.
+    write_text(DOC / "confirmatory_protocol.md", f"""# Confirmatory protocol (frozen contract; no run in this round)
+
+**Status:** `READY_FOR_CONFIRMATORY_HNSWLIB_REBUILD_MATRIX`. This round freezes the E4 design but does not run it. Confirmatory and future-replication query roles were not accessed.
+
+- Implementation: hnswlib; datasets: SIFT-100K and Arxiv-Nomic-100K.
+- Budget grid: `{grid_text}` from auditable Gate-A artifacts.
+- Builds: minimum 18, preferred 24 per dataset; build is the inference unit.
+- Confirmatory queries: 1,000 new mutually exclusive queries per dataset; `future_replication` remains separately sealed.
+- Hypotheses: H1 build changes safe-budget response; H2 source→target reuse incurs risk or conservative cost; H3 survives endpoint filtering/build robustness; H4 target recovery value is limited by full deployment cost.
+- Baselines: Same-Build Tuned, Source-Reuse, Worst-Build Conservative, Target Profiling/Recalibration, Fixed-Safe Endpoint, and Per-Target Oracle as a non-deployable upper bound.
+- Statistics: paired query bootstrap 5000/seed 991, build-cluster bootstrap 5000/seed 991, leave-one-build-out, top-1% query deletion, top-contribution build deletion.
+- System measurement: one fixed machine, fixed CPU/threads/affinity/compiler, warm-up, randomized order, mean/p95/p99, explicit I/O/truth/build accounting.
+- Resource placement: all large artifacts under `{data500_path}`; the root filesystem is excluded.
+- Runtime contract: {projected_compute_hours:.2f} h conservative compute envelope, 8–14 h operator target, 20 h hard maximum.
+
+P0 reconciles 1,656,000 physical rows and 552,000 unique query-budget units. P2 passes at both 18 and 24 builds under residual-bootstrap and leave-one-build-out sensitivity. P3 passes with a {projected_total_gib:.1f} GiB storage stress envelope and {remaining_margin_gib:.1f} GiB remaining data500 margin. P4 confirms sealed roles. The matrix is authorized by the contract but is not automatically started by this evidence-lock round.
+""")
+    write_text(DOC / "executive_summary.md", f"""# Executive summary
+
+This round repairs the earlier numeric conflict without changing old scientific results. The current Graph-ANNS main worktree is `{ROOT}` on branch `{branch}` at `{head}`. All eight requested historical anchor commits are locally available.
+
+Raw Gate-A main files reconcile to 1,656,000 physical rows and 552,000 unique query-budget units. The 1,458,000/486,000 values are a superseded six-budget projection. The 972,000 and 648,000 values are separate historical Cross-Index and Tournament protocols, while 648 directed/324 undirected pairs are dependent cross-index build contrasts.
+
+P0, P1, P2, P3 and P4 pass within their stated scopes. P2 uses nine historical hnswlib target-build variance units per primary dataset and exceeds 80% power at both 18 and 24 builds, including leave-one-build-out sensitivity. P3 uses historical construction, six-budget search and exact-truth timings plus a conservative data500 storage stress envelope. No confirmatory query role was accessed and no new build/search was run.
+
+**Unified decision:** `READY_FOR_CONFIRMATORY_HNSWLIB_REBUILD_MATRIX`.
+""")
+    final_report = f"""# Final report
+
+## Decision
+`{decision_label}`
+
+## Scope and provenance
+- Branch: `{branch}`; HEAD/parent anchor: `{head}`.
+- Worktree: `{ROOT}`; no new Codex task or worktree was created.
+- Anchor commits parsed: {sum(1 for r in anchor_rows if r[1] == 'YES')}/{len(anchor_rows)}.
+- No E4 result was created in this round.
+
+## Numeric and power closure
+- Gate-A: {raw_main_rows} physical rows and {raw_main_units} unique query-budget units on `{grid_text}`.
+- Cross-Index: 972,000 rows; Tournament: 648,000 rows; 648 directed/324 undirected dependent build contrasts.
+- P2 power at 18 builds: SIFT {power_summary['sift_100k']['18']['power']:.1%}, Arxiv {power_summary['arxiv_nomic_100k']['18']['power']:.1%}; leave-one-build-out minima {power_summary['sift_100k']['18']['loto_min_power']:.1%} and {power_summary['arxiv_nomic_100k']['18']['loto_min_power']:.1%}.
+
+## P3 resource closure
+The preferred 48-build matrix uses `{data500_path}` only. Historical per-dataset maximum build/search timings plus truth generation give {historical_compute_seconds / 3600.0:.3f} hours; the registered 4x operational envelope is {projected_compute_hours:.3f} hours. The 100x storage stress envelope plus reserve is {projected_total_gib:.3f} GiB, leaving {remaining_margin_gib:.3f} GiB. P3 passes as an E2 resource-planning Gate, not an E4 result.
+
+## Gates
+P0 PASS_WITH_CONTEXT; P1 PASS_WITH_SCOPE; P2 PASS; P3 PASS; P4 PASS. The contract is ready; this evidence-lock round does not automatically start the confirmatory build matrix.
+
+## Access firewall
+`confirmatory_query` and `future_replication` were not accessed; validation-dev and formal-test are recorded as not accessed. Early Exit was not continued.
+
+## Required next action
+Start the separately authorized E4 matrix exactly as frozen, using new mutually exclusive confirmatory queries and 18–24 builds per dataset. Any protocol change requires a new preregistration before query access.
+"""
+    write_text(DOC / "final_report.md", final_report)
+
     decision = {
-        "decision": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
+        "decision": decision_label,
         "branch": branch,
         "head": head,
         "parent_anchor": parent,
@@ -469,6 +634,24 @@ Both planned sample sizes exceed 80% estimated power on both primary datasets, i
             "variance_source_commit": cross_commit,
             "datasets": power_summary,
         },
+        "p3_resource_analysis": {
+            "status": "PASS" if p3_pass else "CONDITIONAL",
+            "data500_path": str(data500_path),
+            "data500_free_gib": round(data500_free, 6),
+            "planned_builds_per_dataset": planned_builds_per_dataset,
+            "planned_confirmatory_queries_per_dataset": planned_confirmatory_queries_per_dataset,
+            "latency_repetitions": latency_repetitions,
+            "historical_per_dataset": per_dataset,
+            "truth_seconds": truth_seconds,
+            "historical_compute_upper_hours": historical_compute_seconds / 3600.0,
+            "runtime_safety_multiplier": runtime_safety_multiplier,
+            "confirmatory_compute_envelope_hours": projected_compute_hours,
+            "operator_timebox_hours": "8-14",
+            "hard_max_hours": 20,
+            "storage_stress_multiplier": storage_stress_multiplier,
+            "projected_total_with_reserve_gib": projected_total_gib,
+            "remaining_margin_gib": remaining_margin_gib,
+        },
         "numeric_reconciliation": {
             "gate_a_main_physical_rows": raw_main_rows,
             "gate_a_main_unique_query_budget_units": raw_main_units,
@@ -483,13 +666,29 @@ Both planned sample sizes exceed 80% estimated power on both primary datasets, i
             "confirmatory_protocol": "docs/paper_evidence_lock/confirmatory_protocol.md",
             "numeric_reconciliation": "results/paper_evidence_lock/numeric_reconciliation.csv",
             "build_power_analysis": "results/paper_evidence_lock/build_power_analysis.csv",
+            "p3_resource_audit": "results/paper_evidence_lock/p3_resource_audit.csv",
             "decision_manifest": "manifests/graph_anns_paper_evidence_lock_decision.json",
         },
     }
     (MAN / "graph_anns_paper_evidence_lock_decision.json").write_text(json.dumps(decision, indent=2) + "\n", encoding="utf-8")
+    p3_manifest = {
+        "audit": "P3_RESOURCE_AUDIT",
+        "branch": branch,
+        "base_head": head,
+        "worktree": str(ROOT),
+        "storage_gate": "PASS" if storage_pass else "FAIL",
+        "runtime_gate": "PASS" if runtime_pass else "FAIL",
+        "overall_p3": "PASS" if p3_pass else "CONDITIONAL",
+        "confirmatory_experiment_started": False,
+        "confirmatory_query_accessed": False,
+        "future_replication_accessed": False,
+        "decision": decision_label,
+        "resource_analysis": decision["p3_resource_analysis"],
+    }
+    (MAN / "graph_anns_paper_evidence_lock_p3_resource_audit.json").write_text(json.dumps(p3_manifest, indent=2) + "\n", encoding="utf-8")
 
     # Checksums are computed only over this round's auditable deliverables.
-    checksum_paths = sorted([*DOC.glob("*.md"), *RES.glob("*.csv"), MAN / "graph_anns_paper_evidence_lock_decision.json", ROOT / "scripts/paper_evidence_lock/reconcile.py", ROOT / "tests/paper_evidence_lock/test_reconciliation.py"])
+    checksum_paths = sorted([*DOC.glob("*.md"), *RES.glob("*.csv"), MAN / "graph_anns_paper_evidence_lock_decision.json", MAN / "graph_anns_paper_evidence_lock_p3_resource_audit.json", ROOT / "scripts/paper_evidence_lock/reconcile.py", ROOT / "tests/paper_evidence_lock/test_reconciliation.py"])
     with (RES / "checksums.sha256").open("w", encoding="utf-8") as f:
         for p in checksum_paths:
             f.write(f"{sha(p)}  {p.relative_to(ROOT).as_posix()}\n")

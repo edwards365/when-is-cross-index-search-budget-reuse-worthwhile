@@ -39,9 +39,20 @@ def main() -> None:
     assert all(float(r["loto_min_power"]) >= 0.80 for r in power)
     assert all(r["power_gate"] == "PASS" for r in power)
     d = json.loads(MAN.read_text(encoding="utf-8"))
-    assert d["decision"] == "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES"
+    assert d["decision"] == "READY_FOR_CONFIRMATORY_HNSWLIB_REBUILD_MATRIX"
     assert d["gate_status"]["P2"] == "PASS"
+    assert d["gate_status"]["P3"] == "PASS"
     assert d["p2_power_analysis"]["status"] == "PASS"
+    assert d["p3_resource_analysis"]["status"] == "PASS"
+    assert d["p3_resource_analysis"]["remaining_margin_gib"] > 5.0
+    assert d["p3_resource_analysis"]["confirmatory_compute_envelope_hours"] <= 14.0
+    resource = {r["resource"]: r for r in rows("resource_estimate.csv")}
+    assert resource["p3_resource_gate"]["estimate"] == "PASS"
+    assert "historical_sift_search_seconds" in resource
+    assert "historical_arxiv_search_seconds" in resource
+    assert "historical_truth_seconds" in resource
+    p3 = {r["resource"]: r for r in rows("p3_resource_audit.csv")}
+    assert p3["overall_p3"]["value"] == "PASS"
     assert d["confirmatory_query_accessed"] is False
     assert d["future_replication_accessed"] is False
     print("paper_evidence_lock checks: PASS")

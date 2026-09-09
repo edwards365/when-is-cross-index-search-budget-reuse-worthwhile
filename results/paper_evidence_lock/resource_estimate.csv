@@ -1,7 +1,15 @@
 resource,estimate,unit,source,basis,evidence_level,note
-current_root_free_gib,17.182,observed,server filesystem,resource audit,E2,root free space at audit
-historical_build_seconds,min=25.04s;median=38.32s;max=148.37s,completed Gate-A runs,manifests/gate_a/completed_run_matrix.json,existing artifacts,E1,not a confirmatory runtime guarantee
+current_root_free_gib,17.158,observed,server filesystem,resource audit,E2,root free space at audit
+data500_free_gib,902.659,observed,/home/wlk/data500/graph_anns_paper_evidence_lock,resource audit,E2,exclusive confirmatory staging path
+historical_build_seconds,min=25.04s;median=143.63s;max=147.50s,primary original Gate-A runs,manifests/gate_a/completed_run_matrix.json,existing artifacts,E1,not a confirmatory runtime guarantee
+historical_sift_search_seconds,median=2.353s;max=2.356s,1000 queries x 6 budgets x 3 repetitions,results/gate_a/raw/*/queries.csv,existing artifacts,E1,latency_ns summed on the frozen six-budget grid
+historical_arxiv_search_seconds,median=14.589s;max=14.624s,1000 queries x 6 budgets x 3 repetitions,results/gate_a/raw/*/queries.csv,existing artifacts,E1,latency_ns summed on the frozen six-budget grid
+historical_truth_seconds,SIFT=11.726s;Arxiv=35.160s,1000 queries per dataset,results/raw/phase2_gatea_development_data_v2/metadata.json,existing artifacts,E1,exact truth generation on the recorded host
 confirmatory_builds,36–48 total (18–24 per dataset),builds,protocol,E4 contract,E4,must be recalculated before execution
+confirmatory_queries,1000 per dataset,new mutually exclusive queries,protocol,E4 contract,E4,future_replication remains separately sealed
 historical_main_rows,1656000,rows,raw Gate-A files,raw audit,E2,"1,656,000 reconciled; 552,000 unique query-budget units"
-confirmatory_storage,CONDITIONAL_USE_DATA500,bytes,/home/wlk/data500 (observed separately),resource plan,E4,Do not place 36–48 new builds on the 18 GiB root filesystem
-confirmatory_wall_clock,NOT_ESTIMABLE_BEFORE_PILOT,hours,protocol,no new build,E4,Pilot runtime must be measured before full matrix
+confirmatory_storage_stress_envelope_gib,651.672,100x observed artifact rate plus 5 GiB reserve,/home/wlk/data500/graph_anns_paper_evidence_lock,resource plan,E2,remaining margin=250.987 GiB; root is excluded
+historical_compute_upper_hours,1.279,48 builds plus six-budget search and truth,existing Gate-A timings,resource plan,E2,uses per-dataset maxima
+confirmatory_compute_envelope_hours,5.114,4x historical upper estimate,derived,resource plan,E2,"covers reruns, I/O, analysis and control overhead"
+confirmatory_operator_timebox,8–14 (hard max 20),hours,frozen protocol,resource plan,E4,matrix may start only after explicit authorization
+p3_resource_gate,PASS,gate,derived,resource audit,E2,storage and full-task runtime envelopes fit the registered limits

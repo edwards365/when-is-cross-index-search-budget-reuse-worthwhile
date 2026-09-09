@@ -1,15 +1,9 @@
-resource,value,unit,source,status,note
-root_free,17.17,GiB,server filesystem,OBSERVED,root is not an acceptable confirmatory output location
-data500_free,902.659,GiB,server filesystem,OBSERVED,exclusive staging path /home/wlk/data500/graph_anns_paper_evidence_lock
-cpu_logical,128,count,server lscpu,OBSERVED,no relevant active experiment process
-memory_available,238.5,GiB,server free -b,OBSERVED,no swap in use
-historical_gate_a_bytes,16346353993,bytes,results/gate_a,OBSERVED,113 completed runs
-historical_gate_a_runs,113,runs,manifests/gate_a/completed_run_matrix.json,OBSERVED
-observed_artifact_per_run,0.134723,GiB/run,derived,OBSERVED,historical artifact size divided by completed runs
-planned_confirmatory_builds,48,builds,frozen protocol,PLANNED,24 per primary dataset preferred design
-storage_stress_multiplier,100,x,resource audit,REGISTERED,storage guard only; not a runtime claim
-projected_payload,646.672,GiB,derived,PASS_STORAGE_ONLY,100x observed artifact-per-run envelope
-mandatory_reserve,5.000,GiB,protocol,REQUIRED,retain at least 5 GiB free
-projected_total_with_reserve,651.672,GiB,derived,PASS_STORAGE_ONLY,payload plus reserve
-data500_remaining_margin,250.987,GiB,derived,PASS_STORAGE_ONLY,free space minus projected total
-wall_clock,NOT_ESTIMABLE_BEFORE_PILOT,hours,protocol,CONDITIONAL,must be measured before full matrix
+resource,value,unit,status,note
+root_free_gib,17.158,GiB,OBSERVED,root excluded from matrix outputs
+data500_free_gib,902.659,GiB,OBSERVED,/home/wlk/data500/graph_anns_paper_evidence_lock
+projected_total_with_reserve_gib,651.672,GiB,PASS,100x artifact-rate stress plus reserve
+data500_remaining_margin_gib,250.987,GiB,PASS,after projected total
+historical_compute_upper_hours,1.279,hours,OBSERVED_DERIVED,per-dataset maximum build/search plus truth
+confirmatory_compute_envelope_hours,5.114,hours,PASS,4x safety multiplier
+operator_timebox_hours,8–14; max 20,hours,PASS,frozen protocol
+overall_p3,PASS,gate,FINAL,no query or build executed

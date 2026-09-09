@@ -9,4 +9,4 @@ The frozen estimand is target-build mean cross-order normalized transfer regret 
 | SIFT-100K | 9 | 0.1536 | 0.0703 | 91.5% | 85.7% | 98.5% | 95.7% |
 | Arxiv-Nomic-100K | 9 | 0.1127 | 0.0650 | 89.1% | 84.9% | 96.7% | 94.7% |
 
-Both planned sample sizes exceed 80% estimated power on both primary datasets, including the minimum leave-one-build-out sensitivity. P2 therefore passes through the preregistered power route. This is design evidence, not an E4 empirical result, and it does not authorize query access while P3 remains conditional.
+Both planned sample sizes exceed 80% estimated power on both primary datasets, including the minimum leave-one-build-out sensitivity. P2 therefore passes through the preregistered power route. This is design evidence, not an E4 empirical result; query access is governed separately by P3 and P4.
