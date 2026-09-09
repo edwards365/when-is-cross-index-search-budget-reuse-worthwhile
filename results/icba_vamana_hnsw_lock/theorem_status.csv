@@ -1,0 +1,9 @@
+theorem,status,novelty_class,main_or_appendix,proof_basis,fatal_issue
+T-V1,FORMAL_PROOF_COMPLETE,ABSTRACTION_OR_DEFINITION,main,"finite measurable table construction",none
+T-V2,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,main,"two-world counterexample to universal parameter map",none
+T-V3,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,appendix,"involution on complete reverse pairs",none
+T-V4,FORMAL_PROOF_COMPLETE,PROTOCOL_DEFINITION,main,"disjoint preregistered source-target product",none
+T-V5,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,main,"data-by-operator estimand and result mapping",none
+T-V6,FORMAL_PROOF_RESTRICTED,RESTRICTED_DOMAIN_PROPOSITION,main,"corrected seven-class partition plus nonmonotone overlay","original label set refuted; OVER_BUDGET_UNSAFE required"
+T-V7,FORMAL_PROOF_COMPLETE,RESTRICTED_DOMAIN_PROPOSITION,appendix,"non-injective graph summaries and path counterexample",none
+T-V8,FORMAL_PROOF_COMPLETE,ABSTRACTION_OR_DEFINITION,main,"explicit quantifier hierarchy",none
