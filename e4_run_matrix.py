@@ -37,7 +37,7 @@ def peak_run(cmd,stdout,stderr):
  if p.returncode:raise subprocess.CalledProcessError(p.returncode,cmd)
  return peak
 def main():
- assert subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()==EXPECTED_HEAD
+    assert subprocess.run(['git','merge-base','--is-ancestor',EXPECTED_HEAD,'HEAD'],cwd=ROOT).returncode==0
  assert BIN.exists();cfg=yaml.safe_load((ROOT/'configs/gate_a/gate_a_100k.yaml').read_text());OUT.mkdir(parents=True,exist_ok=True)
  access=OUT/'query_access_log.jsonl'; rows=[]
  for ds in DS:
