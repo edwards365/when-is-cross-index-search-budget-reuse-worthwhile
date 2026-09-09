@@ -1,0 +1,77 @@
+{
+  "task": "ICBA Vamana-HNSW Theory Delta and Semantic Lock",
+  "decision": "READY_WITH_CONDITIONAL_VAMANA_SEMANTIC_BRIDGE",
+  "secondary_status": "PILOT_AUTHORIZED_AFTER_REPLAY_PREFLIGHT",
+  "created_utc": "2026-09-09",
+  "branch": "exp/icba_vamana_hnsw_theory_semantic_lock",
+  "intended_parent_commit": "8fd7b639f8ce999573d92cdbd86a8aa782c549aa",
+  "actual_local_parent_commit": "be89b7264df5fba3ef48fda12ae99d3574e24f0b",
+  "source_commits": {
+    "hnswlib_e4_2": {
+      "sha": "dd16073167a70fb5e82575279c35b838fee05922",
+      "verification": "GITHUB_API_FULL_COMMIT_AND_FILES_READ",
+      "scientific_label": "E4_H1_H2_TRANSPORT_CONFIRMED_REGISTERED_HNSWLIB_FAMILY"
+    },
+    "faiss_hnsw_external_validity": {
+      "sha": "8fd7b639f8ce999573d92cdbd86a8aa782c549aa",
+      "verification": "GITHUB_API_FULL_COMMIT_AND_FILES_READ",
+      "scientific_label": "FAISS_HNSW_STRONG_EXTERNAL_REPLICATION_TWO_DATASETS"
+    }
+  },
+  "official_vamana_implementation": {
+    "repository": "https://github.com/microsoft/DiskANN",
+    "sha": "8fb4d42e6a8bff0cff4db976a55c5fb99faaf475",
+    "version_semantics": "DiskANN3 Rust default branch",
+    "primary_provider": "in_memory",
+    "native_action": "Knn::l_value",
+    "fixed_beam_width": 1,
+    "replay_status": "REQUIRES_PREFLIGHT"
+  },
+  "literature_counts": {
+    "level_a": 10,
+    "level_b": 2,
+    "level_c": 0
+  },
+  "prior_art": "NO_DIRECT_PRIOR_FOUND_WITHIN_REVIEWED_SCOPE",
+  "theorem_status": {
+    "T-V1": "FORMAL_PROOF_COMPLETE",
+    "T-V2": "FORMAL_PROOF_COMPLETE",
+    "T-V3": "FORMAL_PROOF_COMPLETE",
+    "T-V4": "FORMAL_PROOF_COMPLETE",
+    "T-V5": "FORMAL_PROOF_COMPLETE",
+    "T-V6": "FORMAL_PROOF_RESTRICTED_ORIGINAL_PARTITION_REFUTED",
+    "T-V7": "FORMAL_PROOF_COMPLETE",
+    "T-V8": "FORMAL_PROOF_COMPLETE"
+  },
+  "semantic_patch": {
+    "primary_transport_partition": [
+      "BOTH_RIGHT_CENSORED",
+      "SOURCE_ONLY_RIGHT_CENSORED",
+      "TARGET_ONLY_RIGHT_CENSORED",
+      "UNDER_BUDGET_UNSAFE",
+      "EXACT_BUDGET_SAFE",
+      "OVER_BUDGET_SAFE",
+      "OVER_BUDGET_UNSAFE"
+    ],
+    "overlay_flag": "RAW_NONMONOTONE",
+    "rejected_label_under_raw_minimum": "UNDER_BUDGET_OBSERVED_SAFE"
+  },
+  "pilot_contract": {
+    "datasets": ["SIFT30K", "Arxiv-Nomic30K"],
+    "builds_per_dataset": 12,
+    "source_builds": 6,
+    "target_builds": 6,
+    "queries_per_dataset": 750,
+    "native_action_levels": 6,
+    "main_design": "ASYMMETRIC_SOURCE_TO_HELDOUT_TARGET",
+    "full_pairs": "DESCRIPTIVE_ONLY"
+  },
+  "access": {
+    "ann_experiments_run": false,
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false,
+    "evaluation_vectors_or_truth_accessed": false,
+    "future_replication_vectors_or_truth_accessed": false
+  },
+  "integrity_note": "No frozen experiment result or prior manifest was modified. Checksums cover only this task's declared deliverables and exclude checksums.sha256 itself."
+}
