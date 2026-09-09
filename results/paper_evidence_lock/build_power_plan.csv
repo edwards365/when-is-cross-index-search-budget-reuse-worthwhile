@@ -1,3 +1,3 @@
-dataset,minimum_builds,preferred_builds,bootstrap_repetitions,seed,inference_unit,power_status,evidence_level,query_role_note
-SIFT-100K,18,24,5000,991,build,PILOT_BUILD_UNCERTAINTY_UNDERPOWERED,E4 contract only,Only three same-method endpoint builds are present in the fixed-target audit; not enough to certify 80% power
-Arxiv-Nomic-100K,18,24,5000,991,build,PILOT_BUILD_UNCERTAINTY_UNDERPOWERED,E4 contract only,Only three same-method endpoint builds are present in the fixed-target audit; not enough to certify 80% power
+dataset,minimum_builds,preferred_builds,bootstrap_repetitions,seed,inference_unit,minimum_effect,power_at_18,loto_min_power_at_18,power_at_24,loto_min_power_at_24,power_status,evidence_level,query_role_note
+SIFT-100K,18,24,5000,991,target build,0.050 normalized regret,0.9152,0.8570,0.9852,0.9568,PASS_AT_18_AND_24,E2 variance pilot / E4 contract,Historical query roles estimate variance only; confirmatory and future-replication roles remain sealed
+Arxiv-Nomic-100K,18,24,5000,991,target build,0.050 normalized regret,0.8912,0.8486,0.9672,0.9468,PASS_AT_18_AND_24,E2 variance pilot / E4 contract,Historical query roles estimate variance only; confirmatory and future-replication roles remain sealed

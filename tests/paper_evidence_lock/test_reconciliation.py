@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import importlib.util
 import json
 from pathlib import Path
 
@@ -17,14 +18,30 @@ def rows(name: str):
 
 
 def main() -> None:
+    spec = importlib.util.spec_from_file_location("paper_evidence_reconcile", ROOT / "scripts" / "paper_evidence_lock" / "reconcile.py")
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert abs(module._student_t_quantile(0.975, 17) - 2.109815578) < 1e-8
+    assert abs(module._student_t_quantile(0.975, 23) - 2.068657610) < 1e-8
     numeric = rows("numeric_reconciliation.csv")
     required = {"current_gate_a_main_physical_rows", "current_gate_a_main_unique_query_budget_units", "actual_common_budget_grid", "historical_972000_cross_index", "historical_648000_tournament"}
     assert required <= {r["metric_name"] for r in numeric}
     assert {r["conflict_status"] for r in numeric} >= {"RECONCILED_BY_CONTEXT", "SUPERSEDED_BY_RAW_AUDIT"}
     assert len({r["metric_name"] + "|" + r["source_file"] for r in numeric}) == len(numeric)
     assert all(r["evidence_level"] in {"E0", "E1", "E2", "E3", "E4"} for r in rows("evidence_registry.csv"))
+    power = rows("build_power_analysis.csv")
+    assert len(power) == 4
+    assert {r["dataset"] for r in power} == {"SIFT-100K", "Arxiv-Nomic-100K"}
+    assert {int(r["planned_builds"]) for r in power} == {18, 24}
+    assert all(int(r["historical_target_build_units"]) == 9 for r in power)
+    assert all(float(r["estimated_power"]) >= 0.80 for r in power)
+    assert all(float(r["loto_min_power"]) >= 0.80 for r in power)
+    assert all(r["power_gate"] == "PASS" for r in power)
     d = json.loads(MAN.read_text(encoding="utf-8"))
     assert d["decision"] == "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES"
+    assert d["gate_status"]["P2"] == "PASS"
+    assert d["p2_power_analysis"]["status"] == "PASS"
     assert d["confirmatory_query_accessed"] is False
     assert d["future_replication_accessed"] is False
     print("paper_evidence_lock checks: PASS")

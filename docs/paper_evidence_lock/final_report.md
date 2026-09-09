@@ -4,10 +4,10 @@
 `BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES`
 
 ## Scope and provenance
-- Branch: `exp/graph_anns_paper_evidence_claim_lock`; HEAD/parent anchor: `9fe44938561d47ce3688549e51f7217fe4940840`.
+- Branch: `exp/graph_anns_paper_evidence_claim_lock`; HEAD/parent anchor: `208129dce0a322678f34147b110959b418ddab14`.
 - Worktree: `/home/wlk/projects/navigation-aware-resistance-hnsw` (the existing ANNS main worktree; no new Codex task or worktree was created).
 - Anchor commits parsed: 8/8.
-- Evidence levels: E0=unresolved historical rows before repair, E1=exploratory historical, E2=conditionally reproduced; no E3/E4 result was created in this round.
+- Evidence levels: E0=0, E1=exploratory historical, E2=conditionally reproduced/design variance; no E3/E4 result was created in this round.
 
 ## Numeric audit
 - Gate-A actual common budget grid: `{10,20,40,80,120,200}`.
@@ -18,11 +18,14 @@
 - 648 directed / 324 undirected pairs: dependent cross-index build contrasts, not independent environments.
 - Fixed-target retrospective subset: 12 directed pairs.
 
+## P2 repair
+The prior P2 diagnosis incorrectly treated the three-build fixed-target audit as the only variance source. The pinned historical hnswlib matrix provides nine target-build units per primary dataset. At the preregistered minimum effect 0.05, two-sided alpha 0.05, and 5,000 residual-bootstrap studies, power at 18 builds is 91.5% on SIFT and 89.1% on Arxiv; leave-one-build-out minima are 85.7% and 84.9%. P2 passes as a prospective design Gate.
+
 ## Gates
-P0 PASS_WITH_CONTEXT; P1 PASS_WITH_SCOPE; P2 BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES; P3 CONDITIONAL; P4 PASS. Therefore no confirmatory build matrix is authorized yet.
+P0 PASS_WITH_CONTEXT; P1 PASS_WITH_SCOPE; P2 PASS; P3 CONDITIONAL; P4 PASS. No confirmatory build matrix is authorized until P3 is sealed.
 
 ## Access firewall
 `confirmatory_query` and `future_replication` were not accessed; validation-dev and formal-test are recorded as not accessed. Early Exit was not continued.
 
 ## Required next action
-Use the repaired numeric contexts as the sole basis for a build-level power calculation. Before any confirmatory query access, justify 18–24 same-protocol builds per primary dataset and measure the pilot resource envelope on `/home/wlk/data500`; then rerun P2–P4.
+Seal the execution resource envelope on `/home/wlk/data500`, including build, search, truth, storage, and full wall-clock estimates, then rerun P3/P4 before any confirmatory query access.

@@ -1,8 +1,8 @@
 {
   "decision": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
   "branch": "exp/graph_anns_paper_evidence_claim_lock",
-  "head": "9fe44938561d47ce3688549e51f7217fe4940840",
-  "parent_anchor": "9fe44938561d47ce3688549e51f7217fe4940840",
+  "head": "208129dce0a322678f34147b110959b418ddab14",
+  "parent_anchor": "208129dce0a322678f34147b110959b418ddab14",
   "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
   "main_worktree_only": true,
   "confirmatory_experiment_run": false,
@@ -22,16 +22,69 @@
   "gate_status": {
     "P0": "PASS_WITH_CONTEXT",
     "P1": "PASS_WITH_SCOPE",
-    "P2": "BLOCKED_BY_BUILD_LEVEL_POWER_OR_RESOURCES",
+    "P2": "PASS",
     "P3": "CONDITIONAL",
     "P4": "PASS"
   },
   "evidence_level_distribution": {
     "E0": 0,
     "E1": 4,
-    "E2": 4,
+    "E2": 5,
     "E3": 0,
     "E4": 0
+  },
+  "p2_power_analysis": {
+    "status": "PASS",
+    "minimum_effect": 0.05,
+    "alpha": 0.05,
+    "sidedness": "two-sided",
+    "bootstrap_repetitions": 5000,
+    "seed": 991,
+    "variance_source_commit": "6a8cbcf7cf9f8f2f6734b05132e13d0f21e476bb",
+    "datasets": {
+      "sift_100k": {
+        "historical_build_units": 9,
+        "historical_mean": 0.1535814778268975,
+        "historical_sd": 0.07027073370945515,
+        "18": {
+          "power": 0.9152,
+          "loto_min_power": 0.857,
+          "loto_max_power": 0.999,
+          "expected_ci_halfwidth": 0.03494481375622805,
+          "critical_t": 2.109815577833225,
+          "pass": true
+        },
+        "24": {
+          "power": 0.9852,
+          "loto_min_power": 0.9568,
+          "loto_max_power": 1.0,
+          "expected_ci_halfwidth": 0.02967272847458543,
+          "critical_t": 2.0686576104187626,
+          "pass": true
+        }
+      },
+      "arxiv_nomic_100k": {
+        "historical_build_units": 9,
+        "historical_mean": 0.11273330489149357,
+        "historical_sd": 0.06503026078424334,
+        "18": {
+          "power": 0.8912,
+          "loto_min_power": 0.8486,
+          "loto_max_power": 0.933,
+          "expected_ci_halfwidth": 0.03233878788031718,
+          "critical_t": 2.109815577833225,
+          "pass": true
+        },
+        "24": {
+          "power": 0.9672,
+          "loto_min_power": 0.9468,
+          "loto_max_power": 0.9882,
+          "expected_ci_halfwidth": 0.027459870831300234,
+          "critical_t": 2.0686576104187626,
+          "pass": true
+        }
+      }
+    }
   },
   "numeric_reconciliation": {
     "gate_a_main_physical_rows": 1656000,
@@ -46,6 +99,7 @@
     "final_report": "docs/paper_evidence_lock/final_report.md",
     "confirmatory_protocol": "docs/paper_evidence_lock/confirmatory_protocol.md",
     "numeric_reconciliation": "results/paper_evidence_lock/numeric_reconciliation.csv",
+    "build_power_analysis": "results/paper_evidence_lock/build_power_analysis.csv",
     "decision_manifest": "manifests/graph_anns_paper_evidence_lock_decision.json"
   }
 }
