@@ -1,0 +1,16 @@
+assumption_id,statement,scope,observable,status,failure_action
+A_FINITE_ENV,"build environments are preregistered and finite",all_theory,manifest,REQUIRED,stop
+A_FINITE_ACTION,"six raw native l_value actions are frozen",Vamana_pilot,executed_action_log,REQUIRED,stop
+A_QUERY_ROLE_SEPARATION,"evaluation queries are disjoint from design and future replication",pilot,query_hash_manifest,REQUIRED,stop
+A_SOURCE_TARGET_DISJOINT,"six source and six target builds are fixed before outcomes",pilot,build_manifest,REQUIRED,stop
+A_EXACT_TRUTH,"Recall@k truth is exact for registered queries",risk,truth_hash_and_method,REQUIRED,stop
+A_ENDPOINT_AWARE,"no success in grid is bottom rather than max-action success",risk,event_counts,REQUIRED,reclassify_before_analysis
+A_NO_RAW_MONOTONICITY,"raw response may be nonmonotone",all,event_trace,LOCKED,retain_over_budget_unsafe
+A_REPLAYABLE_BUILD,"identical config repeats within replay tolerance",implementation,artifact_hashes,PRECONDITION,stop
+A_DISTINCT_ENV,"changed registered variable changes artifact or graph summary",implementation,artifact_hashes,PRECONDITION,choose_new_variable_before_pilot
+A_FIXED_BEAM,"beam_width equals one for every action",Vamana_pilot,run_log,REQUIRED,exclude_run
+A_INMEM_PRIMARY,"Stage I primary mode has no SSD provider",cost,provider_log,REQUIRED,separate_regime
+A_FIXED_TARGET_ONLY,"query uncertainty is conditional on named builds",inference,analysis_scope,LOCKED,forbid_open_world_claim
+A_PAIR_COMPLETENESS,"both reverse directions and equal weights",T-V3,pair_table,THEOREM_ONLY,do_not_use_symmetry_identity
+A_JOINT_FEASIBILITY,"both minimal budgets are finite",T-V3,event_table,THEOREM_ONLY,exclude_or_report_censoring
+A_COST_LOCAL,"NDC and wall-clock are implementation-local",cost,counter_definition,LOCKED,forbid_cross-family raw comparison
