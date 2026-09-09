@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "parent": "c976b48be6e0d78e7a0ed27afaf1f5448d44a567",
+  "final_label": "E4_TRANSPORT_CONFIRMED_NO_CERTIFIED_ACTION",
+  "scientific_label": "E4_H1_H2_TRANSPORT_CONFIRMED_REGISTERED_HNSWLIB_FAMILY",
+  "deployment_label": "NO_DEPLOYABLE_VALUE",
+  "evidence_level": "POST_CONFIRMATORY_INFERENCE_AND_CENSORING_SEMANTIC_PATCH",
+  "parent_replay": "BYTE_IDENTICAL",
+  "builds": 48,
+  "pairs_per_dataset": 552,
+  "queries_per_pair": 750,
+  "seed": 991,
+  "bootstrap": 5000,
+  "budget_grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "endpoint_semantics": "ENDPOINT_AND_RIGHT_CENSORING_NOT_SEPARATELY_IDENTIFIABLE",
+  "fallback_status": "ABSTAIN_NO_CERTIFIED_ACTION",
+  "future_replication_accessed": false,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "new_ann_search": false,
+  "new_index_build": false
+}

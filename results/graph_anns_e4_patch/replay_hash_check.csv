@@ -1,0 +1,2 @@
+run_a,run_b,scope,status
+results/graph_anns_e4_patch,/tmp/e4patch_run2,core_csv,BYTE_IDENTICAL

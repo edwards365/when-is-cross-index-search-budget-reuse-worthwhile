@@ -1,0 +1,3 @@
+dataset,scope,risk_increment,risk_ci_low,risk_ci_high,safe_rom_tax,safe_rom_ci_low,safe_rom_ci_high,resampling
+sift_100k,registered_build_family_query_distribution,0.215734299517,0.207668900966,0.223544082126,0.194472095841,0.181298438744,0.207695909954,750 query IDs; all 552 directed pairs retained per sampled query; seed=991; B=5000
+arxiv_nomic_100k,registered_build_family_query_distribution,0.17120531401,0.162385869565,0.180036594203,0.148793063699,0.134962704084,0.161838702566,750 query IDs; all 552 directed pairs retained per sampled query; seed=991; B=5000

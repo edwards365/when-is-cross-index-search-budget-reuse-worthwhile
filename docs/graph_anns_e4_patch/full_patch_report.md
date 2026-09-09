@@ -1,0 +1,3 @@
+# Full E4.1 patch report
+
+Parent `c976b48be6e0d78e7a0ed27afaf1f5448d44a567` replayed byte-identically. H1-A1: SIFT 0.894667, Arxiv 0.753333. H1-A2 means: SIFT 42.609 on 732 queries; Arxiv 28.699 on 730. H2 query-primary CI: SIFT risk increment 0.215734 [0.207669,0.223544], safe ROM 0.194472 [0.181298,0.207696]; Arxiv risk increment 0.171205 [0.162386,0.180037], safe ROM 0.148793 [0.134963,0.161839]. The event composition is mutually exclusive and complete per pair. Endpoint and grid right-censoring remain not separately identifiable. Random-only and two-sided deletion remain positive. Full economic cost remains NOT_ESTIMABLE.
