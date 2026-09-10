@@ -6,6 +6,9 @@ s=list(csv.DictReader((p/'cross_family_semantic_table.csv').open()))
 w=list(csv.DictReader((p/'workpoint_sensitivity.csv').open()))
 u=list(csv.DictReader((p/'unresolved_mass.csv').open()))
 t=list(csv.DictReader((p/'tail_cost_summary.csv').open()))
+r=list(csv.DictReader((p/'top1_robustness_summary.csv').open()))
+b=list(csv.DictReader((p/'registered_build_robustness.csv').open()))
+c=list(csv.DictReader((p/'certification_power_table.csv').open()))
 assert len(s)==6 and len(w)==18 and len(u)==6 and len(t)==6
 assert {(x['implementation'],x['dataset']) for x in s}=={(x['implementation'],x['dataset']) for x in u}
 expected={
@@ -26,4 +29,9 @@ for x in w:
  assert x['tau'] in ('0.9','0.95','0.99')
 assert all(float(x['target_unresolved_mass'])>=0 for x in u)
 assert all(int(x['safe_pair_query_units'])>0 for x in t)
+assert len(r)==10 and all(int(x['queries_deleted'])==8 for x in r)
+assert len(b)==6 and all(x['risk_direction_all_positive']=='True' for x in b)
+assert len(c)==20
+assert next(x for x in c if x['candidate_M']=='24' and x['n']=='121')['max_failures_allowed']=='0'
+assert next(x for x in c if x['candidate_M']=='36' and x['n']=='129')['max_failures_allowed']=='0'
 print('Phase1A core: 18 deterministic assertions passed')
