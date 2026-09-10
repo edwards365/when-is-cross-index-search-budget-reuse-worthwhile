@@ -1,0 +1,18 @@
+{
+  "decision": "CROSS_FAMILY_FINAL_HOTFIX_PASS_FREEZE_FOR_PAPER",
+  "parent": "1c5a99d29e6f1dee299a4125758fd53608c92164",
+  "sources": {
+    "hnswlib": "dd16073167a70fb5e82575279c35b838fee05922",
+    "faiss": "8fd7b639f8ce999573d92cdbd86a8aa782c549aa",
+    "vamana": "47e354d1db32f5d8edfa152021aaf60a48725a89",
+    "theory": "802c8cadaf39b5b7e8edfa45b07140d6a6ee0933"
+  },
+  "reference_semantics": "original stage-specific risks retained; harmonized jointly-feasible sensitivity added",
+  "vamana_checksum_decision": "VAMANA_STALE_CHECKSUM_MANIFEST_RECONCILED",
+  "hnswlib_top1_decision": "HNSWLIB_FINAL_ESTIMAND_TOP1_ROBUSTNESS_PASS",
+  "new_ann_searches": 0,
+  "new_indexes": 0,
+  "sealed_query_truth_accesses": 0,
+  "future_replication_authorized": false,
+  "paper_story": "Across three registered Graph-ANNS implementations spanning HNSW and Vamana-style construction, independent rebuilds materially change query-level safe budget requirements and induce source-to-target transport violations. The risk-side phenomenon is consistent across all six registered data\u2013operator cells, while its conservative-cost consequence is operator-dependent and is not statistically resolved for the current Vamana-style implementation."
+}

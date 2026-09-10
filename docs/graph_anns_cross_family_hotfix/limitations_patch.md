@@ -1,0 +1,3 @@
+# Limitations patch
+
+Original registered risks have stage-specific reference semantics and are not placed under a false common absolute-risk label. The harmonized jointly-feasible sensitivity excludes unresolved units and cannot replace endpoint-aware primary results. Registered-grid unresolved status does not prove true endpoint infeasibility. Vamana checksum reconciliation is specifically a CRLF/LF forensic repair; the historical manifest did not originally pass 31/31 against Git blobs. Native budget and cost counters remain incomparable in magnitude. Query bootstrap does not quantify unseen-build uncertainty. No future replication is authorized. The legacy 111/123 conditional reproduction limitation remains.

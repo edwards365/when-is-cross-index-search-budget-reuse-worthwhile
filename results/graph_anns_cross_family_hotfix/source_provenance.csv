@@ -1,0 +1,5 @@
+source,commit,status,checksum_result
+hnswlib,dd16073167a70fb5e82575279c35b838fee05922,DIRECT_COMMIT_AND_CHECKSUM_VERIFIED,58/58
+faiss_hnsw,8fd7b639f8ce999573d92cdbd86a8aa782c549aa,DIRECT_COMMIT_AND_CHECKSUM_VERIFIED,53/53
+diskann3_vamana,47e354d1db32f5d8edfa152021aaf60a48725a89,VAMANA_STALE_CHECKSUM_MANIFEST_RECONCILED,22/31 LF blobs; 9/9 recover exact stored hash after CRLF restoration
+theory,802c8cadaf39b5b7e8edfa45b07140d6a6ee0933,DIRECT_COMMIT_VERIFIED,not applicable
