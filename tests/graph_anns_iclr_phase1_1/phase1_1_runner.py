@@ -287,6 +287,10 @@ def faiss100k(run=True):
     import h5py, faiss
     FAISS_SCR.mkdir(parents=True,exist_ok=True); faiss.omp_set_num_threads(1)
     registry=[]; allraw=[]
+    timing_map={}
+    tp=OUT/'faiss_100k_build_timing.csv'
+    if tp.exists():
+        timing_map={r['build_id']:float(r['build_seconds']) for r in read_csv(tp) if r.get('build_seconds') not in ('','nan','NA')}
     for ds in DATASETS:
         h5=ROOT/('data/raw/sift-128-euclidean.hdf5' if ds=='sift_100k' else 'data/raw/arxiv-nomic-768-normalized.hdf5')
         with h5py.File(h5,'r') as f: base=np.asarray(f['train'][:100000],np.float32)
@@ -298,7 +302,7 @@ def faiss100k(run=True):
         limit=int(os.environ.get('FAISS_LIMIT','24'))
         for bi,seed in enumerate(FAISS_SEEDS[:limit]):
             bid=f'{ds}__100k__perm{bi:02d}__seed{seed}'; idxpath=FAISS_SCR/'indexes'/ds/(bid+'.faiss'); rawpath=FAISS_SCR/'raw'/bid/'queries.csv.gz'; idxpath.parent.mkdir(parents=True,exist_ok=True); rawpath.parent.mkdir(parents=True,exist_ok=True)
-            if idxpath.exists(): idx=faiss.read_index(str(idxpath)); bsec=float('nan')
+            if idxpath.exists(): idx=faiss.read_index(str(idxpath)); bsec=timing_map.get(bid,float('nan'))
             else:
                 perm=np.random.default_rng(seed).permutation(100000).astype(np.int64); core=faiss.IndexHNSWFlat(base.shape[1],16,faiss.METRIC_L2); core.hnsw.efConstruction=100; idx=faiss.IndexIDMap2(core); t=time.perf_counter(); idx.add_with_ids(base[perm],perm); bsec=time.perf_counter()-t; faiss.write_index(idx,str(idxpath))
             core=faiss.downcast_index(idx.index); outrows=[]
@@ -314,6 +318,29 @@ def faiss100k(run=True):
             registry.append({'dataset':ds,'build_id':bid,'permutation_seed':seed,'base_count':100000,'index_sha256':sha(idxpath),'index_size_bytes':idxpath.stat().st_size,'build_seconds':bsec,'faiss_version':faiss.__version__,'M':16,'efConstruction':100,'threads':1,'query_role':'confirmatory_evaluation','query_count':750,'truth_scope':'100K exact FlatL2'})
     write_csv(OUT/'faiss_100k_build_registry.csv',registry)
     return 'FAISS_100K_DATA_CONDITIONAL_REPLICATION'
+
+def faiss_build_timing():
+    """Re-measure the frozen 100K build contract without persisting copies."""
+    import h5py, faiss
+    faiss.omp_set_num_threads(1); out=[]
+    for ds in DATASETS:
+        h5=ROOT/('data/raw/sift-128-euclidean.hdf5' if ds=='sift_100k' else 'data/raw/arxiv-nomic-768-normalized.hdf5')
+        with h5py.File(h5,'r') as f: base=np.asarray(f['train'][:100000],np.float32)
+        for bi,seed in enumerate(FAISS_SEEDS[:24]):
+            bid=f'{ds}__100k__perm{bi:02d}__seed{seed}'
+            perm=np.random.default_rng(seed).permutation(100000).astype(np.int64)
+            core=faiss.IndexHNSWFlat(base.shape[1],16,faiss.METRIC_L2); core.hnsw.efConstruction=100
+            idx=faiss.IndexIDMap2(core); t=time.perf_counter(); idx.add_with_ids(base[perm],perm); bsec=time.perf_counter()-t
+            out.append({'dataset':ds,'build_id':bid,'build_seconds':bsec,'base_count':100000,'threads':1,'scope':'FAISS_100K_ONLY'})
+    write_csv(OUT/'faiss_100k_build_timing.csv',out)
+    rp=OUT/'faiss_100k_build_registry.csv'
+    if rp.exists():
+        reg=read_csv(rp); tm={r['build_id']:r['build_seconds'] for r in out}
+        for r in reg:
+            if r['build_id'] in tm: r['build_seconds']=tm[r['build_id']]
+        write_csv(rp,reg)
+    DOC.joinpath('faiss_build_timing_report.md').write_text('# Faiss-100K build timing\n\nAll 48 frozen 100K build permutations were re-timed in memory with Faiss 1.15.0, M=16, efConstruction=100 and one thread. Index copies were not persisted by this timing pass; the registry build_seconds fields are populated from this contract-equivalent timing.\n')
+    return out
 
 def faiss_profile():
     """Measure scope-correction profiling primitives without inventing a
@@ -472,7 +499,7 @@ def write_checksums():
     (OUT/'checksums.sha256').write_text('\n'.join(lines)+'\n')
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--mode',choices=['audit','stage1','stage2','stage3','profile','all'],default='all');p.add_argument('--no-faiss100k',action='store_true');a=p.parse_args();ensure(); labels={}
+    p=argparse.ArgumentParser();p.add_argument('--mode',choices=['audit','stage1','stage2','stage3','timing','profile','all'],default='all');p.add_argument('--no-faiss100k',action='store_true');a=p.parse_args();ensure(); labels={}
     if a.mode in ('audit','all'): audit()
     if a.mode in ('stage1','all'): labels['stage1']=stage1()
     if a.mode in ('stage2','all'): labels['stage2']=stage2()
@@ -481,6 +508,7 @@ def main():
         if fr: fr, labels['stage3'] = fr
         if not fr: write_csv(OUT/'faiss_100k_semantic_results.csv',[{'status':'NOT_RUN_DUE_TO_RESOURCE_OR_PROTOCOL'}])
     else: fr=[]
+    if a.mode=='timing': faiss_build_timing()
     if a.mode in ('profile','all'):
         if labels.get('stage3','').startswith('FAISS_100K') or (OUT/'faiss_100k_build_registry.csv').exists(): faiss_profile()
         else: DOC.joinpath('faiss_profiling_cost_report.md').write_text('# Faiss-100K profiling cost\n\nTARGET_CERTIFIED_ACTION_LEDGER_ABSENT; profiling not run because the 100K scope correction was not available. No break-even claim is made.\n')
