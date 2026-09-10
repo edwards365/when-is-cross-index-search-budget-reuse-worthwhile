@@ -1,0 +1,4 @@
+order,node,on_pass,on_fail
+1,Strict deterministic rebuild contract,Deploy D3 contract,Per-target certified profiling
+2,Per-target certified profiling,Deploy lowest certified action,Abstain/max-safe fallback
+3,Evidence boundary,Fixed registered scope,No open-world claim

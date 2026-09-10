@@ -1,0 +1,21 @@
+{
+  "branch": "exp/graph_anns_iclr_phase1_decisive_supplement",
+  "completed_before_deadline": true,
+  "deadline": "2026-09-15T23:59:00+08:00",
+  "decision": "ICLR_PHASE1_ACTIONABLE_CLOSURE_PASS",
+  "economics": "PROFILING_COST_OPERATOR_DEPENDENT",
+  "faiss_actual_base_vectors": 30000,
+  "formal_test_accessed": false,
+  "future_replication_accessed": false,
+  "limitations": [
+    "Faiss external-validity cell is 30K base despite historical name",
+    "Vamana isolated cost-only replay not estimable",
+    "D3 scope excludes data updates, deletion, hardware/version changes and query shift",
+    "finite native ef budget, not tracer NDC, used for Phase1C cost gate"
+  ],
+  "mitigation": "DETERMINISTIC_REBUILD_ACTIONABLE_MITIGATION",
+  "parent_commit": "d2ad714541d73bedcd48580347b67880d37580f8",
+  "scope": "REGISTERED_FIXED_BUILD_FAMILIES",
+  "semantic": "SEMANTIC_CORE_ROBUST",
+  "validation_dev_accessed": false
+}

@@ -1,0 +1,8 @@
+# Claim registry patch
+
+- **phenomenon** — SUPPORTED_FIXED_REGISTERED_BUILDS: retain with fixed-family scope
+- **risk** — SUPPORTED: retain tau=.95 primary and .90/.99 sensitivity
+- **economic** — OPERATOR_DEPENDENT: delete blanket expensive-profiling claim; 100K hnswlib is cheap, Faiss cell is 30K, Vamana direct timing not estimable
+- **mitigation** — SUPPORTED_TWO_DATASETS: add strict deterministic rebuild contract as preferred engineering route
+- **environment_name** — PATCH: use partially observed stochastic build environment
+- **theorem_1** — SCOPE_PATCH: state risk semantics only; no native-ef or open-world deterministic guarantee
