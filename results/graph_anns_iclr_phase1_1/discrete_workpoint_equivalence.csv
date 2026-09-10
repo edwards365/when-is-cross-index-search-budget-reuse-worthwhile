@@ -1,0 +1,5 @@
+implementation,dataset,tau_0.95_vs_tau_0.99_mismatch_count,checked_action_query_cells,equivalent
+hnswlib HNSW,sift_100k,0,108000,True
+hnswlib HNSW,arxiv_nomic_100k,0,108000,True
+Faiss HNSW (historical 30K),sift_100k,0,108000,True
+Faiss HNSW (historical 30K),arxiv_nomic_100k,0,108000,True

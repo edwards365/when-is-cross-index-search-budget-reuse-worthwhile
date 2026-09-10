@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-09-10T18:07:41Z",
+  "parent_commit": "5dac9079376785094fb33ff9a456b2c962eb6315",
+  "branch": "exp/graph_anns_iclr_phase1_semantic_scope_closure",
+  "head": "5dac9079376785094fb33ff9a456b2c962eb6315",
+  "git_status": "?? Testing/\n?? build-r0/\n?? docs/graph_anns_iclr_phase1_1/\n?? figures/graph_anns_iclr_phase1_1/\n?? logs/\n?? manifests/graph_anns_iclr_phase1_1_decision.json\n?? results/gate_a/\n?? results/gb_mpcc/e0/\n?? results/gb_mpcc/r0_candidates/\n?? results/gb_mpcc/r0_inputs/\n?? results/gb_mpcc/r0_replay/\n?? results/gb_mpcc/r0_replay_corrected/\n?? results/graph_anns_iclr_phase1_1/\n?? results/post_e0/\n?? results/sgdr_3day/\n?? tests/graph_anns_iclr_phase1_1/\n",
+  "root_free_bytes": 16089100288,
+  "data500_free_bytes": 929160871936,
+  "data500_free_gib": 865.3484954833984,
+  "required_new_build_free_gib": 20,
+  "projected_faiss100k_scratch_gib": 18.0,
+  "resource_gate_pass": true,
+  "active_wlk_processes": "1027643 Ssl  25-16:01:34 /home/wlk/.vscode-server/code-a5b500951314efd502d07465bd138dfbd714a960 --cli-data-dir /home/wlk/.vscode-server/cli agent host\n1881303 S          41:02 sshd: wlk@notty\n1883835 S          00:03 sshd: wlk@notty\n1883836 Ssl        00:03 .venv/bin/python tests/graph_anns_iclr_phase1_1/phase1_1_runner.py --mode all\n1883971 S          00:00 /bin/sh -c ps -u wlk -o pid=,stat=,etime=,cmd=\n1883972 R          00:00 ps -u wlk -o pid=,stat=,etime=,cmd=\n2525603 Ssl  59-16:06:43 /home/wlk/.vscode-server/code-fc3def6774c76082adf699d366f31a557ce5573f --cli-data-dir /home/wlk/.vscode-server/cli agent host\n2527377 Ssl  59-15:54:41 /home/wlk/.vscode-server/code-fc3def6774c76082adf699d366f31a557ce5573f --cli-data-dir /home/wlk/.vscode-server/cli agent host\n",
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "future_replication_accessed": false,
+  "hdf5_test_member_accessed": false,
+  "old_results_modified": false,
+  "faiss_scope": "historical 30K due explicit train[:30000] slice; 100K source train available"
+}
