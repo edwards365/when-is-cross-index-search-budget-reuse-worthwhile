@@ -1,0 +1,3 @@
+dataset,historical_base_count,source_train_count,scope_correction_base_count,historical_reason,future_roles_accessed
+sift_100k,30000,1000000,100000,explicit train[:30000] slice,False
+arxiv_nomic_100k,30000,1344643,100000,explicit train[:30000] slice,False

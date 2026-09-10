@@ -1,0 +1,3 @@
+dataset,h10_complete,risk_positive,risk_ci_low_gt_2pct,minimum_safe_action_variation_gt_10pct,lobo_positive,delete_top1_positive,strong_gate,stage3_label
+sift_100k,True,True,True,True,True,True,True,FAISS_100K_STRONG_SCOPE_REPLICATION
+arxiv_nomic_100k,True,True,True,True,True,True,True,FAISS_100K_STRONG_SCOPE_REPLICATION

@@ -1,0 +1,29 @@
+{
+  "runs": [
+    {
+      "run": 1,
+      "hashes": {
+        "discrete_workpoint_equivalence.csv": "928075d75e8588a073527101700b4031d43e7259de3301b319649f1d86d0f413",
+        "discrete_hit_sensitivity.csv": "356a7206121b9d0d4948e743bc1c5e90ee938e1d0961531f7bf5016c3a4f7aa9",
+        "deterministic_semantic_reanalysis.csv": "fe1cd60dd2f80a4dc4b323b3aefe742d12c29b5d036092a5ca602ccdbe3d8498",
+        "deterministic_gate_v2.csv": "b8ecaddd1c7705c99cd84cb6f64729a74f118b944565df51118290df55082fba",
+        "faiss_100k_semantic_results.csv": "faef0c5f4861f8b1cf642103be18ae119295f3ea07da5dec2147a755c5d75511",
+        "faiss_100k_hit_sensitivity.csv": "faef0c5f4861f8b1cf642103be18ae119295f3ea07da5dec2147a755c5d75511",
+        "faiss_100k_gate.csv": "aff67d681c30aabd918a16a435454e77ccae10eca36acda8678fed1a86b11c7f"
+      }
+    },
+    {
+      "run": 2,
+      "hashes": {
+        "discrete_workpoint_equivalence.csv": "928075d75e8588a073527101700b4031d43e7259de3301b319649f1d86d0f413",
+        "discrete_hit_sensitivity.csv": "356a7206121b9d0d4948e743bc1c5e90ee938e1d0961531f7bf5016c3a4f7aa9",
+        "deterministic_semantic_reanalysis.csv": "fe1cd60dd2f80a4dc4b323b3aefe742d12c29b5d036092a5ca602ccdbe3d8498",
+        "deterministic_gate_v2.csv": "b8ecaddd1c7705c99cd84cb6f64729a74f118b944565df51118290df55082fba",
+        "faiss_100k_semantic_results.csv": "faef0c5f4861f8b1cf642103be18ae119295f3ea07da5dec2147a755c5d75511",
+        "faiss_100k_hit_sensitivity.csv": "faef0c5f4861f8b1cf642103be18ae119295f3ea07da5dec2147a755c5d75511",
+        "faiss_100k_gate.csv": "aff67d681c30aabd918a16a435454e77ccae10eca36acda8678fed1a86b11c7f"
+      }
+    }
+  ],
+  "core_byte_identical": true
+}

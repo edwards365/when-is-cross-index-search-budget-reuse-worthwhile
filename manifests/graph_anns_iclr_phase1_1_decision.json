@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.1",
+  "parent_commit": "5dac9079376785094fb33ff9a456b2c962eb6315",
+  "branch": "exp/graph_anns_iclr_phase1_semantic_scope_closure",
+  "evidence_level": "EXPLORATORY_FIXED_TARGET_SEMANTIC_SCOPE_CLOSURE",
+  "deadline": "2026-09-15T23:59:00+08:00",
+  "stage_labels": {
+    "stage1": "DISCRETE_WORKPOINT_EFFECT_CONDITIONAL",
+    "stage2": "DETERMINISTIC_CONTRACT_CONFIRMED_WITH_BUILD_OVERHEAD",
+    "stage3": "FAISS_100K_STRONG_SCOPE_REPLICATION"
+  },
+  "final_decision": "ICLR_PHASE1_1_FULL_SEMANTIC_SCOPE_CLOSURE_PASS",
+  "primary_hit_requirement": 10,
+  "sensitivity_hit_requirements": [
+    8,
+    9,
+    10
+  ],
+  "bootstrap": {
+    "replicates": 5000,
+    "seed": 991,
+    "unit": "query_id_with_registered_pairs"
+  },
+  "historical_faiss_scope": "30K",
+  "faiss_100k_scope_separate": true,
+  "faiss_profiling_cost_status": "TARGET_CERTIFIED_ACTION_LEDGER_ABSENT_SYMBOLIC_ONLY_BREAK_EVEN",
+  "forbidden_roles_accessed": false,
+  "old_results_modified": false,
+  "allowed_new_roots": [
+    "docs/graph_anns_iclr_phase1_1",
+    "results/graph_anns_iclr_phase1_1",
+    "figures/graph_anns_iclr_phase1_1",
+    "tests/graph_anns_iclr_phase1_1",
+    "manifests/graph_anns_iclr_phase1_1_decision.json"
+  ]
+}

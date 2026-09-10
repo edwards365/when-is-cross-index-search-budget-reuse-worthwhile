@@ -1,0 +1,3 @@
+dataset,historical_base_count,corrected_base_count
+sift_100k,30000,100000
+arxiv_nomic_100k,30000,100000
