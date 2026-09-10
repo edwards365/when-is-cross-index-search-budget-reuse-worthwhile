@@ -1,0 +1,45 @@
+{
+  "task": "Graph-ANNS Theory-Method-Claim Final Lock",
+  "decision": "THEORY_METHOD_CLAIM_FINAL_LOCK_PASS",
+  "repository": "edwards365/navigation-aware-resistance-hnsw",
+  "branch": "exp/graph_anns_theory_method_claim_lock",
+  "parent_commit": "d2ad714541d73bedcd48580347b67880d37580f8",
+  "publication_commit": "BRANCH_HEAD_AT_PUBLICATION",
+  "main_theorems": [
+    "Hidden-Environment Non-Portability",
+    "Finite-Class Conditional Recoverability"
+  ],
+  "theorem_count_audited": 78,
+  "disposition": {
+    "main": 2,
+    "merged_into_main": 10,
+    "subsidiary_retained": 54,
+    "downgraded": 10,
+    "deleted": 2
+  },
+  "method_position": "CERTIFIED_DIAGNOSTIC_AUDITING_PROCEDURE",
+  "empirical_scope": {
+    "datasets": ["SIFT-100K", "Arxiv-Nomic-100K"],
+    "implementations": ["hnswlib HNSW", "Faiss HNSW", "DiskANN3/Vamana-style"],
+    "construction_paradigms": 2,
+    "cells": 6,
+    "build_scope": "REGISTERED_FAMILIES",
+    "query_scope": "FROZEN_DISTRIBUTIONS"
+  },
+  "sealed_access": {
+    "validation_dev": false,
+    "formal_test": false,
+    "future_replication": false,
+    "new_ann_search": false,
+    "new_index_build": false,
+    "model_training": false
+  },
+  "frozen_results_modified": false,
+  "future_replication_authorized": false,
+  "paper_readiness_percent": 88,
+  "preferred_venues": ["SIGMOD", "PVLDB", "ICDE"],
+  "conditional_venues": ["ICLR", "NeurIPS"],
+  "legacy_checksum_limitation": "111/123 matched; 8 CSV hashes differed; 4 listed cache artifacts unavailable",
+  "tests_required": 20,
+  "checksum_status": "GENERATED_AND_VERIFIED_BEFORE_PUBLICATION"
+}

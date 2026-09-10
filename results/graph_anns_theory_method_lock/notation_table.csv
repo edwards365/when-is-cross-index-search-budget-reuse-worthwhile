@@ -1,0 +1,22 @@
+symbol,meaning,scope_or_guardrail
+mathcal_E,finite preregistered build-environment set,no population over unseen builds is implied
+E,one serialized build environment,includes implementation configuration permutation and replay semantics
+mathcal_A_E,finite native action set for environment E,raw actions are implementation specific
+q~P_Q,query from the frozen query law,query uncertainty is conditional on registered builds
+Z_E(q,a),absolute endpoint-aware failure indicator,one definition across selection certification and evaluation
+B_E(q),minimum observed safe native action,defined only on the registered grid
+bottom,categorical registered-grid unresolved state,never numerically imputed and not automatically true infeasibility
+C_E(q,a),implementation-internal query cost,cross-implementation raw NDC values are not equated
+T,policy-observable transcript,must exclude unauthorized target truth
+pi(T,q),action or abstention rule,may be randomized
+r_E(pi),absolute target failure risk,not interchangeable with relative or disagreement risk
+delta,risk tolerance,preregistered
+alpha,allowed certification error probability,allocated across selection/certification or familywise actions
+gamma,positive safety margin below delta,drives certification power
+R,certification rejection event,rejection is distinct from unsafe acceptance
+a_f,fallback action,must have independent same-target same-event safety evidence
+M,number of frozen candidate actions,enters multiplicity and evidence scale
+D,per-query net economic denominator,if nonpositive there is no finite break-even workload
+N_star,break-even service volume,defined only with complete auditable costs and D positive
+eta_E,registered endpoint or unavoidable failure mass,lower-bounds in-family risk
+rho_S,conditional rescue probability given primary failure,marginal lane accuracy cannot replace it

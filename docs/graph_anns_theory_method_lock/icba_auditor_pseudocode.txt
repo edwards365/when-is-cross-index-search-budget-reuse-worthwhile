@@ -1,0 +1,40 @@
+ALGORITHM ICBA-CERTIFIED-AUDIT
+INPUT:
+  registered builds E; native action sets A_E; source policies Pi_s;
+  disjoint role datasets D_design, D_select, D_cert, D_eval;
+  exact truth for authorized roles; endpoint-aware event Z;
+  costs C; risk delta; error alpha; multiplicity plan;
+  optional independently safe fallback a_f.
+
+1  ASSERT build artifacts replay and implementation/action semantics are frozen.
+2  ASSERT every authorized query role is disjoint; otherwise RETURN INVALID_PROTOCOL.
+3  ASSERT Z has one endpoint-aware definition across selection, certification, and evaluation.
+4  FOR each registered (E, q, a):
+5      compute Z_E(q,a) and C_E(q,a) without assuming raw-action monotonicity.
+6      set B_E(q) to the minimum observed safe native action, else categorical BOTTOM.
+7  REPORT grid-unresolved mass separately from proven endpoint infeasibility.
+8  FOR each registered directed source-target pair:
+9      transport the frozen source action to target;
+10     compute absolute target risk, reference risk, incremental violation, and conservative cost.
+11 ESTIMATE query-law uncertainty by resampling whole query clusters with all registered pairs;
+12 REPORT LOBO/seed/order deletions separately; DO NOT call this unseen-build certification.
+13 FREEZE any fixed-target candidate family before viewing D_cert.
+14 IF multiple raw actions are certified on the same role:
+15     compute Bonferroni/simultaneous one-sided bounds at the frozen family level.
+16 ELSE:
+17     select on D_select and compute a valid one-sided bound for the single action on D_cert.
+18 IF a candidate has upper risk bound <= delta:
+19     ACCEPT the minimum-cost certified candidate under the preregistered rule.
+20 ELSE IF a_f has independent same-target, same-event safety evidence:
+21     RETURN FALLBACK(a_f).
+22 ELSE:
+23     RETURN ABSTAIN_NO_SAFE_ACTION.
+24 COMPUTE mean, p95, p99 and robustness gates separately.
+25 IF required offline or online costs are missing:
+26     RETURN break_even = NOT_ESTIMABLE.
+27 ELSE compute D and N_star; if D <= 0 return NO_FINITE_BREAK_EVEN_WORKLOAD.
+28 EMIT decision, certificate scope=FIXED_TARGET, evidence provenance, and forbidden extrapolations.
+
+INVARIANT: no action is labeled safe without a valid bound under the registered event.
+INVARIANT: BOTTOM is never converted to a numeric budget.
+INVARIANT: absent a certified fallback, rejection is abstention.

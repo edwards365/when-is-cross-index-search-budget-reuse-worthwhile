@@ -1,0 +1,6 @@
+figure_id,title,content,status
+F1,Build reconfiguration changes safe budgets,"one dataset/configuration to multiple serialized graphs and query-specific safe budgets",DESIGN_LOCKED
+F2,Six-cell transport effects,"forest plot of original and harmonized violation effects with 95% intervals",DESIGN_LOCKED
+F3,Categorical budget response,"per-query category variation with bottom as categorical unresolved state",DESIGN_LOCKED
+F4,ICBA certified audit,"semantic checks transport analysis certification fallback/abstention economics and scope",DESIGN_LOCKED
+F5,Theory-driven falsification ladder,"four method families mapped to attainability observability certification and economics",DESIGN_LOCKED
