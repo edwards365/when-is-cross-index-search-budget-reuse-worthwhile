@@ -1,0 +1,4 @@
+implementation,operator_family,budget_semantics,registered_grid,environment_perturbation,cost_counter,reference_risk_definition,transport_unit,resampling_unit
+hnswlib HNSW,HNSW,efSearch,10;20;40;80;120;200,construction seed x insertion order,distance-computation NDC,target evaluation-defined safe budget; raw nonmonotonicity retained,directed source-target build,query-ID bootstrap with all 552 pairs retained
+Faiss HNSW,HNSW,efSearch,16;32;64;128;256;512,pre-registered input permutation,internal distance-computation NDC,target evaluation-defined safe budget,directed source-target build,query-ID bootstrap with all 552 pairs retained
+DiskANN3 Vamana-style,Vamana-style,l_value,16;32;64;128;256;512,pre-registered insertion permutation,SearchStats.cmps; hops secondary,target own minimum safe action (reference risk definitionally zero),directed source-target build,query-ID bootstrap over 36 registered pairs

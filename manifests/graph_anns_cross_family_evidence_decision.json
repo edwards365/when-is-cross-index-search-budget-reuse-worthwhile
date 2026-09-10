@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "decision": "CROSS_FAMILY_EVIDENCE_SUFFICIENT_FOR_PAPER",
+  "evidence_scope": "fixed frozen two-dataset cross-family integration",
+  "source_commits": {
+    "hnswlib": "dd16073167a70fb5e82575279c35b838fee05922",
+    "faiss_hnsw": "8fd7b639f8ce999573d92cdbd86a8aa782c549aa",
+    "diskann3_vamana": "47e354d1db32f5d8edfa152021aaf60a48725a89",
+    "theory": "802c8cadaf39b5b7e8edfa45b07140d6a6ee0933"
+  },
+  "new_ann_runs": 0,
+  "new_indexes": 0,
+  "query_or_truth_access": 0,
+  "registered_thresholds": {
+    "category_change_pct": 10,
+    "delta_transport_risk_pct": 2
+  },
+  "cost_claim": "HNSW implementations positive and resolved; Vamana-style direction unresolved",
+  "source_integrity_note": "hnswlib 58/58 and Faiss 53/53 checksum entries verified; Vamana frozen commit direct-verified but its stored manifest is stale for 9 regenerated CSVs (22/31 match)",
+  "future_replication_authorized": false,
+  "legacy_limitation": "LEGACY_BASELINE_CONDITIONAL_REPRODUCTION_111_OF_123 retained",
+  "paper_claim": "Build-dependent query difficulty and source-to-target safety non-transfer recur across two HNSW implementations and a Vamana-style family on both datasets; no universal cross-family cost-tax claim."
+}

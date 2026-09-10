@@ -1,0 +1,3 @@
+# Source provenance audit
+
+All four frozen Git objects were read directly and verified as commits. The integration uses source commits listed in `source_provenance.csv`; no branch merge, result mutation, query vector, or truth access occurred. Parent relationships are recorded machine-readably. Replaying the frozen checksum manifests verified all 58 hnswlib and all 53 Faiss entries. The Vamana manifest verified 22/31 entries; nine regenerated Stage-I CSV blobs differ from the manifest stored in the same frozen commit. This is recorded as a stale source checksum manifest, not silently upgraded to full checksum verification. The frozen commit itself and all values used here remain directly addressable.

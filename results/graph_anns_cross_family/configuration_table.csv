@@ -1,0 +1,4 @@
+implementation,datasets,recall_threshold,builds_per_dataset,queries,pairs,budget_grid,source_commit
+hnswlib HNSW,SIFT-100K;Arxiv-Nomic-100K,.95,24,750,552,10;20;40;80;120;200,dd16073167a70fb5e82575279c35b838fee05922
+Faiss HNSW,SIFT-100K;Arxiv-Nomic-100K,.95,24,750,552,16;32;64;128;256;512,8fd7b639f8ce999573d92cdbd86a8aa782c549aa
+DiskANN3 Vamana-style,SIFT-100K;Arxiv-Nomic-100K,.95,12,750,36,16;32;64;128;256;512,47e354d1db32f5d8edfa152021aaf60a48725a89

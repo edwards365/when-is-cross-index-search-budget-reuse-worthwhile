@@ -1,0 +1,4 @@
+source,manifest_entries,verified,mismatch,status
+hnswlib_e4_seal_patch_hotfix,58,58,0,DIRECT_COMMIT_AND_CHECKSUM_VERIFIED
+faiss_hnsw_external_validity,53,53,0,DIRECT_COMMIT_AND_CHECKSUM_VERIFIED
+diskann3_vamana_stage1,31,22,9,DIRECT_COMMIT_VERIFIED_CHECKSUM_MANIFEST_STALE_FOR_9_REGENERATED_CSVS
