@@ -1,0 +1,66 @@
+{
+  "datasets": [
+    {
+      "count": 750,
+      "dataset": "sift_100k",
+      "excluded_cross_role_ids": [],
+      "future_vector_content_dereferenced": false,
+      "original_runtime_retained": 750,
+      "profiling_vector_file": "/home/wlk/data500/graph_anns_iclr_phase1_scratch/profiling_roles/sift_100k.f32bin",
+      "profiling_vector_file_sha256": "4b1ce897a957e9a7f50516dd1139e009dbde025824281973a7d99699f52ed3ca",
+      "proof_scope": "frozen dataset identity plus train source row; sealed future vectors were not opened",
+      "replacement_count": 0,
+      "source_identity_overlap_all_zero": true,
+      "source_identity_overlap_counts": {
+        "e4:confirmatory_evaluation_ids": 0,
+        "e4:confirmatory_ids": 0,
+        "e4:future_replication_ids": 0,
+        "e4:historical_design_range": 0,
+        "e4:target_sentinel_ids": 0,
+        "faiss:confirmatory_evaluation": 0,
+        "faiss:future_replication": 0,
+        "faiss:grid_design": 0,
+        "vamana:vamana_design": 0,
+        "vamana:vamana_evaluation": 0,
+        "vamana:vamana_future_replication": 0
+      }
+    },
+    {
+      "count": 750,
+      "dataset": "arxiv_nomic_100k",
+      "excluded_cross_role_ids": [
+        258720,
+        291324,
+        335001,
+        740925,
+        1009882
+      ],
+      "future_vector_content_dereferenced": false,
+      "original_runtime_retained": 745,
+      "profiling_vector_file": "/home/wlk/data500/graph_anns_iclr_phase1_scratch/profiling_roles/arxiv_nomic_100k.f32bin",
+      "profiling_vector_file_sha256": "a1006b4a0a65412a93150945ca89efa88446f8db5f6a2670e3112a0e7d2886f3",
+      "proof_scope": "frozen dataset identity plus train source row; sealed future vectors were not opened",
+      "replacement_count": 5,
+      "source_identity_overlap_all_zero": true,
+      "source_identity_overlap_counts": {
+        "e4:confirmatory_evaluation_ids": 0,
+        "e4:confirmatory_ids": 0,
+        "e4:future_replication_ids": 0,
+        "e4:historical_design_range": 0,
+        "e4:target_sentinel_ids": 0,
+        "faiss:confirmatory_evaluation": 0,
+        "faiss:future_replication": 0,
+        "faiss:grid_design": 0,
+        "vamana:vamana_design": 0,
+        "vamana:vamana_evaluation": 0,
+        "vamana:vamana_future_replication": 0
+      }
+    }
+  ],
+  "purpose": "runtime and resource measurement only",
+  "role": "profiling_cost_only",
+  "role_csv_sha256": "c962338f453aea9aa2845607592c1b7221c585f559306cacbba9ca89a52dfdbd",
+  "science_use_prohibited": true,
+  "sealed_future_vectors_or_truth_accessed": false,
+  "selection_or_threshold_use_prohibited": true
+}
