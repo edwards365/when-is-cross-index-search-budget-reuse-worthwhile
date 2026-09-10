@@ -1,0 +1,25 @@
+{
+  "audited_at": "2026-09-10T17:02:00+08:00",
+  "root_filesystem": {
+    "total_gib_rounded": 1877,
+    "free_gib_rounded": 15,
+    "new_builds_authorized": false
+  },
+  "phase1_scratch_filesystem": {
+    "path": "/home/wlk/data500/graph_anns_iclr_phase1_scratch",
+    "mount": "/home/wlk/data500",
+    "source": "/dev/loop4",
+    "filesystem": "ext4",
+    "owner": "wlk",
+    "mode": "0700",
+    "total_gib": 915.6,
+    "used_gib": 34.8,
+    "free_gib": 880.8,
+    "minimum_safety_reserve_gib": 20,
+    "new_build_scratch_authorized": true
+  },
+  "routing_rule": "All caches, logs, build trees, binary indexes and timing scratch for Phase 1B/1C must remain under the dedicated data500 scratch path and must never be added to Git. Formal reports, small machine tables, figure source data, tests and the decision manifest remain in the preregistered repository directories.",
+  "pre_run_gate": "Before every build, require free_space >= projected_additions + 20 GiB on /home/wlk/data500 and verify the root filesystem will receive no large artifact.",
+  "scientific_configuration_changed": false,
+  "sealed_roles_accessed": 0
+}
