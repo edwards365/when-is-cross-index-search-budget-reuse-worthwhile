@@ -1,0 +1,2 @@
+component,label,basis,sealed_roles_accessed
+Economics,PROFILING_COST_OPERATOR_DEPENDENT,"Direct cost-only measurements show sub-second to few-second profiling for hnswlib/Faiss at registered n; Faiss is actually 30K and Vamana cost-only replay is not estimable, so a universal 100K claim is not supported.",False
