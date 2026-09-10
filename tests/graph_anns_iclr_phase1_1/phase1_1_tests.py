@@ -50,6 +50,7 @@ def main():
     f100=rows('faiss_100k_semantic_results.csv')
     check(len(f100)==6 and {int(r['hit_requirement_h']) for r in f100}=={8,9,10}, 'Faiss-100K sensitivity incomplete')
     check(all(int(r['base_count'])==100000 and int(r['builds'])==24 and int(r['queries'])==750 for r in f100), 'Faiss-100K scope incomplete')
+    check(all(r.get('ndc_mean')=='NOT_ESTIMABLE_BATCH_CUMULATIVE' for r in f100), 'Faiss NDC status must be explicit')
     fg=rows('faiss_100k_gate.csv')
     check(len(fg)==2 and all(r['strong_gate']=='True' for r in fg), 'Faiss-100K strong gate not met')
     checks.append('faiss100k-scope')
@@ -81,6 +82,7 @@ def main():
       ('faiss100k-build-count',all(int(r['builds'])==24 for r in f100)),
       ('faiss100k-query-count',all(int(r['queries'])==750 for r in f100)),
       ('faiss100k-base-count',all(int(r['base_count'])==100000 for r in f100)),
+      ('faiss100k-ndc-status',all(r.get('ndc_mean')=='NOT_ESTIMABLE_BATCH_CUMULATIVE' for r in f100)),
       ('faiss100k-strong-gate',all(r['strong_gate']=='True' for r in fg)),
       ('manifest-role-firewall',m.get('forbidden_roles_accessed') is False),
       ('manifest-old-results',m.get('old_results_modified') is False),
