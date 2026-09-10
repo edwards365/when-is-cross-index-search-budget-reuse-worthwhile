@@ -1,0 +1,3 @@
+dataset,category,risk,recall,mean_cost,p95_cost,build,top1,byte_identical,search_identical,all_pass,recall_delta,mean_budget_ratio,p95_budget_ratio,build_time_ratio
+sift_100k,True,True,True,True,True,True,True,True,True,True,-0.0003166666666666318,0.9739865001612964,1.0,0.5237356838698203
+arxiv_nomic_100k,True,True,True,True,True,True,True,True,True,True,-0.000683333333333147,0.967882165695287,1.0,0.326339886623291
