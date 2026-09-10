@@ -1,0 +1,22 @@
+flowchart TD
+    P["Cross-build safe-budget heterogeneity"] --> R["Reuse / recalibration"]
+    P --> B["Build selection / construction"]
+    P --> L["Additive lanes / portals"]
+    P --> A["Certified auditor / fallback"]
+
+    R --> R1["Target evidence: fixed-target safety"]
+    R1 --> R2["Pruned: no stable incremental value"]
+
+    B --> B1["Frozen candidate family"]
+    B1 --> B2["Pruned: attainability / bridge failure"]
+
+    L --> L1["Complementarity confirmed"]
+    L1 --> L2["Pruned: no trigger / realizable shared cost"]
+
+    A --> A1["Uncertified acceptance controlled"]
+    A1 --> A2["Pruned as optimizer: fallback / regret"]
+
+    R2 --> I["ICBA certified diagnostic method"]
+    B2 --> I
+    L2 --> I
+    A2 --> I

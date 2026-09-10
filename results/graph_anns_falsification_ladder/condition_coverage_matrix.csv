@@ -1,0 +1,5 @@
+method_family,C0_semantics,C1_endpoint,C2_identifiability,C3_margin,C4_target_evidence,C5_fallback,C6_attainability,C7_bridge,C8_complementarity,C9_trigger,C10_shared_cost,C11_certification,C12_mean_value,C13_tail,C14_break_even,C15_robustness,terminal_failure
+Reuse and target recalibration,PASS,MIXED,FAIL,MIXED,PASS,MIXED,NOT_PRIMARY,NOT_PRIMARY,NOT_PRIMARY,NOT_PRIMARY,NOT_PRIMARY,PASS,FAIL,MIXED,NOT_ESTIMABLE,PASS,identifiability_and_incremental_value
+Build selection and stable construction,PASS,MIXED,NOT_PRIMARY,MIXED,PASS,MIXED,FAIL,FAIL,NOT_PRIMARY,NOT_PRIMARY,NOT_PRIMARY,PASS,FAIL,FAIL,FAIL,MIXED,candidate_attainability_and_semantic_bridge
+Multi-lane and portal rescue,PASS,MIXED,FAIL,MIXED,PASS,MIXED,MIXED,MECHANICAL_PRIMARY_PRESERVATION_ONLY,PASS,FAIL,FAIL,NOT_AUTHORIZED,FAIL,FAIL,NOT_ESTIMABLE,PASS,observable_trigger_and_shared_cost
+Certified auditor and fallback,PASS,MIXED,NOT_SOLVED,MIXED,PASS,PASS,FAIL,NOT_PRIMARY,NOT_PRIMARY,NOT_PRIMARY,NOT_PRIMARY,PASS,FAIL,FAIL,FAIL,PASS,decision_value

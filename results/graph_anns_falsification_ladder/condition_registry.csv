@@ -1,0 +1,17 @@
+condition_id,condition_name,class,formal_status,failure_meaning,positive_evidence_required
+C0,Semantic well-posedness,protocol,mandatory guardrail,action/event/cost/role mismatch invalidates all downstream conclusions,native implementation semantics and role checks pass
+C1,Endpoint feasibility,theorem obstruction,formally proved,registered action family cannot achieve risk threshold,at least one action below delta with positive margin
+C2,Environment/action identifiability,theorem obstruction,formally proved through Main I,observable transcript cannot distinguish conflicting useful actions,validated target-relevant transcript information
+C3,Positive risk margin,theorem condition,formally sufficient and finite-sample obstruction,certification lacks power near the threshold,risk below delta by registered gamma
+C4,Independent target evidence,theorem condition,formally sufficient,adaptive reuse invalidates nominal certification,disjoint selection and certification or valid simultaneous control
+C5,Valid fallback or abstention,theorem condition,formally sufficient,certificate rejection cannot be called safe deployment,independent same-target same-event fallback certificate or abstention
+C6,Candidate attainability,finite-class method premise,route-specific,selection cannot create an absent feasible action,CI-supported safe and target-metric-improving candidate
+C7,Behavioral or structural bridge,route-specific premise,restricted or empirical only,proxy changes do not control native budget response,mechanical dominance or held-out response validation
+C8,Failure complementarity,route-specific mechanism,identity proved,auxiliary lane does not rescue primary failures,positive conditional rescue probability on held-out data
+C9,Observable trigger,route-specific premise,empirical,Oracle rescue cannot be deployed,truth-free rule transfers across datasets/builds
+C10,Shared-cost realizability,route-specific premise,accounting bound,auxiliary work erases rescue value,measured shared execution meets preregistered compression target
+C11,Independent certification,statistical method condition,classical guarantee,unsafe action may be accepted,valid one-sided familywise or independently selected-action certificate
+C12,Mean deployment value,decision condition,accounting identity,safe action is not cheaper than comparator,positive mean net gain against correct baseline
+C13,Tail noninferiority,decision condition,separate empirical gate,mean gain hides p95/p99 degradation,registered p95/p99 bounds pass
+C14,Finite break-even,decision condition,accounting identity,offline and control cost never amortize,complete cost ledger with positive denominator
+C15,Environment robustness,evidence condition,registered diagnostic,single build/query subset drives result,LOBO/seed/order and top-contributor deletion preserve direction

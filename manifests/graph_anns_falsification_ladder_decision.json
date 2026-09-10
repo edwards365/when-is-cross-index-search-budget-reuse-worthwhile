@@ -1,0 +1,27 @@
+{
+  "task": "Graph-ANNS Theory-Guided Falsification Ladder",
+  "decision": "THEORY_GUIDED_FALSIFICATION_LADDER_LOCK_PASS",
+  "repository": "edwards365/navigation-aware-resistance-hnsw",
+  "parent_commit": "86fc5227f3a7ad1cbb860c3f39d7b2f7a28dc63d",
+  "branch": "exp/graph_anns_theory_guided_falsification_ladder",
+  "families": 4,
+  "route_records": 16,
+  "condition_records": 16,
+  "main_paper_representatives": 4,
+  "method_families": {
+    "reuse_target_recalibration": "PASS_FIXED_TARGET_SAFETY_ONLY",
+    "build_selection_stable_construction": "FAIL_ATTAINABILITY_AND_SEMANTIC_BRIDGE",
+    "multi_lane_portal_rescue": "PASS_MECHANISM_ONLY",
+    "certified_auditor_fallback": "PASS_SAFETY_DIAGNOSTIC_FAIL_OPTIMIZATION"
+  },
+  "surviving_method_position": "ICBA_CERTIFIED_DIAGNOSTIC_AUDITING_PROCEDURE",
+  "closed_routes_reauthorized": false,
+  "new_experiments": 0,
+  "new_ann_searches": 0,
+  "new_indexes": 0,
+  "new_model_training": 0,
+  "sealed_query_truth_accesses": 0,
+  "future_replication_authorized": false,
+  "scope": "REGISTERED_METHOD_SIGNAL_AND_ACTION_FAMILIES_ONLY",
+  "checksum_status": "GENERATED_AND_VERIFIED_BEFORE_PUBLICATION"
+}

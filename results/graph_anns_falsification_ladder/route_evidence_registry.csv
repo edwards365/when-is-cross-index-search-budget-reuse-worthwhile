@@ -1,0 +1,17 @@
+evidence_id,source_branch,commit,artifact_or_result,used_for,integrity_note
+E-R1,exp/icba_open_world_autopsy,a9f88bbcfd9b2c2f3e8a27e1471e16628b60cdb0,open-world endpoint and collision audit,source reuse and identifiability,legacy 123-item seal retained as 111 matched 8 changed 4 unavailable
+E-R2,exp/icba_positive_recovery_closure,81299c9fc4238c7cd6e22167cc7b41c4c7eadfa7,positive recovery fixed-target results,paired recalibration and history increment,41-item stage checksum passed
+E-R4,exp/graph_anns_positive_method_closure,6a8cbcf,strict zero-overlap cross-fit,query-overlap falsification,48 role checks and stage checks passed
+E-R5,exp/asrc_semantic_repair,4362609,shared event and matched-risk audit,ASRC value boundary,45-item stage checksum passed
+E-B1,exp/icba_cibs_joint_feasibility_closure,736c3799a92bf31f503c37e8eaaf680f84398aa5,72-action feasibility closure,candidate attainability,14 tests and stage checksums passed
+E-B2,exp/icba_stable_build_dual_endpoint_pilot,7417147e9ce2e526973cd47b3b390c0ae2bb7c65,CFSR-Lite dual-endpoint pilot,structural surrogate failure,22 tests passed
+E-B3,exp/icba_gsc_behavioral_operator_search,934a4d7845f296239a6f44ea1b7581074211c2eb,O6 smoke,GSC Pareto signal,17 tests and 50 new-file hashes passed
+E-B4,exp/icba_gsc_o4_bridge_completion,c9c4915cf626d6170132c7beafd2dbbc58b44776,O4 native bridge smoke,implemented structural operator,8 new and 17 prior tests passed
+E-P1,exp/icba_cals_semantic_repair_reaudit,f5527e691ff91598de30fd59464ada6e96c65f00,ID-corrected portal audit,rescue mechanism correction,20 tests passed
+E-P2,exp/icba_cals_reproducibility_selection_cost_seal,e129ea37915138c00280983bc4306dd9d8442e13,selection-transfer and cost seal,portal complementarity and cost,24 tests and checksum passed
+E-P3,exp/icba_bn_apd_observable_trigger_gate,e2e5a5d86042b76220199582e152c1391d52a794,corrected trigger and LOBO audit,observable trigger,12k instrumentation and 9k joined rows unchanged
+E-P4,exp/icba_shared_frontier_cost_realizability,9b2f18ae9936aac1624d46676b3c498ac04e6dea,cost-realizability bound,shared cost compression,exploratory nondeployable lower bound
+E-A1,exp/icba_certification_fallback_autopsy,83c7171f04b622088e39dc3fd9ea850437ae5fdc,certification fallback decomposition,ordered-family failure and cost,71 cumulative tests passed
+E-A2,exp/icba_auditor_runtime_alignment_repair,c0a68f844d358be6d2fe1725c219bc3a0002b61d,runtime semantic repair,auditor safety semantics,24 alignment tests passed
+E-A3,exp/icba_fixed_target_auditor_closure,0f5a2bec55cc62e9f9754358c1691eb965afe856,60-decision fixed-target closure,safety versus decision regret,20 tests and 15 figure pairs reported
+E-THEORY,exp/graph_anns_theory_method_claim_lock,86fc5227f3a7ad1cbb860c3f39d7b2f7a28dc63d,two-main-theorem final lock,condition taxonomy and scope,20 contract checks and 26-file checksum passed
