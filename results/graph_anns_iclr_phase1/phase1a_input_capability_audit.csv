@@ -1,0 +1,7 @@
+implementation,dataset,frozen_record_root,build_count,evaluation_queries,budget_points,workpoint_090,workpoint_095,workpoint_099,cost_fields,tail_estimable,censoring_semantics,access_scope
+hnswlib HNSW,SIFT-100K,/home/wlk/data500/graph_anns_e4/raw,24,750,6,ESTIMABLE,ESTIMABLE,ESTIMABLE,ndc|latency_ns,YES,REGISTERED_GRID_UNRESOLVED_NOT_TRUE_ENDPOINT,EXISTING_FROZEN_RESULT_RECORDS_ONLY
+hnswlib HNSW,Arxiv-Nomic-100K,/home/wlk/data500/graph_anns_e4/raw,24,750,6,ESTIMABLE,ESTIMABLE,ESTIMABLE,ndc|latency_ns,YES,REGISTERED_GRID_UNRESOLVED_NOT_TRUE_ENDPOINT,EXISTING_FROZEN_RESULT_RECORDS_ONLY
+Faiss HNSW,SIFT-100K,/home/wlk/data500/graph_anns_faiss_external_validity/run/raw,24,750,6,ESTIMABLE,ESTIMABLE,ESTIMABLE,ndc|latency,YES,REGISTERED_GRID_UNRESOLVED_NOT_TRUE_ENDPOINT,EXISTING_FROZEN_RESULT_RECORDS_ONLY
+Faiss HNSW,Arxiv-Nomic-100K,/home/wlk/data500/graph_anns_faiss_external_validity/run/raw,24,750,6,ESTIMABLE,ESTIMABLE,ESTIMABLE,ndc|latency,YES,REGISTERED_GRID_UNRESOLVED_NOT_TRUE_ENDPOINT,EXISTING_FROZEN_RESULT_RECORDS_ONLY
+DiskANN3/Vamana-style,SIFT-100K,/home/wlk/data500/icba_vamana_stage1/builds,12,750,6,ESTIMABLE,ESTIMABLE,ESTIMABLE,query_cmps|query_hops|search_latencies,YES,JOINT_UNRESOLVED_ENDPOINT_AND_GRID_CENSORING,EXISTING_FROZEN_RESULT_RECORDS_ONLY
+DiskANN3/Vamana-style,Arxiv-Nomic-100K,/home/wlk/data500/icba_vamana_stage1_arxiv/builds,12,750,6,ESTIMABLE,ESTIMABLE,ESTIMABLE,query_cmps|query_hops|search_latencies,YES,JOINT_UNRESOLVED_ENDPOINT_AND_GRID_CENSORING,EXISTING_FROZEN_RESULT_RECORDS_ONLY
