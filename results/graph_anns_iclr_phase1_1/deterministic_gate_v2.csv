@@ -1,0 +1,3 @@
+dataset,index_byte_identity_3of3,search_identity_500x6,minimum_safe_action_variation_zero,incremental_transport_risk_zero,recall_delta_vs_d0,mean_budget_ratio_vs_d0,p95_budget_ratio_vs_d0,top1_deletion_stable,build_time_comparable,build_time_ratio,build_time_gate,all_core_pass
+sift_100k,True,True,True,True,0.0002666666666666373,0.9762900090110014,1.0,True,same-pipeline D0-control,3.517991618433354,False,True
+arxiv_nomic_100k,True,True,True,True,-0.00040000000000006697,0.9985296377517031,1.0,True,same-pipeline D0-control,1.70946914330565,False,True
