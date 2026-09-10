@@ -1,0 +1,7 @@
+implementation,dataset,safe_pair_query_units,cost_delta_p50,cost_delta_p95,cost_delta_p99,scope
+hnswlib HNSW,sift_100k,321374,0,728,1390.27,implementation_native_cost_difference_on_safe_units
+hnswlib HNSW,arxiv_nomic_100k,337923,0,558,1243,implementation_native_cost_difference_on_safe_units
+Faiss HNSW,sift_100k,332947,0,537,1077.54,implementation_native_cost_difference_on_safe_units
+Faiss HNSW,arxiv_nomic_100k,343479,0,559,1329,implementation_native_cost_difference_on_safe_units
+DiskANN3/Vamana-style,sift_100k,26964,0,732,1756.11,implementation_native_cost_difference_on_safe_units
+DiskANN3/Vamana-style,arxiv_nomic_100k,26920,0,635,1989,implementation_native_cost_difference_on_safe_units
