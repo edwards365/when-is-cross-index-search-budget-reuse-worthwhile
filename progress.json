@@ -1,16 +1,18 @@
 {
-  "phase": "P2",
-  "step": 4,
-  "retry": 1,
-  "handoff": "P1 done: Vamana overlap PASS (both ds, incl cross-stage=0; caveats: role vectors not retained, separate base snapshot). Estimand crosswalk 10 rows; definitions D1-D8 drafted. Assets: results/graph_anns_phase2_p1/*, docs patch ready for P5. Next: P2 constructive table.",
+  "phase": "P3",
+  "step": 1,
+  "retry": 0,
+  "handoff": "P2 done: pooling-22 risk 0.09-0.92% @ DistComp 1.34-1.45x (LOBO<2.1%); M3 certify prob 0.63/0.47 at m=59; M4/M4b 0/48 certify (c3_margin fails on all 48); k-ladder measured; M1 replay == frozen main numbers. Decision-rule upgrade drafted (contract>pooling>certify>abstain). Assets: results/graph_anns_phase2_p2/*.",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",
     "matched-lane 2.77x/2.47x + 4.79/3.29pp pairing rule not stored (same-ef candidates 2.93x/2.68x)",
-    "6 references without in-text anchors"
+    "6 references without in-text anchors",
+    "Theorem-2 positive margin fails for all 48 registered targets (c3); certified route collapses to max-budget"
   ],
   "completed_phases": [
     "P0",
-    "P1"
+    "P1",
+    "P2"
   ]
 }

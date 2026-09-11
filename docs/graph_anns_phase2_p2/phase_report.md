@@ -61,3 +61,18 @@ five_condition_instances.csv, decision_manifest.json}; scripts; tests.
   impossible p_cert threshold to Theorem-2 semantics (selection-block CP-UB, alpha=0.025);
   M2 dominance re-evaluated under the four-outcome semantics (overall unsafe-execution
   probability including abstention). Framework unchanged; outputs regenerated; 27/27 checks.
+
+## Theory/paper consistency review (step 5)
+
+1. The new constructive table does not touch the frozen primary estimand: M1 reproduces
+   the registered numbers exactly (validates the replay), and M2-M6 are policy-layer
+   quantities labeled RETROSPECTIVE_REPLAY_PURE_CODE. No estimand reinterpretation.
+2. Consistency with Theorem 2: the measured c3_margin failure is consistent with, and now
+   empirifies, the theorem's stated prerequisite; the paper must NOT claim "certification
+   is impossible" - only that the registered grid offers no margin-separated action.
+3. Consistency with ICBA's four outcomes: pooling's abstention variant maps cleanly onto
+   the abstain outcome; the max-action variant's residual risk (0.8-1.3%) matches the
+   M5 row, so the paper's "max registered action is not automatically safe" sentence now
+   has exact per-target support.
+4. Abstract/intro numeric ranges (17.17-23.60% etc.) remain untouched; the constructive
+   table enters as new results, old numbers unchanged.
