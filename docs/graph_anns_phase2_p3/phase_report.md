@@ -14,3 +14,9 @@
    (ratios of frozen medians), labeled descriptive.
 2. The paper's "fix the thread count" wording must be strengthened (see optimization 1);
    this is a wording-level change consistent with the frozen evidence.
+
+## Final review closure (step 5, second half)
+
+- Consistency with P2: the prescription ordering (contract > pooling > certify > abstain)
+  gains the order-only intermediate rung; no contradiction with the margin finding.
+- Handoff §8.2 item 6 (D3 overhead attribution) is now answered with measured ratios.
