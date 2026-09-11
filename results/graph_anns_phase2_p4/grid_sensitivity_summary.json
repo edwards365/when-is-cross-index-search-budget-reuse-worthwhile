@@ -1,0 +1,32 @@
+{
+ "COARSE":{
+  "('faiss', 'arxiv_nomic_100k')":0.1406062802,
+  "('faiss', 'sift_100k')":0.1735120773,
+  "('hnswlib', 'arxiv_nomic_100k')":0.1549855072,
+  "('hnswlib', 'sift_100k')":0.1779444444
+ },
+ "DROP_MAX":{
+  "('faiss', 'arxiv_nomic_100k')":0.1818768116,
+  "('faiss', 'sift_100k')":0.2381859903,
+  "('hnswlib', 'arxiv_nomic_100k')":0.197089372,
+  "('hnswlib', 'sift_100k')":0.2368478261
+ },
+ "DROP_MIN":{
+  "('faiss', 'arxiv_nomic_100k')":0.103115942,
+  "('faiss', 'sift_100k')":0.1547198068,
+  "('hnswlib', 'arxiv_nomic_100k')":0.1274033816,
+  "('hnswlib', 'sift_100k')":0.1781932367
+ },
+ "FULL":{
+  "('faiss', 'arxiv_nomic_100k')":0.1793236715,
+  "('faiss', 'sift_100k')":0.2367149758,
+  "('hnswlib', 'arxiv_nomic_100k')":0.1837608696,
+  "('hnswlib', 'sift_100k')":0.2237342995
+ },
+ "max_rel_shift_vs_full":{
+  "('faiss', 'arxiv_nomic_100k')":0.4249730603,
+  "('faiss', 'sift_100k')":0.3463877551,
+  "('hnswlib', 'arxiv_nomic_100k')":0.3066892753,
+  "('hnswlib', 'sift_100k')":0.204661758
+ }
+}

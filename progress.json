@@ -1,6 +1,6 @@
 {
   "phase": "P4",
-  "step": 1,
+  "step": 4,
   "retry": 0,
   "handoff": "P3 done: ablation shows order pinning halves variation FREE (0.80x/0.93x build), seed pinning nearly inert (6 distinct D2 hashes under 8 threads), single-threading load-bearing for byte identity (4.73x/1.86x vs pinned tier; 3.52x/1.71x vs D0C). Contract wording upgrade + intermediate mitigation rung drafted. Assets: results/graph_anns_phase2_p3/*.",
   "known_issues": [

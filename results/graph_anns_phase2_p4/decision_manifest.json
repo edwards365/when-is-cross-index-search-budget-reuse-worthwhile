@@ -1,0 +1,18 @@
+{
+  "ann_search_invoked": false,
+  "index_built": false,
+  "frozen_results_modified": false,
+  "economics_matrix": {"cells": 36, "measured": 8, "no_finite_breakeven": 2,
+    "not_estimable": 26, "note": "every NOT_ESTIMABLE carries its reason; no imputation"},
+  "grid_sensitivity": {
+    "FULL_reproduces_frozen_absolute_risk": true,
+    "variants": ["FULL", "DROP_MIN", "DROP_MAX", "COARSE (3 actions)"],
+    "finding": "transport risk stays 10.3%-23.8% across all registered subgrids (max relative shift 42%, COARSE SIFT Faiss 0.174); never below the 2% materiality gate - the phenomenon is grid-robust",
+    "secondary": "coarser grids mechanically lower measured risk (larger minimum actions); cross-implementation comparisons must keep native grids separate (existing guardrail)"
+  },
+  "paper_impact": [
+    "full economics matrix replaces selected-setting reporting (handoff 8.2 item 8)",
+    "grid-sensitivity row answers reviewer 'budget grid sensitivity missing' (severity high) without new ANN runs"
+  ],
+  "final_label": "P4_ECONOMICS_LEDGER_COMPLETE_GRID_SENSITIVITY_ROBUST"
+}
