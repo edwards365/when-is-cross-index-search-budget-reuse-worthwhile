@@ -1,0 +1,16 @@
+{
+  "ann_search_invoked": false,
+  "index_built": false,
+  "frozen_results_modified": false,
+  "branch": "exp/graph_anns_phase2_constructive_closure",
+  "parent_commit": "ffe5798738cb1bf505e724c3b91982420065d280",
+  "aggregate_audit": {"REPRODUCED": 8, "STORED_VERIFIED": 2, "ORIGIN_UNLOCATED": 7},
+  "reference_audit": {"anchored": 17, "missing_in_text_anchor": 6},
+  "known_issues": [
+    "Section-8 recalibration aggregates (29.40/26.17, +0.90 [-8.73,11.25], -0.13 [-9.24,10.26], -7.35, -12.49) have no stored frozen artifact",
+    "protected-edge repair NDC pair (509.49->503.41, p95 849->833, recall -0.002) has no stored frozen artifact",
+    "multi-lane matched-lane ratios 2.77x/2.47x and recall deficits 4.79/3.29pp lack the matched-lane pairing rule as an artifact (same-ef primary candidates computed: 2.93x/2.68x)",
+    "six references have no in-text anchor in the anonymous DOCX"
+  ],
+  "final_label": "P0_TAKEOVER_HARDENING_PASS_WITH_PROVENANCE_GAPS"
+}

@@ -1,0 +1,24 @@
+reference,anchor_keys,status
+Angelopoulos et al. 2025 (LTT),Angelopoulos=2,ANCHORED
+Angelopoulos et al. 2024 (CRC),Angelopoulos=2; conformal risk control=1,ANCHORED
+Bae et al. 2026 (QBAT),Bae=0,NO_IN_TEXT_ANCHOR
+Bates et al. 2021 (RCPS),Bates=1,ANCHORED
+Ben-David et al. 2010,Ben-David=1,ANCHORED
+Chatzakis et al. 2025 (DARTH),Chatzakis=1,ANCHORED
+Duchi et al. 2025,Duchi=1,ANCHORED
+Elliott & Clark 2024,Elliott=0; Clark=0,NO_IN_TEXT_ANCHOR
+El-Yaniv & Wiener 2010,El-Yaniv=1,ANCHORED
+Fu et al. 2019 (NSG),Fu=1,ANCHORED
+Garivier & Kaufmann 2016,Garivier=0; Kaufmann=0,NO_IN_TEXT_ANCHOR
+Horchidan et al. 2025 (ConANN),Horchidan=1,ANCHORED
+Johansson et al. 2019,Johansson=1,ANCHORED
+Johnson et al. 2021 (Faiss),Johnson=1,ANCHORED
+Li et al. 2020,Li=2,ANCHORED
+Malkov & Yashunin 2020 (HNSW),Malkov=1,ANCHORED
+Prokhorenkova & Shekhovtsov 2020,Prokhorenkova=0,NO_IN_TEXT_ANCHOR
+Subramanya et al. 2019 (DiskANN),Subramanya=1,ANCHORED
+Wang et al. 2026 (ANNiE),"Wang et al., 2026=1",ANCHORED
+Wang et al. 2022 (SafeBAI),"Wang et al., 2022=1",ANCHORED
+Xu et al. 2022,Xu=1,ANCHORED
+Yu 1997 (Le Cam Festschrift),Yu=0,NO_IN_TEXT_ANCHOR
+Zhang & Miller 2026,Zhang=0,NO_IN_TEXT_ANCHOR

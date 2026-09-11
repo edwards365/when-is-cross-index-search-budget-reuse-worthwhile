@@ -1,0 +1,18 @@
+metric,computed,paper_value,source,status,note
+portal_hits_sift,1064,"1,064",icba_cals_seal/holdout_results.csv,REPRODUCED,TARGET_SPECIFIC_SELECTED_FIXED_SET sum over holdout rows
+portal_threshold_rescues_sift,426,426,icba_cals_seal/holdout_results.csv,REPRODUCED,same source
+portal_hits_arxiv,727,727,icba_cals_seal/holdout_results.csv,REPRODUCED,TARGET_SPECIFIC_SELECTED_FIXED_SET sum over holdout rows
+portal_threshold_rescues_arxiv,348,348,icba_cals_seal/holdout_results.csv,REPRODUCED,same source
+auditor_decisions,60: A1=4 A5=32 A6=24; safe_accept=36 safe_rej=24,60: 4 reuse + 32 fallback + 24 abstain; 36 accepted all safe,docs/icba_fixed_target_auditor/retrospective_crossfit_report.md,STORED_VERIFIED,
+auditor_regret_arxiv,684.493,"684.49 [674.99, 694.26]",icba_fixed_target_auditor/bootstrap_results.csv,REPRODUCED,"bootstrap seed 991 reps 5000; CI [674.99, 694.26]"
+auditor_regret_sift,470.337,"470.34 [458.69, 482.03]",icba_fixed_target_auditor/bootstrap_results.csv,REPRODUCED,"bootstrap seed 991 reps 5000; CI [458.69, 482.03]"
+shared_frontier_compression_min,79.5487,79.5%,icba_shared_cost_gate/critical_compression.csv,REPRODUCED,min required_compression over kappa_recall/kappa_hit rows (36 rows); all-row min=79.07%
+shared_frontier_compression_max,93.4296,93.4%,icba_shared_cost_gate/critical_compression.csv,REPRODUCED,max required_compression over all 90 rows
+multilane_matched_ratio_sift,2.9271,2.77,icba_cals_seal/wallclock_summary.csv,ORIGIN_UNLOCATED,"same-ef primary-lane wallclock ratio mean=2.927 range=[2.14,3.28] over 60 setting-repeats; docs/icba_cals_seal/cost_and_tail.md states 'roughly 2.5-2.8x the matched native single-lane cost' but the matched-lane pairing rule is not stored as an artifact"
+multilane_matched_ratio_arxiv,2.67466,2.47,icba_cals_seal/wallclock_summary.csv,ORIGIN_UNLOCATED,"same-ef primary-lane wallclock ratio mean=2.675 range=[1.72,3.14] over 60 setting-repeats; docs/icba_cals_seal/cost_and_tail.md states 'roughly 2.5-2.8x the matched native single-lane cost' but the matched-lane pairing rule is not stored as an artifact"
+multilane_recall_deficit_pp_sift,,4.79,icba_cals_seal/subset_summary.csv + matched-lane rule (not stored),ORIGIN_UNLOCATED,requires the matched native lane definition used by the paper; subset-level pairing attempts did not reproduce it
+multilane_recall_deficit_pp_arxiv,,3.29,icba_cals_seal/subset_summary.csv + matched-lane rule (not stored),ORIGIN_UNLOCATED,requires the matched native lane definition used by the paper; subset-level pairing attempts did not reproduce it
+recalibration_target_only_ndc_reduction_pct_sift_100k,1.44329e-13,29.4,"graph_anns_e4_reanalysis/{source_calibrated_transfer,target_recalibration_corrected}.csv",ORIGIN_UNLOCATED,576 directed pairs; mean-pairwise=0.00% ratio-of-means=0.00%; history-assisted and disjoint-cross-fit variants not present as stored aggregates
+recalibration_target_only_ndc_reduction_pct_arxiv_nomic_100k,-0.0160105,26.17,"graph_anns_e4_reanalysis/{source_calibrated_transfer,target_recalibration_corrected}.csv",ORIGIN_UNLOCATED,576 directed pairs; mean-pairwise=-0.61% ratio-of-means=-0.02%; history-assisted and disjoint-cross-fit variants not present as stored aggregates
+build_selection_frozen_action_count,72,72,icba_gsc/frozen72_slack_audit.csv,STORED_VERIFIED,row count = frozen build-budget actions
+protected_edge_repair_ndc_mean,,509.49 -> 503.41,repo-wide search,ORIGIN_UNLOCATED,no frozen artifact stores 509.49/503.41/849/833; requires aggregation provenance from authors
