@@ -21,3 +21,11 @@ DOCX; run the final ICLR-standard review; define the next optimization loop.
 - All patch numbers machine-verified against artifacts; no frozen number changed.
 - Patch keeps claim discipline: pooling is uncertified and registered-conditional;
   Theorem-2 verdict is grid/data-conditioned; predictor layer marked untested.
+
+## Final review closure (step 5)
+
+The strict ICLR review is in final_iclr_review.md. Verdict: the package after the R1-R12
+patch is a solid 6 with realistic 7 upside; the 8/10 target requires the P6 evidence
+loop (1M cell, predictor probe, distinguishability instantiation), which is scoped and
+ordered there. Self-loop protocol: P6 gates mirror P0-P5 (progress.json five-step cycle,
+phase reports, deterministic tests, no estimand changes).
