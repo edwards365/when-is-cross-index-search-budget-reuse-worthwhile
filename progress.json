@@ -1,8 +1,8 @@
 {
-  "phase": "P1",
+  "phase": "P2",
   "step": 1,
   "retry": 0,
-  "handoff": "P0 done: branch+env fixed; 10/17 S8 aggregates trace to frozen artifacts, 7 unlocated (recal %, repair NDC pair, matched-lane ratios) -> P5 must re-provenance/replace/drop; 6 refs lack anchors. Compression 79.5-93.4% exactly reproduced. Assets: scripts/graph_anns_phase2/p0/*, results/graph_anns_phase2_p0/*.",
+  "handoff": "P1 done: Vamana overlap PASS (both ds, incl cross-stage=0; caveats: role vectors not retained, separate base snapshot). Estimand crosswalk 10 rows; definitions D1-D8 drafted. Assets: results/graph_anns_phase2_p1/*, docs patch ready for P5. Next: P2 constructive table.",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",
@@ -10,6 +10,7 @@
     "6 references without in-text anchors"
   ],
   "completed_phases": [
-    "P0"
+    "P0",
+    "P1"
   ]
 }

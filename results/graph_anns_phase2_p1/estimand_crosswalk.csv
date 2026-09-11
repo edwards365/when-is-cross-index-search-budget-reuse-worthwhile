@@ -1,0 +1,11 @@
+dataset,estimand,source,incremental_risk,ci_low,ci_high,variation,endpoint_variation,paper_adoption
+sift_100k,"E4 primary (oracle transport, source-bottom -> max registered action; crossed seed-query bootstrap)",graph_anns_e4_seal/h2_crossed_cluster_inference.csv,0.215734,0.207408,0.223998,0.894667,0.008 endpoint rate,superseded for Table 3; retained as E4 primary label
+sift_100k,"Cross-family original stage (query bootstrap, E4 estimand)",graph_anns_cross_family/main_effect_table.csv,0.215734,0.207669,0.223544,0.894667,0.024 mixed censoring,no
+sift_100k,Repaired h=10 hit-count common estimand (bootstrap seed 991),graph_anns_iclr_phase1_1_repair/estimand_registry.csv,0.215478,0.207649,0.223266,0.893333,0.026667,YES - paper Table 3 row
+arxiv_nomic_100k,E4 primary (oracle transport; crossed seed-query bootstrap),graph_anns_e4_seal/h2_crossed_cluster_inference.csv,0.171205,0.162014,0.180611,0.753333,0.012556 endpoint rate,superseded for Table 3; retained as E4 primary label
+arxiv_nomic_100k,"Cross-family original stage (query bootstrap, E4 estimand)",graph_anns_cross_family/main_effect_table.csv,0.171205,0.162386,0.180037,0.753333,0.026667 mixed censoring,no
+arxiv_nomic_100k,Repaired h=10 hit-count common estimand (bootstrap seed 991),graph_anns_iclr_phase1_1_repair/estimand_registry.csv,0.171737,0.163254,0.180616,0.758667,0.02,YES - paper Table 3 row
+sift_100k,Clean Faiss-100K h=10 (harmonized with repaired hnswlib semantics),graph_anns_iclr_phase1_1_hotfix (final_hotfix_report),0.235993,0.227802,0.243872,0.910667,0.005333,YES - paper Table 3 row
+arxiv_nomic_100k,Clean Faiss-100K h=10 (harmonized with repaired hnswlib semantics),graph_anns_iclr_phase1_1_hotfix (final_hotfix_report),0.177657,0.16857,0.186756,0.758667,0.018667,YES - paper Table 3 row
+sift_100k,Vamana-style original stage-specific estimand (NOT harmonized),graph_anns_cross_family/main_effect_table.csv,0.16863,0.156481,0.181001,0.710667,0.002667 mixed censoring,YES - daggered supporting row
+arxiv_nomic_100k,Vamana-style original stage-specific estimand (NOT harmonized),graph_anns_cross_family/main_effect_table.csv,0.113741,0.102,0.126001,0.482667,0.008 mixed censoring,YES - daggered supporting row

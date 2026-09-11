@@ -1,0 +1,17 @@
+{
+  "ann_search_invoked": false,
+  "index_built": false,
+  "frozen_results_modified": false,
+  "vamana_overlap_gate": {"sift_100k": "PASS", "arxiv_nomic_100k": "PASS"},
+  "vamana_overlap_scope": [
+    "query/base raw and normalized content overlap = 0 on both datasets",
+    "historical role ID overlap = 0; internal raw/normalized duplicates = 0",
+    "cross-stage: Vamana evaluation queries vs E4 hnswlib base = 0",
+    "all 24 per-build bases share one content multiset (registered row permutations only)",
+    "Vamana base multiset differs from E4 input base (separate registered snapshots) - recorded as scope fact, not a defect",
+    "historical-role raw/normalized overlap NOT_ESTIMABLE: role vectors not retained in the frozen stage"
+  ],
+  "estimand_crosswalk_rows": 10,
+  "definitions_patch_blocks": ["D1","D2","D3","D4","D5","D6","D7","D8"],
+  "final_label": "P1_SEMANTICS_HYGIENE_SEALED_VAMANA_OVERLAP_PASS"
+}

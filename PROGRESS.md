@@ -7,3 +7,4 @@ P5=Phase E paper/PDF). Single source of truth: progress.json.
 - 2026-09-12: initialized at P0/step1 on branch exp/graph_anns_phase2_constructive_closure (from ffe5798).
 - 2026-09-12 P0 complete (5 steps): takeover hardened; aggregate+reference audits committed; handoff -> P1.
   P1 entry point: Vamana query/base overlap audit, estimand crosswalk, definitions patch drafts.
+- 2026-09-12 P1 complete (5 steps): Vamana overlap audit PASS, estimand crosswalk frozen, D1-D8 definitions patch drafted. handoff -> P2.
