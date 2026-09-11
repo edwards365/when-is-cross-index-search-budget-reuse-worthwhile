@@ -1,0 +1,11 @@
+{
+  "ann_search_invoked": false,
+  "index_built": false,
+  "frozen_results_modified": false,
+  "deliverables": ["paper_revision_patch.md (R1-R12)", "final_iclr_review.md", "3 figures x png/pdf"],
+  "verification": {"number_traceability": "14/14", "tests_p5": "22/22",
+    "figure_visual_check": "decision plane inspected; M1 cost added"},
+  "score_assessment": {"before_cycle": "solid 5 / fragile 6", "after_patch": "solid 6, optimistic 7",
+    "path_to_8": "1M scale cell + learned-predictor probe + probe-distinguishability instantiation"},
+  "final_label": "P5_REVISION_PACKAGE_VERIFIED_ICLR6_TO_7_WITH_P6_PATH_TO_8"
+}

@@ -1,6 +1,6 @@
 {
   "phase": "P5",
-  "step": 1,
+  "step": 4,
   "retry": 0,
   "handoff": "P4 done: 36-cell economics ledger (8 measured; all NOT_ESTIMABLE carry reasons); grid sensitivity: FULL replay == frozen absolute risks, COARSE 3-action grid still 10.3-17.8% (phenomenon grid-robust; levels grid-indexed). Assets: results/graph_anns_phase2_p4/*. Next P5: apply D1-D8 defs + multi-replica intro + 3-layer evidence + constructive table section + figures + claim registry + reference anchors + PDF-level checks.",
   "known_issues": [
