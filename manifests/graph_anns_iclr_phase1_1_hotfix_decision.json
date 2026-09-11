@@ -1,0 +1,38 @@
+{
+  "ann_search_invoked": false,
+  "branch": "exp/graph_anns_iclr_phase1_1_final_evidence_hotfix",
+  "content_gate": "PASS",
+  "d3_recomputed_from_raw": true,
+  "final_scientific_label": "HNSW_CROSS_IMPLEMENTATION_CONFIRMED_VAMANA_ESTIMAND_NOT_HARMONIZED",
+  "forbidden_roles_accessed": false,
+  "frozen_index_registry": "48/48_MATCH",
+  "hnswlib_primary_estimand": "E4_SOURCE_BOTTOM_TO_MAX_REGISTERED_ACTION",
+  "independent_tests": {
+    "counterexamples": 15,
+    "independent_checks": 16,
+    "max_error": 0,
+    "passed": 32,
+    "total": 32,
+    "unit_cases": 12
+  },
+  "index_built": false,
+  "limitations": [
+    "Vamana harmonized transport/reference unavailable from frozen events",
+    "Faiss NDC batch-cumulative not estimable",
+    "claims conditional on registered datasets/builds",
+    "profiling and break-even primitive-only"
+  ],
+  "parent_commit": "39a8b6d41f9fa0561660100856e2e98f330d0a4a",
+  "parent_results_modified": false,
+  "pure_code_replay": {
+    "all_core_byte_identical": true,
+    "ann_search_invoked": false,
+    "checksum_inventory_byte_identical": true,
+    "manifest_byte_identical": true,
+    "run1_files": 31,
+    "run2_files": 31
+  },
+  "schema_version": "phase1.1a-hotfix-1.0",
+  "vamana_reference_risk": "TARGET_BOTTOM_COUNT_REPORTED_HARMONIZED_TRANSPORT_NOT_ESTIMABLE",
+  "worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw"
+}

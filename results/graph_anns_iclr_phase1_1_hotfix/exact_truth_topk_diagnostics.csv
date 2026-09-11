@@ -1,0 +1,3 @@
+dataset,truth_rows,truth_unique_k10_rows,query_source_in_truth,topk_rows,topk_duplicate_id_rows,zero_distance_duplicate
+sift_100k,750,750,0,108000,0,ZERO_DISTANCE_DUPLICATE_NOT_ESTIMABLE_FROM_FROZEN_TOPK
+arxiv_nomic_100k,750,750,0,108000,0,ZERO_DISTANCE_DUPLICATE_NOT_ESTIMABLE_FROM_FROZEN_TOPK

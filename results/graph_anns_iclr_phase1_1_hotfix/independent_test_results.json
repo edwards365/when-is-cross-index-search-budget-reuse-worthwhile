@@ -1,0 +1,149 @@
+{
+  "independent_checks": 16,
+  "max_error": 0,
+  "passed": 32,
+  "tests": [
+    {
+      "name": "tau_095_to_10",
+      "passed": true
+    },
+    {
+      "name": "tau_099_to_10",
+      "passed": true
+    },
+    {
+      "name": "tau_090_to_9",
+      "passed": true
+    },
+    {
+      "name": "finite_budget_endpoint_same",
+      "passed": true
+    },
+    {
+      "name": "finite_and_censored_mixed",
+      "passed": true
+    },
+    {
+      "name": "all_censored",
+      "passed": true
+    },
+    {
+      "name": "one_build_finite_not_diameter",
+      "passed": true
+    },
+    {
+      "name": "source_censored_maps_to_max",
+      "passed": true
+    },
+    {
+      "name": "target_censor_reference_one",
+      "passed": true
+    },
+    {
+      "name": "composite_marks_source_censor",
+      "passed": true
+    },
+    {
+      "name": "joint_requires_two_finite",
+      "passed": true
+    },
+    {
+      "name": "top1_deletion_changes_mean",
+      "passed": true
+    },
+    {
+      "name": "lobo_can_flip",
+      "passed": true
+    },
+    {
+      "name": "old_vs_primary_differ",
+      "passed": true
+    },
+    {
+      "name": "topk_same_hitcount_different",
+      "passed": true
+    },
+    {
+      "name": "index_hash_mismatch_detectable",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "sift_100k_absolute_transport_risk_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "sift_100k_reference_risk_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "sift_100k_incremental_transport_risk_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "sift_100k_delete_top1_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "sift_100k_24_lobo_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "arxiv_nomic_100k_absolute_transport_risk_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "arxiv_nomic_100k_reference_risk_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "arxiv_nomic_100k_incremental_transport_risk_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "arxiv_nomic_100k_delete_top1_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "arxiv_nomic_100k_24_lobo_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "sift_100k_hnsw_primary_tol1e-12",
+      "passed": true
+    },
+    {
+      "max_error": 0.0,
+      "name": "arxiv_nomic_100k_hnsw_primary_tol1e-12",
+      "passed": true
+    },
+    {
+      "name": "sift_100k_content_gate_zero",
+      "passed": true
+    },
+    {
+      "name": "arxiv_nomic_100k_content_gate_zero",
+      "passed": true
+    },
+    {
+      "name": "48_index_hashes_match",
+      "passed": true
+    },
+    {
+      "name": "d3_identity_and_zero_transport",
+      "passed": true
+    }
+  ],
+  "total": 32,
+  "unit_tests": 16
+}

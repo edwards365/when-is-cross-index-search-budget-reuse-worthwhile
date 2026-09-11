@@ -1,0 +1,7 @@
+gate,status
+A_content_role_validity,PASS
+B_frozen_index_identity,PASS
+C_estimand_semantics,PASS_WITH_VAMANA_HARMONIZATION_DOWNGRADE
+D_d3_deterministic_contract,PASS
+E_independent_statistics_and_counterexamples,PASS
+F_replay_and_artifact_hygiene,PASS
