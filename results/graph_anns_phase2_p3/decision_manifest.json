@@ -1,0 +1,25 @@
+{
+  "ann_search_invoked": false,
+  "index_built": false,
+  "frozen_results_modified": false,
+  "evidence_level": "DESCRIPTIVE_CHAIN_ABLATION_FROM_FROZEN_ARTIFACTS",
+  "design_caveat": "chain design (adjacent tiers differ in one factor), not a full factorial; factors not independently randomized; all comparisons descriptive",
+  "tier_definitions": {
+    "D0C": "random order; 8 threads; random seeds (3/dataset)",
+    "D1": "canonical order; 8 threads; random seeds (6/dataset)",
+    "D2": "canonical order; 8 threads; fixed seed 991 (6/dataset)",
+    "D3": "canonical order; 1 thread; fixed seed 991 (3/dataset)"
+  },
+  "key_findings": [
+    "order pinning halves min-safe-action variation (68.3->34.1% SIFT, 63.2->30.8% Arxiv) at build-time ratio 0.80x/0.93x (no cost; slightly faster)",
+    "seed pinning under 8 threads is nearly inert (variation -1.3pp/-4.3pp) and the six D2 builds have six DISTINCT index hashes: parallel scheduling is a residual nondeterminism source",
+    "single-threading is necessary and sufficient for byte identity (D3 3/3 identical, variation 0) and carries the entire overhead: 4.73x/1.86x vs the pinned 8-thread tiers (3.52x/1.71x vs D0C)",
+    "a weaker order-only contract does NOT eliminate response variation - it halves it at zero cost"
+  ],
+  "paper_impact": [
+    "contract ablation table enters Section 7.3; D3 naming per definitions patch D7",
+    "the deterministic contract should be stated as requiring single-threaded (or deterministic-parallel) construction; 'fix thread count' alone is insufficient",
+    "order pinning is a free partial mitigation worth reporting for practitioners who cannot afford single-threaded builds"
+  ],
+  "final_label": "P3_CONTRACT_ABLATION_ORDER_CHEAP_THREADS_LOAD_BEARING_SEED_MINOR"
+}

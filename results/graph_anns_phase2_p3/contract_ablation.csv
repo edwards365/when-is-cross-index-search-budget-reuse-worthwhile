@@ -1,0 +1,9 @@
+dataset,regime,tier_definition,builds,ordered_pairs,min_safe_action_variation,endpoint_state_variation,mean_budget_diameter,p95_budget_diameter,recall_at_max_action,build_time_median_frozen_s,build_time_wall_mean_s,n_index_hashes,byte_identical_within_tier
+sift_100k,D0C,random order; 8 threads; random seeds,3,6,0.6826666666666666,0.692,30.293333333333333,100.0,0.9989333333333336,3.668813966214657,,0,N/A_RANDOM_SEEDS_BY_DESIGN
+sift_100k,D1,canonical order; 8 threads; random seeds,6,30,0.3413333333333333,0.348,9.36,60.0,0.9988,2.9272292386740446,2.9116787215073905,6,False
+sift_100k,D2,canonical order; 8 threads; fixed seed 991,6,30,0.328,0.3386666666666666,9.106666666666667,40.0,0.9988666666666668,2.729931857436896,2.842139983549714,6,False
+sift_100k,D3,canonical order; 1 thread; fixed seed 991,3,6,0.0,0.0,0.0,0.0,0.9992,12.906856782734394,13.68884372462829,1,True
+arxiv_nomic_100k,D0C,random order; 8 threads; random seeds,3,6,0.632,0.644,22.21333333333333,80.0,0.9986666666666668,27.24407948553562,,0,N/A_RANDOM_SEEDS_BY_DESIGN
+arxiv_nomic_100k,D1,canonical order; 8 threads; random seeds,6,30,0.308,0.3106666666666666,6.986666666666666,40.0,0.998377777777778,25.34941582940519,25.245516028876107,6,False
+arxiv_nomic_100k,D2,canonical order; 8 threads; fixed seed 991,6,30,0.2653333333333333,0.268,5.973333333333334,30.0,0.9984,25.00049376487732,24.92098975678285,6,False
+arxiv_nomic_100k,D3,canonical order; 1 thread; fixed seed 991,3,6,0.0,0.0,0.0,0.0,0.9982666666666666,46.572913218289614,47.703277914474405,1,True

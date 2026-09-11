@@ -1,0 +1,9 @@
+dataset,regime,n_builds_registered,n_index_hashes_seen,byte_identical
+sift_100k,D0C,3,0,N/A_RANDOM_SEEDS_BY_DESIGN
+sift_100k,D1,6,6,False
+sift_100k,D2,6,6,False
+sift_100k,D3,3,1,True
+arxiv_nomic_100k,D0C,3,0,N/A_RANDOM_SEEDS_BY_DESIGN
+arxiv_nomic_100k,D1,6,6,False
+arxiv_nomic_100k,D2,6,6,False
+arxiv_nomic_100k,D3,3,1,True

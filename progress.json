@@ -1,6 +1,6 @@
 {
   "phase": "P3",
-  "step": 1,
+  "step": 4,
   "retry": 0,
   "handoff": "P2 done: pooling-22 risk 0.09-0.92% @ DistComp 1.34-1.45x (LOBO<2.1%); M3 certify prob 0.63/0.47 at m=59; M4/M4b 0/48 certify (c3_margin fails on all 48); k-ladder measured; M1 replay == frozen main numbers. Decision-rule upgrade drafted (contract>pooling>certify>abstain). Assets: results/graph_anns_phase2_p2/*.",
   "known_issues": [
