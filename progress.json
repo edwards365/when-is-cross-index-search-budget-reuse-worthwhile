@@ -1,8 +1,8 @@
 {
-  "phase": "P4",
-  "step": 4,
+  "phase": "P5",
+  "step": 1,
   "retry": 0,
-  "handoff": "P3 done: ablation shows order pinning halves variation FREE (0.80x/0.93x build), seed pinning nearly inert (6 distinct D2 hashes under 8 threads), single-threading load-bearing for byte identity (4.73x/1.86x vs pinned tier; 3.52x/1.71x vs D0C). Contract wording upgrade + intermediate mitigation rung drafted. Assets: results/graph_anns_phase2_p3/*.",
+  "handoff": "P4 done: 36-cell economics ledger (8 measured; all NOT_ESTIMABLE carry reasons); grid sensitivity: FULL replay == frozen absolute risks, COARSE 3-action grid still 10.3-17.8% (phenomenon grid-robust; levels grid-indexed). Assets: results/graph_anns_phase2_p4/*. Next P5: apply D1-D8 defs + multi-replica intro + 3-layer evidence + constructive table section + figures + claim registry + reference anchors + PDF-level checks.",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",
@@ -14,6 +14,7 @@
     "P0",
     "P1",
     "P2",
-    "P3"
+    "P3",
+    "P4"
   ]
 }

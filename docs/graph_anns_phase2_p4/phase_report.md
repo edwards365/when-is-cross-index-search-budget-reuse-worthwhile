@@ -31,3 +31,10 @@ subgrids (subsetting only, no interpolation).
 
 - The grid-sensitivity claim is framed as estimand-indexed (see theory note), consistent
   with the frozen native-action guardrail; no frozen number modified.
+
+## Theory/paper consistency review (step 5, final)
+
+- Grid sensitivity framed as estimand-indexed family; phenomenon-level robustness claim
+  added to the allowed registry; no frozen number modified.
+- Consistency with P2: pooling/certification results are grid-robust in the same sense
+  (order statistics on any finite ordered grid) - one-sentence addition queued for P5.
