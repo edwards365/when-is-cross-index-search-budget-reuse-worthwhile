@@ -1,0 +1,39 @@
+{
+  "ann_search_invoked": false,
+  "index_built": false,
+  "frozen_results_modified": false,
+  "evidence_level": "RETROSPECTIVE_REPLAY_PURE_CODE",
+  "design": {
+    "quality_event": "hit_count >= 10 of 10 (h=10)",
+    "bootstrap": "query bootstrap 5000 reps seed 991",
+    "certification": "zero-failure Clopper-Pearson; M3 repeated draws n=100/target; M4 roles 375/94/281 seed 991; M4b screen = selection-block CP-UB (alpha_sel=0.025) <= 0.05",
+    "cost": "DistComp = per-action ndc / per-query-oracle ndc (hnswlib only; Faiss NOT_ESTIMABLE)"
+  },
+  "headlines": {
+    "M1_naive_k1_risk": {"sift_100k": 0.2189, "arxiv_nomic_100k": 0.1806},
+    "M2_max_over_22_sources": {
+      "risk_abstain_variant": {"sift_100k": 0.0018, "arxiv_nomic_100k": 0.0009},
+      "distcomp_vs_oracle": {"sift_100k": 1.453, "arxiv_nomic_100k": 1.341},
+      "abstain_rate": {"sift_100k": 0.024, "arxiv_nomic_100k": 0.027},
+      "loo_risk_max": 0.021
+    },
+    "M3_frozen_max_action_certification_m59": {
+      "certify_rate_maj": {"sift_100k": 0.708, "arxiv_nomic_100k": 0.375},
+      "distcomp": {"sift_100k": 4.098, "arxiv_nomic_100k": 5.134}
+    },
+    "M4_select_then_certify": {"certify_rate": 0.0, "note": "point-screen actions fail zero-failure certification on 48/48 targets"},
+    "M4b_theorem2_screen": {"certify_rate": 0.0, "chosen_ef": "120 (8/24) or 200 (16/24)",
+      "note": "Theorem-2 screening passes but margin band too thin: zero-failure certification fails on 48/48"},
+    "M5_always_max_action": {"risk": {"sift_100k": 0.008, "arxiv_nomic_100k": 0.0126},
+      "distcomp": {"sift_100k": 4.090, "arxiv_nomic_100k": 5.142}},
+    "M6_oracle": {"distcomp": 1.0, "risk": "endpoint mass only"}
+  },
+  "k_source_curve": "risk k=1->22: 0.218/0.179 -> 0.010/0.010 (hnswlib SIFT/Arxiv), conservative rate rises 0.22->0.48",
+  "theorem2_verdict": "NO_COMPLETE_POSITIVE_INSTANCE_ON_REGISTERED_GRID; first failed condition = positive margin (c3) for all 48 targets",
+  "paper_impact": [
+    "insert pooling baseline as constructive main result; reposition ICBA decision rule",
+    "correct reviewer '59 queries suffice' premise: holds only for M=1 with true margin; max action itself certifies with probability 0.47-0.63 at m=59",
+    "deterministic contract remains the only zero-risk constructive route on the registered grid"
+  ],
+  "final_label": "P2_CONSTRUCTIVE_TABLE_MARGIN_FAILS_POOLING_WINS"
+}

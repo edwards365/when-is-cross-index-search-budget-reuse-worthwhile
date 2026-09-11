@@ -1,0 +1,58 @@
+[
+  {
+    "dataset": "sift_100k",
+    "implementation": "hnswlib",
+    "mean_risk_abstain_variant": 0.0018203294230849873,
+    "risk_ci_low": 0.0010245901639344263,
+    "risk_ci_high": 0.0026166893094373023,
+    "mean_risk_maxaction_variant": 0.009555555555555555,
+    "mean_naive_over_sources": 0.22373429951690818,
+    "mean_abstain_rate": 0.023777777777777776,
+    "mean_conservative_rate": 0.4797358834244079,
+    "mean_distcomp_abstain_variant": 1.440606051135396,
+    "loo_risk_min": 0.0026666666666666666,
+    "loo_risk_max": 0.021333333333333333
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "implementation": "hnswlib",
+    "mean_risk_abstain_variant": 0.0008561643835616439,
+    "risk_ci_low": 0.00045662100456621003,
+    "risk_ci_high": 0.001312785388127854,
+    "mean_risk_maxaction_variant": 0.013388888888888888,
+    "mean_naive_over_sources": 0.1837608695652174,
+    "mean_abstain_rate": 0.02666666666666667,
+    "mean_conservative_rate": 0.388755707762557,
+    "mean_distcomp_abstain_variant": 1.326215345736849,
+    "loo_risk_min": 0.009333333333333334,
+    "loo_risk_max": 0.018666666666666668
+  },
+  {
+    "dataset": "sift_100k",
+    "implementation": "faiss",
+    "mean_risk_abstain_variant": 0.009159067009772781,
+    "risk_ci_low": 0.0076519138813221305,
+    "risk_ci_high": 0.01066740898655689,
+    "mean_risk_maxaction_variant": 0.009722222222222222,
+    "mean_naive_over_sources": 0.23671497584541065,
+    "mean_abstain_rate": 0.005222222222222223,
+    "mean_conservative_rate": 0.6869973190348526,
+    "mean_distcomp_abstain_variant": "NOT_ESTIMABLE",
+    "loo_risk_min": 0.0026666666666666666,
+    "loo_risk_max": 0.02
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "implementation": "faiss",
+    "mean_risk_abstain_variant": 0.008601001292942402,
+    "risk_ci_low": 0.00741383251725562,
+    "risk_ci_high": 0.009844782387469766,
+    "mean_risk_maxaction_variant": 0.009666666666666667,
+    "mean_naive_over_sources": 0.17932367149758455,
+    "mean_abstain_rate": 0.018222222222222223,
+    "mean_conservative_rate": 0.5676517210144928,
+    "mean_distcomp_abstain_variant": "NOT_ESTIMABLE",
+    "loo_risk_min": 0.0026666666666666666,
+    "loo_risk_max": 0.02
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "targets": 48,
+  "complete_positive_instances": 0,
+  "first_failed_condition_counts": {
+    "c3_margin": 48
+  },
+  "verdict": "NO_COMPLETE_POSITIVE_INSTANCE_ON_REGISTERED_GRID"
+}
