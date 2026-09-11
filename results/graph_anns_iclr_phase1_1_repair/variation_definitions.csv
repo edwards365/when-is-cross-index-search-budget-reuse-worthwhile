@@ -1,0 +1,6 @@
+name,definition,source
+endpoint_state_variation,SAFE_FINITE versus CENSORED only,raw recomputation
+inclusive_action_state_variation,finite actions plus bottom categories,raw recomputation
+finite_action_variation,finite minima differ conditional on >=2 finite,raw recomputation
+all_build_feasible_diameter,only every build finite; no zero fill,raw recomputation
+at_least_two_feasible_diameter,only >=2 finite; no zero fill,raw recomputation

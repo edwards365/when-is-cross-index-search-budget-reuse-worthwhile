@@ -1,0 +1,3 @@
+dataset,evaluation_queries,exact_truth_self_matches,truth_k,status
+sift_100k,750,0,10,PASS
+arxiv_nomic_100k,750,0,10,PASS

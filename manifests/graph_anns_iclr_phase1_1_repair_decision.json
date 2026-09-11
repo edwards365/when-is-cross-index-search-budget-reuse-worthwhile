@@ -1,0 +1,30 @@
+{
+  "schema_version": "repair-1.0",
+  "parent_commit": "1224b0ebc0530ee976e5f8d7c65f3a10bdcd98bf",
+  "branch": "exp/graph_anns_iclr_phase1_1_semantic_repair",
+  "faiss_index_reused": true,
+  "faiss_index_rebuilt": false,
+  "clean_query_rule": "seed991 permutation of train IDs >=100000 after excluding historical role IDs",
+  "query_base_overlap": {
+    "sift_100k": 0,
+    "arxiv_nomic_100k": 0
+  },
+  "self_match_after_clean_rerun": {
+    "sift_100k": 0,
+    "arxiv_nomic_100k": 0
+  },
+  "tau_mapping_computed": true,
+  "d3_recomputed_from_raw": true,
+  "faiss_ndc": "NOT_ESTIMABLE_BATCH_CUMULATIVE",
+  "historical_transport_semantics": "source bottom -> max registered action",
+  "forbidden_roles_accessed": false,
+  "old_results_modified": false,
+  "final_scientific_label": "ICLR_PHASE1_1_REPAIR_PASS_CROSS_FAMILY_EVIDENCE_CONFIRMED",
+  "faiss_clean_h10_gate": "POSITIVE_BOTH_DATASETS_WITH_24_LOBO_AND_TOP1_STABILITY",
+  "limitations": [
+    "Faiss NDC batch-cumulative",
+    "Vamana h8/h9 not estimable",
+    "profiling primitive-only",
+    "CI conditional on registered builds"
+  ]
+}

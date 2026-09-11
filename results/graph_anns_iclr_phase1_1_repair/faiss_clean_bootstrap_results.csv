@@ -1,0 +1,7 @@
+dataset,h,replicates,seed,ci_low,ci_high,unit
+sift_100k,8,5000,991,0.09704492753623187,0.11447053140096616,query retaining all 552 directed pairs
+sift_100k,9,5000,991,0.15867379227053138,0.17690935990338164,query retaining all 552 directed pairs
+sift_100k,10,5000,991,0.227801690821256,0.2438724033816425,query retaining all 552 directed pairs
+arxiv_nomic_100k,8,5000,991,0.05265205314009662,0.06659009661835748,query retaining all 552 directed pairs
+arxiv_nomic_100k,9,5000,991,0.09447807971014495,0.1117391304347826,query retaining all 552 directed pairs
+arxiv_nomic_100k,10,5000,991,0.16856992753623187,0.1867562198067633,query retaining all 552 directed pairs

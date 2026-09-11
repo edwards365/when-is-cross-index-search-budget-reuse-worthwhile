@@ -1,0 +1,3 @@
+dataset,index_byte_identity_3of3,search_identity_500x6,hit_count_identity,endpoint_identity,d3_transport_risk_zero,d3_top1_deletion_stable,evidence,d3_incremental_risk
+sift_100k,True,True,True,True,True,True,RAW_DATA_COMPUTED,0.0
+arxiv_nomic_100k,True,True,True,True,True,True,RAW_DATA_COMPUTED,0.0
