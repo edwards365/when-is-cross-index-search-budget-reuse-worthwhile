@@ -226,6 +226,8 @@ def content_forensics():
 
 def index_registry_audit():
     expected=read_csv(BUILD_REG); current=read_csv(PARENT/'faiss100k_reuse_registry.csv')
+    source_rows={r['dataset']:r for r in read_csv(SOURCE_REG) if r.get('path','').endswith('.hdf5')}
+    base_hashes={ds:digest(Path(source_rows[ds]['path'])) for ds in DS}
     curmap={}
     for r in current:
         perm=r['build_id'].split('__clean')[1].split('__')[0]
@@ -246,7 +248,8 @@ def index_registry_audit():
             idx=faiss.read_index(str(path)); core=faiss.downcast_index(idx.index)
             obs={'d':int(idx.d),'metric_type':int(idx.metric_type),'M':int(core.hnsw.nb_neighbors(0)//2),
                  'efConstruction':int(core.hnsw.efConstruction),'faiss_version':faiss.__version__}
-        fields_ok=(actual_hash==e['index_sha256'] and c.get('base_count')==e['base_count'] and
+        base_expected=source_rows[e['dataset']]['file_sha256']
+        fields_ok=(actual_hash==e['index_sha256'] and base_hashes[e['dataset']]==base_expected and c.get('base_count')==e['base_count'] and
                    c.get('faiss_version')==e['faiss_version'] and c.get('M')==e['M'] and
                    c.get('efConstruction')==e['efConstruction'] and obs.get('faiss_version')==e['faiss_version'] and
                    obs.get('M')==int(e['M']) and obs.get('efConstruction')==int(e['efConstruction']))
@@ -254,6 +257,8 @@ def index_registry_audit():
         rows.append({'dataset':e['dataset'],'build_id':e['build_id'],'perm':perm,'index_path':str(path),
                      'expected_index_sha256':e['index_sha256'],'current_index_sha256':actual_hash,
                      'hash_match':actual_hash==e['index_sha256'],'base_count_expected':e['base_count'],
+                     'base_file_sha256_expected':base_expected,'base_file_sha256_current':base_hashes[e['dataset']],
+                     'base_file_hash_match':base_hashes[e['dataset']]==base_expected,
                      'base_count_registry':c.get('base_count'),'faiss_expected':e['faiss_version'],
                      'faiss_observed':obs.get('faiss_version'),'M_expected':e['M'],'M_observed':obs.get('M'),
                      'efConstruction_expected':e['efConstruction'],'efConstruction_observed':obs.get('efConstruction'),

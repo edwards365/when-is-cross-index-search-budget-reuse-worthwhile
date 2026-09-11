@@ -29,8 +29,8 @@
     "ann_search_invoked": false,
     "checksum_inventory_byte_identical": true,
     "manifest_byte_identical": true,
-    "run1_files": 31,
-    "run2_files": 31
+    "run1_files": 34,
+    "run2_files": 34
   },
   "schema_version": "phase1.1a-hotfix-1.0",
   "vamana_reference_risk": "TARGET_BOTTOM_COUNT_REPORTED_HARMONIZED_TRANSPORT_NOT_ESTIMABLE",
