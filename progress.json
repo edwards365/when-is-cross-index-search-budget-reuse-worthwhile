@@ -1,8 +1,15 @@
 {
-  "phase": "P0",
-  "step": 3,
+  "phase": "P1",
+  "step": 1,
   "retry": 0,
-  "handoff": "",
-  "known_issues": [],
-  "completed_phases": []
+  "handoff": "P0 done: branch+env fixed; 10/17 S8 aggregates trace to frozen artifacts, 7 unlocated (recal %, repair NDC pair, matched-lane ratios) -> P5 must re-provenance/replace/drop; 6 refs lack anchors. Compression 79.5-93.4% exactly reproduced. Assets: scripts/graph_anns_phase2/p0/*, results/graph_anns_phase2_p0/*.",
+  "known_issues": [
+    "S8 recalibration aggregates lack stored provenance",
+    "repair NDC pair 509.49->503.41 lacks stored provenance",
+    "matched-lane 2.77x/2.47x + 4.79/3.29pp pairing rule not stored (same-ef candidates 2.93x/2.68x)",
+    "6 references without in-text anchors"
+  ],
+  "completed_phases": [
+    "P0"
+  ]
 }
