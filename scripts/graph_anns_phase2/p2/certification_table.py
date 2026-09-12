@@ -81,12 +81,16 @@ def run(dataset):
             return float(z.mean()), ratio, p95, None
 
         # M1 naive k=1
-        risks1 = []
+        risks1, costs1 = [], []
         for _ in range(DRAWS_K1):
             s = src[rng.integers(0, len(src))]
             a = np.where(np.isnan(s), MAXA, s).astype(int)
-            risks1.append(deploy_eval(a, np.arange(nq))[0])
+            rz, cz, _, _ = deploy_eval(a, np.arange(nq))
+            risks1.append(rz)
+            if cz is not None:
+                costs1.append(cz)
         m1_risk = float(np.mean(risks1))
+        m1_cost = float(np.mean(costs1)) if costs1 else None
 
         # M2 max-over-source (abstain variant evaluated on deployable)
         any_bot = np.isnan(src).any(axis=0)
@@ -158,7 +162,7 @@ def run(dataset):
 
         rows.append({
             "dataset": dataset, "target": t,
-            "M1_naive_k1_risk": m1_risk,
+            "M1_naive_k1_risk": m1_risk, "M1_distcomp": m1_cost,
             "M2_maxsource_risk_deployable": m2_risk_dep,
             "M2_overall_unsafe_execution": m2_overall,
             "M2_maxsource_abstain_rate": float(any_bot.mean()),
