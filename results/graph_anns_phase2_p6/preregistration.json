@@ -1,0 +1,75 @@
+{
+  "schema_version": "p6-1m-preregistration-1.0",
+  "written_before_any_build_or_search": true,
+  "dataset": {
+    "file": "data/raw/sift-128-euclidean.hdf5",
+    "base_split": "train (1,000,000 x 128 float32, L2)",
+    "query_pool_split": "test (10,000 x 128)",
+    "truth": "provided neighbors (10,000 x 100 int32); event uses the first 10 neighbors",
+    "sha256_of_hdf5": "RECORDED_POST_HOC_NOT_USED_FOR_ANALYSIS"
+  },
+  "implementation": {
+    "library": "hnswlib (python pkg in repo .venv)",
+    "space": "l2",
+    "M": 16,
+    "ef_construction": 100,
+    "threads": 1,
+    "note": "mirrors E4 registered build config at 100K (e4_preregister.py); variation therefore attributable to seed x order, not thread scheduling"
+  },
+  "build_environments": {
+    "count": 8,
+    "design": "4 seeds x 2 insertion orders",
+    "seeds": [
+      13,
+      83,
+      197,
+      2029
+    ],
+    "orders": [
+      "random_order",
+      "lid_ascending_by_norm"
+    ],
+    "order_definitions": {
+      "random_order": "numpy RandomState(seed).permutation of base rows",
+      "lid_ascending_by_norm": "rows sorted ascending by L2 norm of the vector (deterministic proxy for intrinsic-dimension ordering; seed-independent)"
+    },
+    "identity_check_builds": {
+      "count": 2,
+      "purpose": "byte-identity replay of one build config at 1M scale (contract check)",
+      "config": "seed 13, random_order, repeated twice"
+    }
+  },
+  "action_grid": {
+    "ef_search": [
+      10,
+      20,
+      40,
+      80,
+      120,
+      200
+    ],
+    "rationale": "registered E4 grid"
+  },
+  "query_roles": {
+    "evaluation_n": 500,
+    "sampling": "numpy RandomState(991).choice(10000, 500, replace=False) over the test split",
+    "disjointness": "query vs base raw-content SHA256 overlap must be 0; evaluated BEFORE risk computation",
+    "forbidden": "no other test queries are searched; the remaining 9500 stay sealed"
+  },
+  "event_semantics": {
+    "quality": "hit_count >= 10 of 10 at Recall@10 (returned top-10 contains all of the provided true top-10)",
+    "min_safe_action": "B(q) = min ef in grid with hit_count >= 10; BOT if none",
+    "tie_handling": "none needed (float distances, ties measure-zero; recorded if seen)"
+  },
+  "metrics_preregistered": [
+    "finite-action variation; endpoint variation; inclusive variation",
+    "incremental transport risk (mean over all 8x7 directed pairs; reference = target bottom rate)",
+    "query-bootstrap 95% CI (5000 reps, seed 991)",
+    "max-over-source pooling k-curve for k in 1..7 (50 random draws per k, seed 991)",
+    "profiling cost: 59-query resident search (8 threads) + cold load + exact-truth timing",
+    "D1-style contract identity: two identical-config builds must have equal index SHA256 and equal search outputs"
+  ],
+  "storage_protocol": "indexes are deleted after search results and SHA256 are recorded (disk budget 15GB); only CSV results, hashes and logs are retained",
+  "stop_rules": "if query/base overlap > 0 or any build errors, halt and record; no grid change after first search",
+  "analysis_blinding": "risk/variation computed only after all 8 builds complete"
+}
