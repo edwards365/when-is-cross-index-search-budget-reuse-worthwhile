@@ -1,8 +1,8 @@
 {
-  "phase": "P10",
-  "step": 2,
+  "phase": "P11",
+  "step": 1,
   "retry": 0,
-  "handoff": "P10 running: deep-image-96-angular 9.99M x 96 REAL data (3.85GB), forensics PASS, 8+2 single-thread builds detached (~6-9h). Prereg committed pre-download. Next: analysis + tests + v5.",
+  "handoff": "P11 planned: triage of breakthrough review (adopt A1-A6/B1-B3 pure-code+cheap-compute; reject RAG/GitHub-mining/8-in-2wk); figures done; 10M in flight.",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",
