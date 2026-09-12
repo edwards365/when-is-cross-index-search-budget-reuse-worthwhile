@@ -11,6 +11,10 @@ paper template).
 """
 import re
 import struct
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent))
+from eq_omml import convert, EQS
 import zipfile
 from pathlib import Path
 
@@ -121,32 +125,15 @@ def image(name, width_cm=14.5, caption=None):
     return d + cap
 
 
-def equation(n, width_cm=None):
-    p = EQ / f"eq{n:02d}.png"
-    w, h = png_size(p)
-    wc = width_cm or min(13.5, 0.06 * w / 3.0)  # 300dpi -> cm
-    emu_w = int(wc * EMU_PER_CM)
-    emu_h = int(emu_w * h / w)
-    _imgid[0] += 1
-    rid = _imgid[0]
-    IMG_RELS.append((rid, f"eq/eq{n:02d}.png"))
+
+def equation(n):
+    """Native Word equation (OMML), centered with right-aligned (n)."""
+    om = convert(EQS[n])
     return (f'<w:p><w:pPr><w:tabs><w:tab w:val="center" w:pos="4786"/>'
             f'<w:tab w:val="right" w:pos="9572"/></w:tabs>'
-            f'<w:spacing w:before="80" w:after="80" w:line="240" w:lineRule="auto"/>'
-            f'<w:jc w:val="left"/></w:pPr>'
+            f'<w:spacing w:before="100" w:after="100" w:line="276" w:lineRule="auto"/></w:pPr>'
             f'<w:r><w:tab/></w:r>'
-            f'<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0">'
-            f'<wp:extent cx="{emu_w}" cy="{emu_h}"/><wp:effectExtent l="0" t="0" r="0" b="0"/>'
-            f'<wp:docPr id="{rid}" name="eq{n}"/><wp:cNvGraphicFramePr>'
-            f'<a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/>'
-            f'</wp:cNvGraphicFramePr><a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">'
-            f'<a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture">'
-            f'<pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">'
-            f'<pic:nvPicPr><pic:cNvPr id="{rid}" name="eq{n}"/><pic:cNvPicPr/></pic:nvPicPr>'
-            f'<pic:blipFill><a:blip r:embed="rId{rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>'
-            f'<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="{emu_w}" cy="{emu_h}"/></a:xfrm>'
-            f'<a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic>'
-            f'</a:graphicData></a:graphic></wp:inline></w:drawing></w:r>'
+            f'{om}'
             f'<w:r><w:tab/><w:t>({n})</w:t></w:r></w:p>')
 
 
@@ -193,6 +180,7 @@ def table(rows, widths=None, header=True, sz=18, caption=None, aligns=None):
 
 
 IMG_RELS = []
+settings = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:settings xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math"><m:mathPr><m:mathFont m:val="Cambria Math"/><m:brkBin m:val="before"/><m:smallFrac m:val="0"/><m:dispDef/><m:lMargin m:val="0"/><m:rMargin m:val="0"/><m:defJc m:val="centerGroup"/><m:wrapIndent m:val="1440"/><m:intLim m:val="subSup"/><m:naryLim m:val="undOvr"/></m:mathPr><w:compat><w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat></w:settings>'
 
 STYLES = """<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
@@ -227,6 +215,7 @@ def package(document_xml, extra_media):
           '<Default Extension="png" ContentType="image/png"/>',
           '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>',
           '<Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>',
+          '<Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/>',
           '</Types>']
     rels = ['<?xml version="1.0" encoding="UTF-8" standalone="yes"?>',
             '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">',
@@ -236,7 +225,8 @@ def package(document_xml, extra_media):
              '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">',
              '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>',
              '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/>',
-             '<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header1.xml"/>']
+             '<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header1.xml"/>',
+             '<Relationship Id="rId4" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/>']
     for rid, target in IMG_RELS:
         drels.append(f'<Relationship Id="rId{rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="{target}"/>')
     drels.append('</Relationships>')
@@ -262,6 +252,7 @@ def package(document_xml, extra_media):
            '<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
            'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" '
            'xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" '
+           'xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math" '
            'xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">'
            f'<w:body>{document_xml}{sect}</w:body></w:document>')
     with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as z:
@@ -272,8 +263,7 @@ def package(document_xml, extra_media):
         z.writestr("word/_rels/document.xml.rels", "".join(drels))
         z.writestr("word/footer1.xml", footer)
         z.writestr("word/header1.xml", header)
+        z.writestr("word/settings.xml", settings)
         for name in extra_media:
             z.write(MEDIA / name, f"media/{name}")
-        for n in range(1, 22):
-            z.write(EQ / f"eq{n:02d}.png", f"eq/eq{n:02d}.png")
     return OUT

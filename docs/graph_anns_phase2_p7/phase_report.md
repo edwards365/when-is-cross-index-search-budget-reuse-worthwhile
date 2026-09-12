@@ -41,3 +41,13 @@ here. The user must open the DOCX in Word/WPS, confirm equation/table/figure ren
 export the submission PDF; the earlier extraction-failure lesson (judge PDFs, not text
 extracts) applies. Inline math uses italic runs (B_E(q) style); camera-ready may upgrade to
 native equation objects if desired.
+
+## Addendum — native-equation edition (user request)
+
+All 21 display equations converted from 300-dpi PNGs to native Word equation objects
+(OMML) via a fail-fast LaTeX->OMML converter (scripts/graph_anns_phase2/p7/eq_omml.py;
+21/21 converted, XML-validated). Equation paragraphs use center/right tab stops with the
+(1)-(21) numbers; math font pinned to Cambria Math through settings.xml mathPr
+(nary limits under/over, display defaults). Package no longer embeds equation PNGs
+(834 KB -> 599 KB). Postcheck 8/9 - the single advisory is the Cambria Math font,
+standard in Word/WPS. Tests 20/20. Delivered copy: /home/wlk/Downloads/.

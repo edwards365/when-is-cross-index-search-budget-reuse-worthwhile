@@ -23,7 +23,10 @@ for n in z.namelist():
 check("all_xml_wellformed", ok_xml)
 doc = z.read('word/document.xml').decode()
 texts = "".join(re.findall(r'<w:t[^>]*>([^<]*)</w:t>', doc))
-check("drawings_28", doc.count('<w:drawing>') == 28)
+check("figures_7_drawings", doc.count('<w:drawing>') == 7)
+check("native_omath_21", doc.count('<m:oMath>') == 21)
+check("no_equation_images", not [n for n in z.namelist() if n.startswith('eq/')])
+check("mathfont_settings", b'Cambria Math' in z.read('word/settings.xml'))
 check("tables_11", doc.count('<w:tbl>') == 11)
 for probe in ["21.87", "max-over-source", "DistComp", "k=7 still leaves 10.4%",
               "Yu, B. (1997)", "0.47-0.63", "21.55% [20.76, 22.33]", "V_fin",

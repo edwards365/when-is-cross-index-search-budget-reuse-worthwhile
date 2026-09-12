@@ -1,9 +1,21 @@
 {
   "deliverable": "ICBA_ICLR_Anonymous_Revised_v2.docx (834 KB)",
-  "structure": {"paragraphs": 526, "tables": 11, "figures": 7, "equations": 21, "body_chars": 62129},
-  "verification": {"xml_wellformed": "all parts", "postcheck": "9/9", "tests_p7": "17/17",
-    "content_probes": "21/21"},
+  "structure": {
+    "paragraphs": 526,
+    "tables": 11,
+    "figures": 7,
+    "native_equations": 21,
+    "body_chars": 62129
+  },
+  "verification": {
+    "xml_wellformed": "all parts",
+    "postcheck": "8/9 (sole advisory: Cambria Math font - standard Office math font)",
+    "tests_p7": "20/20",
+    "converter_smoke": "21/21 LaTeX->OMML converted and XML-validated"
+  },
   "deviation": "OOXML constructed with Python stdlib (no node/bun, no reachable npm/pypi); skill formatting standards followed; recorded in phase_report.md",
   "known_limitation": "no LibreOffice in env: PDF render check must be done by user (Word/WPS open + PDF export); inline math is italic-run style",
-  "final_label": "P7_MAJOR_REVISION_DOCX_DELIVERED_RENDER_CHECK_PENDING"
+  "final_label": "P7E_NATIVE_EQUATION_EDITION_DELIVERED",
+  "equations": "21 native OMML (Word equation objects), Cambria Math via settings.xml mathPr; PNG equation assets removed",
+  "delivery": "/home/wlk/Downloads/ICBA_ICLR_Anonymous_Revised_v2.docx + repo results path"
 }
