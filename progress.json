@@ -1,8 +1,8 @@
 {
-  "phase": "P7",
-  "step": 2,
+  "phase": "P8",
+  "step": 4,
   "retry": 0,
-  "handoff": "P7 done: revised ICLR-template DOCX delivered (R1-R12 + P6 fully integrated; 7 figs, 21 eqs, 11 tables; postcheck 9/9, tests 17/17). Pending: user-side PDF render check (no LibreOffice in env).",
+  "handoff": "P8 done: h=8 all cells above 5.96 percent so R1 5-to-6 condition met; margin passes at gamma 0.005 with certification power binding; runtime-probe separation max 0.72 so TV 0.44 and claim qualified; q0.9 pooling equals max. Rebuttal doc ready. Next: P8-D latency ledger + presentation pass.",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",
@@ -19,6 +19,7 @@
     "P4",
     "P5",
     "P6",
-    "P7"
+    "P7",
+    "P8"
   ]
 }

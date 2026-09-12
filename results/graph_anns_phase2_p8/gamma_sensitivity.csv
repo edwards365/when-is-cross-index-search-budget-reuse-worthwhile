@@ -1,0 +1,7 @@
+dataset,gamma,threshold,targets_with_margin_passing_nonmax_action,total_targets
+sift_100k,0.005,0.04,16,24
+sift_100k,0.01,0.030000000000000002,16,24
+sift_100k,0.02,0.010000000000000002,0,24
+arxiv_nomic_100k,0.005,0.04,21,24
+arxiv_nomic_100k,0.01,0.030000000000000002,8,24
+arxiv_nomic_100k,0.02,0.010000000000000002,0,24

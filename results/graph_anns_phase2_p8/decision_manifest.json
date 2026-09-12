@@ -1,0 +1,26 @@
+{
+  "evidence_level": "PURE_CODE_REBUTTAL_STRENGTHENING",
+  "p8a_h_sensitivity": {
+    "finding": "h=8 (relaxed threshold): family transport risk 5.96% (Faiss Arxiv) to 19.77% (SIFT-1M); ALL cells at ALL h in {8,9,10} remain above the 2% materiality gate",
+    "answer_to": "Review1 C1 / Q1 (explicit 5->6 upgrade condition met)"
+  },
+  "p8b_gamma_sensitivity": {
+    "finding": "margin condition (iii) point-estimate PASSES for 16/24 (SIFT) and 21/24 (Arxiv) targets at gamma=0.005; 16/24 and 8/24 at gamma=0.01; 0/24 at gamma=0.02. The binding constraint is zero-failure certification power: a 3-4% risk action passes m=94 zero-failure certification with probability ~2-6%",
+    "answer_to": "Review2 Q4; refines the 48/48 margin-verdict wording: margin exists at small gamma; CERTIFICATION POWER is what fails"
+  },
+  "p8c_rich_probe": {
+    "finding": "hit-count transcript: chance (median 0.49-0.51, max 0.56). Runtime features (visited/queue/latency @ef10): median 0.56-0.58, max 0.72. Theorem-1 instantiation must be stated probe-class-conditional; worst-case TV_lb rises to 0.44, residual loss bound 0.28*Delta - phenomenon survives quantitatively",
+    "answer_to": "Review2 Q2/W4"
+  },
+  "p8e_quantile_pooling": {
+    "finding": "q=0.9 pooling nearly equals max (k=22: 1.07% vs 0.96% SIFT); median pooling cuts conservatism to ~16-22% but leaves 13-21% risk. No aggregation sweet spot: response diameter driven by outlier sources",
+    "answer_to": "Review2 Q3"
+  },
+  "not_run_this_cycle": [
+    "P8-D policy p99 latency ledger (data available in E4 latency columns; next)",
+    "origin-unlocated aggregate re-derivation (Review1 Q3)",
+    "takeaway table + hedging-density writing pass (Review2 W6/W7)"
+  ],
+  "tests": "tests/graph_anns_phase2_p8/test_p8.py",
+  "final_label": "P8_REBUTTAL_EVIDENCE_COMPLETE_H_GAMMA_PROBE_POOLING"
+}

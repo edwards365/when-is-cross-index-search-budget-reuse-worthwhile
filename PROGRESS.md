@@ -15,3 +15,4 @@ P5=Phase E paper/PDF). Single source of truth: progress.json.
 - NEXT: P6 loop (see final_iclr_review.md Part II). P6-A requires new builds -> authorization gate.
 - 2026-09-12 P6 complete (authorized loop): 1M cell + predictor probe + distinguishability. 8/10 path evidence complete; P7 = presentation loop.
 - 2026-09-12 P7 complete: major revision DOCX built and validated; PDF render check deferred to user (no LibreOffice).
+- 2026-09-12 P8 complete: rebuttal evidence (h/gamma/rich-probe/quantile) + responses doc.

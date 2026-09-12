@@ -1,0 +1,10 @@
+cell,dataset,h,family_transport_risk
+faiss_clean_100k,sift_100k,8,0.10560144927536237
+faiss_clean_100k,sift_100k,9,0.16812318840579715
+faiss_clean_100k,sift_100k,10,0.23671497584541046
+faiss_clean_100k,arxiv_nomic_100k,8,0.05961835748792273
+faiss_clean_100k,arxiv_nomic_100k,9,0.10317391304347832
+faiss_clean_100k,arxiv_nomic_100k,10,0.17932367149758455
+sift1m,sift_1m,8,0.1977142857142858
+sift1m,sift_1m,9,0.2255
+sift1m,sift_1m,10,0.2794642857142858
