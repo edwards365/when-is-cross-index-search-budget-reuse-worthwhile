@@ -56,3 +56,16 @@ formalized as open. (A5) no-truth saturation rule degenerates to max-action (ef~
 "profiling without truth" == always-max, closing the loophole by measurement.
 (A6) pooling p95/p99 below always-max. A5 script carried two small defects fixed
 en route (missing DATA500 import; per-build visit curve loader).
+
+## Step 3 — Build-farm population study complete (the breakthrough item)
+
+200 builds (2 arms x 100) on SIFT-10K. Population: every one of 9,900 directed pairs
+exceeds the 2% gate (mean 23.4%, p95 26.6%, max 31.4%); arms A/B statistically identical
+(23.42% vs 23.45%) - scheduling noise does not amplify population risk. Theorem 3 on the
+farm: exchangeability KS median 0.114/0.118 (uniformity holds after randomized
+tie-breaking; the naive argmax rank gave a 0.47 tie artifact) and conformal coverage
+2.53%/2.62% <= alpha=0.10 at k=9. A4's population claim is now measured, and Theorem 3
+has premise-level plus guarantee-level empirical support on an independent farm.
+
+Three defects fixed en route (boolean-matrix-as-counts, RandomState API, tie-handling);
+all code-level, rerun clean.

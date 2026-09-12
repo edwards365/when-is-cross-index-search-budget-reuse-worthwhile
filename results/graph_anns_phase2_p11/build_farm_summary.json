@@ -1,0 +1,34 @@
+{
+  "A": {
+    "arm": "A_single_thread_registered",
+    "n_builds": 100,
+    "pair_risk_mean": 0.23416,
+    "pair_risk_p95": 0.264,
+    "pair_risk_max": 0.314,
+    "frac_pairs_above_2pct": 1.0,
+    "frac_pairs_above_5pct": 1.0,
+    "conformal_k9_alpha010_realized": 0.02534816150686304,
+    "ks_median": 0.11399999999999999
+  },
+  "B": {
+    "arm": "B_deployment_8thread",
+    "n_builds": 100,
+    "pair_risk_mean": 0.23454141414141413,
+    "pair_risk_p95": 0.266,
+    "pair_risk_max": 0.312,
+    "frac_pairs_above_2pct": 1.0,
+    "frac_pairs_above_5pct": 1.0,
+    "conformal_k9_alpha010_realized": 0.02620240480961924,
+    "ks_median": 0.118
+  },
+  "grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "H": 10,
+  "n_q": 500
+}
