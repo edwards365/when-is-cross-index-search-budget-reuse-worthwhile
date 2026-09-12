@@ -1,6 +1,6 @@
 {
   "phase": "P11",
-  "step": 1,
+  "step": 3,
   "retry": 0,
   "handoff": "P11 planned: triage of breakthrough review (adopt A1-A6/B1-B3 pure-code+cheap-compute; reject RAG/GitHub-mining/8-in-2wk); figures done; 10M in flight.",
   "known_issues": [
