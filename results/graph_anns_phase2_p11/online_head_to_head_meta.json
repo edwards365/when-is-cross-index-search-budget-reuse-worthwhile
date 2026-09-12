@@ -1,0 +1,31 @@
+{
+  "build_seconds": {
+    "sift100k__seed83__random": 14.304335594177246,
+    "sift100k__seed83__lid_ascending": 14.316995620727539,
+    "sift100k__seed83__lid_descending": 13.612979650497437,
+    "sift100k__seed97__random": 14.194684982299805,
+    "sift100k__seed97__lid_ascending": 14.251744031906128,
+    "sift100k__seed97__lid_descending": 13.59696912765503,
+    "sift100k__seed109__random": 14.15679121017456,
+    "sift100k__seed109__lid_ascending": 14.1339271068573,
+    "sift100k__seed109__lid_descending": 13.493649959564209,
+    "sift100k__seed127__random": 14.055530309677124,
+    "sift100k__seed127__lid_ascending": 14.098568201065063,
+    "sift100k__seed127__lid_descending": 13.525985717773438,
+    "sift100k__seed149__random": 14.131590366363525,
+    "sift100k__seed149__lid_ascending": 14.174303770065308,
+    "sift100k__seed149__lid_descending": 13.56201171875,
+    "sift100k__seed163__random": 14.17481541633606,
+    "sift100k__seed163__lid_ascending": 14.19876766204834,
+    "sift100k__seed163__lid_descending": 13.483402490615845,
+    "sift100k__seed181__random": 14.074049234390259,
+    "sift100k__seed181__lid_ascending": 14.127013921737671,
+    "sift100k__seed181__lid_descending": 13.410024881362915,
+    "sift100k__seed197__random": 13.907915592193604,
+    "sift100k__seed197__lid_ascending": 14.01943850517273,
+    "sift100k__seed197__lid_descending": 13.467084884643555
+  },
+  "wall": 353.5167851448059,
+  "fresh_n": 500,
+  "forensics": "PASS"
+}

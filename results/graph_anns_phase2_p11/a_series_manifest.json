@@ -1,30 +1,62 @@
 {
   "A1_probe_matrix": {
-    "classifier_accuracy_median": {"F1_hits": 0.49-0.51, "F2_runtime": 0.56-0.58, "F3_curve": 0.50, "F4_all": 0.55-0.56},
-    "classifier_max": {"F1": 0.54-0.56, "F2": 0.66-0.71, "F3": 0.53-0.55, "F4": 0.65-0.68},
-    "predictor_within_query_R2": {"F1": 0.97, "F2": 0.015, "F3": 0.9993-0.9998, "F4": 1.0},
-    "interpretation": "F1/F3 are TRUTH-DEPENDENT (hits need exact NN) and their high R2 is within-query leakage, not deployable prediction; the only deployment-time family (F2 runtime) stays at R2~0.02. Exhaustive-stack classifier remains near chance across queries (median 0.55, max 0.65-0.68) - Theorem-1 probe-class conclusion survives feature exhaustion, with the runtime-family 0.72-worst-pair already qualified in v4",
+    "classifier_accuracy_median": {
+      "F1_hits": "0.49-0.51",
+      "F2_runtime": "0.56-0.58",
+      "F3_curve": "0.50",
+      "F4_all": "0.55-0.56"
+    },
+    "classifier_max": {
+      "F1": "0.54-0.56",
+      "F2": "0.66-0.71",
+      "F3": "0.53-0.55",
+      "F4": "0.65-0.68"
+    },
+    "predictor_within_query_R2": {
+      "F1": 0.97,
+      "F2": 0.015,
+      "F3": "0.9993-0.9998",
+      "F4": 1.0
+    },
+    "interpretation": "F1/F3 are TRUTH-DEPENDENT (hits need exact NN) and their high R2 is within-query leakage, not deployable prediction; the only deployment-time family (F2 runtime) stays at R2~0.02. Exhaustive-stack classifier remains near chance across queries (median 0.55, max 0.65-0.68) - Theorem-1 probe-class conclusion survives feature exhaustion",
     "scientific_upgrade": "layer-3 failure mechanism precisely located: the signal EXISTS in the build-conditioned response curve but is locked behind truth-dependence"
   },
   "A2_conditional": {
-    "across_build_over_across_query_variance": {"F1": 0.29-0.37, "F2": 0.65-0.86, "F3": 0.57-0.90},
-    "interpretation": "hit-transcript variance across builds is only ~30% of across-query variance - conflict is query-layer dominated, quantitatively supporting the coupling story"
+    "across_build_over_across_query_variance": {
+      "F1": "0.29-0.37",
+      "F2": "0.65-0.86",
+      "F3": "0.57-0.90"
+    },
+    "interpretation": "hit-transcript across-build variance is only ~30% of across-query variance - conflict is query-layer dominated"
   },
   "A3_m2_coverage_rho": {
-    "effective_risk_by_rho": {"arxiv": "1.26%(rho=0) -> 0.09%(rho=1)", "sift": "0.80%(rho=0) -> 0.18%(rho=1)"},
-    "reading": "M2 degrades GRACEFULLY with cold-query rate: even at 0% repeat coverage, falling back to max-action bounds effective risk at the M5 level (0.8-1.3%), far below delta"
+    "effective_risk_by_rho": {
+      "arxiv": "1.26%(rho=0) -> 0.09%(rho=1)",
+      "sift": "0.80%(rho=0) -> 0.18%(rho=1)"
+    },
+    "reading": "M2 degrades GRACEFULLY with cold-query rate: at 0% repeat coverage the max-action fallback bounds effective risk at the M5 level (0.8-1.3%), far below delta"
   },
   "A4_population_bound": {
-    "frac_targets_above_2pct": 1.0, "hoeffding_ub95": 1.0,
-    "note": "all 24 registered targets exceed the 2% gate, so the exchangeable-build upper bound is trivially 1.0 - honest statement: registered evidence cannot certify a LOW new-build risk; the population claim remains open and the bound formalizes it"
+    "frac_targets_above_2pct": 1.0,
+    "hoeffding_ub95": 1.0,
+    "note": "all 24 registered targets exceed the 2% gate, so the exchangeable-build upper bound is trivially 1.0 - honest statement: registered evidence cannot certify LOW new-build risk; the population claim is formalized as open"
   },
   "A5_no_truth_rule": {
     "finding": "visited-saturation rule degenerates to max action (chosen ef ~200 at theta<=1.1; risk 0.8-1.4% = M5 level, DistComp 4.1-5.1x)",
-    "answer": "profile-without-truth has NO usable signal at h=10 semantics: no-truth calibration == always-max. Closes the 'naive profiling without truth' loophole by measurement"
+    "answer": "profile-without-truth has NO usable signal at h=10 semantics: no-truth calibration == always-max. Closes the naive-profiling-without-truth loophole by measurement"
   },
   "A6_latency_ledger": {
-    "p95_p99_us": {"M2_pool": {"sift": "2.5/2.8", "arxiv": "2.6/3.4"}, "M5_max": {"sift": "2.8/3.0", "arxiv": "3.2/3.5"}},
-    "note": "pooling is not just mean-cheaper - its tail latency is below always-max too"
+    "p95_p99_us": {
+      "M2_pool": {
+        "sift": "2.5/2.8",
+        "arxiv": "2.6/3.4"
+      },
+      "M5_max": {
+        "sift": "2.8/3.0",
+        "arxiv": "3.2/3.5"
+      }
+    },
+    "note": "pooling tail latency is below always-max"
   },
   "final_label": "P11_A_SERIES_COMPLETE_SIX_ITEMS"
 }
