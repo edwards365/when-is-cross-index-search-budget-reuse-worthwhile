@@ -65,3 +65,13 @@ capture. Added scripts/graph_anns_phase2/p7/schema_check.py asserting zero child
 violations (now part of the build gate). Rebuilt: 598,415 bytes; XML valid; 21 oMath,
 7 figures, 11 tables; tests 20/20; postcheck 8/9 (Cambria Math advisory only).
 Redelivered to /home/wlk/Downloads/.
+
+## Addendum 3 — LaTeX source edition (user request)
+
+Full LaTeX source delivered (ICBA_ICLR_Anonymous_Revised_v2.tex, 1,216 lines / 72.8 KB):
+ICLR-style preamble (official-kit preferred, article-class fallback documented), 21 native
+LaTeX display equations with \label/\ref cross-references, 11 booktabs tables, 7 figure
+includes, theorem environments, and a self-contained thebibliography (23 entries).
+Structural validation: environment and brace balance OK; 23 citations <-> 23 bibitems
+(no undefined, no uncited); all 7 figure files present; no undefined references.
+Delivered to /home/wlk/Downloads/ICBA_ICLR_LaTeX/ (tex + figures).
