@@ -1,8 +1,8 @@
 {
-  "phase": "P9",
-  "step": 4,
+  "phase": "P10",
+  "step": 2,
   "retry": 0,
-  "handoff": "P9 done: N1 closed (incremental h-table, 15 values, digit-matched); margin wording synced at 6 sites; Thm1 probe-class framing; M2 replay-cache relabel; e2e ledger table; 1M build times; page limit: main ~8.5 pages. v4 delivered.",
+  "handoff": "P10 running: deep-image-96-angular 9.99M x 96 REAL data (3.85GB), forensics PASS, 8+2 single-thread builds detached (~6-9h). Prereg committed pre-download. Next: analysis + tests + v5.",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",

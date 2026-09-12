@@ -6,7 +6,7 @@
     "name": "ann-benchmarks deep-image-96-angular",
     "url": "https://ann-benchmarks.com/deep-image-96-angular.hdf5",
     "expected_size_bytes": 3848008288,
-    "sha256": "RECORD_AT_FIRST_OPEN",
+    "sha256": "a0a44dfe80c58e63860862eeea2d34e62cff958dc3aec14fd65263d1d3c751f8",
     "base_split": "train (approx 9.79M x 96 float32, angular/cosine-equivalent space)",
     "query_pool": "test (10,000 x 96)",
     "truth": "provided neighbors (top-100 by angular distance); event uses first 10"
@@ -14,18 +14,38 @@
   "implementation": {
     "library": "hnswlib (repo .venv)",
     "space": "angular",
-    "M": 16, "ef_construction": 100, "threads": 1,
+    "M": 16,
+    "ef_construction": 100,
+    "threads": 1,
     "note": "mirrors the registered 100K/1M build configuration; variation attributable to seed x order"
   },
   "build_environments": {
     "count": 8,
     "design": "4 seeds x 2 insertion orders",
-    "seeds": [13, 83, 197, 2029],
-    "orders": ["random_order", "lid_ascending_by_norm"],
+    "seeds": [
+      13,
+      83,
+      197,
+      2029
+    ],
+    "orders": [
+      "random_order",
+      "lid_ascending_by_norm"
+    ],
     "identity_check_builds": 2,
     "identity_config": "seed 13, random_order, repeated twice"
   },
-  "action_grid": {"ef_search": [10, 20, 40, 80, 120, 200], "rationale": "registered family grid"},
+  "action_grid": {
+    "ef_search": [
+      10,
+      20,
+      40,
+      80,
+      120,
+      200
+    ],
+    "rationale": "registered family grid"
+  },
   "query_roles": {
     "evaluation_n": 500,
     "sampling": "numpy RandomState(991).choice over the test split",
