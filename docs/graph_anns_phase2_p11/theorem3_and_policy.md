@@ -68,3 +68,23 @@ all values recomputable from frozen per-query records by
 Validated experimentally (32 configurations, LOBO over 24 targets, seed 991);
 16/17 P11 tests pass (one label-sync fix applied). Ready for v5 integration as
 Theorem 3 + certified tiered policy.
+
+## B3 — correlation-weighted pooling (final)
+
+Certificate resolution is a hard constraint: conformal validity at level alpha requires
+alpha >= 1/(k+1), i.e., a certified 2%-class risk needs k >= 49 at alpha=0.02, k >= 19
+at alpha=0.05, k >= 9 at alpha=0.10. Measured (32 configs):
+
+- uniform k=9/alpha=0.10: realized 1.31%/1.68% <= alpha, DistComp 1.43/1.33x — VALID and
+  under the 2% gate with a third of the pool;
+- correlation-weighted selection at k=9-10 BREAKS the guarantee: realized 3.8-4.4% >
+  alpha=0.10 on both datasets. Diagnosis: selecting sources by correlation with the
+  source consensus biases the retained pool toward a subfamily, violating the
+  exchangeability premise on which the rank argument rests. At k=19-22 weighting is
+  neutral (1.34-1.45x, unchanged).
+
+Conclusion: the exchangeability premise is load-bearing — selection on source-side
+statistics is admissible, selection that induces target-relevant bias is not. Certified
+small-pool operation starts at k >= 1/alpha - 1 (k=9 at alpha=0.10). This is itself a
+useful negative result: it rules out the obvious "smart weighting" shortcut and protects
+future users from silently breaking the guarantee.
