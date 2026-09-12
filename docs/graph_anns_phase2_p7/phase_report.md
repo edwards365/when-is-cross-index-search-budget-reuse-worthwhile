@@ -100,3 +100,38 @@ overflowing the single-column text block. v3 (ICBA_ICLR_Anonymous_Revised_v3.tex
 
 Delivered to /home/wlk/Downloads/ICBA_ICLR_LaTeX/ (v3 tex + figures). No TeX toolchain on
 the server: final visual pass happens on Overleaf by construction.
+
+## Addendum 5 — v4 (three-review response: N1 fix, wording sync, page limit)
+
+Triggered by the third review round (R_A 6, R_B re-review 6 with N1, R_C pre-review 4 with
+page-limit fatal). Changes in ICBA_ICLR_Anonymous_Revised_v4.tex:
+
+1. N1 CLOSED: h-sensitivity table recomputed in the incremental (Eq. 20) caliber for ALL
+   cells (results/graph_anns_phase2_p8/h_sensitivity_incremental.csv, 15 values); the
+   h=10 column now reproduces the registered incremental estimates by construction
+   (hnswlib rows land on the E4-primary 21.57/17.12 per the Appendix-F crosswalk; Faiss
+   and 1M match to the digit), with an explicit crosswalk sentence.
+2. Margin wording synchronized at SIX sites (abstract, contributions bullet, theory 4.2,
+   7.4 verdict, conclusion): "certification power, not margin existence, binds".
+3. Theorem-1 premise paragraph rewritten as probe-class evidence with the joint-
+   information caveat (runtime features are functions of (q,build); conflict rate
+   supports but does not instantiate D-regions/Delta).
+4. M2 relabeled as a pooled REPLAY policy with a source-label cache; coverage equals
+   workload query-repeat rate; cold queries fall back.
+5. New end-to-end ledger (Table e2e): transport vs pooled replay vs profile-and-certify
+   (0.12-0.99 s incl. truth; certifies max budget only, P=0.47-0.63) vs contract —
+   answers reviewer Q4: cost was never binding; attainability and certification power are.
+6. 1M contract times reported honestly: median 252 s (13 builds), identity rebuilds 238 s;
+   8-thread 1M ratio NOT measured (flagged).
+7. Eq. 20 auditability: per-sample BOT->max mapping and target-bottom reference event
+   stated explicitly.
+8. PAGE LIMIT: main text compressed 63.2k -> 55.7k chars; figures in main 5 -> 2
+   (setting, pooling); tables in main 11 -> 5 (takeaway, crossfamily, constructive, p6,
+   e2e); moved to appendix: semantics/theory/hsens/economics/contract/vamana/ladder
+   tables, workflow/crossfamily/plane/ablation/ladder figures, protocol detail
+   paragraphs; related work and ICBA and limitations and conclusion condensed. Calibrated
+   estimate (from the user's compiled v2: ~8.8k chars/page effective) puts main at ~8.5
+   pages, within the 9-page initial-submission limit; references follow (uncounted).
+
+Static validation: env/brace/cite/label/figure checks clean; all 12 content probes and
+the 12-slot layout audit pass.

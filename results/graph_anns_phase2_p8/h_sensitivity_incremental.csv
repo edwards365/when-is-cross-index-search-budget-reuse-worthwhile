@@ -1,0 +1,16 @@
+cell,dataset,h,incremental_family_risk
+hnswlib_100k,sift_100k,8,0.157874
+hnswlib_100k,sift_100k,9,0.195092
+hnswlib_100k,sift_100k,10,0.215734
+hnswlib_100k,arxiv_nomic_100k,8,0.093522
+hnswlib_100k,arxiv_nomic_100k,9,0.134133
+hnswlib_100k,arxiv_nomic_100k,10,0.171205
+faiss_clean_100k,sift_100k,8,0.105601
+faiss_clean_100k,sift_100k,9,0.167679
+faiss_clean_100k,sift_100k,10,0.235993
+faiss_clean_100k,arxiv_nomic_100k,8,0.059618
+faiss_clean_100k,arxiv_nomic_100k,9,0.103063
+faiss_clean_100k,arxiv_nomic_100k,10,0.177657
+sift1m,sift_1m,8,0.197214
+sift1m,sift_1m,9,0.21975
+sift1m,sift_1m,10,0.218714
