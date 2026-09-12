@@ -46,3 +46,23 @@ work. The claim is probe-class-conditional, exactly as Theorem 1 requires.
 Scale replication (W1), 1M profiling cost re-measurement (so-what defense), 1M pooling
 k-curve (constructive transfer of P2's result), 1M byte-identity contract check (P3
 transfer).
+
+## P6-A results (post-run) — theory reading
+
+1. **Scale replication closes W1.** Incremental transport risk 21.87% [21.52, 22.21] at
+   SIFT-1M vs 21.55% at SIFT-100K: the phenomenon is not a small-scale artifact. The
+   variation decomposition replicates (finite-action 98.4% vs endpoint 13.2%): at 1M the
+   response heterogeneity is even more decisively finite-action switching.
+2. **The pooling boundary is the new constructive finding.** At 100K, 22 pooled sources
+   drove risk below 1%; at 1M, k=7 leaves 10.4%. Reading: the response diameter grows
+   with base size (more queries have a rare hard-neighbourhood structure somewhere in the
+   build family), so the order-statistic floor E_q[p(q)^k] decays more slowly in k. The
+   paper's prescription must state pooling's source-count requirement as scale-dependent:
+   pooling is not a universal fix, and at 1M the deterministic contract (verified
+   byte-identical at 1M in this run) becomes relatively more attractive.
+3. **Profiling primitives stay cheap at 1M** (0.067s resident for 59 queries x 6 actions;
+   per-ef mean latency 55-426us/query). The "so what" defense therefore cannot lean on
+   profiling cost even at 1M - it rests on the decision table, exactly as argued.
+4. **Contract transfer**: two 1M rebuilds with identical (order, seed, threads, toolchain)
+   produced byte-identical indexes (sha 169d122017b1 twice) - the P3 mechanistic claim
+   transfers to 1M.

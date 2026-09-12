@@ -1,0 +1,27 @@
+{
+  "preregistration": "committed BEFORE any build/search (git log: '[Phase P6] preregistration frozen')",
+  "forensics": "query/base raw-content overlap = 0 (gate passed before risk computation)",
+  "p6a_sift1m": {
+    "builds": 8, "design": "4 seeds x 2 orders, M=16 efC=100 threads=1 (E4-mirrored)",
+    "incremental_transport_risk": 0.2187, "bootstrap_ci": [0.2152, 0.2221],
+    "finite_action_variation": 0.984, "endpoint_variation": 0.132, "unresolved_mass": 0.008,
+    "identity_contract_byte_identical": true,
+    "pooling_k_curve": "k=1: 30.2% ... k=7: 10.4% - pooling with 7 sources does NOT reach <2% at 1M (vs 22 sources reaching 0.96% at 100K)",
+    "profiling_resident_59q_6actions_s": 0.067,
+    "headline": "phenomenon replicates at 10x scale (21.9% vs 21.5% at 100K); pooling's source requirement GROWS with scale"
+  },
+  "p6b_predictor": {
+    "transfer_risk": {"sift_100k": 0.2385, "arxiv": 0.2115},
+    "naive_risk": {"sift_100k": 0.2105, "arxiv": 0.1731},
+    "in_target_cv_risk": {"sift_100k": 0.2414, "arxiv": 0.2219},
+    "transfer_r2_on_target": 0.015,
+    "verdict": "learned predictor layer FAILS to transfer AND fails in-target (B(q) dominated by build-specific structure)"
+  },
+  "p6c_distinguishability": {
+    "classifier_accuracy_median": "0.49-0.51 across 552 pairs x k in {1,3,6}",
+    "plugin_tv_max_k6": {"sift_100k": 0.245, "arxiv": 0.125},
+    "verdict": "Theorem 1's near-indistinguishability premise instantiated at the marginal-transcript level while per-query coupled disagreement is 45-57%"
+  },
+  "tests": "17/17 (test_p6.py)",
+  "final_label": "P6_SCALE_PREDICTOR_DISTINGUISHABILITY_COMPLETE_PHENOMENON_CONFIRMED_AT_1M"
+}

@@ -1,0 +1,67 @@
+{
+  "dataset_scale": "SIFT-1M",
+  "builds": 8,
+  "forensics_query_base_raw_overlap": 0,
+  "finite_action_variation": 0.984,
+  "endpoint_variation": 0.132,
+  "unresolved_mass": 0.008,
+  "absolute_transport_risk": 0.27946428571428567,
+  "incremental_transport_risk": 0.21871428571428567,
+  "bootstrap_ci": [
+    0.21523732142857144,
+    0.22214008928571427
+  ],
+  "bootstrap_ci_absolute": [
+    0.27508375,
+    0.2843685714285714
+  ],
+  "build_seconds_median": NaN,
+  "identity_byte_identical": true,
+  "pooling": [
+    {
+      "k_sources": 1,
+      "mean_risk": 0.30221,
+      "risk_p95": 0.38
+    },
+    {
+      "k_sources": 2,
+      "mean_risk": 0.19496000000000002,
+      "risk_p95": 0.33819999999999983
+    },
+    {
+      "k_sources": 3,
+      "mean_risk": 0.15045499999999998,
+      "risk_p95": 0.23219999999999982
+    },
+    {
+      "k_sources": 4,
+      "mean_risk": 0.12941499999999997,
+      "risk_p95": 0.218
+    },
+    {
+      "k_sources": 5,
+      "mean_risk": 0.11896,
+      "risk_p95": 0.20219999999999982
+    },
+    {
+      "k_sources": 6,
+      "mean_risk": 0.111205,
+      "risk_p95": 0.17
+    },
+    {
+      "k_sources": 7,
+      "mean_risk": 0.10400000000000001,
+      "risk_p95": 0.144
+    }
+  ],
+  "naive_k1_risk": 0.27946428571428567,
+  "profiling_resident_59q_6actions_s": 0.0671,
+  "per_ef_mean_latency_ns": {
+    "10": 54674.625396728516,
+    "20": 68463.38510513306,
+    "40": 111090.7793045044,
+    "80": 193512.97616958618,
+    "120": 282918.39361190796,
+    "200": 425970.9119796753
+  }
+}
