@@ -43,6 +43,14 @@ check("h2h_cold_cost_recorded",
 mm = json.loads((OUT11 / "a_series_manifest.json").read_text())
 check("a_manifest", mm["final_label"] == "P11_A_SERIES_COMPLETE_SIX_ITEMS")
 
+
+c = pd.read_csv(OUT11 / "conformal_pooling_validity.csv")
+nonvac = c[(c.alpha * (c.k + 1) >= 1.0 - 1e-12) | (c["realized_failure_rate"] <= c["nominal_alpha"])]
+cert = c[(c.alpha == 0.05) & (c.k == 23)]
+check("thm3_validity_all_nonvacuous", (nonvac["realized_failure_rate"] <= nonvac["nominal_alpha"] + 1e-12).all())
+check("thm3_cert_point_distcomp", cert["mean_distcomp"].between(1.2, 1.6).all())
+check("thm3_cert_risk_under_gate", (cert["realized_failure_rate"] < 0.02).all())
+
 failed = [x for x, ok in checks if not ok]
 print(f"\n{len(checks)-len(failed)}/{len(checks)} checks passed")
 if failed:

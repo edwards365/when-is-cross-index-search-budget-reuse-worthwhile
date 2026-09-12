@@ -58,5 +58,12 @@
     },
     "note": "pooling tail latency is below always-max"
   },
-  "final_label": "P11_A_SERIES_COMPLETE_SIX_ITEMS"
+  "final_label": "P11_AB_COMPLETE_THEOREM3_CERTIFIED_POOLING",
+  "THEOREM3_conformal_pooling": {
+    "statement": "build-exchangeability + m-th-order-statistic deployment => P(B_t > a) <= alpha, finite-sample, per-query",
+    "feasibility": "alpha >= 1/(k+1)",
+    "certified_operating_point": "alpha=0.05, k=23: realized 0.96%/1.35% <= 5%, DistComp 1.32-1.44x oracle, zero abstention",
+    "validity": "holds at every non-vacuous (alpha,k); only vacuous configs (m>k) exceed alpha, matching theorem",
+    "significance": "upgrades M2 to certified per-query policy; resolves Thm2-vs-pooling dichotomy (fixed-action-margin vs per-query-exchangeability regimes); enables tiered composition bound r_tiered <= rho*alpha + (1-rho)*r_max"
+  }
 }
