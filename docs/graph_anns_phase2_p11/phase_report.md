@@ -41,3 +41,18 @@ Inputs: fourth "breakthrough" review (agent). Diagrams:
 A1 -> A2 (same loader) -> A5 -> A3 -> A4 -> A6 (all pure code, ~1 day) ->
 B1 -> B2 -> B3 (one session, ~1h compute at 100K) -> C1/C2 writing -> v5.
 P10 (10M) runs in parallel and lands as C2.
+
+## Step 2 — A-series executed (pure code, frozen data; tests pending)
+
+All six items ran. Headlines: (A1) exhaustive-stack classifier stays near chance
+(median 0.55-0.56) - Theorem-1 probe-class conclusion survives exhaustion; predictor
+R2~1 for truth-dependent families is within-query leakage, precisely locating the
+layer-3 mechanism (signal locked behind truth-dependence). (A2) across-build variance is
+29-37% of across-query variance for hit transcripts - conflict is query-dominated.
+(A3) M2 degrades gracefully: effective risk interpolates M2<->M5 with repeat rate; even
+0% coverage stays <=1.3% under max fallback. (A4) all 24 targets above the 2% gate, so
+the exchangeable-build Hoeffding bound is trivially 1.0 - the population claim is
+formalized as open. (A5) no-truth saturation rule degenerates to max-action (ef~200) -
+"profiling without truth" == always-max, closing the loophole by measurement.
+(A6) pooling p95/p99 below always-max. A5 script carried two small defects fixed
+en route (missing DATA500 import; per-build visit curve loader).

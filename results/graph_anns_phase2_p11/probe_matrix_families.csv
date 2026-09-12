@@ -1,0 +1,11 @@
+dataset,acrossbuild_over_query_F1,acrossbuild_over_query_F2,acrossbuild_over_query_F3,acrossbuild_over_query_F4,family,transfer_r2_target0
+sift_100k,0.3744,0.6545,0.9005,0.9005,,
+sift_100k,,,,,F1,0.9729
+sift_100k,,,,,F2,0.0147
+sift_100k,,,,,F3,0.9993
+sift_100k,,,,,F4,1.0
+arxiv_nomic_100k,0.2885,0.8555,0.5742,0.5742,,
+arxiv_nomic_100k,,,,,F1,0.9715
+arxiv_nomic_100k,,,,,F2,0.0198
+arxiv_nomic_100k,,,,,F3,0.9998
+arxiv_nomic_100k,,,,,F4,1.0
