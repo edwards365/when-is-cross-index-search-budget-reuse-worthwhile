@@ -1,8 +1,8 @@
 {
   "phase": "P6",
-  "step": 1,
+  "step": 5,
   "retry": 0,
-  "handoff": "P5 done: R1-R12 revision patch machine-verified (14/14), 3 figures, strict ICLR review written (solid 6, optimistic 7; 8/10 needs P6-A 1M cell, P6-B predictor probe, P6-C distinguishability). P6-A is next: SIFT-1M hnswlib 8 builds - NOTE requires new ANN builds (first non-pure-code phase; needs build toolchain + datasets).",
+  "handoff": "P6 complete: 1M risk 21.87% replicates phenomenon; pooling boundary (k=7=10.4% at 1M) is a new finding; predictor layer fails cleanly; Theorem 1 premise instantiated (TV<=0.25). Score: solid 7, 8 achievable via P7 presentation loop (no new experiments needed).",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",
@@ -17,6 +17,7 @@
     "P2",
     "P3",
     "P4",
-    "P5"
+    "P5",
+    "P6"
   ]
 }

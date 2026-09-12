@@ -115,3 +115,43 @@ D last. Do NOT start a second implementation, a new algorithm, or an open-world 
 
 **Hard stop conditions carried over:** no estimand reinterpretation, no frozen-result
 edits, no future-role access without preregistration.
+
+---
+
+## Post-P6 addendum (2026-09-12, after the authorized evidence loop)
+
+P6 executed all three proposed experiments. Status of the weaknesses:
+
+| Weakness | P6 outcome | Status |
+|---|---|---|
+| W1 scale (100K only) | SIFT-1M cell: incremental risk 21.87% [21.52, 22.21]; variation decomposition replicates (98.4% finite-action vs 13.2% endpoint); identity contract byte-identical at 1M | **CLOSED** |
+| W2 predictor layer untested | GBM probe: transfer risk 23.9%/21.2% vs naive 21.1%/17.3%; in-target CV equally poor; transfer R²=0.015 | **CLOSED** (negative result, cleanly measured) |
+| Theorem 1 premise uninstantiated | transcript TV ≤ 0.25 at chance classifier accuracy across 552 pairs, coupled disagreement 45–57% | **CLOSED** (instantiated, probe-class-conditional) |
+| W3 pooling needs 22 builds | sharpened: at 1M even k=7 leaves 10.4% — source requirement is scale-dependent | reframed as a finding |
+| W4 theory novelty | Theorem 1 now has its empirical object; Theorem 2 its measured failure boundary | improved |
+
+### Revised score
+
+All three evidence gaps on the 8/10 path are closed with new, preregistered, forensically
+clean experiments. The paper after P5 patch + P6 sections now has: phenomenon at two
+scales and three implementations, both theorems empirically instantiated, a constructive
+decision table with measured boundaries (pooling scale-dependence included), a mechanistic
+contract ablation, a full economics ledger, and grid sensitivity.
+
+Remaining residuals: single-implementation 1M cell (hnswlib only); predictor probe is one
+model class; TV claim is probe-class-conditional. These are stated boundaries, not gaps.
+
+**Updated assessment: 7 (solid) — 8 (achievable)** contingent on (a) integrating the P6
+sections at the same writing standard as R1–R12, (b) the page-by-page PDF render check,
+and (c) reviewers crediting the measured-boundary style (the honest-negative framing that
+ICLR reviewers either reward or discount). The 8th point no longer requires new
+experiments; it requires flawless presentation of evidence that now exists.
+
+### P7 (next loop, presentation-grade)
+
+- P7-A: write P6 into the paper (new §7.5 "Scale, predictor, and distinguishability";
+  abstract sentence; limitations; claim registry rows).
+- P7-B: DOCX application of R1–R12 + P6 sections; rebuild all figures incl. 1M rows.
+- P7-C: exported-PDF page-by-page formula/table/reference check (the extraction-failure
+  lesson); artifact manifest refresh.
+- Stop rule: no new experiments in P7 unless a P6 number fails verification.
