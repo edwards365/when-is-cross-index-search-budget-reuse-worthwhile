@@ -1,8 +1,8 @@
 {
-  "phase": "P6",
-  "step": 5,
+  "phase": "P7",
+  "step": 2,
   "retry": 0,
-  "handoff": "P6 complete: 1M risk 21.87% replicates phenomenon; pooling boundary (k=7=10.4% at 1M) is a new finding; predictor layer fails cleanly; Theorem 1 premise instantiated (TV<=0.25). Score: solid 7, 8 achievable via P7 presentation loop (no new experiments needed).",
+  "handoff": "P7 done: revised ICLR-template DOCX delivered (R1-R12 + P6 fully integrated; 7 figs, 21 eqs, 11 tables; postcheck 9/9, tests 17/17). Pending: user-side PDF render check (no LibreOffice in env).",
   "known_issues": [
     "S8 recalibration aggregates lack stored provenance",
     "repair NDC pair 509.49->503.41 lacks stored provenance",
@@ -18,6 +18,7 @@
     "P3",
     "P4",
     "P5",
-    "P6"
+    "P6",
+    "P7"
   ]
 }
