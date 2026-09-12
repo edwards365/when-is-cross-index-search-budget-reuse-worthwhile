@@ -75,3 +75,28 @@ includes, theorem environments, and a self-contained thebibliography (23 entries
 Structural validation: environment and brace balance OK; 23 citations <-> 23 bibitems
 (no undefined, no uncited); all 7 figure files present; no undefined references.
 Delivered to /home/wlk/Downloads/ICBA_ICLR_LaTeX/ (tex + figures).
+
+## Addendum 4 — v3 Overleaf fixes + P8 integration (user compile report)
+
+User compiled v2 on Overleaf: hard error (\newcommand{\Pr} — \Pr is a LaTeX kernel
+command), plus style-missing chain when the ICLR kit is absent, and wide tables
+overflowing the single-column text block. v3 (ICBA_ICLR_Anonymous_Revised_v3.tex):
+
+1. Preamble now auto-detects iclr2027_conference.sty (\IfFileExists); fallback is
+   self-contained (geometry+times+natbib+fancyhdr with the Under-review footer) — compiles
+   on Overleaf with or without the official kit.
+2. \Pr fixed via \renewcommand{\Pr}{\mathop{\mathrm{Pr}}}.
+3. All 13 tables converted to width-bounded p{}-column layouts with \footnotesize or
+   \scriptsize and 2.6-4pt tabcolsep; worst-case estimated width 14.9cm vs 16.5cm text
+   block; column-count consistency machine-checked (13/13 tables).
+4. P8 rebuttal evidence integrated: takeaway table (scenario->route->boundary) after
+   contributions; h-sensitivity table + paragraph in 7.1; gamma-sensitivity refinement of
+   the Theorem-2 verdict (certification power binds, not margin existence); rich-probe
+   qualification in 7.5 (runtime features 0.56-0.58 median, 0.72 max -> TV 0.44, claim
+   probe-class-qualified); quantile-pooling sentence in 7.4; canonical-order-as-default
+   wording in the decision rule; 2% gate rationale sentence; abstract TV clause updated.
+5. Static validation: env/brace balance OK, 23 cites <-> 23 bibitems, all refs/labels
+   resolve, no kernel-command collisions, all 7 figures present.
+
+Delivered to /home/wlk/Downloads/ICBA_ICLR_LaTeX/ (v3 tex + figures). No TeX toolchain on
+the server: final visual pass happens on Overleaf by construction.
