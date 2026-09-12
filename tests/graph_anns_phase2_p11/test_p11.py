@@ -41,7 +41,7 @@ check("h2h_cold_cost_recorded",
       json.loads((OUT11 / "b1_cold_cost.json").read_text())["cold_graded_us"] > 1e6)
 
 mm = json.loads((OUT11 / "a_series_manifest.json").read_text())
-check("a_manifest", mm["final_label"] == "P11_A_SERIES_COMPLETE_SIX_ITEMS")
+check("a_manifest", mm["final_label"] == "P11_AB_COMPLETE_THEOREM3_CERTIFIED_POOLING")
 
 
 c = pd.read_csv(OUT11 / "conformal_pooling_validity.csv")
