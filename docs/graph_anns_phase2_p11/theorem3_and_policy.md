@@ -88,3 +88,12 @@ statistics is admissible, selection that induces target-relevant bias is not. Ce
 small-pool operation starts at k >= 1/alpha - 1 (k=9 at alpha=0.10). This is itself a
 useful negative result: it rules out the obvious "smart weighting" shortcut and protects
 future users from silently breaking the guarantee.
+
+## Second-implementation evidence — clean Faiss (pure code from frozen records)
+
+`conformal_faiss_validity.csv`: Theorem 3 validity confirmed on the independent Faiss
+HNSW implementation. All NON-VACUOUS configurations valid — (alpha=0.05, k=23):
+realized 0.05% <= 5% (abstain 0.5-1.8%); (0.10, k=23): 1.0%/0.93%; (0.10, k=10):
+1.4%/1.25%. The vacuous config (alpha=0.05, k=10: m=11 > 10) correctly abstains 100% —
+the feasibility condition is operational, not just theoretical. Theorem 3 now has
+two-implementation empirical support (hnswlib + clean Faiss).

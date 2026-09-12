@@ -1,0 +1,5 @@
+{
+  "evidence": "Theorem 3 second-implementation validity on clean Faiss-100K",
+  "nonvacuous_valid": [["alpha=0.05,k=23","0.05%<=5% SIFT"],["alpha=0.05,k=23","0.05%<=5% Arxiv"],["alpha=0.10,k=23","1.0%<=10% SIFT"],["alpha=0.10,k=23","0.93%<=10% Arxiv"],["alpha=0.10,k=10","1.4%<=10% SIFT"],["alpha=0.10,k=10","1.25%<=10% Arxiv"]],
+  "vacuous_behavior_confirms_feasibility_condition": "alpha=0.05,k=10 -> 100% abstention (m>k)"
+}
