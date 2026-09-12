@@ -40,14 +40,15 @@ def png_size(path):
 
 
 def rpr(b=False, i=False, sz=20, font="Times New Roman", color=None, caps=False):
+    # CT_RPr schema order: rFonts -> b -> i -> caps -> color -> sz -> szCs
     x = '<w:rPr>'
+    x += f'<w:rFonts w:ascii="{font}" w:hAnsi="{font}"/>'
     if b:
         x += "<w:b/>"
     if i:
         x += "<w:i/>"
     if caps:
         x += "<w:caps/>"
-    x += f'<w:rFonts w:ascii="{font}" w:hAnsi="{font}"/>'
     if color:
         x += f'<w:color w:val="{color}"/>'
     x += f'<w:sz w:val="{sz}"/><w:szCs w:val="{sz}"/></w:rPr>'
@@ -73,15 +74,15 @@ def runs(text, b=False, sz=20, i_all=False, font="Times New Roman", color=None):
 def para(text="", style=None, b=False, sz=20, align=None, space_after=120,
          space_before=0, i_all=False, keep_next=False, indent_first=0, color=None):
     ppr = "<w:pPr>"
-    if keep_next:
-        ppr += "<w:keepNext/>"
     if style:
         ppr += f'<w:pStyle w:val="{style}"/>'
-    if align:
-        ppr += f'<w:jc w:val="{align}"/>'
+    if keep_next:
+        ppr += "<w:keepNext/>"
     ppr += f'<w:spacing w:before="{space_before}" w:after="{space_after}" w:line="312" w:lineRule="auto"/>'
     if indent_first:
         ppr += f'<w:ind w:firstLine="{indent_first}"/>'
+    if align:
+        ppr += f'<w:jc w:val="{align}"/>'
     ppr += "</w:pPr>"
     body = runs(text, b=b, sz=sz, i_all=i_all, color=color) if text else ""
     return f"<w:p>{ppr}{body}</w:p>"
@@ -108,7 +109,7 @@ def image(name, width_cm=14.5, caption=None):
     _imgid[0] += 1
     rid = _imgid[0]
     IMG_RELS.append((rid, f"media/{name}"))
-    d = (f'<w:p><w:pPr><w:jc w:val="center"/><w:spacing w:before="120" w:after="60" w:line="240" w:lineRule="auto"/><w:keepNext/></w:pPr>'
+    d = (f'<w:p><w:pPr><w:keepNext/><w:spacing w:before="120" w:after="60" w:line="240" w:lineRule="auto"/><w:jc w:val="center"/></w:pPr>'
          f'<w:r><w:rPr>{rpr(sz=18)}</w:rPr><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0">'
          f'<wp:extent cx="{emu_w}" cy="{emu_h}"/><wp:effectExtent l="0" t="0" r="0" b="0"/>'
          f'<wp:docPr id="{rid}" name="{name}"/><wp:cNvGraphicFramePr>'
@@ -144,9 +145,9 @@ def cell(text, bold=False, header=False, sz=18, align="left", w_cm=None):
     paras = "".join(
         para(ln, b=bold or header, sz=sz, align=align, space_after=40)
         for ln in lines)
-    return (f'<w:tc><w:tcPr>{wm}<w:tcMar><w:top w:w="60" w:type="dithered"/>'
+    return (f'<w:tc><w:tcPr>{wm}{shd}<w:tcMar><w:top w:w="60" w:type="dithered"/>'
             f'<w:left w:w="100" w:type="dithered"/><w:bottom w:w="60" w:type="dithered"/>'
-            f'<w:right w:w="100" w:type="dithered"/></w:tcMar>{shd}'
+            f'<w:right w:w="100" w:type="dithered"/></w:tcMar>'
             f'<w:vAlign w:val="center"/></w:tcPr>{paras}</w:tc>')
 
 
@@ -169,8 +170,8 @@ def table(rows, widths=None, header=True, sz=18, caption=None, aligns=None):
         for ci, val in enumerate(row):
             c = cell(val, header=(header and ri == 0), sz=sz, align=aligns[ci],
                      w_cm=widths[ci])
-            if header and ri == 0:
-                c = c.replace("<w:tcMar>", hdr_border + "<w:tcMar>")
+            if header and ri == 0 and '<w:shd' in c:
+                c = c.replace('<w:shd', hdr_border + '<w:shd', 1)
             tbl.append(c)
         tbl.append("</w:tr>")
     tbl.append("</w:tbl>")

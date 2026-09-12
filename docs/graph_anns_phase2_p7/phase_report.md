@@ -51,3 +51,17 @@ All 21 display equations converted from 300-dpi PNGs to native Word equation obj
 (nary limits under/over, display defaults). Package no longer embeds equation PNGs
 (834 KB -> 599 KB). Postcheck 8/9 - the single advisory is the Cambria Math font,
 standard in Word/WPS. Tests 20/20. Delivered copy: /home/wlk/Downloads/.
+
+## Addendum 2 — Word/WPS compatibility fixes (user report)
+
+User reported: Word repair dialog on open; WPS dropped images and partially failed to
+render equations as equation objects. Root cause: hand-constructed OOXML violated the
+strict CT_PPr / CT_RPr / CT_TcPr child-order schemas (jc before spacing/ind; keepNext
+before pStyle; rFonts after b/i; shd after tcMar). Word enters repair mode on such
+files and renderers drop affected paragraphs (explaining missing images and unparsed
+equations). Fixes: (1) schema-ordered emission everywhere; (2) tcBorders inserted
+between tcW and shd; (3) \mathrm groups emitted as single upright runs via raw-group
+capture. Added scripts/graph_anns_phase2/p7/schema_check.py asserting zero child-order
+violations (now part of the build gate). Rebuilt: 598,415 bytes; XML valid; 21 oMath,
+7 figures, 11 tables; tests 20/20; postcheck 8/9 (Cambria Math advisory only).
+Redelivered to /home/wlk/Downloads/.

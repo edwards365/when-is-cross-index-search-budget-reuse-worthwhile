@@ -69,6 +69,34 @@ class P:
                 return out
             out += self.term()
 
+    def read_group_raw(self):
+        """Consume a {...} group and return its raw text (spacing escapes mapped)."""
+        assert self.pop() == "{"
+        depth, out = 1, ""
+        while depth:
+            t = self.pop()
+            if t == "{":
+                depth += 1
+            elif t == "}":
+                depth -= 1
+                if depth == 0:
+                    break
+            name = t[1:]
+            if t.startswith("\\") and name == " ":
+                t = " "
+            elif t == "\\,":
+                t = THIN
+            elif t == "\\qquad":
+                t = EM + EM
+            elif t == "\\!":
+                t = ""
+            elif t == "\\|":
+                t = "\u2016"
+            elif t in ("\\{", "\\}"):
+                t = name
+            out += t
+        return out
+
     def group(self):
         if self.peek() != "{":
             raise ValueError(f"expected group, got {self.peek()}")
@@ -150,13 +178,8 @@ class P:
                     f'<m:sub>{sub}</m:sub><m:sup>{sup}</m:sup>'
                     f'<m:e>{body}</m:e></m:nary>')
         if c == "\\mathrm":
-            # upright group: parse inner with upright flag by re-emitting runs
-            inner = self.group()
-            upright = inner.replace('<m:t', '<m:t data-up="1"')
-            # simpler: wrap runs' text as-is; Word applies math italics otherwise.
-            # Mark via m:nor (normal text) on each run:
-            nor = inner.replace("<m:r>", "<m:r><m:rPr><m:nor/></m:rPr>", 1)
-            return inner if inner == nor else nor
+            raw = self.read_group_raw()
+            return mr(raw, upright=True)
         if c == "\\mathbb":
             g = self.group()
             if "E" in g:
