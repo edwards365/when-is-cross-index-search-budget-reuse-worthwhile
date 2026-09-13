@@ -1,0 +1,24 @@
+{
+  "vamana": {
+    "vamana_sift": {
+      "nonmono_events": 0,
+      "rows": 27000,
+      "nonmono_rate": 0.0,
+      "note": "raw_nonmono field counts min-safe-budget violations across the registered L grid"
+    },
+    "vamana_arxiv": {
+      "nonmono_events": 0,
+      "rows": 27000,
+      "nonmono_rate": 0.0,
+      "note": "raw_nonmono field counts min-safe-budget violations across the registered L grid"
+    }
+  },
+  "1M": {
+    "nu": 0.00389,
+    "triples": 14655
+  },
+  "10M": {
+    "nu": 0.0,
+    "triples": 11144
+  }
+}

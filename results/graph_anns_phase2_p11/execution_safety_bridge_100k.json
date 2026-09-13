@@ -1,0 +1,18 @@
+{
+  "nu": {
+    "hnswlib_sift_100k": 0.0,
+    "hnswlib_arxiv_nomic_100k": 0.0
+  },
+  "tail_conformal": {
+    "hnswlib_sift_100k_k23_a0.05": {
+      "realized_exec_fail": 0.0018,
+      "abstain": 0.5458,
+      "nu": 0.0
+    },
+    "hnswlib_arxiv_nomic_100k_k23_a0.05": {
+      "realized_exec_fail": 0.0013,
+      "abstain": 0.7314,
+      "nu": 0.0
+    }
+  }
+}

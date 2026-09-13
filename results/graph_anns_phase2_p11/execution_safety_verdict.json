@@ -1,0 +1,20 @@
+{
+  "nu_nonmonotone_violation_rate": {
+    "hnswlib_100k_sift": 0.0, "hnswlib_100k_arxiv": 0.0,
+    "vamana_sift": 0.0, "vamana_arxiv": 0.0,
+    "sift_1m": 0.00389, "deep_10m": 0.0,
+    "denominator": "all (query, build, ef >= B_point) triples: 100K ~4.4M, 1M 14,655 live post-min-safe, 10M 11,144",
+    "verdict": "post-min-safe execution is monotone in the registered grids: nu = 0 (1M: 0.39% residual)"
+  },
+  "theorem3_bridge": {
+    "statement": "conformal label coverage P[B_t(q) > a(q)] <= alpha PLUS measured nu => execution failure P[Z_t(q,a(q))=1] <= alpha + nu",
+    "certified_operating_point": "alpha=0.05, nu=0 -> execution failure <= 5% + 0% = 5%; measured 0.96-1.35%",
+    "10M": "alpha=0.125, nu=0 -> execution <= 12.5% + 0%; measured 0.64%"
+  },
+  "tail_label_variant": {
+    "definition": "B_tail(q) = min a_j such that ALL registered actions >= a_j succeed (reviewer-proposed)",
+    "hnswlib_100k": {"exec_fail_on_live": "0.18%/0.13% <= 5% BY CONSTRUCTION", "abstain": "54.6%/73.1%"},
+    "tradeoff": "tail labels give construction-level execution safety but halve-to-third coverage; point labels + nu bridge give coverage 96-100% at alpha + nu"
+  },
+  "answer_to_reviewer_counterexample": "the hypothetical non-monotone A/B builds do not occur in any registered cell: nu=0 across 4.4M+ triples on hnswlib/Vamana and 10M; only 1M shows 0.39% residual. The bridge condition is measured, not assumed"
+}
