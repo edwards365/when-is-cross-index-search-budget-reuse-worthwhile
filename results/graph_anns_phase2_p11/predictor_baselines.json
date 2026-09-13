@@ -1,0 +1,32 @@
+[
+  {
+    "dataset": "sift_100k",
+    "model": "ridge",
+    "transfer_r2": -0.0071
+  },
+  {
+    "dataset": "sift_100k",
+    "model": "kNN",
+    "transfer_r2": -0.1158
+  },
+  {
+    "dataset": "sift_100k",
+    "model": "HistGB",
+    "transfer_r2": 0.0147
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "model": "ridge",
+    "transfer_r2": 0.0262
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "model": "kNN",
+    "transfer_r2": -0.0718
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "model": "HistGB",
+    "transfer_r2": 0.0198
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "P12_theory_fixes": {
+    "1_TV_upper_confidence_bound": {
+      "fix_for": "reviewer-A criticism 1 (TV direction inference error)",
+      "method": "DKW concentration on finite hit-transcript support (n=375/distribution)",
+      "result": "TV_ucb95 = 0.39 (plugin 0.25 + DKW 0.14); Theorem-1 loss lower bound 0.305*Delta at 95% confidence",
+      "runtime_probes": "accuracy 0.72 gives TV LOWER bound 0.44 - cannot yield loss lower bound; v8 sentence retracted, reframed as risk-inflation evidence only"
+    },
+    "2_D_region_instantiation": {
+      "fix_for": "reviewer-A criticism 2 (B_s!=B_t does not imply disjoint regions)",
+      "method": "cost-tolerated common-safe-action analysis: scan both hit tables upward from max(B_s,B_t), within cost tolerance (1+kappa)*B_t",
+      "result_kappa_0": "21.85% of directed transports have NO common safe action within the original cost - these are true D-region conflicts with Delta = the full action gap",
+      "result_kappa_1": "6.85% remain conflicting even allowing 2x cost - the conflict is cost-robust for a substantial minority"
+    },
+    "3_cp_power_curve": {
+      "fix_for": "reviewer-A criticism 7 (zero-failure is protocol artifact)",
+      "result": "min m to certify: risk 1%->59q, 2%->99q, 3%->289q, 4%->1149q, 5%->unreachable at practical m",
+      "reading": "margin-band actions (3-4%) ARE certifiable with 300-1200 queries - the collapse is a sample-size statement, now quantified"
+    },
+    "4_predictor_baselines": {
+      "fix_for": "reviewer-B Q3 (single model class)",
+      "result": "ridge -0.007/0.026, kNN -0.116/-0.072, HistGB 0.015/0.020 transfer R2 - negative across ALL model classes"
+    },
+    "5_execution_safety_bridge": {
+      "fix_for": "reviewer-A criticism 3 (label coverage != execution safety)",
+      "result": "nu (post-min-safe non-monotone violation) = 0.0 on hnswlib 100K x2, Vamana x2, 10M; 0.39% residual on 1M - measured across 4.4M+ triples; Theorem-3 + nu gives execution bound alpha+nu; tail-label variant gives by-construction safety at halved coverage"
+    }
+  },
+  "final_label": "P12_THEORY_FIXES_MEASURED_AND_COMMITTED"
+}

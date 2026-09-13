@@ -1,0 +1,26 @@
+[
+  {
+    "kappa_tolerance": 0.0,
+    "directed_transports_scanned": 408842,
+    "no_common_safe_within_cost_tolerance": 89314,
+    "fraction_no_common": 0.2185
+  },
+  {
+    "kappa_tolerance": 0.25,
+    "directed_transports_scanned": 408842,
+    "no_common_safe_within_cost_tolerance": 89314,
+    "fraction_no_common": 0.2185
+  },
+  {
+    "kappa_tolerance": 0.5,
+    "directed_transports_scanned": 408842,
+    "no_common_safe_within_cost_tolerance": 85370,
+    "fraction_no_common": 0.2088
+  },
+  {
+    "kappa_tolerance": 1.0,
+    "directed_transports_scanned": 408842,
+    "no_common_safe_within_cost_tolerance": 28023,
+    "fraction_no_common": 0.0685
+  }
+]
