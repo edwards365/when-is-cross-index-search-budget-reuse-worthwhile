@@ -76,8 +76,9 @@ conformal pooling, Theorem~3): repeated queries served from cached labels carry 
 bound $\le\alpha$ at $1.32$--$1.44\times$ oracle cost, validated across every non-vacuous
 $(\alpha,k)$; cold queries fall back to the maximum action. The deterministic rebuild contract
 eliminates measured risk at $1.71$--$3.52\times$ build overhead. A learned per-query predictor does not
-transfer ($R^2{=}0.015$). A cost-ordered decision rule over these routes---contract, pooling,
-certify, abstain---is the paper's actionable output.
+transfer ($R^2{=}0.015$). A cost-ordered decision rule over these
+routes---contract, target re-profiling, conformal pooling, certify, abstain---is the paper's
+actionable output.
 \end{abstract}
 
 \section{Introduction}
@@ -112,9 +113,10 @@ rather than margin existence. The testing inequalities are classical; the contri
 build-conditioned formulation, operational composition, and measured boundary.
 
 We instantiate the theory in ICBA, a certified audit rather than a new traversal algorithm, and derive a
-cost-ordered decision rule: enforce a verified deterministic contract when feasible; otherwise deploy
-conformal pooled replay when operational history permits (Theorem~3); otherwise collect target evidence
-and certify a frozen action; otherwise abstain. Our contributions:
+cost-ordered decision rule: enforce a verified deterministic contract when feasible; otherwise
+re-profile the target with per-query truth labels when truth is affordable; otherwise deploy conformal
+pooled replay when operational history permits (Theorem~3); otherwise collect target evidence and
+certify a frozen action; otherwise abstain. Our contributions:
 \begin{itemize}\itemsep1pt
 \item A formalization of rebuild transport with implementation-native actions, categorical unresolved
 endpoints, four deployment outcomes, and formal estimands (incremental risk, variation families).
@@ -288,7 +290,7 @@ registered actions succeed) gives execution safety by construction (realized 0.1
 cache coverage---both variants are reported. Measured boundaries: the certificate resolves only
 $\alpha\ge 1/(k+1)$ (a 2\%-class certificate needs $k\ge 49$), and target-correlated source selection
 inflates realized risk $3.3\times$ (4.43\% vs.\ 1.31\% at $\alpha{=}0.10$, $k{=}9$), within the
-nominal envelope on this sample---an exchangeability-violation diagnostic, not a certificate violation.
+nominal envelope on this sample---an exchangeability-violation diagnostic (the premise, not the certificate bound, is violated).
 The \emph{tiered} deployment composes the certificate with the measured fallback: cached actions for
 repeated queries, maximum action for cold queries, giving
 $r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$; meeting $\delta$
@@ -453,7 +455,7 @@ not measured, so the $1.71$--$3.52\times$ ratios remain 100K-registered values.
 \subsection{Constructive baselines and certification}
 \label{sec:constructive}
 
-We evaluate six policies on the hnswlib cells by retrospective replay over the frozen per-query records
+We evaluate seven policies on the hnswlib cells by retrospective replay over the frozen per-query records
 (roles 375/94/281 disjoint, seed 991; bootstrap as registered). Table~\ref{tab:constructive} reports
 target-truth usage, risk under the four-outcome semantics, DistComp versus the per-query oracle, and
 certification outcomes.
@@ -476,8 +478,8 @@ M3 frozen max-action CP ($M{=}1$, $m{=}59$) & 59 q & 0.87\% / 1.36\% & 4.16/5.28
 M4a point-screen sel.-then-cert. & 469 q & --- & --- & 0/48 (zero-fail.\ violated) \\
 M4b Theorem-2 screen, then certify & 469 q & --- & --- & 0/48; margin too thin \\
 M5 always maximum action & 0 & 0.80\% / 1.26\% & 4.09/5.14$\times$ & not auto.\ safe \\
-M5$'$ target re-profile + per-query label cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
-M5$'$ target re-profile + per-query label cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
+M2 pooled replay (max over 22 cached source labels) & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
+M2 pooled replay (max over 22 cached source labels) & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
 M5$'$ target re-profile + per-query truth cache & 0.12--0.99\\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\\times$ & uncert.; dominates M2 when truth affordable \\
 M6 per-query oracle & full & endpoint mass only & 1.00$\\times$ & non-deployable ref. \\\\
 \bottomrule
@@ -539,7 +541,7 @@ computation) give incremental transport risk \textbf{22.16\% [21.66, 22.68]} wit
 $V_{\mathrm{fin}}{=}87.2\%$ versus $V_{\mathrm{end}}{=}28.2\%$: the phenomenon is
 scale-stable across three orders of magnitude (21.55--23.60\% at 100K, 21.87\% at 1M).
 The deterministic contract is byte-identical at 10M (three same-configuration builds,
-sha-identical across days) at a median 252\,s single-thread build; profiling remains
+sha-identical across days) at a median 2{,}945\,s single-thread build; profiling remains
 sub-second (0.091\,s for 59 queries $\times$ 6 actions). The pooling boundary amplifies
 with scale: the uncached $k$-curve is nearly flat ($k{=}3$: 26.8\%, $k{=}5$: 24.5\%, $k{=}7$:
 23.3\%), i.e., the source requirement has outgrown practical history at 10M, while
@@ -900,7 +902,6 @@ proving Theorem~1. Bretagnolle--Huber lower-bounds the error sum and Pinsker yie
 For adaptive observations the chain rule gives
 \begin{equation}
 K_{m}=\sum_{t=1}^{m}\E_{0}\!\left[\KL\bigl(P_{0}^{Y_{t}\mid H_{t-1},A_{t}}\,\bigl\|\,P_{1}^{Y_{t}\mid H_{t-1},A_{t}}\bigr)\right]\le m\,I^{\star},
-\quad I^{\star}=\textstyle\sup_{H,A}\mathrm{KL}(\cdot\|\cdot),\quad I^{\star}=\textstyle\sup_{H,A}\mathrm{KL}(\cdot\|\cdot),
 \label{eq:chain}
 \end{equation}
 and data processing through the decision rule yields the stated testing consequence. The testing
