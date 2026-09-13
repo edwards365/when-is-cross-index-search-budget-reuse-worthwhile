@@ -1,0 +1,7 @@
+stage,k,alpha,m,realized,nominal,abstain,valid_nonvacuous
+vamana_sift,5,0.1667,5,0.0,0.1667,0.0027,True
+vamana_sift,5,0.2,5,0.0,0.2,0.0027,True
+vamana_sift,5,0.25,5,0.0,0.25,0.0027,True
+vamana_arxiv,5,0.1667,5,0.0,0.1667,0.0049,True
+vamana_arxiv,5,0.2,5,0.0,0.2,0.005,True
+vamana_arxiv,5,0.25,5,0.0,0.25,0.005,True

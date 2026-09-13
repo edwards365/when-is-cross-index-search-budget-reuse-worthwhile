@@ -1,0 +1,14 @@
+{
+  "finding": "Theorem-3 conditional validation on the THIRD implementation family (DiskANN3/Vamana pruned-navigable-graph paradigm, stage-specific estimand)",
+  "setup": "k=5 pool (12 registered builds, leave-one-out), 750 queries/stage, L-grid {16..512}, resolution alpha >= 1/6",
+  "results": {
+    "vamana_sift": "realized 0.0% <= alpha at alpha in {1/6, 0.20, 0.25}; abstain 0.27%",
+    "vamana_arxiv": "realized 0.0% <= alpha; abstain 0.49%",
+    "B_s consistency across targets": true
+  },
+  "significance": [
+    "Thm-3 validity matrix now: 3 implementation families (hierarchical hnswlib, independent Faiss HNSW, pruned-navigable Vamana) x 4 scales x 2+ datasets - all non-vacuous hold",
+    "Vamana upgrades from supporting-phenomenon-only to method-validation participant (policy claim covers it; transport estimand remains stage-specific for the phenomenon claim)",
+    "coverage discipline: only alpha >= 1/6 certified at k=5 (resolution semantics respected)"
+  ]
+}
