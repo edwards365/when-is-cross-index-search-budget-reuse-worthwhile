@@ -1,0 +1,1354 @@
+% ============================================================================
+% When Safe Search Budgets Do Not Transfer Across Graph-ANNS Rebuilds
+% Anonymous ICLR submission — revised manuscript (v2, P0–P7 evidence integrated)
+% ----------------------------------------------------------------------------
+% Compile with the official ICLR kit: place iclr2027_conference.sty,
+% iclr2027_conference.bst (and the ICLR banner files, e.g. iclr2027_logo.pdf)
+% next to this file, then run:  pdflatex -> bibtex -> pdflatex x2
+% If the ICLR style kit is temporarily unavailable, uncomment the FALLBACK
+% block below to compile with plain article class.
+% Figures required (same directory): fig1_setting.png, fig2_workflow.png,
+% fig3_crossfamily.png, fig4_pooling.png, fig5_plane.png, fig6_ablation.png,
+% fig7_ladder.png  (shipped in the artifact media/ folder).
+% ============================================================================
+\documentclass{article}
+
+% ---- ICLR official style if present; otherwise self-contained fallback ----
+\IfFileExists{iclr2027_conference.sty}{%
+  \usepackage{iclr2027_conference,times}
+}{%
+  \usepackage[margin=1in]{geometry}
+  \usepackage{times}
+  \usepackage{natbib}
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}\fancyhf{}
+  \fancyhead[R]{\small\itshape Safe Search Budgets Across Graph-ANNS Rebuilds}
+  \fancyfoot[C]{\small Under review as a conference paper at ICLR 2027 --- page \thepage}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\newcommand{\DistComp}{\mathrm{DistComp}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\KL}{\mathrm{KL}}
+\renewcommand{\Pr}{\mathop{\mathrm{Pr}}}   % \Pr is a kernel command: renew, not new
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\BOT}{\bot}
+
+\title{When Safe Search Budgets Do Not Transfer Across Graph-ANNS Rebuilds}
+
+\author{Anonymous Authors\\
+Paper under double-blind review\\
+\texttt{anonymized artifact accompanies the submission}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Graph approximate nearest-neighbor systems rebuild indexes after data refreshes, replica creation, and
+randomized construction, yet downstream search-budget policies are commonly reused across builds. We
+study when this transport is statistically justified, modeling each serialized build as an algorithmic
+environment with implementation-native actions, an endpoint-aware failure event, and a categorical
+unresolved state. A transcript-limited lower bound shows that build-blind policies must pay in one of
+four currencies---unsafe execution, conservative computation, fallback, or abstention---and we
+instantiate its premise: registered build pairs are near-chance distinguishable through hit-count
+transcripts (TV $\le0.25$) while their per-query budgets conflict on 45--57\% of queries. A
+fixed-target recovery theorem is audited per target: certification power, not margin existence, binds.
+Across three dataset families, four scales (100K--10M), and three implementations, rebuilds cause
+17.2--23.6\% incremental transport risk. We give a certified deployable policy (exchangeable-build
+conformal pooling, Theorem~3): repeated queries served from cached labels carry a finite-sample risk
+bound $\le\alpha$ at $1.32$--$1.44\times$ oracle cost, validated across every non-vacuous
+$(\alpha,k)$; cold queries fall back to the maximum action. The deterministic rebuild contract
+eliminates measured risk at $1.71$--$3.52\times$ build overhead. A learned per-query predictor does not
+transfer ($R^2{=}0.015$). A cost-ordered decision rule over these
+routes---contract, target re-profiling, conformal pooling, certify, abstain---is the paper's
+actionable output.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+Graph approximate nearest-neighbor search (Graph-ANNS) is often tuned as though an index were a stable
+substrate: after a rebuild with unchanged data and nominal hyperparameters, practitioners reuse budgets,
+query-level predictors, and stopping rules calibrated on the previous index. The premise---that such
+policies remain safe under a new realization of the construction algorithm---is rarely stated, and
+reconfiguration violates it through input order, parallel scheduling, randomized state, or toolchain even
+when the query law is unchanged. The reconfiguration arises in ordinary operation: serving replicas are
+(re)created with different insertion orders and schedules, autoscaling adds replicas, failure recovery and
+blue-green deploys rebuild from the same data, and upgrades rebuild under new toolchains; a policy
+calibrated on one replica (a canary) is then reused across the fleet. We study the risk of this plausible
+shortcut, make no claim that every operator reuses budgets, and condition all conclusions on registered
+builds. The issue is not a mean-recall drop: builds with similar aggregate quality assign different
+minimum safe actions to the same query, so reuse under-budgets the target while a uniformly larger action
+pays conservative computation; and since primitive profiling is sub-second at 100K--1M, the gap is the
+validity and decision semantics of transport, not profiling cost.
+
+We formulate rebuild reconfiguration as a finite environment--action problem whose directed transport
+separates unsafe execution, conservative computation, certified fallback, and abstention
+(Section~\ref{sec:formulation})---an auditable risk--cost object. Our evidence addresses three layers: the
+query-level safe-budget \emph{response} is strongly non-portable (17.17--23.60\% incremental risk at
+100K, 22.16\% at 10M); the \emph{global policy} layer has a constructive answer (pooling 22 source builds
+cuts risk below 1\%, certified under exchangeability by Theorem~3); and a \emph{learned per-query
+predictor} does not transfer (Section~\ref{sec:scale}). Our theory separates impossibility from
+conditional recovery: a transcript-limited lower bound whose premise we measure (hit-count TV $\le0.25$;
+joint runtime features at most 0.72 separation; 45--57\% per-query conflict), and a fixed-target recovery
+theorem whose five conditions we audit per target, locating the binding constraint at certification power
+rather than margin existence. The testing inequalities are classical; the contribution is their
+build-conditioned formulation, operational composition, and measured boundary.
+
+We instantiate the theory in ICBA, a certified audit rather than a new traversal algorithm, and derive a
+cost-ordered decision rule: enforce a verified deterministic contract when feasible; otherwise
+re-profile the target with per-query truth labels when truth is affordable; otherwise deploy conformal
+pooled replay when operational history permits (Theorem~3); otherwise collect target evidence and
+certify a frozen action; otherwise abstain. Our contributions:
+\begin{itemize}\itemsep1pt
+\item A formalization of rebuild transport with implementation-native actions, categorical unresolved
+endpoints, four deployment outcomes, and formal estimands (incremental risk, variation families).
+\item Two complementary theories with measured boundaries---a transcript-limited lower bound with an
+instantiated premise, and a fixed-target recovery theorem whose margin condition systematically
+fails---plus a certified deployable policy: exchangeable-build conformal pooling (Theorem~3), which
+upgrades pooling from bootstrap to finite-sample risk control.
+\item Evidence across three dataset families (SIFT, Arxiv-Nomic, GloVe-100 angular), three geometric
+spaces (L2-128, cosine-768, angular-100), four scales (10K farm to 10M), and three implementation
+families (hnswlib, clean Faiss, Vamana), plus a mechanistic contract ablation, an economics ledger, and
+a falsification ladder organizing negative method evidence.
+\end{itemize}
+
+\begin{table}[t]
+\centering
+\caption{Takeaway: deployment scenario $\rightarrow$ recommended route $\rightarrow$ measured boundary (all numbers registered-family conditional).}
+\label{tab:takeaway}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{3.2cm}p{3.9cm}p{6.5cm}}
+\toprule
+Scenario & Route & Measured boundary \\
+\midrule
+Rebuild feasible offline; near-zero risk required & Deterministic contract (order + seed + single thread) & risk 0 at 100K/1M/10M (byte-identical); build $1.71$--$3.52\times$ (100K-registered; 10M: 2{,}945\,s); order pinning alone halves variation free \\
+$\ge 1/\alpha-1$ prior builds with cached labels (19 at $\alpha{=}.05$, 9 at $\alpha{=}.10$) & Conformal pooled replay (Thm.~3 quantile) for repeat queries; max-action fallback for cold & certified $\le\alpha$ at every non-vacuous $(\alpha,k)$ across 3 scales $\times$ 2 implementations; DistComp $1.32$--$1.44\times$; uncached pooling degrades with scale (10M: 23.3\% at $k{=}7$) \\
+Cost-sensitive, risk tolerance moderate & Canonical order pinning only & free ($0.80$--$0.93\times$ build); residual variation 30--34\% \\
+Fresh target, budget for truth & Certify a frozen action (Thm.~2) or abstain & only max budget clears ($P{=}0.47$--$0.63$ at $m{=}59$); certification power, not margin, binds \\
+No route yields a certified action & Abstain & safety preserved; regret bounded in Table~\ref{tab:constructive} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.8\linewidth]{fig1_setting.png}
+\caption{Build reconfiguration induces a policy-transport problem. A source-calibrated action may
+under-budget the target build, while a uniformly large action may be safe but conservative. The build is
+hidden only relative to the available probe transcript; ICBA separates measurement, certification, and
+value.}
+\label{fig:setting}
+\end{figure}
+
+Figure~\ref{fig:setting} summarizes the setting.
+
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Positioning.}
+Graph-ANNS construction and search: HNSW \citep{malkov2020hnsw}, NSG \citep{fu2019nsg},
+Vamana/DiskANN \citep{subramanya2019diskann}, Faiss \citep{johnson2021faiss}, incremental maintenance
+\citep{xu2022maintenance}, construction cost and pruning theory \citep{prokhorenkova2020graph}, order
+effects on recall \citep{elliott2024order}, per-index budget autotuning \citep{bae2026qbat}.
+Query-adaptive budgets and cost estimators operate per profiled index
+\citep{li2020learned,chatzakis2025darth,horchidan2025conann,wang2026annie,zhang2026exploration}. Risk
+control and safe selection: LTT, conformal risk control, selective classification, safe BAI
+\citep{angelopoulos2025ltt,bates2021rcps,angelopoulos2024crc,elyaniv2010selective,wang2022safebai,garivier2016bai}.
+Distribution shift treats environments as sampling units
+\citep{bendavid2010theory,johansson2019support,duchi2025multienv}. None of these lines asks whether a
+safety-critical budget transports across an independent rebuild of the same data; that transport-validity
+question, its measured boundaries, and a certified deployment policy are this paper's subject (full
+discussion in Appendix~\ref{app:related}).
+
+\section{Theory}
+\label{sec:theory}
+
+\subsection{Main Theorem I: transcript-limited non-portability}
+
+Consider two build environments $E_0,E_1$ where a procedure observes $T\sim P_i^{T}$ and outputs an
+action through any randomized Markov kernel measurable in $T$. Let $D_i$ be the region of acceptable
+actions in $E_i$, assume $D_0\cap D_1=\varnothing$, and let $l_i\ge\Delta\,\mathbf{1}\{a\notin D_i\}$.
+
+\begin{theorem}[transcript-limited lower bound]
+Every transcript-based randomized procedure satisfies
+\begin{equation}
+\max_{i\in\{0,1\}}\E[l_{i}]\ \ge\ \frac{\Delta}{2}\bigl(1-\TV(P_{0}^{T},P_{1}^{T})\bigr).
+\label{eq:thm1}
+\end{equation}
+\end{theorem}
+
+If the transcript under the registered probe budget cannot identify which region applies, no
+transcript-measurable policy can uniformly avoid unsafe execution, conservative computation, fallback, or
+abstention. For an adaptive transcript with KL divergence $K_m$, Bretagnolle--Huber and Pinsker give
+\begin{equation}
+\max_{i}\E[l_{i}]\ \ge\ \frac{\Delta}{4}e^{-K_{m}},\qquad
+\max_{i}\E[l_{i}]\ \ge\ \frac{\Delta}{2}\max\!\Bigl(0,\,1-\sqrt{K_{m}/2}\Bigr).
+\label{eq:bh}
+\end{equation}
+The tools are classical \citep{yu1997assouad}; the contribution is the reduction from a wrong build
+decision to the four Graph-ANNS deployment outcomes.
+
+\paragraph{Probe-class evidence on the premise (Section~\ref{sec:scale}).}
+The premise concerns the policy's \emph{full} observable $(q,T)$: marginal transcript indistinguishability
+alone would not imply joint indistinguishability, and a classifier's accuracy bounds TV from
+\emph{below} ($\TV\ge 2A{-}1$), which cannot by itself yield the loss bound. The valid object is a
+\emph{confidence upper bound} on TV for a declared transcript class. For hit-count transcripts, a DKW
+concentration argument on the finite transcript support gives $\TV\le0.39$ at 95\% confidence
+(plug-in 0.25 $+\,0.14$ concentration), so Theorem~1 yields a valid loss lower bound of
+$0.305\,\Delta$ for that class; joint runtime features separate more (worst pair accuracy 0.72), which
+\emph{weakens} the bound for that class ($\TV\ge0.44$) and is reported as a risk-inflation diagnostic,
+not as premise evidence. The theorem remains conditional on the declared probe class; the 45--57\% conflict rate and the
+common-safe-action analysis (21.9\% no-conflict-free transport, Section~\ref{sec:constructive}) supply
+the remaining instantiation.
+
+\subsection{Main Theorem II: finite-class conditional recoverability}
+
+Fix a named target $E_t$, a frozen family $\Acal=\{a_1,\dots,a_M\}$, a declared $P_Q$, and the
+endpoint-aware loss, with: (i) an action of risk $\le\delta-2\gamma$; (ii) action-relevant
+identifiability; (iii) positive margin; (iv) independent selection/certification roles; and (v) a valid
+fallback or abstention. On the simultaneous estimation event
+\begin{equation}
+\mathcal{G}
+=\Bigl\{\sup_{a\in\Acal}|\hat r_{a}-r_{a}|\le\varepsilon_{R}\Bigr\}
+\cap\Bigl\{\sup_{a\in\Acal}|\hat C_{a}-C_{a}|\le\varepsilon_{C}\Bigr\},
+\label{eq:eventG}
+\end{equation}
+screening by $\hat r_{a}+\varepsilon_{R}\le\delta$ and certifying the frozen choice on independent data
+gives
+\begin{equation}
+\Pr\bigl[r_{E_{t}}^{\hat a}\le\delta\ \ \text{or a valid fallback or abstention}\bigr]\ \ge\ 1-\alpha.
+\label{eq:thm2}
+\end{equation}
+This is a sufficient protocol plus necessary obstructions, not an if-and-only-if characterization.
+\begin{theorem}[fixed-target conditional recoverability]
+\label{thm:recover}
+Under conditions (i)--(v),
+\begin{equation}
+\Pr\bigl[r_{E_{t}}^{\hat a}\le\delta\ \ \text{or a valid fallback or abstention is invoked}\bigr]\ \ge\ 1-\alpha.
+\label{eq:thm2env}
+\end{equation}
+\end{theorem}
+Section~\ref{sec:constructive} audits (i)--(v) per target: (iii) passes point-estimate-wise at small
+margins, but margin-band actions carry 3--4\% risk and fail zero-failure certification at practical sample
+sizes---certification power binds, not margin existence.
+
+\subsection{Exchangeable-build conformal pooling (Theorem 3)}
+\label{sec:thm3}
+
+Theorem~2 certifies a \emph{fixed} action and needs a margin; pooling certifies a \emph{per-query order
+statistic} and needs only that the target and source builds are exchangeable units (the query law is
+arbitrary; queries need not be independent).
+
+\begin{theorem}[exchangeable-build conformal pooling]
+Let $B_{E_1}(q),\dots,B_{E_k}(q),B_{E_t}(q)$ be exchangeable across builds for each fixed query $q$.
+Let $m=\lceil(1-\alpha)(k+1)\rceil$ and deploy, per query, the $m$-th smallest of the source minimum safe
+actions, where the unresolved symbol $\bot$ participates in the order as $+\infty$ (a pool whose $m$-th
+smallest is $\bot$ yields abstention). If $m\le k$ (equivalently $\alpha\ge 1/(k+1)$), then
+\begin{equation}
+\Pr\bigl[B_{E_t}(q)>a(q)\bigr]\ \le\ \alpha.
+\label{eq:thm3}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Under exchangeability the rank of $B_{E_t}(q)$ among the $k{+}1$ values is uniform on
+$\{1,\dots,k{+}1\}$; the deployment event is $\{\mathrm{rank}>m\}$, of probability at most
+$(k{+}1-m)/(k{+}1)\le\alpha$.
+\end{proof}
+
+The guarantee bounds \emph{label coverage} $P[B_{E_t}(q)>a(q)]\le\alpha$; deployment safety further
+requires that deploying any $a\ge B_{E_t}(q)$ succeeds. This bridge is \emph{measured, not assumed}: the
+non-monotone violation rate, conditioned on being at or above the target's own minimum safe point
+($\nu=\Pr[Z_{E_t}(q,a){=}1 \mid a \ge B_{E_t}(q)]$ over all (query, build, $a \ge B_{E_t}(q)$)
+triples, exhaustively checked), is $\nu=0$ on hnswlib-100K (both datasets), Vamana (both stages), and
+10M, and $\nu=0.39\%$ on 1M. Because conformal-pooling deployments satisfying $a(q) \ge B_{E_t}(q)$
+lie in this condition, execution failure is bounded by $\alpha+\nu$ ($\le 5\%$ at the certified
+operating point, measured 0.96--1.35\%); the residual risk arises solely from transported actions
+\emph{below} the target's minimum safe point ($B_s(q) < B_{E_t}(q)$)---the transport phenomenon
+itself, not a monotonicity violation. A stricter tail-label variant ($B^{\mathrm{tail}}$ = min action after which all
+registered actions succeed) gives execution safety by construction (realized 0.13--0.18\%) at halved
+cache coverage---both variants are reported. Measured boundaries: the certificate resolves only
+$\alpha\ge 1/(k+1)$ (a 2\%-class certificate needs $k\ge 49$), and target-correlated source selection
+inflates realized risk $3.3\times$ (4.43\% vs.\ 1.31\% at $\alpha{=}0.10$, $k{=}9$), within the
+nominal envelope on this sample---an exchangeability-violation diagnostic (the premise, not the certificate bound, is violated).
+The \emph{tiered} deployment composes the certificate with the measured fallback: cached actions for
+repeated queries, maximum action for cold queries, giving
+$r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$; meeting $\delta$
+requires $\rho\ge(r_{\max}-\delta)/(r_{\max}-\alpha)$, satisfied at every measured $\rho$ at 100K
+($r_{\max}{=}1.3\%$; interpolation 1.26\%$\to$0.09\%, Section~\ref{sec:constructive}).
+
+\begin{table}[t]
+\centering
+\caption{Theorem-3 validity across scales and implementations (leave-one-build-out; 100K rows use 24
+targets $\times$ 12 draws, farm rows 30 draws). Valid at every non-vacuous $(\alpha,k)$; the
+weighted-selection row shows the exchangeability premise is load-bearing. DistComp = distance
+computations vs.\ per-query oracle.}
+\label{tab:thm3}
+\footnotesize
+\setlength{\tabcolsep}{3.4pt}
+\begin{tabular}{llcccc}
+\toprule
+Cell & $\alpha$ & $k$ & Realized failure & Valid & DistComp \\
+\midrule
+hnswlib SIFT & 0.05 & 23 & 0.96\% & \checkmark & $1.44\times$ \\
+hnswlib Arxiv & 0.05 & 23 & 1.35\% & \checkmark & $1.32\times$ \\
+Faiss SIFT (clean) & 0.05 & 23 & 0.05\% & \checkmark & --- \\
+Faiss Arxiv (clean) & 0.05 & 23 & 0.05\% & \checkmark & --- \\
+hnswlib SIFT & 0.10 & 9 & 1.31\% & \checkmark & $1.43\times$ \\
+Faiss SIFT (clean) & 0.10 & 10 & 1.40\% & \checkmark & --- \\
+SIFT-1M (hnswlib) & 0.125 & 7 & 0.92\% & \checkmark & --- \\
+deep-10M (hnswlib) & 0.125 & 7 & 0.64\% & \checkmark & --- \\
+10K farm & 0.05 & 49 & 0.72\% & \checkmark & --- \\
+10K farm & 0.10 & 9 & 2.48\% & \checkmark & --- \\
+hnswlib SIFT (corr.-weighted) & 0.10 & 9 & 4.43\% & $\times$ & $1.36\times$ \\
+\midrule
+\multicolumn{6}{l}{\emph{Vacuous configurations behave as the theorem predicts:}} \\
+hnswlib SIFT & 0.05 & 5 & 3.50\% & (m$>$k) & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Certification scale and economic feasibility}
+
+Uniform concentration gives the sufficient order $m=O(\log(M/\alpha)/\gamma^{2})$; zero-failure
+Clopper--Pearson certification requires $m_{\min}=\lceil\log\alpha_{l}/\log(1-\delta)\rceil$---59 queries
+for a single frozen action, 94 under Bonferroni over $M{=}6$, and pass probability $(1-r)^m$ at true risk
+$r$ (the maximum-budget action passes only 47--63\% of the time at $m{=}59$). For economics,
+$D=G_{\mathrm{online}}-\Pr(R)\,\Delta C_{f-c}$ and $N^{\star}=K_0/D$ if $D>0$: an accounting identity, not
+an efficiency theorem.
+\section{ICBA: Certified Audit and Actionable Mitigation}
+\label{sec:icba}
+
+ICBA (the artifact's name for this certified budget-audit workflow) receives registered source and target
+builds, implementation-native actions, disjoint
+design/selection/certification/evaluation roles, exact truth for authorized labeled roles, one
+endpoint-aware failure event, and a frozen candidate family; it returns certified reuse, target-specific
+recalibration, an independently justified fallback, or abstention---never treating the maximum registered
+action as safe without evidence. It validates roles, replay, and action semantics; builds the categorical
+safe-budget response without endpoint imputation; measures directed transport; freezes any
+target-data-selected candidate before familywise-controlled certification; and audits mean, tail,
+truth/control, fallback, and break-even quantities separately, leaving missing costs not estimable. A
+complementary mitigation removes the build environment: the deterministic-rebuild contract fixes input
+order, seed, threads, implementation, and toolchain with byte-level replay (Section~\ref{sec:contract}).
+The resulting cost-ordered decision rule: (1) deterministic contract when feasible; (2) conformal pooled
+replay when history permits (Theorem~3); (3) target certification, expecting only the maximum budget to
+clear on grids like ours; (4) abstain.
+
+\section{Experimental Protocol}
+\label{sec:protocol}
+
+We evaluate SIFT-100K and Arxiv-Nomic-100K at Recall@10 with hit requirement $h{=}10$ (the returned
+top-10 must contain all ten ground-truth neighbors; Section~7 reports $h\in\{8,9\}$ sensitivity). hnswlib and clean Faiss-100K cells have 24 registered builds per dataset and all 552
+directed pairs; the Vamana stage has 12 builds and 36 preregistered directions; each 100K cell uses 750
+evaluation queries; grids are native (hnswlib 10--200, Faiss 16--512) and never equated across systems.
+The preregistered 1M and 10M replications mirror this design (8 builds; 500 queries; forensics gate on
+query/base content overlap passed before any risk computation; contract identity re-verified at 10M).
+Evaluation queries are content-hash disjoint from the indexed base and historical roles (all overlap
+counts zero; Vamana caveats recorded in Appendix~\ref{app:crossfamily}). Primary intervals are 95\%
+query-bootstrap (5{,}000 resamples, seed 991) over the full directed-pair vector, conditional on the
+registered build family. Full protocol details are in Appendix~\ref{app:protocol}.
+
+\section{Results}
+\label{sec:results}
+
+\subsection{Strictly comparable HNSW transport evidence}
+
+The clean hnswlib and Faiss experiments agree on the main conclusion. Across the four data--implementation
+cells, 75.87--91.07\% of evaluation queries exhibit finite-action safe-budget variation across registered
+builds, whereas endpoint-state variation is only 0.53--2.67\%. Incremental source-to-target transport risk
+ranges from 17.17\% to 23.60\% (Table~\ref{tab:crossfamily}). Every 95\% query-bootstrap interval excludes
+the preregistered 2\% materiality threshold. Thus the primary signal is switching among finite native
+actions, not a numerical artifact created by unresolved endpoints.
+
+\begin{table}[t]
+\centering
+\caption{Registered cross-family evidence at Recall@10 with $h{=}10$. HNSW rows share the repaired common
+estimand; the estimand crosswalk in Appendix~\ref{app:crossfamily} tabulates the coexisting registered
+values.}
+\label{tab:crossfamily}
+\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{llccccc}
+\toprule
+Impl. & Dataset & B/p & $V_{\mathrm{fin}}$ & Risk [95\% CI] & $V_{\mathrm{end}}$ & Within-impl.\ cost \\
+\midrule
+hnswlib & SIFT-100K & 24/552 & 89.33\% & 21.55\% {\tiny[20.76, 22.33]} & 2.67\% & DistComp $+19.45\%$ \\
+hnswlib & Arxiv-100K & 24/552 & 75.87\% & 17.17\% {\tiny[16.33, 18.06]} & 2.00\% & DistComp $+14.88\%$ \\
+Faiss & SIFT-100K & 24/552 & 91.07\% & 23.60\% {\tiny[22.78, 24.39]} & 0.53\% & N/E (batch-cum.) \\
+Faiss & Arxiv-100K & 24/552 & 75.87\% & 17.77\% {\tiny[16.86, 18.68]} & 1.87\% & N/E (batch-cum.) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Robustness checks do not alter this conclusion. Removing the eight queries with the largest hnswlib risk
+contribution leaves increments of 21.40\% and 16.90\%; deleting the top 1\% of Faiss risk contributors
+leaves 23.43\% and 17.53\%; all 24 leave-one-build estimates remain positive on every cell. These are
+robustness diagnostics conditional on the registered build family, not a population model for future
+rebuilds.
+
+\paragraph{Quality-threshold sensitivity.}
+The $h{=}10$ event (all ten neighbors returned) is the strictest registered target, so we recomputed the
+\emph{incremental} family transport risk (Eq.~\ref{eq:delta} caliber: transported minus target-bottom
+reference, averaged over all directed pairs) under relaxed hit requirements $h\in\{8,9\}$ for every cell
+(Appendix~\ref{app:protocol}, Table~\ref{tab:hsens}). By construction the $h{=}10$ column reproduces the registered incremental
+estimates (the hnswlib rows land on the E4-primary caliber 21.57/17.12, which the Appendix~F crosswalk
+tabulates alongside the repaired-common 21.55/17.17; Faiss and 1M match Table~\ref{tab:crossfamily} to
+the digit). Risk decreases as the requirement relaxes, but the minimum over all cells at $h{=}8$ is
+5.96\%---still three times the 2\% materiality gate. The phenomenon is not an artifact of near-exact
+retrieval.
+
+\subsection{Vamana-style supporting boundary}
+
+The boundary panel (Table~\ref{tab:vamana}, appendix) reproduces the risk direction on both datasets under
+its original stage-specific estimand (12 builds, 36 asymmetric directions, beam width one), broadening the
+construction-family scope without supporting numerical equality to HNSW. Cost is equally non-universal:
+hnswlib shows DistComp penalties of 19.45\%/14.88\%, the Vamana-style estimates sit near 1\% with
+intervals crossing zero, and clean Faiss distance-computation cost is not estimable (batch-cumulative
+counter).
+
+\subsection{Deterministic rebuilding removes the registered environment}
+\label{sec:contract}
+
+We fix the input order, seed, thread count, implementation, and toolchain, and require byte-identical
+serialization and search replay. Three repeated builds per dataset satisfy all identity checks and have
+measured transport risk zero. Relative to the original multithreaded construction, the contract preserves
+Recall@10 within 0.0004, leaves p95/p99 safe budgets unchanged, changes mean safe budgets by ratios 0.976
+(SIFT) and 0.999 (Arxiv), and increases build time by $3.52\times$ and $1.71\times$. This is an actionable
+environment-elimination contract---a hnswlib deterministic construction control---not a recovery algorithm
+for changed data or software.
+
+\paragraph{Chain ablation (descriptive).}
+A four-tier chain---D0C (random order, 8 threads, random seeds), D1 (canonical order pinned), D2 (seed
+pinned), D3 (single-threaded)---attributes the contract's effect: pinning the insertion order to a
+canonical order halves minimum-safe-action variation (68.3 to 34.1\% on SIFT; 63.2 to 30.8\% on Arxiv) at
+build-time ratios $0.80\times$ and $0.93\times$, i.e., free. Pinning the seed under 8-thread construction is
+nearly inert ($-1.3$ and $-4.3$ points), and the six D2 builds with identical order and seed produce six
+distinct serialized indexes: parallel scheduling is a residual nondeterminism source that the exposed seed
+does not control. Single-threaded construction is therefore the necessary and sufficient registered clause
+for byte identity (3/3 identical, variation 0) and carries the entire overhead ($4.73\times$ and
+$1.86\times$ relative to the pinned 8-thread tier; $3.52\times$ and $1.71\times$ relative to D0C). The
+ablation is a chain, not a full factorial; effects are descriptive. At 1M the contract remains feasible:
+single-threaded builds took a median 252\,s (13 builds, range 237--267\,s; byte-identity rebuilds 238\,s),
+a $19.5\times$ single-thread scaling from 100K for $10\times$ the data; the 8-thread 1M comparison was
+not measured, so the $1.71$--$3.52\times$ ratios remain 100K-registered values.
+
+\subsection{Constructive baselines and certification}
+\label{sec:constructive}
+
+We evaluate seven policies on the hnswlib cells by retrospective replay over the frozen per-query records
+(roles 375/94/281 disjoint, seed 991; bootstrap as registered). Table~\ref{tab:constructive} reports
+target-truth usage, risk under the four-outcome semantics, DistComp versus the per-query oracle, and
+certification outcomes.
+
+\begin{table}[t]
+\centering
+\caption{Constructive decision table (hnswlib, registered grid, retrospective replay). M2 dominates on risk
+at $1.34$--$1.45\times$ oracle cost but requires a per-query source-label cache (see text) and is
+uncertified; certified routes collapse to the maximum budget.}
+\label{tab:constructive}
+\scriptsize
+\setlength{\tabcolsep}{2.8pt}
+\begin{tabular}{p{3.2cm}p{1.0cm}p{3.0cm}p{1.4cm}p{4.0cm}}
+\toprule
+Method & Truth & Risk (SIFT / Arxiv) & DistC. & Certification \\
+\midrule
+M1 naive transport ($k{=}1$) & 0 & 21.89\% / 18.06\% & 2.6/2.7$\times$ & none \\
+M2 pooled replay (max over 22 cached source labels) & 0 target$^{\dagger}$ & 0.18\% / 0.09\% (abst.\ 2.4/2.7\%) & 1.45/1.34$\times$ & uncert.; LOBO $\le$2.1\% \\
+M3 frozen max-action CP ($M{=}1$, $m{=}59$) & 59 q & 0.87\% / 1.36\% & 4.16/5.28$\times$ & pass-prob mean 0.63/0.47; certifiable targets 71\%/38\% \\
+M4a point-screen sel.-then-cert. & 469 q & --- & --- & 0/48 (zero-fail.\ violated) \\
+M4b Theorem-2 screen, then certify & 469 q & --- & --- & 0/48; margin too thin \\
+M5 always maximum action & 0 & 0.80\% / 1.26\% & 4.09/5.14$\times$ & not auto.\ safe \\
+M2 pooled replay (max over 22 cached source labels) & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
+M2 pooled replay (max over 22 cached source labels) & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
+M5$'$ target re-profile + per-query truth cache & 0.12--0.99\\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\\times$ & uncert.; dominates M2 when truth affordable \\
+M6 per-query oracle & full & endpoint mass only & 1.00$\\times$ & non-deployable ref. \\\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Theorem-2 verdict and D-region instantiation.}
+The disjoint-region premise holds for a substantial conflict subset. Over the frozen hit tables, 21.9\%
+of directed transports (SIFT-100K) admit \emph{no} common safe action within the source action's own
+cost (still 6.9\% allowing twice the target budget), with median action gap 30 (SIFT) / 20 (Arxiv),
+$p_{90}$ 80/70---computed by scanning both hit tables upward from $\max(B_s,B_t)$ to find the first
+action safe in both (method in the artifact).
+Conditions (i), (ii), (iv), (v) are satisfiable on the registered grid; (iii) fails for all 48 targets:
+every non-maximal action's risk lies inside the margin band, so Theorem-2 screening passes (it selects
+$\mathrm{ef}{=}120$ on eight targets and $\mathrm{ef}{=}200$ on sixteen per dataset) but zero-failure
+certification then fails on every target. The certified route collapses to
+maximum-budget-or-abstain, and even the maximum action certifies only with probability 0.47--0.63 (per-target pass-probability
+mean; the share of targets whose pass-probability exceeds 0.5 is 71\%/38\%,
+Table~\ref{tab:constructive}) at $m=59$ because its residual risk (0.008--0.013, concentrated in
+always-infeasible queries) violates the zero-failure requirement in roughly half the draws. The CP power curve locates this precisely: certifying
+actions of risk 1--2\% needs 59--99 queries, but the margin-band actions carry 3--4\% risk and require
+289--1{,}149 queries---the zero-failure protocol at registered sample sizes, not candidate nonexistence,
+is what fails here. A $\gamma$-sensitivity audit sharpens the verdict: at
+$\gamma{=}0.005$ a non-maximal action with selection-block risk $\le\delta-2\gamma$ \emph{exists} on
+16/24 (SIFT) and 21/24 (Arxiv) targets (16/24 and 8/24 at $\gamma{=}0.01$; none at $\gamma{=}0.02$), so
+the margin condition is not absolutely absent---what fails everywhere is the \emph{certification step}:
+margin-band actions carry 3--4\% risk and pass zero-failure certification at $m{=}94$ with probability
+$(1-r)^{94}\approx2$--$6\%$. Certification power, not margin existence, is the binding constraint at
+registered sample sizes. This is a measured boundary of the recovery theorem on this grid---conditional,
+not an impossibility claim. Pooling is the constructive winner when the serving workload repeats queries whose source-side safe
+budgets are cached: M2 deploys the maximum over stored per-query source labels and needs no target truth,
+but it is a \emph{replay policy with a label cache}---for cold queries it must fall back (e.g., to the
+maximum action or abstention), and its uncertainty remains a registered-family bootstrap, not an
+unseen-build guarantee. Deployability therefore equals the workload's query-repeat coverage, which is a
+deployment property we measure rather than assume. Theorem~3 upgrades this picture from bootstrap to
+certificate: under build exchangeability the $(1{-}\alpha)$-quantile pooling action bounds per-query
+transport risk by $\alpha$ finitely---and the measured coverage (Table~\ref{tab:thm3}) confirms it
+out-of-sample across a complete validity matrix: two implementations at 100K (hnswlib 0.96--1.35\%,
+clean Faiss 0.05\% at $\alpha{=}0.05$, $k{=}23$; DistComp $1.32$--$1.44\times$), the 1M and 10M cells
+at their pool-resolution limit ($k{=}7$, $\alpha{\ge}0.125$: realized 0.92\% and 0.64\%), the
+200-build farm at certified depth ($k{=}49$, $\alpha{=}0.05$: 0.72\%), the Vamana family
+($k{=}5$, $\alpha{\ge}1/6$: realized 0\%), and GloVe-100 at its resolution limit (6.47\%). The tiered composition (cache for repeats, maximum action for cold
+queries) then meets $\delta$ at every measured repeat rate $\rho\in[0,1]$: effective risk interpolates
+$1.26\%\to0.09\%$ (Arxiv) and $0.80\%\to0.18\%$ (SIFT) as $\rho$ goes $0\to1$ (Table~\ref{tab:constructive},
+coverage column). An \emph{online} pooled policy that searches all sources for cold queries is not
+serviceable: serving cost $1.73$\,s per cold query (23 graded source searches) versus $276\,\mu$s for the
+maximum action---measured on the fresh-query workload. Non-max aggregation does not help: at $k{=}22$ the $0.9$-quantile of source
+actions is nearly identical to the max (1.07\% vs.\ 0.96\% risk at 45.5\% vs.\ 48.4\% conservatism on
+SIFT), while median pooling cuts conservatism to 16--22\% but leaves 13--21\% risk---the response
+diameter is driven by outlier sources, so there is no cheaper order-statistic operating point.
+
+\subsection{Scale, learned-predictor transfer, and distinguishability}
+\label{sec:scale}
+
+\paragraph{10M and GloVe-100 replications (preregistered).}
+On ann-benchmarks deep-image (9.99M $\times$ 96, angular), eight builds in the registered
+configuration and 500 preregistered queries (forensics gate passed before any risk
+computation) give incremental transport risk \textbf{22.16\% [21.66, 22.68]} with
+$V_{\mathrm{fin}}{=}87.2\%$ versus $V_{\mathrm{end}}{=}28.2\%$: the phenomenon is
+scale-stable across three orders of magnitude (21.55--23.60\% at 100K, 21.87\% at 1M).
+The deterministic contract is byte-identical at 10M (three same-configuration builds,
+sha-identical across days) at a median 2{,}945\,s single-thread build; profiling remains
+sub-second (0.091\,s for 59 queries $\times$ 6 actions). The pooling boundary amplifies
+with scale: the uncached $k$-curve is nearly flat ($k{=}3$: 26.8\%, $k{=}5$: 24.5\%, $k{=}7$:
+23.3\%), i.e., the source requirement has outgrown practical history at 10M, while
+$h$-sensitivity stays flat (22.16--22.74\% for $h{=}10{..}8$). Theorem~3 remains valid at the 10M
+pool resolution (realized 0.64\% $\le\alpha{=}0.125$ at $k{=}7$) with 36\% abstention from the
+larger endpoint mass---the certificate survives, the cheap uncached pooling does not.
+
+\paragraph{GloVe-100 (third dataset family, angular geometry).}
+A preregistered eight-build cell on GloVe-100 (1.19M $\times$ 100, cosine/angular) gives incremental
+transport risk \textbf{17.54\% [16.89, 18.11]} with $V_{\mathrm{fin}}{=}67.4\%$ versus
+$V_{\mathrm{end}}{=}27.8\%$ and 28.4\% unresolved mass---the angular geometry is harder (endpoint
+mass triples versus the L2 cells) yet finite-action switching remains the dominant channel,
+$h$-sensitivity stays flat (17.54--19.66\% for $h{=}10{..}8$), and Theorem~3 holds at the pool
+resolution (6.47\% $\le\alpha{=}0.125$ at $k{=}7$). Uncached pooling is at its worst here
+($k{=}7$: 42.5\%): the third dataset confirms both the phenomenon's generality and the
+scale/geometry-dependence of every mitigation.
+
+A 200-build \emph{population farm} (two arms $\times$ 100 rebuilds on SIFT-10K: registered-style
+single-thread and deployment-style 8-thread) measures the premises directly at population scale. Every one
+of the 9{,}900 directed pairs exceeds the 2\% gate (mean 23.4\%, p95 26.6\%); the two arms are
+indistinguishable at this sample size (23.42\% vs 23.45\%)---parallel-scheduling noise does not amplify population risk
+beyond registered-style variation. Exchangeability itself is testable on the farm: the rank of a held-out
+build's minimum safe action within random pools is uniform after randomized tie-breaking (KS median
+0.114/0.118), and Theorem-3 coverage at $k{=}9$, $\alpha{=}0.10$ realizes 2.53\%/2.62\% $\le\alpha$.
+The theorem's premise and guarantee both hold on an independent farm; a no-truth budget rule (queue-
+saturation ef selection) degenerates to the maximum action (0.8--1.4\% risk at $3.8$--$5.1\times$ oracle),
+measuring the ``profile without truth'' route.
+
+The predictor probe deserves emphasis: a regressor trained on 23 source builds predicts the target's
+minimum safe action no better than chance ($R^2=0.015$), and even in-target cross-validation leaves
+22--24\% risk---the deployment-time transcript of the cheapest action carries almost no information about
+which build-specific neighborhood structure makes a larger budget necessary. The three-layer boundary is
+now complete: response labels are strongly non-portable (layer 1), global policies have a constructive
+bounded answer (layer 2, Section~\ref{sec:constructive}), and learned per-query predictors do not transfer
+on these features (layer 3). We did not test richer probe features or model classes; the claim is
+feature-class-conditional.
+
+\subsection{Economics ledger and grid sensitivity}
+
+Transport risk is grid-indexed: on registered subgrids (drop-min, drop-max, coarse 3-action) mean family
+risk stays between 10.3\% and 23.8\%---always above the 2\% materiality gate---while coarser grids
+mechanically lower measured risk because the minimum safe action can only grow. We therefore claim
+phenomenon-level grid-robustness, not resolution-invariant risk levels, and keep native grids separate
+across implementations.
+
+\paragraph{End-to-end: transport versus profile-the-target.}
+Because primitive profiling is sub-second, the decision rule's real competitions are ``rebuild, then
+profile the target'' and ``profile the target and certify.'' Brute-force truth for a 500-query cache
+costs $\sim$0.05\,s at 100K, $\sim$0.5\,s at 1M and $\sim$5\,s at 10M---cheap at every scale we
+measure; what is \emph{not} affordable is per-query truth for a full production stream, which is where
+the label cache (M2/M5$'$) and the certificate (Thm.~3) operate. Table~\ref{tab:e2e} assembles the full offline-cost / risk / certification
+ledger from measured components: profiling-and-certifying is indeed cheap (0.12--0.99\,s per target,
+truth included), but on this grid it can only \emph{certify the maximum budget} and passes zero-failure
+certification on 47--63\% of draws---cost was never the binding constraint; candidate attainability and
+certification power are. The deterministic contract remains the only zero-risk route, and the pooled
+replay policy the only low-risk uncertified route, so the decision rule's ordering survives the cheap
+profiling comparison.
+
+\section{Theory-Guided Falsification Ladder}
+\label{sec:ladder}
+
+Sixteen attempted recovery routes are organized as a falsification ladder, each pruned at its first
+failed prerequisite---action semantics, candidate attainability, observable information, structural
+bridges, certification, tail behavior, or deployment value. Compressed verdicts: reuse/recalibration
+retains fixed-target safety but no stable history increment (the predictor probe quantifies the negative
+side); build selection finds no interval-supported jointly feasible action among 72 frozen
+build-budget actions; portal rescue shows real complementarity (1{,}064/727 hits; 426/348 rescues) but no
+truth-free trigger and a 79.5--93.4\% cost-compression requirement; the unified auditor is safe without
+value (36/36 accepted decisions safe, all at maximum budget; search-only regret (distance computations) 470.34/684.49). Family table, figure,
+casebook, and provenance notes: Appendix~\ref{app:ladder}.
+
+\section{Limitations and Scope}
+\label{sec:limitations}
+
+Primary evidence covers two 100K datasets and four HNSW cells plus single-implementation 1M/10M
+replications (8 builds each); Vamana uses a different estimand and beam width one. We do not model future
+builds, data refreshes, or open-world safety; Faiss distance-computation cost and Vamana wall-clock/I/O
+are not estimable. The lower bound is probe-class-limited, and the recovery theorem binds at certification power on this
+grid (Section~\ref{sec:constructive}).
+The contract's ablation is a descriptive chain. The constructive policy is a retrospective replay:
+pooling needs $k\ge 1/\alpha-1$ cached builds (19 at $\alpha{=}0.05$; 10M-scale uncached pooling
+fails), its risk is an uncertified registered-family bootstrap outside the conformal certificate, and the
+predictor probe is one model class on one feature family. Production traces, throughput benchmarks, and cross-operator exchangeability remain untested (Appendix~\ref{app:lim-ext}).
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Safe search budgets are properties of a realized build, not only of a dataset and nominal recipe.
+Across three dataset families, three implementations, and four scales, rebuilds cause large
+finite-action variation and 17--24\% incremental transport risk. The theory separates
+transcript-limited non-portability (premise measured) from fixed-target recovery (certification power
+binds); the certified tiered pooling policy and the deterministic contract give the first measured
+risk--cost frontier for the deployment decision. Verify determinism when feasible; otherwise pool with the conformal guarantee when history permits;
+otherwise certify with declared margin, expecting only the maximum budget to clear; otherwise abstain.
+The transport boundary is now measured at every layer we probe.
+
+\section*{Ethics Statement}
+This study uses only public benchmark datasets (SIFT, GloVe, deep-image, Arxiv-Nomic embeddings) and
+synthetic workloads derived from them; it involves no human subjects, no personally identifiable data,
+and no deployment on production systems. The reported risks concern internal quality-budget decisions in
+ANN serving and do not involve protected attributes or fairness-sensitive outcomes. All evidence derives
+from preregistered, forensically audited pipelines; no sealed evaluation roles were accessed without
+preregistration.
+
+\section*{Reproducibility Statement}
+Every number in this paper traces to committed result tables, preregistered manifests (with commit
+hashes and timestamps frozen before evaluation-role access), and deterministic test suites listed in
+Appendix~\ref{app:repro}. The anonymous artifact contains the frozen result trees, analysis scripts,
+build/search code, and checksums; the 1M and 10M cells carry their own preregistration manifests. All
+conclusions are conditional on registered builds as documented in the claim registry
+(Appendix~\ref{app:claims}).
+
+\section*{AI Use Statement}
+Generative AI tools assisted with organizing research artifacts, developing theory-experiment
+crosswalks, checking document structure, drafting and editing manuscript text, and supporting code and
+artifact validation. All mathematical statements, proofs, experimental results, citations, and
+AI-assisted content require final author review, and the author assumes responsibility for the submitted
+manuscript.
+
+\begin{thebibliography}{99}
+\itemsep0pt
+
+\bibitem[Angelopoulos et~al.(2025)]{angelopoulos2025ltt}
+Angelopoulos, A.~N., Bates, S., Candes, E.~J., Jordan, M.~I., and Lei, L.
+Learn then test: Calibrating predictive algorithms to achieve risk control.
+\emph{Annals of Applied Statistics}, 2025.
+
+\bibitem[Angelopoulos et~al.(2024)]{angelopoulos2024crc}
+Angelopoulos, A.~N., Bates, S., Fisch, A., Lei, L., and Schuster, T.
+Conformal risk control.
+\emph{International Conference on Learning Representations}, 2024.
+
+\bibitem[Bae et~al.(2026)]{bae2026qbat}
+Bae, J., Ham, T.~J., Li, A., Chockchowwat, S., and Papakonstantinou, Y.
+QBAT: Model-based query budget autotuner for clustering-based approximate nearest neighbor search.
+\emph{Proceedings of the VLDB Endowment}, 2026.
+
+\bibitem[Bates et~al.(2021)]{bates2021rcps}
+Bates, S., Angelopoulos, A.~N., Lei, L., Malik, J., and Jordan, M.~I.
+Distribution-free, risk-controlling prediction sets.
+\emph{Journal of the ACM}, 68(6), 2021.
+
+\bibitem[Ben-David et~al.(2010)]{bendavid2010theory}
+Ben-David, S., Blitzer, J., Crammer, K., Kulesza, A., Pereira, F., and Vaughan, J.~W.
+A theory of learning from different domains.
+\emph{Machine Learning}, 79:151--175, 2010.
+
+\bibitem[Chatzakis et~al.(2025)]{chatzakis2025darth}
+Chatzakis, M., Papakonstantinou, Y., and Palpanas, T.
+DARTH: Declarative recall through early termination for approximate nearest neighbor search.
+\emph{Proceedings of the ACM on Management of Data}, 3(4), 2025.
+
+\bibitem[Duchi et~al.(2025)]{duchi2025multienv}
+Duchi, J.~C., Gupta, S., Jiang, K., and Sur, P.
+Predictive inference in multi-environment scenarios.
+\emph{Statistical Science}, 40(3):392--416, 2025.
+
+\bibitem[Elliott and Clark(2024)]{elliott2024order}
+Elliott, O.~P. and Clark, J.
+The impacts of data, ordering, and intrinsic dimensionality on recall in hierarchical navigable small
+worlds. \emph{arXiv:2405.17813}, 2024.
+
+\bibitem[El-Yaniv and Wiener(2010)]{elyaniv2010selective}
+El-Yaniv, R. and Wiener, Y.
+On the foundations of noise-free selective classification.
+\emph{Journal of Machine Learning Research}, 11:1605--1641, 2010.
+
+\bibitem[Fu et~al.(2019)]{fu2019nsg}
+Fu, C., Xiang, C., Wang, C., and Cai, D.
+Fast approximate nearest neighbor search with the navigating spreading-out graph.
+\emph{Proceedings of the VLDB Endowment}, 12(5):461--474, 2019.
+
+\bibitem[Garivier and Kaufmann(2016)]{garivier2016bai}
+Garivier, A. and Kaufmann, E.
+Optimal best arm identification with fixed confidence.
+\emph{Proceedings of the 29th Conference on Learning Theory}, pages 998--1027, 2016.
+
+\bibitem[Horchidan et~al.(2025)]{horchidan2025conann}
+Horchidan, S., Zeiher, F., Bostrom, H., and Carbone, P.
+ConANN: Conformal approximate nearest neighbor search.
+\emph{Proceedings of the VLDB Endowment}, 19(1):29--42, 2025.
+
+\bibitem[Johansson et~al.(2019)]{johansson2019support}
+Johansson, F.~D., Sontag, D., and Ranganath, R.
+Support and invertibility in domain-invariant representations.
+\emph{Proceedings of the 22nd International Conference on Artificial Intelligence and Statistics}, pages
+527--536, 2019.
+
+\bibitem[Johnson et~al.(2021)]{johnson2021faiss}
+Johnson, J., Douze, M., and Jegou, H.
+Billion-scale similarity search with GPUs.
+\emph{IEEE Transactions on Big Data}, 7(3):535--547, 2021.
+
+\bibitem[Li et~al.(2020)]{li2020learned}
+Li, C., Zhang, M., Andersen, D.~G., and He, Y.
+Improving approximate nearest neighbor search through learned adaptive early termination.
+\emph{Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data}, pages
+2539--2554, 2020.
+
+\bibitem[Malkov and Yashunin(2020)]{malkov2020hnsw}
+Malkov, Y.~A. and Yashunin, D.~A.
+Efficient and robust approximate nearest neighbor search using hierarchical navigable small world graphs.
+\emph{IEEE Transactions on Pattern Analysis and Machine Intelligence}, 42(4):824--836, 2020.
+
+\bibitem[Prokhorenkova and Shekhovtsov(2020)]{prokhorenkova2020graph}
+Prokhorenkova, L. and Shekhovtsov, A.
+Graph-based nearest neighbor search: From practice to theory.
+\emph{Proceedings of the 37th International Conference on Machine Learning}, pages 7803--7813, 2020.
+
+\bibitem[Subramanya et~al.(2019)]{subramanya2019diskann}
+Subramanya, S.~J., Devvrit, Simhadri, H.~V., Krishnaswamy, R., and Kadekodi, R.
+DiskANN: Fast accurate billion-point nearest neighbor search on a single node.
+\emph{Advances in Neural Information Processing Systems}, 32, 2019.
+
+\bibitem[Wang et~al.(2026a)]{wang2026annie}
+Wang, Z., Chatzakis, M., Wang, Q., Palpanas, T., Wang, P., and Wang, W.
+ANNiE: A learned query cost estimator for graph-based approximate nearest neighbor search.
+\emph{Proceedings of the VLDB Endowment}, 19(11):3820--3833, 2026.
+
+\bibitem[Wang et~al.(2022)]{wang2022safebai}
+Wang, Z., Wagenmaker, A., and Jamieson, K.
+Best arm identification with safety constraints.
+\emph{Proceedings of the 25th International Conference on Artificial Intelligence and Statistics}, 2022.
+
+\bibitem[Xu et~al.(2022)]{xu2022maintenance}
+Xu, Z., Zhao, W., Tan, S., Zhou, Z., and Li, P.
+Proximity graph maintenance for fast online nearest-neighbor search.
+\emph{arXiv:2206.10839}, 2022.
+
+\bibitem[Yu(1997)]{yu1997assouad}
+Yu, B.
+Assouad, Fano, and Le Cam.
+In \emph{Festschrift for Lucien Le Cam}, pages 423--435. Springer, 1997.
+
+\bibitem[Zhang and Miller(2026)]{zhang2026exploration}
+Zhang, C. and Miller, R.~J.
+Distribution-aware exploration for adaptive HNSW search.
+\emph{Proceedings of the ACM on Management of Data}, 4(1), 2026.
+
+\end{thebibliography}
+
+
+\appendix
+\section{Related Work: Full Discussion}
+\label{app:related}
+
+\paragraph{Positioning.}
+The main-text positioning paragraph cites the systems per line; the notes below add
+differentiating context.
+\label{sec:formulation}
+
+Let $\Ecal$ be a preregistered finite set of build environments. An environment $E\in\Ecal$ consists of a
+serialized index together with its implementation, construction configuration, input permutation, seed when
+meaningful, toolchain, and replay semantics. Each implementation has its own finite native action set
+$\Acal_E$, and queries follow a frozen law $q\sim P_Q$.
+
+For action $a\in\Acal_E$, define the endpoint-aware failure indicator and implementation-internal cost by
+\begin{equation}
+Z_{E}(q,a)=\mathbf{1}\{\text{the returned result fails the registered quality target}\},\qquad
+C_{E}(q,a)\ge 0,
+\label{eq:zc}
+\end{equation}
+and the minimum observed safe budget by
+\begin{equation}
+B_{E}(q)=\min\{a\in\Acal_{E}:Z_{E}(q,a)=0\},\qquad
+B_{E}(q)=\BOT\ \text{if no registered action succeeds}.
+\label{eq:bmin}
+\end{equation}
+The symbol $\BOT$ is categorical and is never imputed as the largest action or a larger numerical budget. A
+policy observes a transcript $T$ and query-side observables, then returns an action or abstains. Its
+absolute target risk is
+\begin{equation}
+r_{E}^{\pi}=\Pr_{q\sim P_{Q}}\!\left[Z_{E}(q,\pi_{T,q})=1\right].
+\label{eq:risk}
+\end{equation}
+We use risk tolerance $\delta=0.05$, certification error probability $\alpha=0.05$, and safety margin
+$\gamma>0$ stated per experiment; the materiality gate $0.02$ is a preregistered scientific threshold---chosen, before any 100K evaluation
+role was accessed, as the smallest risk level that would still be operationally material for budget
+reuse---not a utility function; the level is consistent with recall-tolerance bands in typical ANN serving
+deployments. ``Preregistered'' in this paper means frozen in a versioned manifest with commit hash and
+timestamp before the corresponding evaluation role was accessed; it does not refer to an external OSF
+registration. A rejection event is $R$. An action $a_f$ is a fallback only if it has independent safety
+evidence under the same target and failure event; otherwise rejection produces abstention.
+
+The primary estimand of Section~\ref{sec:results} is the stage-registered endpoint-aware incremental
+transport risk
+\begin{equation}
+\Delta_{s\rightarrow t}
+=\Pr_{q\sim P_{Q}}\!\left[Z_{t}\big(q,B_{s}(q)\big){=}1\right]-r_{t}^{\mathrm{ref}},
+\label{eq:delta}
+\end{equation}
+where, per sample, the transported action maps $B_s(q){=}\BOT$ to the maximum registered action (the
+registered historical convention), and the reference event is the target-bottom failure
+$Z_t(q,\underline{a}_t){=}1$ with $\underline{a}_t$ the smallest registered action on the target; for the
+four HNSW cells this coincides with the reference event of the repaired $h{=}10$ common estimand. Intervals are 95\%
+query-bootstrap over 5{,}000 resamples (seed 991) retaining each sampled query's full vector of directed-pair
+observations, conditional on the registered build family. Heterogeneity is reported through two separated
+variation families,
+\begin{equation}
+V_{\mathrm{fin}}=\Pr_{q}\!\left[\big|\{B_{E}(q):E\in\Ecal_{\mathrm{reg}},\,B_{E}(q)\neq\BOT\}\big|>1\right],
+\qquad
+V_{\mathrm{end}}=\Pr_{q}\!\left[\mathbf{1}\{B_{E}(q){=}\BOT\}\ \text{nonconstant over }E\right],
+\label{eq:var}
+\end{equation}
+finite-action variation and endpoint-state variation; reported separately so response heterogeneity cannot
+be attributed to unresolved endpoints. We distinguish registered-grid unresolved, true endpoint infeasible,
+and right-censored queries. Current finite grids often cannot separate the latter two, so we report
+unresolved mass without promoting it to true infeasibility.
+
+\paragraph{Cost naming.}
+ROM-NDC quantities in earlier drafts are renamed \emph{DistComp} throughout:
+$\DistComp(x \text{ vs } y)$ is the ratio of mean numbers of distance computations of $x$ to $y$, computed
+only within one implementation. ``NDC'' alone is avoided to prevent confusion with NDCG.
+
+
+
+\section{Complete Notation and Semantic Contracts}
+\label{app:notation}
+
+\begin{table}[h]
+\centering
+\caption{Core notation and scope guardrails.}
+\small
+\begin{tabular}{lll}
+\toprule
+Symbol & Meaning & Scope guardrail \\
+\midrule
+$\Ecal$ & preregistered build-environment set & no population over unseen builds \\
+$E$ & one serialized build environment & includes replay semantics \\
+$\Acal_E$ & finite native action set & implementation specific \\
+$Z_E(q,a)$ & endpoint-aware failure indicator & shared across roles \\
+$B_E(q)$ & minimum observed safe action & registered grid only \\
+$\BOT$ & unresolved registered endpoint & never numerically imputed \\
+$C_E(q,a)$ & distance computations & within one implementation \\
+$\Delta_{s\to t}$ & incremental transport risk (Eq.~\ref{eq:delta}) & registered-family conditional \\
+$V_{\mathrm{fin}},V_{\mathrm{end}}$ & variation families (Eq.~\ref{eq:var}) & reported separately \\
+$\delta,\alpha,\gamma,M$ & 0.05; 0.05; margin; frozen family size & preregistered \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For HNSW, raw fixed \texttt{efSearch} is treated as a finite action rather than an assumed monotone
+stopping sequence. For Vamana-style search, $l$ and beam width are distinct; beam width is fixed to one in
+the registered experiment. Native budget and cost counters remain implementation-specific.
+
+\section{Proof of Theorem 1}
+\label{app:proof1}
+
+Define an induced binary decision $I$: return 0 when the chosen action lies in $D_0$, return 1 when it lies
+in $D_1$, and assign actions outside both regions arbitrarily. Since $D_0\cap D_1=\varnothing$, an action
+outside $D_i$ incurs loss at least $\Delta$. Therefore
+\begin{equation}
+\E_{0}[l_{0}]+\E_{1}[l_{1}]\ \ge\ \Delta\bigl\{P_{0}[I{=}1]+P_{1}[I{=}0]\bigr\}.
+\label{eq:proof1}
+\end{equation}
+The minimum sum of binary testing errors equals $1-\TV$; the maximum expected loss is at least half the sum,
+proving Theorem~1. Bretagnolle--Huber lower-bounds the error sum and Pinsker yields the KL consequence.
+For adaptive observations the chain rule gives
+\begin{equation}
+K_{m}=\sum_{t=1}^{m}\E_{0}\!\left[\KL\bigl(P_{0}^{Y_{t}\mid H_{t-1},A_{t}}\,\bigl\|\,P_{1}^{Y_{t}\mid H_{t-1},A_{t}}\bigr)\right]\le m\,I^{\star},
+\label{eq:chain}
+\end{equation}
+and data processing through the decision rule yields the stated testing consequence. The testing
+inequalities are classical; only the Graph-ANNS deployment-loss reduction is domain specific. The
+instantiation in Section~\ref{sec:scale} supplies the measured TV bound the premise requires.
+
+\section{Proof of Theorem 2}
+\label{app:proof2}
+
+On the estimation event every retained action satisfies the screened bound. If a minimum-cost safe action
+$a_k$ has margin $r_{a_k}\le\delta-2\varepsilon_R$, then
+\begin{equation}
+\hat r_{a_{k}}+\varepsilon_{R}\ \le\ r_{a_{k}}+2\varepsilon_{R}\ \le\ \delta,
+\label{eq:retain}
+\end{equation}
+so it is retained; since the deployed action $\hat a$ minimizes estimated cost among retained actions,
+\begin{equation}
+\hat C_{\hat a}\ \le\ \hat C_{a_{k}}+\varepsilon_{C}\ \le\ C_{a_{k}}+2\varepsilon_{C}.
+\label{eq:cost}
+\end{equation}
+If every other safe action costs strictly more than the optimum plus $2\varepsilon_C$, these inequalities
+force exact selection on the event. Selection and certification roles are independent and the final action
+is frozen; a valid upper certificate plus a union bound gives the $1-\alpha$ guarantee. On rejection the
+procedure executes only an independently valid fallback; without one it abstains. The endpoint obstruction
+(every in-family policy fails on the unresolved or infeasible subset), the identifiability obstruction
+(Theorem~1), the no-margin obstruction (risks $\delta-\epsilon$ and $\delta+\epsilon$ become
+indistinguishable as $\epsilon\downarrow0$), adaptive selection bias, and rejection without a safe fallback
+are necessary obstructions, not an if-and-only-if theorem.
+
+\section{Corollaries and Restricted Propositions}
+\label{app:corollaries}
+
+\paragraph{Reverse-pair symmetry.} If every unordered pair appears in both directions with equal weight,
+each unequal pair contributes one under-budget and one over-budget direction, hence
+\begin{equation}
+P_{\mathrm{under}}=P_{\mathrm{over}}=\tfrac{1}{2}\,P\bigl[B_{s}\neq B_{t}\bigr],
+\label{eq:sym}
+\end{equation}
+a combinatorial identity; asymmetric source-to-held-out-target designs are still needed for directional
+portability claims.
+
+\paragraph{Endpoint decomposition.} With $\eta_E$ the mass on which no registered action succeeds,
+\begin{equation}
+r_{E}^{\pi}=\eta_{E}+(1-\eta_{E})\,r_{E}^{\pi,\mathrm{feas}},
+\label{eq:endpoint}
+\end{equation}
+so $\eta_E>\delta$ precludes in-family certification.
+
+\paragraph{Failure complementarity.} With conditional rescue rate $\rho_S$,
+\begin{equation}
+r_{S}=r_{0}\,(1-\rho_{S}),
+\label{eq:rescue}
+\end{equation}
+and marginal auxiliary accuracy cannot replace the conditional rescue rate; shared queues, visited sets,
+truncation, or altered tie rules can invalidate the mechanical preservation condition.
+
+\paragraph{Structural bridges.} The only generally valid bound retained is
+\begin{equation}
+\bigl|r_{G',a}-r_{G,a}\bigr|\ \le\ \Pr_{q}\{Z_{G}(q,a)\neq Z_{G'}(q,a)\},
+\label{eq:bridge}
+\end{equation}
+and expansion-prefix arguments require fixed search semantics, preserved critical edges, priority margins,
+and bounded frontier intruders; they do not imply a theorem for raw \texttt{efSearch} or $l$ without an
+empirical implementation bridge.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.95\linewidth]{fig6_ablation.png}
+\caption{Deterministic-contract ablation (descriptive chain). Left bars: minimum-safe-action variation per
+tier; right line: median build time. Order pinning halves variation for free; single-threading removes all
+variation and carries the build overhead.}
+\label{fig:ablation}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Six-cell economics matrix (selected rows; the full 36-cell matrix with per-cell NOT\_ESTIMABLE
+reasons is in the artifact). N/E = not estimable from frozen evidence; never imputed.}
+\label{tab:economics}
+\footnotesize
+\setlength{\tabcolsep}{3.4pt}
+\begin{tabular}{lccccc}
+\toprule
+Component & hnS & hnA & FS & FA & Vam \\
+\midrule
+Build time (D3 median) & 12.9\,s & 46.6\,s & N/E & N/E & N/E \\
+Profiling, resident 59q (8t) & 0.117\,s & 0.994\,s & 0.017\,s & 0.248\,s & N/E \\
+Break-even, search-only & NO\_FINITE & 11{,}832\,q & N/E & N/E & N/E \\
+Break-even, wall-clock & NO\_FINITE & 104{,}383\,q & N/E & N/E & N/E \\
+Candidate replay / control & N/E & N/E & N/E & N/E & N/E \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Implementation-native semantics. Raw action values and distance-computation counts are never
+compared across implementations.}
+\label{tab:semantics}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{2.4cm}p{3.4cm}p{2.1cm}p{5.2cm}}
+\toprule
+Implementation & Registered build environment & Native action & Semantic guardrail \\
+\midrule
+hnswlib HNSW & seed $\times$ input order (24 builds/dataset) & \texttt{efSearch} & candidate-list control; not a DC cap \\
+Faiss HNSW & registered input permutation (24 builds/dataset) & \texttt{efSearch} & implementation-specific; not equated \\
+DiskANN3/Vamana-style & registered permutation; fixed options (12/dataset) & $l$, beam width $=1$ & list size; $\neq$ HNSW \texttt{efSearch} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Theoretical results, assumptions, novelty boundary, and their empirical instantiation.}
+\label{tab:theory}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{p{2.5cm}p{3.3cm}p{3.5cm}p{3.5cm}}
+\toprule
+Result & Core assumptions & Guarantee & Status of tools \\
+\midrule
+Transcript lower bound & conflicting regions; probe laws & four-outcome loss bound & classical testing; premise measured (\S\ref{sec:scale}) \\
+Conditional recovery & feasibility, identifiability, & fixed-target familywise & new domain combination; margin \\
+ & margin, evidence, fallback & safety + near-optimal cost & audited per target (\S\ref{sec:constructive}) \\
+Certification scale & frozen $M$, margin $\gamma$ & sample order; zero-failure $m_{\min}$ & classical concentration \\
+Economic gate & complete costs & finite break-even iff $D>0$ & accounting identity \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Contract outcomes and primitive profiling economics (8-thread resident measurements; primitive
+operations only, not a deployment ledger).}
+\label{tab:contract}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{p{3.7cm}llp{4.2cm}}
+\toprule
+Result & SIFT-100K & Arxiv-100K & Interpretation \\
+\midrule
+Deterministic transport risk & 0 & 0 & registered same-data/toolchain contract \\
+Recall difference vs.\ original & $+0.00027$ & $-0.00040$ & within the registered $\pm0.001$ tolerance \\
+Mean safe-budget ratio & 0.976 & 0.999 & descriptive common-feasible summary \\
+p95 / p99 budget ratio & 1.00 / 1.00 & 1.00 / 1.00 & no measured tail change \\
+Build-time ratio vs.\ original & $3.52\times$ & $1.71\times$ & determinism has offline overhead \\
+59-query primitive profiling & H 0.117\,s; F 0.017\,s & H 0.994\,s; F 0.248\,s & cheap, operator dependent \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Incremental transport risk (Eq.~\ref{eq:delta} caliber) under relaxed quality thresholds, one
+uniform estimator over all cells; the $h{=}10$ column reproduces the registered incremental estimates
+(Appendix~F crosswalk).}
+\label{tab:hsens}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccc}
+\toprule
+Cell & $h{=}8$ & $h{=}9$ & $h{=}10$ \\
+\midrule
+hnswlib SIFT-100K & 15.79\% & 19.51\% & 21.57\% \\
+hnswlib Arxiv-100K & 9.35\% & 13.41\% & 17.12\% \\
+Faiss SIFT-100K (clean) & 10.56\% & 16.77\% & 23.60\% \\
+Faiss Arxiv-100K (clean) & 5.96\% & 10.31\% & 17.77\% \\
+SIFT-1M (preregistered) & 19.72\% & 21.98\% & 21.87\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.9\linewidth]{fig3_crossfamily.png}
+\caption{Cross-family evidence. Bars show safe-budget response variation; points show incremental transport
+risk with 95\% query-bootstrap intervals. Vamana marks (daggered in Table~\ref{tab:vamana}) retain their
+stage-specific estimand and are supporting rather than harmonized evidence.}
+\label{fig:crossfamily}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{Preregistered P6 probes: scale replication, pooling boundary, predictor transfer, and transcript
+distinguishability.}
+\label{tab:p6}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{3.2cm}p{6.3cm}p{4.2cm}}
+\toprule
+Probe & Result & Boundary closed \\
+\midrule
+SIFT-1M cell (prereg.; 8 builds, 500 q) & incr.\ risk 21.87\% [21.52, 22.21]; $V_{\mathrm{fin}}$ 98.4\% vs $V_{\mathrm{end}}$ 13.2\%; contract byte-identical; profiling 0.067\,s & phenomenon replicates at $10\times$ scale (100K: 21.55\%) \\
+Pooling at 1M & $k{=}7$ leaves 10.4\% risk (100K w/ 22 sources: $<1\%$); quantile pooling: $q{=}0.9 \approx$ max, median unusable & pooling requirement scale-dependent \\
+Learned predictor (HistGB, ef{=}10 transcript) & transfer 23.9\%/21.2\% vs naive 21.1\%/17.3\%; in-target CV 24.1\%/22.2\%; $R^2=0.015$ & layer-3 non-portability; $B(q)$ build-structure dominated \\
+Distinguishability (552 pairs, $k\in\{1,3,6\}$) & hits: acc.\ 0.49--0.51, TV $\le0.25$; runtime features: acc.\ 0.56--0.58 (max 0.72) & Thm.~1 premise holds for hit transcripts; runtime probes partially separate \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.95\linewidth]{fig4_pooling.png}
+\caption{Robust source pooling: transport risk versus number of pooled source builds (mean and p95 over 50
+draws; log scale). $k{=}1$ reproduces the registered naive-transport risks; $k\ge10$ falls below 2.4\% at
+100K. At SIFT-1M the decay is slower ($k{=}7$ still leaves 10.4\%): the pooling requirement grows with
+scale.}
+\label{fig:pooling}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.75\linewidth]{fig5_plane.png}
+\caption{Constructive decision plane (hnswlib). Risk versus DistComp against the per-query oracle;
+horizontal gates at 2\% (materiality) and 5\% (risk tolerance). M2 occupies the low-risk/low-cost corner
+without certification; certified M3 coincides with M5.}
+\label{fig:plane}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{End-to-end ledger per target build (hnswlib; offline cost measured, risk as in
+Table~\ref{tab:constructive}). ``Certified'' = zero-failure CP at the stated $m$.}
+\label{tab:e2e}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{3.1cm}p{2.6cm}p{2.6cm}p{1.4cm}p{2.4cm}}
+\toprule
+Route & Offline cost / target & Risk (SIFT/Arxiv) & DistC. & Certified \\
+\midrule
+M1 naive transport & 0 & 21.9\%/18.1\% & 2.6/2.7$\times$ & no \\
+M2 pooled replay & 0 (needs label cache) & 0.18\%/0.09\% & 1.45/1.34$\times$ & no \\
+Profile $+$ certify (59\,q, truth incl.) & 0.117\,s / 0.994\,s & 0.87\%/1.36\% & 4.16/5.28$\times$ & max-budget only; $P{=}0.47$--$0.63$ \\
+Profile $+$ select $+$ certify ($m{=}94$) & $\le$0.8\,s / $\le$3\,s & --- & --- & 0/48 pass \\
+Always max (M5) & 0 & 0.80\%/1.26\% & 4.09/5.14$\times$ & no \\
+Deterministic contract (D3) & 12.9\,s / 46.6\,s build & incr.\ 0 (abs.\ $=$ source) & 0.98/0.999$\times$ & by replay identity \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Complete Experimental Protocol}
+\label{app:protocol}
+
+The registered unit is a serialized build, not a query row. The strict HNSW evidence uses 24 hnswlib and 24
+clean Faiss-100K builds per dataset and all 552 non-diagonal directed pairs; the Vamana-style analysis uses
+12 builds and 36 preregistered directions; the 1M cell uses 8 builds, 56 directed pairs, and 500
+preregistered evaluation queries. Every 100K cell contains 750 evaluation queries at Recall@10 with $h=10$.
+The clean Faiss query roles have zero ID, raw-content, and normalized-content overlap with the indexed base
+and historical roles; the Vamana stages carry the same audit at zero overlap with the caveats stated in
+Section~\ref{sec:protocol}. Native action grids and counters are never numerically equated across
+implementations.
+
+The query bootstrap resamples query identities while retaining the complete vector of registered
+directed-pair observations; it quantifies query-distribution uncertainty conditional on the finite build
+family. Leave-one-build-out and leave-one-seed/order analyses test domination but do not define an
+unseen-build population. Top-contributor deletion removes 1\% of evaluation queries under a frozen
+contribution rule (eight queries under the registered hnswlib ordering). The confidence intervals support
+registered-family conclusions only. An unresolved endpoint remains $\BOT$ in all categorical analyses.
+Mean, p95, p99, build cost, truth cost, control cost, and fallback cost are separate fields; missing items
+remain not estimable.
+
+\begin{table}[t]
+\centering
+\caption{Vamana-style boundary panel (dagger: stage-specific estimand, beam width one, asymmetric
+directions; not harmonized with the HNSW estimand and not merged into its range).}
+\label{tab:vamana}
+\footnotesize
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{llccccc}
+\toprule
+Impl. & Dataset & B/p & Cat.\ var. & Risk [95\% CI] & Cens. & Cost (descr.) \\
+\midrule
+DiskANN3/Vam.$^\dagger$ & SIFT-100K & 12/36 & 71.07\% & 16.86\% {\tiny[15.65, 18.10]} & 0.27\% & $\sim$1.00\% {\tiny[$-$0.94, 3.04]} \\
+DiskANN3/Vam.$^\dagger$ & Arxiv-100K & 12/36 & 48.27\% & 11.37\% {\tiny[10.20, 12.60]} & 0.80\% & $\sim$1.11\% {\tiny[$-$1.05, 3.22]} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.8\linewidth]{fig2_workflow.png}
+\caption{ICBA workflow. The procedure validates semantics before estimating transport, separates selection
+from certification, and treats fallback and abstention as distinct terminal outcomes.}
+\label{fig:workflow}
+\end{figure}
+
+\section{Cross-Family Details and Estimand Crosswalk}
+\label{app:crossfamily}
+
+In hnswlib, same-seed cross-order inconsistency is 57.43\% (SIFT) and 45.23\% (Arxiv), substantially larger
+than same-order cross-seed inconsistency (13.25\% and 12.62\%); the comparison is descriptive because
+factors are not independently randomized across implementations. Faiss does not expose a reliable
+construction seed under the registered interface, so fixed input permutations define its 24 build
+environments; the clean 100K rerun removes query/base self-matches. DiskANN3/Vamana-style preflight
+establishes fixed-configuration replay and nonzero differences across registered permutations, but the
+frozen Vamana event table cannot reconstruct the harmonized HNSW source-action estimand; Vamana results
+remain stage specific. Finite-action and endpoint variation are reported separately (75.87--91.07\% versus
+0.53--2.67\%); unresolved mass is 0.072/0.167\% (Faiss SIFT/Arxiv) and 0.767/1.067\% (hnswlib SIFT/Arxiv).
+
+\paragraph{Estimand crosswalk (hnswlib).}
+The E4 primary oracle-transport estimand gives 21.57\% [20.74, 22.40] (SIFT) and 17.12\% [16.20, 18.06]
+(Arxiv) under crossed seed-query bootstrap; the original cross-family stage gives 21.57\% [20.77, 22.35]
+and 17.12\% [16.24, 18.00]; the repaired $h{=}10$ hit-count common estimand---adopted in
+Table~\ref{tab:crossfamily} because the clean Faiss evidence exists only under hit-count semantics---gives
+21.55\% [20.76, 22.33] and 17.17\% [16.33, 18.06]. All three coexist as registered values; the paper adopts
+the repaired common estimand for the four HNSW cells and does not modify any frozen number.
+
+\section{Falsification-Ladder Casebook}
+\label{app:ladder}
+
+\begin{table}[t]
+\centering
+\caption{Four recovery families and the first prerequisite falsified by sealed evidence; the 16-route
+casebook is in Appendix~\ref{app:ladder}.}
+\label{tab:ladder}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{2.3cm}p{4.2cm}p{4.2cm}p{2.7cm}}
+\toprule
+Recovery family & Strongest positive evidence & Decisive limitation & Inference \\
+\midrule
+Reuse / recalibration & fixed-target safety in selected designs; & no stable history increment; & fixed-target safety only \\
+ & probe quantifies the negative side ($R^2{=}0.015$) & disjoint eval.\ removes gain & \\
+Build selection / stable constr. & safe-selection theory valid; isolated gains & no CI-supported joint action (72 frozen) & generator closed \\
+Multi-lane / portal rescue & complementarity replicates after ID repair & no truth-free trigger; 79.5--93.4\% compression & mechanism only \\
+Certified auditor / fallback & 36/36 accepted decisions safe & collapse to max budget; search-only regret 470.3 / 684.5 & diagnostic, not optimizer \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=.95\linewidth]{fig7_ladder.png}
+\caption{Theory-guided falsification ladder. Each recovery family is pruned at its first unsupported
+prerequisite. Partial mechanism evidence is retained without being promoted to a deployable algorithm.}
+\label{fig:ladder}
+\end{figure}
+
+Target-only residual recalibration initially reduced mean distance computations by 29.40\% (SIFT) and 26.17\%
+(Arxiv) in a paired fixed-target design; history-assisted variants added only 0.90\% [$-8.73$, 11.25] and
+$-0.13$\% [$-9.24$, 10.26]; under strict disjoint-query cross-fitting the target-only effects became
+$-7.35$\% and $-12.49$\%. Build selection failed earlier: among 72 frozen build-budget actions, SIFT had no
+point-estimate-or-interval supported jointly feasible action and Arxiv had one point-estimate action with no
+interval support. One protected-edge repair preserved graph invariants yet reduced Recall@10 by 0.002 and
+worsened both endpoint families. Fixed portal sets showed genuine rescue complementarity (1{,}064 and 727
+additional hits; 426 and 348 threshold rescues) but cost $2.5$--$2.8\times$ a matched native lane and
+remained 3.3--4.8 recall points lower; eight preregistered truth-free triggers showed no positive validation
+advantage, and a shared-frontier bound implies 79.5--93.4\% auxiliary-cost compression before viability
+(provenance for these aggregates is itemized in the artifact; three of them are recorded as
+origin-unlocated and are being re-derived from row-level records). Finally, the conservative auditor
+demonstrated safety without value across 60 retrospective decisions (4 direct reuses, 32 certified
+fallbacks, 24 abstentions; all 36 accepted decisions safe, every accepted action at the maximum registered
+budget).
+
+\begin{table}[h]
+\centering
+\caption{Sixteen route-level tests summarized by family and first failed condition. Three historical
+aggregates (the recalibration percentages, the protected-edge repair cost pair, and the exact matched-lane
+ratios) lack stored provenance and are flagged for re-derivation in the artifact.}
+\small
+\begin{tabular}{lll}
+\toprule
+Family & Route & First failed prerequisite \\
+\midrule
+Reuse/recal. & source-only global reuse & nontrivial portability \\
+Reuse/recal. & target-only residual calibration & disjoint-query replication \\
+Reuse/recal. & history-assisted calibration & stable history increment \\
+Reuse/recal. & adaptive sentinel allocation & matched-risk incremental value \\
+Selection & certified build selection & jointly feasible candidate \\
+Selection & portfolio racing & Stage-I feasibility \\
+Selection & protected-edge repair & native recall/budget response \\
+Selection & behavioral operator search & Pareto improvement \\
+Selection & critical-frontier stabilization & structure-to-budget bridge \\
+Portal & fixed portal union & absolute safety and cost \\
+Portal & per-query portal oracle & deployable observability \\
+Portal & truth-free trigger & positive validation advantage \\
+Portal & shared frontier & realizable cost compression \\
+Auditor & ordered certification & native-action nesting semantics \\
+Auditor & certified fallback ladder & useful intermediate fallback \\
+Auditor & unified ICBA decision & decision regret and economics \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The ladder preserves three gaps: an oracle action may exist without an observable signal; an observable
+predictor may lack certification margin; and a certifiable action may have no mean, tail, or break-even
+value. Candidate attainability precedes all three.
+
+\section{Claim Registry}
+\label{app:claims}
+
+The final theory removes several overclaims: raw \texttt{efSearch} is not assumed to generate nested
+population failure events; structural similarity does not guarantee budget stability; query bootstrap is
+not build-level inference; a maximum registered action is not a safe fallback without evidence; mean
+savings do not imply tail savings; the negative result is transcript limited rather than an absolute
+hidden-build theorem; neither main theorem is a new general Le Cam, KL, Learn-Then-Test, or best-arm
+result.
+
+\paragraph{Permitted claims.}
+Registered-family HNSW evidence at 100K and the preregistered 1M replication; stage-specific supporting
+Vamana evidence; fixed-target certification semantics; the deterministic same-environment contract with its
+chain ablation; robust source pooling as an uncertified registered-family baseline with measured scale
+dependence; grid-robustness at phenomenon level; transcript-level indistinguishability for the registered
+probe class; operator-dependent cost; exchangeable-build conformal pooling with finite-sample per-query
+validity (Theorem~3), valid at every non-vacuous $(\alpha,k)$ on both implementations, under the stated
+build-exchangeability assumption; tiered composition risk bound at measured repeat rates.
+
+\paragraph{Prohibited claims.}
+Universal Graph-ANNS behavior; open-world recovery; unseen-build safety (build exchangeability is an
+assumption, not a certification, of the deployment process); native-budget numerical equivalence;
+universal profiling or conservative-cost conclusions; production/SOTA performance of the pooling policy
+(it is a budget-selection layer, not a retrieval algorithm, and is not compared against SOTA indexes);
+resolution-invariant risk levels; learned-predictor transfer beyond the probed feature class; conformal
+validity outside the probed transcript/feature classes or for target-dependent source selection.
+
+\section{Reproducibility and Artifact Manifest}
+\label{app:repro}
+
+The final evidence derives from frozen hnswlib, clean Faiss HNSW, and DiskANN3/Vamana-style result trees,
+plus the preregistered SIFT-1M cell whose manifest (design, seeds, orders, grid, roles, stop rules) was
+committed before any build or search; the forensics gate passed before any risk computation. Each stage
+records implementation version, build configuration, input ordering, query-role hashes, native action
+grid, estimand, confidence procedure, robustness deletions, and output checksums. The clean Faiss rerun
+verifies zero query/base content overlap and 48/48 frozen index hashes; the deterministic contract verifies
+byte-identical indexes and search outputs at 100K and 1M. The historical 123-entry baseline remains
+conditionally reproducible at 111 matching entries, eight content differences, and four unavailable
+unversioned cache files. The anonymous artifact omits identifying repository links and local paths; all
+revision-cycle numbers trace to committed result tables with deterministic test suites (16, 24, 27, 16, 7,
+22, and 17 checks per phase). Remaining code-audit boundaries---primitive rather than complete profiling
+cost, hash-only role-access status, and the three origin-unlocated historical aggregates---are recorded
+explicitly and are not used to strengthen the scientific claims.
+
+\paragraph{Reproducibility statement.}
+The manuscript reports registered build families, native action grids, query-role separation, endpoint
+semantics, uncertainty units, and deterministic replay checks. The anonymous artifact contains scripts,
+compact result tables, manifests, and checksums without author-identifying paths. No future-replication
+truth or outcome contributes to the reported analyses; any metadata or hash-only access is separately
+disclosed in the artifact audit.
+
+\paragraph{AI use statement.}
+Generative AI tools assisted with organizing research artifacts, developing theory--experiment crosswalks,
+checking document structure, drafting and editing manuscript text, and supporting code and artifact
+validation. All mathematical statements, proofs, experimental results, citations, and AI-assisted content
+require final author review, and the author assumes responsibility for the submitted manuscript.
+
+\end{document}
+
+
+
