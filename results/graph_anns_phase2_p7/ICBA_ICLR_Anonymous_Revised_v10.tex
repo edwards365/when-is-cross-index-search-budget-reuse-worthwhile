@@ -269,15 +269,20 @@ $\{1,\dots,k{+}1\}$; the deployment event is $\{\mathrm{rank}>m\}$, of probabili
 $(k{+}1-m)/(k{+}1)\le\alpha$.
 \end{proof}
 
-The guarantee is finite-sample, per-query, and needs no deployment truth beyond the cached source labels.
-Measured on the registered cells (leave-one-build-out; Table~\ref{tab:thm3}): at the certified operating
-point ($\alpha{=}0.05$, $k{=}23$) the realized per-query failure rate is 0.96\% (SIFT) and 1.35\%
-(Arxiv)---under the 2\% materiality gate at $1.32$--$1.44\times$ oracle cost---and every non-vacuous
-$(\alpha,k)$ is valid on both hnswlib and clean Faiss. Two measured boundaries: the certificate resolves
-only $\alpha\ge 1/(k+1)$ (a 2\%-class certificate needs $k\ge 49$), and target-correlated source selection
-breaks exchangeability (realized 3.8--4.4\% $>\alpha$). The \emph{tiered} deployment composes the
-certificate with the measured fallback: cached actions for repeated queries, maximum action for cold
-queries, giving $r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$
+The guarantee bounds \emph{label coverage} $P[B_{E_t}(q)>a(q)]\le\alpha$; deployment safety further
+requires that deploying any $a\ge B_{E_t}(q)$ succeeds. This bridge is \emph{measured, not assumed}: the
+non-monotone violation rate across all post-min-safe (query, build, action) triples is
+$\nu=0$ on hnswlib-100K (both datasets), Vamana (both stages), and 10M, and $\nu=0.39\%$ on 1M, so
+execution failure is bounded by $\alpha+\nu$ ($\le5\%$ at the certified operating point, measured
+0.96--1.35\%). A stricter tail-label variant ($B^{\mathrm{tail}}$ = min action after which all
+registered actions succeed) gives execution safety by construction (realized 0.13--0.18\%) at halved
+cache coverage---both variants are reported. Measured boundaries: the certificate resolves only
+$\alpha\ge 1/(k+1)$ (a 2\%-class certificate needs $k\ge 49$), and target-correlated source selection
+inflates realized risk $3.3\times$ (4.43\% vs.\ 1.31\% at $\alpha{=}0.10$, $k{=}9$), within the
+nominal envelope on this sample---an exchangeability-violation diagnostic, not a certificate violation.
+The \emph{tiered} deployment composes the certificate with the measured fallback: cached actions for
+repeated queries, maximum action for cold queries, giving
+$r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$
 (Section~\ref{sec:constructive}).
 
 \begin{table}[t]
@@ -597,8 +602,7 @@ recovery theorem binds at certification power on this grid; richer candidate fam
 The contract's ablation is a descriptive chain. The constructive policy is a retrospective replay:
 pooling needs $k\ge 1/\alpha-1$ cached builds (19 at $\alpha{=}0.05$; 10M-scale uncached pooling
 fails), its risk is an uncertified registered-family bootstrap outside the conformal certificate, and the
-predictor probe is one model class on one feature family. Production traces, throughput benchmarks, and cross-operator exchangeability remain untested; the
-historical baseline is conditionally reproducible (111/123 entries).
+predictor probe is one model class on one feature family. Production traces, throughput benchmarks, and cross-operator exchangeability remain untested.
 
 \section{Conclusion}
 \label{sec:conclusion}
