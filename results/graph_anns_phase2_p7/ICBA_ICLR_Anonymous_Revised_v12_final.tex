@@ -280,10 +280,14 @@ $(k{+}1-m)/(k{+}1)\le\alpha$.
 
 The guarantee bounds \emph{label coverage} $P[B_{E_t}(q)>a(q)]\le\alpha$; deployment safety further
 requires that deploying any $a\ge B_{E_t}(q)$ succeeds. This bridge is \emph{measured, not assumed}: the
-non-monotone violation rate across all post-min-safe (query, build, action) triples is
-$\nu=0$ on hnswlib-100K (both datasets), Vamana (both stages), and 10M, and $\nu=0.39\%$ on 1M, so
-execution failure is bounded by $\alpha+\nu$ ($\le5\%$ at the certified operating point, measured
-0.96--1.35\%). A stricter tail-label variant ($B^{\mathrm{tail}}$ = min action after which all
+non-monotone violation rate, conditioned on being at or above the target's own minimum safe point
+($\nu=\Pr[Z_{E_t}(q,a){=}1 \mid a \ge B_{E_t}(q)]$ over all (query, build, $a \ge B_{E_t}(q)$)
+triples, exhaustively checked), is $\nu=0$ on hnswlib-100K (both datasets), Vamana (both stages), and
+10M, and $\nu=0.39\%$ on 1M. Because conformal-pooling deployments satisfying $a(q) \ge B_{E_t}(q)$
+lie in this condition, execution failure is bounded by $\alpha+\nu$ ($\le 5\%$ at the certified
+operating point, measured 0.96--1.35\%); the residual risk arises solely from transported actions
+\emph{below} the target's minimum safe point ($B_s(q) < B_{E_t}(q)$)---the transport phenomenon
+itself, not a monotonicity violation. A stricter tail-label variant ($B^{\mathrm{tail}}$ = min action after which all
 registered actions succeed) gives execution safety by construction (realized 0.13--0.18\%) at halved
 cache coverage---both variants are reported. Measured boundaries: the certificate resolves only
 $\alpha\ge 1/(k+1)$ (a 2\%-class certificate needs $k\ge 49$), and target-correlated source selection
@@ -291,9 +295,11 @@ inflates realized risk $3.3\times$ (4.43\% vs.\ 1.31\% at $\alpha{=}0.10$, $k{=}
 nominal envelope on this sample---an exchangeability-violation diagnostic, not a certificate violation.
 The \emph{tiered} deployment composes the certificate with the measured fallback: cached actions for
 repeated queries, maximum action for cold queries, giving
-$r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$; meeting $\delta$
-requires $\rho\ge(r_{\max}-\delta)/(r_{\max}-\alpha)$, satisfied at every measured $\rho$ at 100K
-($r_{\max}{=}1.3\%$; interpolation 1.26\%$\to$0.09\%, Section~\ref{sec:constructive}).
+$r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$. At the certified
+operating point ($\alpha{=}0.05$, $k{=}23$) with measured $r_{\max}{=}1.3\%$, every
+$\rho\in[0,1]$ satisfies the bound since $\max(\alpha, r_{\max}) = 5\% = \delta$; the measured
+interpolation (1.26\%$\to$0.09\%) confirms the bound is conservative,
+Section~\ref{sec:constructive}.
 
 \begin{table}[t]
 \centering
@@ -476,7 +482,7 @@ M3 frozen max-action CP ($M{=}1$, $m{=}59$) & 59 q & 0.87\% / 1.36\% & 4.16/5.28
 M4a point-screen sel.-then-cert. & 469 q & --- & --- & 0/48 (zero-fail.\ violated) \\
 M4b Theorem-2 screen, then certify & 469 q & --- & --- & 0/48; margin too thin \\
 M5 always maximum action & 0 & 0.80\% / 1.26\% & 4.09/5.14$\times$ & not auto.\ safe \\
-M5$'$ target re-profile + per-query label cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
+M5$'$ target re-profile + per-query truth cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
 M5$'$ target re-profile + per-query label cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \
 M6 per-query oracle & full & endpoint mass only & 1.00$\times$ & non-deployable ref. \\
 \bottomrule
@@ -1156,7 +1162,7 @@ M2 pooled replay & 0 (needs label cache) & 0.18\%/0.09\% & 1.45/1.34$\times$ & n
 Profile $+$ certify (59\,q, truth incl.) & 0.117\,s / 0.994\,s & 0.87\%/1.36\% & 4.16/5.28$\times$ & max-budget only; $P{=}0.47$--$0.63$ \\
 Profile $+$ select $+$ certify ($m{=}94$) & $\le$0.8\,s / $\le$3\,s & --- & --- & 0/48 pass \\
 Always max (M5) & 0 & 0.80\%/1.26\% & 4.09/5.14$\times$ & no \\
-Deterministic contract (D3) & 12.9\,s / 46.6\,s build & 0 & 0.98/0.999$\times$ & by replay identity \\
+Deterministic contract (D3) & 12.9\,s / 46.6\,s build & incr.\ 0 (abs.\ $=$ source) & 0.98/0.999$\times$ & by replay identity \\
 \bottomrule
 \end{tabular}
 \end{table}
