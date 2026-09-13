@@ -69,3 +69,23 @@ has premise-level plus guarantee-level empirical support on an independent farm.
 
 Three defects fixed en route (boolean-matrix-as-counts, RandomState API, tie-handling);
 all code-level, rerun clean.
+
+## Step 4 — v7 (scope-expansion revision, per user instruction)
+
+Integrates the complete experimental round into the manuscript:
+- Abstract: 200-build farm population result + full Theorem-3 validity matrix phrasing
+  (3 scales x 2 implementations, 0.05-0.92% realized) + explicit 10M pooling degradation.
+- Table thm3 expanded to the full matrix (11 rows incl. 1M/10M/farm k=49/corr-weighted
+  counterexample row); caption upgraded.
+- 7.4: complete-matrix sentence (vacuous config abstains 100% - feasibility operational).
+- 7.5: Theorem-3 at 10M resolution (0.64% <= 0.125, 36% abstention) - "the certificate
+  survives, the cheap uncached pooling does not."
+- Takeaway table (lost in the v6 diet) restored and upgraded: contract row carries the
+  3-scale byte-identity + 252s 10M build; pooling row is now the conformal replay policy
+  with certified coverage and scale-degradation boundary; certification row cites
+  cert-power-binds.
+- REPAIRED: 16 broken row terminators (single backslash) introduced by earlier sed
+  operations in v4-v6 tabulars - all rows now end with proper \\. This was a latent
+  compile-time error that would have broken Overleaf.
+- Validation: env/brace/cite/label/figure clean; zero broken row terminators; all 14
+  content probes present. Main: 54.8k chars, 2 figs, 6 tables.
