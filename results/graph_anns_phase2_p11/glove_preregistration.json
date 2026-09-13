@@ -1,0 +1,23 @@
+{
+  "schema_version": "p11-glove-preregistration-1.0",
+  "written_before_any_build_or_search": true,
+  "purpose": "third dataset + angular geometry validation of Theorem 3 / tiered conformal pooling",
+  "dataset": {
+    "file": "data/raw/glove-100-angular.hdf5",
+    "base": "train split (full, ~1.19M x 100, angular/cosine)",
+    "queries": "test split; 500 preregistered via RandomState(991).choice",
+    "truth": "provided neighbors top-100; event = first 10"
+  },
+  "build_environments": {
+    "count": 8, "design": "4 seeds x 2 orders (mirror P10)",
+    "seeds": [13, 83, 197, 2029],
+    "orders": ["random_order", "lid_ascending_by_norm"],
+    "space": "cosine", "M": 16, "ef_construction": 100, "threads": 1,
+    "identity_check_builds": 2
+  },
+  "action_grid": {"ef_search": [10, 20, 40, 80, 120, 200]},
+  "event": "hit_count >= 10 of 10 vs provided truth top-10",
+  "storage": "delete-as-you-go (disk 15GB class)",
+  "stop_rules": "halt on overlap>0, build error x2, disk <3GB",
+  "metrics": "variation / incremental risk + CI / h-sensitivity / conformal validity k=7 alpha>=0.125 / pooling k-curve"
+}
