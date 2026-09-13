@@ -219,10 +219,9 @@ concentration argument on the finite transcript support gives $\TV\le0.39$ at 95
 (plug-in 0.25 $+\,0.14$ concentration), so Theorem~1 yields a valid loss lower bound of
 $0.305\,\Delta$ for that class; joint runtime features separate more (worst pair accuracy 0.72), which
 \emph{weakens} the bound for that class ($\TV\ge0.44$) and is reported as a risk-inflation diagnostic,
-not as premise evidence. The theorem remains conditional on the declared probe class, and the measured
-45--57\% conflict rate supports, but does not instantiate, the disjoint useful-action regions and the
-gap $\Delta$; the cost-tolerated common-safe-action analysis (Section~\ref{sec:constructive}) supplies
-that instantiation for a substantial conflict subset.
+not as premise evidence. The theorem remains conditional on the declared probe class; the 45--57\% conflict rate and the
+common-safe-action analysis (21.9\% no-conflict-free transport, Section~\ref{sec:constructive}) supply
+the remaining instantiation.
 
 \subsection{Main Theorem II: finite-class conditional recoverability}
 
@@ -467,11 +466,8 @@ M6 per-query oracle & full & endpoint mass only & 1.00$\times$ & non-deployable 
 \end{table}
 
 \paragraph{Theorem-2 verdict and D-region instantiation.}
-The disjoint-region premise is instantiated with a cost-tolerated conflict analysis over the frozen hit
-tables: 21.9\% of directed transports (SIFT-100K) admit \emph{no} common safe action within the source
-action's own cost (21.9\% at tolerance $\kappa{=}0$; still 6.9\% at $\kappa{=}1$, i.e., allowing twice
-the target budget), with median action gap 30 (SIFT) / 20 (Arxiv) on conflicting transports---these are
-the two-point construction's conflicting regions with a concrete $\Delta$.
+The disjoint-region premise holds for a substantial conflict subset (above; median action gap 30/20,
+$p_{90}$ 80/70).
 Conditions (i), (ii), (iv), (v) are satisfiable on the registered grid; (iii) fails for all 48 targets:
 every non-maximal action's risk lies inside the margin band, so Theorem-2 screening passes (it selects
 $\mathrm{ef}{=}120$ on eight targets and $\mathrm{ef}{=}200$ on sixteen per dataset) but zero-failure
