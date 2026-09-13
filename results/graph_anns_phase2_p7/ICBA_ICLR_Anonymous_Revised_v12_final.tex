@@ -61,38 +61,24 @@ Paper under double-blind review\\
 \maketitle
 
 \begin{abstract}
-Graph approximate nearest-neighbor systems rebuild indexes after data refreshes, maintenance, replica
-creation, and randomized construction, yet downstream search-budget policies are commonly reused across
-builds. We study when this transport is statistically justified. Each serialized build is modeled as an
-algorithmic environment with an implementation-native finite action set, an endpoint-aware failure event,
-and a categorical unresolved state. A transcript-limited two-environment reduction shows that, when an
-available probe transcript cannot distinguish builds requiring conflicting useful actions, any build-blind
-policy must incur unsafe execution, conservative computation, fallback, or abstention in at least one
-environment; and we report probe-class evidence consistent with this premise: build pairs are
-near-chance distinguishable through hit-count transcripts (plug-in TV $\le0.25$) and separate at most
-$0.72$ accuracy through joint runtime features, while their per-query responses conflict on 45--57\% of
-queries. A complementary fixed-target theorem gives sufficient conditions for safe recovery, and
-we measure where those conditions hold: at registered sample sizes the binding constraint is
-certification power---margin-band actions exist but fail zero-failure certification---so certified recovery
-collapses to the maximum budget or abstention. Operationally, ICBA, a
-certified portability audit, and a deterministic-rebuild contract convert these findings into a decision
-rule. Across SIFT-100K and Arxiv-Nomic-100K, strictly comparable hnswlib and Faiss HNSW experiments exhibit
-75.87--91.07\% finite-action safe-budget variation and 17.17--23.60\% incremental transport risk, and the
-phenomenon replicates at SIFT-1M (21.87\%, 95\% CI $[21.52, 22.21]$) and at 10M scale
-(22.16\%, 95\% CI $[21.66, 22.68]$). A max-over-source pooling baseline over
-22 registered builds cuts risk below 1\% at $1.34$--$1.45\times$ per-query-oracle cost; we prove this
-policy carries a finite-sample per-query guarantee (Theorem~3: under build exchangeability, deploying the
-pool's $(1{-}\alpha)$-quantile bounds transport risk by $\alpha$; measured 0.96--1.35\% at
-$\alpha{=}0.05$, valid at every non-vacuous $(\alpha,k)$ across four scales, two HNSW implementations
-and a third pruned-navigable family (Vamana, realized 0\%), on a third dataset family (GloVe-100
-angular: 6.47\% at the $k{=}7$ resolution limit $\alpha{=}0.125$), and at farm depth
-($k{=}49$: 0.72\%))---but the guarantee's pool requirement grows with scale: at 10M, $k{=}7$ still
-leaves 23.3\% uncached-transport risk and pooling converges to the naive level; a learned query-level predictor fails to
-transfer across builds (risk 21--24\%, transfer $R^2 = 0.015$). Fixing input order and single-threaded construction eliminates measured transport
-risk with $1.71$--$3.52\times$ build overhead; order pinning alone halves response variation at no build-time
-cost. Primitive profiling remains cheap at both scales, so we claim neither universal profiling cost nor
-open-world recovery.
-\end{abstract}
+Graph approximate nearest-neighbor systems rebuild indexes after data refreshes, replica creation, and
+randomized construction, yet downstream search-budget policies are commonly reused across builds. We
+study when this transport is statistically justified, modeling each serialized build as an algorithmic
+environment with implementation-native actions, an endpoint-aware failure event, and a categorical
+unresolved state. A transcript-limited lower bound shows that build-blind policies must pay in one of
+four currencies---unsafe execution, conservative computation, fallback, or abstention---and we
+instantiate its premise: registered build pairs are near-chance distinguishable through hit-count
+transcripts (TV $\le0.25$) while their per-query budgets conflict on 45--57\% of queries. A
+fixed-target recovery theorem is audited per target: certification power, not margin existence, binds.
+Across three dataset families, four scales (100K--10M), and three implementations, rebuilds cause
+17.2--23.6\% incremental transport risk. We give a certified deployable policy (exchangeable-build
+conformal pooling, Theorem~3): repeated queries served from cached labels carry a finite-sample risk
+bound $\le\alpha$ at $1.32$--$1.44\times$ oracle cost, validated across every non-vacuous
+$(\alpha,k)$; cold queries fall back to the maximum action. The deterministic rebuild contract
+eliminates measured risk at $1.71$--$3.52\times$ build overhead. A learned per-query predictor does not
+transfer ($R^2{=}0.015$). A cost-ordered decision rule over these routes---contract, pooling,
+certify, abstain---is the paper's actionable output.
+\end{abstract}\end{abstract}
 
 \section{Introduction}
 \label{sec:intro}
@@ -152,7 +138,7 @@ a falsification ladder organizing negative method evidence.
 \toprule
 Scenario & Route & Measured boundary \\
 \midrule
-Rebuild feasible offline; near-zero risk required & Deterministic contract (order + seed + single thread) & risk 0 at 100K/1M/10M (byte-identical); build $1.71$--$3.52\times$ (100K-registered; 10M: 252\,s); order pinning alone halves variation free \\
+Rebuild feasible offline; near-zero risk required & Deterministic contract (order + seed + single thread) & risk 0 at 100K/1M/10M (byte-identical); build $1.71$--$3.52\times$ (100K-registered; 10M: 2{,}945\,s); order pinning alone halves variation free \\
 $\ge 1/\alpha-1$ prior builds with cached labels (19 at $\alpha{=}.05$, 9 at $\alpha{=}.10$) & Conformal pooled replay (Thm.~3 quantile) for repeat queries; max-action fallback for cold & certified $\le\alpha$ at every non-vacuous $(\alpha,k)$ across 3 scales $\times$ 2 implementations; DistComp $1.32$--$1.44\times$; uncached pooling degrades with scale (10M: 23.3\% at $k{=}7$) \\
 Cost-sensitive, risk tolerance moderate & Canonical order pinning only & free ($0.80$--$0.93\times$ build); residual variation 30--34\% \\
 Fresh target, budget for truth & Certify a frozen action (Thm.~2) or abstain & only max budget clears ($P{=}0.47$--$0.63$ at $m{=}59$); certification power, not margin, binds \\
@@ -162,7 +148,17 @@ No route yields a certified action & Abstain & safety preserved; regret bounded 
 \end{table}
 
 
-Figure~\ref{fig:setting} (Appendix) summarizes the setting.
+\begin{figure}[t]
+\centering
+\includegraphics[width=.8\linewidth]{fig1_setting.png}
+\caption{Build reconfiguration induces a policy-transport problem. A source-calibrated action may
+under-budget the target build, while a uniformly large action may be safe but conservative. The build is
+hidden only relative to the available probe transcript; ICBA separates measurement, certification, and
+value.}
+\label{fig:setting}
+\end{figure}
+
+Figure~\ref{fig:setting} summarizes the setting.
 
 \section{Related Work}
 \label{sec:related}
@@ -295,11 +291,9 @@ inflates realized risk $3.3\times$ (4.43\% vs.\ 1.31\% at $\alpha{=}0.10$, $k{=}
 nominal envelope on this sample---an exchangeability-violation diagnostic, not a certificate violation.
 The \emph{tiered} deployment composes the certificate with the measured fallback: cached actions for
 repeated queries, maximum action for cold queries, giving
-$r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$. At the certified
-operating point ($\alpha{=}0.05$, $k{=}23$) with measured $r_{\max}{=}1.3\%$, every
-$\rho\in[0,1]$ satisfies the bound since $\max(\alpha, r_{\max}) = 5\% = \delta$; the measured
-interpolation (1.26\%$\to$0.09\%) confirms the bound is conservative,
-Section~\ref{sec:constructive}.
+$r_{\mathrm{tiered}}\le\rho\,\alpha+(1-\rho)\,r_{\max}$ at repeat rate $\rho$; meeting $\delta$
+requires $\rho\ge(r_{\max}-\delta)/(r_{\max}-\alpha)$, satisfied at every measured $\rho$ at 100K
+($r_{\max}{=}1.3\%$; interpolation 1.26\%$\to$0.09\%, Section~\ref{sec:constructive}).
 
 \begin{table}[t]
 \centering
@@ -482,16 +476,20 @@ M3 frozen max-action CP ($M{=}1$, $m{=}59$) & 59 q & 0.87\% / 1.36\% & 4.16/5.28
 M4a point-screen sel.-then-cert. & 469 q & --- & --- & 0/48 (zero-fail.\ violated) \\
 M4b Theorem-2 screen, then certify & 469 q & --- & --- & 0/48; margin too thin \\
 M5 always maximum action & 0 & 0.80\% / 1.26\% & 4.09/5.14$\times$ & not auto.\ safe \\
-M5$'$ target re-profile + per-query truth cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
 M5$'$ target re-profile + per-query label cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
-M6 per-query oracle & full & endpoint mass only & 1.00$\times$ & non-deployable ref. \\
+M5$'$ target re-profile + per-query label cache & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \
+M5$'$ target re-profile + per-query truth cache & 0.12--0.99\\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\\times$ & uncert.; dominates M2 when truth affordable \\
+M6 per-query oracle & full & endpoint mass only & 1.00$\\times$ & non-deployable ref. \\\\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \paragraph{Theorem-2 verdict and D-region instantiation.}
-The disjoint-region premise holds for a substantial conflict subset (above; median action gap 30/20,
-$p_{90}$ 80/70).
+The disjoint-region premise holds for a substantial conflict subset. Over the frozen hit tables, 21.9\%
+of directed transports (SIFT-100K) admit \emph{no} common safe action within the source action's own
+cost (still 6.9\% allowing twice the target budget), with median action gap 30 (SIFT) / 20 (Arxiv),
+$p_{90}$ 80/70---computed by scanning both hit tables upward from $\max(B_s,B_t)$ to find the first
+action safe in both (method in the artifact).
 Conditions (i), (ii), (iv), (v) are satisfiable on the registered grid; (iii) fails for all 48 targets:
 every non-maximal action's risk lies inside the margin band, so Theorem-2 screening passes (it selects
 $\mathrm{ef}{=}120$ on eight targets and $\mathrm{ef}{=}200$ on sixteen per dataset) but zero-failure
@@ -501,9 +499,8 @@ mean; the share of targets whose pass-probability exceeds 0.5 is 71\%/38\%,
 Table~\ref{tab:constructive}) at $m=59$ because its residual risk (0.008--0.013, concentrated in
 always-infeasible queries) violates the zero-failure requirement in roughly half the draws. The CP power curve locates this precisely: certifying
 actions of risk 1--2\% needs 59--99 queries, but the margin-band actions carry 3--4\% risk and require
-289--1{,}149 queries for 50\% CP power (allowing the expected number of failures rather than
-zero-failure)---the zero-failure protocol at registered sample sizes, not candidate nonexistence, is
-what fails here; with 289--1{,}149 queries and the full CP test, these actions become certifiable. A $\gamma$-sensitivity audit sharpens the verdict: at
+289--1{,}149 queries---the zero-failure protocol at registered sample sizes, not candidate nonexistence,
+is what fails here. A $\gamma$-sensitivity audit sharpens the verdict: at
 $\gamma{=}0.005$ a non-maximal action with selection-block risk $\le\delta-2\gamma$ \emph{exists} on
 16/24 (SIFT) and 21/24 (Arxiv) targets (16/24 and 8/24 at $\gamma{=}0.01$; none at $\gamma{=}0.02$), so
 the margin condition is not absolutely absent---what fails everywhere is the \emph{certification step}:
@@ -786,36 +783,13 @@ Distribution-aware exploration for adaptive HNSW search.
 \end{thebibliography}
 
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=.8\linewidth]{fig1_setting.png}
-\caption{Build reconfiguration induces a policy-transport problem. A source-calibrated action may
-under-budget the target build, while a uniformly large action may be safe but conservative. The build is
-hidden only relative to the available probe transcript; ICBA separates measurement, certification, and
-value.}
-\label{fig:setting}
-\end{figure}
-
 \appendix
 \section{Related Work: Full Discussion}
 \label{app:related}
 
 \paragraph{Positioning.}
-Graph-ANNS construction and search: HNSW \citep{malkov2020hnsw}, NSG \citep{fu2019nsg},
-Vamana/DiskANN \citep{subramanya2019diskann}, Faiss \citep{johnson2021faiss}, incremental
-maintenance \citep{xu2022maintenance}, cost/pruning theory \citep{prokhorenkova2020graph},
-order effects on recall \citep{elliott2024order}, per-index budget autotuning
-\citep{bae2026qbat}. Query-adaptive budgets and cost estimators operate per profiled index
-\citep{li2020learned,chatzakis2025darth,horchidan2025conann,wang2026annie,zhang2026exploration}.
-Risk control and safe selection: LTT, conformal risk control, selective classification, safe
-BAI \citep{angelopoulos2025ltt,bates2021rcps,angelopoulos2024crc,elyaniv2010selective,wang2022safebai,garivier2016bai}.
-Distribution shift treats environments as sampling units
-\citep{bendavid2010theory,johansson2019support,duchi2025multienv}. None of these lines asks
-whether a safety-critical budget transports across an independent rebuild of the same data;
-that transport-validity question, its measured boundaries, and a certified deployment policy
-are this paper's subject (full discussion in Appendix~\ref{app:related}).
-
-
+The main-text positioning paragraph cites the systems per line; the notes below add
+differentiating context.
 \label{sec:formulation}
 
 Let $\Ecal$ be a preregistered finite set of build environments. An environment $E\in\Ecal$ consists of a
@@ -925,7 +899,8 @@ The minimum sum of binary testing errors equals $1-\TV$; the maximum expected lo
 proving Theorem~1. Bretagnolle--Huber lower-bounds the error sum and Pinsker yields the KL consequence.
 For adaptive observations the chain rule gives
 \begin{equation}
-K_{m}=\sum_{t=1}^{m}\E_{0}\!\left[\KL\bigl(P_{0}^{Y_{t}\mid H_{t-1},A_{t}}\,\bigl\|\,P_{1}^{Y_{t}\mid H_{t-1},A_{t}}\bigr)\right]\le m\,I^{\star},\quad I^{\star}=\textstyle\sup_{H,A}\mathrm{KL}(\cdot\|\cdot),
+K_{m}=\sum_{t=1}^{m}\E_{0}\!\left[\KL\bigl(P_{0}^{Y_{t}\mid H_{t-1},A_{t}}\,\bigl\|\,P_{1}^{Y_{t}\mid H_{t-1},A_{t}}\bigr)\right]\le m\,I^{\star},
+\quad I^{\star}=\textstyle\sup_{H,A}\mathrm{KL}(\cdot\|\cdot),\quad I^{\star}=\textstyle\sup_{H,A}\mathrm{KL}(\cdot\|\cdot),
 \label{eq:chain}
 \end{equation}
 and data processing through the decision rule yields the stated testing consequence. The testing
