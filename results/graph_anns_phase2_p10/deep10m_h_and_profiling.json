@@ -1,0 +1,17 @@
+{
+  "h_sensitivity": [
+    {
+      "h": 8,
+      "incremental_family_risk": 0.2274
+    },
+    {
+      "h": 9,
+      "incremental_family_risk": 0.2267
+    },
+    {
+      "h": 10,
+      "incremental_family_risk": 0.2216
+    }
+  ],
+  "profiling_59q_6actions_s": 0.091
+}

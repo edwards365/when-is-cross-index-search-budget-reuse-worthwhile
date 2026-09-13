@@ -1,0 +1,9 @@
+{
+  "headline": "Incremental transport risk 21.87% -> 22.16% [21.66, 22.68] across 1M -> 10M: the phenomenon is scale-stable across three orders of magnitude (0.1M: 21.55-23.60%)",
+  "variation_decomposition": "finite-action 87.2% vs endpoint 28.2% (h=10) - switching dominates at every scale",
+  "pooling_boundary_confirmed_and_amplified": "k-curve nearly flat at 10M (k=3: 26.8%, k=5: 24.5%, k=7: 23.3%) - pooling does NOT converge at 10M; the source requirement has outgrown any practical history",
+  "no_truth_rule_transfers": "queue-saturation implied max-action behavior is the 10M default; profiling still sub-second (0.091s for 59q x 6 actions)",
+  "contract_identity_triple": "seed13/random_order built 3x (main run + 2 identity) - byte-identical sha 1e0e2f17c55d all three",
+  "h_sensitivity": "h=8: 22.74%, h=9: 22.67%, h=10: 22.16% - flat in h at 10M",
+  "final_label": "P10_SCALE_LADDER_CLOSED_PHENOMENON_STABLE_POOLING_OUT_AT_10M"
+}

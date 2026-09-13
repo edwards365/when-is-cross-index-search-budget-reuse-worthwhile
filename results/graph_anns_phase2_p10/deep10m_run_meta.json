@@ -1,0 +1,14 @@
+{
+  "forensics_query_base_raw_overlap": 0,
+  "hdf5_sha256": "a0a44dfe80c58e63860862eeea2d34e62cff958dc3aec14fd65263d1d3c751f8",
+  "base_shape": [
+    9990000,
+    96
+  ],
+  "identity_builds": [
+    "deep10m__identity1",
+    "deep10m__identity2"
+  ],
+  "identity_byte_identical": false,
+  "wall_total_seconds": 29512.521272420883
+}

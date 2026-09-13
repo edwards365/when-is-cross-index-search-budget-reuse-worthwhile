@@ -1,0 +1,38 @@
+{
+  "scale": "deep-image 9.99M x 96 (angular/cosine)",
+  "builds": 8,
+  "queries": 500,
+  "finite_action_variation": 0.872,
+  "endpoint_variation": 0.282,
+  "unresolved_mass": 0.09,
+  "absolute_risk": 0.43607142857142855,
+  "incremental_risk": 0.22157142857142856,
+  "bootstrap_ci_incremental": [
+    0.21660915178571433,
+    0.22684754464285714
+  ],
+  "identity_byte_identical": true,
+  "pooling": [
+    {
+      "k": 3,
+      "mean_risk": 0.2679875,
+      "risk_p95": 0.3625999999999998
+    },
+    {
+      "k": 5,
+      "mean_risk": 0.24521249999999997,
+      "risk_p95": 0.3001999999999999
+    },
+    {
+      "k": 7,
+      "mean_risk": 0.23349999999999999,
+      "risk_p95": 0.264
+    }
+  ],
+  "h_sensitivity": {
+    "h8": 0.2274,
+    "h9": 0.2267,
+    "h10": 0.2216
+  },
+  "profiling_59q_6actions_s": 0.091
+}
