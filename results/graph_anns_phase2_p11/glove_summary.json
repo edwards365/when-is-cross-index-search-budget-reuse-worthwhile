@@ -1,0 +1,45 @@
+{
+  "dataset": "GloVe-100 angular (1.19M x 100)",
+  "builds": 8,
+  "queries": 500,
+  "finite_action_variation": 0.674,
+  "endpoint_variation": 0.278,
+  "unresolved_mass": 0.284,
+  "incremental_risk": 0.17535714285714282,
+  "bootstrap_ci": [
+    0.16891316964285716,
+    0.1811145089285713
+  ],
+  "h_sensitivity": {
+    "h8": 0.1966,
+    "h9": 0.1909,
+    "h10": 0.1754
+  },
+  "pooling": [
+    {
+      "k": 3,
+      "mean_risk": 0.4519
+    },
+    {
+      "k": 5,
+      "mean_risk": 0.4336
+    },
+    {
+      "k": 7,
+      "mean_risk": 0.4248
+    }
+  ],
+  "conformal_k7": [
+    {
+      "alpha": 0.125,
+      "realized": 0.0647,
+      "valid": true
+    },
+    {
+      "alpha": 0.15,
+      "realized": 0.0647,
+      "valid": true
+    }
+  ],
+  "identity_note": "identity builds not run in compact cell (P10 covers contract identity)"
+}

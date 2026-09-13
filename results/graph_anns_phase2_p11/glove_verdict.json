@@ -1,0 +1,11 @@
+{
+  "dataset": "GloVe-100 angular, 1.19M x 100, 8 builds, 500 preregistered queries, forensics PASS",
+  "headline": "incremental transport risk 17.54% [16.89, 18.11] - a THIRD dataset family (word-embedding, angular geometry, 100-dim) confirms the phenomenon",
+  "variation": {"V_fin": 0.674, "V_end": 0.278, "unresolved": 0.284,
+                 "note": "GloVe has higher endpoint/unresolved mass (28.4%) - angular geometry is harder; but finite-action still dominates endpoint variation"},
+  "h_sensitivity": {"h8": 0.1966, "h9": 0.1909, "h10": 0.1754, "note": "flat in h, above 2% gate at h=8"},
+  "pooling_uncached": "k=3: 45.2%, k=5: 43.4%, k=7: 42.5% - pooling DOES NOT work on GloVe at k<=7 (raw-curve much flatter); worst scale-dependence yet",
+  "conformal_theorem3": {"alpha_0.125": "6.47% <= 12.5% valid", "alpha_0.15": "6.47% <= 15% valid",
+                          "note": "valid at pool-resolution limit with a THIRD dataset family (word embeddings, angular)"},
+  "significance": "coverage now: 3 dataset families (image SIFT, text-embed Arxiv, word-vec GloVe) x 3 geometric spaces (L2-128, cosine-768, angular-100) x scales 10K-10M x 3 implementations - the phenomenon and the theorem's validity are dataset-family-general"
+}

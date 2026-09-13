@@ -1,0 +1,11 @@
+[11:37:13] base (1183514, 100) test (10000, 100) truth (10000, 100)
+[11:37:14] forensics: query/base overlap = 0
+[11:43:06] build 1/8 glove100__seed13__random_order: 351s hits@ef200=8.646
+[11:48:23] build 2/8 glove100__seed13__lid_ascending_by_norm: 316s hits@ef200=8.736
+[11:54:01] build 3/8 glove100__seed83__random_order: 338s hits@ef200=8.672
+[11:59:37] build 4/8 glove100__seed83__lid_ascending_by_norm: 335s hits@ef200=8.716
+[12:05:31] build 5/8 glove100__seed197__random_order: 354s hits@ef200=8.626
+[12:11:07] build 6/8 glove100__seed197__lid_ascending_by_norm: 335s hits@ef200=8.720
+[12:17:02] build 7/8 glove100__seed2029__random_order: 354s hits@ef200=8.670
+[12:22:27] build 8/8 glove100__seed2029__lid_ascending_by_norm: 323s hits@ef200=8.686
+[12:22:27] builds done in 45.2 min
