@@ -1,0 +1,33 @@
+{
+  "A": {
+    "arm": "A_single_thread",
+    "n_builds": 100,
+    "pair_risk_mean": 0.2162,
+    "pair_risk_p95": 0.246,
+    "pair_risk_max": 0.296,
+    "frac_above_2pct": 1.0,
+    "conformal_k9_alpha010_realized": 1.0,
+    "ks_median": 0.1201
+  },
+  "B": {
+    "arm": "B_8thread",
+    "n_builds": 100,
+    "pair_risk_mean": 0.2164,
+    "pair_risk_p95": 0.248,
+    "pair_risk_max": 0.304,
+    "frac_above_2pct": 1.0,
+    "conformal_k9_alpha010_realized": 1.0,
+    "ks_median": 0.113
+  },
+  "grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200
+  ],
+  "H": 10,
+  "n_q": 500,
+  "dataset": "Arxiv-Nomic-100 angular (10K farm)"
+}
