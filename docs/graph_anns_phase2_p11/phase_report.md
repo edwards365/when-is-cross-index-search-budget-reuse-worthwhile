@@ -89,3 +89,16 @@ Integrates the complete experimental round into the manuscript:
   compile-time error that would have broken Overleaf.
 - Validation: env/brace/cite/label/figure clean; zero broken row terminators; all 14
   content probes present. Main: 54.8k chars, 2 figs, 6 tables.
+
+## Step 5 — v8 revision (scope expansion integrated)
+
+All new experimental results are now in the manuscript:
+- Abstract: GloVe-100 third dataset family (17.54%); Thm-3 matrix wording (4 scales,
+  2 HNSW impls + Vamana, 3 dataset families, GloVe at resolution limit, farm depth).
+- Contributions bullet: three dataset families x three geometric spaces x four scales
+  x three implementation families.
+- 7.5: GloVe-100 paragraph (17.54% [16.89,18.11]; V_fin 67.4% vs V_end 27.8%; 28.4%
+  unresolved; Thm3 at pool resolution 6.47%<=12.5%; uncached pooling worst 42.5%).
+- thm3 table: GloVe row. Theorem-3 statement: implementation-blind cross-family sentence.
+- 7.4 matrix sentence: extended with Vamana (0%) and GloVe-100 (6.47%).
+Validation: env/brace/cite/label/figure/row-terminator checks clean; 8 content probes pass.
