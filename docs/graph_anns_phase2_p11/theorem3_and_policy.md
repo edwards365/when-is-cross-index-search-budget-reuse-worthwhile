@@ -97,3 +97,13 @@ realized 0.05% <= 5% (abstain 0.5-1.8%); (0.10, k=23): 1.0%/0.93%; (0.10, k=10):
 1.4%/1.25%. The vacuous config (alpha=0.05, k=10: m=11 > 10) correctly abstains 100% —
 the feasibility condition is operational, not just theoretical. Theorem 3 now has
 two-implementation empirical support (hnswlib + clean Faiss).
+
+## Multi-scale x multi-implementation validity matrix (final)
+
+Theorem 3 now has a complete validity matrix: 3 scales (10K farm / 100K / 1M / 10M) x 3
+implementations (hnswlib, clean Faiss, farm) — ALL non-vacuous configurations hold
+(realized <= nominal alpha); the vacuous configuration abstains 100% (feasibility
+condition operational); target-dependent source selection breaks the guarantee
+(3.8-4.4% > alpha), identifying exchangeability as the load-bearing premise. The 1M/10M
+cells are resolution-limited (k=7 -> alpha >= 0.125) and valid at that resolution with
+zero-modest abstention (10M: 36% abstain from BOT mass).

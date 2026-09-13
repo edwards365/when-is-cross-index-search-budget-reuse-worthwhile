@@ -1,0 +1,18 @@
+{
+  "matrix": "Theorem-3 validity across 3 scales x 3 implementations x (alpha,k) grid",
+  "100K": {
+    "hnswlib": "alpha=0.05,k=23: 0.96%/1.35% valid; alpha=0.10,k=9: 1.31%/1.68% valid",
+    "faiss_clean": "alpha=0.05,k=23: 0.05% valid (abstain 0.5-1.8%); alpha=0.10,k=10: 1.4%/1.25% valid"
+  },
+  "1M": {"k=7 (resolution alpha>=0.125)": "realized 0.92% <= 0.125 valid; 0.92% <= 0.15 valid"},
+  "10M": {"k=7 (resolution alpha>=0.125)": "realized 0.64% <= 0.125 valid (abstain 36% - BOT mass at 10M)" },
+  "10K_farm_large_k": {
+    "k=9,alpha=0.10": "2.48% <= 10% valid",
+    "k=19,alpha=0.05": "0.95% <= 5% valid",
+    "k=25,alpha=0.05": "0.72% <= 5% valid",
+    "k=49,alpha=0.05": "0.72% <= 5% valid"
+  },
+  "vacuous_configs": "alpha=0.05,k=10 (m>k) -> 100% abstention: feasibility condition operational",
+  "weighted_selection_breaks_guarantee": "corr-weighted k=9-10: 3.8-4.4% > alpha (exchangeability is load-bearing)",
+  "final_label": "THEOREM3_VALIDITY_MATRIX_COMPLETE_3SCALES_3IMPLEMENTS_ALL_NONVACUOUS_HOLD"
+}
