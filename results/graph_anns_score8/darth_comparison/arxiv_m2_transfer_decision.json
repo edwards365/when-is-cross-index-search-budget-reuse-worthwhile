@@ -1,0 +1,51 @@
+{
+  "module": "M2_FROZEN_SOURCE_TO_INDEPENDENT_REBUILD",
+  "status": "WITHIN_BUILD_CALIBRATION_FAILURE_DOMINATES_TRANSFER",
+  "source_model_accepted_builds": 0,
+  "target_trained_accepted_builds": 0,
+  "pooled": [
+    {
+      "method": "DARTH_SOURCE_FROZEN",
+      "builds": 10,
+      "mean_cert_risk": 0.189,
+      "max_cert_ucb": 0.24220607868718938,
+      "mean_eval_risk": 0.1846,
+      "mean_eval_recall": 0.9250200000000002,
+      "mean_dists": 480.1908,
+      "mean_p95_dists": 1234.5099999999998
+    },
+    {
+      "method": "DARTH_TARGET_TRAINED",
+      "builds": 10,
+      "mean_cert_risk": 0.16699999999999998,
+      "max_cert_ucb": 0.2254088693435889,
+      "mean_eval_risk": 0.1743,
+      "mean_eval_recall": 0.9284500000000001,
+      "mean_dists": 490.9135,
+      "mean_p95_dists": 1287.7549999999997
+    }
+  ],
+  "source_minus_target_trained_eval_risk": {
+    "observed": 0.0103,
+    "ci95": [
+      -0.0002999999999999999,
+      0.0214
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "source_minus_target_trained_mean_dists": {
+    "observed": -10.7227,
+    "ci95": [
+      -35.28868500000001,
+      12.809827499999981
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "source_frozen_lobo_risk_range": [
+    0.1821111111111111,
+    0.18588888888888888
+  ],
+  "interpretation": "Frozen-source and target-trained DARTH are both unsafe in every build. Retraining on the target build does not close the registered safety gap, so this matrix does not support rebuild shift as the primary DARTH failure mechanism."
+}

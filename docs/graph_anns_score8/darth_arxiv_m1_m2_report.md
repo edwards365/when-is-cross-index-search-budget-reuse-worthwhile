@@ -1,0 +1,10 @@
+# DARTH versus TCP on Arxiv-Nomic-100K: M1--M2
+
+The second-dataset adapter uses the normalized 768-dimensional Arxiv-Nomic corpus with a 100,000-vector base. Training rows 100000--102000, certification rows 102000--102500, and evaluation rows 102500--103500 are content-disjoint from the base and from one another. The official DARTH source tree remained unmodified: its `SIFT100M` name is used only as a path contract, while dimensionality is read from fvec headers. A 100-query no-early-stop bridge smoke reached Recall@10 0.996.
+
+Across ten frozen insertion-order builds, target-trained DARTH passed zero certificates. Mean certification risk was 16.70%, maximum one-sided 95% UCB 22.54%, and evaluation risk 17.43%. The audited deployment therefore fell back to fixed-safe. TCP passed all ten independent target certificates, with 0.08% mean certification risk, maximum UCB 0.95%, and 0.06% evaluation risk, but its max-of-nine action equalled fixed-safe on every build. Consequently TCP and fixed-safe had identical mean distance computations (2422.63) and mean per-build p95 (3290.03): this dataset supplies a safety result but no efficiency headroom.
+
+M2 used a different frozen source-build model for every target (seed 1103 except that target 1103 used seed 1229). Frozen-source DARTH again passed zero certificates: certification risk 18.90%, maximum UCB 24.22%, and evaluation risk 18.46%. Target training reduced the point risk to 17.43%, but the source-minus-target paired interval crossed zero (difference 1.03 percentage points, 95% CI [-0.03, 2.14]); the computation interval also crossed zero. Thus the dominant failure is within-build safety calibration, not rebuild transfer alone.
+
+Together with SIFT, the defensible conclusion is heterogeneous: DARTH's raw efficiency is consistently inadmissible under the registered safety rule; ICBA blocks that unsafe deployment on both datasets; TCP has strong conditional efficiency value on SIFT but collapses safely to fixed-safe on Arxiv. No universal cross-dataset efficiency claim is made.
+
