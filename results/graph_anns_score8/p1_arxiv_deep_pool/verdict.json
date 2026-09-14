@@ -1,0 +1,13 @@
+{
+  "label": "ARXIV_DEEP_POOL_VALIDATED",
+  "all_point_valid": true,
+  "all_target_cluster_ci_valid": true,
+  "legacy_summary_preserved": true,
+  "legacy_bug": "boolean success was compared with H=10, making every query appear failed",
+  "input_sha256": "f8666b4d34d0681eb5f8222d03783562fbcf89afcb3617e5fbcc763582864b63",
+  "result_sha256": "46e36147e1cfaaf9fb236005da70f06fb75307f326c605abeb0f5204c24efb6c",
+  "ann_search_invoked": false,
+  "index_built": false,
+  "seed": 991,
+  "bootstraps": 5000
+}

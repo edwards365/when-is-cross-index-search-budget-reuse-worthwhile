@@ -1,0 +1,30 @@
+{
+  "stage": "P1_ARXIV_10K_DEEP_POOL_PURE_CODE_REAUDIT",
+  "branch": "exp/graph_anns_score8_extension",
+  "parent_commit": "6638e34101d592ed8a4d0e7cf44fc900c5ec2956",
+  "input": "results/graph_anns_phase2_p11/arxiv_farm_hits.npz",
+  "input_sha256": "f8666b4d34d0681eb5f8222d03783562fbcf89afcb3617e5fbcc763582864b63",
+  "configs": [
+    {
+      "k": 9,
+      "alpha": 0.1
+    },
+    {
+      "k": 19,
+      "alpha": 0.05
+    },
+    {
+      "k": 25,
+      "alpha": 0.05
+    },
+    {
+      "k": 49,
+      "alpha": 0.05
+    }
+  ],
+  "query_role": "frozen_arxiv_farm_queries_only",
+  "ann_search_invoked": false,
+  "index_built": false,
+  "legacy_outputs_modified": false,
+  "final_label": "ARXIV_DEEP_POOL_VALIDATED"
+}
