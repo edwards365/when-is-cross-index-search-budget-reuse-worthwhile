@@ -473,13 +473,11 @@ uncertified; certified routes collapse to the maximum budget.}
 Method & Truth & Risk (SIFT / Arxiv) & DistC. & Certification \\
 \midrule
 M1 naive transport ($k{=}1$) & 0 & 21.89\% / 18.06\% & 2.6/2.7$\times$ & none \\
-M2 pooled replay (max over 22 cached source labels) & 0 target$^{\dagger}$ & 0.18\% / 0.09\% (abst.\ 2.4/2.7\%) & 1.45/1.34$\times$ & uncert.; LOBO $\le$2.1\% \\
+M2 pooled replay (max over 22 cached source labels) & 0 target & 0.18\% / 0.09\% & 1.45/1.34$\times$ & uncert.; LOBO $\le$2.1\% \\
 M3 frozen max-action CP ($M{=}1$, $m{=}59$) & 59 q & 0.87\% / 1.36\% & 4.16/5.28$\times$ & pass-prob mean 0.63/0.47; certifiable targets 71\%/38\% \\
 M4a point-screen sel.-then-cert. & 469 q & --- & --- & 0/48 (zero-fail.\ violated) \\
 M4b Theorem-2 screen, then certify & 469 q & --- & --- & 0/48; margin too thin \\
 M5 always maximum action & 0 & 0.80\% / 1.26\% & 4.09/5.14$\times$ & not auto.\ safe \\
-M2 pooled replay (max over 22 cached source labels) & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
-M2 pooled replay (max over 22 cached source labels) & 0.12--0.99\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\times$ & uncert.; dominates M2 when truth affordable \\
 M5$'$ target re-profile + per-query truth cache & 0.12--0.99\\,s per 59 q (truth incl.) & endpoint mass only & 1.00$\\times$ & uncert.; dominates M2 when truth affordable \\
 M6 per-query oracle & full & endpoint mass only & 1.00$\\times$ & non-deployable ref. \\\\
 \bottomrule
