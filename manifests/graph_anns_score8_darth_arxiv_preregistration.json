@@ -1,0 +1,21 @@
+{
+  "module": "DARTH_TCP_SECOND_DATASET_ARXIV",
+  "status": "FROZEN_BEFORE_ADAPTER_OR_TRUTH_GENERATION",
+  "source_hdf5": "/home/wlk/projects/navigation-aware-resistance-hnsw/data/raw/arxiv-nomic-768-normalized.hdf5",
+  "base_train_row_interval": [0, 100000],
+  "query_roles": {
+    "training": [100000, 102000],
+    "certification": [102000, 102500],
+    "evaluation": [102500, 103500]
+  },
+  "role_overlap_required": 0,
+  "official_darth_loader_alias": "SIFT100M path contract only; dimension read from fvec headers",
+  "metric": "squared L2 on normalized Nomic embeddings",
+  "k": 10,
+  "target_recall": 0.9,
+  "alpha": 0.05,
+  "delta": 0.05,
+  "build_seeds": [1103,1229,1361,1499,1621,1747,1877,1999,2131,2267],
+  "forbidden_roles": ["validation-dev","formal-test","future-replication"],
+  "evidence_scope": "SECOND_DATASET_FIXED_TARGET_COMPARISON"
+}
