@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "module": "M1_FIXED_BASELINES_AND_CERTIFICATION",
+  "status": "FROZEN_BEFORE_FIXED_BASELINE_RUNS",
+  "note": "DARTH evaluation was executed before this file, but no fixed-ef certification or evaluation result had been generated or inspected. The complete grid is reported; deployment selection uses certification only.",
+  "ef_search_grid": [10, 20, 40, 80, 120, 160, 200],
+  "maximum_ef_search": 200,
+  "fixed_baseline_selection": "Choose the smallest efSearch whose independent 500-query certification one-sided 95% Clopper-Pearson UCB for P(Recall@10 < 0.90) is <= 0.05; if none qualifies, use efSearch=200 as fixed-safe fallback.",
+  "darth_certification": "Accept frozen DARTH only if its independent 500-query one-sided 95% Clopper-Pearson risk UCB is <= 0.05; otherwise reject and deploy the fixed-safe fallback without changing the DARTH model or stopping rule.",
+  "evaluation_rule": "The 1000-query evaluation role is used once for reporting and cannot select efSearch, retrain a model, or change certification.",
+  "reported_metrics": ["mean_recall_at_10", "query_failure_rate", "one_sided_95pct_CP_UCB_on_certification", "mean/p50/p95/p99_distance_computations", "mean/p95/p99_elapsed_ms"],
+  "secondary_target": "Recall@10 = 1.00 is descriptive in M1; it does not replace the primary 0.90 safety gate.",
+  "forbidden_roles": ["validation-dev", "formal-test", "future-replication"]
+}
