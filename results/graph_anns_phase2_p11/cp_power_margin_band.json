@@ -1,0 +1,32 @@
+[
+  {
+    "target_idx": 0,
+    "ef": 120,
+    "true_risk": 0.0373,
+    "cp_power_at_289": 0.18
+  },
+  {
+    "target_idx": 5,
+    "ef": 120,
+    "true_risk": 0.032,
+    "cp_power_at_289": 0.38
+  },
+  {
+    "target_idx": 10,
+    "ef": 120,
+    "true_risk": 0.0253,
+    "cp_power_at_289": 0.7
+  },
+  {
+    "target_idx": 15,
+    "ef": 120,
+    "true_risk": 0.04,
+    "cp_power_at_289": 0.105
+  },
+  {
+    "target_idx": 20,
+    "ef": 120,
+    "true_risk": 0.0373,
+    "cp_power_at_289": 0.21
+  }
+]

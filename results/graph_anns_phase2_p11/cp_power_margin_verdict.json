@@ -1,0 +1,5 @@
+{
+  "finding": "margin-band actions ARE certifiable at m=289 with non-zero-failure CP: 2/5 sampled targets pass with >30% probability. The 'collapse to max-budget' is a zero-failure-protocol artifact at m=59, not a structural impossibility.",
+  "details": "5 targets with margin-band actions (risk 2.5-4.0%): CP power ranges 0.10-0.70. Lower-risk margin actions (2.5%) pass at 70%; higher-risk (4.0%) at 10.5%.",
+  "answer_to_reviewer": "Q7 answered: certification protocol choice matters. LTT with allowed non-zero failures and m~300 certifies margin-band actions that zero-failure CP at m=59 rejects."
+}
