@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "stage": "Graph-ANNS ICBA-TCP versus DARTH",
+  "status": "FROZEN_BEFORE_SCIENTIFIC_RESULTS",
+  "parent_commit": "028fb0c497f73eaff208420730999e398b6ae440",
+  "main_worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
+  "branch": "exp/graph_anns_score8_extension",
+  "heavy_root": "/home/wlk/data500/graph_anns_score8/darth_comparison",
+  "external_source": {
+    "repository": "https://github.com/MChatzakis/DARTH.git",
+    "commit": "0d9bafcf31d1d79668bc71139fe93fa5e70b5185",
+    "license": "MIT",
+    "license_sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+    "location": "/home/wlk/data500/graph_anns_score8/external/DARTH",
+    "modification_policy": "Preserve official source checkout; integration adapters and build products live outside it."
+  },
+  "research_positioning": {
+    "ICBA": "Method-agnostic cross-rebuild audit, certification, and route-selection layer.",
+    "TCP": "Exchangeable-build conformal pooling policy for cached repeated-query labels.",
+    "DARTH": "Learned adaptive early termination within a Faiss HNSW search for declarative recall.",
+    "primary_claim": "No universal dominance is required. Safety is mandatory; conditional value requires at least one preregistered advantage."
+  },
+  "datasets": ["SIFT-100K", "Arxiv-Nomic-100K"],
+  "primary_dataset": "SIFT-100K",
+  "implementation": "DARTH official Faiss HNSW fork, CPU only",
+  "query_result_k": 10,
+  "targets": {
+    "primary": "Recall@10 >= 0.90 (at least 9 of 10 exact neighbors)",
+    "secondary": "Recall@10 = 1.00 (10 of 10 exact neighbors)",
+    "risk_limits": {"primary": 0.05, "secondary": 0.10}
+  },
+  "fixed_index_parameters": {"M": 16, "efConstruction": 100, "maximum_efSearch": 200, "threads": 1},
+  "fixed_build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267],
+  "query_roles": {
+    "source_training": 2000,
+    "source_validation": 500,
+    "target_certification": 500,
+    "target_evaluation": 1000,
+    "rule": "Content hashes and IDs must be pairwise disjoint; evaluation cannot alter model, threshold, feature set, pool, or fallback."
+  },
+  "registered_modules": [
+    {
+      "id": "M0",
+      "name": "Official-source and executable bridge",
+      "purpose": "Pin source/license/toolchain, compile CPU Faiss and hnsw_test, convert frozen datasets without semantic loss, and reproduce one official-mode command.",
+      "gate": "Clean official checkout, deterministic adapter hashes, native no-early-stop exact recall agrees with an independent evaluator, and one DARTH inference completes."
+    },
+    {
+      "id": "M1",
+      "name": "Same-index efficacy",
+      "methods": ["DARTH_TARGET_TRAINED", "TCP_TARGET_POOL", "FIXED_EF", "MAX_EF", "PER_QUERY_ORACLE_NON_DEPLOYABLE"],
+      "purpose": "Measure each method in its favorable within-target regime on identical Faiss HNSW builds.",
+      "metrics": ["risk", "mean/p50/p95/p99 distance computations", "mean/p95/p99 latency", "Recall@10", "fallback/abstention", "training and label cost"]
+    },
+    {
+      "id": "M2",
+      "name": "Frozen source to independent rebuild",
+      "methods": ["DARTH_SOURCE_FROZEN", "TCP_SOURCE_POOL", "FIXED_EF", "MAX_EF", "TARGET_RETRAINED_DARTH", "TCP_TARGET_POOL"],
+      "purpose": "Use ICBA to audit whether a frozen learned stopper or cached build pool transports across independent target rebuilds.",
+      "metrics": ["incremental risk", "target-build cluster interval", "LOBO", "tail cost", "calibration/retraining requirement"]
+    },
+    {
+      "id": "M3",
+      "name": "Data-refresh recovery",
+      "refresh": [0.01, 0.05, 0.10],
+      "methods": ["DARTH_OLD_MODEL", "DARTH_TARGET_RETRAINED", "TCP_OLD_POOL", "TCP_REFRESHED_POOL", "MAX_EF"],
+      "purpose": "Distinguish out-of-assumption zero-recalibration transport from target-side recovery cost."
+    },
+    {
+      "id": "M4",
+      "name": "ICBA composition value",
+      "purpose": "Quantify whether auditing DARTH before deployment reduces unsafe acceptance or target labels relative to blind reuse, with abstention and fallback reported explicitly."
+    }
+  ],
+  "fairness": [
+    "Same Faiss HNSW implementation, vector snapshot, build seed/order, queries, exact truth, k, recall event, hardware, threads, and timing protocol within each comparison cell.",
+    "Distance computations are primary efficiency currency; wall-clock is secondary unless affinity, warmup, cache, compiler, and interference controls pass.",
+    "TCP cached-history construction, DARTH training, truth generation, certification, and fallback costs are separately reported and amortized.",
+    "DARTH official defaults are reproduced first; any 100K adaptation is frozen before target evaluation and is not tuned per target.",
+    "Refreshed-snapshot TCP and target-retrained DARTH are recovery comparators, not zero-cost deployment methods."
+  ],
+  "statistics": {
+    "bootstrap": "target-build outer/query inner, 5000 repetitions, seed 991",
+    "confidence": 0.95,
+    "robustness": ["per dataset", "per build", "LOBO", "delete largest benefit build", "delete largest benefit 1% queries"]
+  },
+  "gates": {
+    "S_safety_strict": "No method is promoted unless both datasets meet the registered risk limit with target-build-cluster upper confidence bound and no uncontrolled unsafe acceptance.",
+    "V_conditional_value": "After safety, ICBA/TCP passes relative-SOTA value if at least one of the following has a paired 95% CI excluding zero: lower mean distance computations, non-worse mean and lower p95/p99, at least 30% fewer target labels, at least 5% lower recovery/retraining cost at N=1e5, lower cross-rebuild risk, or valid finite-sample build-level certification unavailable to the compared DARTH configuration.",
+    "N_nondominance": "Other registered dimensions must be reported as non-inferior, inferior, or not estimable; universal superiority is not required.",
+    "R_robustness": "Any claimed advantage must be same-direction on both datasets or explicitly dataset-conditional, and survive LOBO plus deletion checks."
+  },
+  "stop_rules": [
+    "Engineering preflight is limited to eight hours; integration failure is not scientific method failure.",
+    "Run M0 and a SIFT one-build smoke before M1-M4.",
+    "Do not access validation-dev, formal-test, future-replication, or old sealed roles.",
+    "Do not tune after target evaluation.",
+    "Do not start ConANN until DARTH is sealed."
+  ],
+  "allowed_outcomes": [
+    "ICBA_TCP_COMPLEMENTARY_TO_DARTH_WITH_CERTIFIED_ADVANTAGE",
+    "TCP_SAFER_ACROSS_REBUILDS_DARTH_FASTER_WITHIN_INDEX",
+    "DARTH_DOMINATES_DEPLOYABLE_COST_TCP_RETAINS_AUDIT_VALUE",
+    "DATASET_CONDITIONAL_COMPLEMENTARITY",
+    "NO_INCREMENTAL_VALUE_OVER_DARTH",
+    "DARTH_INTEGRATION_NOT_EXECUTABLE_NO_SCIENTIFIC_CONCLUSION",
+    "INVALID_COMPARISON_PROTOCOL"
+  ],
+  "evidence_level": "PREREGISTERED_RELATIVE_SOTA_COMPARISON"
+}
