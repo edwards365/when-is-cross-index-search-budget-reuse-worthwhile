@@ -1,0 +1,116 @@
+{
+  "module": "M1_MULTIBUILD_INTERIM",
+  "builds": 10,
+  "source_builds_per_target": 9,
+  "formal_tcp_alpha_floor": 0.1,
+  "formal_tcp_95pct_certificate_available": false,
+  "tcp_action": "MAX_OF_NINE_SOURCE_MIN_SAFE_ACTIONS_PLUS_INDEPENDENT_TARGET_CERTIFICATION",
+  "warning": "Nine source builds cannot alone provide a 5% exchangeable-build conformal certificate; do not claim Theorem 3 at alpha=.05 for this matrix.",
+  "pooled": [
+    {
+      "method": "DARTH_AUDITED_DEPLOYED",
+      "builds": 10,
+      "accepted_builds": 0,
+      "mean_cert_risk": 0.1858,
+      "max_cert_ucb": 0.2693566915004791,
+      "mean_eval_risk": 0.0114,
+      "mean_dists": 964.2472,
+      "mean_p95_dists": 1273.9299999999998,
+      "mean_ms": 0.1409345584
+    },
+    {
+      "method": "DARTH_TARGET_TRAINED_RAW",
+      "builds": 10,
+      "accepted_builds": 0,
+      "mean_cert_risk": 0.1858,
+      "max_cert_ucb": 0.2693566915004791,
+      "mean_eval_risk": 0.1802,
+      "mean_dists": 389.0627,
+      "mean_p95_dists": 747.7599999999998,
+      "mean_ms": 0.6947177449999999
+    },
+    {
+      "method": "FIXED_CERTIFIED",
+      "builds": 10,
+      "accepted_builds": 10,
+      "mean_cert_risk": 0.01,
+      "max_cert_ucb": 0.028683663885716783,
+      "mean_eval_risk": 0.0114,
+      "mean_dists": 964.2472,
+      "mean_p95_dists": 1273.9299999999998,
+      "mean_ms": 0.1409345584
+    },
+    {
+      "method": "TCP_AUDITED_DEPLOYED",
+      "builds": 10,
+      "accepted_builds": 10,
+      "mean_cert_risk": 0.0258,
+      "max_cert_ucb": 0.04581964275099681,
+      "mean_eval_risk": 0.024,
+      "mean_dists": 532.2958000000001,
+      "mean_p95_dists": 1298.3149999999998,
+      "mean_ms": 0.0736947584
+    },
+    {
+      "method": "TCP_RAW_MAX9",
+      "builds": 10,
+      "accepted_builds": 10,
+      "mean_cert_risk": 0.0258,
+      "max_cert_ucb": 0.04581964275099681,
+      "mean_eval_risk": 0.024,
+      "mean_dists": 532.2958000000001,
+      "mean_p95_dists": 1298.3149999999998,
+      "mean_ms": 0.0736947584
+    }
+  ],
+  "bootstrap": [
+    {
+      "left": "TCP_RAW_MAX9",
+      "right": "FIXED_CERTIFIED",
+      "estimand": "mean_distance_computations_left_minus_right",
+      "observed": -431.95140000000004,
+      "ci95": [
+        -438.8471825,
+        -425.23616499999997
+      ],
+      "repetitions": 5000,
+      "seed": 991
+    },
+    {
+      "left": "DARTH_TARGET_TRAINED_RAW",
+      "right": "FIXED_CERTIFIED",
+      "estimand": "mean_distance_computations_left_minus_right",
+      "observed": -575.1845,
+      "ci95": [
+        -589.6727750000001,
+        -558.950425
+      ],
+      "repetitions": 5000,
+      "seed": 991
+    },
+    {
+      "left": "TCP_AUDITED_DEPLOYED",
+      "right": "FIXED_CERTIFIED",
+      "estimand": "mean_distance_computations_left_minus_right",
+      "observed": -431.95140000000004,
+      "ci95": [
+        -438.8471825,
+        -425.23616499999997
+      ],
+      "repetitions": 5000,
+      "seed": 991
+    },
+    {
+      "left": "DARTH_AUDITED_DEPLOYED",
+      "right": "FIXED_CERTIFIED",
+      "estimand": "mean_distance_computations_left_minus_right",
+      "observed": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ],
+      "repetitions": 5000,
+      "seed": 991
+    }
+  ]
+}

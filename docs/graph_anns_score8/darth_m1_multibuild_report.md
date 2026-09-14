@@ -1,0 +1,11 @@
+# DARTH versus TCP M1 multibuild report
+
+Status: **SIFT M1 conditional value passed; cross-dataset gate remains open.**
+
+Ten preregistered insertion-order rebuilds were constructed from the same SIFT-100K vectors. Exact-neighbor IDs were remapped through each inverse permutation, while query vectors and truth distances remained unchanged. All ten saved Faiss HNSW indexes have distinct SHA256 hashes and their one-query maximum-ef smoke achieved Recall@10 = 1.0000.
+
+For every build, a fresh 11-feature DARTH model was trained on its own frozen 2,000-query training role and evaluated only after independent 500-query certification. None of the ten DARTH models passed the 5% risk certificate: mean certification risk was 18.58% and the worst build's one-sided 95% upper bound was 26.94%. Raw DARTH retained strong efficiency (389.1 mean distance computations versus 964.2 for the certified fixed baseline), but mean evaluation risk was 18.02%; ICBA therefore rejected every raw model, after which its audited deployment equalled the certified fixed fallback.
+
+TCP used, for each target build and query, the maximum of the other nine builds' minimum-safe ef actions, followed by independent target certification. TCP passed all ten target certificates: mean certification risk 2.58%, worst one-sided 95% UCB 4.58%, and mean evaluation risk 2.40%. It reduced mean distance computations from 964.2 to 532.3 (44.8%); the nested target-build/query bootstrap difference was -432.0 with 95% CI [-438.8, -425.2]. Its p95 was slightly worse, 1298.3 versus 1273.9 (+1.9%), so the result is a mean-efficiency advantage with a reported tail tradeoff, not universal dominance. Exploratory mean wall time was 0.0737 ms for TCP versus 0.1409 ms for fixed and 0.6947 ms for raw DARTH, but wall-clock remains secondary until the controlled timing protocol is sealed.
+
+Nine source builds imply a conformal alpha floor of 1/(9+1)=0.10, so this matrix does **not** establish the exchangeable-build 5% theorem. Its 5% safety statement comes from the separate 500-query target certificate. The M1 result therefore supports ICBA/TCP conditional value on SIFT but does not close the preregistered two-dataset gate; Arxiv-Nomic and M2 frozen-source transfer remain required.
