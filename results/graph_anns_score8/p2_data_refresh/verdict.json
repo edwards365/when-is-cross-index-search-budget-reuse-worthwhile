@@ -1,0 +1,12 @@
+{
+  "label": "DATA_REFRESH_BREAKS_SOURCE_TRANSFER_BUT_WITHIN_SNAPSHOT_RECOVERS",
+  "strict_safety": true,
+  "transfer_noninferiority": false,
+  "refreshed_snapshot_pool_safe": true,
+  "lobo_robust": true,
+  "rows": 24,
+  "elapsed_seconds": 2493.7645037174225,
+  "heavy_root": "/home/wlk/data500/graph_anns_score8/data_refresh",
+  "evidence_level": "EXPLORATORY_PREREGISTERED_DATA_REFRESH",
+  "semantic_patch": "Label recomputed from frozen CSV without rerunning builds: when the registered old-to-refreshed risk non-inferiority margin fails and the within-refreshed pool remains safe, the specific transfer-break label takes precedence over the generic safety-only label."
+}

@@ -113,9 +113,10 @@ def main():
     safety=all(r["risk"]<=.10 and r["risk_ci_high"]<=.10 for r in old)
     transfer=all(r["risk"]-fresh[(r["dataset"],r["refresh_fraction"])]["risk"]<=.02 for r in old)
     robust=all(r["lobo_max"]<=.10 for r in old)
+    fresh_safe=all(fresh[(r["dataset"],r["refresh_fraction"])]["risk_ci_high"]<=.10 for r in old)
     if safety and transfer and robust: label="DATA_REFRESH_TRANSFER_SUPPORTED"
+    elif not transfer and fresh_safe: label="DATA_REFRESH_BREAKS_SOURCE_TRANSFER_BUT_WITHIN_SNAPSHOT_RECOVERS"
     elif safety: label="DATA_REFRESH_SAFETY_ONLY_COST_DEGRADED"
-    elif all(fresh[(r["dataset"],r["refresh_fraction"])]["risk_ci_high"]<=.10 for r in old): label="DATA_REFRESH_BREAKS_SOURCE_TRANSFER_BUT_WITHIN_SNAPSHOT_RECOVERS"
     else: label="DATA_REFRESH_BREAKS_CONFORMAL_TRANSPORT"
     verdict={"label":label,"strict_safety":safety,"transfer_noninferiority":transfer,"lobo_robust":robust,
              "rows":len(ROWS),"elapsed_seconds":time.time()-t,"heavy_root":str(b.HEAVY),

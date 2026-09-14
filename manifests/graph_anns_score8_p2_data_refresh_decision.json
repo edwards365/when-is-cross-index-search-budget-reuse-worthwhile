@@ -1,0 +1,29 @@
+{
+  "stage": "Graph-ANNS Score8 P2 data-refresh transfer",
+  "parent_preregistration_commit": "07f4e0fd5b7d47eb3efa6ca468088ce11978cb8d",
+  "implementation_commit": "3b390d88980dfdf1e84be3862a9e0670179a9fd4",
+  "decision": "DATA_REFRESH_BREAKS_SOURCE_TRANSFER_BUT_WITHIN_SNAPSHOT_RECOVERS",
+  "strict_transfer_gate": "FAIL",
+  "operational_risk_ceiling_gate": "PASS",
+  "within_refreshed_snapshot_pool_gate": "PASS_NON_DEPLOYABLE_UPPER_BOUND",
+  "tail_gate": "NO_FAVORABLE_SIGNAL_P95_EF_200",
+  "matrix": {"datasets": 2, "refresh_fractions": 3, "builds_per_cell": 10, "queries": 1000, "result_rows": 24},
+  "statistics": {"bootstrap_repetitions": 5000, "seed": 991, "outer_unit": "target build", "inner_unit": "query"},
+  "raw_tensor_sha256": {
+    "SIFT_old": "b4fb4611aec26fcd8dea504dcee6643b2e99fe8a545c84d3cfe411647cfb3d25",
+    "SIFT_refresh_01": "492bbf491c5f7c508d573f44dc1b93337a7eee8b979975d0d59d87d96e20c184",
+    "SIFT_refresh_05": "07316a22c13254d2e3632c1cac8510ef7f010fb7e174fa6b04f3b9ef76ef11c2",
+    "SIFT_refresh_10": "7f1b1ef2cc0bb5f5be3c754dc8bea3ab5771e2a52c7f5aa7e81581bbca2917ca",
+    "Arxiv_old": "f82376893982878298e9195009d0fa40292eb56fa10fe8fa9e3a89f4a9792097",
+    "Arxiv_refresh_01": "54277b44cb55802d54ef98e6f9afd8b9fac24e9dece75ed44bb701608ce1a852",
+    "Arxiv_refresh_05": "f0fa4993ff83a1af260706f226e2b3dfc68ea44214f02625dddb036e09b65b25",
+    "Arxiv_refresh_10": "f576a85ded50b33fcd4f74f30bbae6bf8faa489817703171328cd63938c65bbf"
+  },
+  "compact_result_sha256_before_semantic_label_patch": {
+    "data_refresh_matrix.csv": "d383e010a8c13e1e3599edc37c8086ddc11832d270dc6819e6194970b3577869"
+  },
+  "tests": "6/6 PASS",
+  "forbidden_roles_accessed": false,
+  "old_results_modified": false,
+  "evidence_level": "EXPLORATORY_PREREGISTERED_DATA_REFRESH"
+}
