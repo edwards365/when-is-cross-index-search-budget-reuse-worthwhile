@@ -1,0 +1,19 @@
+{
+  "module": "M4_ICBA_AUDIT_BEFORE_DEPLOY",
+  "safety_threshold": 0.05,
+  "certification_queries_per_build": 500,
+  "darth_strategy_build_decisions": 70,
+  "darth_unsafe_deployments_avoided": 70,
+  "tcp_strategy_build_decisions": 70,
+  "tcp_unsafe_deployments_observed": 0,
+  "tcp_best_audited_mean_reduction_pct_by_cell": {
+    "rebuild_0pct": 44.796749215346445,
+    "refresh_10pct": 0.0,
+    "refresh_1pct": 26.528053634665458,
+    "refresh_5pct": 49.01645144471421
+  },
+  "interpretation": "Audit-before-deploy blocks unsafe DARTH use and conditionally preserves TCP efficiency; at 10% refresh TCP safely collapses to fixed-safe rather than claiming recovery.",
+  "wall_clock_status": "DESCRIPTIVE_ONLY_NOT_PRIMARY",
+  "formal_tcp_95pct_exchangeable_build_certificate": false,
+  "safety_source": "INDEPENDENT_TARGET_QUERY_CERTIFICATION"
+}
