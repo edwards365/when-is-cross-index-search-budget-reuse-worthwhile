@@ -1,0 +1,19 @@
+{
+  "stage": "P2_DATA_REFRESH_SMOKE",
+  "status": "PASS",
+  "dataset": "SIFT-100K",
+  "refresh_fraction": 0.01,
+  "n_queries": 100,
+  "n_deleted": 1000,
+  "n_inserted": 1000,
+  "base_size_before": 100000,
+  "base_size_after": 100000,
+  "identity_overlap_query_base": 0,
+  "serialized_replay": true,
+  "old_single_build_budget_refresh_risk": 0.3,
+  "old_bottom_failure_rate": 0.02,
+  "elapsed_seconds": 29.491170644760132,
+  "input_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+  "heavy_output": "/home/wlk/data500/graph_anns_score8/data_refresh/smoke_sift_1pct",
+  "note": "Smoke is infrastructure/semantic evidence only; it is not the registered k=9 scientific result."
+}
