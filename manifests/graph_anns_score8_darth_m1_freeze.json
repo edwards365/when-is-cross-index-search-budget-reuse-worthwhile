@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "module": "M1_SAME_INDEX_EFFICACY",
+  "status": "FROZEN_BEFORE_M1_TRAINING_OR_EVALUATION",
+  "dataset": "SIFT-100K",
+  "index": {
+    "sha256": "ee73c0483e7a66a6da42dea9a8bbf8210e3335f33d7fd38e8e58a6c1ff7c5372",
+    "M": 16,
+    "efConstruction": 100,
+    "maximum_efSearch": 200,
+    "threads": 1
+  },
+  "roles": {
+    "training": {"count": 2000, "vector_sha256": "005bf9738f544c9e100827e9c110528dc2c9fd5867cc669f8bda73a8eb0216d0"},
+    "validation": {"count": 500, "vector_sha256": "494b7729c158c0e2aebc87ace3ff1aa76db679307ba8c96ac07c9f7dd5acff74"},
+    "certification": {"count": 500, "vector_sha256": "9f6199467b0cefb62fe10d3b20fd93333ad94287f15d5222189dd96219e7f0f1"},
+    "evaluation": {"count": 1000, "vector_sha256": "d3fc4946e4563b743930958eb3f8fc6b0ce0951edb64505cecab3d12462332f8"}
+  },
+  "darth_training": {
+    "logging_interval": 5,
+    "features": ["step", "dists", "inserts", "first_nn_dist", "nn_dist", "furthest_dist", "avg_dist", "variance", "percentile_25", "percentile_50", "percentile_75"],
+    "regressor": "LightGBM_LGBMRegressor",
+    "parameters": {"n_estimators": 100, "random_state": 42},
+    "feature_count": 11,
+    "target": "observed Recall@10",
+    "post_evaluation_tuning": false
+  },
+  "decision_policy": {
+    "primary_recall": 0.9,
+    "primary_risk_limit": 0.05,
+    "secondary_recall": 1.0,
+    "secondary_risk_limit": 0.1,
+    "prediction_check_interval": 5,
+    "minimum_step_before_prediction": 20,
+    "fallback": "maximum efSearch 200 when the registered early-stop condition is not met"
+  },
+  "methods": ["DARTH_TARGET_TRAINED", "TCP_TARGET_POOL", "FIXED_EF", "MAX_EF", "PER_QUERY_ORACLE_NON_DEPLOYABLE"],
+  "primary_efficiency": "distance_computations",
+  "secondary_efficiency": "wall_clock_exploratory_only",
+  "statistics": {"outer": "target build", "inner": "query", "bootstrap_repetitions": 5000, "seed": 991, "confidence": 0.95},
+  "selection_rule": "Validation may check the frozen model and policy but cannot change features, intervals, minimum step, model hyperparameters, target, or risk limit after evaluation is observed.",
+  "forbidden_roles": ["validation-dev", "formal-test", "future-replication"]
+}

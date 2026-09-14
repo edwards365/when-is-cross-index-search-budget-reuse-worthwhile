@@ -1,0 +1,39 @@
+{
+  "module": "M0_OFFICIAL_SOURCE_AND_EXECUTABLE_BRIDGE",
+  "status": "PASS",
+  "scientific_evidence": false,
+  "m1_authorized": true,
+  "darth_commit": "0d9bafcf31d1d79668bc71139fe93fa5e70b5185",
+  "lightgbm_commit": "3f7e6081275624edfca1f9b3096bea7a81a744ed",
+  "official_checkout_clean": true,
+  "cpu_only": true,
+  "adapter": {
+    "logical_label": "SIFT100M",
+    "actual_frozen_base": "SIFT-100K",
+    "role_counts": {"source_training": 2000, "source_validation": 500, "target_certification": 500, "target_evaluation": 1000},
+    "all_content_overlaps_zero": true,
+    "base_fvec_sha256": "7145bedfe09fe8d1afcc9ad743eb6ba6218dc766b77c4b0bbe82d22b78e265ba"
+  },
+  "native_no_early_stop": {
+    "queries": 100,
+    "official_recall_at_10": 1.0,
+    "independent_recall_at_10": 1.0,
+    "exact_rows": 100,
+    "output_sha256": "e2c969c114a0388763012eeb507dedf41d64ee4ecf2117a61bbf12189c721846"
+  },
+  "interface_smoke": {
+    "queries": 100,
+    "official_aggregate_recall_at_10": 0.989,
+    "features": 11,
+    "output_sha256": "d009be992a837f79f07e61db37ccbd7ffc79614f2790052f469ac6cbd96a1e8f",
+    "interpretation": "EXECUTABLE_INTERFACE_ONLY_CONFIGURATION_MISMATCH_NOT_SCIENTIFIC"
+  },
+  "shape_validation": "17_FEATURE_MODEL_REJECTED_AS_EXPECTED_NO_BYPASS",
+  "index_sha256": "ee73c0483e7a66a6da42dea9a8bbf8210e3335f33d7fd38e8e58a6c1ff7c5372",
+  "binary_sha256": {
+    "hnsw_test": "9c92759c0abd6f1c2fd72331636acdeb3d4d9ee0b093265b85f966636132d11f",
+    "libfaiss_so": "2c2bbabaa2e3d33d865a70fd776a52def9d4d1b03023098954160c5cd216d29c",
+    "lib_lightgbm_so": "30fae5dcf190f63753ac8c81fef719ca824087453339e0dda66bba0d6da335d0"
+  },
+  "forbidden_roles_accessed": false
+}

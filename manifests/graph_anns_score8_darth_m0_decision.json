@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "parent_preregistration": "manifests/graph_anns_score8_darth_comparison_preregistration.json",
+  "module": "M0",
+  "decision": "PASS_AUTHORIZE_M1",
+  "evidence_scope": "ENGINEERING_EXECUTABILITY_ONLY",
+  "exclusions": [
+    "Official pretrained model smoke cannot enter method comparison because its dataset and index parameters differ.",
+    "No wall-clock advantage is claimed from smoke timings.",
+    "No feature-shape check was disabled."
+  ]
+}
