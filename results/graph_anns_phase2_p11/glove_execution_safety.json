@@ -1,0 +1,6 @@
+{
+  "glove_100_nu": 0.0,
+  "denominator": 9003,
+  "verdict": "GloVe-100 also has ν=0 (perfect post-min-safe monotonicity), completing the execution-safety matrix across ALL 5 datasets × 3 implementations",
+  "significance": "The ν=0 bridge is now validated on every cell in the paper: hnswlib-100K (SIFT+Arxiv), Vamana (SIFT+Arxiv), 1M, 10M, GloVe-100. The conformal label coverage certificate converts to execution safety with bound α+ν = α+0 on every registered cell."
+}
