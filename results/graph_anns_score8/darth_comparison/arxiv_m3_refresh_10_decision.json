@@ -1,0 +1,158 @@
+{
+  "module": "M3_DATA_REFRESH",
+  "refresh": "10",
+  "pooled": [
+    {
+      "method": "DARTH_OLD_MODEL_AUDITED_DEPLOYED",
+      "builds": 10,
+      "certified_builds": 10,
+      "mean_cert_risk": 0.0,
+      "max_cert_ucb": 0.005973551516349558,
+      "mean_eval_risk": 0.0009000000000000001,
+      "mean_dists": 2419.6953000000003,
+      "mean_p95_dists": 3281.1049999999996,
+      "mean_ms": 1.0123314577,
+      "base_policy_accepted_builds": 0.0
+    },
+    {
+      "method": "DARTH_OLD_MODEL_RAW",
+      "builds": 10,
+      "certified_builds": 0,
+      "mean_cert_risk": 0.16399999999999998,
+      "max_cert_ucb": 0.21698244472394493,
+      "mean_eval_risk": 0.1649,
+      "mean_dists": 493.7966,
+      "mean_p95_dists": 1310.9149999999995,
+      "mean_ms": 0.9009455471999999,
+      "base_policy_accepted_builds": NaN
+    },
+    {
+      "method": "DARTH_REFRESH_RETRAINED_AUDITED_DEPLOYED",
+      "builds": 10,
+      "certified_builds": 10,
+      "mean_cert_risk": 0.0,
+      "max_cert_ucb": 0.005973551516349558,
+      "mean_eval_risk": 0.0009000000000000001,
+      "mean_dists": 2419.6953000000003,
+      "mean_p95_dists": 3281.1049999999996,
+      "mean_ms": 1.0123314577,
+      "base_policy_accepted_builds": 0.0
+    },
+    {
+      "method": "DARTH_REFRESH_RETRAINED_RAW",
+      "builds": 10,
+      "certified_builds": 0,
+      "mean_cert_risk": 0.1568,
+      "max_cert_ucb": 0.2211980654671105,
+      "mean_eval_risk": 0.1609,
+      "mean_dists": 505.2928,
+      "mean_p95_dists": 1495.5349999999994,
+      "mean_ms": 0.9248425025,
+      "base_policy_accepted_builds": NaN
+    },
+    {
+      "method": "FIXED_CERTIFIED",
+      "builds": 10,
+      "certified_builds": 10,
+      "mean_cert_risk": 0.0,
+      "max_cert_ucb": 0.005973551516349558,
+      "mean_eval_risk": 0.0009000000000000001,
+      "mean_dists": 2419.6953000000003,
+      "mean_p95_dists": 3281.1049999999996,
+      "mean_ms": 1.0123314577,
+      "base_policy_accepted_builds": NaN
+    },
+    {
+      "method": "TCP_OLD_POOL_AUDITED_DEPLOYED",
+      "builds": 10,
+      "certified_builds": 10,
+      "mean_cert_risk": 0.0,
+      "max_cert_ucb": 0.005973551516349558,
+      "mean_eval_risk": 0.0009000000000000001,
+      "mean_dists": 2419.6953000000003,
+      "mean_p95_dists": 3281.1049999999996,
+      "mean_ms": 1.0123707015,
+      "base_policy_accepted_builds": 10.0
+    },
+    {
+      "method": "TCP_OLD_POOL_RAW",
+      "builds": 10,
+      "certified_builds": 10,
+      "mean_cert_risk": 0.0,
+      "max_cert_ucb": 0.005973551516349558,
+      "mean_eval_risk": 0.0009000000000000001,
+      "mean_dists": 2419.6953000000003,
+      "mean_p95_dists": 3281.1049999999996,
+      "mean_ms": 1.0123707015,
+      "base_policy_accepted_builds": NaN
+    },
+    {
+      "method": "TCP_REFRESHED_POOL_AUDITED_DEPLOYED",
+      "builds": 10,
+      "certified_builds": 10,
+      "mean_cert_risk": 0.0,
+      "max_cert_ucb": 0.005973551516349558,
+      "mean_eval_risk": 0.0009000000000000001,
+      "mean_dists": 2419.6953000000003,
+      "mean_p95_dists": 3281.1049999999996,
+      "mean_ms": 1.0123722745000001,
+      "base_policy_accepted_builds": 10.0
+    },
+    {
+      "method": "TCP_REFRESHED_POOL_RAW",
+      "builds": 10,
+      "certified_builds": 10,
+      "mean_cert_risk": 0.0,
+      "max_cert_ucb": 0.005973551516349558,
+      "mean_eval_risk": 0.0009000000000000001,
+      "mean_dists": 2419.6953000000003,
+      "mean_p95_dists": 3281.1049999999996,
+      "mean_ms": 1.0123722745000001,
+      "base_policy_accepted_builds": NaN
+    }
+  ],
+  "bootstrap_vs_fixed": [
+    {
+      "left": "TCP_OLD_POOL_AUDITED_DEPLOYED",
+      "right": "FIXED_CERTIFIED",
+      "value": "dists",
+      "observed": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "left": "TCP_REFRESHED_POOL_AUDITED_DEPLOYED",
+      "right": "FIXED_CERTIFIED",
+      "value": "dists",
+      "observed": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "left": "DARTH_OLD_MODEL_AUDITED_DEPLOYED",
+      "right": "FIXED_CERTIFIED",
+      "value": "dists",
+      "observed": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "left": "DARTH_REFRESH_RETRAINED_AUDITED_DEPLOYED",
+      "right": "FIXED_CERTIFIED",
+      "value": "dists",
+      "observed": 0.0,
+      "ci95": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "formal_tcp_95pct_certificate_available": false,
+  "safety_source": "INDEPENDENT_TARGET_QUERY_CERTIFICATION"
+}

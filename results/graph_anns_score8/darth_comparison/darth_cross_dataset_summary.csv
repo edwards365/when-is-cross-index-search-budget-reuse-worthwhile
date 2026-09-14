@@ -1,0 +1,9 @@
+dataset,cell,darth_raw_certified_builds,darth_raw_eval_risk,tcp_certified_builds,tcp_eval_risk,tcp_mean_dists,fixed_mean_dists,tcp_mean_reduction_pct,tcp_p95_delta_vs_fixed
+SIFT-100K,rebuild,0,0.1802,10,0.0240,532.2958,964.2472,44.7967,24.3850
+SIFT-100K,refresh_1pct,0,0.1798,10,0.0192,708.6885,964.5702,26.5281,19.2100
+SIFT-100K,refresh_5pct,0,0.1673,10,0.0243,480.7094,942.8716,49.0165,-31.7200
+SIFT-100K,refresh_10pct,0,0.1719,10,0.0001,1952.5848,1952.5848,0.0000,0.0000
+Arxiv-Nomic-100K,rebuild,0,0.1743,10,0.0006,2422.6331,2422.6331,0.0000,0.0000
+Arxiv-Nomic-100K,refresh_1pct,0,0.1659,10,0.0005,2421.4655,2421.4655,0.0000,0.0000
+Arxiv-Nomic-100K,refresh_5pct,0,0.1479,10,0.0004,2423.0396,2423.0396,0.0000,0.0000
+Arxiv-Nomic-100K,refresh_10pct,0,0.1609,10,0.0009,2419.6953,2419.6953,0.0000,0.0000

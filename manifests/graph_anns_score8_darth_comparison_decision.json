@@ -1,0 +1,31 @@
+{
+  "experiment": "ICBA_TCP_VERSUS_DARTH_PREREGISTERED_COMPARISON",
+  "final_label": "CONDITIONAL_TCP_ADVANTAGE_WITH_ICBA_SAFETY_GUARDRAIL_NOT_UNIVERSAL",
+  "datasets": ["SIFT-100K", "Arxiv-Nomic-100K"],
+  "builds_per_cell": 10,
+  "primary_event": "Recall@10 >= 0.90",
+  "safety_rule": "one-sided 95% Clopper-Pearson UCB <= 0.05 on 500 disjoint target queries",
+  "darth": {
+    "official_bridge_executable": true,
+    "raw_strategy_build_decisions": 160,
+    "certified_build_decisions": 0,
+    "finding": "Target training, frozen-source transfer, and refresh retraining never closed the registered safety gap on either dataset."
+  },
+  "tcp": {
+    "all_audited_deployments_safe": true,
+    "sift_best_mean_distance_reduction_pct": {
+      "rebuild": 44.796749215346445,
+      "refresh_1pct": 26.528053634665458,
+      "refresh_5pct": 49.01645144471421,
+      "refresh_10pct": 0.0
+    },
+    "arxiv_mean_distance_reduction_pct_all_cells": 0.0,
+    "formal_5pct_exchangeable_build_certificate": false,
+    "safety_source": "independent target-query certification"
+  },
+  "claim": "ICBA prevents unsafe DARTH deployment on both datasets and TCP provides significant conditional computation savings on SIFT; Arxiv and 10% SIFT refresh are registered zero-gain boundaries.",
+  "not_claimed": ["universal TCP dominance", "cross-dataset efficiency dominance", "wall-clock superiority", "a 5% source-build conformal theorem from nine source builds"],
+  "sealed_roles_accessed": false,
+  "official_darth_source_modified": false,
+  "evidence_level": "FIXED_TARGET_MULTI_BUILD_EXPLORATORY_COMPARISON"
+}
