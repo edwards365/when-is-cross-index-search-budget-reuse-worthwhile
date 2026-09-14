@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "stage": "Graph-ANNS Score8 P2 data-refresh transfer",
+  "status": "FROZEN_BEFORE_RESULTS",
+  "parent_commit": "7d8c24103f5a381643d04279211d3d421da2d271",
+  "repository_worktree": "/home/wlk/projects/navigation-aware-resistance-hnsw",
+  "heavy_output_root": "/home/wlk/data500/graph_anns_score8/data_refresh",
+  "scientific_question": "Does a conformal build-pool budget selected on an old graph snapshot retain risk and cost performance after equal-size delete/insert refresh followed by rebuild?",
+  "datasets": {
+    "SIFT-100K": {
+      "hdf5": "data/raw/sift-128-euclidean.hdf5",
+      "metric": "l2",
+      "base_rows": [0, 100000],
+      "insert_reserve_rows": [100000, 110000],
+      "query_rows": [999000, 1000000]
+    },
+    "Arxiv-Nomic-100K": {
+      "hdf5": "data/raw/arxiv-nomic-768-normalized.hdf5",
+      "metric": "ip",
+      "base_rows": [0, 100000],
+      "insert_reserve_rows": [100000, 110000],
+      "query_rows": [1343643, 1344643]
+    }
+  },
+  "refresh_fractions": [0.01, 0.05, 0.10],
+  "refresh_semantics": "For each fraction, delete a seeded subset of the original 100K base and insert the same number of previously excluded vectors; rebuild at fixed size. Query, base, and insertion identities are disjoint.",
+  "build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267],
+  "refresh_seed": 991,
+  "n_queries": 1000,
+  "query_partitions": {
+    "design": [0, 500],
+    "evaluation": [500, 1000]
+  },
+  "query_firewall": "The frozen HDF5 train rows used as new queries are excluded from all base/insert sets. Evaluation rows cannot change grid, thresholds, methods, or stopping rules.",
+  "index": {
+    "implementation": "hnswlib",
+    "M": 16,
+    "ef_construction": 100,
+    "threads": 1,
+    "k": 10,
+    "ef_grid": [10, 20, 40, 80, 120, 200]
+  },
+  "endpoint": {
+    "success": "Recall@10 hit count equals 10",
+    "bottom": "minimum registered ef reaching success; BOT if none",
+    "BOT_handling": "positive infinity; an infinite conformal selection abstains to ef=200 and is reported"
+  },
+  "registered_methods": [
+    "FIXED_EF_200",
+    "OLD_SNAPSHOT_SINGLE_BUILD_REUSE",
+    "OLD_SNAPSHOT_K9_CONFORMAL",
+    "REFRESHED_SNAPSHOT_K9_CONFORMAL_ORACLE_UPPER_BOUND"
+  ],
+  "conformal": {
+    "k": 9,
+    "alpha": 0.10,
+    "rank": 9,
+    "note": "Rank ceil((1-alpha)*(k+1)) over nine source builds; the tenth build is held out. The refreshed-snapshot method is explicitly non-deployable and quantifies attainable within-snapshot recovery."
+  },
+  "statistics": {
+    "primary_unit": "held-out target build",
+    "bootstrap": "target-build outer, query inner, 5000 repetitions, seed 991",
+    "report": [
+      "realized risk and 95% cluster interval",
+      "mean/p95/p99 selected ef",
+      "abstention rate",
+      "budget-to-target-oracle ratio",
+      "LOBO",
+      "delete-largest-contribution-build"
+    ]
+  },
+  "strict_gate": {
+    "safety": "Both datasets at every refresh fraction: point risk <= 0.10 and target-build-cluster 95% upper bound <= 0.10 for OLD_SNAPSHOT_K9_CONFORMAL.",
+    "tail": "Selected-ef p95 is no worse than FIXED_EF_200 and no worse than 10% above the refreshed-snapshot conformal upper bound.",
+    "robustness": "Direction survives LOBO and deletion of the largest-contribution build.",
+    "transfer": "Old-snapshot conformal risk is non-inferior to refreshed-snapshot conformal risk by at most 0.02 absolute."
+  },
+  "hierarchical_outcomes": [
+    "DATA_REFRESH_TRANSFER_SUPPORTED",
+    "DATA_REFRESH_SAFETY_ONLY_COST_DEGRADED",
+    "DATA_REFRESH_BREAKS_SOURCE_TRANSFER_BUT_WITHIN_SNAPSHOT_RECOVERS",
+    "DATA_REFRESH_BREAKS_CONFORMAL_TRANSPORT",
+    "INVALID_DATA_REFRESH_PROTOCOL"
+  ],
+  "stop_rules": [
+    "Run a SIFT 1%-refresh one-build smoke before the matrix.",
+    "Stop on identity overlap, non-replay, metric mismatch, or storage free space below projected additions plus 5 GiB.",
+    "Do not reinterpret old formal-test, validation-dev, certification-reserved, or evaluation-reserved artifacts.",
+    "Do not tune after viewing results."
+  ],
+  "evidence_level": "EXPLORATORY_PREREGISTERED_DATA_REFRESH",
+  "created_utc": "2026-09-14T00:00:00Z"
+}
