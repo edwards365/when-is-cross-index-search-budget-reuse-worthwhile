@@ -1,0 +1,35 @@
+{
+  "module": "M1_SAME_INDEX_EFFICACY_ONE_BUILD_INTERIM",
+  "status": "DARTH_DIRECT_DEPLOYMENT_REJECTED_EFFICIENCY_SIGNAL_RETAINED",
+  "final_comparison": false,
+  "training": {
+    "queries": 2000,
+    "rows": 833424,
+    "input_sha256": "4e130a156aef2a64bd2730aba6838b24bfd04297dad812fc03cc500632092657",
+    "model_sha256": "da641c3626d3068653cbf46677415851eff05ea1e0285cb04ac5d0035ad77308",
+    "seconds": 3.4446070194244385
+  },
+  "darth": {
+    "certification": {"n": 500, "mean_recall_at_10": 0.933, "failures": 80, "risk": 0.16, "one_sided_cp95_ucb": 0.18945465709134907},
+    "evaluation": {"n": 1000, "mean_recall_at_10": 0.9308, "failures": 167, "risk": 0.167, "mean_dists": 379.006, "p95_dists": 695.0, "mean_ms": 0.648658748},
+    "direct_deployment": "REJECT"
+  },
+  "selected_fixed_baseline": {
+    "ef_search": 80,
+    "selection_source": "CERTIFICATION_ONLY",
+    "certification": {"failures": 5, "risk": 0.01, "one_sided_cp95_ucb": 0.02091032294226707},
+    "evaluation": {"risk": 0.01, "mean_dists": 962.071, "p95_dists": 1265.1, "mean_ms": 0.12365841799999998}
+  },
+  "darth_relative_to_certified_fixed_ef80": {
+    "mean_distance_reduction_fraction": 0.6060530470214776,
+    "p95_distance_reduction_fraction": 0.4506363133357047,
+    "safety_gate": "FAIL",
+    "wall_clock": "WORSE_EXPLORATORY_ONLY"
+  },
+  "artifacts": {
+    "metrics_sha256": "8ce660dbb91b02d42ddccedaeb723dd4e50c49a8c86a80356ccc249105b3dac2",
+    "certification_output_sha256": "a9f81f8c18610baca4f102f4f9e5c524fa59252b9c2f9abc8db187e92b7a4d59",
+    "evaluation_output_sha256": "669679f12559a860ea224a62928bb363b6403fe0bb722333a5dee71bb1e44c24"
+  },
+  "next": ["TCP_TARGET_POOL", "MULTI_BUILD_M1", "M2_FROZEN_SOURCE_TO_REBUILD"]
+}
