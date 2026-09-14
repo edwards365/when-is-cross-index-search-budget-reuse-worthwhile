@@ -112,13 +112,18 @@ def main() -> None:
             row, query = summarize(target, method, cert, evaluation, fallback); rows.append(row); qrows.append(query)
             if method != "FIXED_CERTIFIED":
                 deployed = evaluation if row["accepted"] else fixed_eval
+                effective_cert = cert if row["accepted"] else fixed_cert
                 deployed_name = method.replace("_RAW", "_AUDITED_DEPLOYED")
-                drow, dquery = summarize(target, deployed_name, cert, deployed, fallback); drow["accepted"] = row["accepted"]; rows.append(drow); qrows.append(dquery)
+                drow, dquery = summarize(target, deployed_name, effective_cert, deployed, fallback)
+                drow["base_policy_accepted"] = row["accepted"]
+                rows.append(drow); qrows.append(dquery)
     summary = pd.DataFrame(rows); per_query = pd.concat(qrows, ignore_index=True)
     args.output.mkdir(parents=True, exist_ok=True)
     summary.to_csv(args.output / f"m3_refresh_{args.refresh}_summary.csv", index=False)
     per_query.to_csv(args.output / f"m3_refresh_{args.refresh}_per_query.csv.gz", index=False, compression="gzip")
-    pooled = summary.groupby("method", as_index=False).agg(builds=("seed","count"), accepted_builds=("accepted","sum"), mean_cert_risk=("cert_risk","mean"), max_cert_ucb=("cert_cp95_ucb","max"), mean_eval_risk=("eval_risk","mean"), mean_dists=("mean_dists","mean"), mean_p95_dists=("p95_dists","mean"), mean_ms=("mean_ms","mean"))
+    pooled = summary.groupby("method", as_index=False).agg(builds=("seed","count"), certified_builds=("accepted","sum"), mean_cert_risk=("cert_risk","mean"), max_cert_ucb=("cert_cp95_ucb","max"), mean_eval_risk=("eval_risk","mean"), mean_dists=("mean_dists","mean"), mean_p95_dists=("p95_dists","mean"), mean_ms=("mean_ms","mean"))
+    raw_acceptance = summary.dropna(subset=["base_policy_accepted"]).groupby("method")["base_policy_accepted"].sum().to_dict()
+    pooled["base_policy_accepted_builds"] = pooled["method"].map(raw_acceptance)
     pooled.to_csv(args.output / f"m3_refresh_{args.refresh}_pooled.csv", index=False)
     deployed = ["TCP_OLD_POOL_AUDITED_DEPLOYED", "TCP_REFRESHED_POOL_AUDITED_DEPLOYED", "DARTH_OLD_MODEL_AUDITED_DEPLOYED", "DARTH_REFRESH_RETRAINED_AUDITED_DEPLOYED"]
     comparisons = [bootstrap(per_query, method, "FIXED_CERTIFIED", "dists") for method in deployed]
