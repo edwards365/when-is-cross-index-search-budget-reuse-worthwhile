@@ -1,0 +1,16 @@
+{
+  "vamana_sift": {
+    "incremental_risk_target_min_safe_ref": 0.0,
+    "finite_action_variation": 1.0,
+    "endpoint_variation": 0.0027,
+    "unresolved_mass": 0.0,
+    "caliber": "target-min-safe reference (same as Eq.20 for HNSW cells)"
+  },
+  "vamana_arxiv": {
+    "incremental_risk_target_min_safe_ref": 0.0,
+    "finite_action_variation": 0.9987,
+    "endpoint_variation": 0.004,
+    "unresolved_mass": 0.0013,
+    "caliber": "target-min-safe reference (same as Eq.20 for HNSW cells)"
+  }
+}

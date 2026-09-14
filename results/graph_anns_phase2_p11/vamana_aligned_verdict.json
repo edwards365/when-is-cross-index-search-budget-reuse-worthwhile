@@ -1,0 +1,5 @@
+{
+  "finding": "Vamana incremental transport risk under target-min-safe reference (Eq.20 caliber) = 0.0% on both datasets — CONTRASTS with stage-specific estimand (16.86%/11.37%). The Vamana 'support' for the phenomenon is estimand-dependent.",
+  "interpretation": "Under the HNSW-caliber target-min-safe reference, Vamana pruned-navigable graphs at 10K show no incremental transport risk. The stage-specific 16.86%/11.37% used a different reference construction. This means the 'Vamana supports the phenomenon' claim is REFERENCE-DEPENDENT and must be qualified in the paper.",
+  "action": "Paper must add: 'Under the target-min-safe reference caliber, Vamana shows 0% incremental risk; the 16.86%/11.37% stage-specific result uses a different reference construction and the two are not comparable.' This is an honest boundary, not a contradiction — it reinforces the paper's estimand-dependence theme."
+}
