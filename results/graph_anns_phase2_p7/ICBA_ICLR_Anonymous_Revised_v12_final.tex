@@ -357,8 +357,8 @@ clear on grids like ours; (4) abstain.
 \section{Experimental Protocol}
 \label{sec:protocol}
 
-We evaluate SIFT-100K and Arxiv-Nomic-100K at Recall@10 with hit requirement $h{=}10$ (all ten
-neighbors returned). hnswlib and clean Faiss-100K cells have 24 registered builds per dataset and all 552
+We evaluate SIFT-100K and Arxiv-Nomic-100K at Recall@10 with hit requirement $h{=}10$ (the returned
+top-10 must contain all ten ground-truth neighbors; Section~7 reports $h\in\{8,9\}$ sensitivity). hnswlib and clean Faiss-100K cells have 24 registered builds per dataset and all 552
 directed pairs; the Vamana stage has 12 builds and 36 preregistered directions; each 100K cell uses 750
 evaluation queries; grids are native (hnswlib 10--200, Faiss 16--512) and never equated across systems.
 The preregistered 1M and 10M replications mirror this design (8 builds; 500 queries; forensics gate on
@@ -562,13 +562,13 @@ scale/geometry-dependence of every mitigation.
 A 200-build \emph{population farm} (two arms $\times$ 100 rebuilds on SIFT-10K: registered-style
 single-thread and deployment-style 8-thread) measures the premises directly at population scale. Every one
 of the 9{,}900 directed pairs exceeds the 2\% gate (mean 23.4\%, p95 26.6\%); the two arms are
-statistically identical (23.42\% vs 23.45\%)---parallel-scheduling noise does not amplify population risk
+indistinguishable at this sample size (23.42\% vs 23.45\%)---parallel-scheduling noise does not amplify population risk
 beyond registered-style variation. Exchangeability itself is testable on the farm: the rank of a held-out
 build's minimum safe action within random pools is uniform after randomized tie-breaking (KS median
 0.114/0.118), and Theorem-3 coverage at $k{=}9$, $\alpha{=}0.10$ realizes 2.53\%/2.62\% $\le\alpha$.
 The theorem's premise and guarantee both hold on an independent farm; a no-truth budget rule (queue-
 saturation ef selection) degenerates to the maximum action (0.8--1.4\% risk at $3.8$--$5.1\times$ oracle),
-closing the ``profile without truth'' loophole by measurement.
+measuring the ``profile without truth'' route.
 
 The predictor probe deserves emphasis: a regressor trained on 23 source builds predicts the target's
 minimum safe action no better than chance ($R^2=0.015$), and even in-target cross-validation leaves
@@ -610,7 +610,7 @@ retains fixed-target safety but no stable history increment (the predictor probe
 side); build selection finds no interval-supported jointly feasible action among 72 frozen
 build-budget actions; portal rescue shows real complementarity (1{,}064/727 hits; 426/348 rescues) but no
 truth-free trigger and a 79.5--93.4\% cost-compression requirement; the unified auditor is safe without
-value (36/36 accepted decisions safe, all at maximum budget; regret 470.34/684.49). Family table, figure,
+value (36/36 accepted decisions safe, all at maximum budget; search-only regret (distance computations) 470.34/684.49). Family table, figure,
 casebook, and provenance notes: Appendix~\ref{app:ladder}.
 
 \section{Limitations and Scope}
@@ -619,9 +619,8 @@ casebook, and provenance notes: Appendix~\ref{app:ladder}.
 Primary evidence covers two 100K datasets and four HNSW cells plus single-implementation 1M/10M
 replications (8 builds each); Vamana uses a different estimand and beam width one. We do not model future
 builds, data refreshes, or open-world safety; Faiss distance-computation cost and Vamana wall-clock/I/O
-are not estimable. The lower bound is probe-class-limited (hit-count and joint runtime features tested;
-the conflict rate supports but does not instantiate the disjoint regions and gap $\Delta$), and the
-recovery theorem binds at certification power on this grid; richer candidate families might change that.
+are not estimable. The lower bound is probe-class-limited, and the recovery theorem binds at certification power on this
+grid (Section~\ref{sec:constructive}).
 The contract's ablation is a descriptive chain. The constructive policy is a retrospective replay:
 pooling needs $k\ge 1/\alpha-1$ cached builds (19 at $\alpha{=}0.05$; 10M-scale uncached pooling
 fails), its risk is an uncertified registered-family bootstrap outside the conformal certificate, and the
@@ -821,7 +820,8 @@ r_{E}^{\pi}=\Pr_{q\sim P_{Q}}\!\left[Z_{E}(q,\pi_{T,q})=1\right].
 We use risk tolerance $\delta=0.05$, certification error probability $\alpha=0.05$, and safety margin
 $\gamma>0$ stated per experiment; the materiality gate $0.02$ is a preregistered scientific threshold---chosen, before any 100K evaluation
 role was accessed, as the smallest risk level that would still be operationally material for budget
-reuse---not a utility function. ``Preregistered'' in this paper means frozen in a versioned manifest with commit hash and
+reuse---not a utility function; the level is consistent with recall-tolerance bands in typical ANN serving
+deployments. ``Preregistered'' in this paper means frozen in a versioned manifest with commit hash and
 timestamp before the corresponding evaluation role was accessed; it does not refer to an external OSF
 registration. A rejection event is $R$. An action $a_f$ is a fallback only if it has independent safety
 evidence under the same target and failure event; otherwise rejection produces abstention.
