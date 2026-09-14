@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "module": "M3_DATA_REFRESH_RECOVERY",
+  "status": "FROZEN_BEFORE_DARTH_REFRESH_RESULTS",
+  "alignment_source": "manifests/graph_anns_score8_p2_data_refresh_preregistration.json",
+  "dataset": "SIFT-100K",
+  "old_base_rows": [0, 100000],
+  "insert_reserve_rows": [100000, 110000],
+  "refresh_fractions": [0.01, 0.05, 0.10],
+  "refresh_seed_rule": "991 + integer(refresh_fraction * 10000)",
+  "semantics": "Delete a seeded subset of the old 100K base and append the same number of previously excluded reserve vectors; rebuild at fixed cardinality.",
+  "build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267],
+  "query_roles": {
+    "training_rows": [990000, 992000],
+    "validation_rows": [992000, 992500],
+    "certification_rows": [992500, 993000],
+    "evaluation_rows": [993000, 994000]
+  },
+  "methods": ["DARTH_OLD_MODEL", "DARTH_REFRESH_RETRAINED", "TCP_OLD_POOL", "TCP_REFRESHED_POOL", "FIXED_CERTIFIED", "MAX_EF_200"],
+  "index": {"implementation": "official DARTH Faiss HNSW fork", "M": 16, "efConstruction": 100, "threads": 1, "ef_grid": [10, 20, 40, 80, 120, 160, 200]},
+  "primary_event": "Recall@10 >= 0.90",
+  "risk_limit": 0.05,
+  "certification": "Each deployable method is accepted only when the independent 500-query target one-sided 95% Clopper-Pearson UCB is <=0.05; otherwise use the target-certified fixed fallback.",
+  "tcp_note": "Nine source builds have alpha floor 0.10. Any 5% safety conclusion in M3 comes from independent target-query certification, not a 5% exchangeable-build theorem.",
+  "recovery_accounting": "Target-retrained DARTH and refreshed TCP pool are recovery comparators; their training, truth, and rebuild costs are not treated as zero.",
+  "statistics": {"outer": "target build", "inner": "query", "bootstrap_repetitions": 5000, "seed": 991, "confidence": 0.95, "robustness": ["LOBO", "delete largest benefit build"]},
+  "heavy_root": "/home/wlk/data500/graph_anns_score8/darth_comparison/refresh",
+  "forbidden_roles": ["validation-dev", "formal-test", "future-replication"]
+}
