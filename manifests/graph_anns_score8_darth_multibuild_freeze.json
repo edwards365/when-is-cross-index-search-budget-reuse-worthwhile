@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "module": "M1_M2_FAISS_HNSW_INDEPENDENT_REBUILDS",
+  "status": "FROZEN_BEFORE_MULTIBUILD_CONSTRUCTION",
+  "dataset": "SIFT-100K",
+  "build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267],
+  "independence_mechanism": "For each seed, permute the same 100000 base vectors before serial single-threaded Faiss HNSW insertion. Remap exact-neighbor IDs through the inverse permutation; query vectors and truth distances are unchanged.",
+  "fixed_index_parameters": {"M": 16, "efConstruction": 100, "threads": 1},
+  "ef_search_grid": [10, 20, 40, 80, 120, 160, 200],
+  "query_roles": ["source_training", "source_validation", "target_certification", "target_evaluation"],
+  "tcp_policy": {
+    "target_build_protocol": "Each build is target in turn; all other registered builds form the cached source pool.",
+    "action": "For each query, use the conformal order statistic of source-build minimum-safe ef actions at alpha=0.05; BOT or insufficient finite source actions triggers ef=200 fallback.",
+    "minimum_safe_event": "Recall@10 >= 0.90",
+    "evaluation_blindness": "Target evaluation labels cannot alter the pool, order statistic, or fallback."
+  },
+  "darth_policy": "Train on the designated source build role and freeze before applying to each independent target rebuild; target-retrained DARTH is reported separately as a recovery comparator.",
+  "statistics": {"outer": "target build", "inner": "query", "bootstrap_repetitions": 5000, "seed": 991, "confidence": 0.95},
+  "heavy_root": "/home/wlk/data500/graph_anns_score8/darth_comparison/multibuild",
+  "forbidden_roles": ["validation-dev", "formal-test", "future-replication"]
+}
