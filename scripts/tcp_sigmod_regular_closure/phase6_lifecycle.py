@@ -11,11 +11,11 @@ import pandas as pd
 
 try:
     from .phase3_baselines import constant_policy, first_passing_action, source_global_action
-    from .phase5_analyze import SOURCE_SEEDS, TARGET_SEEDS, graded
+    from .phase5_analyze import SOURCE_SEEDS, TARGET_SEEDS, graded, shift_actions
     from .tcp_hm9_tc import execute, history_max, load_grid, stable_tail_actions
 except ImportError:  # direct script execution
     from phase3_baselines import constant_policy, first_passing_action, source_global_action
-    from phase5_analyze import SOURCE_SEEDS, TARGET_SEEDS, graded
+    from phase5_analyze import SOURCE_SEEDS, TARGET_SEEDS, graded, shift_actions
     from tcp_hm9_tc import execute, history_max, load_grid, stable_tail_actions
 
 EF_GRID = [10, 20, 40, 80, 120, 160, 200]
@@ -43,14 +43,21 @@ def main() -> None:
     parser.add_argument("--analysis-root", required=True, type=Path)
     parser.add_argument("--dataset", required=True)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--target-seeds", nargs="+", type=int, default=TARGET_SEEDS)
+    parser.add_argument("--tcp-rung-shift", type=int, choices=[0, 1], default=0)
     args = parser.parse_args()
 
+    target_seeds = args.target_seeds
     cert_grids = {s: load_grid(args.grid_root / f"seed_{s}", "cert")
-                  for s in SOURCE_SEEDS + TARGET_SEEDS}
+                  for s in SOURCE_SEEDS + target_seeds}
     eval_grids = {s: load_grid(args.grid_root / f"seed_{s}", "eval")
-                  for s in SOURCE_SEEDS + TARGET_SEEDS}
+                  for s in SOURCE_SEEDS + target_seeds}
     cert_actions = history_max([stable_tail_actions(cert_grids[s]) for s in SOURCE_SEEDS])
     eval_actions = history_max([stable_tail_actions(eval_grids[s]) for s in SOURCE_SEEDS])
+    cert_actions = shift_actions(cert_actions, args.tcp_rung_shift)
+    eval_actions = shift_actions(eval_actions, args.tcp_rung_shift)
+    tcp_policy_name = "TCP_HM9_TC_R1" if args.tcp_rung_shift == 1 else "TCP_HM9_TC"
+    tcp_method_name = f"{tcp_policy_name}_GRADED"
     source_ef = source_global_action([cert_grids[s] for s in SOURCE_SEEDS])
     source_profile = {
         role: sum(work(frame) for seed in SOURCE_SEEDS
@@ -59,7 +66,7 @@ def main() -> None:
     }
 
     records: list[dict] = []
-    for seed in TARGET_SEEDS:
+    for seed in target_seeds:
         endpoint_cert = constant_policy(cert_grids[seed], 200, 0, 500)
         endpoint_eval = constant_policy(eval_grids[seed], 200)
         fixed_cert = constant_policy(cert_grids[seed], source_ef, 0, 500)
@@ -68,7 +75,8 @@ def main() -> None:
         tcp_cert = execute(cert_grids[seed], cert_actions)
         tcp_eval = execute(eval_grids[seed], eval_actions)
         tcp_selected, _, tcp_deployed_eval, _ = graded(
-            tcp_cert, tcp_eval, fixed_cert, fixed_eval, endpoint_cert, endpoint_eval)
+            tcp_cert, tcp_eval, fixed_cert, fixed_eval, endpoint_cert, endpoint_eval,
+            candidate_name=tcp_policy_name)
 
         target_ef = first_passing_action(cert_grids[seed], 0, 250)
         target_cert = constant_policy(cert_grids[seed], target_ef, 250, 500)
@@ -79,7 +87,8 @@ def main() -> None:
         darth_cert = pd.read_csv(args.darth_root / f"seed_{seed}" / "darth_cert_500.txt")
         darth_eval = pd.read_csv(args.darth_root / f"seed_{seed}" / "darth_eval_1000.txt")
         darth_selected, _, darth_deployed_eval, _ = graded(
-            darth_cert, darth_eval, fixed_cert, fixed_eval, endpoint_cert, endpoint_eval)
+            darth_cert, darth_eval, fixed_cert, fixed_eval, endpoint_cert, endpoint_eval,
+            candidate_name="DARTH_SOURCE_1103")
 
         methods = {
             "FIXED_ENDPOINT": (work(endpoint_cert), endpoint_eval),
@@ -91,13 +100,13 @@ def main() -> None:
                 darth_deployed_eval,
             ),
             # TCP was accepted on all prospective targets; no fallback certification was consumed.
-            "TCP_HM9_TC_GRADED": (work(tcp_cert), tcp_deployed_eval),
+            tcp_method_name: (work(tcp_cert), tcp_deployed_eval),
         }
         for method, (overhead, evaluation) in methods.items():
             mean_search = float(evaluation.dists.mean())
             records.append({
                 "dataset": args.dataset, "seed": seed, "method": method,
-                "selected_policy": tcp_selected if method == "TCP_HM9_TC_GRADED" else (
+                "selected_policy": tcp_selected if method == tcp_method_name else (
                     darth_selected if method == "DARTH_SOURCE_1103_GRADED" else "see_phase5_summary"),
                 "target_labels": 500,
                 "target_selection_search_dists": target_selection if method == "TARGET_ONLY_GLOBAL_DEPLOYED" else 0.0,
@@ -120,7 +129,7 @@ def main() -> None:
         "FIXED_ENDPOINT": 0.0,
         "SOURCE_GLOBAL_FIXED_DEPLOYED": source_profile["cert"] + 500 * BASE_SIZE,
         "TARGET_ONLY_GLOBAL_DEPLOYED": 0.0,
-        "TCP_HM9_TC_GRADED": source_profile["cert"] + source_profile["eval"] + 1500 * BASE_SIZE,
+        tcp_method_name: source_profile["cert"] + source_profile["eval"] + 1500 * BASE_SIZE,
         # The frozen comparator's model-training/feature construction cost was
         # not instrumented, so a complete lifecycle total would be misleading.
         "DARTH_SOURCE_1103_GRADED": float("nan"),
@@ -144,12 +153,12 @@ def main() -> None:
             })
     lifecycle = pd.DataFrame(rows)
 
-    tcp = pooled[pooled.method == "TCP_HM9_TC_GRADED"].iloc[0]
+    tcp = pooled[pooled.method == tcp_method_name].iloc[0]
     comparisons = []
-    for _, other in pooled[pooled.method != "TCP_HM9_TC_GRADED"].iterrows():
+    for _, other in pooled[pooled.method != tcp_method_name].iterrows():
         comparisons.append({
             "dataset": args.dataset,
-            "comparison": f"TCP_HM9_TC_GRADED_minus_{other.method}",
+            "comparison": f"{tcp_method_name}_minus_{other.method}",
             "break_even_queries": break_even(
                 float(tcp.one_time_target_search_dists), float(tcp.production_mean_search_dists),
                 float(other.one_time_target_search_dists), float(other.production_mean_search_dists)),
@@ -167,7 +176,7 @@ def main() -> None:
     comparison = pd.DataFrame(comparisons)
     decision = json.loads((args.analysis_root / "decision.json").read_text())
     at_100k = lifecycle[lifecycle.production_queries == 100_000]
-    tcp_100k = float(at_100k[at_100k.method == "TCP_HM9_TC_GRADED"].complete_cached_workload_dists.iloc[0])
+    tcp_100k = float(at_100k[at_100k.method == tcp_method_name].complete_cached_workload_dists.iloc[0])
     complete_baselines = at_100k[
         at_100k.method.isin(["FIXED_ENDPOINT", "SOURCE_GLOBAL_FIXED_DEPLOYED",
                              "TARGET_ONLY_GLOBAL_DEPLOYED"])]
@@ -175,6 +184,7 @@ def main() -> None:
     complete_gain_100k = (best_100k - tcp_100k) / best_100k
     seal = {
         "dataset": args.dataset,
+        "tcp_policy": tcp_policy_name,
         "accounting_scope": "DISTANCE_COMPUTATIONS_AND_EQUAL_TARGET_LABEL_COUNTS",
         "common_costs_excluded_from_differences": [
             "target_index_rebuild", "target_certification_truth_generation"
