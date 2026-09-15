@@ -1,0 +1,26 @@
+{
+  "dataset": "sift",
+  "tcp_policy": "TCP_HM9_TC_R1",
+  "accounting_scope": "DISTANCE_COMPUTATIONS_AND_EQUAL_TARGET_LABEL_COUNTS",
+  "common_costs_excluded_from_differences": [
+    "target_index_rebuild",
+    "target_certification_truth_generation"
+  ],
+  "source_history_truth_cost": "INCLUDED_AS_EXHAUSTIVE_BASE_SCAN_LOWER_BOUND",
+  "wall_clock_status": "NOT_USED_FOR_PRIMARY_COST_CLAIM",
+  "offline_source_profile_search_dists": {
+    "cert": 29591049.0,
+    "eval": 55797545.0
+  },
+  "source_truth_distance_lower_bound": 150000000,
+  "complete_cost_gain_at_n100k": -2.46747608439757,
+  "complete_cost_gate_n100k_gain_at_least_5pct": false,
+  "strict_quality_preserving_gate": false,
+  "sla_risk_constrained_efficiency_track": false,
+  "mean_recall_difference": -6.666666666677035e-05,
+  "failed_gates": [
+    "p95_noninferiority",
+    "complete_cost_n100k"
+  ],
+  "interpretation": "STRICT_PRIMARY_GATE_FAILED"
+}

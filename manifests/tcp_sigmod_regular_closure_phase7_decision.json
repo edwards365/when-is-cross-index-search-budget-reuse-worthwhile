@@ -1,0 +1,38 @@
+{
+  "module": "TCP_PHASE7_ONE_RUNG_HIGH_RECALL_SEAL",
+  "evidence_level": "PROSPECTIVE_PILOT_THREE_NEW_TARGET_BUILDS_PER_DATASET",
+  "parent_preregistration_commit": "50fe1a9bcfef0d54f73d444f976d0f75c435bb3b",
+  "policy": "TCP_HM9_TC_R1",
+  "target_build_seeds": [2791, 2903, 3011],
+  "posthoc_tuning": false,
+  "dataset_results": {
+    "SIFT-100K": {
+      "evaluation_risk": 0.0023333333333333335,
+      "maximum_simultaneous_cert_ucb": 0.018562,
+      "mean_work_gain_fraction": 0.2285492701123444,
+      "paired_bootstrap_ci95_work_difference": [-207.97116666666668, -180.429225],
+      "mean_recall_difference": -0.00006666666666677035,
+      "p95_ratio": 1.3909675832957666,
+      "p99_ratio_diagnostic": 1.8628886079419968,
+      "failed_primary_gates": ["P95_NONINFERIORITY", "COMPLETE_COST_N100K"],
+      "break_even_vs_source_global_queries": 801430.6783598042,
+      "break_even_vs_target_only_queries": 1203639.2728844786
+    },
+    "Arxiv-Nomic-100K": {
+      "evaluation_risk": 0.0023333333333333335,
+      "maximum_simultaneous_cert_ucb": 0.008155,
+      "mean_work_gain_fraction": 0.2584882545780568,
+      "paired_bootstrap_ci95_work_difference": [-320.08009999999996, -284.34519166666666],
+      "mean_recall_difference": -0.0019333333333332314,
+      "p95_ratio": 1.3536214435080158,
+      "p99_ratio_diagnostic": 1.8675537478210336,
+      "failed_primary_gates": ["MEAN_RECALL_NONINFERIORITY", "P95_NONINFERIORITY", "COMPLETE_COST_N100K"],
+      "break_even_vs_source_global_queries": 585160.7659788536,
+      "break_even_vs_target_only_queries": 871287.3523908705
+    }
+  },
+  "strict_sigmod_regular_method_gate": false,
+  "formal_build_distribution_certificate": false,
+  "decision": "TCP_R1_RECALL_TAIL_TRADEOFF_CONFIRMED_NO_GENERAL_METHOD_CLOSURE",
+  "next_route": "TAIL_AWARE_AND_LOW_HISTORY_COST_MECHANISM_REQUIRED_BEFORE_ANY_NEW_TCP_CONFIRMATION"
+}

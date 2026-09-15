@@ -1,0 +1,56 @@
+{
+  "dataset": "arxiv",
+  "source_builds": [
+    1103,
+    1229,
+    1361,
+    1499,
+    1621,
+    1747,
+    1877,
+    1999,
+    2131
+  ],
+  "prospective_target_builds": [
+    2791,
+    2903,
+    3011
+  ],
+  "tcp_policy": "TCP_HM9_TC_R1",
+  "source_global_fixed_ef": 80,
+  "best_deployable_baseline": "DARTH_SOURCE_1103_GRADED",
+  "tcp_selection_counts": {
+    "TCP_HM9_TC_R1": 3
+  },
+  "darth_selection_counts": {
+    "SOURCE_GLOBAL_FIXED": 3
+  },
+  "mean_gain_fraction": 0.2584882545780568,
+  "mean_recall_difference": -0.0019333333333332314,
+  "p95_ratio": 1.3536214435080158,
+  "p99_ratio_diagnostic": 1.8675537478210336,
+  "bootstrap": {
+    "estimand": "mean_distance_computations_TCP_HM9_TC_R1_GRADED_minus_DARTH_SOURCE_1103_GRADED",
+    "observed": -302.1493333333333,
+    "ci95": [
+      -320.08009999999996,
+      -284.34519166666666
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "lobo_mean_differences": {
+    "2791": -301.762,
+    "2903": -302.03999999999996,
+    "3011": -302.64599999999996
+  },
+  "safety_gate": true,
+  "mean_gate": true,
+  "materiality_5pct": true,
+  "recall_noninferiority_minus_0p001": false,
+  "p95_noninferiority_5pct": false,
+  "lobo_direction_gate": true,
+  "formal_build_distribution_certificate": false,
+  "simultaneous_confidence": 0.9833333333333333,
+  "prospective_primary_gate": false
+}
