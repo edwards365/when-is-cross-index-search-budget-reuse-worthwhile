@@ -1,0 +1,46 @@
+{
+  "dataset": "SIFT-100K",
+  "policy_order": [
+    "TCP_HM9_TC",
+    "SOURCE_GLOBAL_FIXED",
+    "FIXED_ENDPOINT"
+  ],
+  "simultaneous_confidence": 0.9833333333333333,
+  "familywise_alpha": 0.05,
+  "mean_gain_fraction": 0.35817309088374844,
+  "p95_ratio": 1.0094509803921563,
+  "p99_ratio_diagnostic": 1.4944295302013428,
+  "bootstrap": {
+    "estimand": "mean_distance_computations_TCP_GRADED_FALLBACK_minus_SOURCE_GLOBAL_FIXED_DEPLOYED",
+    "observed": -345.3674,
+    "ci95": [
+      -434.4118975,
+      -216.39978000000002
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "lobo_mean_differences": {
+    "1103": -335.54044444444446,
+    "1229": -335.50744444444445,
+    "1361": -336.189,
+    "1499": -336.1097777777778,
+    "1621": -335.61855555555553,
+    "1747": -383.7415555555556,
+    "1877": -335.5324444444445,
+    "1999": -336.10744444444447,
+    "2131": -383.7415555555556,
+    "2267": -335.58577777777776
+  },
+  "delete_largest_gain_build": 1229,
+  "delete_largest_gain_mean_difference": -335.50744444444445,
+  "mean_gate": true,
+  "materiality_5pct": true,
+  "p95_noninferiority_5pct": true,
+  "all_selected_policies_simultaneously_certified": true,
+  "selection_counts": {
+    "TCP_HM9_TC": 8,
+    "SOURCE_GLOBAL_FIXED": 2
+  },
+  "formal_build_certificate": false
+}

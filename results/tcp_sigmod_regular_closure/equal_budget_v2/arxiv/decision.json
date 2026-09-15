@@ -1,0 +1,41 @@
+{
+  "dataset": "Arxiv-Nomic-100K",
+  "target_label_allocations": {
+    "TCP_HM9_TC": "selection=0, certification=qid[0:500]",
+    "SOURCE_GLOBAL_FIXED": "selection=0, certification=qid[0:500]",
+    "TARGET_ONLY_GLOBAL": "selection=qid[0:250], certification=qid[250:500]"
+  },
+  "best_deployable_baseline": "SOURCE_GLOBAL_FIXED_DEPLOYED",
+  "mean_gain_fraction": 0.37342367169477436,
+  "p95_ratio": 1.581826861871419,
+  "p99_ratio": 1.8681526300610354,
+  "bootstrap": {
+    "estimand": "mean_distance_computations_TCP_HM9_TC_DEPLOYED_minus_SOURCE_GLOBAL_FIXED_DEPLOYED",
+    "observed": -437.20380000000006,
+    "ci95": [
+      -630.8109724999999,
+      -58.646095000000024
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "lobo_mean_differences": {
+    "1103": -416.0156666666667,
+    "1229": -416.37733333333335,
+    "1361": -416.77688888888895,
+    "1499": -416.49655555555563,
+    "1621": -624.9777777777779,
+    "1747": -416.404888888889,
+    "1877": -416.1287777777778,
+    "1999": -416.5924444444445,
+    "2131": -416.0384444444445,
+    "2267": -416.2292222222223
+  },
+  "delete_largest_gain_build": 1103,
+  "delete_largest_gain_mean_difference": -416.0156666666667,
+  "mean_gate": true,
+  "materiality_5pct": true,
+  "p95_noninferiority_5pct": false,
+  "p99_ratio_diagnostic": 1.8681526300610354,
+  "formal_build_certificate": false
+}

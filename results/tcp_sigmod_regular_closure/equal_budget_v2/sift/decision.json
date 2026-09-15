@@ -1,0 +1,41 @@
+{
+  "dataset": "SIFT-100K",
+  "target_label_allocations": {
+    "TCP_HM9_TC": "selection=0, certification=qid[0:500]",
+    "SOURCE_GLOBAL_FIXED": "selection=0, certification=qid[0:500]",
+    "TARGET_ONLY_GLOBAL": "selection=qid[0:250], certification=qid[250:500]"
+  },
+  "best_deployable_baseline": "SOURCE_GLOBAL_FIXED_DEPLOYED",
+  "mean_gain_fraction": 0.44796749215346443,
+  "p95_ratio": 1.0180392156862745,
+  "p99_ratio": 1.587680835197615,
+  "bootstrap": {
+    "estimand": "mean_distance_computations_TCP_HM9_TC_DEPLOYED_minus_SOURCE_GLOBAL_FIXED_DEPLOYED",
+    "observed": -431.95140000000004,
+    "ci95": [
+      -438.8471825,
+      -425.23616499999997
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "lobo_mean_differences": {
+    "1103": -431.7448888888889,
+    "1229": -431.7118888888889,
+    "1361": -432.39344444444447,
+    "1499": -432.31422222222227,
+    "1621": -431.82300000000004,
+    "1747": -432.01044444444443,
+    "1877": -431.73688888888887,
+    "1999": -432.3118888888889,
+    "2131": -431.6771111111111,
+    "2267": -431.7902222222222
+  },
+  "delete_largest_gain_build": 2131,
+  "delete_largest_gain_mean_difference": -431.6771111111111,
+  "mean_gate": true,
+  "materiality_5pct": true,
+  "p95_noninferiority_5pct": true,
+  "p99_ratio_diagnostic": 1.587680835197615,
+  "formal_build_certificate": false
+}

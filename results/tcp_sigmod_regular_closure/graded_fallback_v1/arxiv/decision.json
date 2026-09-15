@@ -1,0 +1,46 @@
+{
+  "dataset": "Arxiv-Nomic-100K",
+  "policy_order": [
+    "TCP_HM9_TC",
+    "SOURCE_GLOBAL_FIXED",
+    "FIXED_ENDPOINT"
+  ],
+  "simultaneous_confidence": 0.9833333333333333,
+  "familywise_alpha": 0.05,
+  "mean_gain_fraction": 0.3735343653983782,
+  "p95_ratio": 0.9879057924888606,
+  "p99_ratio_diagnostic": 1.2737123383617523,
+  "bootstrap": {
+    "estimand": "mean_distance_computations_TCP_GRADED_FALLBACK_minus_SOURCE_GLOBAL_FIXED_DEPLOYED",
+    "observed": -437.3334000000001,
+    "ci95": [
+      -621.0124249999999,
+      -249.45863000000003
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "lobo_mean_differences": {
+    "1103": -485.9260000000001,
+    "1229": -416.52133333333336,
+    "1361": -416.9208888888889,
+    "1499": -485.9260000000001,
+    "1621": -485.9260000000001,
+    "1747": -416.5488888888889,
+    "1877": -416.27277777777783,
+    "1999": -416.7364444444445,
+    "2131": -416.18244444444446,
+    "2267": -416.37322222222224
+  },
+  "delete_largest_gain_build": 2131,
+  "delete_largest_gain_mean_difference": -416.18244444444446,
+  "mean_gate": true,
+  "materiality_5pct": true,
+  "p95_noninferiority_5pct": true,
+  "all_selected_policies_simultaneously_certified": true,
+  "selection_counts": {
+    "TCP_HM9_TC": 7,
+    "SOURCE_GLOBAL_FIXED": 3
+  },
+  "formal_build_certificate": false
+}
