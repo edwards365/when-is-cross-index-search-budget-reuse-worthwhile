@@ -22,6 +22,12 @@ class Phase5ContractTest(unittest.TestCase):
     def test_refuses_overwrite(self):
         self.assertGreaterEqual(len(re.findall("refusing to overwrite", self.text)), 2)
 
+    def test_darth_comparator_is_first_source_and_frozen(self):
+        self.assertIn("seed_1103/model_11feat.txt", self.text)
+        self.assertIn("--mode early-stop-testing", self.text)
+        self.assertIn("--initial-prediction-interval 20", self.text)
+        self.assertIn("--min-prediction-interval 5", self.text)
+
 
 if __name__ == "__main__":
     unittest.main()
