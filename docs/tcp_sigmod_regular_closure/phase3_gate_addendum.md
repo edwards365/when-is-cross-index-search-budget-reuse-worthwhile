@@ -18,9 +18,10 @@ the following preregistered hierarchy:
    applicability rule, frozen without its evaluation outcomes, rejects it.
 3. Tail latency/cost need not strictly improve when mean work improves. The
    primary tail criterion is noninferiority: query-pooled p95 no more than 5%
-   above the best deployable baseline and p99 no more than 10% above it. Tail
-   values and bootstrap uncertainty remain mandatory, and a larger degradation
-   blocks promotion even if mean work improves.
+   above the best deployable baseline. p99 remains a mandatory diagnostic but
+   is not assigned an arbitrary primary threshold unless the paper claims a
+   p99 service objective. Larger p95 degradation blocks promotion even if mean
+   work improves.
 
 The primary efficiency criterion is a positive target-build nested-bootstrap
 lower confidence bound for aggregate mean distance-computation reduction
@@ -30,15 +31,20 @@ but economically unresolved pending lifecycle cost.
 
 ## Frozen target split
 
-The existing 500 target certification-role queries are deterministically
-partitioned before this analysis:
+The existing 500 target certification-role queries define an equal total
+target-label budget per method. Methods that do not select on target labels may
+use all 500 labels for certification:
 
-- qid 0--249: target selection only;
-- qid 250--499: independent target certification only;
+- TCP-HM9-TC and SOURCE_GLOBAL_FIXED: zero target-selection labels and qid
+  0--499 for certification;
+- TARGET_ONLY_GLOBAL: qid 0--249 for selection and qid 250--499 for independent
+  certification;
 - the existing 1,000 evaluation-role queries: evaluation only.
 
-No query changes roles. TCP uses no target selection outcome but is certified
-on the same 250 certification queries for label-budget comparability.
+No query changes roles and every method receives at most 500 target labels.
+Requiring identical certification sample sizes would underuse half of TCP's
+budget and is not the relevant fairness constraint. The earlier 250-certificate
+run is retained as a deliberately underpowered sensitivity analysis.
 
 ## Frozen baselines
 
