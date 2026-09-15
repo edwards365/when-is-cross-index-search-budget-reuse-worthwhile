@@ -151,6 +151,7 @@ def main() -> None:
         "tcp_selection_counts": {str(k): int(v) for k, v in summary[summary.method == "TCP_HM9_TC_GRADED"].selected_policy.value_counts().items()},
         "darth_selection_counts": {str(k): int(v) for k, v in summary[summary.method == "DARTH_SOURCE_1103_GRADED"].selected_policy.value_counts().items()},
         "mean_gain_fraction": float((best.mean_dists - tcp.mean_dists) / best.mean_dists),
+        "mean_recall_difference": float(tcp.mean_recall - best.mean_recall),
         "p95_ratio": float(tcp.p95_dists / best.p95_dists),
         "p99_ratio_diagnostic": float(tcp.p99_dists / best.p99_dists),
         "bootstrap": comparison,
@@ -158,6 +159,7 @@ def main() -> None:
         "safety_gate": bool((summary[summary.method == "TCP_HM9_TC_GRADED"].selected_simultaneous_ucb <= LIMIT).all()),
         "mean_gate": bool(comparison["ci95"][1] < 0),
         "materiality_5pct": bool((best.mean_dists - tcp.mean_dists) / best.mean_dists >= .05),
+        "recall_noninferiority_minus_0p001": bool(tcp.mean_recall - best.mean_recall >= -.001),
         "p95_noninferiority_5pct": bool(tcp.p95_dists / best.p95_dists <= 1.05),
         "lobo_direction_gate": bool((build_diff.drop(build_diff.index[0]).mean() < 0) and
                                     (build_diff.drop(build_diff.index[1]).mean() < 0) and
@@ -167,6 +169,7 @@ def main() -> None:
     }
     decision["prospective_primary_gate"] = bool(decision["safety_gate"] and decision["mean_gate"] and
                                                 decision["materiality_5pct"] and
+                                                decision["recall_noninferiority_minus_0p001"] and
                                                 decision["p95_noninferiority_5pct"] and
                                                 decision["lobo_direction_gate"])
     (args.output / "decision.json").write_text(json.dumps(decision, indent=2) + "\n")

@@ -31,6 +31,14 @@ class Phase5AnalyzeTest(unittest.TestCase):
         self.assertEqual(selected, "TCP_HM9_TC")
         self.assertEqual(float(evaluation.dists.mean()), 10)
 
+    def test_mean_recall_gate_is_not_implied_by_risk_gate(self):
+        candidate = pd.DataFrame({"r": [0.90] * 490 + [0.0] * 10})
+        baseline = pd.DataFrame({"r": [1.0] * 500})
+        candidate_risk = float((candidate.r < .90).mean())
+        recall_difference = float(candidate.r.mean() - baseline.r.mean())
+        self.assertLessEqual(candidate_risk, .05)
+        self.assertLess(recall_difference, -.001)
+
 
 if __name__ == "__main__":
     unittest.main()
