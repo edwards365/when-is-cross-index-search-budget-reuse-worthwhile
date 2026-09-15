@@ -8,7 +8,7 @@ binary=${TCP_DARTH_BINARY:-/home/wlk/data500/graph_anns_score8/build/darth/hnsw-
 dataset=${1:?usage: phase5_run.sh sift|arxiv build|grid}
 stage=${2:?usage: phase5_run.sh sift|arxiv build|grid|darth}
 source_seeds=(1103 1229 1361 1499 1621 1747 1877 1999 2131)
-target_seeds=(2381 2503 2633)
+read -r -a target_seeds <<< "${TCP_TARGET_SEEDS:-2381 2503 2633}"
 grid=(10 20 40 80 120 160 200)
 
 case "$dataset" in

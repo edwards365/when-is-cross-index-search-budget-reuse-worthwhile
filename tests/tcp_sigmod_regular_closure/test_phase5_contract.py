@@ -16,7 +16,7 @@ class Phase5ContractTest(unittest.TestCase):
 
     def test_frozen_seeds_and_grid(self):
         self.assertIn("source_seeds=(1103 1229 1361 1499 1621 1747 1877 1999 2131)", self.text)
-        self.assertIn("target_seeds=(2381 2503 2633)", self.text)
+        self.assertIn('${TCP_TARGET_SEEDS:-2381 2503 2633}', self.text)
         self.assertIn("grid=(10 20 40 80 120 160 200)", self.text)
 
     def test_refuses_overwrite(self):

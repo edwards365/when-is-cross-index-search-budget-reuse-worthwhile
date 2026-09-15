@@ -7,7 +7,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts/tcp_sigmod_regular_closure"))
 
-from phase5_analyze import graded  # noqa: E402
+from phase5_analyze import graded, shift_actions  # noqa: E402
 
 
 def frame(failures, cost):
@@ -16,6 +16,11 @@ def frame(failures, cost):
 
 
 class Phase5AnalyzeTest(unittest.TestCase):
+    def test_one_rung_shift_preserves_bot_and_caps_endpoint(self):
+        import numpy as np
+        shifted = shift_actions(np.array([10.0, 80.0, 200.0, np.inf]), 1)
+        np.testing.assert_array_equal(shifted, np.array([20.0, 120.0, 200.0, np.inf]))
+
     def test_graded_fallback_uses_fixed_when_candidate_fails(self):
         selected, _, evaluation, ucb = graded(
             frame(15, 10), frame(15, 10), frame(5, 20), frame(5, 20),

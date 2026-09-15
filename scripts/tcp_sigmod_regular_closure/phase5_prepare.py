@@ -78,6 +78,9 @@ def main() -> None:
     parser.add_argument("--source-hdf5", type=Path, required=True)
     parser.add_argument("--existing-build-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--target-seeds", nargs="+", type=int, default=TARGET_SEEDS)
+    parser.add_argument("--cert-start", type=int)
+    parser.add_argument("--eval-start", type=int)
     args = parser.parse_args()
     started = time.time()
     args.output.mkdir(parents=True, exist_ok=False)
@@ -86,7 +89,12 @@ def main() -> None:
 
     expected_dim = 128 if args.dataset == "sift" else 768
     metric = "l2" if args.dataset == "sift" else "angular"
-    cert_range, eval_range = RANGES[args.dataset]["cert"], RANGES[args.dataset]["eval"]
+    cert_range = RANGES[args.dataset]["cert"]
+    eval_range = RANGES[args.dataset]["eval"]
+    if args.cert_start is not None:
+        cert_range = (args.cert_start, args.cert_start + 500)
+    if args.eval_start is not None:
+        eval_range = (args.eval_start, args.eval_start + 1000)
     with h5py.File(args.source_hdf5, "r") as source:
         base = np.ascontiguousarray(source["train"][:100000], dtype="<f4")
         cert = np.ascontiguousarray(source["train"][slice(*cert_range)], dtype="<f4")
@@ -113,7 +121,7 @@ def main() -> None:
         }
 
     builds = []
-    for seed in SOURCE_SEEDS + TARGET_SEEDS:
+    for seed in SOURCE_SEEDS + args.target_seeds:
         build = args.output / "builds" / f"seed_{seed}" / "SIFT100M"
         build.mkdir(parents=True)
         order, inverse = permutation(seed, len(base))
@@ -153,7 +161,7 @@ def main() -> None:
         "evaluation_rows": list(eval_range),
         "role_overlap": 0,
         "source_seeds": SOURCE_SEEDS,
-        "target_seeds": TARGET_SEEDS,
+        "target_seeds": args.target_seeds,
         "builds": builds,
         "generated_files": files,
         "elapsed_seconds": time.time() - started,
