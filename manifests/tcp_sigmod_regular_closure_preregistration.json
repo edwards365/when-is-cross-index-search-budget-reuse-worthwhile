@@ -1,0 +1,22 @@
+{
+  "module": "TCP_SIGMOD_REGULAR_CLOSURE",
+  "frozen_start": "d62c0220186a1cc5e33e459c797a3785beccc1bd",
+  "evidence_level": "FIXED_TARGET_MULTI_BUILD_EXPLORATORY_METHOD_CLOSURE",
+  "datasets": ["SIFT-100K", "Arxiv-Nomic-100K"],
+  "build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267],
+  "ef_search_grid": [10, 20, 40, 80, 120, 160, 200],
+  "recall_at_10_target": 0.9,
+  "risk_limit": 0.05,
+  "one_sided_confidence": 0.95,
+  "bootstrap_repetitions": 5000,
+  "bootstrap_seed": 991,
+  "source_builds_per_target": 9,
+  "formal_build_alpha_floor": 0.1,
+  "formal_5pct_build_certificate_available": false,
+  "invalidated_evidence": [
+    "results/graph_anns_score8/darth_comparison/arxiv_m1_multibuild_decision.json",
+    "results/graph_anns_score8/darth_comparison/arxiv_m1_multibuild_pooled.csv",
+    "results/graph_anns_score8/darth_comparison/arxiv_m1_multibuild_summary.csv",
+    "Arxiv TCP/fixed-baseline conclusions from the constant-efSearch runner"
+  ]
+}
