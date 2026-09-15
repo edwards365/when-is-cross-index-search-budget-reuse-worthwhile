@@ -1,0 +1,37 @@
+{
+  "module": "TCP_PHASE5_PROSPECTIVE_FRESH_QUERY_NEW_BUILD",
+  "parent_commit": "6c8ea7f9be17a2eaabe0a4f87840f64faea5a743",
+  "evidence_level": "PROSPECTIVE_PILOT_THREE_TARGET_BUILDS",
+  "datasets": {
+    "SIFT-100K": {
+      "source": "data/raw/sift-128-euclidean.hdf5",
+      "source_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+      "certification_train_rows": [994000, 994500],
+      "evaluation_train_rows": [994500, 995500]
+    },
+    "Arxiv-Nomic-100K": {
+      "source": "data/raw/arxiv-nomic-768-normalized.hdf5",
+      "source_sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+      "certification_train_rows": [103500, 104000],
+      "evaluation_train_rows": [104000, 105000]
+    }
+  },
+  "base_rows": [0, 100000],
+  "source_build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131],
+  "prospective_target_build_seeds": [2381, 2503, 2633],
+  "ef_search_grid": [10, 20, 40, 80, 120, 160, 200],
+  "m": 16,
+  "ef_construction": 100,
+  "recall_at_10_target": 0.9,
+  "risk_limit": 0.05,
+  "policy_family_size": 3,
+  "per_policy_confidence": 0.9833333333333333,
+  "target_labels_per_method": 500,
+  "evaluation_queries": 1000,
+  "bootstrap_repetitions": 5000,
+  "bootstrap_seed": 991,
+  "p95_noninferiority_ratio": 1.05,
+  "p99_role": "MANDATORY_DIAGNOSTIC_NO_POSTHOC_HARD_THRESHOLD",
+  "formal_build_distribution_certificate": false,
+  "output_root": "/home/wlk/data500/tcp_sigmod_regular_closure/phase5_prospective_v1"
+}
