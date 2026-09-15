@@ -1,0 +1,73 @@
+{
+  "method": "TCP_HM9_TC",
+  "claim": "FIXED_TARGET_QUERY_RISK_ONLY",
+  "formal_5pct_build_certificate": false,
+  "fixed_sequence": [
+    "FIXED_ENDPOINT",
+    "TCP_HM9_TC"
+  ],
+  "accepted_target_builds": 10,
+  "endpoint_safe_target_builds": 10,
+  "pooled": [
+    {
+      "method": "DARTH_AUDITED_DEPLOYED",
+      "queries": 10000,
+      "eval_risk": 0.0004,
+      "mean_recall": 0.9989900000000002,
+      "mean_dists": 1978.3692,
+      "p50_dists": 2068.0,
+      "p95_dists": 2639.0,
+      "p99_dists": 2753.01
+    },
+    {
+      "method": "DARTH_RAW",
+      "queries": 10000,
+      "eval_risk": 0.1802,
+      "mean_recall": 0.9285700000000001,
+      "mean_dists": 389.0627,
+      "p50_dists": 349.0,
+      "p95_dists": 748.0,
+      "p99_dists": 1223.1000000000022
+    },
+    {
+      "method": "FIXED_ENDPOINT",
+      "queries": 10000,
+      "eval_risk": 0.0004,
+      "mean_recall": 0.9989900000000002,
+      "mean_dists": 1978.3692,
+      "p50_dists": 2068.0,
+      "p95_dists": 2639.0,
+      "p99_dists": 2753.01
+    },
+    {
+      "method": "TCP_HM9_TC_CANDIDATE",
+      "queries": 10000,
+      "eval_risk": 0.024,
+      "mean_recall": 0.9734400000000002,
+      "mean_dists": 532.2958,
+      "p50_dists": 384.0,
+      "p95_dists": 1298.0,
+      "p99_dists": 2129.0800000000017
+    },
+    {
+      "method": "TCP_HM9_TC_DEPLOYED",
+      "queries": 10000,
+      "eval_risk": 0.024,
+      "mean_recall": 0.9734400000000002,
+      "mean_dists": 532.2958,
+      "p50_dists": 384.0,
+      "p95_dists": 1298.0,
+      "p99_dists": 2129.0800000000017
+    }
+  ],
+  "bootstrap": {
+    "estimand": "mean_distance_computations_TCP_HM9_TC_DEPLOYED_minus_FIXED_ENDPOINT",
+    "observed": -1446.0734,
+    "ci95": [
+      -1454.3746075000001,
+      -1437.6806000000001
+    ],
+    "repetitions": 5000,
+    "seed": 991
+  }
+}
