@@ -182,6 +182,15 @@ def main() -> None:
                              "TARGET_ONLY_GLOBAL_DEPLOYED"])]
     best_100k = float(complete_baselines.complete_cached_workload_dists.min())
     complete_gain_100k = (best_100k - tcp_100k) / best_100k
+    audited_gates = {
+        "safety": bool(decision["safety_gate"]),
+        "mean_work": bool(decision["mean_gate"]),
+        "materiality_5pct": bool(decision["materiality_5pct"]),
+        "mean_recall_noninferiority": bool(decision["recall_noninferiority_minus_0p001"]),
+        "p95_noninferiority": bool(decision["p95_noninferiority_5pct"]),
+        "lobo_direction": bool(decision["lobo_direction_gate"]),
+        "complete_cost_n100k": bool(complete_gain_100k >= .05),
+    }
     seal = {
         "dataset": args.dataset,
         "tcp_policy": tcp_policy_name,
@@ -201,7 +210,8 @@ def main() -> None:
             decision["materiality_5pct"] and decision["p95_noninferiority_5pct"] and
             decision["lobo_direction_gate"]),
         "mean_recall_difference": decision["mean_recall_difference"],
-        "interpretation": "RISK_COST_TRADEOFF_SUPPORTED_BUT_RECALL_FIDELITY_GATE_FAILED",
+        "failed_gates": [name for name, passed in audited_gates.items() if not passed],
+        "interpretation": "FULL_GATE_PASSED" if all(audited_gates.values()) else "STRICT_PRIMARY_GATE_FAILED",
     }
 
     args.output.mkdir(parents=True, exist_ok=False)
