@@ -1,0 +1,21 @@
+{
+  "dataset": "arxiv",
+  "accounting_scope": "DISTANCE_COMPUTATIONS_AND_EQUAL_TARGET_LABEL_COUNTS",
+  "common_costs_excluded_from_differences": [
+    "target_index_rebuild",
+    "target_certification_truth_generation"
+  ],
+  "source_history_truth_cost": "INCLUDED_AS_EXHAUSTIVE_BASE_SCAN_LOWER_BOUND",
+  "wall_clock_status": "NOT_USED_FOR_PRIMARY_COST_CLAIM",
+  "offline_source_profile_search_dists": {
+    "cert": 38296375.0,
+    "eval": 76436544.0
+  },
+  "source_truth_distance_lower_bound": 150000000,
+  "complete_cost_gain_at_n100k": -1.706727757259353,
+  "complete_cost_gate_n100k_gain_at_least_5pct": false,
+  "strict_quality_preserving_gate": false,
+  "sla_risk_constrained_efficiency_track": true,
+  "mean_recall_difference": -0.022399999999999975,
+  "interpretation": "RISK_COST_TRADEOFF_SUPPORTED_BUT_RECALL_FIDELITY_GATE_FAILED"
+}

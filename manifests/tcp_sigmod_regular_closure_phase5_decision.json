@@ -1,0 +1,38 @@
+{
+  "module": "TCP_PHASE5_PROSPECTIVE_AND_LIFECYCLE_SEAL",
+  "evidence_level": "PROSPECTIVE_PILOT_THREE_TARGET_BUILDS_PER_DATASET",
+  "strict_quality_preserving_gate": false,
+  "sla_risk_constrained_efficiency_track": true,
+  "dataset_results": {
+    "SIFT-100K": {
+      "target_builds": 3,
+      "evaluation_queries_per_build": 1000,
+      "evaluation_risk": 0.025666666666666667,
+      "mean_work_gain_fraction": 0.4854459263573441,
+      "paired_bootstrap_ci95_work_difference": [-435.38745, -413.5790916666667],
+      "mean_recall_difference": -0.021233333333333326,
+      "p95_ratio": 1.0047108190491274,
+      "p99_ratio_diagnostic": 1.369631009624236,
+      "complete_break_even_vs_source_global_queries": 370407.3611982439,
+      "complete_break_even_vs_target_only_queries": 552217.0474647788,
+      "complete_cost_gain_at_n100k": -2.151644591320196
+    },
+    "Arxiv-Nomic-100K": {
+      "target_builds": 3,
+      "evaluation_queries_per_build": 1000,
+      "evaluation_risk": 0.02,
+      "mean_work_gain_fraction": 0.5251686581818643,
+      "paired_bootstrap_ci95_work_difference": [-622.70665, -593.2710083333333],
+      "mean_recall_difference": -0.022399999999999975,
+      "p95_ratio": 0.9859245041586693,
+      "p99_ratio_diagnostic": 1.4700653656576115,
+      "complete_break_even_vs_source_global_queries": 289512.2342398716,
+      "complete_break_even_vs_target_only_queries": 431687.4686644007,
+      "complete_cost_gain_at_n100k": -1.706727757259353
+    }
+  },
+  "formal_build_distribution_certificate": false,
+  "darth_complete_lifecycle_status": "NOT_ESTIMABLE_TRAINING_AND_FEATURE_COST_MISSING",
+  "decision": "TCP_FIXED_TARGET_RISK_COST_TRADEOFF_SUPPORTED_BUT_RECALL_FIDELITY_AND_N100K_COST_GATES_FAILED",
+  "posthoc_gate_relaxation": false
+}
