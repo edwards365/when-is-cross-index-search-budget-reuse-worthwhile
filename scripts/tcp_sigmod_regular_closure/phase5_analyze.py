@@ -66,6 +66,8 @@ def graded(candidate_cert: pd.DataFrame, candidate_eval: pd.DataFrame,
     fixed_check = simultaneous_pass(fixed_cert)
     endpoint_check = simultaneous_pass(endpoint_cert)
     selected = choose_policy(candidate_check[0], fixed_check[0], endpoint_check[0])
+    if selected == "TCP_HM9_TC":
+        selected = candidate_name
     if selected == "INVALID_NO_CERTIFIED_ACTION":
         raise RuntimeError("no simultaneously certified action")
     cert = {candidate_name: candidate_cert,

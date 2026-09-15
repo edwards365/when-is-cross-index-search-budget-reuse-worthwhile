@@ -21,6 +21,14 @@ class Phase5AnalyzeTest(unittest.TestCase):
         shifted = shift_actions(np.array([10.0, 80.0, 200.0, np.inf]), 1)
         np.testing.assert_array_equal(shifted, np.array([20.0, 120.0, 200.0, np.inf]))
 
+    def test_graded_returns_custom_candidate_name(self):
+        candidate = pd.DataFrame({"r": [1.0] * 500, "dists": [1] * 500})
+        fixed = pd.DataFrame({"r": [1.0] * 500, "dists": [2] * 500})
+        endpoint = pd.DataFrame({"r": [1.0] * 500, "dists": [3] * 500})
+        selected, _, _, _ = graded(candidate, candidate, fixed, fixed, endpoint, endpoint,
+                                   candidate_name="TCP_HM9_TC_R1")
+        self.assertEqual(selected, "TCP_HM9_TC_R1")
+
     def test_graded_fallback_uses_fixed_when_candidate_fails(self):
         selected, _, evaluation, ucb = graded(
             frame(15, 10), frame(15, 10), frame(5, 20), frame(5, 20),
