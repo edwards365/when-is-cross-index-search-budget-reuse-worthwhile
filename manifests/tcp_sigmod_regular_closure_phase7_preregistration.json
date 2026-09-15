@@ -1,0 +1,32 @@
+{
+  "module": "TCP_PHASE7_ONE_RUNG_HIGH_RECALL_AND_REUSE_DOMAIN",
+  "parent_commit": "2c4f5698c584766437dbca6d594e87bef477d62e",
+  "status": "FROZEN_BEFORE_OUTCOMES",
+  "candidate": "TCP_HM9_TC_R1",
+  "candidate_definition": "SHIFT_EVERY_FINITE_TCP_ACTION_UP_EXACTLY_ONE_FROZEN_EF_RUNG",
+  "datasets": {
+    "SIFT-100K": {
+      "certification_train_rows": [995500, 996000],
+      "evaluation_train_rows": [996000, 997000]
+    },
+    "Arxiv-Nomic-100K": {
+      "certification_train_rows": [105000, 105500],
+      "evaluation_train_rows": [105500, 106500]
+    }
+  },
+  "source_build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131],
+  "prospective_target_build_seeds": [2791, 2903, 3011],
+  "ef_search_grid": [10, 20, 40, 80, 120, 160, 200],
+  "m": 16,
+  "ef_construction": 100,
+  "risk_limit": 0.05,
+  "recall_target": 0.9,
+  "mean_recall_noninferiority_margin": -0.001,
+  "mean_work_minimum_gain_fraction": 0.05,
+  "p95_noninferiority_ratio": 1.05,
+  "bootstrap_repetitions": 5000,
+  "bootstrap_seed": 991,
+  "lifetimes": [1000, 10000, 100000, 1000000, 10000000],
+  "posthoc_gate_relaxation": false,
+  "output_root": "/home/wlk/data500/tcp_sigmod_regular_closure/phase7_high_recall_v1"
+}
