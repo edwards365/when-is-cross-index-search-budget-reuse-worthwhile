@@ -1,0 +1,95 @@
+{
+  "access_policy": {
+    "certification": "authorized only after the action table is frozen",
+    "design": "authorized for Ada-ef estimator/action construction",
+    "evaluation": "sealed until the certified deployment policy is frozen"
+  },
+  "elapsed_seconds": 11.097022533416748,
+  "faiss_version": "1.8.0",
+  "index_membership": "train rows [0, 100000)",
+  "k": 100,
+  "metric": "inner_product_on_unit_normalized_vectors",
+  "roles": {
+    "certification": {
+      "queries": {
+        "path": "arxiv_nomic_100k__adaef_certification_queries.npy",
+        "sha256": "4e603b6ac9d8686da578335962ab767d4cac51a0186dbb38c3a15f2bc3cdf447",
+        "shape": [
+          500,
+          768
+        ]
+      },
+      "truth": {
+        "path": "arxiv_nomic_100k__adaef_certification_truth.npy",
+        "sha256": "8e7f8697270c73c78b1dc593372acf44349de2ea35bc7cfdb61d68d374bc0e8b",
+        "shape": [
+          500,
+          100
+        ]
+      },
+      "truth_distances": {
+        "path": "arxiv_nomic_100k__adaef_certification_truth_distances.npy",
+        "sha256": "bfda1d15b0e6a16bf52b01072461103573486e5c1b4f482d7e00b9d40380e860",
+        "shape": [
+          500,
+          100
+        ]
+      }
+    },
+    "design": {
+      "queries": {
+        "path": "arxiv_nomic_100k__adaef_design_queries.npy",
+        "sha256": "92abd2aff3a86c0cfd794305fdc45c00d5f004324bea8ec3a5e91b6dfa12189d",
+        "shape": [
+          2000,
+          768
+        ]
+      },
+      "truth": {
+        "path": "arxiv_nomic_100k__adaef_design_truth.npy",
+        "sha256": "e787bcfe0486dde53340022e331a9a52ab3db3186199ea7c20012e3bd39781a8",
+        "shape": [
+          2000,
+          100
+        ]
+      },
+      "truth_distances": {
+        "path": "arxiv_nomic_100k__adaef_design_truth_distances.npy",
+        "sha256": "8e31bb9692bbeebab7ae0a267a1bc3da0b64204bcb59d5008fb284378cbf8398",
+        "shape": [
+          2000,
+          100
+        ]
+      }
+    },
+    "evaluation": {
+      "queries": {
+        "path": "arxiv_nomic_100k__adaef_evaluation_queries.npy",
+        "sha256": "2b61f6a2bd41d588a829f40036385b1b1e55c805d495c9bc6f98e6af2a23f7d4",
+        "shape": [
+          1000,
+          768
+        ]
+      },
+      "truth": {
+        "path": "arxiv_nomic_100k__adaef_evaluation_truth.npy",
+        "sha256": "fd5041baf065c9f433095706b080573950069ba685572b9fee3279cab6d6b96c",
+        "shape": [
+          1000,
+          100
+        ]
+      },
+      "truth_distances": {
+        "path": "arxiv_nomic_100k__adaef_evaluation_truth_distances.npy",
+        "sha256": "a9b83519dbaf5f401958023ff675cee4ae3f257709b58defb5ab538de9656212",
+        "shape": [
+          1000,
+          100
+        ]
+      }
+    }
+  },
+  "schema_version": "ea85-adaef-arxiv-truth-1.0",
+  "status": "FROZEN_EXACT_TRUTH",
+  "threads": 32
+}
