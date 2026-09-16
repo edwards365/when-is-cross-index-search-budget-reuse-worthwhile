@@ -1,0 +1,35 @@
+{
+  "schema_version": "ea85-phase1-external-method-seal-1.0",
+  "status": "PHASE1_COMPLETE",
+  "primary_event": "Recall@10 < 0.95",
+  "primary_unit": "target_build",
+  "methods": {
+    "DARTH": {
+      "status": "SEALED",
+      "datasets": ["sift100k", "arxiv_nomic_100k"],
+      "raw_evaluation_risk": {"sift100k": 0.2255, "arxiv_nomic_100k": 0.2312},
+      "raw_certified_builds": 0,
+      "target_builds": 20,
+      "audited_policy": "FIXED_SAFE_FALLBACK",
+      "audited_gain_vs_fixed_safe": 0.0
+    },
+    "Ada-ef": {
+      "status": "TEN_BUILD_EXTENSION_COMPLETE",
+      "dataset": "arxiv_nomic_100k",
+      "target_builds": 10,
+      "raw_certified_builds": 0,
+      "fixed_safe_certified_builds": 10,
+      "raw_eval_risk_mean": 0.0952,
+      "raw_eval_risk_ci95": [0.0944, 0.0960],
+      "raw_cost_saving_mean": 0.5759635758594113,
+      "raw_cost_saving_ci95": [0.5754705302217215, 0.5764635083756836],
+      "fixed_safe_eval_risk": 0.006,
+      "audited_policy": "FIXED_SAFE_EF200",
+      "audited_gain_vs_fixed_safe": 0.0,
+      "sift_status": "NOT_IMPLEMENTATION_SUPPORTED_UNDER_REGISTERED_METRIC"
+    }
+  },
+  "decision": "EXTERNAL_PORTABILITY_FAILURE_REPRODUCED_ICBA_SAFETY_VALUE_ZERO",
+  "claim_boundary": "Published adaptive methods retain native efficiency value; this phase only establishes failure of frozen source-side budget portability under the registered target-build safety estimand. TCP positive value is not established by Phase 1.",
+  "next_phase": "PHASE2_MIXED_INSERT_DELETE_TO_REBUILD_REFRESH"
+}

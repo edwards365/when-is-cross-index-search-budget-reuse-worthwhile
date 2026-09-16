@@ -91,10 +91,11 @@ def main() -> None:
     }
     largest = max(builds, key=lambda item: float(item["raw_cost_saving_fraction"]))
     delete_largest = mean_record([item for item in builds if item is not largest])
+    extension_complete = len(builds) >= 10
     result = {
-        "schema_version": "ea85-adaef-arxiv-main-1.0",
-        "status": "THREE_BUILD_MAIN_COMPLETE_EXTENSION_ELIGIBLE",
-        "evidence_level": "PILOT_BUILD_UNCERTAINTY_UNDERPOWERED",
+        "schema_version": "ea85-adaef-arxiv-aggregate-1.1",
+        "status": "TEN_BUILD_EXTENSION_COMPLETE" if extension_complete else "THREE_BUILD_MAIN_COMPLETE_EXTENSION_ELIGIBLE",
+        "evidence_level": "TEN_TARGET_BUILD_FIXED_PROTOCOL" if extension_complete else "PILOT_BUILD_UNCERTAINTY_UNDERPOWERED",
         "primary_unit": "target_build",
         "builds": len(builds),
         "all_raw_failed_certificate": all(float(item["raw_cert_ucb"]) > 0.05 for item in builds),
@@ -108,7 +109,11 @@ def main() -> None:
             "deleted_seed": largest["seed"],
             "remaining_mean": delete_largest,
         },
-        "decision": "EXTEND_ADA_EF_ARXIV_TO_TEN_REGISTERED_BUILDS",
+        "decision": (
+            "RAW_ADA_EF_UNCERTIFIED_AUDITED_FIXED_SAFE_ZERO_GAIN"
+            if extension_complete
+            else "EXTEND_ADA_EF_ARXIV_TO_TEN_REGISTERED_BUILDS"
+        ),
         "interpretation": "Raw Ada-ef is consistently cheaper but uncertified; ICBA consistently selects fixed-safe and therefore preserves safety with zero gain versus fixed-safe.",
     }
     (args.output_dir / "aggregate.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
