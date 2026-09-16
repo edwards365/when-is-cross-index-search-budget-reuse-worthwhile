@@ -1,0 +1,37 @@
+{
+  "dataset": "arxiv_nomic_100k",
+  "evaluation_policy": "Evaluation IDs and truth cannot affect estimator, action table, certification, or fallback selection.",
+  "index_membership": "raw train rows [0, 100000)",
+  "pairwise_overlap": {
+    "certification__design": 0,
+    "certification__evaluation": 0,
+    "design__evaluation": 0
+  },
+  "query_population": "raw train rows [100000, 1344643)",
+  "roles": {
+    "certification": {
+      "count": 500,
+      "max_source_id": 1343706,
+      "min_source_id": 100435,
+      "path": "arxiv_nomic_100k__adaef_certification_source_ids.npy",
+      "sha256": "f5c7b2e83ef1fefd2d5236d3dcf87e09975127d5088499df514ad0bc1e2828fe"
+    },
+    "design": {
+      "count": 2000,
+      "max_source_id": 1344043,
+      "min_source_id": 100775,
+      "path": "arxiv_nomic_100k__adaef_design_source_ids.npy",
+      "sha256": "455545711b22ef0b92dbc1935c99da9168f8d9b383ac913316e20c2b44b99220"
+    },
+    "evaluation": {
+      "count": 1000,
+      "max_source_id": 1343975,
+      "min_source_id": 100528,
+      "path": "arxiv_nomic_100k__adaef_evaluation_source_ids.npy",
+      "sha256": "e5b967ddf193521dfb091389a43364744cb95cf4e8a2820b115909c9dd22c49c"
+    }
+  },
+  "schema_version": "ea85-adaef-arxiv-query-roles-1.0",
+  "seed": 991,
+  "status": "FROZEN_BEFORE_SCIENTIFIC_RESULTS"
+}
