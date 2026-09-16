@@ -1,0 +1,51 @@
+{
+  "schema_version": "ea85-phase2-refresh95-analysis-amendment-1.0",
+  "status": "FROZEN_BEFORE_REPLAY_RESULT_AGGREGATION",
+  "parent_preregistration": "manifests/graph_anns_phase3_ea85/p2_refresh95_preregistration.json",
+  "reason": "Operationalize the preregistered source TCP and target-selection recalibration without changing the event, action grid, risk limit, query roles, or endpoint.",
+  "event": "Recall@10 < 0.95",
+  "event_discreteness_note": "With k=10, Recall@10 < 0.95 is equivalent to fewer than 10 exact hits; no continuous interpolation is used.",
+  "action_grid": [10, 20, 40, 80, 120, 160, 200],
+  "endpoint_action": 200,
+  "source_tcp_pool_rule": {
+    "source_snapshot": "old",
+    "leave_one_build_out": true,
+    "per_query_action": "For each target seed and query role, find the smallest registered ef attaining Recall@10 >= 0.95 on each of the other nine old-snapshot builds, map failure at all rungs to ef=200, and take the maximum action across those nine source builds.",
+    "paired_seed_exclusion": "The old build having the same seed as the target build is excluded from source pooling.",
+    "deployment_visibility": "Only source-snapshot outcomes define the source action; refreshed-target outcomes are not used."
+  },
+  "target_selection_recalibration_rule": {
+    "allowed_shifts": [0, 1, 2, 3, 4, 5, 6],
+    "selection_only": true,
+    "rule": "On the 500 target-selection queries of each target build, choose the smallest nonnegative grid-index shift applied to the frozen source per-query actions whose one-sided 95% Clopper-Pearson risk UCB is <= 0.05. If no shift qualifies, choose the endpoint action ef=200.",
+    "application": "Apply the single frozen build-level shift to that build's source-derived certification and cold-evaluation actions; clamp at ef=200.",
+    "no_retraining": true
+  },
+  "certification_rule": {
+    "sample_size": 500,
+    "confidence": 0.95,
+    "acceptance": "Accept a candidate on a target build only when its one-sided 95% Clopper-Pearson UCB is <= 0.05.",
+    "fallback": "On rejection, deploy the separately evaluated ef=200 endpoint for that build.",
+    "endpoint_failure": "If ef=200 itself has certification UCB > 0.05, mark the build NO_CERTIFIED_ACTION and do not substitute evaluation truth."
+  },
+  "evaluation_rule": "Cold evaluation is used once after actions, shifts, and certification decisions are frozen; it cannot alter deployment.",
+  "cost_rule": {
+    "serving": "Use native per-query distance computations from the deployed action.",
+    "source_profiling": "Report old-snapshot source replay cost separately and do not silently charge it as target serving cost.",
+    "selection_and_certification": "Report target selection and certification search costs separately from cold serving.",
+    "rebuild": "Report rebuild cost symbolically if no harmonized native measurement is available."
+  },
+  "statistics": {
+    "primary_unit": "target_build",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 991,
+    "interval": "paired target-build bootstrap with within-build query resampling",
+    "robustness": ["LOBO", "delete-largest-benefit-build"]
+  },
+  "claim_guardrails": [
+    "No result may be described as safe when any deployed build lacks a certification UCB <= 0.05.",
+    "A positive result on only one dataset is conditional evidence.",
+    "The fixed endpoint is a safety fallback, not an adaptive-method win.",
+    "No action, shift, threshold, or fallback rule may be revised after aggregation."
+  ]
+}
