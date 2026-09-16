@@ -1,0 +1,43 @@
+schema_version: "ea85-p1-darth95-1.0"
+status: "FROZEN_BEFORE_P1_SCIENTIFIC_RESULTS"
+frozen_at: "2026-09-16T00:00:00+08:00"
+parent_protocol: "manifests/graph_anns_phase3_ea85/unified_protocol.yaml"
+parent_commit: "4bb76c3082f3b28eb9b738c83bcc3af119a3195f"
+purpose: "Correct source identity and freeze the Recall@10=.95 DARTH bridge before execution."
+corrections:
+  official_repo: "https://github.com/MChatzakis/DARTH.git"
+  official_commit: "0d9bafcf31d1d79668bc71139fe93fa5e70b5185"
+  note: "The placeholder marikaris/DARTH in the parent ledger is not used."
+estimand:
+  primary_failure_event: "Recall@10 < 0.95"
+  alpha: 0.05
+  confidence: 0.95
+  primary_unit: "target_build"
+  cluster_bootstrap_reps: 5000
+  seed: 991
+datasets:
+  - id: "sift_100k"
+    builds: 10
+  - id: "arxiv_nomic_100k"
+    builds: 10
+roles:
+  source_training: 2000
+  target_certification: 500
+  target_evaluation: 1000
+  rule: "Frozen role IDs and truth from the sealed DARTH bridge are reused; evaluation cannot change any action."
+methods:
+  - "DARTH_TARGET_TRAINED_RAW"
+  - "ICBA_AUDITED_DARTH_OR_FIXED_SAFE"
+  - "FIXED_SAFE_EF200"
+execution:
+  target_recall: 0.95
+  initial_prediction_interval: 20
+  min_prediction_interval: 5
+  max_ef_search: 200
+  threads: 1
+  output_root: "/home/wlk/data500/graph_anns_phase3_ea85/darth95_bridge"
+stop_rules:
+  - "Any source checkout mismatch stops the run."
+  - "Any missing or empty frozen model/index/input stops the affected dataset before evaluation."
+  - "Existing sealed .90 outputs are read-only and never overwritten."
+  - "Negative or zero-value results are retained."
