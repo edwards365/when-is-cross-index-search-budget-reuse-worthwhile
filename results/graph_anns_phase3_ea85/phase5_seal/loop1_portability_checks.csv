@@ -1,0 +1,10 @@
+check,expected,observed,status
+parameterized_historical_scripts,8,8,PASS
+pre_loop_scientific_files_hash_stable,80,80,PASS
+focused_tests,28,28,PASS
+neutral_path_smoke,PASS,PASS,PASS
+phase_decisions_parsed,5,5,PASS
+full_replay_external_preflight,PASS,PASS,PASS
+anonymous_identity_hits,0,0,PASS
+raw_truth_accessed,false,false,PASS
+full_external_asset_setup_automatic,true,false,DISCLOSED_LIMITATION

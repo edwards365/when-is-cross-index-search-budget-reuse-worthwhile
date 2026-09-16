@@ -30,9 +30,12 @@ the committed evidence before regeneration.
 
 ## Full replay
 
-See `full_replay.md`. Raw datasets and indexes are not committed. The full path
-requires the checksummed external inputs and approximately 5 GiB for Deep1M,
-plus the earlier SIFT/Arxiv experiment stores. No GPU is required.
+Run `bash artifacts/graph_anns_phase3_ea85/run_artifact.sh full-check` after
+setting the roots listed by its help. The expensive `full` mode additionally
+requires `ICBA_FULL_REPLAY_ACK=YES`. See `full_replay.md`; raw datasets and
+indexes are not committed. The path requires the checksummed external inputs
+and approximately 5 GiB for Deep1M, plus the earlier SIFT/Arxiv stores. No GPU
+is required.
 
 ## Claim boundary
 

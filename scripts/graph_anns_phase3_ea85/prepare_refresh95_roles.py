@@ -83,8 +83,23 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", choices=sorted(CONFIG), required=True)
     parser.add_argument("--output-root", type=Path, required=True)
+    parser.add_argument("--sift-hdf5", type=Path, default=CONFIG["sift100k"]["hdf5"])
+    parser.add_argument("--arxiv-hdf5", type=Path, default=CONFIG["arxiv_nomic_100k"]["hdf5"])
+    parser.add_argument(
+        "--score8-root", type=Path,
+        default=Path(os.environ.get("ICBA_SCORE8_ROOT", "/home/wlk/data500/graph_anns_score8")),
+    )
     args = parser.parse_args()
-    cfg = CONFIG[args.dataset]
+    cfg = dict(CONFIG[args.dataset])
+    score8 = args.score8_root.resolve()
+    if args.dataset == "sift100k":
+        cfg["hdf5"] = args.sift_hdf5.resolve()
+        cfg["old_dataset"] = str(score8 / "darth_comparison/multibuild/datasets/seed_{seed}/SIFT100M")
+        cfg["target_dataset"] = str(score8 / "darth_comparison/refresh/datasets/refresh_05/seed_{seed}/SIFT100M")
+    else:
+        cfg["hdf5"] = args.arxiv_hdf5.resolve()
+        cfg["old_dataset"] = str(score8 / "darth_comparison/arxiv/builds/seed_{seed}/SIFT100M")
+        cfg["target_dataset"] = str(score8 / "darth_comparison/arxiv/refresh/datasets/refresh_05/seed_{seed}/SIFT100M")
     started = time.time()
 
     with h5py.File(cfg["hdf5"], "r") as source:

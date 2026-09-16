@@ -17,9 +17,11 @@ Order:
 7. Run Phase 5 integration and the artifact smoke.
 
 Machine-specific absolute paths in historical launch scripts are provenance,
-not an anonymous artifact interface. Reviewers should map them through a local
-data root or use the committed aggregate replay. The paper must report this as
-an artifact limitation until every historical launcher is fully parameterized.
+not the anonymous artifact interface. All Phase 1--4 launchers now accept CLI
+or `ICBA_*` root overrides. Use `run_artifact.sh full-check` to validate the
+mapping and `run_artifact.sh full` for the expensive replay. The script does
+not download datasets or build the pre-existing external baseline assets; they
+must match the committed checksum and source ledgers.
 
 Expected additional space for Phase 4 is about 5 GiB, with at least 5 GiB free
 reserve. The complete historical SIFT/Arxiv stores require more space and are

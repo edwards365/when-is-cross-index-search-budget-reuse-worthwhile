@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO=/home/wlk/data500/navigation-aware-resistance-hnsw-main
-ROOT=/home/wlk/data500/graph_anns_phase3_ea85
+REPO="${ICBA_REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)}"
+ROOT="${ICBA_EA85_ROOT:-/home/wlk/data500/graph_anns_phase3_ea85}"
 BUNDLE="$ROOT/adaef_arxiv100k_frozen/arxiv_nomic_100k__adaef_input_bundle_v2.hdf5"
 BRIDGE="$ROOT/build/adaef/adaef_arxiv_bridge"
-PYTHON=/home/wlk/data500/graph_anns_score8/envs/darth/bin/python
+PYTHON="${ICBA_PYTHON:-python}"
 ANALYZE="$REPO/scripts/graph_anns_phase3_ea85/adaef_bridge/analyze_adaef_smoke.py"
 
 for seed in 1031 1049 1061 1069 1087 1097 1103; do

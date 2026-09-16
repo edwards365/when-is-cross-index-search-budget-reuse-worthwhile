@@ -1,0 +1,16 @@
+{
+  "schema_version": "ea85-supplement-loop1-portability-1.0",
+  "decision": "PORTABILITY_INTERFACE_COMPLETE_EXTERNAL_ASSET_SETUP_REMAINS",
+  "parameterized_scripts": 8,
+  "scientific_files_hash_checked": 80,
+  "scientific_hash_mismatches": 0,
+  "focused_tests_passed": 28,
+  "neutral_path_smoke": "PASS",
+  "full_replay_preflight": "PASS",
+  "raw_truth_accessed": false,
+  "scientific_results_changed": false,
+  "ea_score_before": 8.10,
+  "ea_score_after": 8.35,
+  "regular_score_after": 7.20,
+  "remaining_hard_blocker": "HARMONIZED_LIFECYCLE_COST"
+}

@@ -7,15 +7,13 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 from pathlib import Path
 
 import numpy as np
 
 
-DATASETS = {
-    "SIFT-100K": Path("/home/wlk/data500/icba_vamana_stage1/analysis/events.csv"),
-    "Arxiv-Nomic-100K": Path("/home/wlk/data500/icba_vamana_stage1_arxiv/analysis/events.csv"),
-}
+DEFAULT_DATA500 = Path(os.environ.get("ICBA_DATA500_ROOT", "/home/wlk/data500"))
 TARGETS = [f"V{i:02d}" for i in range(7, 13)]
 
 
@@ -86,13 +84,18 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         w.writerows(rows)
 
 
-def analyze(repo_root: Path) -> dict:
+def analyze(repo_root: Path, data500_root: Path | None = None) -> dict:
+    root = data500_root or DEFAULT_DATA500
+    datasets = {
+        "SIFT-100K": root / "icba_vamana_stage1/analysis/events.csv",
+        "Arxiv-Nomic-100K": root / "icba_vamana_stage1_arxiv/analysis/events.csv",
+    }
     result_dir = repo_root / "results/graph_anns_phase3_ea85/vamana_unified"
     report_path = repo_root / "docs/graph_anns_phase3_ea85/p3_vamana_unified_report.md"
     manifest_path = repo_root / "manifests/graph_anns_phase3_ea85/p3_vamana_unified_decision.json"
     per_build, summaries, input_hashes = [], [], {}
 
-    for dataset, path in DATASETS.items():
+    for dataset, path in datasets.items():
         rows = load_events(path)
         input_hashes[dataset] = {"path": str(path), "sha256": sha256(path), "rows": len(rows)}
         builds = [target_summary(rows, target) for target in TARGETS]
@@ -179,8 +182,9 @@ def analyze(repo_root: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, required=True)
+    parser.add_argument("--data500-root", type=Path, default=DEFAULT_DATA500)
     args = parser.parse_args()
-    print(json.dumps(analyze(args.repo_root), indent=2))
+    print(json.dumps(analyze(args.repo_root, args.data500_root), indent=2))
 
 
 if __name__ == "__main__":

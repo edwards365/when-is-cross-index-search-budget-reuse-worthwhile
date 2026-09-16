@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import argparse
 import hashlib
 import json
 import os
@@ -19,8 +20,7 @@ import numpy as np
 
 
 REPO = Path(__file__).resolve().parents[2]
-H5 = REPO / "data/raw/deep-image-96-angular.hdf5"
-ROOT = Path("/home/wlk/data500/graph_anns_phase3_ea85/deep1m")
+DEFAULT_DATA_ROOT = Path(os.environ.get("ICBA_EA85_ROOT", "/home/wlk/data500/graph_anns_phase3_ea85"))
 GRID = [10, 20, 40, 80, 120, 200]
 SEEDS = [3011, 3203, 3413, 3617]
 ORDERS = ["random", "norm_ascending"]
@@ -77,12 +77,12 @@ def exact_truth(base: np.ndarray, queries: np.ndarray, k: int = 10) -> np.ndarra
     return np.take_along_axis(best_ids, order, axis=1)
 
 
-def prepare() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    ROOT.mkdir(parents=True, exist_ok=True)
-    inputs = ROOT / "inputs"
+def prepare(root: Path, h5_path: Path) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    root.mkdir(parents=True, exist_ok=True)
+    inputs = root / "inputs"
     inputs.mkdir(exist_ok=True)
     manifest_path = inputs / "manifest.json"
-    with h5py.File(H5, "r") as f:
+    with h5py.File(h5_path, "r") as f:
         base = np.asarray(f["train"][:N_BASE], dtype=np.float32)
         all_queries = np.asarray(f["test"], dtype=np.float32)
     prior = set(np.sort(np.random.RandomState(991).choice(len(all_queries), 500, replace=False)).tolist())
@@ -108,7 +108,7 @@ def prepare() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         write_vecs(inputs / "smoke_queries.fvecs", queries[:20], "<f4")
         write_vecs(inputs / "smoke_truth.ivecs", truth[:20], "<i4")
         manifest = {
-            "dataset_sha256": sha256(H5),
+            "dataset_sha256": sha256(h5_path),
             "base_rows": N_BASE,
             "query_ids": ids.tolist(),
             "query_ids_sha256": hashlib.sha256(ids.astype("<i8").tobytes()).hexdigest(),
@@ -146,10 +146,10 @@ def parse_topk(path: Path) -> dict[tuple[int, int], list[int]]:
         return {(int(r["query_id"]), int(r["ef"])): [int(x) for x in r["topk"].split(";")] for r in csv.DictReader(f)}
 
 
-def native_smoke(index_path: Path, build_id: str, queries: np.ndarray, binary: Path) -> None:
-    out = ROOT / "smoke_counting.csv"
-    subprocess.run([str(binary), str(index_path), str(ROOT / "inputs/smoke_queries.fvecs"),
-                    str(ROOT / "inputs/smoke_truth.ivecs"), "10,40,200", build_id, str(out)], check=True)
+def native_smoke(root: Path, index_path: Path, build_id: str, queries: np.ndarray, binary: Path) -> None:
+    out = root / "smoke_counting.csv"
+    subprocess.run([str(binary), str(index_path), str(root / "inputs/smoke_queries.fvecs"),
+                    str(root / "inputs/smoke_truth.ivecs"), "10,40,200", build_id, str(out)], check=True)
     observed = parse_topk(out)
     index = hnswlib.Index(space="cosine", dim=queries.shape[1])
     index.load_index(str(index_path))
@@ -160,41 +160,49 @@ def native_smoke(index_path: Path, build_id: str, queries: np.ndarray, binary: P
         for qid, row in enumerate(labels):
             if observed[(qid, ef)] != row.tolist():
                 raise RuntimeError(f"native/counter mismatch q={qid} ef={ef}")
-    (ROOT / "INSTRUMENTATION_GATE_PASS").write_text("60/60 top-k exact matches\n")
+    (root / "INSTRUMENTATION_GATE_PASS").write_text("60/60 top-k exact matches\n")
 
 
 def main() -> None:
-    if shutil.disk_usage(ROOT.parent).free < 5 * 2**30 + 4 * 2**30:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--repo-root", type=Path, default=REPO)
+    parser.add_argument("--data-root", type=Path, default=DEFAULT_DATA_ROOT)
+    parser.add_argument("--dataset", type=Path)
+    args = parser.parse_args()
+    repo = args.repo_root.resolve()
+    root = args.data_root.resolve() / "deep1m"
+    h5_path = (args.dataset or (repo / "data/raw/deep-image-96-angular.hdf5")).resolve()
+    if shutil.disk_usage(root.parent).free < 5 * 2**30 + 4 * 2**30:
         raise RuntimeError("insufficient data500 space")
-    base, queries, _ = prepare()
-    binary = ROOT / "bin/deep1m_counting_runner"
+    base, queries, _ = prepare(root, h5_path)
+    binary = root / "bin/deep1m_counting_runner"
     binary.parent.mkdir(exist_ok=True)
-    subprocess.run(["g++", "-std=c++17", "-O3", "-pthread", "-I", str(REPO / "third_party/hnswlib"),
-                    str(REPO / "cpp/src/deep1m_counting_runner.cpp"), "-o", str(binary)], check=True)
-    builds = ROOT / "builds"
-    replay = ROOT / "replay"
+    subprocess.run(["g++", "-std=c++17", "-O3", "-pthread", "-I", str(repo / "third_party/hnswlib"),
+                    str(repo / "cpp/src/deep1m_counting_runner.cpp"), "-o", str(binary)], check=True)
+    builds = root / "builds"
+    replay = root / "replay"
     builds.mkdir(exist_ok=True)
     replay.mkdir(exist_ok=True)
     ledger = []
-    smoke_done = (ROOT / "INSTRUMENTATION_GATE_PASS").exists()
+    smoke_done = (root / "INSTRUMENTATION_GATE_PASS").exists()
     for seed in SEEDS:
         for order_name in ORDERS:
             build_id = f"deep1m_seed{seed}_{order_name}"
             index_path = builds / f"{build_id}.bin"
             build_seconds = build_index(base, seed, order_name, index_path)
             if not smoke_done:
-                native_smoke(index_path, build_id, queries, binary)
+                native_smoke(root, index_path, build_id, queries, binary)
                 smoke_done = True
             output = replay / f"{build_id}.csv"
             if not output.exists():
-                subprocess.run([str(binary), str(index_path), str(ROOT / "inputs/queries.fvecs"),
-                                str(ROOT / "inputs/truth.ivecs"), ",".join(map(str, GRID)), build_id, str(output)], check=True)
+                subprocess.run([str(binary), str(index_path), str(root / "inputs/queries.fvecs"),
+                                str(root / "inputs/truth.ivecs"), ",".join(map(str, GRID)), build_id, str(output)], check=True)
             ledger.append({"build": build_id, "seed": seed, "order": order_name,
                            "index_sha256": sha256(index_path), "index_bytes": index_path.stat().st_size,
                            "build_seconds_this_run": build_seconds, "replay_sha256": sha256(output),
                            "peak_rss_kib": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss})
-            (ROOT / "progress.json").write_text(json.dumps(ledger, indent=2) + "\n")
-    (ROOT / "STATUS").write_text("COMPLETE\n")
+            (root / "progress.json").write_text(json.dumps(ledger, indent=2) + "\n")
+    (root / "STATUS").write_text("COMPLETE\n")
 
 
 if __name__ == "__main__":

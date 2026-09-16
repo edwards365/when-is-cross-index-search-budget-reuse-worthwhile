@@ -3,8 +3,10 @@
 
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 
 import numpy as np
@@ -12,8 +14,9 @@ import pandas as pd
 from scipy.stats import beta
 
 
-ROOT = Path("/home/wlk/data500/graph_anns_phase3_ea85/darth95_bridge")
-REPO = Path("/home/wlk/data500/navigation-aware-resistance-hnsw-main")
+REPO = Path(__file__).resolve().parents[2]
+ROOT = Path(os.environ.get("ICBA_EA85_ROOT", "/home/wlk/data500/graph_anns_phase3_ea85")) / "darth95_bridge"
+DARTH_BASE = Path(os.environ.get("ICBA_DARTH_COMPARISON_ROOT", "/home/wlk/data500/graph_anns_score8/darth_comparison"))
 OUT = REPO / "results/graph_anns_phase3_ea85/darth95_bridge"
 DOC = REPO / "docs/graph_anns_phase3_ea85/darth95_bridge_report.md"
 SEEDS = [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267]
@@ -52,7 +55,7 @@ def metrics(path: Path) -> dict[str, float | int]:
 
 
 def fixed_path(dataset: str, seed: int, split: str) -> Path:
-    base = Path("/home/wlk/data500/graph_anns_score8/darth_comparison")
+    base = DARTH_BASE
     if dataset == "sift_100k":
         return base / f"multibuild/m1/seed_{seed}/fixed/{split}_ef200.txt"
     return base / f"arxiv/runs/m1/seed_{seed}/fixed/{split}_ef200.txt"
@@ -77,6 +80,15 @@ def bootstrap_gain(rows: pd.DataFrame) -> dict[str, float]:
 
 
 def main() -> None:
+    global REPO, ROOT, DARTH_BASE
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--repo-root", type=Path, default=REPO)
+    parser.add_argument("--data-root", type=Path, default=ROOT.parent)
+    parser.add_argument("--darth-comparison-root", type=Path, default=DARTH_BASE)
+    args = parser.parse_args()
+    REPO = args.repo_root.resolve()
+    ROOT = args.data_root.resolve() / "darth95_bridge"
+    DARTH_BASE = args.darth_comparison_root.resolve()
     if (ROOT / "STATUS").read_text(encoding="utf-8").strip() != "COMPLETE":
         raise RuntimeError("bridge run is not complete")
     build_rows: list[dict[str, object]] = []

@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-repo=/home/wlk/data500/navigation-aware-resistance-hnsw-main
-root=/home/wlk/data500/graph_anns_phase3_ea85
-binary=/home/wlk/data500/graph_anns_score8/build/darth/hnsw-test/hnsw_test
+repo="${ICBA_REPO_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
+data500="${ICBA_DATA500_ROOT:-/home/wlk/data500}"
+score8="${ICBA_SCORE8_ROOT:-$data500/graph_anns_score8}"
+root="${ICBA_EA85_ROOT:-$data500/graph_anns_phase3_ea85}"
+binary="${ICBA_DARTH_BINARY:-$score8/build/darth/hnsw-test/hnsw_test}"
 inputs="$root/refresh95_inputs"
 outputs="$root/refresh95_replay"
 seeds=(1103 1229 1361 1499 1621 1747 1877 1999 2131 2267)
@@ -15,13 +17,13 @@ mkdir -p "$outputs"
 index_path() {
   local dataset=$1 snapshot=$2 seed=$3
   if [[ "$dataset" == sift100k && "$snapshot" == old ]]; then
-    printf '/home/wlk/data500/graph_anns_score8/darth_comparison/multibuild/indexes/sift100k_seed_%s.faiss' "$seed"
+    printf '%s/darth_comparison/multibuild/indexes/sift100k_seed_%s.faiss' "$score8" "$seed"
   elif [[ "$dataset" == sift100k ]]; then
-    printf '/home/wlk/data500/graph_anns_score8/darth_comparison/refresh/indexes/refresh_05/sift100k_refresh05_seed_%s.faiss' "$seed"
+    printf '%s/darth_comparison/refresh/indexes/refresh_05/sift100k_refresh05_seed_%s.faiss' "$score8" "$seed"
   elif [[ "$snapshot" == old ]]; then
-    printf '/home/wlk/data500/graph_anns_score8/darth_comparison/arxiv/indexes/multibuild/arxiv100k_seed_%s.faiss' "$seed"
+    printf '%s/darth_comparison/arxiv/indexes/multibuild/arxiv100k_seed_%s.faiss' "$score8" "$seed"
   else
-    printf '/home/wlk/data500/graph_anns_score8/darth_comparison/arxiv/refresh/indexes/refresh_05/arxiv100k_refresh05_seed_%s.faiss' "$seed"
+    printf '%s/darth_comparison/arxiv/refresh/indexes/refresh_05/arxiv100k_refresh05_seed_%s.faiss' "$score8" "$seed"
   fi
 }
 

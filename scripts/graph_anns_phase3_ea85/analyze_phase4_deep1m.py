@@ -8,13 +8,14 @@ import csv
 import hashlib
 import json
 import math
+import os
 from pathlib import Path
 
 import numpy as np
 
 
 EFS = np.asarray([10, 20, 40, 80, 120, 200], dtype=int)
-ROOT = Path("/home/wlk/data500/graph_anns_phase3_ea85/deep1m")
+DEFAULT_DATA_ROOT = Path(os.environ.get("ICBA_EA85_ROOT", "/home/wlk/data500/graph_anns_phase3_ea85"))
 
 
 def sha256(path: Path) -> str:
@@ -70,13 +71,14 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         w.writerows(rows)
 
 
-def analyze(repo: Path) -> dict:
-    if (ROOT / "STATUS").read_text().strip() != "COMPLETE":
+def analyze(repo: Path, data_root: Path | None = None) -> dict:
+    root = (data_root or DEFAULT_DATA_ROOT) / "deep1m"
+    if (root / "STATUS").read_text().strip() != "COMPLETE":
         raise RuntimeError("Deep1M replay is not complete")
-    gate = (ROOT / "INSTRUMENTATION_GATE_PASS").read_text().strip()
+    gate = (root / "INSTRUMENTATION_GATE_PASS").read_text().strip()
     if gate != "60/60 top-k exact matches":
         raise RuntimeError(f"instrumentation gate mismatch: {gate}")
-    paths = sorted((ROOT / "replay").glob("*.csv"))
+    paths = sorted((root / "replay").glob("*.csv"))
     if len(paths) != 8:
         raise RuntimeError(f"expected eight replay files, found {len(paths)}")
     tensors = {}
@@ -140,8 +142,8 @@ def analyze(repo: Path) -> dict:
         lobo.append(float(np.mean([r["incremental_risk"] for r in keep])))
     largest = int(np.argmax([r["incremental_risk"] for r in per_target]))
     delete_largest = float(np.mean([r["incremental_risk"] for i, r in enumerate(per_target) if i != largest]))
-    progress = json.loads((ROOT / "progress.json").read_text())
-    inputs = json.loads((ROOT / "inputs/manifest.json").read_text())
+    progress = json.loads((root / "progress.json").read_text())
+    inputs = json.loads((root / "inputs/manifest.json").read_text())
     summary = {
         "builds": 8,
         "directed_pairs": 56,
@@ -185,7 +187,7 @@ def analyze(repo: Path) -> dict:
         "decision": decision,
         "evidence_level": "PREREGISTERED_FIXED_TARGET_DEEP1M_SCALE_CHECK",
         "instrumentation_gate": gate,
-        "input_manifest_sha256": sha256(ROOT / "inputs/manifest.json"),
+        "input_manifest_sha256": sha256(root / "inputs/manifest.json"),
         "summary": summary,
         "claim_scope": "deep-image first-1M, registered hnswlib build family, Recall@10<.95; no universal or deployment-method claim",
     }
@@ -200,8 +202,9 @@ def analyze(repo: Path) -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo-root", type=Path, required=True)
+    parser.add_argument("--data-root", type=Path, default=DEFAULT_DATA_ROOT)
     args = parser.parse_args()
-    print(json.dumps(analyze(args.repo_root), indent=2))
+    print(json.dumps(analyze(args.repo_root, args.data_root), indent=2))
 
 
 if __name__ == "__main__":
