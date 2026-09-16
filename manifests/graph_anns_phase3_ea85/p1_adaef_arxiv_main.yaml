@@ -1,0 +1,50 @@
+schema_version: "ea85-p1-adaef-arxiv-main-1.0"
+status: "FROZEN_BEFORE_ADDITIONAL_BUILD_RESULTS"
+frozen_at: "2026-09-16T21:48:00+08:00"
+parent_preregistration: "manifests/graph_anns_phase3_ea85/p1_adaef_preregistration.yaml"
+smoke_commit: "b3a75ef"
+dataset: "arxiv_nomic_100k"
+metric: "inner_product_on_unit_normalized_vectors"
+official_adaef_commit: "ed463f9993868f7ecc7c103920644e7f94abb377"
+primary_event: "Recall@10 < 0.95"
+alpha: 0.05
+confidence: 0.95
+builds:
+  - seed: 991
+    role: "registered_main_build_1_and_completed_smoke"
+  - seed: 1009
+    role: "registered_main_build_2"
+  - seed: 1021
+    role: "registered_main_build_3"
+shared_frozen_inputs:
+  query_role_manifest: "results/graph_anns_phase3_ea85/adaef_bridge/query_roles/arxiv_nomic_100k__adaef_query_role_manifest.json"
+  input_bundle_manifest: "results/graph_anns_phase3_ea85/adaef_bridge/arxiv_nomic_100k__adaef_input_bundle_v2.manifest.json"
+  design_queries: 2000
+  certification_queries: 500
+  evaluation_queries: 1000
+index:
+  rows: 100000
+  dimension: 768
+  M: 16
+  ef_construction: 500
+actions:
+  target_recall: 0.95
+  adaef_upper_bound: 200
+  fixed_safe_ef: 200
+  statistics_length: 1025
+decision:
+  rule: "Certify raw Ada-ef independently per target build using one-sided 95% Clopper-Pearson UCB <= 0.05; otherwise deploy fixed-safe EF200 if it certifies."
+  evaluation_access: "Per build, evaluation remains sealed until its certification decision is frozen."
+statistics:
+  primary_unit: "target_build"
+  bootstrap_reps: 5000
+  seed: 991
+  robustness:
+    - "per-build reporting"
+    - "LOBO"
+    - "delete largest-benefit build"
+guardrails:
+  - "No result-dependent changes to estimator, action table, target, fixed-safe endpoint, or query roles."
+  - "The completed seed-991 smoke is retained as registered build 1 because its protocol is identical and was frozen before its result."
+  - "Three builds remain pilot-scale and do not establish broad outer-build certification."
+  - "Euclidean SIFT is NOT_IMPLEMENTATION_SUPPORTED_UNDER_REGISTERED_METRIC and is not converted to cosine."
