@@ -1,0 +1,7 @@
+# Phase 4 Deep1M native-count scale protocol
+
+This phase closes the third-family scale Gate with eight fresh hnswlib builds on the first one million vectors of the frozen `deep-image-96-angular` corpus. It does not overwrite or relabel the earlier 9.99M experiment. The earlier experiment remains scale-direction evidence; this new cell adds per-query native distance-computation tails and target-build inference that the older batch-latency ledger cannot provide.
+
+The primary event is `Recall@10 < .95`. Since `k=10`, this is the discrete ten-of-ten hit event. Every build uses `M=16`, `efConstruction=100`, one thread, and the registered native `efSearch` grid. Four fixed seeds crossed with two fixed insertion orders produce eight target clusters. For every directed source→target pair, the source minimum-safe action is replayed on the target and compared with the target-own minimum-safe action.
+
+The 1,000 evaluation query IDs are sampled before truth or search, exclude all 500 queries used by the prior 10M cell, and are content-hash audited against the 1M base. A project-side counting cosine space must reproduce Python hnswlib top-k on a smoke subset before the full replay. Target-build bootstrap, LOTO, delete-largest-build, censoring, mean/p95/p99 distance computations, and resource costs are mandatory. This phase measures portability and cost semantics; it does not authorize a new deployment method.

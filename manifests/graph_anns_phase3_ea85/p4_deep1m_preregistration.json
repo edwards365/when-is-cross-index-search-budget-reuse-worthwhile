@@ -1,0 +1,61 @@
+{
+  "schema_version": "ea85-phase4-deep1m-1.0",
+  "status": "FROZEN_BEFORE_NEW_QUERY_TRUTH_BUILD_OR_SEARCH",
+  "stage": "Phase 4 third-family scale check",
+  "evidence_level": "PREREGISTERED_FIXED_TARGET_DEEP1M_SCALE_CHECK",
+  "dataset": {
+    "name": "ann-benchmarks deep-image-96-angular",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/data/raw/deep-image-96-angular.hdf5",
+    "sha256": "a0a44dfe80c58e63860862eeea2d34e62cff958dc3aec14fd65263d1d3c751f8",
+    "base": "first 1000000 train rows",
+    "metric": "cosine via normalized inner product",
+    "k": 10
+  },
+  "query_firewall": {
+    "prior_p10_ids": "Reconstruct exactly as sorted RandomState(991).choice(10000, 500, replace=False) and exclude.",
+    "new_evaluation_ids": "From the remaining test IDs, draw 1000 without replacement using default_rng(2991), sort, and freeze before truth or search.",
+    "future_reserved": "All other test IDs remain unaccessed.",
+    "content_overlap": "Hash-audit selected query vectors against the first 1M base rows; require zero."
+  },
+  "implementation": {
+    "library": "bundled hnswlib headers and repository Python hnswlib binding",
+    "M": 16,
+    "ef_construction": 100,
+    "threads": 1,
+    "action": "efSearch",
+    "action_grid": [10, 20, 40, 80, 120, 200],
+    "distance_counter": "Project-side native-compatible counting cosine space; per-query top-k must equal Python hnswlib on a pre-result smoke subset."
+  },
+  "builds": {
+    "count": 8,
+    "seeds": [3011, 3203, 3413, 3617],
+    "orders": ["random", "norm_ascending"],
+    "target_unit": "Each of all eight builds is a target cluster; the other seven are directed source builds."
+  },
+  "primary_event": "Recall@10 < 0.95",
+  "source_target_estimand": "For each directed source-target build pair and evaluation query, transport the source minimum safe registered ef to the target. Compare its failure event and target distance computations against the target-own minimum safe registered ef; retain right censoring.",
+  "statistics": {
+    "primary_unit": "target_build",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 991,
+    "reports": [
+      "transport risk and build-bootstrap interval",
+      "mean, p95, and p99 native distance computations",
+      "right-censoring and endpoint mass",
+      "LOTO and delete-largest-risk target build",
+      "build time, truth time, search time, storage, and memory high-water"
+    ]
+  },
+  "gates": {
+    "instrumentation": "Python-native and project-side counting runner top-k equality on at least 20 queries x 3 ef values before full replay.",
+    "safety_phenomenon": "Transport risk build-bootstrap lower bound > 0 and direction survives LOTO and delete-largest build.",
+    "tail": "Report p95/p99 without substituting batch-average latency.",
+    "scope": "Scale replication only; no TCP deployment or universal superiority claim."
+  },
+  "stop_rules": [
+    "Stop on dataset hash drift, query overlap, native-counter top-k mismatch, incomplete exact truth, or build replay failure.",
+    "Stop if data500 free space falls below projected additions plus 5 GiB.",
+    "Do not use prior P10 evaluation queries, validation-dev, formal-test, or any sealed role.",
+    "Do not change the grid, threshold, build seeds, orders, query IDs, or estimand after the first new search result."
+  ]
+}
