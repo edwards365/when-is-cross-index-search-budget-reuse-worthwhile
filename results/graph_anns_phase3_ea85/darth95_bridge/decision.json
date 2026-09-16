@@ -1,0 +1,26 @@
+{
+  "status": "DARTH95_BRIDGE_COMPLETE",
+  "primary_event": "Recall@10 < 0.95",
+  "primary_unit": "target_build",
+  "builds_per_dataset": 10,
+  "bootstrap_reps": 5000,
+  "bootstrap_seed": 991,
+  "gains_vs_fixed_safe": {
+    "sift_100k": {
+      "absolute_gain": 0.0,
+      "absolute_ci_low": 0.0,
+      "absolute_ci_high": 0.0,
+      "relative_gain": 0.0,
+      "relative_ci_low": 0.0,
+      "relative_ci_high": 0.0
+    },
+    "arxiv_nomic_100k": {
+      "absolute_gain": 0.0,
+      "absolute_ci_low": 0.0,
+      "absolute_ci_high": 0.0,
+      "relative_gain": 0.0,
+      "relative_ci_low": 0.0,
+      "relative_ci_high": 0.0
+    }
+  }
+}
