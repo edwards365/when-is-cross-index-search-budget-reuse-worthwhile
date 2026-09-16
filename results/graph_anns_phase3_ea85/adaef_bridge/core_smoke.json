@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "evidence_role": "INTEGRATION_ONLY_NOT_SCIENTIFIC",
+  "official_commit": "ed463f9993868f7ecc7c103920644e7f94abb377",
+  "target_recall": 0.950000,
+  "design_queries": 30,
+  "evaluation_queries": 20,
+  "mean_recall": 0.895000,
+  "failure_count": 9,
+  "weighted_average_ef": 25.266668,
+  "elapsed_ms": 3
+}
