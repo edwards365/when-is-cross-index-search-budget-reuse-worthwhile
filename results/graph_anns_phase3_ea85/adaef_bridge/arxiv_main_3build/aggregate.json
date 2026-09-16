@@ -1,0 +1,103 @@
+{
+  "all_deployments": [
+    "FIXED_SAFE_EF200"
+  ],
+  "all_fixed_safe_passed_certificate": true,
+  "all_raw_failed_certificate": true,
+  "bootstrap_reps": 5000,
+  "bootstrap_seed": 991,
+  "builds": 3,
+  "decision": "EXTEND_ADA_EF_ARXIV_TO_TEN_REGISTERED_BUILDS",
+  "delete_largest_benefit_build": {
+    "deleted_seed": 991,
+    "remaining_mean": {
+      "audited_gain_vs_fixed": 0.0,
+      "fixed_eval_risk": 0.006,
+      "fixed_mean_dist": 2644.385,
+      "fixed_p95_dist": 3368.125,
+      "raw_cost_saving_fraction": 0.5753675415093624,
+      "raw_eval_risk": 0.096,
+      "raw_mean_dist": 1122.892,
+      "raw_p95_dist": 1162.525
+    }
+  },
+  "evidence_level": "PILOT_BUILD_UNCERTAINTY_UNDERPOWERED",
+  "interpretation": "Raw Ada-ef is consistently cheaper but uncertified; ICBA consistently selects fixed-safe and therefore preserves safety with zero gain versus fixed-safe.",
+  "intervals": {
+    "audited_gain_vs_fixed": {
+      "ci95_high": 0.0,
+      "ci95_low": 0.0,
+      "mean": 0.0
+    },
+    "fixed_eval_risk": {
+      "ci95_high": 0.006000000000000001,
+      "ci95_low": 0.006000000000000001,
+      "mean": 0.006000000000000001
+    },
+    "fixed_mean_dist": {
+      "ci95_high": 2645.835,
+      "ci95_low": 2636.466,
+      "mean": 2641.7453333333333
+    },
+    "fixed_p95_dist": {
+      "ci95_high": 3373.1,
+      "ci95_low": 3366.1499999999996,
+      "mean": 3369.783333333333
+    },
+    "raw_cost_saving_fraction": {
+      "ci95_high": 0.5771320396318405,
+      "ci95_low": 0.5751632282436357,
+      "mean": 0.5759557075501883
+    },
+    "raw_eval_risk": {
+      "ci95_high": 0.09600000000000002,
+      "ci95_low": 0.09500000000000001,
+      "mean": 0.09566666666666668
+    },
+    "raw_mean_dist": {
+      "ci95_high": 1124.048,
+      "ci95_low": 1114.877,
+      "mean": 1120.2203333333334
+    },
+    "raw_p95_dist": {
+      "ci95_high": 1163.05,
+      "ci95_low": 1153.05,
+      "mean": 1159.3666666666668
+    }
+  },
+  "lobo": {
+    "1009": {
+      "audited_gain_vs_fixed": 0.0,
+      "fixed_eval_risk": 0.006,
+      "fixed_mean_dist": 2641.1504999999997,
+      "fixed_p95_dist": 3369.625,
+      "raw_cost_saving_fraction": 0.576147633937738,
+      "raw_eval_risk": 0.0955,
+      "raw_mean_dist": 1119.4625,
+      "raw_p95_dist": 1158.05
+    },
+    "1021": {
+      "audited_gain_vs_fixed": 0.0,
+      "fixed_eval_risk": 0.006,
+      "fixed_mean_dist": 2639.7005,
+      "fixed_p95_dist": 3371.6,
+      "raw_cost_saving_fraction": 0.5763519472034647,
+      "raw_eval_risk": 0.0955,
+      "raw_mean_dist": 1118.3065000000001,
+      "raw_p95_dist": 1157.525
+    },
+    "991": {
+      "audited_gain_vs_fixed": 0.0,
+      "fixed_eval_risk": 0.006,
+      "fixed_mean_dist": 2644.385,
+      "fixed_p95_dist": 3368.125,
+      "raw_cost_saving_fraction": 0.5753675415093624,
+      "raw_eval_risk": 0.096,
+      "raw_mean_dist": 1122.892,
+      "raw_p95_dist": 1162.525
+    }
+  },
+  "primary_unit": "target_build",
+  "schema_version": "ea85-adaef-arxiv-main-1.0",
+  "status": "THREE_BUILD_MAIN_COMPLETE_EXTENSION_ELIGIBLE"
+}

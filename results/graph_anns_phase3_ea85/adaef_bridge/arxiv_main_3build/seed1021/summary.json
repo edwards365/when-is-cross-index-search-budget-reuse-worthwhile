@@ -1,0 +1,99 @@
+{
+  "audited_policy": {
+    "efficiency_gain_vs_fixed_safe": 0.0,
+    "evaluation_lane": "fixed_safe"
+  },
+  "certification": {
+    "fixed_safe": {
+      "failures": 6,
+      "mean_distance_computations": 2641.46,
+      "mean_latency_ns": 702399.33,
+      "mean_recall": 0.9987999999999999,
+      "n": 500,
+      "p95_distance_computations": 3338.5499999999993,
+      "p95_latency_ns": 943792.5,
+      "p99_distance_computations": 3625.16,
+      "p99_latency_ns": 1020170.9099999999,
+      "risk": 0.012,
+      "risk_cp95_upper": 0.023546585483971323
+    },
+    "raw": {
+      "failures": 63,
+      "mean_distance_computations": 1124.078,
+      "mean_latency_ns": 556598.032,
+      "mean_recall": 0.984,
+      "n": 500,
+      "p95_distance_computations": 1165.0,
+      "p95_latency_ns": 603371.5,
+      "p99_distance_computations": 1184.05,
+      "p99_latency_ns": 738525.71,
+      "risk": 0.126,
+      "risk_cp95_upper": 0.15307013514678622
+    }
+  },
+  "certification_decision": {
+    "fixed_safe_certified": true,
+    "frozen_deployment": "FIXED_SAFE_EF200",
+    "raw_certified": false
+  },
+  "dataset": "arxiv_nomic_100k",
+  "design": {
+    "build_seconds": 178.244968,
+    "design_queries": 2000,
+    "dimension": 768,
+    "ef_construction": 500,
+    "fixed_safe_ef": 200,
+    "index_rows": 100000,
+    "k": 10,
+    "m": 16,
+    "offline_adapter_seconds": 2.264498,
+    "seed": 1021,
+    "statics_length": 1025,
+    "status": "DESIGN_COMPLETE_EVALUATION_UNACCESSED",
+    "target_recall": 0.95,
+    "weighted_average_ef": 10.480002
+  },
+  "evaluation": {
+    "fixed_safe": {
+      "failures": 6,
+      "mean_distance_computations": 2645.835,
+      "mean_latency_ns": 720279.264,
+      "mean_recall": 0.9994000000000001,
+      "n": 1000,
+      "p95_distance_computations": 3366.1499999999996,
+      "p95_latency_ns": 962913.0,
+      "p99_distance_computations": 3616.05,
+      "p99_latency_ns": 1066249.3,
+      "risk": 0.006
+    },
+    "raw": {
+      "failures": 96,
+      "mean_distance_computations": 1124.048,
+      "mean_latency_ns": 579426.852,
+      "mean_recall": 0.9868000000000001,
+      "n": 1000,
+      "p95_distance_computations": 1163.05,
+      "p95_latency_ns": 624782.0,
+      "p99_distance_computations": 1180.0,
+      "p99_latency_ns": 774090.4,
+      "risk": 0.096
+    }
+  },
+  "event": "Recall@10 < 0.95",
+  "evidence_level": "ONE_BUILD_SMOKE_NOT_OUTER_BUILD_INFERENCE",
+  "interpretation": "Raw Ada-ef is efficient but fails the independent safety certificate; ICBA safely falls back to EF200. The one-build smoke validates semantics but does not establish build-level generality.",
+  "raw_evaluation_action_counts": {
+    "10": 905,
+    "13": 45,
+    "20": 50
+  },
+  "schema_version": "ea85-adaef-arxiv-smoke-1.0",
+  "sha256": {
+    "adapter.bin": "d575b08219cd6ed04d5e9e115e968fb816cfbc76ce86911b0009cfbe0cb8c2c3",
+    "certification.csv": "0031ca3e2930f35a77fe1b6487a859ae4d89e560bd5b87838d8b0fec70269fc2",
+    "design_summary.json": "a3a8b353253c158ac12927260a58bdd3f4a067c8e0f603f9a37137e0d59abf48",
+    "evaluation.csv": "74fc8a921390b4e903a03a406d32beb92c5a277f359e6b70266c21a61cbb530f",
+    "index.hnsw": "a5302adc9d9914dc7b39817dbf22049e2eef19fcaf2a4690e8bb3f01797cefad"
+  },
+  "status": "SMOKE_PASS_SEMANTICALLY_VALID_EXTEND_TO_REGISTERED_MAIN"
+}
