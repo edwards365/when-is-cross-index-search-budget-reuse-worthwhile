@@ -1,0 +1,14 @@
+{
+  "bootstrap": {
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "decision": "PHASE5_STATISTICAL_ECONOMIC_SEAL_COMPLETE_LIFECYCLE_CONDITIONAL",
+  "evidence_rows": 14,
+  "full_lifecycle_status": "NOT_ESTIMABLE_TRUTH_REBUILD_CONTROL_NOT_HARMONIZED",
+  "primary_unit": "target_build",
+  "robustness_rows": 5,
+  "schema_version": "ea85-phase5-decision-1.0",
+  "search_only_tcp_status": "POSITIVE_TWO_DATASETS_ROBUST",
+  "submission_claim": "portability phenomenon and audit utility supported; TCP economic value conditional"
+}

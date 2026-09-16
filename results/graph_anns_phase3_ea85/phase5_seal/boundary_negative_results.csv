@@ -1,0 +1,7 @@
+phase,result,value,boundary
+P1,DARTH_RAW_UNSAFE,risk=.2255/.2312,audited deployment is fixed-safe with zero gain
+P1,ADAEF_RAW_UNSAFE,"risk=.0952 CI[.0944,.0960]",Arxiv only; SIFT unsupported under registered metric; audited gain zero
+P2,SOURCE_TCP_REUSE_UNSAFE,risk=.0669/.0724,"target recalibration, not raw source reuse, passes search gate"
+P2,FULL_LIFECYCLE_COST_OPEN,NOT_ESTIMABLE,search-only gain cannot be called end-to-end economic value
+P3,VAMANA_COST_TAX_NULL,both 95% CIs cross zero,portability-risk evidence positive; efficiency direction unresolved
+P4,TARGET_REFERENCE_CENSORING,0.08825,incremental risk is primary; endpoint censoring retained

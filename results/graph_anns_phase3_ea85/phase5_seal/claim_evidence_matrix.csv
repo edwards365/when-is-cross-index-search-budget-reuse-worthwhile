@@ -1,0 +1,6 @@
+claim,evidence,status,forbidden_extension
+safe native actions can fail to transfer across rebuilds,P1 DARTH/Ada-ef; P3 Vamana; P4 Deep1M,SUPPORTED_STRATIFIED,"not universal over all graphs, methods, or rebuilds"
+ICBA distinguishes unsafe efficiency from deployable value,P1 audited fallback and P2 certification,SUPPORTED,not an accuracy or SOTA algorithm claim
+target-selection TCP recalibration has safe search-distance value,"P2 two datasets, ten target builds each, positive CI/LOTO/deletion and p95",SUPPORTED_CONDITIONAL,not full lifecycle economics
+TCP is end-to-end economically superior,truth/rebuild/control costs unharmonized,NOT_ESTIMABLE,must not appear as a conclusion
+broad method SOTA,external raw methods unsafe; audited gains zero; no universal race,UNSUPPORTED_AND_OUT_OF_SCOPE,no SOTA language
