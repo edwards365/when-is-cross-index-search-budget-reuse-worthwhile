@@ -1,0 +1,76 @@
+{
+  "bootstrap": {
+    "outer_unit": "target_build",
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "claim_scope": "Registered SIFT-100K and Arxiv-Nomic-100K DiskANN3/Vamana-style build families only; no numerical comparison of l_value with HNSW efSearch and no open-world implementation claim.",
+  "decision": "VAMANA_UNIFIED_SEMANTIC_BRIDGE_CONFIRMED_TWO_DATASETS",
+  "event_equivalence": "For k=10, the frozen Stage-I threshold Recall@10 >= 0.95 is exactly the 10-of-10 hit event because recall values are multiples of 0.1.",
+  "inputs": {
+    "Arxiv-Nomic-100K": {
+      "path": "/home/wlk/data500/icba_vamana_stage1_arxiv/analysis/events.csv",
+      "rows": 27000,
+      "sha256": "71ee4bd989d640569a2f4bb6a89d7c72ac2c46df853a800861abc1584ef6dac8"
+    },
+    "SIFT-100K": {
+      "path": "/home/wlk/data500/icba_vamana_stage1/analysis/events.csv",
+      "rows": 27000,
+      "sha256": "841d6801608d03b560376366b45d94ac06206099ce82bdbd60e90774fed34294"
+    }
+  },
+  "native_action": {
+    "beam_width": 1,
+    "grid": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "implementation": "DiskANN3/Vamana-style",
+    "parameter": "l_value"
+  },
+  "new_builds_or_truth_accessed": false,
+  "primary_event": "Recall@10 < 0.95",
+  "primary_statistical_unit": "target_build",
+  "schema_version": "ea85-phase3-vamana-unified-1.0",
+  "status": "POST_HOC_PROTOCOL_REALIGNMENT_OF_FROZEN_OUTPUTS",
+  "summary": [
+    {
+      "all_target_builds_positive": 1,
+      "cost_ci_high": 0.02855798524287227,
+      "cost_ci_low": -0.010269946541438757,
+      "cost_tax": 0.010687042063084759,
+      "dataset": "SIFT-100K",
+      "delete_largest_risk": 0.16444444444444445,
+      "directed_source_target_pairs": 36,
+      "min_loto_risk": 0.16444444444444445,
+      "queries": 750,
+      "risk_ci_high": 0.179337037037037,
+      "risk_ci_low": 0.1587777777777778,
+      "source_builds": 6,
+      "target_builds": 6,
+      "transport_risk": 0.1686296296296296,
+      "under_budget_unsafe_rate": 0.1672962962962963
+    },
+    {
+      "all_target_builds_positive": 1,
+      "cost_ci_high": 0.030336369479566916,
+      "cost_ci_low": -0.008298784194285758,
+      "cost_tax": 0.01167905148485232,
+      "dataset": "Arxiv-Nomic-100K",
+      "delete_largest_risk": 0.11124444444444445,
+      "directed_source_target_pairs": 36,
+      "min_loto_risk": 0.11124444444444445,
+      "queries": 750,
+      "risk_ci_high": 0.11988888888888889,
+      "risk_ci_low": 0.10803703703703703,
+      "source_builds": 6,
+      "target_builds": 6,
+      "transport_risk": 0.11374074074074075,
+      "under_budget_unsafe_rate": 0.11077777777777778
+    }
+  ]
+}
