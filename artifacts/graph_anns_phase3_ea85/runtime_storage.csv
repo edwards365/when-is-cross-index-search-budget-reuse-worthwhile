@@ -1,0 +1,8 @@
+phase,path,runtime_or_budget,storage_or_memory,status
+P1_DARTH,full replay,host dependent,existing 20 target builds,SEALED
+P1_Adaef,full replay,host dependent,10 target builds plus bundled inputs,SEALED
+P2_refresh95,full replay,host dependent,840 replay files external to git,SEALED
+P3_Vamana,analysis only,seconds,frozen 54000-row event tables,SEALED_POST_HOC_ALIGNMENT
+P4_Deep1M,full replay,1629.03 seconds truth plus builds,3.97 GiB indexes and peak RSS 1.04 GiB,SEALED
+P5_integration,table regeneration,under 5 seconds,under 10 MiB,SEALED
+P6_smoke,clean clone smoke,about 1 minute,under 100 MiB,REGISTERED

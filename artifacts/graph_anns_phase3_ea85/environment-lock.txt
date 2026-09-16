@@ -1,0 +1,17 @@
+python==3.11.16
+numpy==1.26.4
+scipy==1.13.1
+pandas==2.2.*
+scikit-learn==1.5.2
+h5py==3.11.*
+hnswlib==0.8.0
+pyarrow==17.0.0
+matplotlib==3.9.4
+pytest==8.*
+cmake==3.30.*
+ninja==1.12.*
+compiler=g++ 9.4.0
+cxx_standard=17
+openmp=enabled_where_reported
+phase5_bootstrap_seed=991
+phase5_bootstrap_repetitions=5000

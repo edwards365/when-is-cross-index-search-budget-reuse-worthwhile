@@ -1,0 +1,14 @@
+{
+  "anonymous_entrypoint_identity_hits": [],
+  "checksums_checked": 11,
+  "claim_scope": "artifact execution and provenance; no new scientific claim",
+  "clean_clone_full_replay": "REQUIRES_EXTERNAL_DATA_AND_PATH_MAPPING",
+  "clean_clone_smoke": "SUPPORTED",
+  "decision": "PHASE6_ANONYMOUS_ARTIFACT_SMOKE_COMPLETE_FULL_REPLAY_PATH_MAPPING_REQUIRED",
+  "focused_tests": 24,
+  "paper_figures": 4,
+  "parent_commit": "3228c298f7682c75403926221bedf2b81cdfa837",
+  "raw_truth_accessed": false,
+  "schema_version": "ea85-phase6-artifact-decision-1.0",
+  "smoke_status": "PASS"
+}
