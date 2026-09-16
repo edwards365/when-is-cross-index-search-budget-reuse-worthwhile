@@ -1,0 +1,167 @@
+# ==============================================================================
+# Unified Protocol Ledger — Graph-ANNS Budget Portability E&A 8.5 Package
+# Frozen BEFORE any new experiment (Day 1, P0 gate)
+# ==============================================================================
+
+schema_version: "ea85-unified-protocol-1.0"
+frozen_at: "2026-09-15T23:30:00+08:00"
+frozen_by: "P0 Day-1 protocol unification"
+parent_branch: "exp/tcp_sigmod_regular_closure"
+parent_commit: "7ea33ca"
+
+# ------------------------------------------------------------------------------
+# PRIMARY EVENT (fixed across ALL experiments in this package)
+# ------------------------------------------------------------------------------
+primary_event:
+  name: "endpoint_aware_budget_failure"
+  definition: "Recall@10 < 0.95 at the deployed implementation-native action"
+  recall_threshold: 0.95
+  k: 10
+  note: "This supersedes the h=10 full-hit event used in earlier phases for NEW experiments; legacy h=10 results remain frozen and unmodified."
+
+# ------------------------------------------------------------------------------
+# QUERY ROLES (strict isolation — never reused across roles)
+# ------------------------------------------------------------------------------
+query_roles:
+  design:
+    purpose: "Grid selection, event calibration"
+    isolation: "Never overlaps with selection/certification/evaluation"
+  selection:
+    purpose: "Action screening, model training"
+    isolation: "Disjoint from certification and evaluation"
+  certification:
+    purpose: "CP/LTT certification of frozen actions"
+    isolation: "Used exactly once per frozen candidate"
+  evaluation:
+    purpose: "Final risk/cost reporting"
+    isolation: "Never used for any decision"
+  cold_evaluation:
+    purpose: "Fresh never-seen queries for cold-start assessment"
+    isolation: "Sampled from test split, disjoint from all other roles"
+
+# ------------------------------------------------------------------------------
+# COST FIELDS (unified ledger — every experiment must report or mark NOT_ESTIMABLE)
+# ------------------------------------------------------------------------------
+cost_fields:
+  build_time_seconds:
+    type: "measured"
+    definition: "Wall-clock index construction time"
+  truth_cost_seconds:
+    type: "measured_or_NOT_ESTIMABLE"
+    definition: "Time to compute exact top-k truth for authorized queries"
+  profiling_cost_seconds:
+    type: "measured_or_NOT_ESTIMABLE"
+    definition: "Time for resident primitive profiling (search + truth)"
+  certification_cost_seconds:
+    type: "measured_or_NOT_ESTIMABLE"
+    definition: "Time for CP/LTT certification procedure"
+  serving_distcomp:
+    type: "measured_or_NOT_ESTIMABLE"
+    definition: "Mean distance computations per query at deployed action"
+  serving_latency_p95_us:
+    type: "measured_or_NOT_ESTIMABLE"
+    definition: "p95 per-query search latency"
+  fallback_rate:
+    type: "measured"
+    definition: "Fraction of queries triggering fallback"
+  abstention_rate:
+    type: "measured"
+    definition: "Fraction of queries where policy abstains"
+
+# ------------------------------------------------------------------------------
+# NATIVE ACTION SEMANTICS (never cross-compare raw values)
+# ------------------------------------------------------------------------------
+native_actions:
+  hnswlib_hnsw:
+    parameter: "efSearch"
+    grid: [10, 20, 40, 80, 120, 200]
+    semantic: "candidate-list length"
+  faiss_hnsw:
+    parameter: "efSearch"
+    grid: [16, 32, 64, 128, 256, 512]
+    semantic: "implementation-specific candidate control"
+  diskann_vamana:
+    parameter: "l_value"
+    grid: [16, 32, 64, 128, 256, 512]
+    semantic: "search list size; beam_width=1 fixed"
+  guardrail: "Raw parameter values are NEVER numerically equated across implementations."
+
+# ------------------------------------------------------------------------------
+# STATISTICAL UNITS
+# ------------------------------------------------------------------------------
+statistical_units:
+  primary: "target_build"
+  note: "The primary resampling/inference unit is the build (index), NOT the query."
+  query_bootstrap:
+    role: "secondary; conditional on registered build family"
+    reps: 5000
+    seed: 991
+  build_bootstrap:
+    role: "primary; resample builds with replacement"
+    reps: 2000
+    seed: 991
+
+# ------------------------------------------------------------------------------
+# DARTH ALIGNMENT (P1 bridge — Day 2-4)
+# ------------------------------------------------------------------------------
+darth_alignment:
+  official_repo: "https://github.com/marikaris/DARTH"
+  target_commit: "TO_PIN_ON_DAY_2"
+  event: "Recall@10 >= 0.95 (DARTH's native stopping target)"
+  reporting: "raw DARTH efficiency and ICBA-audited deployment efficiency reported separately"
+  new_builds_per_dataset: 3
+  datasets: ["sift_100k", "arxiv_nomic_100k"]
+
+# ------------------------------------------------------------------------------
+# MIXED REFRESH (P2 — Day 5-7)
+# ------------------------------------------------------------------------------
+mixed_refresh:
+  insert_delete_ratio: 0.05
+  scenarios_per_dataset: 1
+  target_builds_per_scenario: 6
+  datasets: ["sift_100k", "arxiv_nomic_100k"]
+  eval_queries: "500 fresh (never used in any prior role)"
+  sources_to_separate:
+    - "rebuild randomness (same data, new build)"
+    - "data update (5% mixed insert/delete)"
+    - "query reuse (cold vs repeat)"
+
+# ------------------------------------------------------------------------------
+# VAMANA SEMANTIC BRIDGE (P3 — Day 8-10)
+# ------------------------------------------------------------------------------
+vamana_bridge:
+  builds_per_dataset: 6
+  datasets: ["sift_100k", "arxiv_nomic_100k"]
+  grid: "native l_value full target-safe grid"
+  constraint: "No legacy zero-reference-risk substitution; report actual target-safe results"
+  outcome_policy: "positive, negative, or zero — all preserved"
+
+# ------------------------------------------------------------------------------
+# THIRD DATASET FAMILY (P4 — Day 11-12)
+# ------------------------------------------------------------------------------
+third_family:
+  preferred: "Deep1M (deep-image-96, 1M scale)"
+  fallback: "none — no small-sample downgrade"
+  builds: 8
+  implementation: "hnswlib"
+  optional_confirm: "Faiss HNSW 4 builds if resources permit"
+
+# ------------------------------------------------------------------------------
+# HARD GATES (all must pass for "E&A 8.5 candidate package")
+# ------------------------------------------------------------------------------
+hard_gates:
+  - "Role isolation: design/selection/certification/evaluation strictly disjoint"
+  - "Primary statistical unit = target build"
+  - "Native actions never numerically cross-compared"
+  - "At least one explicit negative/boundary result in main text"
+  - "DARTH raw and audited efficiency both reported"
+  - "All main figures/tables reproducible from anonymous artifact"
+  - "Title/abstract claim 'conditional, implementation- and update-dependent' only"
+
+# ------------------------------------------------------------------------------
+# LEGACY PRESERVATION
+# ------------------------------------------------------------------------------
+legacy_preservation:
+  rule: "All prior frozen results (h=10 event era) remain unmodified"
+  new_event_supersedes: "only for new experiments in this package"
+  crosswalk: "h=10 full-hit ↔ Recall@10≥.95 mapping documented per dataset"
