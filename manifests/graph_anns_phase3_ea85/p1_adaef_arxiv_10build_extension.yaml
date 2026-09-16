@@ -1,0 +1,27 @@
+schema_version: "ea85-p1-adaef-arxiv-extension-1.0"
+status: "FROZEN_BEFORE_EXTENSION_RESULTS"
+frozen_at: "2026-09-16T22:29:00+08:00"
+parent_main: "manifests/graph_anns_phase3_ea85/p1_adaef_arxiv_main.yaml"
+three_build_gate_commit: "ae45507"
+gate_result: "THREE_BUILD_MAIN_COMPLETE_EXTENSION_ELIGIBLE"
+dataset: "arxiv_nomic_100k"
+seeds: [991, 1009, 1021, 1031, 1049, 1061, 1069, 1087, 1097, 1103]
+new_seeds: [1031, 1049, 1061, 1069, 1087, 1097, 1103]
+shared_protocol:
+  primary_event: "Recall@10 < 0.95"
+  design_queries: 2000
+  certification_queries: 500
+  evaluation_queries: 1000
+  alpha: 0.05
+  confidence: 0.95
+  fixed_safe_ef: 200
+  target_build_bootstrap_reps: 5000
+  bootstrap_seed: 991
+execution:
+  order: "ascending seed, one build at a time"
+  evaluation_access: "Evaluation for a build is opened only after its raw/fixed-safe certification decision is recorded."
+  abort: "Abort the extension on input-hash drift, role overlap, non-finite output, or absence of any certified action."
+guardrails:
+  - "No estimator, metric, target, action, query role, or fallback change after the three-build result."
+  - "The extension estimates stability of the boundary result; it does not search for a positive build."
+  - "SIFT remains NOT_IMPLEMENTATION_SUPPORTED_UNDER_REGISTERED_METRIC."
