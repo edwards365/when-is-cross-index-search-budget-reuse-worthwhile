@@ -1,0 +1,42 @@
+{
+  "claim_scope": "deep-image first-1M, registered hnswlib build family, Recall@10<.95; no universal or deployment-method claim",
+  "decision": "DEEP1M_PORTABILITY_FAILURE_CONFIRMED_WITH_NATIVE_TAILS",
+  "evidence_level": "PREREGISTERED_FIXED_TARGET_DEEP1M_SCALE_CHECK",
+  "input_manifest_sha256": "d2b17c0740d84cfcbb5591206506c67cfb4ed9ea702d2c2256138c8cbddca9a6",
+  "instrumentation_gate": "60/60 top-k exact matches",
+  "schema_version": "ea85-phase4-deep1m-decision-1.0",
+  "summary": {
+    "builds": 8,
+    "delete_largest_incremental_risk": 0.19418367346938778,
+    "directed_pairs": 56,
+    "incremental_risk": 0.20039285714285715,
+    "incremental_risk_ci": [
+      0.17294642857142856,
+      0.22773214285714288
+    ],
+    "mean_reference_ndc": 1318.06925,
+    "mean_transport_ndc": 1315.3453035714285,
+    "min_loto_incremental_risk": 0.19418367346938778,
+    "p95_reference_ndc": 3636.0499999999956,
+    "p95_transport_ndc": 3633.0,
+    "p99_reference_ndc": 3937.010000000002,
+    "p99_transport_ndc": 3931.0,
+    "peak_rss_kib": 1090900,
+    "queries": 1000,
+    "reference_risk": 0.08825,
+    "reference_risk_ci": [
+      0.08287499999999999,
+      0.0935
+    ],
+    "source_censoring": 0.08825,
+    "target_censoring": 0.08825,
+    "total_build_seconds": 1611.434065580368,
+    "total_index_bytes": 4260264896,
+    "transport_risk": 0.28864285714285715,
+    "transport_risk_ci": [
+      0.2666410714285714,
+      0.3104642857142857
+    ],
+    "truth_seconds": 17.59574818611145
+  }
+}
