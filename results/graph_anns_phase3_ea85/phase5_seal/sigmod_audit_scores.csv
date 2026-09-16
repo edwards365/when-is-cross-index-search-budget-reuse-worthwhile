@@ -1,0 +1,17 @@
+route,dimension,max_points,awarded_points,status,main_gap
+E&A,fit_and_relevance,1.5,1.4,STRONG,final title and narrative not yet sealed
+E&A,insight_and_significance,1.5,1.25,STRONG,lifecycle consequence partly conditional
+E&A,statistical_semantic_soundness,1.5,1.45,VERY_STRONG,Vamana evidence post-hoc labeled
+E&A,breadth_baseline_fairness,1.5,1.3,STRONG,not exhaustive adaptive-method survey
+E&A,reproducibility,1.5,1.15,PARTIAL,historical full replay path mapping required
+E&A,economics_applicability,1.0,0.75,PARTIAL,truth rebuild control not harmonized
+E&A,presentation_claim_discipline,1.0,0.8,STRONG,final 12-page E&A rewrite open
+E&A,TOTAL,10.0,8.1,READY_WITH_BLOCKERS,portable replay and lifecycle cost
+Regular,method_novelty,1.5,0.95,MODERATE,stronger empirical than method novelty
+Regular,technical_soundness,1.5,1.35,VERY_STRONG,none material
+Regular,empirical_breadth,1.5,1.3,STRONG,external method breadth finite
+Regular,method_effectiveness,1.5,0.75,PARTIAL,positive only after target recalibration
+Regular,significance,1.5,0.9,MODERATE,no broad end-to-end superiority
+Regular,reproducibility,1.5,1.15,PARTIAL,historical full replay path mapping required
+Regular,presentation,1.0,0.65,PARTIAL,regular-paper method story not sealed
+Regular,TOTAL,10.0,7.05,NOT_YET_STRONG,method and lifecycle closure

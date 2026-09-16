@@ -1,0 +1,7 @@
+priority,item,type,expected_ea_gain,expected_regular_gain,resource_risk,stop_rule
+1,portable full replay interface,HARD_BLOCKER,0.35,0.25,LOW,stop on checksum drift or any sealed-result mutation
+2,harmonized lifecycle cost audit,HARD_BLOCKER,0.25,0.45,LOW_TO_MEDIUM,mark NOT_ESTIMABLE when a component is absent
+3,12-page E&A paper-facing claim seal,HARD_BLOCKER,0.20,0.10,LOW,no unsupported claim or format violation
+4,clean neutral-path artifact execution,HIGH_VALUE,0.10,0.05,LOW,smoke and deterministic tables must match
+5,additional official adaptive baseline,OPTIONAL,0.10,0.15,MEDIUM,skip if code or estimand bridge is unavailable
+6,additional dataset sensitivity,OPTIONAL,0.05,0.10,MEDIUM,skip if it duplicates Deep1M and two-family evidence

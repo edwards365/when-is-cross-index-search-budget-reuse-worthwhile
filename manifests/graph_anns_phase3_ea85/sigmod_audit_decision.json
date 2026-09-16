@@ -1,0 +1,17 @@
+{
+  "schema_version": "ea85-sigmod-independent-audit-1.0",
+  "audit_date": "2026-09-17",
+  "official_standard": "SIGMOD 2027 research call and SIGMOD reproducibility guidance",
+  "ea_score": 8.10,
+  "regular_score": 7.05,
+  "ea_target": 8.50,
+  "recommended_route": "EXPERIMENTS_AND_ANALYSIS",
+  "decision": "EA_CREDIBLE_BUT_PORTABLE_FULL_REPLAY_AND_LIFECYCLE_COST_BLOCK_8_5",
+  "hard_blockers": [
+    "PORTABLE_FULL_REPLAY_INTERFACE",
+    "HARMONIZED_LIFECYCLE_COST",
+    "FINAL_EA_PAPER_COMPLIANCE_SEAL"
+  ],
+  "next_loop": "LOOP1_ARTIFACT_PORTABILITY",
+  "safety_gates_relaxed": false
+}
