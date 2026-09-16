@@ -17,7 +17,7 @@ run_one() {
   local seed=$2
   local dataset_dir index model out
   if [[ "$dataset" == sift_100k ]]; then
-    dataset_dir=/home/wlk/data500/graph_anns_score8/darth_comparison/multibuild/datasets/seed_${seed}/SIFT100M
+    dataset_dir=/home/wlk/data500/graph_anns_score8/darth_comparison/multibuild/datasets/seed_${seed}
     index=/home/wlk/data500/graph_anns_score8/darth_comparison/multibuild/indexes/sift100k_seed_${seed}.faiss
     model=/home/wlk/data500/graph_anns_score8/darth_comparison/multibuild/m1/seed_${seed}/model_11feat.txt
   else
