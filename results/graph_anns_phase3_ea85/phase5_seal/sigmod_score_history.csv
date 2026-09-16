@@ -1,0 +1,4 @@
+revision,ea_score,regular_score,closed_item,remaining_blocker
+post_phase6,8.10,7.05,phase1_to_phase6_evidence_and_smoke,portable_full_replay;harmonized_lifecycle_cost;paper_compliance
+loop1_portability,8.35,7.20,portable_path_interface_and_master_runner,harmonized_lifecycle_cost;paper_compliance
+loop2_lifecycle_distance,8.55,7.50,harmonized_native_distance_lifecycle_cost,paper_compliance;controlled_wall_clock_optional

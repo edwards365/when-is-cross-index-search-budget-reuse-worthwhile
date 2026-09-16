@@ -1,0 +1,3 @@
+dataset,target_builds,ratio_of_means_break_even_queries,bootstrap_break_even_ci_low,bootstrap_break_even_ci_high,max_finite_build_break_even_queries,nonamortizing_builds,first_registered_positive_N,all_cost_components_accounted,wall_clock_status
+sift100k,10,138836.36138183245,138607.33617725238,139055.24986318793,139253.84493537736,0,1000000,1,EXPLORATORY_NOT_PROMOTED
+arxiv_nomic_100k,10,107378.07745505484,96583.2445044316,138090.33012499654,96920.00988341603,1,1000000,1,EXPLORATORY_NOT_PROMOTED

@@ -1,0 +1,40 @@
+{
+  "bootstrap": {
+    "repetitions": 5000,
+    "seed": 991
+  },
+  "cost_currency": "implementation_native_distance_evaluations",
+  "datasets": [
+    {
+      "all_cost_components_accounted": 1,
+      "bootstrap_break_even_ci_high": 139055.24986318793,
+      "bootstrap_break_even_ci_low": 138607.33617725238,
+      "dataset": "sift100k",
+      "first_registered_positive_N": 1000000,
+      "max_finite_build_break_even_queries": 139253.84493537736,
+      "nonamortizing_builds": 0,
+      "ratio_of_means_break_even_queries": 138836.36138183245,
+      "target_builds": 10,
+      "wall_clock_status": "EXPLORATORY_NOT_PROMOTED"
+    },
+    {
+      "all_cost_components_accounted": 1,
+      "bootstrap_break_even_ci_high": 138090.33012499654,
+      "bootstrap_break_even_ci_low": 96583.2445044316,
+      "dataset": "arxiv_nomic_100k",
+      "first_registered_positive_N": 1000000,
+      "max_finite_build_break_even_queries": 96920.00988341603,
+      "nonamortizing_builds": 1,
+      "ratio_of_means_break_even_queries": 107378.07745505484,
+      "target_builds": 10,
+      "wall_clock_status": "EXPLORATORY_NOT_PROMOTED"
+    }
+  ],
+  "decision": "LIFECYCLE_DISTANCE_COST_GATE_PASSED",
+  "primary_unit": "target_build",
+  "raw_truth_accessed": false,
+  "rebuild_cost": "COMMON_CANCELS_SAME_TARGET_GRAPH",
+  "safety_results_changed": false,
+  "schema_version": "ea85-supplement-loop2-lifecycle-cost-1.0",
+  "wall_clock": "EXPLORATORY_NOT_PROMOTED"
+}

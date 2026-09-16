@@ -1,0 +1,12 @@
+{
+  "schema_version": "ea85-supplement-loop2-score-1.0",
+  "scientific_decision": "LIFECYCLE_DISTANCE_COST_GATE_PASSED",
+  "ea_score_before": 8.35,
+  "ea_score_after": 8.55,
+  "regular_score_before": 7.20,
+  "regular_score_after": 7.50,
+  "score_boundary": "native-distance lifecycle economics; wall-clock remains exploratory",
+  "remaining_required_loop": "LOOP3_PAPER_COMPLIANCE",
+  "target_reached_numerically": true,
+  "target_ready_for_stop": false
+}
