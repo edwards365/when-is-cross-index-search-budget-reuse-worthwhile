@@ -31,12 +31,14 @@ def main() -> None:
 
     with h5py.File(args.source, "r") as source, h5py.File(args.output, "w") as bundle:
         train = source["train"][: args.index_size]
-        bundle.create_dataset("train", data=train, chunks=(256, train.shape[1]), compression="lzf")
+        # Keep the bridge bundle filter-free: the isolated C++ HDF5 runtime does
+        # not load h5py's dynamically provided LZF plugin.
+        bundle.create_dataset("train", data=train, chunks=(256, train.shape[1]))
         for role in ("design", "certification", "evaluation"):
             queries = np.load(args.frozen / f"arxiv_nomic_100k__adaef_{role}_queries.npy", allow_pickle=False)
             truth = np.load(args.frozen / f"arxiv_nomic_100k__adaef_{role}_truth.npy", allow_pickle=False)
-            bundle.create_dataset(f"{role}_queries", data=queries, chunks=(128, queries.shape[1]), compression="lzf")
-            bundle.create_dataset(f"{role}_truth", data=truth.astype(np.int32), chunks=True, compression="lzf")
+            bundle.create_dataset(f"{role}_queries", data=queries, chunks=(128, queries.shape[1]))
+            bundle.create_dataset(f"{role}_truth", data=truth.astype(np.int32), chunks=True)
         bundle.attrs["metric"] = "inner_product_on_unit_normalized_vectors"
         bundle.attrs["index_size"] = args.index_size
         bundle.attrs["scientific_target"] = "Recall@10 >= 0.95"

@@ -1,0 +1,38 @@
+{
+  "bytes": 319982936,
+  "datasets": {
+    "certification_queries": [
+      500,
+      768
+    ],
+    "certification_truth": [
+      500,
+      100
+    ],
+    "design_queries": [
+      2000,
+      768
+    ],
+    "design_truth": [
+      2000,
+      100
+    ],
+    "evaluation_queries": [
+      1000,
+      768
+    ],
+    "evaluation_truth": [
+      1000,
+      100
+    ],
+    "train": [
+      100000,
+      768
+    ]
+  },
+  "evaluation_access": "sealed until certified policy is frozen",
+  "path": "/home/wlk/data500/graph_anns_phase3_ea85/adaef_arxiv100k_frozen/arxiv_nomic_100k__adaef_input_bundle_v2.hdf5",
+  "schema_version": "ea85-adaef-arxiv-input-bundle-1.0",
+  "sha256": "9f74d11e8d2f61289b936099ea214608cd6a8876757a49970ce37cd335146c47",
+  "status": "FROZEN_BEFORE_SCIENTIFIC_RESULTS"
+}
