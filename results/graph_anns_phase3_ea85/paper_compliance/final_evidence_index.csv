@@ -1,0 +1,9 @@
+area,primary_evidence,decision,status
+external_method_portability,results/graph_anns_phase3_ea85/phase5_seal/evidence_inventory.csv,raw_external policies unsafe; audited fallback has zero gain,CLOSED
+mixed_refresh_tcp,results/graph_anns_phase3_ea85/refresh95/summary.csv,target-selection recalibration safe and distance-efficient on both datasets,CLOSED
+cross_family_vamana,results/graph_anns_phase3_ea85/vamana_unified/summary.csv,post-hoc supporting portability failure,CLOSED
+scale_deep1m,results/graph_anns_phase3_ea85/deep1m/summary.csv,first-1M eight-build portability failure with native tails,CLOSED
+lifecycle_cost,results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv,native-distance amortization passed with one Arxiv exception,CLOSED
+robustness,results/graph_anns_phase3_ea85/lifecycle_cost/horizon_summary.csv,N=1e6 CI LOTO and deletion robustness positive on both datasets,CLOSED
+artifact,artifacts/graph_anns_phase3_ea85/README.md,portable smoke and tables; guarded external-data full replay,CLOSED
+paper_compliance,results/graph_anns_phase3_ea85/paper_compliance/reviewer_risk_checklist.csv,E&A title page claims limitations and anonymity sealed,CLOSED

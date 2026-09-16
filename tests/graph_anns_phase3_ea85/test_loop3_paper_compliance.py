@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "results" / "graph_anns_phase3_ea85" / "paper_compliance"
 DOC = ROOT / "docs" / "graph_anns_phase3_ea85" / "loop3_recommended_ea_language.md"
 MANIFEST = ROOT / "manifests" / "graph_anns_phase3_ea85" / "loop3_paper_compliance_decision.json"
+FINAL_MANIFEST = ROOT / "manifests" / "graph_anns_phase3_ea85" / "final_sigmod_ea_closure_decision.json"
 
 
 def test_title_marker_and_page_budget():
@@ -36,3 +37,11 @@ def test_manifest_preserves_scientific_boundaries():
     text = DOC.read_text(encoding="utf-8").lower()
     for boundary in ("target-selection", "post-hoc", "first one million", "one arxiv", "wall-clock"):
         assert boundary in text
+
+
+def test_final_closure_has_no_scientific_blocker():
+    decision = json.loads(FINAL_MANIFEST.read_text(encoding="utf-8"))
+    assert decision["decision"] == "SIGMOD_EA_8_5_CLOSURE_COMPLETE"
+    assert decision["ea_score"] >= 8.5
+    assert decision["critical_blockers"] == []
+    assert decision["new_experiments_required"] is False

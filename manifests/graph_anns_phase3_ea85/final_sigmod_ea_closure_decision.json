@@ -1,0 +1,20 @@
+{
+  "schema_version": "ea85-final-closure-1.0",
+  "decision_date": "2026-09-17",
+  "evidence_commit": "30136e3",
+  "decision": "SIGMOD_EA_8_5_CLOSURE_COMPLETE",
+  "ea_score": 8.70,
+  "regular_score": 7.55,
+  "critical_blockers": [],
+  "new_experiments_required": false,
+  "mandatory_remaining_work": [
+    "SIGMOD_MANUSCRIPT_INTEGRATION",
+    "SIGMOD_FORMAT_PAGE_CHECK",
+    "FINAL_NUMERIC_AND_ANONYMITY_SCAN"
+  ],
+  "optional_remaining_work": [
+    "CONTROLLED_WALL_CLOCK_BENCHMARK",
+    "ADDITIONAL_IMPLEMENTATION_OR_REFRESH_OPERATOR"
+  ],
+  "automation_action": "DELETE_AFTER_COMMIT_AND_PUSH"
+}

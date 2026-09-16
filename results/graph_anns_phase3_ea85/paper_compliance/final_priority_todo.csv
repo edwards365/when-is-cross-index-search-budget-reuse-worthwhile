@@ -1,0 +1,6 @@
+priority,item,required_for_ea_8_5,owner_action
+P0,integrate sealed title abstract contributions and limitations into SIGMOD manuscript,yes,editorial
+P0,compile under SIGMOD format and confirm main body <=12 pages excluding references,yes,editorial
+P0,run final numeric diff anonymity scan and artifact link check,yes,verification
+P1,controlled pinned-hardware wall-clock benchmark,no,optional Regular strengthening
+P2,additional implementation or refresh operator,no,new preregistered study only if reviewer blocker appears
