@@ -1,0 +1,16 @@
+{
+  "status": "DESIGN_COMPLETE_EVALUATION_UNACCESSED",
+  "seed": 991,
+  "index_rows": 100000,
+  "dimension": 768,
+  "design_queries": 2000,
+  "target_recall": 0.950000,
+  "k": 10,
+  "m": 16,
+  "ef_construction": 500,
+  "fixed_safe_ef": 200,
+  "statics_length": 1025,
+  "weighted_average_ef": 10.475002,
+  "build_seconds": 182.235634,
+  "offline_adapter_seconds": 2.471921
+}
