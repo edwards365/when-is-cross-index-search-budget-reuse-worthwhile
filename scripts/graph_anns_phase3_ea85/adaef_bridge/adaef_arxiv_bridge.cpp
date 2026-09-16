@@ -19,6 +19,9 @@ constexpr float quantile_step = 0.001f;
 constexpr size_t statics_length = 1 + 2 * m + (2 * m - 1) * (2 * m);
 
 struct CountParams {
+    // The official adaptive-search implementation reads the first size_t from
+    // dist_func_param_ directly as the vector dimension.
+    size_t dimension;
     hnswlib::DISTFUNC<float> base_function;
     void *base_parameter;
     std::atomic<long> *counter;
@@ -27,7 +30,8 @@ struct CountParams {
 class CountingInnerProductSpace final : public hnswlib::SpaceInterface<float> {
   public:
     explicit CountingInnerProductSpace(size_t dimension)
-        : base_(dimension), params_{base_.get_dist_func(), base_.get_dist_func_param(), &counter_} {}
+        : base_(dimension),
+          params_{dimension, base_.get_dist_func(), base_.get_dist_func_param(), &counter_} {}
 
     size_t get_data_size() override { return base_.get_data_size(); }
     hnswlib::DISTFUNC<float> get_dist_func() override { return &counted_distance; }
