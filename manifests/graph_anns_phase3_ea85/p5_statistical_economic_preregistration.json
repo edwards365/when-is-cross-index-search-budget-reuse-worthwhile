@@ -1,0 +1,25 @@
+{
+  "schema_version": "ea85-phase5-preregistration-1.0",
+  "phase": "P5_STATISTICAL_ECONOMIC_SEAL",
+  "branch": "exp/tcp_sigmod_regular_closure",
+  "primary_event": "Recall@10 < 0.95",
+  "primary_unit": "target_build",
+  "bootstrap": {"repetitions": 5000, "seed": 991},
+  "n_grid": [1000, 10000, 100000, 1000000, 10000000],
+  "pooling_rule": "DATASET_SEPARATE; descriptive pooling only for commensurate native-action estimands",
+  "economic_rule": "search-only and full lifecycle must remain separate",
+  "required_cost_components": [
+    "rebuild", "profiling", "truth", "selection", "certification",
+    "control", "fallback", "serving"
+  ],
+  "missing_cost_policy": "NOT_ESTIMABLE_WITH_REASON",
+  "forbidden": [
+    "query_as_independent_build", "universal_SOTA_claim",
+    "search_only_as_lifecycle_win", "post_result_gate_relaxation"
+  ],
+  "decision_labels": [
+    "PHASE5_STATISTICAL_ECONOMIC_SEAL_COMPLETE_LIFECYCLE_CONDITIONAL",
+    "PHASE5_FULL_LIFECYCLE_ECONOMIC_GATE_PASSED",
+    "INVALID_PHASE5_INPUT_OR_SEMANTICS"
+  ]
+}
