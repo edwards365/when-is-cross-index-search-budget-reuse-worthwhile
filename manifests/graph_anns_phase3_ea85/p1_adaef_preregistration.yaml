@@ -1,0 +1,57 @@
+schema_version: "ea85-p1-adaef-1.0"
+status: "FROZEN_BEFORE_ADAEF_SCIENTIFIC_RESULTS"
+frozen_at: "2026-09-16T11:53:00+08:00"
+parent_protocol: "manifests/graph_anns_phase3_ea85/unified_protocol.yaml"
+parent_commit: "050adc5f21daa8923a4a55ad7a18b9c6b3755db0"
+external_source:
+  repository: "https://github.com/chaozhang-cs/hnsw-ada-ef.git"
+  commit: "ed463f9993868f7ecc7c103920644e7f94abb377"
+  location: "/home/wlk/data500/graph_anns_phase3_ea85/external/hnsw-ada-ef"
+  modification_policy: "Official checkout remains clean; build adapters and experiment drivers live in the ICBA repository or a separate build directory."
+evidence_role: "external adaptive-ef method under independent graph rebuild"
+primary_event:
+  definition: "Recall@10 < 0.95"
+  alpha: 0.05
+  confidence: 0.95
+datasets:
+  - "sift_100k"
+  - "arxiv_nomic_100k"
+builds_per_dataset:
+  smoke: 1
+  registered_main: 3
+  extension_if_gate_passes: 10
+query_roles:
+  design: 2000
+  certification: 500
+  evaluation: 1000
+  rule: "Roles are pairwise disjoint and evaluation cannot alter statistics, ef estimation, threshold, or fallback."
+statistics:
+  primary_unit: "target_build"
+  target_build_bootstrap_reps: 5000
+  seed: 991
+comparators:
+  - "RAW_ADA_EF"
+  - "ICBA_AUDITED_ADA_EF_OR_FIXED_SAFE"
+  - "FIXED_SAFE_NATIVE_ENDPOINT"
+costs:
+  - "offline_statistics_seconds"
+  - "sampling_and_truth_seconds"
+  - "estimation_table_seconds"
+  - "certification_seconds"
+  - "mean_and_p95_distance_computations"
+  - "mean_and_p95_latency_descriptive_only"
+fairness:
+  - "Use the official Ada-ef algorithm and target recall .95."
+  - "Reuse the same frozen vectors, target build identities, and query roles where the implementation permits semantic identity."
+  - "Do not numerically equate Ada-ef internal statistics with DARTH predictions or Vamana l_value."
+  - "Report official-source integration adaptations and their hashes."
+gates:
+  preflight: "Official commit, clean checkout, toolchain, data conversion, and native HNSW recall must be reproducible."
+  smoke: "One build per dataset completes with no role overlap and finite per-query action/cost output."
+  safety: "Independent certification one-sided CP UCB <= .05, otherwise fixed-safe fallback."
+  extension: "Run ten-build extension only if the three-build main run is semantically valid; scientific value may be positive, negative, or fallback-only."
+stop_rules:
+  - "No system-wide dependency modification; isolated environment must live on data500."
+  - "No official-source editing or result-dependent hyperparameter tuning."
+  - "No dataset download when the frozen local HDF5 can be converted without semantic loss."
+  - "Integration failure is reported separately and is not evidence against Ada-ef."
