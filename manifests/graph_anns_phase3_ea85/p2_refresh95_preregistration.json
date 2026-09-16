@@ -1,0 +1,87 @@
+{
+  "schema_version": "ea85-phase2-refresh95-1.0",
+  "status": "FROZEN_BEFORE_RECALL95_RESULTS",
+  "parent_commit": "0e2c98b00b16",
+  "stage": "Phase 2 mixed insert-delete to rebuild refresh",
+  "evidence_level": "EXPLORATORY_PREREGISTERED_FIXED_TARGET_REFRESH",
+  "primary_event": "Recall@10 < 0.95",
+  "risk_limit": 0.05,
+  "confidence": 0.95,
+  "primary_refresh_fraction": 0.05,
+  "sensitivity_refresh_fractions": [0.01, 0.10],
+  "datasets": {
+    "sift100k": {
+      "metric": "l2",
+      "source_hdf5": "/home/wlk/projects/navigation-aware-resistance-hnsw/data/raw/sift-128-euclidean.hdf5",
+      "source_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+      "old_base_rows": [0, 100000],
+      "insert_reserve_rows": [100000, 110000],
+      "new_query_rows": {
+        "selection": [994000, 994500],
+        "certification": [994500, 995000],
+        "cold_evaluation": [995000, 996000]
+      }
+    },
+    "arxiv_nomic_100k": {
+      "metric": "cosine_via_normalized_inner_product",
+      "source_hdf5": "data/raw/arxiv-nomic-768-normalized.hdf5",
+      "source_sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+      "old_base_rows": [0, 100000],
+      "insert_reserve_rows": [103500, 113500],
+      "new_query_rows": {
+        "selection": [113500, 114000],
+        "certification": [114000, 114500],
+        "cold_evaluation": [114500, 115500]
+      }
+    }
+  },
+  "refresh_semantics": "Delete a seed-991 subset of the original 100K base, insert the same number of previously excluded vectors, retain cardinality 100K, and rebuild from the refreshed snapshot.",
+  "target_build_seeds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267],
+  "reuse_policy": "Reuse the existing hash-audited fixed-5-percent refreshed memberships and ten target indexes; do not reuse any prior result label or prior evaluation query for the Recall@10=.95 analysis.",
+  "index": {
+    "implementation": "official DARTH Faiss HNSW fork for native graph search replay",
+    "M": 16,
+    "efConstruction": 100,
+    "threads": 1,
+    "k": 10,
+    "native_action_grid": [10, 20, 40, 80, 120, 160, 200]
+  },
+  "methods": [
+    "FIXED_SAFE_NATIVE_ENDPOINT",
+    "SOURCE_TCP_POOL_REUSE",
+    "TARGET_SELECTION_TCP_RECALIBRATION",
+    "ICBA_AUDITED_SOURCE_TCP_WITH_FIXED_SAFE_FALLBACK"
+  ],
+  "external_methods": "No Phase-1 external adaptive method passed the registered source-to-target safety integration gate; DARTH and Ada-ef are therefore retained as Phase-1 evidence and are not forced into Phase 2.",
+  "role_firewall": "Selection may define the registered target recalibration comparator. Certification alone determines accept or fallback. Cold evaluation cannot alter actions, thresholds, fallback, or reporting rules. All new roles are content-disjoint from base, insert reserve, and every historical query role.",
+  "certification": "Per target build and deployable action, use a one-sided 95% Clopper-Pearson upper bound on the 500-query certification role; accept only when UCB <= .05, otherwise deploy the independently certified fixed-safe endpoint.",
+  "statistics": {
+    "primary_unit": "target_build",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 991,
+    "report": [
+      "certification risk and one-sided UCB",
+      "cold-evaluation risk",
+      "mean, p95, and p99 distance computations",
+      "fallback and abstention rates",
+      "target-build bootstrap interval",
+      "LOBO",
+      "delete-largest-benefit-build",
+      "truth, selection, certification, rebuild, and serving cost"
+    ]
+  },
+  "primary_gate": {
+    "safety": "Both datasets have evaluation risk <= .05 and every deployed build has certification UCB <= .05.",
+    "efficiency": "Mean distance-computation gain versus the certified fixed-safe endpoint is at least 5% with target-build bootstrap CI lower bound > 0.",
+    "tail": "Both datasets have p95 no worse than fixed-safe; p99 and fallback tails are reported without substitution.",
+    "robustness": "Direction survives LOBO and deletion of the largest-benefit build.",
+    "transfer": "Rebuild-only, refresh-plus-rebuild, and target-recalibration effects remain separately identifiable."
+  },
+  "claim_policy": "A safe positive result on only one dataset is conditional value, not universal superiority. Failure of mean or tail gain does not erase a valid safety audit result. TCP remains conditional unless all registered safety, tail, and lifecycle-cost gates close.",
+  "stop_rules": [
+    "Stop on input-hash drift, query-content overlap, native-action mismatch, missing exact truth, or non-replay of the fixed 5% refresh membership.",
+    "Stop before new builds if free data500 space is below projected additions plus 5 GiB.",
+    "Do not access validation-dev, formal-test, or any sealed evaluation role from earlier stages.",
+    "Do not tune the action grid, alpha, risk threshold, target, fallback, or method after Recall@10=.95 results are observed."
+  ]
+}
