@@ -1,0 +1,14 @@
+risk_id,risk,severity,required_disposition,status
+R1,track marker missing,desk,title ends with : [Experiments & Analysis],CLOSED
+R2,main body exceeds page limit,desk,11.3 planned pages plus 0.7 buffer; references excluded,CLOSED
+R3,paper reads as universal or SOTA algorithm claim,high,lead with E&A portability boundary and remove broad SOTA language,CLOSED_IN_RECOMMENDED_LANGUAGE
+R4,TCP conflates raw transfer with target recalibration,high,name TARGET_SELECTION_TCP_RECALIBRATION and report raw source failure beside it,CLOSED
+R5,search-only gain presented as lifecycle value,high,use Loop2 native-distance ledger and N=1e6 amortization,CLOSED
+R6,wall-clock superiority implied,high,label wall clock exploratory only,CLOSED
+R7,Vamana presented as harmonized primary evidence,high,label post-hoc semantic alignment,CLOSED
+R8,Deep1M scope generalized,high,state first-1M; 8 builds; 56 pairs; 1000 fresh queries,CLOSED
+R9,heterogeneity hidden,high,disclose one nonamortizing Arxiv target build,CLOSED
+R10,artifact promises impossible raw replay,medium,guard full replay and document external data/index mapping,CLOSED
+R11,anonymous artifact leaks private path,desk,use placeholder URL and portable root overrides,CLOSED
+R12,external-method comparison interpreted as race,medium,use as portability stress test; no broad ranking,CLOSED
+R13,controlled hardware latency missing,medium,retain native-distance primary estimand; wall-clock is optional,ACCEPTED_LIMITATION

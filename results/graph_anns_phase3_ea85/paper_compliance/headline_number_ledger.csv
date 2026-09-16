@@ -1,0 +1,14 @@
+headline_id,metric,value,interval_or_robustness,source,claim_boundary
+H1,Deep1M incremental transport risk,0.2003928571,"95% CI [0.1729464286,0.2277321429]; LOTO 0.1941836735",results/graph_anns_phase3_ea85/deep1m/summary.csv,first-1M; 8 builds; 56 pairs; 1000 queries
+H2,SIFT target-selection risk,0.0179,10 certified builds; 0 fallback,results/graph_anns_phase3_ea85/refresh95/summary.csv,registered mixed-refresh target builds
+H3,Arxiv target-selection risk,0.0204,10 certified builds; 1 fallback,results/graph_anns_phase3_ea85/refresh95/summary.csv,registered mixed-refresh target builds
+H4,SIFT target-selection mean distance gain,0.4439412616,"95% CI [0.4388369085,0.4491022125]; p95 noninferior",results/graph_anns_phase3_ea85/refresh95/summary.csv,search distance before lifecycle amortization
+H5,Arxiv target-selection mean distance gain,0.4479087192,"95% CI [0.3471982582,0.5015105605]; p95 noninferior",results/graph_anns_phase3_ea85/refresh95/summary.csv,search distance before lifecycle amortization
+H6,SIFT raw source TCP risk,0.0669,unsafe above 5% gate,results/graph_anns_phase3_ea85/refresh95/summary.csv,not deployable despite 59.51% raw mean gain
+H7,Arxiv raw source TCP risk,0.0724,unsafe above 5% gate,results/graph_anns_phase3_ea85/refresh95/summary.csv,not deployable despite 64.21% raw mean gain
+H8,SIFT Vamana transport risk,0.1686296296,"95% CI [0.1587777778,0.1793370370]",results/graph_anns_phase3_ea85/vamana_unified/summary.csv,post-hoc semantic alignment
+H9,Arxiv Vamana transport risk,0.1137407407,"95% CI [0.1080370370,0.1198888889]",results/graph_anns_phase3_ea85/vamana_unified/summary.csv,post-hoc semantic alignment
+H10,SIFT lifecycle break-even queries,138836.3614,"bootstrap 95% CI [138607.3362,139055.2499]; 0 nonamortizing builds",results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv,native distance evaluations
+H11,Arxiv lifecycle break-even queries,107378.0775,"bootstrap 95% CI [96583.2445,138090.3301]; 1 nonamortizing build",results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv,native distance evaluations
+H12,SIFT net saving at N=1e6,697963656.3,"95% CI [696648682.5,699327157.17]; LOTO positive",results/graph_anns_phase3_ea85/lifecycle_cost/horizon_summary.csv,native distance evaluations
+H13,Arxiv net saving at N=1e6,958291849.6,"95% CI [719463709.0625,1078232535.4475]; LOTO positive",results/graph_anns_phase3_ea85/lifecycle_cost/horizon_summary.csv,native distance evaluations; heterogeneity disclosed
