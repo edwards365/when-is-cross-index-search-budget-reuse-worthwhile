@@ -1,0 +1,1 @@
+783626664eeb5721198bf6cc5025463911138360cf87810a36ce27a89cdda895  docs/sigmod_ea_slack_bridge/S2_PROTOCOL.md
