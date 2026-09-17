@@ -9,32 +9,29 @@
 \setlength{\emergencystretch}{1.5em}
 \setcopyright{none}
 \input{writing_macros}
-\input{evidence/results_macros}
-\input{evidence/w5_macros}
-\input{evidence/w55_macros}
+\input{evidence/generated_tables}
 \hypersetup{pdfauthor={},pdfsubject={Graph-ANNS budget portability and target recalibration},pdfkeywords={graph ANNS, budget transfer, risk auditing, recalibration}}
 
-\title[Budget Transfer Across Graph-ANNS Rebuilds]{When Safe Search Budgets Do Not Transfer Across Graph-ANNS Rebuilds: [Experiments \& Analysis]}
+\title[Auditing Search-Budget Portability]{Auditing Search-Budget Portability Across Graph-ANNS Rebuilds: [Experiments \& Analysis]}
 \author{Anonymous Author(s)}
 \begin{document}
 \begin{abstract}
-Rebuilding a graph index can change the search procedure on which an approximate nearest-neighbor search budget was calibrated. We study when a source-build budget retains its recall target on a rebuilt index, how this transfer should be audited, and what target-side recovery costs. Index-Conditioned Budget Audit (ICBA) organizes the analysis around build-conditioned risk, isolated selection and certification roles, and explicit search-cost accounting. In a SIFT-100K and Arxiv-Nomic-100K query-profile replay after 5\% data refresh and rebuilding, direct reuse of a Tiered Conformal Pooling (TCP) history pool has empirical target failure rates of \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%. Target-selection recalibration reduces these rates to \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%, with mean distance-count reductions of \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\% relative to the registered fixed endpoint. Cross-family and scale analyses extend the evidence beyond this recovery case. The central systems implication is to treat a rebuilt index as a new calibration environment: measure portability, separate observed recovery from a valid certificate, and account for the cost of obtaining target information.
+Graph indexes are rebuilt to maintain search quality, yet the budget policy used to serve queries is often treated as reusable state. We study that portability assumption through controlled rebuilds and a separate refresh-and-recovery case. On unchanged SIFT-100K and Arxiv-Nomic-100K collections, transferring retrospective first-passing budgets across hnswlib and Faiss builds adds 17.17--23.60 percentage points of query failure relative to target-specific references. Index-Conditioned Budget Audit (ICBA) separates such response-level evidence from executable-policy risk, independent certification, and acquisition cost. In a recurring-query workload after 5\% data refresh, an unchanged history-pool policy rises from 3.77\% to 6.69\% failure on SIFT and from 3.19\% to 7.24\% on Arxiv-Nomic. Target-calibrated pooling (TCP) recovers search efficiency; a post-hoc jointly controlled candidate/fallback replay retains 44.39\% and 29.86\% relative reductions in mean distance calculations, respectively. Completing its distance-cost model moves cold-history break-even to approximately 396,000 and 457,000 query executions. The evidence distinguishes transferable responses, qualified decisions, and economical recovery, and shows why each must be checked against the target index and workload.
 \end{abstract}
 \keywords{approximate nearest-neighbor search, graph indexes, index rebuilding, risk auditing, budget transfer}
 \maketitle
 \raggedbottom
 
-\input{sections/01_introduction}
+\input{sections/introduction}
 \input{sections/02_related_work}
-\input{sections/03_problem_theory}
-\input{sections/04_auditor}
-\input{sections/05_methodology}
-\input{sections/06_portability}
-\input{sections/07_families}
-\input{sections/08_recovery_cost}
-\input{sections/08_extensions}
-\input{sections/09_discussion}
-\input{sections/10_conclusion}
+\input{sections/problem_theory}
+\input{sections/auditor_tcp}
+\input{sections/protocol}
+\input{sections/portability}
+\input{sections/recovery}
+\input{sections/extensions}
+\input{sections/economics}
+\input{sections/discussion}
 \balance
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}

@@ -1,183 +1,132 @@
-"""W5.5: deterministic vector figures from frozen W0 summaries, not experiments.
+"""Regenerate the paper's six vector figures and evidence-driven TeX tables.
 
-Figure 1: schematic of the versioned-policy question + observed risk/cost tradeoff.
-Figure 2: exact primary replay topology, with target roles and conditional fallback.
-Figure 3: one cell per completed target decision + descriptive build-level risks.
-Final sizes: 7.0 inches wide. PDF embeds fonts; SVG retains editable text.
+Sources: evidence/w6_audit CSV/NPZ, derived from existing frozen responses.
+All quantitative panels retain estimator, unit, and uncertainty in captions.
+7-inch figures: overview/workflow/decisions. 3.35-inch figures: tradeoff/tails/cost.
+Uses the established W5.5 Matplotlib palette and native vector workflow.
 """
 from pathlib import Path
-import csv
-import hashlib
-import json
+import csv,json
+import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle
 from matplotlib import font_manager
-import numpy as np
+from matplotlib.patches import FancyBboxPatch,FancyArrowPatch,Rectangle
 
-ROOT = Path(__file__).resolve().parent
-OUT = ROOT / 'figures'
-OUT.mkdir(exist_ok=True)
-font_manager.findfont('Times New Roman', fallback_to_default=False)
-plt.rcParams.update({'font.family':'Times New Roman', 'font.size':9,
-    'axes.titlesize':10, 'axes.labelsize':9, 'xtick.labelsize':8, 'ytick.labelsize':8,
-    'pdf.fonttype':42, 'ps.fonttype':42, 'svg.fonttype':'none',
-    'axes.spines.top':False, 'axes.spines.right':False, 'savefig.facecolor':'white'})
-INK='#203246'; BLUE='#246A91'; TEAL='#227D6C'; ORANGE='#A85421'; GRAY='#68727B'
-raw=(ROOT/'evidence/refresh95_per_build.csv').read_bytes()
-rows=list(csv.DictReader(raw.decode().splitlines()))
-summary=list(csv.DictReader((ROOT/'evidence/refresh95_summary.csv').open()))
-datasets=['sift100k','arxiv_nomic_100k']
-names=['SIFT-100K','Arxiv-Nomic-100K']
-SOURCE='SOURCE_TCP_POOL_REUSE'; TARGET='TARGET_SELECTION_TCP_RECALIBRATION'
-END='FIXED_SAFE_NATIVE_ENDPOINT'
-seeds=sorted({int(r['seed']) for r in rows})
-assert len(rows)==80 and len(seeds)==10
-
-def row(ds,method,seed=None):
-    collection=summary if seed is None else rows
-    found=[r for r in collection if r['dataset']==ds and r['method']==method
-           and (seed is None or int(r['seed'])==seed)]
-    assert len(found)==1
-    return found[0]
-
+ROOT=Path(__file__).resolve().parent;E=ROOT/'evidence';D=E/'w6_audit';OUT=ROOT/'figures';OUT.mkdir(exist_ok=True)
+try:
+    font_manager.findfont('Times New Roman',fallback_to_default=False)
+    FIGURE_FONT='Times New Roman'
+except ValueError:
+    FIGURE_FONT='DejaVu Serif'
+    print('Times New Roman unavailable: using DejaVu Serif; recheck figure layout.')
+plt.rcParams.update({'font.family':FIGURE_FONT,'font.size':9,'axes.titlesize':10,'axes.labelsize':9,'xtick.labelsize':8,'ytick.labelsize':8,'pdf.fonttype':42,'svg.fonttype':'none','axes.spines.top':False,'axes.spines.right':False,'savefig.facecolor':'white'})
+BLUE='#246A91';TEAL='#227D6C';ORANGE='#A85421';GRAY='#68727B';INK='#203246'
+DS=['sift100k','arxiv_nomic_100k'];NAMES=['SIFT','Arxiv'];COLORS=[BLUE,ORANGE]
+def read(n):return list(csv.DictReader((D/n).open(encoding='utf-8')))
+S=read('crossed_summary.csv');B=read('certification_per_build.csv');C=read('cost_horizons.csv');G=[r for r in read('graph_only_registry.csv') if r['operator']!='Vamana-style']
+def row(ds,lane):return next(r for r in S if r['dataset']==ds and r['lane']==lane)
+def val(r,k):return float(r[k])
+def interval(r,k,scale=100):return f"{scale*val(r,k):.2f} [{scale*val(r,k+'_ci_low'):.2f}, {scale*val(r,k+'_ci_high'):.2f}]"
 def save(fig,name):
-    # Fixed-size canvas: no differing automatic crops across formats.
-    for ext in ['pdf','svg','png']:
-        fig.savefig(OUT/f'{name}.{ext}',dpi=240,
-                    metadata={'Creator':'Reproducible manuscript figure generator'} if ext=='pdf' else None)
-        if ext=='svg':
-            p=OUT/f'{name}.{ext}'
-            p.write_text('\n'.join(line.rstrip() for line in p.read_text(encoding='utf-8').splitlines())+'\n',encoding='utf-8',newline='\n')
+    for ext in ['pdf','svg','png']:fig.savefig(OUT/f'{name}.{ext}',dpi=220)
     plt.close(fig)
+def box(ax,x,y,w,h,t,fill='#F1F6F8',color=BLUE):
+    ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle='round,pad=0.007,rounding_size=0.02',facecolor=fill,edgecolor=color,lw=.8));ax.text(x+w/2,y+h/2,t,ha='center',va='center',fontsize=9,color=INK)
+def arrow(ax,a,b):ax.add_patch(FancyArrowPatch(a,b,arrowstyle='-|>',mutation_scale=9,color=GRAY,lw=.9))
 
-def box(ax,xy,w,h,text,color=BLUE,fill='#F1F6F8',size=9):
-    ax.add_patch(FancyBboxPatch(xy,w,h,boxstyle='round,pad=0.008,rounding_size=0.018',
-                              facecolor=fill,edgecolor=color,linewidth=.9))
-    ax.text(xy[0]+w/2,xy[1]+h/2,text,ha='center',va='center',fontsize=size,color=INK)
+# Tables are generated from the same numeric records as figures.
+rows=[]
+for r in G:
+    name='SIFT' if r['dataset'].startswith('sift') else 'Arxiv'
+    rows.append(f"{r['operator']} & {name} & {100*val(r,'absolute_risk'):.2f} & {100*val(r,'reference_risk'):.2f} & {100*val(r,'incremental_risk'):.2f} [{100*val(r,'ci_low'):.2f}, {100*val(r,'ci_high'):.2f}] & {100*val(r,'finite_variation'):.2f} \\\\")
+(E/'graph_only_rows.tex').write_text('\n'.join(rows)+'\n',encoding='utf-8')
+rows=[]
+for ds,name in zip(DS,NAMES):
+    for lane,label in [('end','Endpoint'),('source','Direct reuse'),('legacy','Original recalibration'),('joint','Joint-error replay')]:
+        r=row(ds,lane);rows.append(f"{name} & {label} & {interval(r,'risk')} & {interval(r,'gain')} & {val(r,'mean_ndc'):,.0f} & {val(r,'p95_ndc'):,.0f} & {val(r,'p99_ndc'):,.0f} \\\\")
+    rows.append('\\addlinespace')
+(E/'recovery_rows.tex').write_text('\n'.join(rows)+'\n',encoding='utf-8')
+rows=[]
+for ds,name in zip(DS,NAMES):
+    for scenario,label in [('cached_history','Cached'),('cold_complete_history','Cold')]:
+        r=next(r for r in C if r['dataset']==ds and r['lane']=='joint' and r['scenario']==scenario and int(r['N'])==1000000)
+        rows.append(f"{name} & {label} & {val(r,'break_even_ratio_of_means')/1000:.0f} [{val(r,'break_even_ci_low')/1000:.0f}, {val(r,'break_even_ci_high')/1000:.0f}] & {r['nonamortizing_builds']}/10 \\\\")
+(E/'cost_rows.tex').write_text('\n'.join(rows)+'\n',encoding='utf-8')
+rows=[]
+for r in B:
+    name='S' if r['dataset']==DS[0] else 'A'
+    action='C' if int(r['joint_accept']) else 'E'
+    rows.append(f"{name} & {r['seed']} & {r['shift']} & {r['candidate_cert_failures']} & {100*val(r,'candidate_ucb_05'):.2f} & {100*val(r,'candidate_ucb_025'):.2f} & {r['endpoint_cert_failures']} & {100*val(r,'endpoint_ucb_025'):.2f} & {action} & {100*val(r,'joint_risk'):.2f} & {100*val(r,'joint_gain'):.2f} \\\\")
+(E/'certificate_rows.tex').write_text('\n'.join(rows)+'\n',encoding='utf-8')
+rows=[]
+for ds,name in zip(DS,NAMES):
+    for lane,label in [('legacy','Original'),('joint','Joint')]:
+        r=row(ds,lane);rows.append(f"{name} & {label} & [{100*val(r,'gain_ci_low'):.2f}, {100*val(r,'gain_ci_high'):.2f}] & [{100*val(r,'build_only_gain_ci_low'):.2f}, {100*val(r,'build_only_gain_ci_high'):.2f}] & [{100*val(r,'query_only_gain_ci_low'):.2f}, {100*val(r,'query_only_gain_ci_high'):.2f}] \\\\")
+(E/'sensitivity_rows.tex').write_text('\n'.join(rows)+'\n',encoding='utf-8')
+(E/'w6_macros.tex').write_text('% Derived tables and figures use w6_audit; W0 macros are retained only for historical provenance.\n',encoding='utf-8')
+table_macros=[]
+for stem,macro in [('graph_only_rows','GraphOnlyRows'),('recovery_rows','RecoveryRows'),('cost_rows','CostRows'),('certificate_rows','CertificateRows'),('sensitivity_rows','SensitivityRows')]:
+    table_macros.append('\\newcommand{\\'+macro+'}{%\n'+(E/(stem+'.tex')).read_text(encoding='utf-8')+'}\n')
+(E/'generated_tables.tex').write_text(''.join(table_macros),encoding='utf-8')
 
-def arrow(ax,a,b,color=GRAY,style='-',rad=0):
-    ax.add_patch(FancyArrowPatch(a,b,arrowstyle='-|>',mutation_scale=9,
-                               linewidth=1,color=color,linestyle=style,
-                               connectionstyle=f'arc3,rad={rad}'))
+fig,axs=plt.subplots(1,2,figsize=(7,2.75));fig.subplots_adjust(left=.22,right=.98,bottom=.20,top=.90,wspace=.72)
+labels=[]
+for i,r in enumerate(G):
+    v=100*val(r,'incremental_risk');lo=100*val(r,'ci_low');hi=100*val(r,'ci_high')
+    axs[0].errorbar(v,i,xerr=[[v-lo],[hi-v]],fmt='o',color=BLUE if 'hnswlib' in r['operator'] else TEAL,capsize=3)
+    labels.append(r['operator'].replace(' HNSW','')+' / '+('SIFT' if r['dataset'].startswith('sift') else 'Arxiv'))
+axs[0].set_yticks(range(4),labels);axs[0].invert_yaxis();axs[0].set_xlim(0,27);axs[0].set_xlabel('Additional query failure (pp)');axs[0].set_title('(a) Graph-only responses')
+for i,ds in enumerate(DS):
+    z=np.load(D/(ds+'_paired_arrays.npz'));rng=np.random.default_rng(991);b,q=z['old_source_risk'].shape
+    bw=rng.multinomial(b,np.ones(b)/b,5000)/b;qw=rng.multinomial(q,np.ones(q)/q,5000)/q
+    arr=z['old_source_risk'];v=100*arr.mean();dr=np.einsum('ij,ij->i',bw@arr,qw);lo,hi=100*np.quantile(dr,[.025,.975]);x=i-.10
+    axs[1].errorbar(x,v,yerr=[[v-lo],[hi-v]],fmt='o',color=COLORS[i],mfc='white',capsize=3)
+    r=row(ds,'source');v=100*val(r,'risk');axs[1].errorbar(i+.10,v,yerr=[[v-100*val(r,'risk_ci_low')],[100*val(r,'risk_ci_high')-v]],fmt='s',color=COLORS[i],capsize=3)
+axs[1].axhline(5,color=GRAY,ls='--',lw=.8);axs[1].set_xticks([0,1],NAMES);axs[1].set_xlim(-.45,1.45);axs[1].set_ylim(0,10);axs[1].set_ylabel('Query failure (%)');axs[1].set_title('(b) Same policy, changed snapshot');axs[1].text(.5,9.2,'○ Old    ■ Refreshed',ha='center',fontsize=8)
+save(fig,'overview')
 
-def overview():
-    fig=plt.figure(figsize=(7,2.5))
-    left=fig.add_axes([.015,.10,.44,.79]);left.set(xlim=(0,1),ylim=(0,1));left.axis('off')
-    left.text(0,1.03,'(a) A budget policy is tied to an index version',fontweight='bold',fontsize=10)
-    points=np.array([[.03,.15],[.18,.02],[.33,.16],[.29,.38],[.08,.41],[.18,.23]])
-    for ox,edges,label in [(0,[(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(3,5)],'Source build'),
-                           (.64,[(0,2),(0,4),(4,5),(5,2),(2,3),(3,1),(1,5)],'Target build')]:
-        p=points*np.array([.85,.75])+[ox,.45]
-        for u,v in edges:left.plot(p[[u,v],0],p[[u,v],1],color=GRAY,lw=1,zorder=1)
-        left.scatter(p[:,0],p[:,1],s=18,color=BLUE,zorder=2)
-        left.text(ox+.145,.87,label,ha='center',fontsize=10)
-    arrow(left,(.34,.67),(.61,.67));left.text(.475,.73,'Refresh +\nrebuild',ha='center',fontsize=8)
-    box(left,(.01,.16),.29,.14,'Old query profiles')
-    box(left,(.65,.16),.32,.14,'Target execution',TEAL,'#EDF5F1')
-    arrow(left,(.30,.23),(.64,.23),ORANGE)
-    left.text(.475,.30,'Reuse budget?',ha='center',color=ORANGE,fontsize=9)
-    arrow(left,(.14,.46),(.14,.31));arrow(left,(.80,.46),(.80,.31))
-    left.text(.49,.02,'Measure risk, certify decisions, account for cost.',ha='center',fontsize=9)
-    ax=fig.add_axes([.56,.23,.42,.64])
-    ax.set_title('(b) Observed risk–cost tradeoff',loc='left',fontweight='bold',pad=9)
-    for ds,color,marker in zip(datasets,[BLUE,ORANGE],['o','s']):
-        end=float(row(ds,END)['mean_dists'])
-        for method in [END,TARGET,SOURCE]:
-            r=row(ds,method);x=100*float(r['evaluation_risk']);y=100*(1-float(r['mean_dists'])/end)
-            ax.scatter(x,y,s=34,marker=marker,color=color,edgecolor='white',linewidth=.4,zorder=3)
-    ax.axvline(5,color=GRAY,linestyle='--',linewidth=.8)
-    ax.text(5.12,8,'5% risk target',rotation=90,fontsize=8,color=GRAY)
-    ax.text(.6,7,'Endpoint',fontsize=8)
-    ax.text(2.24,40,'Recalibrated',fontsize=8)
-    ax.text(5.8,53,'Direct reuse',fontsize=8)
-    ax.set(xlim=(0,8.4),ylim=(-4,70),xlabel='Empirical query failure (%)',ylabel='Mean NDC gain (%)')
-    ax.set_xticks([0,2,4,6,8]);ax.set_yticks([0,20,40,60]);ax.grid(axis='y',alpha=.18)
-    from matplotlib.lines import Line2D
-    handles=[Line2D([],[],marker=m,color=c,linestyle='',label=n,markersize=5)
-             for m,c,n in zip(['o','s'],[BLUE,ORANGE],names)]
-    fig.legend(handles=handles,loc='lower right',bbox_to_anchor=(.995,.0),ncol=2,frameon=False,fontsize=8)
-    save(fig,'overview')
+fig,ax=plt.subplots(figsize=(7,2.55));fig.subplots_adjust(left=.025,right=.98,bottom=.025,top=.98);ax.set_xlim(0,1);ax.set_ylim(0,1);ax.axis('off')
+box(ax,.015,.61,.22,.27,'Nine old builds\nSame-query profiles\nMaximum index pool')
+box(ax,.315,.61,.24,.27,'500 selection queries\nFirst qualifying global shift')
+box(ax,.635,.61,.34,.27,'500 certification queries\nFrozen candidate + endpoint\nUCB checks, fixed action order')
+box(ax,.635,.08,.34,.28,'Candidate / endpoint / abstain\n1,000 evaluation queries\nRisk, NDC, tails, cost',color=TEAL)
+arrow(ax,(.24,.745),(.31,.745));arrow(ax,(.56,.745),(.63,.745));arrow(ax,(.805,.60),(.805,.37))
+ax.text(.02,.43,'Same source-history contract for every role',color=INK,fontsize=9)
+ax.text(.02,.22,'Original: αc = αe = 0.05\nJoint-error sensitivity: αc = αe = 0.025\nTarget evaluation never chooses the shift',fontsize=9,color=INK,va='center')
+save(fig,'workflow')
 
-def workflow():
-    fig,ax=plt.subplots(figsize=(7,2.7));fig.subplots_adjust(left=.01,right=.99,top=.98,bottom=.02)
-    ax.set(xlim=(0,1),ylim=(0,1));ax.axis('off')
-    box(ax,(.015,.60),.20,.24,'Nine old-build profiles\n(same query IDs)')
-    box(ax,(.28,.60),.20,.24,'History maximum\n+ global grid shift')
-    box(ax,(.545,.60),.19,.24,'Frozen candidate\nCP upper bound')
-    box(ax,(.80,.60),.18,.24,'Candidate action',TEAL,'#EDF5F1')
-    arrow(ax,(.217,.72),(.278,.72));arrow(ax,(.482,.72),(.543,.72))
-    arrow(ax,(.736,.72),(.798,.72),TEAL);ax.text(.765,.77,'≤ 5%',ha='center',fontsize=8,color=TEAL)
-    box(ax,(.28,.14),.20,.21,'Selection\n500 target queries')
-    box(ax,(.545,.14),.19,.21,'Certification\n500 disjoint queries')
-    arrow(ax,(.38,.36),(.38,.59));arrow(ax,(.64,.36),(.64,.59))
-    box(ax,(.80,.14),.18,.21,'Endpoint fallback\n+ deployment flag',ORANGE,'#FBF2EC',size=8.5)
-    arrow(ax,(.74,.59),(.80,.36),ORANGE);ax.text(.79,.46,'> 5%',ha='left',fontsize=8,color=ORANGE)
-    ax.text(.105,.30,'Target responses:\nroles stay disjoint',ha='center',va='center',fontsize=9)
-    ax.text(.105,.08,'Native search unchanged',ha='center',fontsize=8,color=GRAY)
-    # Both completed actions are evaluated, never used to choose the shift.
-    ax.text(.89,.95,'Evaluation: 1,000 held-out queries',ha='right',fontsize=9,fontweight='bold')
-    arrow(ax,(.89,.85),(.89,.915),TEAL)
-    arrow(ax,(.982,.25),(.99,.915),ORANGE)
-    ax.text(.50,.015,'Separate endpoint CP check sets the fallback flag; evaluation has no feedback path.',
-            ha='center',fontsize=8,color=GRAY)
-    save(fig,'workflow')
+fig,axs=plt.subplots(1,2,figsize=(7,1.95));fig.subplots_adjust(left=.08,right=.98,bottom=.31,top=.80,wspace=.22)
+seeds=sorted({int(r['seed']) for r in B})
+for ax,lane,title in zip(axs,['legacy','joint'],['Original checks','Joint-error sensitivity']):
+    for yi,ds in enumerate(DS):
+        for xi,s in enumerate(seeds):
+            r=next(r for r in B if r['dataset']==ds and int(r['seed'])==s);yes=int(r[lane+'_accept'])
+            ax.add_patch(Rectangle((xi-.46,yi-.38),.92,.76,facecolor=TEAL if yes else ORANGE))
+            ax.text(xi,yi,'C' if yes else 'E',ha='center',va='center',color='white',fontsize=9)
+    ax.set_xlim(-.5,9.5);ax.set_ylim(1.5,-.5);ax.set_xticks(range(10),[str(s) for s in seeds],rotation=55);ax.set_yticks([0,1],NAMES);ax.set_title(title);ax.tick_params(length=0)
+    for spine in ax.spines.values():spine.set_visible(False)
+save(fig,'decisions')
 
-def decisions():
-    fig=plt.figure(figsize=(7,3.45))
-    grid=fig.add_axes([.235,.72,.735,.18]);grid.set(xlim=(-.5,9.5),ylim=(1.5,-.5))
-    grid.set_yticks([0,1],names);grid.set_xticks(range(10),[str(s) for s in seeds])
-    grid.tick_params(length=0,pad=5);grid.spines[:].set_visible(False)
-    accepted=0
-    for y,ds in enumerate(datasets):
-        for x,seed in enumerate(seeds):
-            r=row(ds,TARGET,seed);ok=int(r['fallback'])==0 and int(r['certified_deployment'])==1
-            accepted+=ok
-            grid.add_patch(Rectangle((x-.43,y-.42),.86,.84,facecolor=TEAL if ok else ORANGE,edgecolor='white',lw=.7))
-            grid.text(x,y,'A' if ok else 'F',ha='center',va='center',fontsize=9,fontweight='bold',color='white')
-    assert accepted==19
-    fig.text(.025,.958,'(a) Completed target decisions: 19 accepted candidates, 1 endpoint fallback',fontsize=10,fontweight='bold')
-    fig.text(.235,.632,'A = accepted candidate     F = fallback     Columns: registered target-build seeds',fontsize=8.5)
-    fig.text(.025,.559,'(b) Direct-reuse failures are spread across builds; recalibration reduces risk',fontsize=10,fontweight='bold')
-    for i,(ds,name) in enumerate(zip(datasets,names)):
-        ax=fig.add_axes([.09+i*.49,.135,.39,.31])
-        for method,col,marker,label in [(SOURCE,ORANGE,'o','Direct reuse'),(TARGET,TEAL,'s','Completed recalibration')]:
-            yy=[100*float(row(ds,method,s)['evaluation_risk']) for s in seeds]
-            ax.plot(range(10),yy,marker=marker,color=col,ms=3.5,lw=.8,label=label)
-        ax.axhline(5,color=GRAY,lw=.8,ls='--')
-        ax.set(ylim=(0,9),xlim=(-.4,9.4));ax.set_yticks([0,2,4,6,8])
-        ax.set_xticks(range(10),[str(s) for s in seeds],rotation=45,ha='right',fontsize=7)
-        ax.set_title(name,fontsize=9,pad=4)
-        if i==0:ax.set_ylabel('Empirical failure (%)')
-        ax.grid(axis='y',alpha=.15)
-    fig.legend(*ax.get_legend_handles_labels(),loc='lower center',bbox_to_anchor=(.53,-.01),ncol=2,frameon=False,fontsize=8)
-    save(fig,'target_decisions')
+fig,ax=plt.subplots(figsize=(3.35,2.9));fig.subplots_adjust(left=.17,right=.97,bottom=.17,top=.90)
+for ds,col in zip(DS,COLORS):
+    for lane,marker in [('source','x'),('legacy','o'),('joint','s')]:
+        r=row(ds,lane);x=100*val(r,'gain');y=100*val(r,'risk')
+        ax.errorbar(x,y,xerr=[[x-100*val(r,'gain_ci_low')],[100*val(r,'gain_ci_high')-x]],yerr=[[y-100*val(r,'risk_ci_low')],[100*val(r,'risk_ci_high')-y]],fmt=marker,ms=5,mfc='white' if lane=='joint' else col,color=col,elinewidth=.65,capsize=2,alpha=.95)
+ax.axhline(5,color=GRAY,ls='--',lw=.8);ax.set(xlim=(0,70),ylim=(0,10),xlabel='Relative mean-NDC reduction (%)',ylabel='Query failure (%)');ax.text(3,9,'SIFT',color=BLUE);ax.text(3,8.1,'Arxiv',color=ORANGE)
+save(fig,'tradeoff')
 
-def diagnostics():
-    result={'source_baseline':'d0ceb9bafa12480d04d4ae473b4c669e0e5b6ff5',
-      'source_path':'results/graph_anns_phase3_ea85/refresh95/per_build.csv',
-      'source_canonical_lf_sha256':hashlib.sha256(raw.replace(b'\r\n',b'\n')).hexdigest(),
-      'scope':'Descriptive aggregation of frozen rows only; no search, selection or new statistical inference.',
-      'datasets':{}}
-    macros=[]
-    for ds,prefix in zip(datasets,['Sift','Arxiv']):
-        ss=[row(ds,SOURCE,s) for s in seeds]
-        failures=[int(r['evaluation_failures']) for r in ss]
-        assert all(int(r['evaluation_n'])==1000 for r in ss)
-        values={'min_risk_percent':min(failures)/10,'max_risk_percent':max(failures)/10,
-          'builds_above_5pct':sum(v>50 for v in failures),'total_failures':sum(failures),
-          'max_failure_share_percent':100*max(failures)/sum(failures),
-          'delete_max_failure_risk_percent':100*(sum(failures)-max(failures))/9000,
-          'fallback_seeds':[s for s in seeds if int(row(ds,TARGET,s)['fallback'])]}
-        result['datasets'][ds]=values
-        for suffix,key in [('MinRisk','min_risk_percent'),('MaxRisk','max_risk_percent'),
-                           ('MaxShare','max_failure_share_percent'),('DeleteRisk','delete_max_failure_risk_percent')]:
-            macros.append('\\newcommand{\\WFiftyFive'+prefix+suffix+'}{'+f'{values[key]:.2f}'+'}')
-    (ROOT/'evidence/w55_diagnostics.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
-    (ROOT/'evidence/w55_macros.tex').write_text('\n'.join(macros)+'\n',encoding='utf-8')
-    print(json.dumps(result,indent=2))
+fig,ax=plt.subplots(figsize=(3.35,2.55));fig.subplots_adjust(left=.18,right=.97,bottom=.24,top=.94)
+for i,(ds,metric) in enumerate([(d,m) for d in DS for m in ['p95','p99']]):
+    rows=[r for r in B if r['dataset']==ds];yy=np.array([val(r,'joint_'+metric)/val(r,'endpoint_'+metric) for r in rows]);xx=np.linspace(i-.14,i+.14,10)
+    ax.scatter(xx,yy,s=17,c=BLUE if ds==DS[0] else ORANGE,alpha=.85,edgecolors='white',linewidths=.35)
+ax.axhline(1,color=GRAY,ls='--',lw=.8);ax.set_xticks(range(4),['SIFT\np95','SIFT\np99','Arxiv\np95','Arxiv\np99']);ax.set_ylabel('Joint / endpoint tail NDC');ax.set_ylim(.86,1.015);save(fig,'tails')
 
-if __name__=='__main__':
-    diagnostics();overview();workflow();decisions()
-    print('PASS: three source-bound figures, PDF/SVG/PNG; 20 target decisions, 19 acceptances.')
+fig,ax=plt.subplots(figsize=(3.35,2.9));fig.subplots_adjust(left=.20,right=.97,bottom=.20,top=.94)
+for ds,col in zip(DS,COLORS):
+    for scenario,ls in [('cold_complete_history','-'),('cached_history','--')]:
+        rr=[r for r in C if r['dataset']==ds and r['lane']=='joint' and r['scenario']==scenario and int(r['N'])<=1000000]
+        xx=np.array([int(r['N']) for r in rr]);yy=np.array([val(r,'net_ndc')/1e6 for r in rr]);ax.plot(xx,yy,ls=ls,c=col,lw=1,marker='o',ms=3)
+ax.set_xscale('log');ax.axhline(0,color=GRAY,lw=.8);ax.set_xlabel('Serving query executions');ax.set_ylabel('Net NDC saving (millions)');ax.text(1200,630,'SIFT',color=BLUE);ax.text(1200,530,'Arxiv',color=ORANGE);save(fig,'cost')
+print('Generated 6 PDF/SVG/PNG figures and 5 data-linked TeX tables.')

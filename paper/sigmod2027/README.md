@@ -1,59 +1,90 @@
-# SIGMOD 2027 E&A — W5.5 illustrated manuscript
+# Reorganized SIGMOD E&A manuscript
 
-W5.5 adds three vector figures, an unnumbered single-column glossary, explicit
-ICBA/TCP names, and a descriptive failure-concentration check. The PDF has
-10 pages including references (main text ends on page 9), five numbered tables
-and four propositions with proofs. No new experiment was run.
+Main document: `main.tex`. Separate short supplement: `appendix.tex`.
+The source archive includes compiled PDFs, six vector figures (PDF and SVG),
+the ACM class/bibliography style, bibliography, table data, and analysis code.
+Historical W5/W5.5 drafts are not required to compile this version.
 
-## Open and compile
+## Compile
 
-Upload the LaTeX ZIP to Overleaf, choose `main.tex` as the main document, and
-select **XeLaTeX** with a recent TeX Live. Recompile from scratch if citation
-links are stale. The class is ACM `acmart` 2.20 in `sigconf,anonymous,nonacm` mode.
+Upload the archive contents to Overleaf and select `main.tex` as the main
+document. Use XeLaTeX with BibTeX (automatic in Overleaf). Switch the main
+document to `appendix.tex` to build the independent supplement.
 
-Local alternatives (create `build/` first):
+Locally, with Tectonic 0.17:
 
-```text
-latexmk -xelatex -outdir=build main.tex
-tectonic -X compile main.tex --outdir build --keep-logs --keep-intermediates
+```
+tectonic -X compile main.tex --outdir build --keep-logs
+tectonic -X compile appendix.tex --outdir build --keep-logs
 ```
 
-## Source and evidence
+The class is the supplied ACM `acmart` template, `sigconf,anonymous,nonacm`.
+No negative layout spacing, margin reduction, or global body-font reduction
+is used. The main PDF and supplement are separate submission files.
 
-- `sections/`: complete manuscript; primary evidence precedes extensions.
-- `references.bib`: 16 cited records in ACM reference style.
-- `evidence/results_macros.tex`: 57 unchanged W0 values.
-- `evidence/w5_macros.tex`: 10 further values from the same frozen summaries.
-- `evidence/check_w5_numbers.py`: checks the compact W5 input copies, risk
-  aggregation, fallback and extra macros; no experiment execution.
-- `check_w55.py`: numerical, source and PDF checks, using
-  Python `pypdf`; optional rendering also uses `pypdfium2` and `Pillow`.
-- `figures/`: ready-to-include vector PDFs and editable SVGs; PNGs are previews.
-- `make_figures.py`: reproduces the three figures from compact frozen summaries,
-  using Python with matplotlib and numpy and an installed Times New Roman font.
-  This does not run an experiment or access external datasets.
-- `evidence/w55_diagnostics.json` and `w55_macros.tex`: descriptive aggregates
-  from the unchanged 80-row per-build table.
-- `W55_VALIDATION.md` (repository / separate author report): critical response
-  to the supplied review, format checks, naming provenance, and open actions.
+## Regenerate tables and figures
 
-The downloadable source ZIP contains the paper and compact numeric inputs,
-not raw vectors, indexes or the full experimental artifact. Compilation needs
-neither SSH access nor a dataset. Existing W0/W1--W4 history is retained in the
-repository rather than duplicated in the clean Overleaf package.
+Python dependencies: NumPy and Matplotlib (see `requirements.txt`). The delivered
+regeneration/validation used NumPy 2.3.5 and Matplotlib 3.11.2. PDF QA used
+`pypdf` 6.10.0 and `pypdfium2`; they are optional for compiling the manuscript.
 
-## Submission boundary
+```
+python make_figures.py
+python check_evidence.py
+```
 
-The official SIGMOD 2027 Research CFP requires a two-column ACM proceedings
-paper, Letter size, no more than 12 main-text pages excluding references, and
-double anonymity. Rules checked 2026-09-17:
-https://2027.sigmod.org/calls_papers_sigmod_research.shtml
+`make_figures.py` regenerates six PDF/SVG/PNG figures and the TeX table macros
+from the packaged CSV/NPZ files. The delivered figures use Times New Roman.
+If unavailable, the script announces a DejaVu Serif fallback: inspect the
+layout before using that output. PDF metadata timestamps can differ between
+runs; numerical reproducibility does not imply byte-identical PDFs.
 
-The class-generating source and bibliography style match the released CTAN
-ACM package byte-for-byte. Class/style files are unmodified.
+`check_evidence.py` independently inverts the binomial CDF for CP bounds,
+checks decisions, gains, quantiles, LOTO and costs, and reproduces the crossed
+bootstrap intervals. It performs no ANN search or raw-truth access. The
+delivered run passes 244 checks; this is not independent native replication.
 
-An anonymous artifact URL has not yet been verified. Do not insert the public,
-identifying development repository into the blind-review PDF. W5.5 is a checked
-writing deliverable, not a declaration that every scientific or submission
-requirement is complete. The 19/20 candidate decisions use individual CP checks;
-the manuscript preserves their distinction from a joint 95% pipeline certificate.
+## Reanalyze the existing native responses (optional; external data required)
+
+The full experiment repository and frozen refresh95 response files are not
+bundled in this small manuscript archive. With NumPy and SciPy available:
+
+```
+python evidence/reanalyze_review.py --repo PATH_TO_EXPERIMENT_REPOSITORY --replay PATH_TO_REFRESH95_REPLAY
+```
+
+This uses `scripts/graph_anns_phase3_ea85/analyze_phase2_refresh95.py` and the
+original `results/graph_anns_phase3_ea85/refresh95/per_build.csv` to reproduce
+the original decisions before deriving new outputs. It writes only its own
+`evidence/w6_audit` directory. It neither builds indexes nor modifies frozen
+scientific outputs. See `PROVENANCE.md` for claim-to-source mapping.
+
+## Evidence status and submission boundary
+
+The matched-source diagnostic, crossed uncertainty, joint-error replay, and
+completed cost accounting are **post-hoc reanalyses of frozen responses**.
+They are not new preregistered experiments. TCP remains a recurring-profile
+case; its main replay is not a new-query predictor or a 5% build-conformal
+algorithm. The stricter CP allocation is per target, not simultaneous across
+twenty targets. NDC economics is not wall-clock or monetary economics.
+
+The PDFs have no identifying repository URL. This archive is an author-facing
+source/evidence delivery, with frozen commit provenance; it is not an already
+deidentified public artifact. Hosting an anonymous,
+accessible artifact and checking the live submission form remain author
+submission steps. Do not put a personal repository URL into the anonymous
+PDF. The supplied numerical package is not a container for full native replay.
+
+## Files
+
+- `main.tex`, `sections/`: manuscript, definitions, theory, RQ1--RQ9.
+- `appendix.tex`: short proofs and complete twenty-target certificate table.
+- `figures/`: six PDF/SVG figures, all used in the main paper.
+- `evidence/generated_tables.tex`: generated typeset table definitions.
+- `evidence/w6_audit/`: compact numerical evidence and validation report.
+- `evidence/extensions/`: unchanged external-method and scale/family summaries.
+- `make_figures.py`, `check_evidence.py`: regeneration and independent checks.
+- `PROVENANCE.md`: frozen sources and inference units.
+- `SHA256SUMS.txt`: hashes for the delivery contents, excluding itself.
+
+ACM template licensing is retained in `ACM-LICENSE` and the template headers.

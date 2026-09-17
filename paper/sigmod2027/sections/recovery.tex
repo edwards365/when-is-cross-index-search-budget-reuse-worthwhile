@@ -1,0 +1,50 @@
+\section{Auditing and Recovering the Refreshed Workload}
+\label{sec:recovery-results}
+
+\subsection{RQ3: What Does the Audit Actually Authorize?}
+Auditing unshifted source reuse rejects every candidate and routes all 20 target decisions to the endpoint in the original replay. The audit therefore prevents cheap but unqualified reuse, yet recovers no search saving by itself. Target-selection recalibration changes the candidate before certification. The original procedure accepts 19 of 20 recalibrated candidates; Arxiv seed 1229 has candidate UCB 0.05056 and falls back despite being close to the threshold.
+
+The joint-error sensitivity is more selective (Figure~\ref{fig:decisions}). With $\alpha_c=\alpha_e=0.025$, it accepts all ten SIFT candidates and six Arxiv candidates. All twenty endpoints pass their allocated checks, so four Arxiv decisions fall back and none abstains. The final decision satisfies the per-target construction in Proposition~\ref{prop:simultaneous}, subject to its query-sampling conditions. Certification rejection is not a finding of true unsafety: it changes the supported action given the available 500-query certificate.
+
+\begin{figure*}[t]
+\centering\includegraphics[width=\textwidth]{figures/decisions.pdf}
+\caption{One cell per target decision, ordered by registered seed rather than a time axis. C: candidate accepted; E: endpoint fallback. Left: original two individual 95\% checks. Right: post-hoc 0.025+0.025 joint-error allocation. The same selected shifts and certification queries are used in both. Candidate acceptance falls from 19/20 to 16/20, while every completed decision remains qualified by its corresponding endpoint or candidate check.}
+\label{fig:decisions}
+\Description{SIFT accepts ten candidates under both rules. Arxiv accepts nine under the original rule and six under the joint-error rule; other cells use the endpoint.}
+\end{figure*}
+
+\subsection{RQ4: How Much Search Efficiency Is Recovered?}
+Recalibration restores substantial search efficiency within the recurring-profile workload (Table~\ref{tab:recovery}). The original decisions reduce risk to 1.79\% and 2.04\%, with relative mean-NDC reductions of 44.39\% and 44.79\%. Crossed resampling widens SIFT's interval compared with the old independently-within-build procedure: it is now [42.76, 46.01]\%, rather than [43.88, 44.91]\%. Preserving shared query dependence changes uncertainty even when the point estimate is unchanged.
+
+\begin{table*}[t]
+\caption{Completed refresh decisions on ten targets and 1,000 evaluation queries per target. Query risk and relative mean-NDC reduction are percentages [crossed 95\% interval]; intervals are conditional on fixed source histories and selected shifts. Original and joint-error rows differ only in certification composition. All fallback executions are included. Mean and p95/p99 are distance calculations, not latency.}
+\label{tab:recovery}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrrr@{}}\toprule
+Dataset & Decision & Risk [95\% interval] & Reduction [95\% interval] & Mean NDC & p95 & p99\\\midrule
+\RecoveryRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+Under the joint-error allocation, SIFT is unchanged, while Arxiv risk becomes 1.68\% and relative mean-NDC reduction becomes 29.86 [14.75, 45.00]\%. Figure~\ref{fig:tradeoff} shows that stricter qualification moves the decision toward the endpoint: it reduces risk and sacrifices some efficiency. The positive intervals support recovery of useful search work on both datasets, not a claim of optimality over adaptive-search methods with different information budgets. In particular, the comparator here is the same graph's fixed endpoint, not the best target-trained method.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\linewidth]{figures/tradeoff.pdf}
+\caption{Refresh risk--work tradeoff with crossed 95\% intervals. The 5\% line is the query-risk target, not a confidence bound. Filled symbols: original recalibration; open symbols: joint-error replay; crosses: direct reuse. SIFT's original and joint points coincide.}
+\label{fig:tradeoff}
+\Description{Direct reuse has larger search savings but more than 5 percent failure. Both recalibration rules have lower risk; the joint Arxiv point gives up some work saving.}
+\end{figure}
+
+\subsection{RQ5: Does Recovery Worsen the Search-Work Tail?}
+Neither recalibration rule increases query-pooled p95 or p99 relative to the endpoint. For joint-error replay, p95 is 2,349 versus 2,615 NDC on SIFT, and 3,117 versus 3,252 on Arxiv; p99 is 2,774 versus 2,855 and 3,460 versus 3,504. Every individual target also has non-increasing p95 and p99. Figure~\ref{fig:tails} displays the per-target ratios without connecting unrelated seeds.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\linewidth]{figures/tails.pdf}
+\caption{Per-target tail ratios for joint-error replay, relative to that target's endpoint; ten dots per dataset/quantile. Equality reflects an endpoint fallback. All ratios are at most one. These descriptive tail comparisons are not formal noninferiority certificates or wall-clock results.}
+\label{fig:tails}
+\Description{Paired target p95 and p99 ratios fall at or below the equality line; endpoint fallback targets have ratio one.}
+\end{figure}
+
+The fallback is a build-level choice, so its serving distribution is exactly the fixed endpoint's distribution for that build. Combining it with candidate-serving builds can change pooled quantiles even without changing a candidate's query path. Reporting both pooled and per-target tails avoids hiding this composition effect. It also avoids inferring tail behavior from the much larger mean gain alone.
+
+\subsection{RQ6: Is the Benefit Driven by One Target?}
+The minimum LOTO mean-NDC reduction is 44.37\%/44.23\% for original SIFT/Arxiv decisions, and 44.37\%/27.64\% for joint-error decisions. Deleting the largest relative-gain build produces those same minima in these records. These are overlapping checks, not independent confirmations. Target-only and shared-query-only interval sensitivities in the supplement show different uncertainty sources: SIFT's variation is dominated by queries, whereas Arxiv's stricter-rule result also varies strongly with the candidate/fallback choice across targets. The retained positive direction supports a fixed-target-set recovery finding; it does not certify an unseen rebuild distribution.

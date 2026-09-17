@@ -1,0 +1,80 @@
+\documentclass[sigconf,anonymous,nonacm]{acmart}
+\usepackage{amsmath,booktabs,tabularx,siunitx}
+\settopmatter{printacmref=false,printfolios=true}
+\setcopyright{none}
+\setlength{\emergencystretch}{1.5em}
+\input{writing_macros}
+\input{evidence/generated_tables}
+\hypersetup{pdfauthor={},pdfsubject={Short supplementary proofs and audit details}}
+\title{Supplement to Auditing Search-Budget Portability Across Graph-ANNS Rebuilds}
+\author{Anonymous Author(s)}
+\begin{document}
+\maketitle
+\appendix
+\section{Guarantees and Their Experimental Contact}
+The main paper contains all central findings, including the stricter certification result and completed acquisition costs. This supplement expands the theoretical reasoning and provides numeric details needed to inspect the same findings.
+
+\subsection{Observation-Limited Loss}
+Let two environments have observable laws $P_0^O,P_1^O$, disjoint acceptable-decision sets $D_0,D_1$, and losses satisfying $L_i(a)\ge\lambda\indicator\{a\notin D_i\}$. An action may encode execution, fallback, or abstention. From any common randomized decision rule $A(O)$, form the test that returns 0 exactly when $A\in D_0$. Under environment 0, a test error implies $A\notin D_0$; under environment 1, it implies $A\in D_0\subseteq D_1^c$. Therefore
+\begin{align*}
+ \mathbb E_0L_0+\mathbb E_1L_1
+ &\ge\lambda\{P_0(\text{test error})+P_1(\text{test error})\}\\
+ &\ge\lambda(1-\operatorname{TV}(P_0^O,P_1^O)).
+\end{align*}
+Taking half the sum gives the main bound. This is the classical two-point testing argument, not a new general inequality. Including the query jointly in $O$ is essential when it is random. An efficient classifier lower-bounds distinguishability; it does not provide the upper bound on total variation needed for a positive loss lower bound. The empirical transfer rates are not numerical estimates of this expression.
+
+\subsection{A Conditional Margin Result for Selection}
+For a finite policy family, let $r_j$ and $c_j$ be risk and expected cost. Suppose $\max_j|\hat r_j-r_j|\le\varepsilon_R$ and $\max_j|\hat c_j-c_j|\le\varepsilon_C$. Retain $S=\{j:\hat r_j+\varepsilon_R\le\delta\}$ and minimize estimated cost within $S$. Every retained policy is safe because $r_j\le\hat r_j+\varepsilon_R\le\delta$. If $j_*$ minimizes true cost among policies with $r_j\le\delta-2\varepsilon_R$, then $j_*\in S$ and
+\[
+ c_{\hat j}\le\hat c_{\hat j}+\varepsilon_C
+ \le\hat c_{j_*}+\varepsilon_C\le c_{j_*}+2\varepsilon_C.
+\]
+The comparison is against the margin-feasible family, not all safe policies. It requires a justified uniform estimation event and excludes the subsequent cost of rejected-policy fallback. TCP's implemented selector takes the first qualifying shift, not this empirical-cost argmin; this result therefore explains a sufficient selection condition without being claimed as an implemented TCP performance guarantee.
+
+\subsection{Build-Rank Coverage}
+For a fixed query, assume $m$ source labels and one target label are exchangeable, allowing $+\infty$. Choose source order statistic $r=\lceil(1-\eta)(m+1)\rceil$ when it exists and is finite, and otherwise abstain. Break ties with independent continuous variables. The augmented target rank is uniform among $m+1$ positions. A target label strictly above the chosen source value must have augmented rank greater than $r$, hence
+\[
+ \Pr\{a<\infty,B_t>a\}\le\frac{m+1-r}{m+1}\le\eta.
+\]
+If labels are stable-tail budgets, $B_t\le a$ implies execution success on the finite grid. First-passing labels lack that implication without an additional monotonicity bridge. The guarantee is marginal over builds for each fixed query, not conditional on one target or simultaneous over queries. Nine source labels cannot give a nonvacuous 5\% rank guarantee; nineteen are necessary at that level. The refresh replay uses nine first-passing histories from an old snapshot, so it does not instantiate these assumptions.
+
+\subsection{Fixed-Target Certificate Composition}
+CP validity requires policies frozen independently of the certification role and i.i.d. target-query outcomes under the stated population interpretation. For candidate and endpoint error allocations $\alpha_c,\alpha_e$, the probability that either upper bound misses its true risk is at most $\alpha_c+\alpha_e$, without requiring independence between the two bounds. Any accepted action then has risk at most $\delta$ outside that event. The original $(.05,.05)$ allocation sums to .10; the sensitivity $(.025,.025)$ sums to .05. This is not a .05 bound simultaneously over twenty targets, nor a bound on risk conditional on acceptance.
+
+\section{Decision Details and Statistical Reconstruction}
+\subsection{Per-Target Certificate Audit}
+Table~\ref{tab:cert-detail} shows all twenty decisions. C and E mean candidate and endpoint. S/A abbreviate the two datasets; $x_c,x_e$ count failures out of $n=500$. $U_c(.05)$ is the original candidate bound. The stricter candidate and endpoint bounds allocate .025 each. Empirical evaluation risk uses 1,000 other queries; gain is relative mean-NDC reduction against the same target endpoint. All selected shifts are identical between the two procedures.
+
+\begin{table*}[t]
+\caption{Twenty-target certification and completed joint-error outcomes. Bounds, evaluation risks, and gains are percentages. All endpoint bounds are at most 5\%; the final action is C when $U_c(.025)\le5\%$, otherwise E.}
+\label{tab:cert-detail}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrrrrr@{}}\toprule
+Data & Seed & Shift & $x_c$ & $U_c(.05)$ & $U_c(.025)$ & $x_e$ & $U_e(.025)$ & Action & Eval risk & Gain\\\midrule
+\CertificateRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+\subsection{Crossed Bootstrap}
+Write $D_{bq}^{\pi}$ and $Z_{bq}^{\pi}$ for distance cost and binary failure on target $b$ and shared query $q$, after the decision is frozen. For each of 5,000 seed-991 replicates, independently draw multinomial build weights $w_b$ and query weights $v_q$, each normalized to sum one. Use the \emph{same} query weights for all builds and all policies. Compute
+\[
+ \bar D^{\pi *}=\sum_{b,q}w_bv_qD_{bq}^{\pi},\qquad
+ g^*=1-\bar D^{\pi *}/\bar D^{{\rm end}*}.
+\]
+Risk and matched old/new differences use the same product weights. Report the 2.5th and 97.5th percentiles. This resamples two crossed factors; it does not independently resample queries for each selected build. Stored source histories, chosen shifts, and certification decisions are conditioned on, not refitted. Graph-only inference instead retains the complete pair vector per query and does not resample builds.
+
+\begin{table*}[t]
+\caption{Mean-NDC reduction: 95\% interval sensitivities (percent). Build-only conditions on queries; query-only conditions on builds. Crossed intervals are the main refresh summaries. These are not three independent replications.}
+\label{tab:sens}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}\toprule
+Dataset & Decision & Crossed & Target-build only & Shared-query only\\\midrule
+\SensitivityRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+\section{Cost and Reproduction Contract}
+For each target, selection costs sum all seven registered grid searches. Certification charges the chosen candidate and the endpoint once each, sharing a search when their actions coincide for that query. Target truth costs $100{,}000\times1{,}000$ distance evaluations. Cold complete history adds nine old-build first-passing search profiles on all 2,000 role IDs, and $100{,}000\times2{,}000$ old-snapshot truth evaluations reused across those builds. Cached history treats those old acquisitions as sunk. This counts labeled information needed for execution, not target-evaluation truth used only for research assessment. Rebuilding the target graph is common; reconstructing unavailable historical graphs is outside the two scenarios.
+
+Per-build saving is $s_b=\bar D_b^{\rm end}-\bar D_b^{\pi}$; its break-even is $A_b/s_b$ only for $s_b>0$. The table's aggregate is $\bar A/\bar s$, not the mean of individual ratios. Cost intervals resample paired $(A_b,s_b)$ over ten targets, conditional on the finite acquisition records. At horizon $N$, net saving is $N\bar s-\bar A$. Full fallback gives $s_b=0$ and never amortizes positive acquisition. This remains true even when the aggregate interval favors recovery.
+
+The source package distinguishes three reproducibility levels: compile the paper and regenerate figures from compact records; check the statistics and certificate table from paired arrays/counts; reanalyze original native CSV responses using the external replay root. None of these commands constructs an index or launches an ANN search. Raw-search reproduction is a separate historical workflow requiring provisioned data, truth, native binaries, and indexes. The compact package does not purport to contain those large assets or establish independent replication.
+\end{document}

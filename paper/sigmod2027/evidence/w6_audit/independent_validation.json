@@ -1,0 +1,983 @@
+{
+  "status": "PASS",
+  "count": 244,
+  "scope": "Compact derived evidence only; no claim of independent native-search replication.",
+  "checks": [
+    {
+      "check": "20 distinct dataset-target certificates",
+      "passed": true
+    },
+    {
+      "check": "original acceptance 19/20",
+      "passed": true
+    },
+    {
+      "check": "joint acceptance 16/20",
+      "passed": true
+    },
+    {
+      "check": "joint decisions never add acceptance",
+      "passed": true
+    },
+    {
+      "check": "both single-policy zero-failure identities",
+      "passed": true
+    },
+    {
+      "check": "59-query minimum at zero failures",
+      "passed": true
+    },
+    {
+      "check": "Recall@10 threshold .95 means ten hits",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267: independently inverted candidate CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267: independently inverted endpoint CP",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267: qualified joint endpoint",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267: acceptance uses certification only",
+      "passed": true
+    },
+    {
+      "check": "sift100k: paired shapes",
+      "passed": true
+    },
+    {
+      "check": "sift100k: matched source risk arithmetic",
+      "passed": true
+    },
+    {
+      "check": "sift100k/end: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "sift100k/end: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "sift100k/end: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "sift100k/source: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "sift100k/source: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "sift100k/source: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy: 5000 crossed-bootstrap intervals",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint: 5000 crossed-bootstrap intervals",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k: paired shapes",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k: matched source risk arithmetic",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/end: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/end: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/end: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/source: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/source: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/source: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint: risk, mean and ratio-of-means gain",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint: pooled quantiles",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint: leave-one-target-out",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy: 5000 crossed-bootstrap intervals",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint: 5000 crossed-bootstrap intervals",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1103/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1229/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1361/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1499/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1621/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1747/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1877/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/1999/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2131/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/2267/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1103/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1229/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1361/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1499/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1621/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1747/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1877/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/1999/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2131/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267/legacy/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267/legacy/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267/joint/cached_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/2267/joint/cold_complete_history: overhead identity",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cached_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cached_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cached_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cached_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cached_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cold_complete_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cold_complete_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cold_complete_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cold_complete_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/legacy/cold_complete_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cached_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cached_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cached_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cached_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cached_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cold_complete_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cold_complete_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cold_complete_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cold_complete_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "sift100k/joint/cold_complete_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cached_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cached_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cached_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cached_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cached_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cold_complete_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cold_complete_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cold_complete_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cold_complete_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/legacy/cold_complete_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cached_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cached_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cached_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cached_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cached_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cold_complete_history/1000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cold_complete_history/10000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cold_complete_history/100000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cold_complete_history/1000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "arxiv_nomic_100k/joint/cold_complete_history/10000000: cost identities",
+      "passed": true
+    },
+    {
+      "check": "all prior explicit reanalysis assertions passed",
+      "passed": true
+    },
+    {
+      "check": "darth_dataset_summary.csv: frozen Git content (LF-normalized)",
+      "passed": true
+    },
+    {
+      "check": "adaef_aggregate.json: frozen Git content (LF-normalized)",
+      "passed": true
+    },
+    {
+      "check": "vamana_summary.csv: frozen Git content (LF-normalized)",
+      "passed": true
+    },
+    {
+      "check": "deep1m_summary.csv: frozen Git content (LF-normalized)",
+      "passed": true
+    }
+  ]
+}

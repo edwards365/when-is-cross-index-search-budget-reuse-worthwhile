@@ -1,0 +1,220 @@
+{
+  "tests": [
+    {
+      "test": "sift100k_matched_source_diagnostic",
+      "old_source_risk": 0.0377,
+      "refresh_increment": 0.0292,
+      "increment_ci": [
+        0.017500000000000005,
+        0.04070000000000001
+      ],
+      "old_source_qualified": 6,
+      "source_qualified_target_rejected": 6
+    },
+    {
+      "test": "sift100k_legacy_reproduction_all_builds",
+      "passed": true
+    },
+    {
+      "test": "arxiv_nomic_100k_matched_source_diagnostic",
+      "old_source_risk": 0.0319,
+      "refresh_increment": 0.0405,
+      "increment_ci": [
+        0.028599999999999993,
+        0.053099999999999994
+      ],
+      "old_source_qualified": 5,
+      "source_qualified_target_rejected": 5
+    },
+    {
+      "test": "arxiv_nomic_100k_legacy_reproduction_all_builds",
+      "passed": true
+    },
+    {
+      "test": "cp_zero_failure_identity",
+      "passed": true
+    },
+    {
+      "test": "joint_all_qualified",
+      "passed": true
+    },
+    {
+      "test": "tightening_never_adds_acceptance",
+      "passed": true
+    }
+  ],
+  "summary": [
+    {
+      "dataset": "sift100k",
+      "lane": "end",
+      "risk": 0.0097,
+      "risk_ci_low": 0.0053,
+      "risk_ci_high": 0.015000000000000001,
+      "gain": 0.0,
+      "gain_ci_low": 0.0,
+      "gain_ci_high": 0.0,
+      "mean_ndc": 1825.6672,
+      "p95_ndc": 2615.0,
+      "p99_ndc": 2855.0,
+      "min_loto_gain": 0.0,
+      "delete_max_gain": 0.0,
+      "build_only_gain_ci_low": 0.0,
+      "build_only_gain_ci_high": 0.0,
+      "query_only_gain_ci_low": 0.0,
+      "query_only_gain_ci_high": 0.0,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    },
+    {
+      "dataset": "sift100k",
+      "lane": "source",
+      "risk": 0.0669,
+      "risk_ci_low": 0.056499999999999995,
+      "risk_ci_high": 0.07770249999999995,
+      "gain": 0.5951282358581016,
+      "gain_ci_low": 0.5782646629125845,
+      "gain_ci_high": 0.6119810715673478,
+      "mean_ndc": 739.1611,
+      "p95_ndc": 2132.0499999999993,
+      "p99_ndc": 2706.01,
+      "min_loto_gain": 0.594806230493503,
+      "delete_max_gain": 0.594806230493503,
+      "build_only_gain_ci_low": 0.594335396433727,
+      "build_only_gain_ci_high": 0.5960666625392493,
+      "query_only_gain_ci_low": 0.5791582578830039,
+      "query_only_gain_ci_high": 0.6123888709712703,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    },
+    {
+      "dataset": "sift100k",
+      "lane": "legacy",
+      "risk": 0.0179,
+      "risk_ci_low": 0.0125,
+      "risk_ci_high": 0.024,
+      "gain": 0.4439412615837104,
+      "gain_ci_low": 0.4275760328016489,
+      "gain_ci_high": 0.4600510384669648,
+      "mean_ndc": 1015.1782,
+      "p95_ndc": 2349.0499999999993,
+      "p99_ndc": 2774.0,
+      "min_loto_gain": 0.4437027557296741,
+      "delete_max_gain": 0.4437027557296741,
+      "build_only_gain_ci_low": 0.44329301617531286,
+      "build_only_gain_ci_high": 0.44467403379315557,
+      "query_only_gain_ci_low": 0.42863286561530034,
+      "query_only_gain_ci_high": 0.46066424126646616,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    },
+    {
+      "dataset": "sift100k",
+      "lane": "joint",
+      "risk": 0.0179,
+      "risk_ci_low": 0.0125,
+      "risk_ci_high": 0.024,
+      "gain": 0.4439412615837104,
+      "gain_ci_low": 0.4275760328016489,
+      "gain_ci_high": 0.4600510384669648,
+      "mean_ndc": 1015.1782,
+      "p95_ndc": 2349.0499999999993,
+      "p99_ndc": 2774.0,
+      "min_loto_gain": 0.4437027557296741,
+      "delete_max_gain": 0.4437027557296741,
+      "build_only_gain_ci_low": 0.44329301617531286,
+      "build_only_gain_ci_high": 0.44467403379315557,
+      "query_only_gain_ci_low": 0.42863286561530034,
+      "query_only_gain_ci_high": 0.46066424126646616,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "lane": "end",
+      "risk": 0.0101,
+      "risk_ci_low": 0.006100000000000001,
+      "risk_ci_high": 0.0147,
+      "gain": 0.0,
+      "gain_ci_low": 0.0,
+      "gain_ci_high": 0.0,
+      "mean_ndc": 2396.8493,
+      "p95_ndc": 3252.0499999999993,
+      "p99_ndc": 3504.01,
+      "min_loto_gain": 0.0,
+      "delete_max_gain": 0.0,
+      "build_only_gain_ci_low": 0.0,
+      "build_only_gain_ci_high": 0.0,
+      "query_only_gain_ci_low": 0.0,
+      "query_only_gain_ci_high": 0.0,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "lane": "source",
+      "risk": 0.0724,
+      "risk_ci_low": 0.061797499999999984,
+      "risk_ci_high": 0.0836025,
+      "gain": 0.6420600994814317,
+      "gain_ci_low": 0.6251049480904551,
+      "gain_ci_high": 0.658504147287181,
+      "mean_ndc": 857.928,
+      "p95_ndc": 2586.0,
+      "p99_ndc": 3322.0200000000004,
+      "min_loto_gain": 0.6418184534696498,
+      "delete_max_gain": 0.6418184534696498,
+      "build_only_gain_ci_low": 0.6413921646537967,
+      "build_only_gain_ci_high": 0.6427504141768343,
+      "query_only_gain_ci_low": 0.6254596064778685,
+      "query_only_gain_ci_high": 0.6584355123855901,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "lane": "legacy",
+      "risk": 0.0204,
+      "risk_ci_low": 0.014500000000000002,
+      "risk_ci_high": 0.026899999999999997,
+      "gain": 0.44790871916728336,
+      "gain_ci_low": 0.34316586459086584,
+      "gain_ci_high": 0.5096412183716226,
+      "mean_ndc": 1323.2796,
+      "p95_ndc": 2974.0999999999985,
+      "p99_ndc": 3398.0,
+      "min_loto_gain": 0.44225683664709736,
+      "delete_max_gain": 0.44225683664709736,
+      "build_only_gain_ci_low": 0.3482355082511315,
+      "build_only_gain_ci_high": 0.4980805047468799,
+      "query_only_gain_ci_low": 0.43272354688027376,
+      "query_only_gain_ci_high": 0.46269720196219294,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "lane": "joint",
+      "risk": 0.0168,
+      "risk_ci_low": 0.011000000000000001,
+      "risk_ci_high": 0.0235,
+      "gain": 0.29863713167114847,
+      "gain_ci_low": 0.14745677828373033,
+      "gain_ci_high": 0.45001701272520434,
+      "mean_ndc": 1681.0611,
+      "p95_ndc": 3117.0,
+      "p99_ndc": 3460.0,
+      "min_loto_gain": 0.2764202155203124,
+      "delete_max_gain": 0.2764202155203124,
+      "build_only_gain_ci_low": 0.14920507138515907,
+      "build_only_gain_ci_high": 0.4480405519599469,
+      "query_only_gain_ci_low": 0.28850992100491796,
+      "query_only_gain_ci_high": 0.30844247843465067,
+      "p95_worse_builds": 0,
+      "p99_worse_builds": 0
+    }
+  ],
+  "acceptance": {
+    "legacy": 19,
+    "joint": 16
+  }
+}

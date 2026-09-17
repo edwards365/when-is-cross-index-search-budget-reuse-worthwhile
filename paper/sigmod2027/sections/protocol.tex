@@ -1,0 +1,27 @@
+\section{Experimental Design and Inference}
+\label{sec:methodology}
+
+\paragraph{Graph-only rebuilds.}
+Each dataset contains 100,000 base vectors. SIFT-100K uses dimension 128 and Euclidean distance; Arxiv-Nomic-100K uses dimension 768 and normalized inner-product search. Each hnswlib dataset has 24 builds crossing eight seeds and three insertion orders (random, ascending local intrinsic dimensionality, and descending). The clean Faiss replay has 24 registered builds per dataset. Each uses 750 evaluation queries, all 552 non-diagonal directed build pairs, and unchanged base membership and truth. The hnswlib grid is $(10,20,40,80,120,200)$; the Faiss grid is $(16,32,64,128,256,512)$. Their native actions are not equated numerically.
+
+For this study, the source response rule chooses $B_s^{\rm first}(q)$, or the maximum action if unresolved. The target reference chooses $B_t^{\rm first}(q)$ when finite. Its failure is the target-unresolved event; transport failure is either that event or failure of the actual target response at the source-derived action. This convention preserves unresolved mass rather than dropping difficult queries. It is a retrospective response experiment, not a deployable oracle algorithm or an independently source-certified policy.
+
+\paragraph{Refresh and executable-policy replay.}
+A separate seed-991 membership change replaces 5\% of each 100K collection with previously excluded vectors, preserving cardinality. Truth is refreshed. Ten old and ten refreshed builds per dataset are replayed through the official DARTH Faiss-HNSW fork, using graph degree parameter $M=16$, construction $ef=100$, one search thread, $k=10$, and Equation~\eqref{eq:tcp-grid}. For each matched pair, TCP excludes that seed from its nine-history pool. The old-to-new diagnostic executes the \emph{same} unshifted policy on both snapshots. Old-side certification checks the pre-existing pooled policy; no source outcome is used to select a different pool.
+
+Target roles contain 500 selection, 500 certification, and 1,000 evaluation queries, with disjoint content and the same IDs reused across builds. Checks against base vectors and insertion reserves accompany the role manifest. Source-history responses for each role precede target selection. Reusing historical profiles for evaluation IDs is part of the recurring-workload contract, not a learned predictor's held-out generalization test. Seeds for graph construction, membership refresh, and statistical resampling are separate roles even where the integer 991 appears in two configurations.
+
+\paragraph{Metrics.}
+Risk is query failure under $k=10$, $\tau=0.95$. Relative serving gain is
+\begin{equation}
+ g=1-\frac{\bar c_{\rm policy}}{\bar c_{\rm endpoint}},\label{eq:gain}
+\end{equation}
+a ratio of pooled means, equivalently a relative total-NDC reduction for equal query counts. We report query-pooled p95/p99 NDC and per-target tails, retaining every fallback execution. These are search-work measures, not latency measurements. Observed tail non-increase is distinguished from a formal noninferiority test.
+
+\paragraph{Inference and its sampling units.}
+Graph-only intervals resample 750 query IDs, retaining each query's complete directed-pair vector, with builds fixed. They do not treat 552 overlapping directions as independent builds. For the refresh replay we recompute 5,000 crossed bootstrap replicates with seed 991: sample target-build indices, then sample one shared query-index vector used in \emph{all} sampled builds. The paired policy/reference outcomes remain together. Percentile intervals reflect this product resampling, conditional on the stored source histories and selected shifts; they are not confidence guarantees for a new build-generation population. Build-only and shared-query-only sensitivities appear in the supplement.
+
+LOTO deletes a target without refitting, and deletion of the largest relative-gain target is one specified member of that sensitivity family. Acquisition-cost intervals resample target builds conditional on the finite profiling/query records. Vamana and external-method intervals retain their original units, identified beside the corresponding estimates. No interval is pooled across these protocols.
+
+\paragraph{Evidence order.}
+We answer nine questions in reading order: graph-only transfer (RQ1), matched refresh transfer (RQ2), audit decisions (RQ3), recovery (RQ4), tails (RQ5), build sensitivity (RQ6), external/family/scale scope (RQ7), economics (RQ8), and reproducibility (RQ9). The old responses and original decisions remain unchanged. Crossed inference, matched-source qualification, joint-error replay, and completed acquisition accounting are derived analyses of existing records.

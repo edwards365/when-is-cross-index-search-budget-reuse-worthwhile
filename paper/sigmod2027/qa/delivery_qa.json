@@ -1,0 +1,36 @@
+{
+  "main": {
+    "pages": 10,
+    "bytes": 364152,
+    "letter": true,
+    "metadata": {
+      "/Creator": "LaTeX with acmart 2026/08/16 v2.20 Typesetting articles for the Association for Computing Machinery and hyperref 2022-02-21 v7.00n Hypertext links for LaTeX",
+      "/Title": "Auditing Search-Budget Portability Across Graph-ANNS Rebuilds: [Experiments & Analysis]",
+      "/Producer": "XeTeX version 0.999994",
+      "/CreationDate": "D:20260917132531-00'00'"
+    },
+    "references_heading_pages": [
+      10
+    ],
+    "font_count": 8,
+    "all_inspected_fonts_embedded": true,
+    "no_identifying_paths_or_author": true,
+    "no_overfull_missing_glyph_or_unresolved_reference": true
+  },
+  "appendix": {
+    "pages": 2,
+    "bytes": 68844,
+    "letter": true,
+    "metadata": {
+      "/Creator": "LaTeX with acmart 2026/08/16 v2.20 Typesetting articles for the Association for Computing Machinery and hyperref 2022-02-21 v7.00n Hypertext links for LaTeX",
+      "/Title": "Supplement to Auditing Search-Budget Portability Across Graph-ANNS Rebuilds",
+      "/Producer": "XeTeX version 0.999994",
+      "/CreationDate": "D:20260917131330-00'00'"
+    },
+    "references_heading_pages": [],
+    "font_count": 6,
+    "all_inspected_fonts_embedded": true,
+    "no_identifying_paths_or_author": true,
+    "no_overfull_missing_glyph_or_unresolved_reference": true
+  }
+}

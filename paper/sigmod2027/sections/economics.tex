@@ -1,0 +1,36 @@
+\section{RQ8: When Does Recovery Repay Its Information Cost?}
+\label{sec:recovery}
+
+Search savings repay recovery only over a sufficiently long recurring workload. We express the accounting in native distance evaluations,
+\begin{equation}
+ C_\pi(N)=C_{{\rm acquire},\pi}+N\bar c_\pi,\qquad
+ N_{\rm BE}=\frac{\Delta C_{\rm acquire}}{\bar c_{\rm end}-\bar c_\pi}.\label{eq:breakeven}
+\end{equation}
+If incremental acquisition is positive but serving saving is not, no finite break-even exists. Graph rebuilding is common to both policies on the same target. Control adds no distance calls but is not assigned zero elapsed time.
+
+\paragraph{Two explicit acquisition scenarios.}
+With \emph{cached history}, old query profiles and their truth are sunk costs. We charge the complete target-selection grid, the selected candidate's certification searches, additional endpoint-certification searches where the actions differ, and exact target truth for the 1,000 selection/certification queries. Truth is modeled as one scan of 100,000 vectors per query. With \emph{cold complete history}, we also charge sequential old-build profiling for all three roles on all nine contributing histories and exact old-snapshot truth for all 2,000 query IDs. That truth is reusable across old builds of the same collection and is counted once, not nine times. These are workload-acquisition scenarios, not newly measured elapsed-time costs.
+
+We conservatively charge all endpoint certification to recovery, although the reference may also need some of this work. We price the evaluated decision rule without charging repeated calls for the same action and query twice. The earlier partial calculation included old profiling only for evaluation IDs and omitted old truth and extra endpoint certification. Completing these items materially changes the economic conclusion.
+
+\begin{table}[t]
+\caption{Joint-error recovery: break-even query executions in thousands [95\% target-build interval], conditional on the finite acquisition workload. The ratio of mean overhead to mean saving is not a per-build guarantee. ``No saving'' counts nonamortizing targets.}
+\label{tab:economics}
+\small\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrr@{}}\toprule
+Dataset & History & Break-even, $10^3$ & No saving\\\midrule
+\CostRows
+\bottomrule\end{tabular*}
+\end{table}
+
+For joint-error replay, cold-history break-even is approximately 396,000 executions on SIFT and 457,000 on Arxiv, versus 129,000 and 148,000 with cached history (Table~\ref{tab:economics}). Four Arxiv targets fall back and never repay a positive recovery overhead through serving savings. The original procedure has lower cold-history break-even on Arxiv, approximately 305,000, but different certification composition. It is therefore insufficient to attach the original economics to the stricter decision rule.
+
+At $N=10^6$, the cold-history joint-error model yields mean net savings of about 490 million NDC on SIFT and 389 million on Arxiv. Their target-build intervals are [488, 491] million and [31, 747] million, respectively. At $10^5$, both cold-history means are negative. Figure~\ref{fig:cost} shows how the crossover depends on what information already exists.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\linewidth]{figures/cost.pdf}
+\caption{Joint-error recovery, modeled net distance savings per target versus serving horizon. Solid: cold complete history; dashed: cached history. Dots mark reported horizons; lines depict the stated affine cost model, not additional measurements. Endpoint-fallback targets remain in the average.}
+\label{fig:cost}
+\Description{Net savings are negative for short horizons and positive at one million executions. Cold-history accounting crosses zero later than cached-history accounting.}
+\end{figure}
+
+This calculation assumes repeated executions over the profiled workload. A cache miss requires new information or a declared endpoint action; an unbounded stream of new query identities can invalidate the amortization. Acquisition of historical graphs themselves is not reconstructed here: cold history means acquiring profiles on retained graphs, not rebuilding the entire archive. Memory traffic, storage, energy, and control time require separate prices. The result is a conditional distance-work benefit, not an end-to-end latency or monetary claim.

@@ -1,0 +1,3 @@
+dataset,cross_build_ids_aligned,within_file_ids_unique,role_isolation_source
+sift100k,True,True,refresh95_inputs/input_manifest and content-hash audit; row IDs can be local
+arxiv_nomic_100k,True,True,refresh95_inputs/input_manifest and content-hash audit; row IDs can be local

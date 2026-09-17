@@ -1,0 +1,50 @@
+{
+  "tests": [
+    {
+      "test": "sift100k_matched_source_diagnostic",
+      "old_source_risk": 0.0377,
+      "refresh_increment": 0.0292,
+      "increment_ci": [
+        0.017500000000000005,
+        0.04070000000000001
+      ],
+      "old_source_qualified": 6,
+      "source_qualified_target_rejected": 6
+    },
+    {
+      "test": "sift100k_legacy_reproduction_all_builds",
+      "passed": true
+    },
+    {
+      "test": "arxiv_nomic_100k_matched_source_diagnostic",
+      "old_source_risk": 0.0319,
+      "refresh_increment": 0.0405,
+      "increment_ci": [
+        0.028599999999999993,
+        0.053099999999999994
+      ],
+      "old_source_qualified": 5,
+      "source_qualified_target_rejected": 5
+    },
+    {
+      "test": "arxiv_nomic_100k_legacy_reproduction_all_builds",
+      "passed": true
+    },
+    {
+      "test": "cp_zero_failure_identity",
+      "passed": true
+    },
+    {
+      "test": "joint_all_qualified",
+      "passed": true
+    },
+    {
+      "test": "tightening_never_adds_acceptance",
+      "passed": true
+    }
+  ],
+  "analysis_status": "POST_HOC_FROZEN_RESPONSE_REANALYSIS",
+  "bootstrap": "crossed target-build x shared-query product resampling; 5000; seed991; conditional on histories and selected shifts",
+  "certification": "two policies alpha=.025 each; per fixed target union <=.05, not campaign simultaneous",
+  "cost": "NDC arithmetic, not wallclock; cached and cold; old truth shared across builds; overhead conservatively charged in full"
+}
