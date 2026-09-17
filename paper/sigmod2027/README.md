@@ -1,9 +1,9 @@
-# Reorganized SIGMOD E&A manuscript
+# SIGMOD E&A manuscript and anonymous evidence package
 
 Main document: `main.tex`. Separate short supplement: `appendix.tex`.
 The source archive includes compiled PDFs, six vector figures (PDF and SVG),
 the ACM class/bibliography style, bibliography, table data, and analysis code.
-Historical W5/W5.5 drafts are not required to compile this version.
+Historical W1--W6 previews and duplicate sections are not required to compile this version and are excluded from the anonymous export.
 
 ## Compile
 
@@ -18,19 +18,21 @@ tectonic -X compile main.tex --outdir build --keep-logs
 tectonic -X compile appendix.tex --outdir build --keep-logs
 ```
 
-The class is the supplied ACM `acmart` template, `sigconf,anonymous,nonacm`.
+The class is the supplied ACM `acmart` template, `sigconf,anonymous`, with the
+reference block and CCS concepts suppressed for double-anonymous review.
 No negative layout spacing, margin reduction, or global body-font reduction
 is used. The main PDF and supplement are separate submission files.
 
 ## Regenerate tables and figures
 
 Python dependencies: NumPy and Matplotlib (see `requirements.txt`). The delivered
-regeneration/validation used NumPy 2.3.5 and Matplotlib 3.11.2. PDF QA used
-`pypdf` 6.10.0 and `pypdfium2`; they are optional for compiling the manuscript.
+clean replay used Python 3.11.16, NumPy 2.4.6, Matplotlib 3.11.2, and pypdf
+6.10.0; PDF libraries are optional for compiling the manuscript.
 
 ```
 python make_figures.py
 python check_evidence.py
+python run_clean_replay.py --package .
 ```
 
 `make_figures.py` regenerates six PDF/SVG/PNG figures and the TeX table macros
@@ -43,6 +45,13 @@ runs; numerical reproducibility does not imply byte-identical PDFs.
 checks decisions, gains, quantiles, LOTO and costs, and reproduces the crossed
 bootstrap intervals. It performs no ANN search or raw-truth access. The
 delivered run passes 244 checks; this is not independent native replication.
+The separately frozen fresh-query stage passes 210/210 recorded checks.
+`run_clean_replay.py` verifies the anonymous manifest, both check sets, and
+normalized generated-table hashes, then builds the PDFs when a supported
+LaTeX engine is available. `qa/S5_CLEAN_REPLAY_PUBLIC.json` records the sealed
+replay status without machine-specific paths. The sealed run used Tectonic
+0.17.0: the main paper is 11 pages total (references begin on page 10), the
+supplement is 3 pages, both are US Letter, and both are below 10 MB.
 
 ## Reanalyze the existing native responses (optional; external data required)
 
@@ -63,17 +72,18 @@ scientific outputs. See `PROVENANCE.md` for claim-to-source mapping.
 
 The matched-source diagnostic, crossed uncertainty, joint-error replay, and
 completed cost accounting are **post-hoc reanalyses of frozen responses**.
-They are not new preregistered experiments. TCP remains a recurring-profile
+The source-certified slack bridge is a separately preregistered fresh-query
+confirmation conditional on the registered builds. TCP remains a recurring-profile
 case; its main replay is not a new-query predictor or a 5% build-conformal
 algorithm. The stricter CP allocation is per target, not simultaneous across
 twenty targets. NDC economics is not wall-clock or monetary economics.
 
-The PDFs have no identifying repository URL. This archive is an author-facing
-source/evidence delivery, with frozen commit provenance; it is not an already
-deidentified public artifact. Hosting an anonymous,
-accessible artifact and checking the live submission form remain author
-submission steps. Do not put a personal repository URL into the anonymous
-PDF. The supplied numerical package is not a container for full native replay.
+The PDFs contain no identifying repository URL. The anonymous package is built
+from an explicit allowlist and scanned for identity, host, and local-path
+tokens. Hosting that package at an anonymous, accessible URL and checking the
+live submission form remain author submission steps. Do not put a personal
+repository URL into the anonymous PDF. The compact numerical package is not a
+container for full native replay.
 
 ## Files
 
@@ -83,7 +93,8 @@ PDF. The supplied numerical package is not a container for full native replay.
 - `evidence/generated_tables.tex`: generated typeset table definitions.
 - `evidence/w6_audit/`: compact numerical evidence and validation report.
 - `evidence/extensions/`: unchanged external-method and scale/family summaries.
-- `make_figures.py`, `check_evidence.py`: regeneration and independent checks.
+- `evidence/s4_fresh/`: compact fresh-query source-slack confirmation evidence.
+- `make_figures.py`, `check_evidence.py`, `run_clean_replay.py`: regeneration and checks.
 - `PROVENANCE.md`: frozen sources and inference units.
 - `SHA256SUMS.txt`: hashes for the delivery contents, excluding itself.
 

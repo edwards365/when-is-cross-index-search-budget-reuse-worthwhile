@@ -1,11 +1,11 @@
-\documentclass[sigconf,anonymous,nonacm]{acmart}
+\documentclass[sigconf,anonymous]{acmart}
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{balance}
 \usepackage{siunitx}
 \sisetup{group-minimum-digits=4,group-separator={,}}
-\settopmatter{printacmref=false,printfolios=true}
+\settopmatter{printacmref=false,printfolios=true,printccs=false}
 \setlength{\emergencystretch}{1.5em}
 \setcopyright{none}
 \input{writing_macros}
@@ -16,7 +16,7 @@
 \author{Anonymous Author(s)}
 \begin{document}
 \begin{abstract}
-Graph indexes are rebuilt to maintain search quality, yet the budget policy used to serve queries is often treated as reusable state. We study that portability assumption through controlled rebuilds and a separate refresh-and-recovery case. On unchanged SIFT-100K and Arxiv-Nomic-100K collections, transferring retrospective first-passing budgets across hnswlib and Faiss builds adds 17.17--23.60 percentage points of query failure relative to target-specific references. Index-Conditioned Budget Audit (ICBA) separates such response-level evidence from executable-policy risk, independent certification, and acquisition cost. In a recurring-query workload after 5\% data refresh, an unchanged history-pool policy rises from 3.77\% to 6.69\% failure on SIFT and from 3.19\% to 7.24\% on Arxiv-Nomic. Target-calibrated pooling (TCP) recovers search efficiency; a post-hoc jointly controlled candidate/fallback replay retains 44.39\% and 29.86\% relative reductions in mean distance calculations, respectively. Completing its distance-cost model moves cold-history break-even to approximately 396,000 and 457,000 query executions. The evidence distinguishes transferable responses, qualified decisions, and economical recovery, and shows why each must be checked against the target index and workload.
+Graph indexes are rebuilt to maintain search quality, yet the budget policy used to serve queries is often treated as reusable state. We audit that assumption through controlled rebuilds, a 5\% data-refresh case, and a fresh-query recovery test. On unchanged SIFT-100K and Arxiv-Nomic-100K collections, transferring retrospective first-passing budgets across hnswlib and Faiss builds adds 17.17--23.60 percentage points of query failure relative to target-specific references. Index-Conditioned Budget Audit (ICBA) separates response evidence from executable-policy risk, independent certification, and acquisition cost. After refresh, an unchanged recurring-query policy rises from 3.77\% to 6.69\% failure on SIFT and from 3.19\% to 7.24\% on Arxiv-Nomic. Target-calibrated pooling (TCP) retains jointly controlled mean-distance reductions of 44.39\% and 29.86\%, with cold-history break-even near 396,000 and 457,000 executions. In a separately preregistered fresh-query test, a source-certified one-rung slack policy qualifies all 552 Faiss build pairs and saves 8.27\% and 29.09\% mean distance work at 0.18\% and 0.67\% risk; the same rule has no cross-dataset economic value in hnswlib. Thus portability, qualification, and economic recovery are distinct target-dependent decisions.
 \end{abstract}
 \keywords{approximate nearest-neighbor search, graph indexes, index rebuilding, risk auditing, budget transfer}
 \maketitle

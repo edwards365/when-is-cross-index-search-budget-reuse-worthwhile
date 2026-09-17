@@ -1,6 +1,6 @@
-\documentclass[sigconf,anonymous,nonacm]{acmart}
+\documentclass[sigconf,anonymous]{acmart}
 \usepackage{amsmath,booktabs,tabularx,siunitx}
-\settopmatter{printacmref=false,printfolios=true}
+\settopmatter{printacmref=false,printfolios=true,printccs=false}
 \setcopyright{none}
 \setlength{\emergencystretch}{1.5em}
 \input{writing_macros}
@@ -69,6 +69,25 @@ Risk and matched old/new differences use the same product weights. Report the 2.
 Dataset & Decision & Crossed & Target-build only & Shared-query only\\\midrule
 \SensitivityRows
 \bottomrule\end{tabular*}
+\end{table*}
+
+\subsection{Fresh-Query Source-Slack Detail}
+Table~\ref{tab:fresh-detail} reports the two informative source-slack lanes. The $+2$ lane is the endpoint in both implementations and datasets. Each lane was fixed before target-evaluation access; rows are separate estimands, not candidates selected after viewing these results. Pair status is qualified/indeterminate/confidently-above-$\delta$ under the lane's source certificate and fresh target audit. Aggregate intervals resample 500 fresh target-query IDs with their full directed-pair vectors.
+
+\begin{table*}[t]
+\caption{Fresh-query source-slack audit. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval].}
+\label{tab:fresh-detail}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrrr@{}}\toprule
+Impl. & Dataset & Lane & Risk & Reduction & Pair status\\\midrule
+hnswlib & SIFT & $+0$ & 1.487 [0.845, 2.260] & 1.313 [1.307, 1.319] & 543/9/0\\
+hnswlib & Arxiv & $+0$ & 1.317 [0.600, 2.158] & 0.000 [0.000, 0.000] & 552/0/0\\
+Faiss & SIFT & $+0$ & 1.297 [0.852, 1.865] & 53.806 [53.758, 53.855] & 478/74/0\\
+Faiss & Arxiv & $+0$ & 1.724 [1.097, 2.474] & 58.210 [58.165, 58.255] & 528/24/0\\
+hnswlib & SIFT & $+1$ & 1.400 [0.758, 2.159] & 0.000 [0.000, 0.000] & 552/0/0\\
+hnswlib & Arxiv & $+1$ & 1.317 [0.600, 2.158] & 0.000 [0.000, 0.000] & 552/0/0\\
+Faiss & SIFT & $+1$ & 0.183 [0.083, 0.316] & 8.274 [8.266, 8.283] & 552/0/0\\
+Faiss & Arxiv & $+1$ & 0.674 [0.280, 1.211] & 29.095 [29.063, 29.127] & 552/0/0\\\bottomrule
+\end{tabular*}
 \end{table*}
 
 \section{Cost and Reproduction Contract}

@@ -1,4 +1,4 @@
-\section{ICBA and a Target-Calibrated Recovery Case}
+\section{ICBA and Two Recovery Policies}
 \label{sec:auditor}
 
 \subsection{The Audit Contract}
@@ -36,3 +36,9 @@ Figure~\ref{fig:workflow} shows the data flow. The audit is reusable independent
 \label{fig:workflow}
 \Description{Historical profiles feed an ordered shift selected on 500 queries. A separate 500-query certification role chooses candidate, endpoint, or abstention. Another 1,000 queries evaluate the selected decision.}
 \end{figure*}
+
+\subsection{A Source-Certified Slack Bridge}
+\label{sec:slack-method}
+The second recovery policy removes TCP's target-selection step. For each source build, a source-only design role fixes an action $a_s$. Three registered lanes execute $a_s$ shifted upward by zero, one, or two native grid levels, clipped at the endpoint. On 500 previously untouched source-certification queries, each lane and its endpoint receive error allocations $\alpha_c=\alpha_e=0.025$. A lane is deployable for that source only when both bounds are at most $\delta=0.05$; otherwise it falls back to the certified endpoint. Another 500 untouched queries evaluate the frozen source-to-target decision over all non-diagonal build pairs.
+
+This bridge uses no target selection, target labels, retrospective stable-tail action, or evaluation feedback. The three lanes are separate preregistered estimands rather than a best-after-observation search. Consequently, the experiment can show that a particular fixed slack transfers within a registered implementation family, but not that the lane is uniformly optimal or jointly selected at 95\% confidence across implementations.

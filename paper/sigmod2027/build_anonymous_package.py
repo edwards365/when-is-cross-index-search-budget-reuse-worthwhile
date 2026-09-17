@@ -37,49 +37,59 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--source", type=Path, default=Path(__file__).resolve().parent)
     ap.add_argument("--output", type=Path, required=True)
+    ap.add_argument("--scan-only", action="store_true")
     args = ap.parse_args()
     src = args.source.resolve()
     out = args.output.resolve()
     if src == out or src in out.parents:
         raise SystemExit("output must be outside the manuscript source tree")
-    if out.exists():
-        shutil.rmtree(out)
-    out.mkdir(parents=True)
+    if args.scan_only:
+        if not out.is_dir():
+            raise SystemExit("scan-only output directory does not exist")
+    else:
+        if out.exists():
+            shutil.rmtree(out)
+        out.mkdir(parents=True)
 
     roots = [
         "main.tex", "appendix.tex", "writing_macros.tex", "references.bib",
         "acmart.cls", "ACM-Reference-Format.bst", "ACM-LICENSE",
         "README.md", "requirements.txt", "make_figures.py", "check_evidence.py",
-        "run_clean_replay.py",
+        "run_clean_replay.py", "check_s5_package.py",
     ]
     active_sections = [
         "introduction.tex", "02_related_work.tex", "problem_theory.tex",
         "auditor_tcp.tex", "protocol.tex", "portability.tex", "recovery.tex",
         "extensions.tex", "economics.tex", "discussion.tex",
     ]
-    for rel in roots:
-        copy_file(src / rel, out / rel)
-    for name in active_sections:
-        copy_file(src / "sections" / name, out / "sections" / name)
-    for name in ("overview.pdf", "workflow.pdf", "decisions.pdf", "tradeoff.pdf", "tails.pdf", "cost.pdf"):
-        copy_file(src / "figures" / name, out / "figures" / name)
-    for rel in (
-        "evidence/generated_tables.tex", "evidence/results_macros.tex",
-        "evidence/w5_macros.tex", "evidence/w55_macros.tex", "evidence/w6_macros.tex",
-        "evidence/certificate_rows.tex", "evidence/cost_rows.tex",
-        "evidence/graph_only_rows.tex", "evidence/recovery_rows.tex",
-        "evidence/sensitivity_rows.tex", "evidence/s5_claim_map.csv",
-    ):
-        copy_file(src / rel, out / rel)
-    for folder in ("evidence/w6_audit", "evidence/extensions", "evidence/s4_fresh"):
-        for path in sorted((src / folder).glob("*")):
-            if path.is_file():
-                copy_file(path, out / folder / path.name)
-    copy_file(src / "PROVENANCE_ANONYMOUS.md", out / "PROVENANCE.md")
+    if not args.scan_only:
+        for rel in roots:
+            copy_file(src / rel, out / rel)
+        for name in active_sections:
+            copy_file(src / "sections" / name, out / "sections" / name)
+        for name in ("overview.pdf", "workflow.pdf", "decisions.pdf", "tradeoff.pdf", "tails.pdf", "cost.pdf"):
+            copy_file(src / "figures" / name, out / "figures" / name)
+        for rel in (
+            "evidence/generated_tables.tex", "evidence/results_macros.tex",
+            "evidence/w5_macros.tex", "evidence/w55_macros.tex", "evidence/w6_macros.tex",
+            "evidence/certificate_rows.tex", "evidence/cost_rows.tex",
+            "evidence/graph_only_rows.tex", "evidence/recovery_rows.tex",
+            "evidence/sensitivity_rows.tex", "evidence/s5_claim_map.csv",
+            "qa/S5_CLEAN_REPLAY_PUBLIC.json",
+        ):
+            copy_file(src / rel, out / rel)
+        for folder in ("evidence/w6_audit", "evidence/extensions", "evidence/s4_fresh"):
+            for path in sorted((src / folder).glob("*")):
+                if path.is_file():
+                    copy_file(path, out / folder / path.name)
+        copy_file(src / "PROVENANCE_ANONYMOUS.md", out / "PROVENANCE.md")
 
     leaks = []
     manifest = []
-    for path in sorted(p for p in out.rglob("*") if p.is_file()):
+    for path in sorted(
+        p for p in out.rglob("*")
+        if p.is_file() and p.name != "ANONYMOUS_PACKAGE_MANIFEST.json"
+    ):
         rel = path.relative_to(out).as_posix()
         if any(token.lower() in rel.lower() for token in FORBIDDEN):
             leaks.append({"path": rel, "token": "filename"})

@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "anonymous_allowlist_files": 62,
+  "anonymous_identity_leaks": 0,
+  "w6_evidence_checks": {
+    "passed": 244,
+    "total": 244
+  },
+  "s4_fresh_checks": {
+    "passed": 210,
+    "total": 210
+  },
+  "generated_figures": 6,
+  "generated_tables": 5,
+  "normalized_table_hash_mismatches": 0,
+  "python": "3.11.16",
+  "packages": {
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.2",
+    "pypdf": "6.10.0"
+  },
+  "pdf_build": {
+    "engine": "Tectonic 0.17.0",
+    "main_pages": 11,
+    "main_content_pages_before_references": 9,
+    "appendix_pages": 3,
+    "paper_size": "US Letter",
+    "size_gate": "PASS_EACH_LE_10_MIB",
+    "status": "PASS"
+  },
+  "interpretation": "Numeric, decision, table, figure, main-PDF, and appendix-PDF replay passed from the anonymous package alone. This remains compact-reference replay, not independent native-search replication."
+}

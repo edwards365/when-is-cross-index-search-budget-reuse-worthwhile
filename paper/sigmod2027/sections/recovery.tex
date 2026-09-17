@@ -34,6 +34,24 @@ Under the joint-error allocation, SIFT is unchanged, while Arxiv risk becomes 1.
 \Description{Direct reuse has larger search savings but more than 5 percent failure. Both recalibration rules have lower risk; the joint Arxiv point gives up some work saving.}
 \end{figure}
 
+\subsection{RQ4 Boundary Test: Can Source-Only Slack Transfer?}
+\label{sec:fresh-bridge}
+The fresh-query experiment tests the source-certified policy of Section~\ref{sec:slack-method}, not TCP. Among the three registered lanes, the one-rung Faiss policy gives the clearest deployable bridge: every one of 552 directed pairs qualifies on each dataset, while evaluation risk is 0.183 [0.083, 0.316]\% on SIFT and 0.674 [0.280, 1.211]\% on Arxiv-Nomic. Relative mean-NDC reductions against the endpoint are 8.27 [8.27, 8.28]\% and 29.09 [29.06, 29.13]\% (Table~\ref{tab:fresh-bridge}). The lower saving is positive after leaving out any target build, and p95/p99 remain below the endpoint.
+
+\begin{table}[t]
+\caption{Fresh-query one-rung source-slack results, conditional on 24 registered builds. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval]. ``Qualified'' counts directed source--target build pairs.}
+\label{tab:fresh-bridge}
+\small\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrr@{}}\toprule
+Impl. & Dataset & Risk & Reduction & Qualified\\\midrule
+hnswlib & SIFT & 1.40 [0.76, 2.16] & 0.00 [0.00, 0.00] & 552/552\\
+hnswlib & Arxiv & 1.32 [0.60, 2.16] & 0.00 [0.00, 0.00] & 552/552\\
+Faiss & SIFT & 0.18 [0.08, 0.32] & 8.27 [8.27, 8.28] & 552/552\\
+Faiss & Arxiv & 0.67 [0.28, 1.21] & 29.09 [29.06, 29.13] & 552/552\\\bottomrule
+\end{tabular*}
+\end{table}
+
+The same one-rung rule collapses to the endpoint in hnswlib and therefore saves no work on either dataset. This negative result is as important as Faiss's positive one: source-side certification is feasible in both implementations, but economic slack is not a universal property of HNSW search. The zero-slack lane is reported in the supplement; it saves more work in Faiss but leaves 74 SIFT and 24 Arxiv pairs indeterminate, while hnswlib yields at most 1.31\% saving on one dataset. We therefore use the one-rung lane as a fixed boundary test, not as evidence that more slack is always preferable or that it dominates target-trained methods.
+
 \subsection{RQ5: Does Recovery Worsen the Search-Work Tail?}
 Neither recalibration rule increases query-pooled p95 or p99 relative to the endpoint. For joint-error replay, p95 is 2,349 versus 2,615 NDC on SIFT, and 3,117 versus 3,252 on Arxiv; p99 is 2,774 versus 2,855 and 3,460 versus 3,504. Every individual target also has non-increasing p95 and p99. Figure~\ref{fig:tails} displays the per-target ratios without connecting unrelated seeds.
 

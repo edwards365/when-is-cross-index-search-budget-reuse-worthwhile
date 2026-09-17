@@ -14,6 +14,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+FORBIDDEN_PDF_TOKENS = (
+    "wang" + "lekang", "edwards" + "365", "/home/" + "wlk",
+    "101.6." + "160.66", "C:\\" + "Users",
+    "navigation-aware-resistance-" + "hnsw.git",
+)
+
+
 def digest(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as handle:
@@ -78,7 +85,45 @@ def compile_pdf(root: Path, stem: str) -> dict[str, object]:
     record: dict[str, object] = {"status": status, "engine": engine, "run": result}
     if pdf.exists():
         record.update({"pdf_bytes": pdf.stat().st_size, "pdf_sha256": digest(pdf)})
+        try:
+            from pypdf import PdfReader
+
+            reader = PdfReader(str(pdf))
+            metadata = {str(k): str(v) for k, v in (reader.metadata or {}).items()}
+            text = "\n".join((page.extract_text() or "") for page in reader.pages)
+            reference_pages = [
+                index for index, page in enumerate(reader.pages, 1)
+                if re_search_references(page.extract_text() or "")
+            ]
+            media_box = [float(value) for value in reader.pages[0].mediabox]
+            leaks = [
+                token for token in FORBIDDEN_PDF_TOKENS
+                if token.lower() in (text + json.dumps(metadata)).lower()
+            ]
+            qa_pass = (
+                media_box == [0.0, 0.0, 612.0, 792.0]
+                and pdf.stat().st_size <= 10 * 1024 * 1024
+                and not leaks
+                and not metadata.get("/Author")
+            )
+            record["pdf_qa"] = {
+                "status": "PASS" if qa_pass else "FAIL",
+                "pages": len(reader.pages),
+                "reference_pages": reference_pages,
+                "content_pages_before_references": reference_pages[0] - 1 if reference_pages else len(reader.pages),
+                "media_box_points": media_box,
+                "identity_leaks": leaks,
+                "metadata": metadata,
+            }
+        except Exception as exc:  # fail closed in the clean replay
+            record["pdf_qa"] = {"status": "FAIL", "error": repr(exc)}
     return record
+
+
+def re_search_references(text: str) -> bool:
+    import re
+
+    return bool(re.search(r"(^|\n)REFERENCES(\n|$)", text.upper()))
 
 
 def main() -> None:
@@ -101,6 +146,7 @@ def main() -> None:
         for path in sorted((root / "evidence").glob("*.tex"))
     }
     evidence = run([sys.executable, "check_evidence.py"], root)
+    package_checks = run([sys.executable, "check_s5_package.py"], root)
     figures = run([sys.executable, "make_figures.py"], root)
     after_tables = {
         path.name: normalized_text_digest(path)
@@ -122,10 +168,12 @@ def main() -> None:
     hard_fail = (
         manifest.get("status") != "PASS"
         or evidence["returncode"] != 0
+        or package_checks["returncode"] != 0
         or figures["returncode"] != 0
         or bool(table_mismatches)
         or not s4_pass
         or any(item["status"] == "FAIL" for item in compiled.values())
+        or any(item.get("pdf_qa", {}).get("status") == "FAIL" for item in compiled.values())
     )
     blocked_compile = any(
         item["status"] == "BLOCKED_NO_LATEX_ENGINE" for item in compiled.values()
@@ -150,6 +198,7 @@ def main() -> None:
             "leaks": manifest.get("leaks"),
         },
         "w6_evidence_replay": evidence,
+        "s5_package_checks": package_checks,
         "figure_table_regeneration": figures,
         "generated_table_hash_mismatches": table_mismatches,
         "s4_validation": {
@@ -164,6 +213,7 @@ def main() -> None:
     print(json.dumps({
         "status": status,
         "w6_evidence_returncode": evidence["returncode"],
+        "s5_package_returncode": package_checks["returncode"],
         "s4_checks": f"{s4_validation.get('passed')}/{s4_validation.get('total')}",
         "table_hash_mismatches": len(table_mismatches),
         "pdf": {name: item["status"] for name, item in compiled.items()},
