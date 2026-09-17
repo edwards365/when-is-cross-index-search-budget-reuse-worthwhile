@@ -1,0 +1,221 @@
+{
+  "status": "PASS",
+  "checks_passed": 42,
+  "checks_total": 42,
+  "checks": [
+    {
+      "name": "source_rows",
+      "pass": true,
+      "detail": 96
+    },
+    {
+      "name": "pair_rows",
+      "pass": true,
+      "detail": 8832
+    },
+    {
+      "name": "summary_rows",
+      "pass": true,
+      "detail": 16
+    },
+    {
+      "name": "role_sizes",
+      "pass": true,
+      "detail": [
+        375,
+        94,
+        281
+      ]
+    },
+    {
+      "name": "roles_disjoint",
+      "pass": true,
+      "detail": "zero overlap"
+    },
+    {
+      "name": "roles_cover_750",
+      "pass": true,
+      "detail": 750
+    },
+    {
+      "name": "evidence_role_limited",
+      "pass": true,
+      "detail": "POST_HOC_ROLE_LIMITED"
+    },
+    {
+      "name": "all_source_qualification_valid",
+      "pass": true,
+      "detail": "qualified UCB <= 0.05"
+    },
+    {
+      "name": "source_action_invariant_across_targets",
+      "pass": true,
+      "detail": "one frozen action per source"
+    },
+    {
+      "name": "native_actions_only",
+      "pass": true,
+      "detail": "registered grids"
+    },
+    {
+      "name": "partition_hnswlib_sift_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_sift_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_hnswlib_sift_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_sift_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_hnswlib_sift_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_sift_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_hnswlib_sift_100k_endpoint",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_sift_100k_endpoint",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_hnswlib_arxiv_nomic_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_arxiv_nomic_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_hnswlib_arxiv_nomic_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_arxiv_nomic_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_hnswlib_arxiv_nomic_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_arxiv_nomic_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_hnswlib_arxiv_nomic_100k_endpoint",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "hnsw_cost_semantics_arxiv_nomic_100k_endpoint",
+      "pass": true,
+      "detail": "ESTIMABLE"
+    },
+    {
+      "name": "partition_faiss_hnsw_sift_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_sift_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "partition_faiss_hnsw_sift_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_sift_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "partition_faiss_hnsw_sift_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_sift_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "partition_faiss_hnsw_sift_100k_endpoint",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_sift_100k_endpoint",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "partition_faiss_hnsw_arxiv_nomic_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_arxiv_nomic_100k_source_selected_plus_0",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "partition_faiss_hnsw_arxiv_nomic_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_arxiv_nomic_100k_source_selected_plus_1",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "partition_faiss_hnsw_arxiv_nomic_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_arxiv_nomic_100k_source_selected_plus_2",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "partition_faiss_hnsw_arxiv_nomic_100k_endpoint",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "faiss_cost_semantics_arxiv_nomic_100k_endpoint",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    }
+  ]
+}

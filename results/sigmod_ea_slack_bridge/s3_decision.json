@@ -1,0 +1,8 @@
+{
+  "phase": "S3",
+  "evidence_level": "POST_HOC_ROLE_LIMITED",
+  "role_firewall_within_analysis": "PASS",
+  "prospective_independence": "FAIL_PREVIOUSLY_INSPECTED_QUERY_OUTCOMES",
+  "target_driven_selection": false,
+  "bridge_gate": "PASS_AS_MECHANISM_BRIDGE_ONLY"
+}
