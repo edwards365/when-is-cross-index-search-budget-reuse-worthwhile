@@ -1,0 +1,24 @@
+{
+  "schema_version": "sigmod-template-intake-1.0",
+  "target": "ACM SIGMOD 2027 Research Track - Experiments & Analysis",
+  "submission_stage": "initial",
+  "checked_date": "2026-09-17",
+  "official_rules_url": "https://2027.sigmod.org/calls_papers_sigmod_research.shtml",
+  "archive": "acmart-primary.zip",
+  "sha256": "b38560ed55cc5e644ab23cfbde76e968ae2d09ef7f083b7aa70bd8f8c0876c01",
+  "compressed_bytes": 15548908,
+  "entry_count": 66,
+  "expanded_bytes": 17085189,
+  "path_traversal_entries": 0,
+  "executable_or_script_entries": 0,
+  "class_name": "acmart",
+  "class_version": "2.20",
+  "class_date": "2026-08-16",
+  "license": "LPPL-1.3c",
+  "intake_status": "PRESERVED_CANDIDATE_REQUIRES_FINAL_OFFICIAL_VERSION_CHECK",
+  "notes": [
+    "Archive README identifies the GitHub source as development or experimental.",
+    "Use the production ACM or CTAN release linked by SIGMOD author instructions for final submission.",
+    "Do not silently replace the preserved archive."
+  ]
+}
