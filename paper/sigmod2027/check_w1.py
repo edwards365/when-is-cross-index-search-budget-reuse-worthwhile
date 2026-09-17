@@ -25,6 +25,19 @@ assert '[Experiments \\& Analysis]' in text
 assert not re.search(r'\\(?:geometry|fontsize|baselinestretch)\b', text)
 assert not re.search(r'https?://|101\.6\.|/home/|wanglekang|edwards365', text)
 assert '2026/08/16 v2.20' in (ROOT/'acmart.cls').read_text(encoding='utf-8')
+bib = (ROOT / 'references.bib').read_text(encoding='utf-8')
+keys = re.findall(r'@\w+\{([^,]+),', bib)
+assert len(keys) == len(set(keys)), 'Duplicate bibliography keys'
+cited = {key.strip() for group in re.findall(r'\\cite\w*\{([^}]+)\}', text) for key in group.split(',')}
+assert cited == set(keys), ('Unresolved or unused references', cited ^ set(keys))
+assert len(keys) == 13
+assert r'\bibliography{references}' in text
+for section in sections[:2]:
+    prose = section.read_text(encoding='utf-8')
+    assert r'\sectionaim' not in prose
+    assert 'Contributions to develop' not in prose
+assert '5\\% mixed delete/insert refresh' in sections[0].read_text(encoding='utf-8')
 print(f'PASS: {len(macros)} W0 macros, {len(used)} referenced; 10 sections; 5 figure slots; 4 tables; labels resolved.')
+print(f'PASS: W2 Introduction/Related Work; {len(keys)} unique, cited bibliography entries; refresh scope explicit.')
 print('Template SHA256:', hashlib.sha256((ROOT/'acmart.cls').read_bytes()).hexdigest())
 print('Scope: structure and frozen-value linkage, NOT scientific validation or submission readiness.')

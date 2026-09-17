@@ -3,7 +3,7 @@
 \sectionaim{Give each evidence block its own population, unit, and event definition.}
 
 \paragraph{Primary recovery block.}
-The current numerical tables use the frozen SIFT-100K and Arxiv-Nomic-100K query-profile replay, with ten target builds per dataset. The lifecycle calculation charges 500 target-selection and 500 certification queries. The complete setup table will identify source-build history, query IDs and overlap checks, vector snapshot, grid, implementation commit, target evaluation size, and hardware for each block. These fields must come from the corresponding manifests before a unified setup is asserted.
+The current numerical tables use the frozen SIFT-100K and Arxiv-Nomic-100K query-profile replay after a 5\% mixed delete/insert refresh and rebuilding, with ten target builds per dataset. This block combines data change with graph change; it does not isolate the effect of rebuilding an unchanged collection. It uses 500 target-selection, 500 certification, and 1,000 evaluation queries. The complete setup table will identify source-build history, query IDs and overlap checks, vector snapshot, grid, implementation commit, and hardware for each block. These fields must come from the corresponding manifests before a unified setup is asserted.
 
 \paragraph{Metrics.}
 We report empirical failure rates, mean distance-count gain, sample query-pooled p95 distance counts, and fallback-build counts. Let $\bar c_{\rm end}$ and $\bar c_\pi$ denote the mean work under the registered endpoint and a policy. Search gain is

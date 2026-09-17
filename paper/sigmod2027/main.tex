@@ -13,13 +13,14 @@
 \author{Anonymous Author(s)}
 \begin{document}
 \begin{abstract}
-Rebuilding a graph index changes the search procedure on which an approximate nearest-neighbor search budget was calibrated. We study when a source-build budget retains its recall target on a rebuilt index, how this transfer should be audited, and what target-side recovery costs. ICBA organizes the analysis around build-conditioned risk, isolated selection and certification roles, and explicit search-cost accounting. In the frozen SIFT-100K and Arxiv-Nomic-100K query-profile replay, direct TCP pool reuse has empirical target failure rates of \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%. Target-selection recalibration reduces these rates to \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%, with mean distance-count reductions of \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\% relative to the registered fixed endpoint. Cross-family and scale analyses extend the evidence beyond this recovery case. The central systems implication is to treat a rebuilt index as a new calibration environment: measure portability, separate observed recovery from a valid certificate, and account for the cost of obtaining target information.
+Rebuilding a graph index can change the search procedure on which an approximate nearest-neighbor search budget was calibrated. We study when a source-build budget retains its recall target on a rebuilt index, how this transfer should be audited, and what target-side recovery costs. ICBA organizes the analysis around build-conditioned risk, isolated selection and certification roles, and explicit search-cost accounting. In a SIFT-100K and Arxiv-Nomic-100K query-profile replay after 5\% data refresh and rebuilding, direct TCP pool reuse has empirical target failure rates of \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%. Target-selection recalibration reduces these rates to \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%, with mean distance-count reductions of \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\% relative to the registered fixed endpoint. Cross-family and scale analyses extend the evidence beyond this recovery case. The central systems implication is to treat a rebuilt index as a new calibration environment: measure portability, separate observed recovery from a valid certificate, and account for the cost of obtaining target information.
 \end{abstract}
 \keywords{approximate nearest-neighbor search, graph indexes, index rebuilding, risk auditing, budget transfer}
 \maketitle
+\raggedbottom
 
 \noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\small
-\textbf{W1 internal skeleton.} This is a structural writing draft, not a submission manuscript. Numeric exhibits use the W0 frozen macros. Outlined exhibits are planned placements, not experimental plots. Section~\ref{sec:completion} lists the remaining writing and evidence checks.}}
+\textbf{W2 writing draft.} Introduction and Related Work are drafted with verified references; later sections remain a structural draft. Numeric exhibits use the W0 frozen macros. Outlined exhibits are planned placements, not experimental plots. Section~\ref{sec:completion} lists the remaining writing and evidence checks.}}
 
 \input{sections/01_introduction}
 \input{sections/02_related_work}
@@ -31,4 +32,6 @@ Rebuilding a graph index changes the search procedure on which an approximate ne
 \input{sections/08_recovery_cost}
 \input{sections/09_discussion}
 \input{sections/10_conclusion}
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
 \end{document}

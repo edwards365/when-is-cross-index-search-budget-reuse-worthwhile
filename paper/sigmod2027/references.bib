@@ -1,4 +1,101 @@
-% W1 bibliography scaffold. No unverified metadata are inserted.
-% Add verified HNSW, DiskANN/Vamana, DARTH, ConANN, ANNiE, AdaEF,
-% exact binomial certification, and conditional information-bound references
-% during W2, then enable the ACM bibliography in main.tex.
+% W2 verified references. Source passages and verification limits are recorded
+% in LITERATURE_NOTES.md. Publication year differs from conference year for
+% DARTH and ConANN. DARTH+ is cited as a preprint, not a published journal paper.
+@article{malkov2020hnsw,
+  author = {Malkov, Yu. A. and Yashunin, D. A.},
+  title = {Efficient and Robust Approximate Nearest Neighbor Search Using Hierarchical Navigable Small World Graphs},
+  journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume = {42}, number = {4}, pages = {824--836}, year = {2020},
+  doi = {10.1109/TPAMI.2018.2889473}
+}
+
+@inproceedings{subramanya2019diskann,
+  author = {Subramanya, Suhas Jayaram and {Devvrit} and Simhadri, Harsha Vardhan and Krishnaswamy, Ravishankar and Kadekodi, Rohan},
+  title = {{DiskANN}: Fast Accurate Billion-point Nearest Neighbor Search on a Single Node},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume = {32}, year = {2019},
+  url = {https://papers.nips.cc/paper_files/paper/2019/hash/09853c7fb1d3f8ee67a61b6bf4a7f8e6-Abstract.html}
+}
+
+@misc{singh2021freshdiskann,
+  author = {Singh, Aditi and Subramanya, Suhas Jayaram and Krishnaswamy, Ravishankar and Simhadri, Harsha Vardhan},
+  title = {{FreshDiskANN}: A Fast and Accurate Graph-Based {ANN} Index for Streaming Similarity Search},
+  year = {2021}, howpublished = {arXiv:2105.09613},
+  doi = {10.48550/arXiv.2105.09613}
+}
+
+@inproceedings{elliott2024ordering,
+  author = {Elliott, Owen P. and Clark, Jesse},
+  title = {The Impacts of Data, Ordering, and Intrinsic Dimensionality on Recall in Hierarchical Navigable Small Worlds},
+  booktitle = {Proceedings of the 2024 ACM SIGIR International Conference on Theory of Information Retrieval},
+  year = {2024}, pages = {25--33},
+  doi = {10.1145/3664190.3672512}
+}
+
+@article{azizi2025evaluation,
+  author = {Azizi, Ilias and Echihabi, Karima and Palpanas, Themis},
+  title = {Graph-Based Vector Search: An Experimental Evaluation of the State-of-the-Art},
+  journal = {Proceedings of the ACM on Management of Data},
+  year = {2025}, volume = {3}, number = {1}, numpages = {31},
+  doi = {10.1145/3709693}
+}
+
+@inproceedings{li2020laet,
+  author = {Li, Conglong and Zhang, Minjia and Andersen, David G. and He, Yuxiong},
+  title = {Improving Approximate Nearest Neighbor Search through Learned Adaptive Early Termination},
+  booktitle = {Proceedings of the 2020 ACM SIGMOD International Conference on Management of Data},
+  year = {2020}, numpages = {16}, doi = {10.1145/3318464.3380600}
+}
+
+@article{chatzakis2025darth,
+  author = {Chatzakis, Manos and Papakonstantinou, Yannis and Palpanas, Themis},
+  title = {{DARTH}: Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search},
+  journal = {Proceedings of the ACM on Management of Data},
+  year = {2025}, volume = {3}, number = {4}, numpages = {26},
+  doi = {10.1145/3749160}
+}
+
+@article{zhang2026adaef,
+  author = {Zhang, Chao and Miller, Ren{\'e}e J.},
+  title = {Distribution-Aware Exploration for Adaptive {HNSW} Search},
+  journal = {Proceedings of the ACM on Management of Data},
+  year = {2026}, volume = {4}, number = {1}, numpages = {27},
+  doi = {10.1145/3786639}
+}
+
+@article{wang2026annie,
+  author = {Wang, Zeyu and Chatzakis, Manos and Wang, Qitong and Palpanas, Themis and Wang, Peng and Wang, Wei},
+  title = {{ANNiE}: A Learned Query Cost Estimator for Graph-Based Approximate Nearest Neighbor Search},
+  journal = {Proceedings of the VLDB Endowment},
+  year = {2026}, volume = {19}, number = {11}, pages = {3820--3833},
+  doi = {10.14778/3836663.3836728}
+}
+
+@article{horchidan2025conann,
+  author = {Horchidan, Sonia and Zeiher, Fabian and Bostr{\"o}m, Henrik and Carbone, Paris},
+  title = {{ConANN}: Conformal Approximate Nearest Neighbor Search},
+  journal = {Proceedings of the VLDB Endowment},
+  year = {2025}, volume = {19}, number = {1}, pages = {29--42},
+  doi = {10.14778/3772181.3772184}
+}
+
+@misc{chatzakis2026darthplus,
+  author = {Chatzakis, Manos and Papakonstantinou, Yannis and Palpanas, Themis},
+  title = {{DARTH+}: Approximate Nearest Neighbor Search with Declarative Recall and Quality Guarantees},
+  year = {2026}, howpublished = {Preprint, HAL hal-05566027v1},
+  url = {https://hal.science/hal-05566027v1}
+}
+
+@inproceedings{angelopoulos2024crc,
+  author = {Angelopoulos, Anastasios N. and Bates, Stephen and Fisch, Adam and Lei, Lihua and Schuster, Tal},
+  title = {Conformal Risk Control},
+  booktitle = {The Twelfth International Conference on Learning Representations},
+  year = {2024}, url = {https://openreview.net/forum?id=33XGfHLtZg}
+}
+
+@misc{angelopoulos2021ltt,
+  author = {Angelopoulos, Anastasios N. and Bates, Stephen and Cand{\`e}s, Emmanuel J. and Jordan, Michael I. and Lei, Lihua},
+  title = {Learn then Test: Calibrating Predictive Algorithms to Achieve Risk Control},
+  year = {2021}, howpublished = {arXiv:2110.01052},
+  doi = {10.48550/arXiv.2110.01052}
+}
