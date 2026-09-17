@@ -1,0 +1,8 @@
+{
+  "phase": "S4",
+  "evidence_level": "FRESH_QUERY_CONFIRMATION",
+  "fresh_query_roles": "PASS",
+  "legal_per_query_ndc": "PASS_BOTH_IMPLEMENTATIONS",
+  "stable_tail": "NON_DEPLOYABLE_TRUTH_DEPENDENT_NOT_USED",
+  "analysis_status": "COMPLETE"
+}

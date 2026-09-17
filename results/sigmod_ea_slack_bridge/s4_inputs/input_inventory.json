@@ -1,0 +1,62 @@
+[
+  {
+    "dataset": "sift_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/sift_100k.queries.npy",
+    "bytes": 512128,
+    "sha256": "8f0dd8dee499b68844a1191891bca60ecbe52219e81311a93e123bb275932747"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/sift_100k.truth.npy",
+    "bytes": 40128,
+    "sha256": "f89e8b69b6aabd543cbea350e55e13576535009f4454713b363fc49a5d528966"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/sift_100k.queries.fvecs",
+    "bytes": 516000,
+    "sha256": "6062791b7af2648f246e50dc59a82da127ee08af3c218ada7a815ed331880bf5"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/sift_100k.truth.ivecs",
+    "bytes": 44000,
+    "sha256": "5e7f9c4425ccd89d1d1ae4de57bc3769f13e02f31f6b1db83e63c460c79d8e04"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/sift_100k.external_ids.json",
+    "bytes": 8001,
+    "sha256": "ff0a7ef6f48a301f3aa37e6628e6141fe6216d88e582022511d98377172fbaa2"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/arxiv_nomic_100k.queries.npy",
+    "bytes": 3072128,
+    "sha256": "4a4763edc36dd4eb2ea81800a0f02101e35b92316fe2f8c0fb228ca736379b72"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/arxiv_nomic_100k.truth.npy",
+    "bytes": 40128,
+    "sha256": "a853f21d7843aabca590d9ef65f3af233eb6c55f803f058288dc1f8b24e72498"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/arxiv_nomic_100k.queries.fvecs",
+    "bytes": 3076000,
+    "sha256": "132e74a1deaef161784e5beb9b4fc14a4920fee2ddb81f19dd9e3dbe4a19cf49"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/arxiv_nomic_100k.truth.ivecs",
+    "bytes": 44000,
+    "sha256": "f7933b1849c8b93d41969351aae904cfc7aa45e8f0e8e6add0cdd11c98098f9c"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/results/sigmod_ea_slack_bridge/s4_inputs/arxiv_nomic_100k.external_ids.json",
+    "bytes": 8001,
+    "sha256": "93721de15ab20c9cf5b2714a6b74c44c842e40a669c9d41ad805e91cf718eff6"
+  }
+]

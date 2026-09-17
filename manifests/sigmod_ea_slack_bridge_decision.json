@@ -1,0 +1,24 @@
+{
+  "program": "SIGMOD_EA_SLACK_BRIDGE_S1_S4",
+  "status": "S1_S4_COMPLETE_STOP_BEFORE_S5",
+  "parent_commit": "b265bd38f3e3ff1fbc4a3162dcef2c43d26df202",
+  "branch": "exp/sigmod_ea_slack_bridge",
+  "phase_results": {
+    "S1": "SLACK_REDUCES_RISK_ACROSS_SETTINGS",
+    "S2": "FINITE_GRID_STABLE_TAIL_SEMANTICS_VALIDATED",
+    "S3": "SOURCE_ONLY_BRIDGE_EXECUTABLE_POST_HOC_ROLE_LIMITED",
+    "S4": "FRESH_QUERY_CONFIRMATION_COMPLETE"
+  },
+  "scientific_decision": "FAISS_ONE_RUNG_BRIDGE_SUPPORTED_HNSWLIB_ECONOMIC_GENERALIZATION_NOT_SUPPORTED",
+  "faiss_plus_1": {
+    "sift_target_risk_percent": 0.18297101449275362,
+    "sift_mean_ndc_saving_percent": 8.274272193754251,
+    "arxiv_target_risk_percent": 0.6742753623188406,
+    "arxiv_mean_ndc_saving_percent": 29.094868497176396,
+    "qualified_directed_pairs_per_dataset": 552
+  },
+  "scope": "REGISTERED_24_BUILDS_PER_DATASET_FRESH_500_CERT_PLUS_500_EVAL_QUERIES",
+  "stable_tail": "NON_DEPLOYABLE_TRUTH_DEPENDENT_NOT_USED",
+  "wall_clock": "EXPLORATORY_ONLY",
+  "s5_started": false
+}
