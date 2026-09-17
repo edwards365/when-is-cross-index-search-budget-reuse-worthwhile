@@ -1,0 +1,5 @@
+item,status,scope
+T-S2-1 finite-grid stable-tail implication,PROVED_UNDER_STATED_ASSUMPTIONS,finite registered action grid; deterministic response cube
+T-S2-2 one-sided Clopper-Pearson three-state rule,CLASSICAL_APPLICATION,query-sampling model within each frozen directed build pair
+T-S2-3 stable-gap upper-bound contact,EMPIRICAL_CONTACT,frozen SIFT-100K and Arxiv-Nomic-100K response cubes
+native ef universal guarantee,NOT_INSTANTIATED,not implied by finite-grid response semantics

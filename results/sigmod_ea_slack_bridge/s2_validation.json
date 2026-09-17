@@ -1,0 +1,262 @@
+{
+  "status": "PASS",
+  "checks_passed": 50,
+  "checks_total": 50,
+  "checks": [
+    {
+      "name": "pair_row_count",
+      "pass": true,
+      "detail": 11040
+    },
+    {
+      "name": "summary_row_count",
+      "pass": true,
+      "detail": 40
+    },
+    {
+      "name": "audit_row_count",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "all_implications_hold",
+      "pass": true,
+      "detail": "zero violations"
+    },
+    {
+      "name": "failure_bounded_by_stable_gap",
+      "pass": true,
+      "detail": "pairwise deterministic inequality"
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_first_plus_0_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_first_plus_0_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_first_plus_1_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_first_plus_1_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_first_plus_2_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_first_plus_2_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_stable_tail_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_stable_tail_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_endpoint_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_sift_100k_endpoint_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_first_plus_0_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_first_plus_0_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_first_plus_1_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_first_plus_1_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_first_plus_2_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_first_plus_2_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_stable_tail_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_stable_tail_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_endpoint_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_hnswlib_arxiv_nomic_100k_endpoint_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_first_plus_0_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_first_plus_0_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_first_plus_1_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_first_plus_1_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_first_plus_2_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_first_plus_2_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_stable_tail_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_stable_tail_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_endpoint_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_sift_100k_endpoint_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_first_plus_0_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_first_plus_0_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_first_plus_1_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_first_plus_1_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_first_plus_2_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_first_plus_2_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_stable_tail_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_stable_tail_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_endpoint_alpha_0.05",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "state_partition_faiss_hnsw_arxiv_nomic_100k_endpoint_alpha_candidate_0.025_endpoint_0.025",
+      "pass": true,
+      "detail": 552
+    },
+    {
+      "name": "audit_pass_hnswlib_sift_100k",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "audit_pass_hnswlib_arxiv_nomic_100k",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "audit_pass_faiss_hnsw_sift_100k",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "audit_pass_faiss_hnsw_arxiv_nomic_100k",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "theory_status_vocabulary",
+      "pass": true,
+      "detail": [
+        "CLASSICAL_APPLICATION",
+        "EMPIRICAL_CONTACT",
+        "NOT_INSTANTIATED",
+        "PROVED_UNDER_STATED_ASSUMPTIONS"
+      ]
+    }
+  ]
+}

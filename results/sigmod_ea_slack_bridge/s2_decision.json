@@ -1,0 +1,17 @@
+{
+  "phase": "S2",
+  "evidence_level": "POST_HOC_FROZEN_RESPONSE_REANALYSIS",
+  "delta": 0.05,
+  "single_policy_alpha": 0.05,
+  "family_allocation": {
+    "candidate_alpha": 0.025,
+    "endpoint_alpha": 0.025
+  },
+  "finite_grid_implication": "PASS",
+  "certification_semantics": [
+    "QUALIFIED",
+    "INDETERMINATE",
+    "CONFIDENTLY_ABOVE_DELTA"
+  ],
+  "theory_gate": "PASS"
+}

@@ -1,0 +1,5 @@
+operator,dataset,builds,queries,raw_nonmonotone_fraction,finite_grid_implication_antecedents,finite_grid_implication_violations,status
+hnswlib,sift_100k,24,750,0.0010555555555555555,1839661,0,PASS
+hnswlib,arxiv_nomic_100k,24,750,0.0,1882835,0,PASS
+faiss_hnsw,sift_100k,24,750,0.0,1842896,0,PASS
+faiss_hnsw,arxiv_nomic_100k,24,750,0.0,1897696,0,PASS
