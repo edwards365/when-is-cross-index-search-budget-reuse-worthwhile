@@ -1,0 +1,5 @@
+operator,dataset,builds,queries,grid,raw_nonmonotone_fraction,first_unresolved_fraction,stable_unresolved_fraction,stable_ge_first_when_both_finite,ndc_available
+hnswlib,sift_100k,24,750,10;20;40;80;120;200,0.0010555555555555555,0.007666666666666666,0.008388888888888888,True,True
+hnswlib,arxiv_nomic_100k,24,750,10;20;40;80;120;200,0.0,0.010666666666666666,0.010666666666666666,True,True
+faiss_hnsw,sift_100k,24,750,16;32;64;128;256;512,0.0,0.0007222222222222222,0.0007222222222222222,True,False
+faiss_hnsw,arxiv_nomic_100k,24,750,16;32;64;128;256;512,0.0,0.0016666666666666668,0.0016666666666666668,True,False

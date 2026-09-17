@@ -1,0 +1,38 @@
+{
+  "phase": "S1",
+  "evidence_level": "POST_HOC_FROZEN_RESPONSE_REANALYSIS",
+  "bootstrap": {
+    "unit": "shared query with complete directed-pair vector",
+    "replicates": 5000,
+    "seed": 991
+  },
+  "per_setting": [
+    {
+      "operator": "hnswlib",
+      "dataset": "sift_100k",
+      "decision": "SLACK_REDUCES_RISK_WITH_UNRESOLVED_OR_MATERIAL_COST"
+    },
+    {
+      "operator": "hnswlib",
+      "dataset": "arxiv_nomic_100k",
+      "decision": "SLACK_REDUCES_RISK_WITH_UNRESOLVED_OR_MATERIAL_COST"
+    },
+    {
+      "operator": "faiss_hnsw",
+      "dataset": "sift_100k",
+      "decision": "SLACK_REDUCES_RISK_WITH_UNRESOLVED_OR_MATERIAL_COST"
+    },
+    {
+      "operator": "faiss_hnsw",
+      "dataset": "arxiv_nomic_100k",
+      "decision": "SLACK_ABSORBS_MOST_FAILURE_RISK_ONLY"
+    }
+  ],
+  "overall_decision": "SLACK_REDUCES_RISK_ACROSS_SETTINGS",
+  "prohibitions": [
+    "no new ANN search",
+    "no index build",
+    "ef is not NDC",
+    "Faiss NDC remains not estimable"
+  ]
+}

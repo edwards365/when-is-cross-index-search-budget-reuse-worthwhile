@@ -1,0 +1,336 @@
+{
+  "status": "PASS",
+  "checks_passed": 50,
+  "checks_total": 50,
+  "summary_sha256": "91e81e96704661c79317deac430cc723af182dfc767536bb5ef0c030b6fc9b68",
+  "checks": [
+    {
+      "name": "summary_row_count",
+      "pass": true,
+      "detail": 20
+    },
+    {
+      "name": "per_target_row_count",
+      "pass": true,
+      "detail": 480
+    },
+    {
+      "name": "diagnostic_row_count",
+      "pass": true,
+      "detail": 4
+    },
+    {
+      "name": "inventory_row_count",
+      "pass": true,
+      "detail": 96
+    },
+    {
+      "name": "inventory_unique_files",
+      "pass": true,
+      "detail": "unique paths"
+    },
+    {
+      "name": "inventory_unique_hashes_nonempty",
+      "pass": true,
+      "detail": "64-char SHA256"
+    },
+    {
+      "name": "frozen_primary_hnswlib_sift_100k",
+      "pass": true,
+      "detail": {
+        "actual": 0.21547826086956523,
+        "expected": 0.21547826086956523
+      }
+    },
+    {
+      "name": "risk_nonincrease_hnswlib_sift_100k_first_plus_1",
+      "pass": true,
+      "detail": {
+        "lane": 0.06831159420289855,
+        "base": 0.21547826086956523
+      }
+    },
+    {
+      "name": "risk_nonincrease_hnswlib_sift_100k_first_plus_2",
+      "pass": true,
+      "detail": {
+        "lane": 0.01652657004830918,
+        "base": 0.21547826086956523
+      }
+    },
+    {
+      "name": "plus2_ci_positive_hnswlib_sift_100k",
+      "pass": true,
+      "detail": 0.013130253623188405
+    },
+    {
+      "name": "frozen_primary_hnswlib_arxiv_nomic_100k",
+      "pass": true,
+      "detail": {
+        "actual": 0.17173671497584542,
+        "expected": 0.17173671497584542
+      }
+    },
+    {
+      "name": "risk_nonincrease_hnswlib_arxiv_nomic_100k_first_plus_1",
+      "pass": true,
+      "detail": {
+        "lane": 0.04697101449275362,
+        "base": 0.17173671497584542
+      }
+    },
+    {
+      "name": "risk_nonincrease_hnswlib_arxiv_nomic_100k_first_plus_2",
+      "pass": true,
+      "detail": {
+        "lane": 0.00831159420289855,
+        "base": 0.17173671497584542
+      }
+    },
+    {
+      "name": "plus2_ci_positive_hnswlib_arxiv_nomic_100k",
+      "pass": true,
+      "detail": 0.0060724637681159425
+    },
+    {
+      "name": "frozen_primary_faiss_hnsw_sift_100k",
+      "pass": true,
+      "detail": {
+        "actual": 0.23599275362318842,
+        "expected": 0.23599275362318842
+      }
+    },
+    {
+      "name": "risk_nonincrease_faiss_hnsw_sift_100k_first_plus_1",
+      "pass": true,
+      "detail": {
+        "lane": 0.06114492753623189,
+        "base": 0.23599275362318842
+      }
+    },
+    {
+      "name": "risk_nonincrease_faiss_hnsw_sift_100k_first_plus_2",
+      "pass": true,
+      "detail": {
+        "lane": 0.011818840579710145,
+        "base": 0.23599275362318842
+      }
+    },
+    {
+      "name": "plus2_ci_positive_faiss_hnsw_sift_100k",
+      "pass": true,
+      "detail": 0.009910507246376812
+    },
+    {
+      "name": "frozen_primary_faiss_hnsw_arxiv_nomic_100k",
+      "pass": true,
+      "detail": {
+        "actual": 0.17765700483091787,
+        "expected": 0.17765700483091787
+      }
+    },
+    {
+      "name": "risk_nonincrease_faiss_hnsw_arxiv_nomic_100k_first_plus_1",
+      "pass": true,
+      "detail": {
+        "lane": 0.044091787439613526,
+        "base": 0.17765700483091787
+      }
+    },
+    {
+      "name": "risk_nonincrease_faiss_hnsw_arxiv_nomic_100k_first_plus_2",
+      "pass": true,
+      "detail": {
+        "lane": 0.008454106280193236,
+        "base": 0.17765700483091787
+      }
+    },
+    {
+      "name": "plus2_ci_positive_faiss_hnsw_arxiv_nomic_100k",
+      "pass": true,
+      "detail": 0.006823490338164252
+    },
+    {
+      "name": "stable_ge_first_hnswlib_sift_100k",
+      "pass": true,
+      "detail": "True"
+    },
+    {
+      "name": "stable_ge_first_hnswlib_arxiv_nomic_100k",
+      "pass": true,
+      "detail": "True"
+    },
+    {
+      "name": "stable_ge_first_faiss_hnsw_sift_100k",
+      "pass": true,
+      "detail": "True"
+    },
+    {
+      "name": "stable_ge_first_faiss_hnsw_arxiv_nomic_100k",
+      "pass": true,
+      "detail": "True"
+    },
+    {
+      "name": "hnsw_ndc_finite_sift_100k_first_plus_0",
+      "pass": true,
+      "detail": {
+        "mean": "741.8233405797101",
+        "p95": "1753.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_sift_100k_first_plus_1",
+      "pass": true,
+      "detail": {
+        "mean": "1070.8613792270532",
+        "p95": "2435.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_sift_100k_first_plus_2",
+      "pass": true,
+      "detail": {
+        "mean": "1473.855345410628",
+        "p95": "2723.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_sift_100k_stable_tail",
+      "pass": true,
+      "detail": {
+        "mean": "742.5194975845411",
+        "p95": "1753.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_sift_100k_endpoint",
+      "pass": true,
+      "detail": {
+        "mean": "2218.610111111111",
+        "p95": "2832.0499999999884"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_arxiv_nomic_100k_first_plus_0",
+      "pass": true,
+      "detail": {
+        "mean": "677.7140531400967",
+        "p95": "1751.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_arxiv_nomic_100k_first_plus_1",
+      "pass": true,
+      "detail": {
+        "mean": "971.3619323671497",
+        "p95": "2398.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_arxiv_nomic_100k_first_plus_2",
+      "pass": true,
+      "detail": {
+        "mean": "1372.0534033816425",
+        "p95": "3046.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_arxiv_nomic_100k_stable_tail",
+      "pass": true,
+      "detail": {
+        "mean": "677.7140531400967",
+        "p95": "1751.0"
+      }
+    },
+    {
+      "name": "hnsw_ndc_finite_arxiv_nomic_100k_endpoint",
+      "pass": true,
+      "detail": {
+        "mean": "2436.7444444444445",
+        "p95": "3209.0499999999884"
+      }
+    },
+    {
+      "name": "faiss_ndc_not_estimable_sift_100k_first_plus_0",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_sift_100k_first_plus_1",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_sift_100k_first_plus_2",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_sift_100k_stable_tail",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_sift_100k_endpoint",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_arxiv_nomic_100k_first_plus_0",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_arxiv_nomic_100k_first_plus_1",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_arxiv_nomic_100k_first_plus_2",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_arxiv_nomic_100k_stable_tail",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "faiss_ndc_not_estimable_arxiv_nomic_100k_endpoint",
+      "pass": true,
+      "detail": "NDC_NOT_ESTIMABLE_BATCH_CUMULATIVE"
+    },
+    {
+      "name": "dataset_shape_hnswlib_sift_100k",
+      "pass": true,
+      "detail": {
+        "queries": "750",
+        "builds": "24"
+      }
+    },
+    {
+      "name": "dataset_shape_hnswlib_arxiv_nomic_100k",
+      "pass": true,
+      "detail": {
+        "queries": "750",
+        "builds": "24"
+      }
+    },
+    {
+      "name": "dataset_shape_faiss_hnsw_sift_100k",
+      "pass": true,
+      "detail": {
+        "queries": "750",
+        "builds": "24"
+      }
+    },
+    {
+      "name": "dataset_shape_faiss_hnsw_arxiv_nomic_100k",
+      "pass": true,
+      "detail": {
+        "queries": "750",
+        "builds": "24"
+      }
+    }
+  ]
+}
