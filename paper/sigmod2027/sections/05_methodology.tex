@@ -1,37 +1,34 @@
-\section{Experimental Methodology}
+\section{Experimental Protocol}
 \label{sec:methodology}
-\sectionaim{Give each evidence block its own population, unit, and event definition.}
+\sectionaim{Define the populations, decisions, and uncertainty units used by RQ1--RQ9.}
 
-\paragraph{Primary recovery block.}
-The current numerical tables use the frozen SIFT-100K and Arxiv-Nomic-100K query-profile replay after a 5\% mixed delete/insert refresh and rebuilding, with ten target builds per dataset. This block combines data change with graph change; it does not isolate the effect of rebuilding an unchanged collection. It uses 500 target-selection, 500 certification, and 1,000 evaluation queries. The complete setup table will identify source-build history, query IDs and overlap checks, vector snapshot, grid, implementation commit, and hardware for each block. These fields must come from the corresponding manifests before a unified setup is asserted.
+\paragraph{Primary refresh experiment.}
+We evaluate SIFT-100K and Arxiv-Nomic-100K after a registered 5\% mixed deletion/insertion refresh and graph rebuild. Each dataset has ten target builds. For every target, 500 queries select a policy, a disjoint 500 certify it, and a disjoint 1,000 evaluate it. The failure event is $\rec@10<0.95$; because $k=10$, passing requires all ten true neighbors. The source-reuse and target-recalibration policies use the query-indexed historical profiles defined in Section~\ref{sec:auditor}; the fixed endpoint is the registered $ef=200$ action. Thus this experiment measures portability for recurring profiled queries after data refresh and rebuilding, not a zero-label path for arbitrary new queries.
 
-\paragraph{Metrics.}
-We report empirical failure rates, mean distance-count gain, sample query-pooled p95 distance counts, and fallback-build counts. Let $\bar c_{\rm end}$ and $\bar c_\pi$ denote the mean work under the registered endpoint and a policy. Search gain is
+\paragraph{Measurements and decision rule.}
+For policy $\pi$, we report empirical evaluation risk, mean distance evaluations, query-pooled p95 and p99 distance evaluations, certification outcome, and fallback. Relative search gain is
 \begin{equation}
- g(\pi)=1-\frac{\bar c_\pi}{\bar c_{\rm end}}.
+ g(\pi)=1-\frac{\bar c_\pi}{\bar c_{\rm end}},
  \label{eq:gain}
 \end{equation}
-Negative values mean additional work. A lower sample p95 is a descriptive tail comparison; it is not a statistical noninferiority certificate or a latency measurement.
+where $\bar c_{\rm end}$ is the fixed-endpoint mean. ICBA admits a candidate only after isolated selection and certification; a failed candidate uses the registered endpoint. Candidate and endpoint bounds are individual one-sided 95\% Clopper--Pearson checks. We therefore report the resulting empirical deployment decision without upgrading their adaptive combination to a joint 95\% certificate.
 
-\paragraph{Uncertainty and dependence.}
-Build-level variation is distinct from query variation. The current gain intervals use the frozen nested-bootstrap implementation, which independently resamples queries within each sampled build. Since query IDs may recur across builds, the dependence structure and intended estimand require reconciliation before assigning a population-level interpretation to these intervals. The final robustness exhibit will report build-wise outcomes, the registered leave-one-build-out analysis, and the uncertainty procedure actually used.
-
-\paragraph{Cross-block comparisons.}
-External-method bridges, Vamana reanalysis, and Deep1M use separate protocols. Their absolute risks are not pooled into a common method ranking. A comparison becomes quantitative across blocks only after matching recall event, source qualification, query population, reference action, and information budget.
+\paragraph{Uncertainty and robustness.}
+Target build is the outer unit. The registered nested bootstrap samples builds and then queries within sampled builds (5,000 replicates); leave-one-target-out (LOTO) and deletion of the largest-gain build test concentration. Repeated query IDs across builds mean that the interval is the output of this registered procedure, not a universal population interval. Cross-method, Vamana, and Deep1M blocks retain their own events and references; we use them to test recurrence, not to construct a pooled leaderboard.
 
 \begin{table}[t]
-\caption{Planned setup matrix: fields that must be traceable for each evidence block. This is a reporting schema, not a completed experimental inventory.}
-\label{tab:setup}
+\caption{RQ map and evidentiary role. Decisive evidence precedes extension and boundary evidence.}
+\label{tab:rqmap}
 \small
-\begin{tabularx}{\linewidth}{@{}lX@{}}
+\begin{tabularx}{\linewidth}{@{}clX@{}}
 \toprule
-Block & Required setup fields \\
+RQ & Evidence & Role \\
 \midrule
-Primary replay & Source/target builds; historical query profiles; grid; role counts; risk event \\
-Method bridges & Published method; adapter changes; permitted observations; matched threshold \\
-Cross-family & Native action semantics; reference policy; censoring; source qualification \\
-Scale & Dataset size; build pairs; query overlap; reference and incremental risks \\
-Economics & Cost unit; shared/sunk inputs; acquisition policy; serving horizon \\
+1,4 & Primary transport and ICBA replay & Portability and deployability \\
+5--8 & Recalibration, tails, robustness, cost & Recovery value and limits \\
+2 & DARTH and Ada-ef bridges & Independence from TCP \\
+3 & Deep1M and Vamana & Scale and graph-family extension \\
+9 & Frozen ledger and deterministic replay & Reproducibility \\
 \bottomrule
 \end{tabularx}
 \end{table}

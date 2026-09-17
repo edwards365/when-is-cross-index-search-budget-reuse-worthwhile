@@ -1,36 +1,26 @@
-\section{Cross-Method, Cross-Family, and Scale Evidence}
+\section{Recovery Quality and Robustness}
 \label{sec:families}
-\sectionaim{Extend the phenomenon while keeping protocol differences visible.}
+\sectionaim{Test whether recovery is safe, tail-aware, and stable across builds.}
 
-\paragraph{Registered method bridges.}
-The DARTH bridge records \WZeroDarthSiftRisk\% and \WZeroDarthArxivRisk\% target failure on SIFT and Arxiv, respectively. The AdaEF bridge on Arxiv records \WZeroAdaefArxivRisk\%. These observations belong to the specific registered adapters and threshold settings. The final comparison will state what was retained from the original method and what changed for the transfer test.
+\subsection{RQ5: Can Target Recalibration Recover Value?}
+\textbf{Question.} Can a small amount of target-side information repair unsafe source reuse without returning to the fixed endpoint? \textbf{Protocol.} The target-selection lane shifts the frozen query-indexed action pool over the registered grid, selects on 500 queries, certifies on a disjoint 500, and evaluates on 1,000. \textbf{Observation.} Risk falls from \WZeroSiftSourceRisk\% to \WZeroSiftTargetRisk\% on SIFT and from \WZeroArxivSourceRisk\% to \WZeroArxivTargetRisk\% on Arxiv. Mean gains remain \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\%, with registered intervals [\WZeroSiftTargetGainLow, \WZeroSiftTargetGainHigh]\% and [\WZeroArxivTargetGainLow, \WZeroArxivTargetGainHigh]\%. \textbf{Conclusion.} Target evidence restores both empirical safety and substantial search savings on both datasets; the result supports recalibration for recurring profiled queries, not free transfer to unseen queries.
 
-\paragraph{Vamana.}
-The aligned post-hoc audit reports \WZeroVamanaSiftRisk\% and \WZeroVamanaArxivRisk\% risk for SIFT and Arxiv, using six source builds, six distinct target builds, 36 source--target pairs, and 750 queries. This evidence adds a graph-family case. Its post-hoc status and source-qualification rule remain visible rather than being collapsed into the primary replay table.
-
-\paragraph{Deep1M.}
-The scale block contains \WZeroDeepBuilds\ builds, \WZeroDeepQueries\ queries, and \WZeroDeepPairs\ directed pairs. Transport risk is \WZeroDeepRisk\%, while the reference risk is \WZeroDeepReferenceRisk\%. Their frozen difference is \WZeroDeepIncrement\ percentage points, with reported interval [\WZeroDeepIncrementLow, \WZeroDeepIncrementHigh]. The reference risk is already above 5\%; the difference measures an additional transfer penalty, not failure of an independently established safe reference.
+\subsection{RQ6: Does Recovery Damage the Tail?}
+\textbf{Question.} Are mean gains purchased by worse high-cost queries or pervasive fallback? \textbf{Protocol.} We compare query-pooled p95 and p99 distance counts against the same fixed endpoint and retain fallback and nonfallback outcomes. \textbf{Observation.} Target-recalibrated p95 is \WZeroSiftTargetPninetyfive\ versus \WZeroSiftTargetFixedPninetyfive\ on SIFT and \WZeroArxivTargetPninetyfive\ versus \WZeroArxivTargetFixedPninetyfive\ on Arxiv. Registered p99 comparisons have the same non-worsening direction. Fallback occurs on 0/10 SIFT and 1/10 Arxiv targets, so the aggregate tail result is not produced by replacing most targets with the endpoint. \textbf{Conclusion.} Recovery improves the observed p95 and does not introduce a structural p99 or fallback-tail regression in this replay. These are distance-count comparisons, not wall-clock noninferiority certificates.
 
 \begin{table}[t]
-\caption{Evidence map across protocols. Values are scoped observations, not a common leaderboard. The event and reference for each row must accompany the expanded experiment description.}
-\label{tab:extensions}
+\caption{Tail and fallback evidence for target recalibration.}
+\label{tab:tail}
 \small
-\begin{tabularx}{\linewidth}{@{}lX@{}}
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
 \toprule
-Evidence block & Frozen result and interpretation \\
+Dataset & Target p95 & Endpoint p95 & Fallback \\
 \midrule
-DARTH bridge & SIFT \WZeroDarthSiftRisk\%; Arxiv \WZeroDarthArxivRisk\% target failure in the registered adapter \\
-AdaEF bridge & Arxiv \WZeroAdaefArxivRisk\% target failure in its bridge protocol \\
-Vamana audit & SIFT \WZeroVamanaSiftRisk\%; Arxiv \WZeroVamanaArxivRisk\%; post-hoc cross-family evidence \\
-Deep1M & \WZeroDeepIncrement\ pp increment over \WZeroDeepReferenceRisk\% reference risk \\
+SIFT & \WZeroSiftTargetPninetyfive & \WZeroSiftTargetFixedPninetyfive & \WZeroSiftTargetFallbackBuilds/10 \\
+Arxiv & \WZeroArxivTargetPninetyfive & \WZeroArxivTargetFixedPninetyfive & \WZeroArxivTargetFallbackBuilds/10 \\
 \bottomrule
-\end{tabularx}
+\end{tabular*}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\slot{Layered evidence and boundary cases}{Use separate panels for external-method bridges, Vamana, and Deep1M. Display the local event, target/reference pair, and uncertainty unit in each panel. Include negative and nontransfer cases when their frozen provenance is reconciled.}
-\caption{Scope placement. Scientific question: which parts of the phenomenon recur across settings, and which depend on the action class or source/reference definition?}
-\Description{Text-only placeholder for protocol-separated cross-method, cross-family, and scale panels.}
-\label{fig:scope}
-\end{figure}
+\subsection{RQ7: Is the Result Driven by One Build?}
+\textbf{Question.} Could one favorable target account for the recovery gain? \textbf{Protocol.} We combine the registered build-outer nested bootstrap with LOTO and deletion of the largest-gain build. \textbf{Observation.} The gain interval remains strictly positive on both datasets. Minimum LOTO and delete-largest gains are 44.37\% on SIFT and 44.23\% on Arxiv, closely tracking the pooled 44.39\% and 44.79\%. \textbf{Conclusion.} No single target build explains the mean benefit. The claim is build-robust within the ten registered targets; it does not replace validation on independently sampled deployment populations.
