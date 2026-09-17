@@ -1,8 +1,9 @@
-# SIGMOD 2027 E&A — W5 text and tables
+# SIGMOD 2027 E&A — W5.5 illustrated manuscript
 
-W5 is the complete text/table manuscript. Figures are deferred to W5.5.
-The compiled PDF has 8 pages including references, 5 tables and 4 propositions
-with proofs. No new experiment was run for this revision.
+W5.5 adds three vector figures, an unnumbered single-column glossary, explicit
+ICBA/TCP names, and a descriptive failure-concentration check. The PDF has
+10 pages including references (main text ends on page 9), five numbered tables
+and four propositions with proofs. No new experiment was run.
 
 ## Open and compile
 
@@ -25,10 +26,16 @@ tectonic -X compile main.tex --outdir build --keep-logs --keep-intermediates
 - `evidence/w5_macros.tex`: 10 further values from the same frozen summaries.
 - `evidence/check_w5_numbers.py`: checks the compact W5 input copies, risk
   aggregation, fallback and extra macros; no experiment execution.
-- `check_w5.py` (repository only): numerical, source and PDF checks, using
+- `check_w55.py`: numerical, source and PDF checks, using
   Python `pypdf`; optional rendering also uses `pypdfium2` and `Pillow`.
-- `W5_VALIDATION.md` (repository / separate author report): format audit,
-  revision record, remaining scientific boundaries and outstanding actions.
+- `figures/`: ready-to-include vector PDFs and editable SVGs; PNGs are previews.
+- `make_figures.py`: reproduces the three figures from compact frozen summaries,
+  using Python with matplotlib and numpy and an installed Times New Roman font.
+  This does not run an experiment or access external datasets.
+- `evidence/w55_diagnostics.json` and `w55_macros.tex`: descriptive aggregates
+  from the unchanged 80-row per-build table.
+- `W55_VALIDATION.md` (repository / separate author report): critical response
+  to the supplied review, format checks, naming provenance, and open actions.
 
 The downloadable source ZIP contains the paper and compact numeric inputs,
 not raw vectors, indexes or the full experimental artifact. Compilation needs
@@ -46,6 +53,7 @@ The class-generating source and bibliography style match the released CTAN
 ACM package byte-for-byte. Class/style files are unmodified.
 
 An anonymous artifact URL has not yet been verified. Do not insert the public,
-identifying development repository into the blind-review PDF. W5 is a checked
+identifying development repository into the blind-review PDF. W5.5 is a checked
 writing deliverable, not a declaration that every scientific or submission
-requirement is complete. W5.5 adds the deferred figures and repeats layout checks.
+requirement is complete. The 19/20 candidate decisions use individual CP checks;
+the manuscript preserves their distinction from a joint 95% pipeline certificate.

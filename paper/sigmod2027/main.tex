@@ -3,19 +3,22 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{balance}
+\usepackage{siunitx}
+\sisetup{group-minimum-digits=4,group-separator={,}}
 \settopmatter{printacmref=false,printfolios=true}
 \setlength{\emergencystretch}{1.5em}
 \setcopyright{none}
 \input{writing_macros}
 \input{evidence/results_macros}
 \input{evidence/w5_macros}
+\input{evidence/w55_macros}
 \hypersetup{pdfauthor={},pdfsubject={Graph-ANNS budget portability and target recalibration},pdfkeywords={graph ANNS, budget transfer, risk auditing, recalibration}}
 
 \title[Budget Transfer Across Graph-ANNS Rebuilds]{When Safe Search Budgets Do Not Transfer Across Graph-ANNS Rebuilds: [Experiments \& Analysis]}
 \author{Anonymous Author(s)}
 \begin{document}
 \begin{abstract}
-Rebuilding a graph index can change the search procedure on which an approximate nearest-neighbor search budget was calibrated. We study when a source-build budget retains its recall target on a rebuilt index, how this transfer should be audited, and what target-side recovery costs. ICBA organizes the analysis around build-conditioned risk, isolated selection and certification roles, and explicit search-cost accounting. In a SIFT-100K and Arxiv-Nomic-100K query-profile replay after 5\% data refresh and rebuilding, direct TCP pool reuse has empirical target failure rates of \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%. Target-selection recalibration reduces these rates to \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%, with mean distance-count reductions of \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\% relative to the registered fixed endpoint. Cross-family and scale analyses extend the evidence beyond this recovery case. The central systems implication is to treat a rebuilt index as a new calibration environment: measure portability, separate observed recovery from a valid certificate, and account for the cost of obtaining target information.
+Rebuilding a graph index can change the search procedure on which an approximate nearest-neighbor search budget was calibrated. We study when a source-build budget retains its recall target on a rebuilt index, how this transfer should be audited, and what target-side recovery costs. Index-Conditioned Budget Audit (ICBA) organizes the analysis around build-conditioned risk, isolated selection and certification roles, and explicit search-cost accounting. In a SIFT-100K and Arxiv-Nomic-100K query-profile replay after 5\% data refresh and rebuilding, direct reuse of a Tiered Conformal Pooling (TCP) history pool has empirical target failure rates of \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%. Target-selection recalibration reduces these rates to \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%, with mean distance-count reductions of \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\% relative to the registered fixed endpoint. Cross-family and scale analyses extend the evidence beyond this recovery case. The central systems implication is to treat a rebuilt index as a new calibration environment: measure portability, separate observed recovery from a valid certificate, and account for the cost of obtaining target information.
 \end{abstract}
 \keywords{approximate nearest-neighbor search, graph indexes, index rebuilding, risk auditing, budget transfer}
 \maketitle

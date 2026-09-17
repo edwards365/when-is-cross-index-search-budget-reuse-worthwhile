@@ -10,7 +10,7 @@
 \end{align}
 where $\Delta C_{\mathrm{acquire}}$ is acquisition cost above the reference. There is no finite break-even if serving savings are nonpositive and this increment is positive. The recorded numerator includes old-build search profiles for the evaluation query set, all-grid target-selection searches, selected-candidate certification searches, and exact target truth for the 500 selection and 500 certification queries. Truth is modeled as a scan of 100,000 vectors per query. The graph rebuild is common to both choices. Control operations receive zero distance calls, which is not a zero-time assumption.
 
-\textbf{Observation.} The dataset-level ratio of mean acquisition cost to mean serving savings gives \WZeroSiftBreakEven\ executions for SIFT and \WZeroArxivBreakEven\ for Arxiv. All SIFT targets have positive serving savings; one Arxiv target has zero savings and does not amortize. At $N=10^6$, the modeled net reductions average \WZeroSiftNetSavingMillion\ and \WZeroArxivNetSavingMillion\ distance evaluations per target (Table~\ref{tab:economics}).
+\textbf{Observation.} The dataset-level ratio of mean acquisition cost to mean serving savings gives \num{\WZeroSiftBreakEven}\ executions for SIFT-100K and \num{\WZeroArxivBreakEven}\ for Arxiv-Nomic-100K. All SIFT-100K targets have positive serving savings; one Arxiv-Nomic-100K target has zero savings and does not amortize. At $N=10^6$, the modeled net reductions average \num{\WZeroSiftNetSavingMillion}\ and \num{\WZeroArxivNetSavingMillion}\ distance evaluations per target (Table~\ref{tab:economics}).
 
 \begin{table}[t]
 \caption{Conditional lifecycle model. Break-even is a dataset-level ratio of means, not a guarantee for every build. The final column counts targets with no positive serving saving.}
@@ -20,8 +20,8 @@ where $\Delta C_{\mathrm{acquire}}$ is acquisition cost above the reference. The
 \toprule
 Dataset & Break-even & Net saving at $10^6$ & No saving \\
 \midrule
-SIFT & \WZeroSiftBreakEven & \WZeroSiftNetSavingMillion & \WZeroSiftNonamortizing/10 \\
-Arxiv & \WZeroArxivBreakEven & \WZeroArxivNetSavingMillion & \WZeroArxivNonamortizing/10 \\
+SIFT & \num{\WZeroSiftBreakEven} & \num{\WZeroSiftNetSavingMillion} & \WZeroSiftNonamortizing/10 \\
+Arxiv & \num{\WZeroArxivBreakEven} & \num{\WZeroArxivNetSavingMillion} & \WZeroArxivNonamortizing/10 \\
 \bottomrule
 \end{tabular*}
 \end{table}

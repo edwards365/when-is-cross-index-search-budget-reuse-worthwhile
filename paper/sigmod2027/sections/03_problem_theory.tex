@@ -15,7 +15,7 @@ Let $G$ include the vector snapshot, graph, and fixed search implementation, $q\
 \end{equation}
 The arguments describing observations are suppressed in $\pi(q)$, but remain part of the policy definition. Ground truth is computed against the corresponding vector snapshot. In the primary replay, $k=10$ and $\tau=0.95$ require all ten neighbors; recovering nine is a failure.
 
-For a source policy $\pi_s$ and a specified target reference $\pi_t^{\mathrm{ref}}$, the incremental risk is
+For a source policy $\pi_s$, \emph{transport risk} is its absolute target failure probability $\risk_{G_t}(\pi_s)$ under the block's declared failure event. Its empirical estimate is the fraction of target evaluation queries that fail when the source policy's actions are executed. This is distinct from both source-build risk and the reference-relative increment. For a specified target reference $\pi_t^{\mathrm{ref}}$, the incremental risk is
 \begin{equation}
  \Delta_{s\to t}=\risk_{G_t}(\pi_s)-\risk_{G_t}(\pi_t^{\mathrm{ref}}).
  \label{eq:increment}
@@ -27,7 +27,7 @@ This distinction also affects budget labels. Define the first passing action $B_
  B_G^{\mathrm{tail}}(q)=\min\{a_j:Z_G(q,a_\ell)=0\ \forall\ell\ge j\}.
  \label{eq:stable-label}
 \end{equation}
-An empty set has value $+\infty$, denoting an unresolved endpoint, not an executable action. A finite stable-tail label establishes success of every grid action above it \emph{on that recorded response}; a first passing label has no such implication when recall is non-monotone. Both are retrospective labels requiring truth. An under-budget event or a censored label is therefore kept distinct from the execution failure in Equation~\eqref{eq:risk}.
+An empty set has value $+\infty$, denoting an unresolved label, not an executable action. A finite stable-tail label establishes success of every grid action above it \emph{on that recorded response}; a first passing label has no such implication when recall is non-monotone. Both are retrospective labels requiring truth. An under-budget event or a censored label is therefore kept distinct from the execution failure in Equation~\eqref{eq:risk}.
 
 \subsection{What Limited Observations Cannot Resolve}
 \label{sec:information-limit}

@@ -4,8 +4,11 @@
 \subsection{RQ1: Does the Old Budget Remain Safe?}
 \textbf{Question.} Does the old-build budget meet the 5\% query-failure target after refresh and rebuilding?
 \textbf{Protocol.} We execute the nine-history TCP pool without target recalibration or fallback on each of the ten targets per dataset.
-\textbf{Observation.} Direct reuse saves \WZeroSiftSourceGain\% of mean distance evaluations on SIFT and \WZeroArxivSourceGain\% on Arxiv, but target failure is \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%, respectively. The fixed endpoint has risks \WFiveSiftEndpointRisk\% and \WFiveArxivEndpointRisk\%.
+\textbf{Observation.} Direct reuse saves \WZeroSiftSourceGain\% of mean distance evaluations on SIFT-100K and \WZeroArxivSourceGain\% on Arxiv-Nomic-100K, but target failure is \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%, respectively. The fixed endpoint has risks \WFiveSiftEndpointRisk\% and \WFiveArxivEndpointRisk\%.
 \textbf{Conclusion.} Low serving cost does not make the reused policy safe under the registered target event. The available primary summary establishes failure of target qualification after the combined refresh/rebuild intervention; it does not quantify a source-to-target risk increase against a source-certified reference.
+
+\paragraph{Failure concentration.}
+With 1,000 evaluation queries per target, direct-reuse risk exceeds 5\% on all ten builds of each dataset. Per-build risks span \WFiftyFiveSiftMinRisk--\WFiftyFiveSiftMaxRisk\% on SIFT-100K and \WFiftyFiveArxivMinRisk--\WFiftyFiveArxivMaxRisk\% on Arxiv-Nomic-100K. The largest-failure build contributes \WFiftyFiveSiftMaxShare\% and \WFiftyFiveArxivMaxShare\% of its dataset's failures; deleting it leaves risks of \WFiftyFiveSiftDeleteRisk\% and \WFiftyFiveArxivDeleteRisk\%. Figure~\ref{fig:decisions}(b) shows that failure is distributed across targets, not concentrated in one outlier. This descriptive check addresses build concentration; identifying the causal graph-topology mechanism is outside this replay's scope.
 
 \begin{table}[t]
 \caption{Primary 5\%-refresh replay: empirical query risk and mean NDC gain relative to the fixed endpoint. ``Audited reuse'' includes endpoint fallback on every target.}
@@ -30,5 +33,13 @@ Arxiv & Endpoint & \WFiveArxivEndpointRisk & 0 \\
 \subsection{RQ4: What Decision Does ICBA Change?}
 \textbf{Question.} Does target auditing distinguish unsafe efficiency from a usable recovery action?
 \textbf{Protocol.} The audited-reuse comparator checks the unshifted policy; the recovery comparator first selects a global shift on selection queries. Both then use the separate certification role and registered fallback rule.
-\textbf{Observation.} Audited source reuse falls back on all ten targets of each dataset, retaining endpoint risk and zero serving savings. Recalibration accepts the candidate on ten SIFT and nine Arxiv targets; the remaining Arxiv target uses the endpoint. The completed decisions have empirical risks \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%.
+\textbf{Observation.} Audited source reuse falls back on all ten targets of each dataset, retaining endpoint risk and zero serving savings. Recalibration accepts the candidate on ten SIFT-100K and nine Arxiv-Nomic-100K targets; the remaining target uses the endpoint. Figure~\ref{fig:decisions}(a) identifies each decision. The completed decisions have empirical risks \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%.
 \textbf{Conclusion.} The audit rules out direct reuse in these targets, while target selection recovers a lower-cost action in 19 of 20 cases. Candidate acceptance is an individual-CP outcome; its distinction from a joint 95\% pipeline certificate follows Section~\ref{sec:tcp-recalibration}.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/target_decisions.pdf}
+\caption{Build-resolved audit outcomes from the frozen primary replay. (a) Each cell is one target: 19 candidates are accepted and Arxiv-Nomic-100K seed 1229 falls back. Its candidate CP upper bound is 5.056\%, just above the fixed 5\% threshold; the threshold is unchanged. All 20 completed decisions pass their applicable individual check. (b) Empirical evaluation risk on 1,000 queries per build. Direct reuse exceeds 5\% on every target; completed recalibration remains below it. Points are descriptive rates, not confidence bounds; connecting lines indicate the fixed display order of seeds.}
+\label{fig:decisions}
+\Description{A two-by-ten accept or fallback grid shows a single fallback on Arxiv-Nomic-100K seed 1229. Two per-build risk plots show direct reuse above the 5 percent target on all ten builds and completed recalibration below it.}
+\end{figure*}

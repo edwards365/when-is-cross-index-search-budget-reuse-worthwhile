@@ -1,0 +1,28 @@
+{
+  "source_baseline": "d0ceb9bafa12480d04d4ae473b4c669e0e5b6ff5",
+  "source_path": "results/graph_anns_phase3_ea85/refresh95/per_build.csv",
+  "source_canonical_lf_sha256": "303c265dda9829a4256cffa26ecc0ff353a3da70a2ee63d643482a3472dee915",
+  "scope": "Descriptive aggregation of frozen rows only; no search, selection or new statistical inference.",
+  "datasets": {
+    "sift100k": {
+      "min_risk_percent": 5.7,
+      "max_risk_percent": 7.4,
+      "builds_above_5pct": 10,
+      "total_failures": 669,
+      "max_failure_share_percent": 11.061285500747385,
+      "delete_max_failure_risk_percent": 6.611111111111111,
+      "fallback_seeds": []
+    },
+    "arxiv_nomic_100k": {
+      "min_risk_percent": 6.4,
+      "max_risk_percent": 8.2,
+      "builds_above_5pct": 10,
+      "total_failures": 724,
+      "max_failure_share_percent": 11.32596685082873,
+      "delete_max_failure_risk_percent": 7.133333333333334,
+      "fallback_seeds": [
+        1229
+      ]
+    }
+  }
+}

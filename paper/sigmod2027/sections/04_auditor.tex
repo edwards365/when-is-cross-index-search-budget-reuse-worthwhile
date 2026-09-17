@@ -5,7 +5,7 @@ ICBA connects a portability measurement to an operational decision. It leaves gr
 
 \subsection{From a Transfer Measurement to a Decision}
 
-An audit first fixes the execution contract: vector snapshot, ground truth, implementation, grid, recall target, and endpoint treatment. The same parameter name across implementations is not a shared unit of work. We therefore retain native actions alongside NDC, recall, and measured timing, and identify unresolved endpoints before summarizing minimum budgets.
+An audit first fixes the execution contract: vector snapshot, ground truth, implementation, grid, recall target, and endpoint treatment. The same parameter name across implementations is not a shared unit of work. We therefore retain native actions alongside NDC, recall, and measured timing, and identify unresolved labels before summarizing minimum budgets.
 
 Target information then follows three paths. Selection chooses a candidate using its assigned queries. Certification checks the frozen candidate; it cannot retrain or reorder that candidate using evaluation outcomes. Evaluation records the completed decision's risk and cost. The primary replay has disjoint roles of 500 selection, 500 certification, and 1,000 evaluation queries. Role separation concerns target responses: each query can still require a corresponding source-history profile, whose acquisition must be reported.
 
@@ -45,14 +45,14 @@ The chosen policy $\pi_{\hat s}$ is frozen before certification. On the separate
 
 These two individual bounds do not instantiate Proposition~\ref{prop:simultaneous} at $\alpha=0.05$: their error allocations sum to 0.10. The primary tables therefore retain empirical risk and fallback behavior without a pipeline-wide 95\% claim. A separate historical three-policy implementation allocates $0.05/3$ to TCP, a source-selected fixed action, and the endpoint. That composition matches the simultaneous construction, but uses a different policy/event configuration and does not retroactively certify the refresh results.
 
-\paragraph{Replay specification.}
-\begin{enumerate}
-\item Encode each query's first passing old-build action; unresolved responses execute at the endpoint.
-\item Pool nine source indices by their maximum to form $j_0^{(t)}(q)$.
-\item On selection queries, scan the global shifts in Equation~\eqref{eq:shift}; freeze the first qualifying shift.
-\item On certification queries, check the candidate and endpoint separately. Choose candidate if accepted, else endpoint; retain a failed flag if neither passes.
-\item Read evaluation outcomes at the chosen actions. Report risk, NDC, tails, fallback, and acquisition costs.
-\end{enumerate}
+Figure~\ref{fig:workflow} makes the primary replay's information flow explicit. Selection determines the global shift; certification determines candidate acceptance and the fallback flag. Evaluation measures the completed decision, with no return path to selection.
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/workflow.pdf}
+\caption{Executable ICBA/TCP replay workflow. Old-build profiles exist for the same query IDs in all three target roles. Only selection responses choose the shift. Independent certification checks the frozen candidate and the endpoint separately; if the candidate fails, the endpoint executes with its own deployment flag. A failed endpoint check remains an unqualified evaluation record. Individual CP checks here do not provide a joint 95\% guarantee for the two-policy decision.}
+\label{fig:workflow}
+\Description{Nine old-build query profiles form a maximum-budget policy, adjusted by a global shift using 500 selection queries. Another 500 queries certify the candidate and endpoint. The candidate is accepted or an endpoint fallback is used. One thousand held-out queries evaluate the completed decision without feedback to selection.}
+\end{figure*}
 
 \subsection{What the Operator Pays For}
 

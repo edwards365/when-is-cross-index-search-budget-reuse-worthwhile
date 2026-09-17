@@ -4,25 +4,25 @@
 \subsection{RQ5: Can Target Recalibration Recover Value?}
 \textbf{Question.} Can target-selection information recover search savings while meeting the empirical risk target?
 \textbf{Protocol.} The recovery lane selects one global upward shift over the frozen source pool on 500 queries, checks it on a separate 500, and evaluates the resulting candidate/fallback decision on 1,000.
-\textbf{Observation.} Relative to direct reuse, risk drops from \WZeroSiftSourceRisk\% to \WZeroSiftTargetRisk\% on SIFT and from \WZeroArxivSourceRisk\% to \WZeroArxivTargetRisk\% on Arxiv. Mean savings against the endpoint remain \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\%. The registered gain intervals are [\WZeroSiftTargetGainLow, \WZeroSiftTargetGainHigh]\% and [\WZeroArxivTargetGainLow, \WZeroArxivTargetGainHigh]\%.
+\textbf{Observation.} Relative to direct reuse, risk drops from \WZeroSiftSourceRisk\% to \WZeroSiftTargetRisk\% on SIFT-100K and from \WZeroArxivSourceRisk\% to \WZeroArxivTargetRisk\% on Arxiv-Nomic-100K. Mean NDC gains [95\% interval], in percent, are \WZeroSiftTargetGain\ [\WZeroSiftTargetGainLow, \WZeroSiftTargetGainHigh] and \WZeroArxivTargetGain\ [\WZeroArxivTargetGainLow, \WZeroArxivTargetGainHigh], respectively.
 \textbf{Conclusion.} A target-selected global adjustment recovers empirical safety and substantial search savings on both recurring-profile workloads. It sacrifices some of direct reuse's unsafe savings to reduce failures.
 
 \subsection{RQ6: Are Mean Gains Bought with a Worse Tail?}
 \textbf{Question.} Does the completed recovery decision increase high-percentile distance counts?
 \textbf{Protocol.} We compare pooled quantiles on identical evaluation queries, including the one endpoint-fallback target, against fixed-endpoint execution.
-\textbf{Observation.} Both p95 and p99 are lower on both datasets (Table~\ref{tab:tail}). Fallback occurs on \WZeroSiftTargetFallbackBuilds/10 SIFT and \WZeroArxivTargetFallbackBuilds/10 Arxiv targets. On the Arxiv fallback target, the serving distribution equals that target's endpoint distribution by construction.
+\textbf{Observation.} Both p95 and p99 are lower on both datasets (Table~\ref{tab:tail}). Fallback occurs on \WZeroSiftTargetFallbackBuilds/10 SIFT-100K and \WZeroArxivTargetFallbackBuilds/10 Arxiv-Nomic-100K targets. On the latter's fallback target, the serving distribution equals that target's endpoint distribution by construction.
 \textbf{Conclusion.} The observed pooled tails improve alongside the mean, without relying on widespread fallback. These pooled results support the registered descriptive tail criterion. They do not establish a separate nonfallback pooled-tail guarantee or a latency guarantee; per-build quantiles cannot be averaged to obtain either pooled quantile.
 
 \begin{table}[t]
-\caption{Query-pooled distance-count tails, endpoint $\to$ completed target-recalibration decision. Quantiles use all ten targets, including fallback.}
+\caption{Query-pooled distance-count tails, endpoint $\to$ completed target-recalibration decision. Quantiles use all ten targets, including fallback. Fractional counts arise from quantile interpolation.}
 \label{tab:tail}
 \small
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrr@{}}
 \toprule
 Dataset & p95: endpoint $\to$ target & p99: endpoint $\to$ target \\
 \midrule
-SIFT & \WZeroSiftTargetFixedPninetyfive\ $\to$ \WZeroSiftTargetPninetyfive & \WFiveSiftEndpointPninetyNine\ $\to$ \WFiveSiftTargetPninetyNine \\
-Arxiv & \WZeroArxivTargetFixedPninetyfive\ $\to$ \WZeroArxivTargetPninetyfive & \WFiveArxivEndpointPninetyNine\ $\to$ \WFiveArxivTargetPninetyNine \\
+SIFT & \num{\WZeroSiftTargetFixedPninetyfive}\ $\to$ \num{\WZeroSiftTargetPninetyfive} & \num{\WFiveSiftEndpointPninetyNine}\ $\to$ \num{\WFiveSiftTargetPninetyNine} \\
+Arxiv & \num{\WZeroArxivTargetFixedPninetyfive}\ $\to$ \num{\WZeroArxivTargetPninetyfive} & \num{\WFiveArxivEndpointPninetyNine}\ $\to$ \num{\WFiveArxivTargetPninetyNine} \\
 \bottomrule
 \end{tabular*}
 \end{table}
@@ -31,7 +31,7 @@ Arxiv & \WZeroArxivTargetFixedPninetyfive\ $\to$ \WZeroArxivTargetPninetyfive & 
 \textbf{Question.} Does recovery depend on a single favorable target?
 \textbf{Protocol.} We retain the registered nested bootstrap and recompute pooled gain after each target is omitted and after the highest relative-gain target is removed.
 \textbf{Observation.} Minimum LOTO gains are \WFiveSiftLoto\% and \WFiveArxivLoto\%; delete-largest gains are \WFiveSiftDeleteLargest\% and \WFiveArxivDeleteLargest\% (Table~\ref{tab:robustness}). Both full-sample gain intervals have positive lower endpoints.
-\textbf{Conclusion.} No single target explains the mean benefit within the ten registered builds. The wider Arxiv interval also makes the variability of its completed candidate/fallback decisions visible.
+\textbf{Conclusion.} No single target explains the mean benefit within the ten registered builds. The wider Arxiv-Nomic-100K interval also makes the variability of its completed candidate/fallback decisions visible. Here, deleting the largest relative-gain target also gives the minimum LOTO gain, explaining the identical sensitivity columns.
 
 \begin{table}[t]
 \caption{Mean NDC gain (\%) and build-sensitivity checks for recovery. Intervals use the registered resampling scheme in Section~\ref{sec:methodology}.}
