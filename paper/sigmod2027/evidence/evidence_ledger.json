@@ -1,0 +1,801 @@
+{
+  "base_commit": "d0ceb9bafa12480d04d4ae473b4c669e0e5b6ff5",
+  "status": "NUMERIC_FREEZE_WITH_EXPLICIT_CLAIM_HOLDS",
+  "scope": "Committed summary/per-build/code audit, not raw-query replay or independent scientific review.",
+  "input_sha256": {
+    "results/graph_anns_phase3_ea85/refresh95/summary.csv": "d982e80f764a5276df1d36e869edbc1ce9da3d30475ace0059a93052c3ce1773",
+    "results/graph_anns_phase3_ea85/refresh95/per_build.csv": "303c265dda9829a4256cffa26ecc0ff353a3da70a2ee63d643482a3472dee915",
+    "results/graph_anns_phase3_ea85/darth95_bridge/dataset_summary.csv": "124bd6ab81f31c1f21c2f127b67dd2eac7e8fb550ede94d4ff391c9d2a9a9ebf",
+    "results/graph_anns_phase3_ea85/adaef_bridge/arxiv_10build/aggregate.json": "e4f0b3494df45e20105fb79e46a21a7e28a3ca944c60960281d516d46599bf62",
+    "results/graph_anns_phase3_ea85/vamana_unified/summary.csv": "a603f31593c2eb2db1e366989d6edb554107b8820aef67b8a0ef7ec1689d6182",
+    "results/graph_anns_phase3_ea85/deep1m/summary.csv": "c42ec20fbadad95cc0cb80df7b18fae94fc69db8c61b8d9a673732d4f2f1c9ca",
+    "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv": "f0c15aab3c1845ba731f9b36f0b21f511e0e0a203b3160e17c69a8956f562c59",
+    "results/graph_anns_phase3_ea85/lifecycle_cost/per_target_build.csv": "ab0252115d2f68626b3b606a6cf368327e702f88a65ac38507398552b9e3e93c",
+    "results/graph_anns_phase3_ea85/lifecycle_cost/horizon_summary.csv": "bf38fa683b67e3aa95731a6e72b2e361a23c0b26c70a9de7ef92e3614dcf724d",
+    "scripts/graph_anns_phase3_ea85/analyze_phase2_refresh95.py": "9f230b12bd10b39c81af23fb4b2bb5023f26b24b024a107249ca9bc3050a3169",
+    "scripts/graph_anns_phase3_ea85/analyze_loop2_lifecycle_cost.py": "a141d2bf9d494bccf1de1df5d0fec720793fca2c2eeb2a48bf65120a8ccfd911",
+    "scripts/graph_anns_phase3_ea85/analyze_phase3_vamana_unified.py": "189e1fb174becce5739ebeff0934635d62847e1e33a0e5ffadedb6704007f6f0",
+    "scripts/graph_anns_phase3_ea85/analyze_phase4_deep1m.py": "71eb716ad53e0d5671089326f5bee83a77c734d1d1e59252854799cb49eb9f45",
+    "manifests/graph_anns_phase3_ea85/p2_refresh95_decision.json": "4a4889c40f3913f139184d92c4ee3deaf31a23520098f83d176992e6f83eff71",
+    "manifests/graph_anns_phase3_ea85/p3_vamana_unified_decision.json": "037799d19565d384b75b1db14aa66cdc94213e2262a8c8c29493ef8783d0036a",
+    "manifests/graph_anns_phase3_ea85/p4_deep1m_decision.json": "e6bfabfeb9434a7e2edc2d3b65629f14156201ce0cd69dca9603de2e0466191c",
+    "manifests/graph_anns_phase3_ea85/loop2_lifecycle_cost_decision.json": "4955f959f4426597a833f421d52b4af5dea24d91756b000b15332ef16379091f",
+    "results/graph_anns_phase2_p7/ICBA_ICLR_Anonymous_Revised_v12_final.tex": "2c337955ed5b9c597cc66e7307b8a7fec6a50695addcf5481da4925cf2f0ea33",
+    "paper/theory.tex": "75900cb5ddf819920281813bdba9a92ecf87bdaacbbe4cf733949fdd454856c2"
+  },
+  "numbers": [
+    {
+      "macro": "WZeroSiftSourceRisk",
+      "value": 0.0669,
+      "display": "6.69",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "evaluation_risk",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftSourceGain",
+      "value": 0.5951282358581016,
+      "display": "59.51",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "mean_gain",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftSourceGainLow",
+      "value": 0.5897720434840794,
+      "display": "58.98",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "gain_ci_low",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftSourceGainHigh",
+      "value": 0.6004668998009107,
+      "display": "60.05",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "gain_ci_high",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftSourcePninetyfive",
+      "value": 2132.0499999999993,
+      "display": "2132.05",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftSourceFixedPninetyfive",
+      "value": 2615.0,
+      "display": "2615.00",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "fixed_p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftSourceFallbackBuilds",
+      "value": 0.0,
+      "display": "0",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "fallback_builds",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftTargetRisk",
+      "value": 0.0179,
+      "display": "1.79",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "evaluation_risk",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftTargetGain",
+      "value": 0.4439412615837104,
+      "display": "44.39",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "mean_gain",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftTargetGainLow",
+      "value": 0.43883690849488843,
+      "display": "43.88",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "gain_ci_low",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftTargetGainHigh",
+      "value": 0.4491022125016859,
+      "display": "44.91",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "gain_ci_high",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftTargetPninetyfive",
+      "value": 2349.0499999999993,
+      "display": "2349.05",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftTargetFixedPninetyfive",
+      "value": 2615.0,
+      "display": "2615.00",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "fixed_p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftTargetFallbackBuilds",
+      "value": 0.0,
+      "display": "0",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "fallback_builds",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivSourceRisk",
+      "value": 0.0724,
+      "display": "7.24",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "evaluation_risk",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivSourceGain",
+      "value": 0.6420600994814317,
+      "display": "64.21",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "mean_gain",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivSourceGainLow",
+      "value": 0.6367443215421535,
+      "display": "63.67",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "gain_ci_low",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivSourceGainHigh",
+      "value": 0.647367006124145,
+      "display": "64.74",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "gain_ci_high",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivSourcePninetyfive",
+      "value": 2586.0,
+      "display": "2586.00",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivSourceFixedPninetyfive",
+      "value": 3252.0499999999993,
+      "display": "3252.05",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "fixed_p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivSourceFallbackBuilds",
+      "value": 0.0,
+      "display": "0",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "SOURCE_TCP_POOL_REUSE"
+      },
+      "column": "fallback_builds",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivTargetRisk",
+      "value": 0.0204,
+      "display": "2.04",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "evaluation_risk",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivTargetGain",
+      "value": 0.44790871916728336,
+      "display": "44.79",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "mean_gain",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivTargetGainLow",
+      "value": 0.34719825824873973,
+      "display": "34.72",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "gain_ci_low",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivTargetGainHigh",
+      "value": 0.501510560502891,
+      "display": "50.15",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "gain_ci_high",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivTargetPninetyfive",
+      "value": 2974.0999999999985,
+      "display": "2974.10",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivTargetFixedPninetyfive",
+      "value": 3252.0499999999993,
+      "display": "3252.05",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "fixed_p95_dists",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroArxivTargetFallbackBuilds",
+      "value": 1.0,
+      "display": "1",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/refresh95/summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "TARGET_SELECTION_TCP_RECALIBRATION"
+      },
+      "column": "fallback_builds",
+      "claim_boundary": "Registered query-indexed old-build profiles; empirical target Recall@10<.95 rate; no novel-query zero-label guarantee.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDarthArxivRisk",
+      "value": 0.23120000000000002,
+      "display": "23.12",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/darth95_bridge/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "method": "raw_darth"
+      },
+      "column": "mean_eval_risk",
+      "claim_boundary": "Registered DARTH bridge and risk event; not a general published-method ranking.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDarthSiftRisk",
+      "value": 0.22549999999999998,
+      "display": "22.55",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/darth95_bridge/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "sift_100k",
+        "method": "raw_darth"
+      },
+      "column": "mean_eval_risk",
+      "claim_boundary": "Registered DARTH bridge and risk event; not a general published-method ranking.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroAdaefArxivRisk",
+      "value": 0.09519999999999999,
+      "display": "9.52",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/adaef_bridge/arxiv_10build/aggregate.json",
+      "row_selector": {
+        "json_pointer": "/intervals/raw_eval_risk"
+      },
+      "column": "mean",
+      "claim_boundary": "Official Ada-ef bridge; ten registered targets.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroAdaefArxivRiskLow",
+      "value": 0.0944,
+      "display": "9.44",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/adaef_bridge/arxiv_10build/aggregate.json",
+      "row_selector": {
+        "json_pointer": "/intervals/raw_eval_risk"
+      },
+      "column": "ci95_low",
+      "claim_boundary": "Official Ada-ef bridge; ten registered targets.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroAdaefArxivRiskHigh",
+      "value": 0.096,
+      "display": "9.60",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/adaef_bridge/arxiv_10build/aggregate.json",
+      "row_selector": {
+        "json_pointer": "/intervals/raw_eval_risk"
+      },
+      "column": "ci95_high",
+      "claim_boundary": "Official Ada-ef bridge; ten registered targets.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroVamanaSiftRisk",
+      "value": 0.1686296296296296,
+      "display": "16.86",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/vamana_unified/summary.csv",
+      "row_selector": {
+        "dataset": "SIFT-100K"
+      },
+      "column": "transport_risk",
+      "claim_boundary": "Post-hoc realignment; six source and six distinct target builds; 36 directions; native l action.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroVamanaSiftRiskLow",
+      "value": 0.1587777777777778,
+      "display": "15.88",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/vamana_unified/summary.csv",
+      "row_selector": {
+        "dataset": "SIFT-100K"
+      },
+      "column": "risk_ci_low",
+      "claim_boundary": "Post-hoc realignment; six source and six distinct target builds; 36 directions; native l action.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroVamanaSiftRiskHigh",
+      "value": 0.179337037037037,
+      "display": "17.93",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/vamana_unified/summary.csv",
+      "row_selector": {
+        "dataset": "SIFT-100K"
+      },
+      "column": "risk_ci_high",
+      "claim_boundary": "Post-hoc realignment; six source and six distinct target builds; 36 directions; native l action.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroVamanaArxivRisk",
+      "value": 0.11374074074074075,
+      "display": "11.37",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/vamana_unified/summary.csv",
+      "row_selector": {
+        "dataset": "Arxiv-Nomic-100K"
+      },
+      "column": "transport_risk",
+      "claim_boundary": "Post-hoc realignment; six source and six distinct target builds; 36 directions; native l action.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroVamanaArxivRiskLow",
+      "value": 0.10803703703703703,
+      "display": "10.80",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/vamana_unified/summary.csv",
+      "row_selector": {
+        "dataset": "Arxiv-Nomic-100K"
+      },
+      "column": "risk_ci_low",
+      "claim_boundary": "Post-hoc realignment; six source and six distinct target builds; 36 directions; native l action.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroVamanaArxivRiskHigh",
+      "value": 0.11988888888888889,
+      "display": "11.99",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/vamana_unified/summary.csv",
+      "row_selector": {
+        "dataset": "Arxiv-Nomic-100K"
+      },
+      "column": "risk_ci_high",
+      "claim_boundary": "Post-hoc realignment; six source and six distinct target builds; 36 directions; native l action.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepRisk",
+      "value": 0.28864285714285715,
+      "display": "28.86",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "transport_risk",
+      "claim_boundary": "First-1M; eight builds; target-build conditional inference; reference failures retained.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepReferenceRisk",
+      "value": 0.08825,
+      "display": "8.82",
+      "unit": "percent",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "reference_risk",
+      "claim_boundary": "First-1M; eight builds; target-build conditional inference; reference failures retained.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepIncrement",
+      "value": 0.20039285714285715,
+      "display": "20.04",
+      "unit": "percentage_points",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "incremental_risk",
+      "claim_boundary": "First-1M; eight builds; target-build conditional inference; reference failures retained.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepBuilds",
+      "value": 8.0,
+      "display": "8",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "builds",
+      "claim_boundary": "First-1M; eight builds; target-build conditional inference; reference failures retained.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepQueries",
+      "value": 1000.0,
+      "display": "1000",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "queries",
+      "claim_boundary": "First-1M; eight builds; target-build conditional inference; reference failures retained.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepPairs",
+      "value": 56.0,
+      "display": "56",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "directed_pairs",
+      "claim_boundary": "First-1M; eight builds; target-build conditional inference; reference failures retained.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepIncrementLow",
+      "value": 0.17294642857142856,
+      "display": "17.29",
+      "unit": "percentage_points",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "incremental_risk_ci[0]",
+      "claim_boundary": "95% interval for risk difference, in percentage points.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroDeepIncrementHigh",
+      "value": 0.22773214285714288,
+      "display": "22.77",
+      "unit": "percentage_points",
+      "source": "results/graph_anns_phase3_ea85/deep1m/summary.csv",
+      "row_selector": {
+        "row": 0
+      },
+      "column": "incremental_risk_ci[1]",
+      "claim_boundary": "95% interval for risk difference, in percentage points.",
+      "status": "NUMERICALLY_VERIFIED_SCOPED"
+    },
+    {
+      "macro": "WZeroSiftBreakEven",
+      "value": 138836.36138183245,
+      "display": "138836",
+      "unit": "queries",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "sift100k"
+      },
+      "column": "ratio_of_means_break_even_queries",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroSiftBreakEvenLow",
+      "value": 138607.33617725238,
+      "display": "138607",
+      "unit": "queries",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "sift100k"
+      },
+      "column": "bootstrap_break_even_ci_low",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroSiftBreakEvenHigh",
+      "value": 139055.24986318793,
+      "display": "139055",
+      "unit": "queries",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "sift100k"
+      },
+      "column": "bootstrap_break_even_ci_high",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroSiftNonamortizing",
+      "value": 0.0,
+      "display": "0",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "sift100k"
+      },
+      "column": "nonamortizing_builds",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroArxivBreakEven",
+      "value": 107378.07745505484,
+      "display": "107378",
+      "unit": "queries",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k"
+      },
+      "column": "ratio_of_means_break_even_queries",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroArxivBreakEvenLow",
+      "value": 96583.2445044316,
+      "display": "96583",
+      "unit": "queries",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k"
+      },
+      "column": "bootstrap_break_even_ci_low",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroArxivBreakEvenHigh",
+      "value": 138090.33012499654,
+      "display": "138090",
+      "unit": "queries",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k"
+      },
+      "column": "bootstrap_break_even_ci_high",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroArxivNonamortizing",
+      "value": 1.0,
+      "display": "1",
+      "unit": "count",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/dataset_summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k"
+      },
+      "column": "nonamortizing_builds",
+      "claim_boundary": "Model-derived query executions with fixed profile amortization; not query sets; source-truth provenance/cost and fresh-query reuse need resolution.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroSiftNetSavingMillion",
+      "value": 697963656.3,
+      "display": "697963656.30",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/horizon_summary.csv",
+      "row_selector": {
+        "dataset": "sift100k",
+        "N": "1000000"
+      },
+      "column": "net_distance_saving",
+      "claim_boundary": "Dataset mean per-target modeled saving, not sum over targets; lifecycle scope conditional.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    },
+    {
+      "macro": "WZeroArxivNetSavingMillion",
+      "value": 958291849.6,
+      "display": "958291849.60",
+      "unit": "distance_evaluations",
+      "source": "results/graph_anns_phase3_ea85/lifecycle_cost/horizon_summary.csv",
+      "row_selector": {
+        "dataset": "arxiv_nomic_100k",
+        "N": "1000000"
+      },
+      "column": "net_distance_saving",
+      "claim_boundary": "Dataset mean per-target modeled saving, not sum over targets; lifecycle scope conditional.",
+      "status": "CONDITIONAL_MODEL_OUTPUT"
+    }
+  ]
+}
