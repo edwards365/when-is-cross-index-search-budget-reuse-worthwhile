@@ -23,7 +23,8 @@ def main():
         if args.repo:
             committed = subprocess.check_output(['git', 'show', f'{BASE}:{ORIGINAL}{short}.csv'], cwd=args.repo)
             assert blob.replace(b'\r\n', b'\n') == committed.replace(b'\r\n', b'\n')
-        inputs[f'refresh95_{short}.csv'] = hashlib.sha256(blob).hexdigest()
+        # Git and Windows may use different text newlines; hash canonical LF.
+        inputs[f'refresh95_{short}.csv'] = hashlib.sha256(blob.replace(b'\r\n', b'\n')).hexdigest()
         tables[short] = list(csv.DictReader(io.StringIO(blob.decode())))
     values = []
     lines = ['% Generated from unchanged W0 summary rows; no new experimental data.']
