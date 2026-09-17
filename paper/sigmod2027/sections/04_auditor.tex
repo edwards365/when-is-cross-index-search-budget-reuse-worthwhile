@@ -45,11 +45,7 @@ The chosen policy $\pi_{\hat s}$ is frozen before certification. On the separate
 
 These two individual bounds do not instantiate Proposition~\ref{prop:simultaneous} at $\alpha=0.05$: their error allocations sum to 0.10. The primary tables therefore retain empirical risk and fallback behavior without a pipeline-wide 95\% claim. A separate historical three-policy implementation allocates $0.05/3$ to TCP, a source-selected fixed action, and the endpoint. That composition matches the simultaneous construction, but uses a different policy/event configuration and does not retroactively certify the refresh results.
 
-\begin{figure}[t]
-\centering
-\fbox{\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
-\small
-\textbf{Frozen refresh replay}\par\smallskip
+\paragraph{Replay specification.}
 \begin{enumerate}
 \item Encode each query's first passing old-build action; unresolved responses execute at the endpoint.
 \item Pool nine source indices by their maximum to form $j_0^{(t)}(q)$.
@@ -57,11 +53,6 @@ These two individual bounds do not instantiate Proposition~\ref{prop:simultaneou
 \item On certification queries, check the candidate and endpoint separately. Choose candidate if accepted, else endpoint; retain a failed flag if neither passes.
 \item Read evaluation outcomes at the chosen actions. Report risk, NDC, tails, fallback, and acquisition costs.
 \end{enumerate}
-\end{minipage}}
-\caption{Executable specification of the TCP recovery replay. The target roles are disjoint; source profiles remain required inputs for each query. Step 4 uses individual bounds rather than a simultaneous 95\% certificate.}
-\Description{Five-step specification: old-build response encoding, history-max pooling, target shift selection, individual candidate and endpoint checks, and held-out evaluation.}
-\label{fig:workflow}
-\end{figure}
 
 \subsection{What the Operator Pays For}
 

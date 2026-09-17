@@ -1,0 +1,30 @@
+\section{External Methods, Graph Family, and Scale}
+\label{sec:families}
+
+\subsection{RQ2: Is Query-Risk Qualification Specific to TCP?}
+\textbf{Question.} Does the need to audit query-level risk extend to other adaptive search methods?
+\textbf{Protocol.} Frozen adapters run DARTH on both 100K datasets and Ada-ef on ten Arxiv targets, then evaluate the registered $\rec@10<0.95$ event. Their original observation and calibration interfaces are retained, so this is a bridge audit rather than an equal-information leaderboard.
+\textbf{Observation.} DARTH has empirical target risks \WZeroDarthSiftRisk\% and \WZeroDarthArxivRisk\%; Ada-ef has \WZeroAdaefArxivRisk\% on Arxiv. Each exceeds the 5\% query-failure threshold.
+\textbf{Conclusion.} Target qualification is consequential beyond TCP. These absolute risks alone do not identify a rebuild-induced increment: doing so requires matched source qualification and a target reference. Nor does this stricter event invalidate guarantees stated for mean recall or expected missed-neighbor fraction. The bridge outcome supports the audit's use, not superiority over the published methods.
+
+\subsection{RQ3: Does Transfer Loss Extend across Scale and Family?}
+\textbf{Question.} Does the phenomenon appear beyond the primary 100K Faiss-HNSW recovery case?
+\textbf{Protocol.} The Deep1M block builds eight hnswlib indexes, crossing four seeds with two insertion orders, and replays \WZeroDeepPairs\ directed source--target pairs on \WZeroDeepQueries\ queries. It compares source-derived actions with each target's own first-passing action under the same discrete recall event. The separate Vamana realignment uses six source and six distinct target builds, 36 directions, and 750 queries; its native action is search-list size at beam width one, not HNSW $ef$.
+\textbf{Observation.} Deep1M transport risk is \WZeroDeepRisk\% against \WZeroDeepReferenceRisk\% target-reference risk: the increment is \WZeroDeepIncrement\ percentage points, with registered interval [\WZeroDeepIncrementLow, \WZeroDeepIncrementHigh]. The nonzero reference risk retains queries unresolved within the grid. Vamana's post-hoc unified analysis reports \WZeroVamanaSiftRisk\% and \WZeroVamanaArxivRisk\% transport risk (Table~\ref{tab:extensions}); its cost-tax intervals include zero.
+\textbf{Conclusion.} Deep1M supplies a matched additional-loss result at larger scale, rather than a safe-reference-to-unsafe-target transition. Vamana adds cross-family directional evidence from already observed outputs. Native action and censoring semantics remain block-specific, so neither extension is pooled into the primary recovery effect or a cross-engine cost ranking.
+
+\begin{table}[t]
+\caption{Protocol-separated extension evidence. Risks are percentages; the Deep1M increment is in percentage points (pp).}
+\label{tab:extensions}
+\small
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Block & Observation and interpretation \\
+\midrule
+DARTH & SIFT \WZeroDarthSiftRisk, Arxiv \WZeroDarthArxivRisk; absolute target qualification failure \\
+Ada-ef & Arxiv \WZeroAdaefArxivRisk\ [\WZeroAdaefArxivRiskLow, \WZeroAdaefArxivRiskHigh]; absolute target risk \\
+Deep1M & Additional \WZeroDeepIncrement\ pp [\WZeroDeepIncrementLow, \WZeroDeepIncrementHigh] above reference \WZeroDeepReferenceRisk \\
+Vamana & SIFT \WZeroVamanaSiftRisk\ [\WZeroVamanaSiftRiskLow, \WZeroVamanaSiftRiskHigh]; Arxiv \WZeroVamanaArxivRisk\ [\WZeroVamanaArxivRiskLow, \WZeroVamanaArxivRiskHigh]; post-hoc realignment \\
+\bottomrule
+\end{tabularx}
+\end{table}

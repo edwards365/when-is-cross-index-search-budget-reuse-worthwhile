@@ -1,21 +1,17 @@
-\section{Reproducibility and Interpretation}
+\section{Reproducibility and Operational Implications}
 \label{sec:discussion}
-\sectionaim{State the consequences of the evidence boundaries once, at the level where they change the conclusion.}
 
-\paragraph{Evidence lineage.}
-The numerical exhibits are generated from a frozen ledger linked to committed summary tables, per-build records, analysis code, and decision manifests. This writing stage does not regenerate raw query responses. The final artifact description will distinguish numerical consistency checks, replay reproducibility, and independent statistical validation.
+\subsection{RQ9: Can the Numbers and Decisions Be Replayed?}
+\textbf{Question.} Can an evaluator trace the reported numbers to the inputs and decision rules?
+\textbf{Protocol.} The evidence package binds input hashes, role IDs, analysis scripts, per-build tables, and decision manifests to a frozen numerical ledger. Its checker selects unique CSV/JSON rows, verifies risk/gain aggregation, and regenerates the LaTeX value macros. The portable interface separates a lightweight smoke, table reconstruction, an external-asset preflight, and guarded full replay.
+\textbf{Observation.} The existing portability audit preserved hashes of all 80 pre-audit scientific files, passed a neutral-path smoke and 28 focused tests, and replayed the DARTH, Vamana, and Deep1M analyses from sealed inputs through explicit root arguments. The manuscript's 57 frozen values and its additional tail/sensitivity macros are checked against committed summaries; the tables themselves are typeset from those macros.
+\textbf{Conclusion.} The package supports numerical traceability and tested replay interfaces. Recreating raw searches requires the separately provisioned vectors, truth, indexes, and native binaries identified by the checksum ledger. These reference-server checks are distinct from independent replication on a new installation.
 
-\paragraph{Deployment population.}
-The primary TCP result concerns queries with corresponding old-build profiles. Target-role separation does not make those source-side query profiles free or available for an unseen workload. This population definition is necessary both for a deployment claim and for amortization.
+\paragraph{Evidence and scope.}
+The strongest recovery evidence is the two-dataset, ten-target recurring-profile experiment. The extension blocks answer narrower questions under their own reference policies. The theory separates observation-limited decisions, fixed-target query certificates, and build-marginal label coverage; the replay does not measure full-observation total variation or instantiate all conditions of the build-coverage result. These boundaries explain why empirical recovery, selected-policy confidence, and economic value are reported as separate outcomes.
 
-\paragraph{Theory and confidence.}
-Section~\ref{sec:theory} distinguishes observation-limited decision loss, fixed-target certification, and build-marginal label coverage. The empirical tables do not instantiate an upper bound on full-observation total variation. The refresh replay also differs from the stable-tail pooling and simultaneous-certification constructions in its label and decision rules, as specified in Section~\ref{sec:tcp-implementation}.
+\paragraph{Index-operation decision.}
+An operator should version a budget policy together with its index snapshot, search implementation, query-profile population, and calibration record. A changed build triggers a concrete decision: audit reuse, acquire target evidence for recalibration, or retain the endpoint. Rejection can reflect inadequate certification power rather than actual unsafety. Conversely, an efficient policy that fails the registered event should not be hidden by reporting only its post-fallback average. The evidence favors selective recalibration when the profiled workload recurs long enough to repay acquisition, with a fresh cost and risk check for a changed workload.
 
-\paragraph{Implication for index operations.}
-Budget policies should be versioned with the build and workload on which they were assessed. A rebuild can trigger a targeted audit without requiring a universal prescription to retrain every policy. The operator needs three separate answers: the new risk, the cost of a valid decision, and the horizon over which that decision is useful.
-
-\subsection{Writing Completion Map}
-\label{sec:completion}
-This subsection is an internal writing aid and will be removed from the submission manuscript. Sections 1--4 are drafted, including four propositions with proofs and an implementation-aligned TCP specification. Subsequent stages complete the setup matrix, check the shared-query resampling estimand, and document source-profile acquisition costs. Numerical instantiation of the information bound and a simultaneous 95\% certificate for the refresh replay remain unsupported by the frozen evidence. Existing Faiss, deterministic-contract, and larger build-farm results require ledger extension before their headline values enter this draft.
-
-The main paper budget is 12 pages excluding references. Compact proofs are included for W3 review; their final allocation between the main text and a separate short appendix will follow the completed experimental narrative. The remaining exhibit placements reserve space for verified results.
+\paragraph{Data and software availability.}
+The reproducibility materials comprise protocol manifests, input checksum lists, analysis and table-generation code, compact result tables, and replay instructions. Large external vectors and pre-existing indexes are provisioned separately. The package distinguishes the lightweight numerical check from raw-query replay and identifies which inputs each requires.

@@ -1,47 +1,34 @@
-\section{Decisive Evidence: Portability and Deployability}
+\section{Portability and the Audit Decision}
 \label{sec:portability}
-\sectionaim{Answer whether budgets transfer and whether ICBA distinguishes efficiency from deployable value.}
 
-\subsection{RQ1: Does a Search Budget Transfer after Rebuilding?}
-\textbf{Question.} Can a budget selected from old builds retain the 5\% failure target after refresh and rebuilding? \textbf{Protocol.} We apply the frozen source TCP pool to each of ten target builds per dataset and evaluate on the 1,000-query role. \textbf{Observation.} Source reuse is computationally attractive---mean distance counts fall by \WZeroSiftSourceGain\% on SIFT and \WZeroArxivSourceGain\% on Arxiv---but empirical risks rise to \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%, both above 5\%. \textbf{Conclusion.} The old budget is efficient but unsafe under the registered target event; rebuilding creates a material portability problem rather than a small cost perturbation.
+\subsection{RQ1: Does the Old Budget Remain Safe?}
+\textbf{Question.} Does the old-build budget meet the 5\% query-failure target after refresh and rebuilding?
+\textbf{Protocol.} We execute the nine-history TCP pool without target recalibration or fallback on each of the ten targets per dataset.
+\textbf{Observation.} Direct reuse saves \WZeroSiftSourceGain\% of mean distance evaluations on SIFT and \WZeroArxivSourceGain\% on Arxiv, but target failure is \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%, respectively. The fixed endpoint has risks \WFiveSiftEndpointRisk\% and \WFiveArxivEndpointRisk\%.
+\textbf{Conclusion.} Low serving cost does not make the reused policy safe under the registered target event. The available primary summary establishes failure of target qualification after the combined refresh/rebuild intervention; it does not quantify a source-to-target risk increase against a source-certified reference.
 
 \begin{table}[t]
-\caption{Primary 5\%-refresh replay. Risk is empirical $\rec@10<0.95$ failure; gain is mean distance-count reduction relative to the registered endpoint.}
+\caption{Primary 5\%-refresh replay: empirical query risk and mean NDC gain relative to the fixed endpoint. ``Audited reuse'' includes endpoint fallback on every target.}
 \label{tab:primary}
 \small
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrr@{}}
 \toprule
 Dataset & Policy & Risk (\%) & Gain (\%) \\
 \midrule
-SIFT-100K & Source reuse & \WZeroSiftSourceRisk & \WZeroSiftSourceGain \\
+SIFT & Endpoint & \WFiveSiftEndpointRisk & 0 \\
+ & Direct reuse & \WZeroSiftSourceRisk & \WZeroSiftSourceGain \\
+ & Audited reuse & \WFiveSiftEndpointRisk & 0 \\
  & Target recalibration & \WZeroSiftTargetRisk & \WZeroSiftTargetGain \\
-Arxiv-100K & Source reuse & \WZeroArxivSourceRisk & \WZeroArxivSourceGain \\
+Arxiv & Endpoint & \WFiveArxivEndpointRisk & 0 \\
+ & Direct reuse & \WZeroArxivSourceRisk & \WZeroArxivSourceGain \\
+ & Audited reuse & \WFiveArxivEndpointRisk & 0 \\
  & Target recalibration & \WZeroArxivTargetRisk & \WZeroArxivTargetGain \\
 \bottomrule
 \end{tabular*}
 \end{table}
 
-\subsection{RQ4: Can ICBA Identify a Deployable Choice?}
-\textbf{Question.} Does an audit separate unsafe efficiency from usable target-side value? \textbf{Protocol.} Selection chooses a registered global shift, certification uses disjoint queries, and failure invokes the endpoint; evaluation remains untouched until the decision is fixed. \textbf{Observation.} ICBA rejects direct source reuse, whose certification bounds exceed the risk limit, while target recalibration is selected and certified on all ten SIFT targets and nine of ten Arxiv targets. The remaining Arxiv target falls back. Evaluation risk is \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%, with \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\% mean savings. \textbf{Conclusion.} ICBA changes the operational conclusion: large savings alone do not authorize reuse, whereas isolated target evidence identifies an empirically safe and efficient lane in this replay.
-
-\subsection{RQ2: Is the Failure Specific to TCP?}
-\textbf{Question.} Could the portability failure be an artifact of TCP's action construction? \textbf{Protocol.} Registered adapters replay DARTH on both datasets and Ada-ef on ten Arxiv targets under their frozen thresholds; each bridge is interpreted within its own observation contract. \textbf{Observation.} DARTH target failure is \WZeroDarthSiftRisk\% on SIFT and \WZeroDarthArxivRisk\% on Arxiv; Ada-ef records \WZeroAdaefArxivRisk\% on Arxiv. \textbf{Conclusion.} Failure persists outside TCP. These adapters establish method-level recurrence, while their different information budgets preclude a universal performance ranking.
-
-\subsection{RQ3: Does the Phenomenon Cross Implementation and Scale?}
-\textbf{Question.} Does portability failure survive a different graph family and a larger collection? \textbf{Protocol.} The Vamana audit uses six source and six distinct target builds, 36 pairs, and 750 queries; Deep1M uses \WZeroDeepBuilds\ builds, \WZeroDeepQueries\ queries, and \WZeroDeepPairs\ directed pairs. \textbf{Observation.} Vamana risk is \WZeroVamanaSiftRisk\% on SIFT and \WZeroVamanaArxivRisk\% on Arxiv. On Deep1M, transport risk is \WZeroDeepRisk\% versus \WZeroDeepReferenceRisk\% reference risk, an increment of \WZeroDeepIncrement\ percentage points with interval [\WZeroDeepIncrementLow, \WZeroDeepIncrementHigh]. \textbf{Conclusion.} The evidence crosses graph implementation and scale. Vamana is a post-hoc extension, and Deep1M's reference already exceeds 5\%; the latter isolates additional transport loss rather than proving a safe reference became unsafe.
-
-\begin{table}[t]
-\caption{Extension evidence, kept protocol-separated.}
-\label{tab:extensions}
-\small
-\begin{tabularx}{\linewidth}{@{}lX@{}}
-\toprule
-Block & Observation and supported conclusion \\
-\midrule
-DARTH & SIFT \WZeroDarthSiftRisk\%, Arxiv \WZeroDarthArxivRisk\%; failure is not TCP-specific \\
-Ada-ef & Arxiv \WZeroAdaefArxivRisk\%; a second adaptive-budget bridge also misses 5\% \\
-Vamana & SIFT \WZeroVamanaSiftRisk\%, Arxiv \WZeroVamanaArxivRisk\%; post-hoc cross-family recurrence \\
-Deep1M & \WZeroDeepIncrement\ pp additional risk; scale extension with an unsafe reference \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\subsection{RQ4: What Decision Does ICBA Change?}
+\textbf{Question.} Does target auditing distinguish unsafe efficiency from a usable recovery action?
+\textbf{Protocol.} The audited-reuse comparator checks the unshifted policy; the recovery comparator first selects a global shift on selection queries. Both then use the separate certification role and registered fallback rule.
+\textbf{Observation.} Audited source reuse falls back on all ten targets of each dataset, retaining endpoint risk and zero serving savings. Recalibration accepts the candidate on ten SIFT and nine Arxiv targets; the remaining Arxiv target uses the endpoint. The completed decisions have empirical risks \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%.
+\textbf{Conclusion.} The audit rules out direct reuse in these targets, while target selection recovers a lower-cost action in 19 of 20 cases. Candidate acceptance is an individual-CP outcome; its distinction from a joint 95\% pipeline certificate follows Section~\ref{sec:tcp-recalibration}.

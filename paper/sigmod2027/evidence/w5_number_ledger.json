@@ -1,0 +1,91 @@
+{
+  "source_baseline": "d0ceb9bafa12480d04d4ae473b4c669e0e5b6ff5",
+  "original_directory": "results/graph_anns_phase3_ea85/refresh95/",
+  "input_sha256": {
+    "refresh95_summary.csv": "8b093046222047cc0334077c647de534aaa7aba37787b8cee0600bacbf4f1726",
+    "refresh95_per_build.csv": "57c21448d07a31949b45490e8480ed7afb2823ee1102b6735d07567313f4101e"
+  },
+  "values": [
+    {
+      "macro": "WFiveSiftEndpointRisk",
+      "display": "0.97",
+      "dataset": "sift100k",
+      "method": "FIXED_SAFE_NATIVE_ENDPOINT",
+      "column": "evaluation_risk",
+      "multiplier": 100
+    },
+    {
+      "macro": "WFiveSiftEndpointPninetyNine",
+      "display": "2855.00",
+      "dataset": "sift100k",
+      "method": "FIXED_SAFE_NATIVE_ENDPOINT",
+      "column": "p99_dists",
+      "multiplier": 1
+    },
+    {
+      "macro": "WFiveSiftTargetPninetyNine",
+      "display": "2774.00",
+      "dataset": "sift100k",
+      "method": "TARGET_SELECTION_TCP_RECALIBRATION",
+      "column": "p99_dists",
+      "multiplier": 1
+    },
+    {
+      "macro": "WFiveSiftLoto",
+      "display": "44.37",
+      "dataset": "sift100k",
+      "method": "TARGET_SELECTION_TCP_RECALIBRATION",
+      "column": "min_lobo_gain",
+      "multiplier": 100
+    },
+    {
+      "macro": "WFiveSiftDeleteLargest",
+      "display": "44.37",
+      "dataset": "sift100k",
+      "method": "TARGET_SELECTION_TCP_RECALIBRATION",
+      "column": "delete_largest_gain",
+      "multiplier": 100
+    },
+    {
+      "macro": "WFiveArxivEndpointRisk",
+      "display": "1.01",
+      "dataset": "arxiv_nomic_100k",
+      "method": "FIXED_SAFE_NATIVE_ENDPOINT",
+      "column": "evaluation_risk",
+      "multiplier": 100
+    },
+    {
+      "macro": "WFiveArxivEndpointPninetyNine",
+      "display": "3504.01",
+      "dataset": "arxiv_nomic_100k",
+      "method": "FIXED_SAFE_NATIVE_ENDPOINT",
+      "column": "p99_dists",
+      "multiplier": 1
+    },
+    {
+      "macro": "WFiveArxivTargetPninetyNine",
+      "display": "3398.00",
+      "dataset": "arxiv_nomic_100k",
+      "method": "TARGET_SELECTION_TCP_RECALIBRATION",
+      "column": "p99_dists",
+      "multiplier": 1
+    },
+    {
+      "macro": "WFiveArxivLoto",
+      "display": "44.23",
+      "dataset": "arxiv_nomic_100k",
+      "method": "TARGET_SELECTION_TCP_RECALIBRATION",
+      "column": "min_lobo_gain",
+      "multiplier": 100
+    },
+    {
+      "macro": "WFiveArxivDeleteLargest",
+      "display": "44.23",
+      "dataset": "arxiv_nomic_100k",
+      "method": "TARGET_SELECTION_TCP_RECALIBRATION",
+      "column": "delete_largest_gain",
+      "multiplier": 100
+    }
+  ],
+  "scope": "Formatting and exact extraction from frozen summaries; not new inference or experiment."
+}

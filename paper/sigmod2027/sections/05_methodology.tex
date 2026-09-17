@@ -1,34 +1,21 @@
 \section{Experimental Protocol}
 \label{sec:methodology}
-\sectionaim{Define the populations, decisions, and uncertainty units used by RQ1--RQ9.}
 
 \paragraph{Primary refresh experiment.}
-We evaluate SIFT-100K and Arxiv-Nomic-100K after a registered 5\% mixed deletion/insertion refresh and graph rebuild. Each dataset has ten target builds. For every target, 500 queries select a policy, a disjoint 500 certify it, and a disjoint 1,000 evaluate it. The failure event is $\rec@10<0.95$; because $k=10$, passing requires all ten true neighbors. The source-reuse and target-recalibration policies use the query-indexed historical profiles defined in Section~\ref{sec:auditor}; the fixed endpoint is the registered $ef=200$ action. Thus this experiment measures portability for recurring profiled queries after data refresh and rebuilding, not a zero-label path for arbitrary new queries.
+The primary workload has 100,000 base vectors per dataset: 128-dimensional SIFT with Euclidean distance and 768-dimensional Arxiv-Nomic with normalized inner product. A seed-991 membership change replaces 5\% of the original collection with previously excluded vectors, preserving cardinality. Exact neighbors are computed against the refreshed snapshot. We reuse ten registered old-snapshot and ten refreshed-snapshot indexes per dataset. The native replay runs the official DARTH Faiss-HNSW fork, with $M=16$, construction $ef=100$, one search thread, $k=10$, and the seven-action grid in Equation~\eqref{eq:tcp-grid}. Thus the primary recovery experiment is a Faiss-HNSW replay; the hnswlib scale evidence is a separate block.
 
-\paragraph{Measurements and decision rule.}
-For policy $\pi$, we report empirical evaluation risk, mean distance evaluations, query-pooled p95 and p99 distance evaluations, certification outcome, and fallback. Relative search gain is
+For each target, 500 queries select a policy, a disjoint 500 certify it, and a disjoint 1,000 evaluate it. The same role IDs are reused across builds. Content-hash checks separate these roles from base vectors, insertion reserves, and historical query roles. The source-history profiles in Section~\ref{sec:auditor} exist for these same queries on the old builds. This is a recurring-profile workload after refresh plus rebuilding; it isolates neither a graph-only causal effect nor generalization to unprofiled queries.
+
+\paragraph{Metrics and decisions.}
+We report empirical $\rec@10<0.95$ risk, mean distance evaluations, query-pooled p95 and p99 distance evaluations, candidate acceptance, and actual fallback. Relative search gain is
 \begin{equation}
  g(\pi)=1-\frac{\bar c_\pi}{\bar c_{\rm end}},
  \label{eq:gain}
 \end{equation}
-where $\bar c_{\rm end}$ is the fixed-endpoint mean. ICBA admits a candidate only after isolated selection and certification; a failed candidate uses the registered endpoint. Candidate and endpoint bounds are individual one-sided 95\% Clopper--Pearson checks. We therefore report the resulting empirical deployment decision without upgrading their adaptive combination to a joint 95\% certificate.
+where $\bar c_{\rm end}$ is the fixed-$ef=200$ mean on the same evaluation queries and target builds. Fallback executions remain in all denominators. Candidate and endpoint checks use the individual one-sided 95\% CP bounds specified in Section~\ref{sec:tcp-recalibration}; the empirical decision and joint confidence accounting are reported separately.
 
 \paragraph{Uncertainty and robustness.}
-Target build is the outer unit. The registered nested bootstrap samples builds and then queries within sampled builds (5,000 replicates); leave-one-target-out (LOTO) and deletion of the largest-gain build test concentration. Repeated query IDs across builds mean that the interval is the output of this registered procedure, not a universal population interval. Cross-method, Vamana, and Deep1M blocks retain their own events and references; we use them to test recurrence, not to construct a pooled leaderboard.
+The registered nested bootstrap draws target builds with replacement, then draws paired policy/reference queries within each selected build (5,000 replicates, seed 991). Each replicate computes a ratio of pooled means. Intervals are percentile summaries of this procedure. Shared query IDs across builds introduce crossed dependence that independent within-build resampling does not fully preserve; the reported intervals retain that limitation. Leave-one-target-out (LOTO) and deletion of the largest relative-gain build provide direct sensitivity checks over the ten fixed targets. Observed p95/p99 reductions are descriptive comparisons, not hypothesis-test noninferiority certificates. NDC is the common search-work measure; none of these gains establishes an equal wall-clock speedup.
 
-\begin{table}[t]
-\caption{RQ map and evidentiary role. Decisive evidence precedes extension and boundary evidence.}
-\label{tab:rqmap}
-\small
-\begin{tabularx}{\linewidth}{@{}clX@{}}
-\toprule
-RQ & Evidence & Role \\
-\midrule
-1,4 & Primary transport and ICBA replay & Portability and deployability \\
-5--8 & Recalibration, tails, robustness, cost & Recovery value and limits \\
-2 & DARTH and Ada-ef bridges & Independence from TCP \\
-3 & Deep1M and Vamana & Scale and graph-family extension \\
-9 & Frozen ledger and deterministic replay & Reproducibility \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\paragraph{Evidence order.}
+RQ1 and RQ4 establish direct-reuse behavior and its audit decision. RQ5--RQ8 examine recovery, tails, build sensitivity, and amortization. RQ2--RQ3 then test the scope of the finding through external-method, graph-family, and scale evidence. RQ9 closes the numerical and replay provenance. Each block keeps its native action, reference, and query-risk definition.

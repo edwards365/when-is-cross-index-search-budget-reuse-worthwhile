@@ -2,12 +2,14 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{tabularx}
+\usepackage{balance}
 \settopmatter{printacmref=false,printfolios=true}
 \setlength{\emergencystretch}{1.5em}
 \setcopyright{none}
-\pagestyle{plain}
 \input{writing_macros}
 \input{evidence/results_macros}
+\input{evidence/w5_macros}
+\hypersetup{pdfauthor={},pdfsubject={Graph-ANNS budget portability and target recalibration},pdfkeywords={graph ANNS, budget transfer, risk auditing, recalibration}}
 
 \title[Budget Transfer Across Graph-ANNS Rebuilds]{When Safe Search Budgets Do Not Transfer Across Graph-ANNS Rebuilds: [Experiments \& Analysis]}
 \author{Anonymous Author(s)}
@@ -19,9 +21,6 @@ Rebuilding a graph index can change the search procedure on which an approximate
 \maketitle
 \raggedbottom
 
-\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\small
-\textbf{W4 writing draft.} The experimental evidence is organized by RQ1--RQ9, with decisive portability and recovery results before extension and boundary evidence. Every experiment reports its question, protocol, observation, and conclusion. Numeric exhibits use the W0 frozen ledger; no new experiment or frozen value is introduced in W4. Section~\ref{sec:completion} lists the remaining checks.}}
-
 \input{sections/01_introduction}
 \input{sections/02_related_work}
 \input{sections/03_problem_theory}
@@ -30,8 +29,10 @@ Rebuilding a graph index can change the search procedure on which an approximate
 \input{sections/06_portability}
 \input{sections/07_families}
 \input{sections/08_recovery_cost}
+\input{sections/08_extensions}
 \input{sections/09_discussion}
 \input{sections/10_conclusion}
+\balance
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{references}
 \end{document}

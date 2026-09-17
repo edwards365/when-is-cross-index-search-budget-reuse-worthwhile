@@ -1,32 +1,31 @@
-\section{Economics and Reproducibility}
+\section{RQ8: When Does Recovery Repay Its Cost?}
 \label{sec:recovery}
-\sectionaim{Determine when recovery repays its information cost and whether the decision chain can be replayed.}
 
-\subsection{RQ8: Is Recovery Economically Worthwhile?}
-\textbf{Question.} When do target profiles repay their acquisition cost? \textbf{Protocol.} In the registered distance-count model,
+\textbf{Question.} At what serving horizon does cheaper search repay the information used to obtain it?
+\textbf{Protocol.} The frozen ledger expresses cost in distance evaluations:
 \begin{align}
  C_\pi(N)&=C_{\mathrm{acquire},\pi}+N\bar c_\pi,\label{eq:cost}\\
- N_{\mathrm{BE}}&=\frac{C_{\mathrm{acquire},\pi}-C_{\mathrm{acquire},\mathrm{ref}}}
+ N_{\mathrm{BE}}&=\frac{\Delta C_{\mathrm{acquire}}}
  {\bar c_{\mathrm{ref}}-\bar c_\pi},\label{eq:breakeven}
 \end{align}
-with separate handling when serving savings are nonpositive. Target truth, selection, certification, and search are charged; source-profile truth is treated as shared or previously acquired. \textbf{Observation.} Dataset-level break-even is \WZeroSiftBreakEven\ query executions on SIFT and \WZeroArxivBreakEven\ on Arxiv. All SIFT targets amortize; one Arxiv target has no positive serving saving. At one million executions, modeled average savings are \WZeroSiftNetSavingMillion\ and \WZeroArxivNetSavingMillion\ distance evaluations per target. \textbf{Conclusion.} TCP has positive modeled lifecycle value for sufficiently long-lived recurring-query workloads, while short lifecycles and nonamortizing targets should retain the endpoint. The economic result is conditional on symmetric treatment of previously acquired source profiles.
+where $\Delta C_{\mathrm{acquire}}$ is acquisition cost above the reference. There is no finite break-even if serving savings are nonpositive and this increment is positive. The recorded numerator includes old-build search profiles for the evaluation query set, all-grid target-selection searches, selected-candidate certification searches, and exact target truth for the 500 selection and 500 certification queries. Truth is modeled as a scan of 100,000 vectors per query. The graph rebuild is common to both choices. Control operations receive zero distance calls, which is not a zero-time assumption.
+
+\textbf{Observation.} The dataset-level ratio of mean acquisition cost to mean serving savings gives \WZeroSiftBreakEven\ executions for SIFT and \WZeroArxivBreakEven\ for Arxiv. All SIFT targets have positive serving savings; one Arxiv target has zero savings and does not amortize. At $N=10^6$, the modeled net reductions average \WZeroSiftNetSavingMillion\ and \WZeroArxivNetSavingMillion\ distance evaluations per target (Table~\ref{tab:economics}).
 
 \begin{table}[t]
-\caption{Lifecycle summary. Break-even counts query executions; net savings are modeled distance evaluations per target at $N=10^6$.}
+\caption{Conditional lifecycle model. Break-even is a dataset-level ratio of means, not a guarantee for every build. The final column counts targets with no positive serving saving.}
 \label{tab:economics}
 \small
 \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
 \toprule
-Dataset & Break-even & Nonamortizing & Net saving at $10^6$ \\
+Dataset & Break-even & Net saving at $10^6$ & No saving \\
 \midrule
-SIFT & \WZeroSiftBreakEven & \WZeroSiftNonamortizing & \WZeroSiftNetSavingMillion \\
-Arxiv & \WZeroArxivBreakEven & \WZeroArxivNonamortizing & \WZeroArxivNetSavingMillion \\
+SIFT & \WZeroSiftBreakEven & \WZeroSiftNetSavingMillion & \WZeroSiftNonamortizing/10 \\
+Arxiv & \WZeroArxivBreakEven & \WZeroArxivNetSavingMillion & \WZeroArxivNonamortizing/10 \\
 \bottomrule
 \end{tabular*}
 \end{table}
 
-\subsection{RQ9: Can the Evidence and Decision Be Reproduced?}
-\textbf{Question.} Can an artifact evaluator regenerate the principal numbers and inspect every decision boundary? \textbf{Protocol.} The artifact freezes input hashes, role counts, implementation scripts, per-build outputs, decision manifests, and a single evidence ledger. A deterministic checker reselects unique rows, recomputes risks and gains, verifies per-build aggregation, and regenerates all headline LaTeX macros. The replay protocol preserves source/target IDs and selection/certification/evaluation separation; portable smoke checks cover table regeneration before full replay. \textbf{Observation.} The W4 manuscript uses 57 ledger-bound frozen values, and the checker rejects input drift or inconsistent aggregation. All principal tables are generated from committed CSV/JSON rather than transcribed from logs. \textbf{Conclusion.} The numerical claims and audit chain are mechanically reviewable from the frozen artifact. This reproducibility guarantee covers committed summaries and code paths; independent raw-query replication remains the artifact-evaluation task.
+\textbf{Interpretation.} The ledger does not separately charge old-profile truth, old-build profiling of selection/certification queries, or endpoint-certificate search. The reported break-even therefore applies when these omitted acquisitions are already available or cost-shared; otherwise it is optimistic. For an additional incremental cost $\Delta C\ge0$, the corrected threshold is $N_{\mathrm{BE}}+\Delta C/(\bar c_{\rm end}-\bar c_\pi)$ whenever the denominator is positive. The actual query-reuse rate determines how often a new source profile must be acquired. Distance counts also exclude hardware-dependent overheads such as data movement, lookup time, and training or control time.
 
-\paragraph{Evidence hierarchy.}
-RQ1, RQ4, and RQ5 provide the decisive result: direct reuse violates the target while isolated recalibration recovers empirical safety and efficiency. RQ6--RQ8 establish tail, robustness, and economic conditions. RQ2--RQ3 extend the phenomenon across methods, graph families, and scale. RQ9 binds these claims to replayable evidence without collapsing protocol differences into a single leaderboard.
+\textbf{Conclusion.} Recovery has positive long-horizon value under the reported acquisition model, while short-lived or nonamortizing targets favor the endpoint. Full deployment economics requires pricing the omitted information for the intended query workload; the serving gain alone is insufficient.
