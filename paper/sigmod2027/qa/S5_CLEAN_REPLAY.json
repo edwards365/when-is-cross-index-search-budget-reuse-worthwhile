@@ -1,0 +1,56 @@
+{
+  "status": "PASS_WITH_PDF_BUILD_BLOCKED",
+  "timestamp_utc": "2026-09-17T15:40:03.316902+00:00",
+  "package_root": "/home/wlk/data500/icba_sigmod_s5/anonymous_package",
+  "main_repository_imported": false,
+  "python": "3.11.16 | packaged by conda-forge | (main, Aug 21 2026, 22:44:51) [GCC 14.4.0]",
+  "executable": "/home/wlk/data500/icba_sigmod_s5/venv/bin/python",
+  "cwd": "/home/wlk/data500/icba_sigmod_s5/anonymous_package",
+  "packages": {
+    "numpy": "2.4.6",
+    "matplotlib": "3.11.2",
+    "pypdf": "6.10.0",
+    "pandas": null,
+    "scipy": null
+  },
+  "anonymous_manifest": {
+    "status": "PASS",
+    "files": 60,
+    "leaks": []
+  },
+  "w6_evidence_replay": {
+    "command": [
+      "/home/wlk/data500/icba_sigmod_s5/venv/bin/python",
+      "check_evidence.py"
+    ],
+    "returncode": 0,
+    "stdout": "{\"status\": \"PASS\", \"checks\": 244}\n",
+    "stderr": ""
+  },
+  "figure_table_regeneration": {
+    "command": [
+      "/home/wlk/data500/icba_sigmod_s5/venv/bin/python",
+      "make_figures.py"
+    ],
+    "returncode": 0,
+    "stdout": "Times New Roman unavailable: using DejaVu Serif; recheck figure layout.\nGenerated 6 PDF/SVG/PNG figures and 5 data-linked TeX tables.\n",
+    "stderr": ""
+  },
+  "generated_table_hash_mismatches": {},
+  "s4_validation": {
+    "status": "PASS",
+    "passed": 210,
+    "total": 210,
+    "sha256": "dc7b4f8de5faf8798095033bb56cd79660ea05637bc5abdc66015fa5b40dee0f"
+  },
+  "pdf_builds": {
+    "main": {
+      "status": "BLOCKED_NO_LATEX_ENGINE",
+      "engine": null
+    },
+    "appendix": {
+      "status": "BLOCKED_NO_LATEX_ENGINE",
+      "engine": null
+    }
+  }
+}
