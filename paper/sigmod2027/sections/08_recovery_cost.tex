@@ -1,0 +1,43 @@
+\section{Recovery Quality and Lifecycle Economics}
+\label{sec:recovery}
+\sectionaim{Turn the recovery example into an operational trade-off, not a universal algorithm ranking.}
+
+\paragraph{Search and tail behavior.}
+For the target-selection lane, the frozen mean-gain intervals are [\WZeroSiftTargetGainLow, \WZeroSiftTargetGainHigh]\% on SIFT and [\WZeroArxivTargetGainLow, \WZeroArxivTargetGainHigh]\% on Arxiv. Their bootstrap interpretation follows Section~\ref{sec:methodology}. Table~\ref{tab:tail} provides the descriptive tail comparison and fallback counts. The lower observed p95 values refer to distance evaluations; they do not measure GPU/CPU latency or establish statistical tail noninferiority.
+
+\begin{table}[t]
+\caption{Target-selection replay: query-pooled sample p95 distance counts and fallback builds. Each dataset has ten target builds.}
+\label{tab:tail}
+\small
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}lrrr@{}}
+\toprule
+Dataset & Target p95 & Endpoint p95 & Fallback \\
+\midrule
+SIFT & \WZeroSiftTargetPninetyfive & \WZeroSiftTargetFixedPninetyfive & \WZeroSiftTargetFallbackBuilds/10 \\
+Arxiv & \WZeroArxivTargetPninetyfive & \WZeroArxivTargetFixedPninetyfive & \WZeroArxivTargetFallbackBuilds/10 \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\paragraph{A common cost unit.}
+In a distance-count model, let $C_{\rm acquire}$ include the nonshared profile, truth, selection, and certification work, and let $\bar c$ denote serving work per execution. For a fixed expected workload,
+\begin{align}
+ C_\pi(N)&=C_{\mathrm{acquire},\pi}+N\bar c_\pi,\label{eq:cost}\\
+ N_{\mathrm{BE}}&=\frac{C_{\mathrm{acquire},\pi}-C_{\mathrm{acquire},\mathrm{ref}}}
+ {\bar c_{\mathrm{ref}}-\bar c_\pi},\label{eq:breakeven}
+\end{align}
+when the denominator is positive and the acquisition difference is positive. Nonpositive acquisition difference means immediate modeled amortization if serving is cheaper; nonpositive serving savings require a separate case rather than a positive break-even claim. Shared costs cancel only when the competing strategies genuinely incur the same cost.
+
+\paragraph{Conditional model outputs.}
+The current dataset summaries report break-even at \WZeroSiftBreakEven\ query executions for SIFT and \WZeroArxivBreakEven\ for Arxiv. Zero SIFT targets and \WZeroArxivNonamortizing\ Arxiv target have no positive modeled serving savings. These values condition on the source-profile cost treatment and reuse assumptions in the frozen model. Target truth is charged, but old-build truth is not explicitly included as a separate acquisition term. A valid lifecycle interpretation therefore requires its shared or sunk status to be specified symmetrically for the reference strategy.
+
+\paragraph{Operational conclusion to test against the final evidence.}
+TCP recovery is useful when the needed query profiles are available, target recalibration yields an acceptable operating point, and the serving horizon amortizes acquisition work. For a new-query workload, the missing profile-acquisition path changes both deployment and economics. The final text will give these regimes rather than claim that one recovery strategy dominates at every horizon.
+
+\begin{figure}[t]
+\centering
+\slot{Recovery and amortization}{Panel A: build-wise risk, mean NDC, and p95 for the registered actions. Panel B: modeled net work versus query executions, with explicit source-profile accounting scenarios and nonamortizing targets retained.}
+\caption{Recovery placement. Scientific question: when does an empirically favorable target policy repay the information needed to obtain it? Model curves must be labeled separately from measured search counts.}
+\Description{Text-only placeholder for empirical recovery outcomes and conditional lifecycle-model curves.}
+\label{fig:cost}
+\end{figure}

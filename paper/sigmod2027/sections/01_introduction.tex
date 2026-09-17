@@ -1,0 +1,28 @@
+\section{Introduction}
+\label{sec:intro}
+\sectionaim{Connect an index-maintenance operation to a measurable portability problem.}
+
+A search budget is chosen for a query and executed on a particular graph. When an index is rebuilt, its traversal paths can change even when its search interface remains unchanged. Reusing an earlier budget therefore raises a separate question from the quality of the new index: does the old decision still deliver the required recall at an acceptable cost?
+
+This question matters at the boundary between index maintenance and query serving. An operator may retain a calibrated budget to avoid profiling costs, recalibrate it using target information, or use a larger fixed budget. These choices trade search work against information acquisition and statistical assurance. Their relative value depends on both the rebuilt graph and the expected serving horizon.
+
+Our organizing insight is that budget portability is a property of a \emph{source policy, target build, and query workload}, rather than a property of a budget value alone. ICBA makes this dependence explicit. The empirical study follows three steps: establish transfer failures, examine their scope across implementations and workloads, and measure recovery with its information and cost requirements exposed. TCP enters as a recovery case study within this analysis.
+
+\paragraph{Contributions to develop.}
+\begin{enumerate}
+\item A build-conditioned formulation of budget transfer that distinguishes absolute target failure from excess failure relative to a reference.
+\item An auditable evaluation workflow linking query roles, failure events, certification decisions, and cost accounting.
+\item A layered empirical analysis of portability across budget policies, graph families, and data scale, with explicit boundaries between protocols.
+\item A TCP recalibration case study showing where target information recovers search efficiency and where certification or acquisition costs constrain its use.
+\end{enumerate}
+
+\paragraph{Four findings guiding the paper.}
+First, direct reuse in the frozen TCP profile replay exceeds the 5\% empirical-risk target on both primary datasets. Second, the registered external-method bridges and Vamana audit provide additional transfer-failure observations under their own protocols. Third, target-selection recalibration reduces empirical failure while preserving distance-count savings in the primary replay. Fourth, recovery has a workload-dependent acquisition cost: a favorable per-query search result does not by itself establish lifecycle savings. Sections~\ref{sec:portability}--\ref{sec:recovery} place the evidence behind these findings.
+
+\begin{figure}[t]
+\centering
+\slot{Source-to-target budget transfer}{Show the same query workload passing through source calibration and a rebuilt target graph. Place three decisions at the target: reuse, recalibrate, or fixed endpoint. Mark the location of risk measurement and information-acquisition cost.}
+\caption{Overview placement. Scientific question: which part of a calibrated search decision changes when the graph is rebuilt? This schematic will explain the setting rather than depict an unmeasured effect.}
+\Description{Text-only placeholder for the source-to-target transfer diagram. No experimental plot is present.}
+\label{fig:overview}
+\end{figure}

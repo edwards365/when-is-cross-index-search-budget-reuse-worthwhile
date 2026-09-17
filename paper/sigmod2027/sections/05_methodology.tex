@@ -1,0 +1,37 @@
+\section{Experimental Methodology}
+\label{sec:methodology}
+\sectionaim{Give each evidence block its own population, unit, and event definition.}
+
+\paragraph{Primary recovery block.}
+The current numerical tables use the frozen SIFT-100K and Arxiv-Nomic-100K query-profile replay, with ten target builds per dataset. The lifecycle calculation charges 500 target-selection and 500 certification queries. The complete setup table will identify source-build history, query IDs and overlap checks, vector snapshot, grid, implementation commit, target evaluation size, and hardware for each block. These fields must come from the corresponding manifests before a unified setup is asserted.
+
+\paragraph{Metrics.}
+We report empirical failure rates, mean distance-count gain, sample query-pooled p95 distance counts, and fallback-build counts. Let $\bar c_{\rm end}$ and $\bar c_\pi$ denote the mean work under the registered endpoint and a policy. Search gain is
+\begin{equation}
+ g(\pi)=1-\frac{\bar c_\pi}{\bar c_{\rm end}}.
+ \label{eq:gain}
+\end{equation}
+Negative values mean additional work. A lower sample p95 is a descriptive tail comparison; it is not a statistical noninferiority certificate or a latency measurement.
+
+\paragraph{Uncertainty and dependence.}
+Build-level variation is distinct from query variation. The current gain intervals use the frozen nested-bootstrap implementation, which independently resamples queries within each sampled build. Since query IDs may recur across builds, the dependence structure and intended estimand require reconciliation before assigning a population-level interpretation to these intervals. The final robustness exhibit will report build-wise outcomes, the registered leave-one-build-out analysis, and the uncertainty procedure actually used.
+
+\paragraph{Cross-block comparisons.}
+External-method bridges, Vamana reanalysis, and Deep1M use separate protocols. Their absolute risks are not pooled into a common method ranking. A comparison becomes quantitative across blocks only after matching recall event, source qualification, query population, reference action, and information budget.
+
+\begin{table}[t]
+\caption{Planned setup matrix: fields that must be traceable for each evidence block. This is a reporting schema, not a completed experimental inventory.}
+\label{tab:setup}
+\small
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Block & Required setup fields \\
+\midrule
+Primary replay & Source/target builds; historical query profiles; grid; role counts; risk event \\
+Method bridges & Published method; adapter changes; permitted observations; matched threshold \\
+Cross-family & Native action semantics; reference policy; censoring; source qualification \\
+Scale & Dataset size; build pairs; query overlap; reference and incremental risks \\
+Economics & Cost unit; shared/sunk inputs; acquisition policy; serving horizon \\
+\bottomrule
+\end{tabularx}
+\end{table}

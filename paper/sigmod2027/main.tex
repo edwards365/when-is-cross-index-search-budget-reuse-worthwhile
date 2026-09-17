@@ -1,0 +1,34 @@
+\documentclass[sigconf,anonymous,nonacm]{acmart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\settopmatter{printacmref=false,printfolios=true}
+\setlength{\emergencystretch}{1.5em}
+\setcopyright{none}
+\pagestyle{plain}
+\input{writing_macros}
+\input{evidence/results_macros}
+
+\title[Budget Transfer Across Graph-ANNS Rebuilds]{When Safe Search Budgets Do Not Transfer Across Graph-ANNS Rebuilds: [Experiments \& Analysis]}
+\author{Anonymous Author(s)}
+\begin{document}
+\begin{abstract}
+Rebuilding a graph index changes the search procedure on which an approximate nearest-neighbor search budget was calibrated. We study when a source-build budget retains its recall target on a rebuilt index, how this transfer should be audited, and what target-side recovery costs. ICBA organizes the analysis around build-conditioned risk, isolated selection and certification roles, and explicit search-cost accounting. In the frozen SIFT-100K and Arxiv-Nomic-100K query-profile replay, direct TCP pool reuse has empirical target failure rates of \WZeroSiftSourceRisk\% and \WZeroArxivSourceRisk\%. Target-selection recalibration reduces these rates to \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%, with mean distance-count reductions of \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\% relative to the registered fixed endpoint. Cross-family and scale analyses extend the evidence beyond this recovery case. The central systems implication is to treat a rebuilt index as a new calibration environment: measure portability, separate observed recovery from a valid certificate, and account for the cost of obtaining target information.
+\end{abstract}
+\keywords{approximate nearest-neighbor search, graph indexes, index rebuilding, risk auditing, budget transfer}
+\maketitle
+
+\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\small
+\textbf{W1 internal skeleton.} This is a structural writing draft, not a submission manuscript. Numeric exhibits use the W0 frozen macros. Outlined exhibits are planned placements, not experimental plots. Section~\ref{sec:completion} lists the remaining writing and evidence checks.}}
+
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_problem_theory}
+\input{sections/04_auditor}
+\input{sections/05_methodology}
+\input{sections/06_portability}
+\input{sections/07_families}
+\input{sections/08_recovery_cost}
+\input{sections/09_discussion}
+\input{sections/10_conclusion}
+\end{document}

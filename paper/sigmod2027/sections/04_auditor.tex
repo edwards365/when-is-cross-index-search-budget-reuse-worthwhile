@@ -1,0 +1,22 @@
+\section{ICBA Workflow and the TCP Recovery Case}
+\label{sec:auditor}
+\sectionaim{Make the measurement and decision path executable in the reader's mind.}
+
+ICBA records the graph build, allowed observations, candidate action family, query roles, risk event, and cost units before interpreting a recovery result. Selection, certification, and evaluation have distinct functions. Selection chooses an action using the permitted target information. Certification evaluates a frozen candidate under a stated statistical rule. Evaluation estimates its behavior after selection and certification are complete.
+
+\paragraph{Query-profile source reuse.}
+In the frozen TCP replay, each query has a profile of minimum passing actions from nine old builds, excluding the target-seed build. The source-pool action is the maximum of these old-build minima. This is a query-indexed profile-reuse workload: the old-build responses for the corresponding query are inputs to the policy. A workload of previously unprofiled queries would require an additional acquisition or prediction path.
+
+\paragraph{Target recalibration.}
+The target-selection procedure chooses a global shift on the registered action grid. It then checks the selected candidate on certification queries. The implementation also checks the endpoint on that certification role and may choose it as fallback. We retain the resulting empirical behavior in the recovery tables. A pipeline-wide confidence statement depends on resolving the candidate/endpoint selection composition, rather than interpreting each individual upper bound as a joint guarantee.
+
+\paragraph{Fallback is an action.}
+The registered fixed endpoint is $ef=200$ in the primary case. Its failure event and cost are measured like those of other actions. Calling it an endpoint identifies its place on the grid; it does not establish zero risk. Report both the fallback-build count and its contribution to mean and tail search work.
+
+\begin{figure}[t]
+\centering
+\slot{Audit and recovery path}{Inputs: graph identity, source query profiles, action grid. Separate target selection, certification, and evaluation lanes. Route a rejected candidate to the registered endpoint. Attach profile, truth, certification, search, and fallback costs to the operations that incur them.}
+\caption{Workflow placement. Scientific question: what information and costs produce each deployment decision? Certification composition remains a separate proof obligation.}
+\Description{Text-only placeholder for the audit workflow, isolated query roles, and action costs.}
+\label{fig:workflow}
+\end{figure}

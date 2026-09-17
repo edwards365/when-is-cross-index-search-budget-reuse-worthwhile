@@ -1,0 +1,34 @@
+\section{Budget Portability on Rebuilt Graphs}
+\label{sec:portability}
+\sectionaim{Establish the phenomenon before discussing recovery.}
+
+Table~\ref{tab:primary} shows the primary contrast. Direct source TCP pool reuse has empirical target failure of \WZeroSiftSourceRisk\% on SIFT and \WZeroArxivSourceRisk\% on Arxiv. Both exceed the 5\% target, despite reducing mean distance counts relative to the fixed endpoint. Thus, in this replay, low search work and target recall compliance are different outcomes.
+
+The target-selection lane reduces the failure rates to \WZeroSiftTargetRisk\% and \WZeroArxivTargetRisk\%. Its mean search savings remain \WZeroSiftTargetGain\% and \WZeroArxivTargetGain\%. This contrast motivates the recovery analysis: target information changes the operating point, but its value must include acquisition costs and the validity of the resulting decision rule.
+
+\begin{table}[t]
+\caption{Frozen primary replay results. Risk is empirical $\rec@10<0.95$ failure; gain is mean distance-count reduction against the registered endpoint. These rows use query-indexed old-build profiles.}
+\label{tab:primary}
+\small
+\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrr@{}}
+\toprule
+Dataset & Policy & Risk (\%) & Gain (\%) \\
+\midrule
+SIFT-100K & Source pool & \WZeroSiftSourceRisk & \WZeroSiftSourceGain \\
+ & Target shift & \WZeroSiftTargetRisk & \WZeroSiftTargetGain \\
+Arxiv-100K & Source pool & \WZeroArxivSourceRisk & \WZeroArxivSourceGain \\
+ & Target shift & \WZeroArxivTargetRisk & \WZeroArxivTargetGain \\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\paragraph{Mechanism analysis to attach.}
+The source-to-target matrix should show which builds and queries drive failure. Separate index changes, source-policy qualification, target difficulty, and endpoint censoring before attributing a gap to a single cause. A deterministic-contract or margin-based explanation will enter this section only after its event and evidence are aligned with the primary results.
+
+\begin{figure}[t]
+\centering
+\slot{Transfer matrix and risk--work trade-off}{Panel A: source-to-target risk matrix with reference cells. Panel B: per-build risk versus mean distance counts for source reuse, target recalibration, and endpoint. Include the 5\% risk target without treating it as a confidence bound.}
+\caption{Phenomenon placement. Scientific question: is transfer failure systematic or concentrated in a small subset of builds? Per-build frozen inputs are required before plotting.}
+\Description{Text-only placeholder for a transfer matrix and a per-build risk versus work exhibit.}
+\label{fig:transfer}
+\end{figure}

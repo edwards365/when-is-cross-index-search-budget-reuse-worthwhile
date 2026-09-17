@@ -1,0 +1,39 @@
+\section{Problem Formulation and Theoretical Lens}
+\label{sec:theory}
+\sectionaim{Define the estimands first, then state exactly what a theory result would explain.}
+
+Let $G$ denote an index build, $q\sim\mathcal{Q}$ a query, and $a\in\mathcal{A}$ a registered search action. A policy $\pi$ maps its permitted observations to an action. For recall target $\tau$, define
+\begin{equation}
+ \begin{aligned}
+ Z_G(q,a)&=\indicator\{\rec@k(G,q,a)<\tau\},\\
+ \risk_G(\pi)&=\mathbb{E}_{q\sim\mathcal{Q}}Z_G(q,\pi(q)).
+ \end{aligned}
+ \label{eq:risk}
+\end{equation}
+The observation arguments of $\pi$ are suppressed in the notation, not in the experimental contract. In the primary replay $k=10$ and $\tau=0.95$; with discrete recall this threshold requires ten of ten neighbors to be retrieved. It is a stricter event than failure to retrieve nine of ten.
+
+\paragraph{Absolute and incremental risk.}
+For a policy obtained on source build $G_s$ and a specified target reference $\pi_t^{\rm ref}$, use
+\begin{equation}
+ \Delta_{s\to t}=\risk_{G_t}(\pi_s)-\risk_{G_t}(\pi_t^{\rm ref}).
+ \label{eq:increment}
+\end{equation}
+The absolute target risk and the reference risk must accompany this difference. A difference expressed in percentage points is not a relative percentage change. The reference and query distribution are part of the estimand.
+
+\paragraph{Budget actions, work, and censoring.}
+Requested search parameters, distance evaluations, and wall-clock time are separate quantities. A larger requested action need not imply a monotone raw recall sequence or a fixed amount of work. When an experiment defines failure using an under-budget or endpoint-censored event, it requires its own event definition and cannot inherit Equation~\eqref{eq:risk} by relabeling. Endpoint truncation will be shown together with any minimum-budget summary.
+
+\paragraph{Conditional information limits.}
+The theoretical slot is a conditional impossibility result: if the observations available to a decision rule do not distinguish rebuild states that require incompatible actions, uniformly safe and efficient transfer may be impossible. The final statement must specify the observed variables, admissible policies, loss, state distribution, and the hypothesis controlling distinguishability. The old empirical total-variation premise is not used here as an established measurement. Proof and empirical-premise reconciliation remain part of the next writing stage.
+
+\paragraph{Certification of one fixed policy.}
+Let $x$ failures be observed among $n$ independent certification queries after the policy has been fixed independently of those queries. A one-sided Clopper--Pearson upper confidence bound is
+\begin{equation}
+ U(x,n;\alpha)=
+ \begin{cases}
+  \mathrm{Beta}^{-1}(1-\alpha;x+1,n-x),&x<n,\\
+  1,&x=n.
+ \end{cases}
+ \label{eq:cp}
+\end{equation}
+Here $\alpha$ controls the coverage error and $\delta$ is the tolerated failure probability. The acceptance rule is $U\leq\delta$. Even when both are set to 0.05, their meanings differ. Applying this bound to several actions and choosing one afterward requires an additional joint-validity argument. It does not follow directly from the single-policy bound.
