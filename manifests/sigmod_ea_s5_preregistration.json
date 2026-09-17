@@ -1,0 +1,35 @@
+{
+  "stage": "S5_PRE_SUBMISSION_CLOSURE",
+  "status": "FROZEN_BEFORE_MANUSCRIPT_UPDATE",
+  "parent_commit": "b019951bedadaf4518366c3483d5ad545723d1b1",
+  "canonical_root": "paper/sigmod2027",
+  "selected_title": "Auditing Search-Budget Portability Across Graph-ANNS Rebuilds: [Experiments & Analysis]",
+  "venue": "SIGMOD 2027",
+  "track": "Experiment & Analysis",
+  "official_rule_url": "https://2027.sigmod.org/calls_papers_sigmod_research.shtml",
+  "official_rule_checked": "2026-09-17",
+  "main_page_limit_excluding_references": 12,
+  "pdf_size_limit_mb": 10,
+  "appendix": "SEPARATE_SHORT_PDF_REVIEW_OPTIONAL_NOT_CAMERA_READY",
+  "evidence_inputs": {
+    "W6_commit": "b019951bedadaf4518366c3483d5ad545723d1b1",
+    "S4_commit": "b019951bedadaf4518366c3483d5ad545723d1b1",
+    "S4_checksum": "716c07dd4fe0568157b95848f2966acbbeb2d354b5cd45e67ff665fa8699162f"
+  },
+  "authorized_work": [
+    "clean_environment_compact_replay",
+    "anonymous_package",
+    "claim_evidence_mapping",
+    "main_manuscript_restructure_and_compression",
+    "short_appendix_update",
+    "submission_package_checks"
+  ],
+  "prohibited": [
+    "new_graph_construction",
+    "new_algorithm_search",
+    "threshold_tuning_from_evaluation",
+    "claiming_cross_implementation_universal_recovery",
+    "including_identity_in_anonymous_materials",
+    "placing_central_evidence_only_in_appendix"
+  ]
+}
