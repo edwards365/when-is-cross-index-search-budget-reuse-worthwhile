@@ -10,6 +10,7 @@ This package contains compact records sufficient to regenerate manuscript tables
 | Crossed uncertainty and tails | `evidence/w6_audit/crossed_summary.csv` and paired arrays | 5,000 seed-991 product-bootstrap draws over target build and shared query |
 | Lifecycle accounting | `evidence/w6_audit/cost_components.csv`, `cost_horizons.csv` | cached/cold history scenarios; NDC accounting, not wall-clock or monetary cost |
 | External method and scale/family scope | `evidence/extensions/` | estimator-specific bridges, not a common leaderboard |
-| Fresh source-slack confirmation | `evidence/s4_fresh/` | 24 registered builds per implementation and dataset; 500 fresh certification plus 500 fresh evaluation queries |
+| Fresh source-slack confirmation | `evidence/s4_fresh/s4_summary.csv`, `s4_source_certification.csv`, and `s4_pair_results.csv` | 24 registered builds per implementation and dataset; source certification and 552 held-out target directions are distinct |
+| Fresh-stage registration | `evidence/s4_fresh/s4_preregistration_public.json`, `s4_source_policy.csv`, and `S4_PROTOCOL_PUBLIC.md` | frozen 375-query source-action rule, 96 source actions, disjoint 500/500 fresh roles, and registration digests |
 
 The clean replay regenerates compact evidence only. Full native reproduction requires separately provisioned public datasets, graph indexes, native libraries, and the registered query-role manifests. The manuscript distinguishes this compact replay from independent native-search replication.

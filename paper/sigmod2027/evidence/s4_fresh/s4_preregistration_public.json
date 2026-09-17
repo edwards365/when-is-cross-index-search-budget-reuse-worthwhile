@@ -1,0 +1,47 @@
+{
+  "phase": "S4",
+  "status": "FROZEN_BEFORE_FUTURE_VECTOR_OR_TRUTH_ACCESS",
+  "parent_commit": "5a2b8d7901dfc42b581cf52e0d5e549b3de26e47",
+  "evidence_target": "FRESH_QUERY_CONFIRMATION",
+  "role_source_sha256": "531dcd2dc5412c8bb795a13831c0274af0021c04d5f4def97485e57a93b82473",
+  "source_policy_sha256": "327f57beda1109a1eaf700f16fab158efc7409779e11911cc54eb0a4c7163319",
+  "source_action_rule": {
+    "queries_per_build": 375,
+    "grid_actions": 6,
+    "selection": "lowest native action with one-sided Clopper-Pearson UCB <= 0.05 under Bonferroni alpha 0.05/6; endpoint if none passes",
+    "frozen_source_actions": 96
+  },
+  "fresh_roles": {
+    "sift_100k": {
+      "source_certification_count": 500,
+      "target_evaluation_count": 500,
+      "overlap": 0,
+      "certification_sha256": "5c70307474010d82825e6f8cc6f72c121097721c4fb60a2caf43e97608b733a7",
+      "evaluation_sha256": "b975a5295bb297089042df613b265885713b6eb1dd19e2761a33856a11972b"
+    },
+    "arxiv_nomic_100k": {
+      "source_certification_count": 500,
+      "target_evaluation_count": 500,
+      "overlap": 0,
+      "certification_sha256": "a2691e570e3a798061c43a4e93e409b213b6d6c12b555064922bb3654d593b68",
+      "evaluation_sha256": "b0f8bfd44996d378eb10e489573fbfd721b92719fe6f3b89c48fa649eb7a9695"
+    }
+  },
+  "fixed": {
+    "risk_event": "Recall@10 < 0.95",
+    "delta": 0.05,
+    "candidate_alpha": 0.025,
+    "endpoint_alpha": 0.025,
+    "lanes": ["+0", "+1", "+2", "endpoint"],
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 991,
+    "base_count": 100000,
+    "truth_k": 10
+  },
+  "registration_sha256": {
+    "protocol": "df306ae50432e2105d68c30afd63b2465db6d51746ef0b6e26ff265fa4c4e98f",
+    "private_preregistration": "ca11820491462d31fe6753ddd09069c48093f376efd81f2af6da7f061629f86c",
+    "freeze_script": "01c2532a44242712fc2a20288d6738028a23a803bd693289d71e2c1aabe07af5"
+  },
+  "privacy_note": "Absolute host paths and private role-ID arrays are omitted from this public manifest; their counts and digests are retained."
+}

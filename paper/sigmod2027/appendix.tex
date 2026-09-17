@@ -2,6 +2,13 @@
 \usepackage{amsmath,booktabs,tabularx,siunitx}
 \settopmatter{printacmref=false,printfolios=true,printccs=false}
 \setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\acmConference[SIGMOD 2027]{SIGMOD 2027}{Under review}{Anonymous submission}
+\acmBooktitle{SIGMOD 2027 Experiments \& Analysis supplement}
+\acmYear{2027}
+\copyrightyear{2027}
+\acmDOI{}
+\acmISBN{}
 \setlength{\emergencystretch}{1.5em}
 \input{writing_macros}
 \input{evidence/generated_tables}
@@ -72,13 +79,13 @@ Dataset & Decision & Crossed & Target-build only & Shared-query only\\\midrule
 \end{table*}
 
 \subsection{Fresh-Query Source-Slack Detail}
-Table~\ref{tab:fresh-detail} reports the two informative source-slack lanes. The $+2$ lane is the endpoint in both implementations and datasets. Each lane was fixed before target-evaluation access; rows are separate estimands, not candidates selected after viewing these results. Pair status is qualified/indeterminate/confidently-above-$\delta$ under the lane's source certificate and fresh target audit. Aggregate intervals resample 500 fresh target-query IDs with their full directed-pair vectors.
+Table~\ref{tab:fresh-detail} expands the two non-endpoint source-slack lanes; the main paper also reports the $+2$ endpoint lane. Each lane was fixed before target-evaluation access, and the rows remain separate estimands. Pair status summarizes the held-out target audit as below-$\delta$/unresolved/above-$\delta$ according to its target-side CP interval; it is not a deployment certificate. Aggregate intervals resample 500 fresh target-query IDs with their full directed-pair vectors.
 
 \begin{table*}[t]
-\caption{Fresh-query source-slack audit. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval].}
+\caption{Fresh-query source-slack audit. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval]. Pair status is below/unresolved/above $\delta=0.05$ in the held-out target audit.}
 \label{tab:fresh-detail}
 \small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrrr@{}}\toprule
-Impl. & Dataset & Lane & Risk & Reduction & Pair status\\\midrule
+Impl. & Dataset & Lane & Risk & Reduction & Target B/U/A\\\midrule
 hnswlib & SIFT & $+0$ & 1.487 [0.845, 2.260] & 1.313 [1.307, 1.319] & 543/9/0\\
 hnswlib & Arxiv & $+0$ & 1.317 [0.600, 2.158] & 0.000 [0.000, 0.000] & 552/0/0\\
 Faiss & SIFT & $+0$ & 1.297 [0.852, 1.865] & 53.806 [53.758, 53.855] & 478/74/0\\

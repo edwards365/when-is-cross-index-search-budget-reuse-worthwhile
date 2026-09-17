@@ -1,4 +1,4 @@
-\section{Auditing and Recovering the Refreshed Workload}
+\section{Auditing and Recovering Rebuilt Workloads}
 \label{sec:recovery-results}
 
 \subsection{RQ3: What Does the Audit Actually Authorize?}
@@ -36,21 +36,31 @@ Under the joint-error allocation, SIFT is unchanged, while Arxiv risk becomes 1.
 
 \subsection{RQ4 Boundary Test: Can Source-Only Slack Transfer?}
 \label{sec:fresh-bridge}
-The fresh-query experiment tests the source-certified policy of Section~\ref{sec:slack-method}, not TCP. Among the three registered lanes, the one-rung Faiss policy gives the clearest deployable bridge: every one of 552 directed pairs qualifies on each dataset, while evaluation risk is 0.183 [0.083, 0.316]\% on SIFT and 0.674 [0.280, 1.211]\% on Arxiv-Nomic. Relative mean-NDC reductions against the endpoint are 8.27 [8.27, 8.28]\% and 29.09 [29.06, 29.13]\% (Table~\ref{tab:fresh-bridge}). The lower saving is positive after leaving out any target build, and p95/p99 remain below the endpoint.
+The fresh-query experiment tests the source-certified policy of Section~\ref{sec:slack-method}, not TCP. Table~\ref{tab:fresh-bridge} reports all three registered lanes. Each row contains 24 independently certified source decisions and 552 held-out source--target evaluations. These are different objects: source certification determines the executable candidate or endpoint fallback, whereas target truth supplies an empirical portability audit rather than a target deployment certificate.
 
-\begin{table}[t]
-\caption{Fresh-query one-rung source-slack results, conditional on 24 registered builds. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval]. ``Qualified'' counts directed source--target build pairs.}
+\begin{table*}[t]
+\caption{Fresh-query source-slack results, conditional on 24 registered builds per implementation--dataset block. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval]. Source decisions show candidate executions (C) and certified-endpoint fallbacks (F). Target audit status reports directions whose held-out CP upper bound is below 5\% (B), unresolved at 5\% (U), or above 5\% (A); these statuses are not target deployment certificates.}
 \label{tab:fresh-bridge}
-\small\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}}llrrr@{}}\toprule
-Impl. & Dataset & Risk & Reduction & Qualified\\\midrule
-hnswlib & SIFT & 1.40 [0.76, 2.16] & 0.00 [0.00, 0.00] & 552/552\\
-hnswlib & Arxiv & 1.32 [0.60, 2.16] & 0.00 [0.00, 0.00] & 552/552\\
-Faiss & SIFT & 0.18 [0.08, 0.32] & 8.27 [8.27, 8.28] & 552/552\\
-Faiss & Arxiv & 0.67 [0.28, 1.21] & 29.09 [29.06, 29.13] & 552/552\\\bottomrule
+\scriptsize\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrrrr@{}}\toprule
+Impl. & Dataset & Lane & Source C/F & Target B/U/A & Empirical risk [95\% CI] & NDC reduction [95\% CI]\\\midrule
+hnswlib & SIFT & $+0$ & 24/0 & 543/9/0 & 1.49 [0.84, 2.26] & 1.31 [1.31, 1.32]\\
+ &  & $+1$ & 24/0 & 552/0/0 & 1.40 [0.76, 2.16] & 0.00 [0.00, 0.00]\\
+ &  & $+2$ & 24/0 & 552/0/0 & 1.40 [0.76, 2.16] & 0.00 [0.00, 0.00]\\
+hnswlib & Arxiv & $+0$ & 24/0 & 552/0/0 & 1.32 [0.60, 2.16] & 0.00 [0.00, 0.00]\\
+ &  & $+1$ & 24/0 & 552/0/0 & 1.32 [0.60, 2.16] & 0.00 [0.00, 0.00]\\
+ &  & $+2$ & 24/0 & 552/0/0 & 1.32 [0.60, 2.16] & 0.00 [0.00, 0.00]\\
+Faiss & SIFT & $+0$ & 24/0 & 478/74/0 & 1.30 [0.85, 1.86] & 53.81 [53.76, 53.85]\\
+ &  & $+1$ & 24/0 & 552/0/0 & 0.18 [0.08, 0.32] & 8.27 [8.27, 8.28]\\
+ &  & $+2$ & 24/0 & 552/0/0 & 0.06 [0.01, 0.13] & 0.00 [0.00, 0.00]\\
+Faiss & Arxiv & $+0$ & 22/2 & 528/24/0 & 1.72 [1.10, 2.47] & 58.21 [58.17, 58.26]\\
+ &  & $+1$ & 24/0 & 552/0/0 & 0.67 [0.28, 1.21] & 29.09 [29.06, 29.13]\\
+ &  & $+2$ & 24/0 & 552/0/0 & 0.36 [0.08, 0.83] & 0.00 [0.00, 0.00]\\\bottomrule
 \end{tabular*}
-\end{table}
+\end{table*}
 
-The same one-rung rule collapses to the endpoint in hnswlib and therefore saves no work on either dataset. This negative result is as important as Faiss's positive one: source-side certification is feasible in both implementations, but economic slack is not a universal property of HNSW search. The zero-slack lane is reported in the supplement; it saves more work in Faiss but leaves 74 SIFT and 24 Arxiv pairs indeterminate, while hnswlib yields at most 1.31\% saving on one dataset. We therefore use the one-rung lane as a fixed boundary test, not as evidence that more slack is always preferable or that it dominates target-trained methods.
+The Faiss $+1$ lane has empirical target risk 0.183 [0.083, 0.316]\% on SIFT and 0.674 [0.280, 1.211]\% on Arxiv-Nomic, with relative mean-NDC reductions of 8.27 [8.27, 8.28]\% and 29.09 [29.06, 29.13]\%. Its raw per-direction risks have median/maximum values of 0.0/1.4\% and 0.6/1.6\%, respectively, so the pooled estimates do not conceal a direction above 5\%. The lower saving remains positive after leaving out any target build, and p95/p99 stay below the endpoint. The narrow gain intervals resample 500 query vectors with their complete 552-direction outcomes; they do not count directions as independent observations.
+
+The native grids explain the implementation boundary. In hnswlib, 23 of 24 SIFT sources and all 24 Arxiv sources already select the endpoint; $+1$ clips the remaining SIFT source, so both $+1$ and $+2$ equal endpoint execution. In Faiss, $+1$ clips 20 of 24 SIFT sources and 10 of 24 Arxiv sources, leaving non-endpoint actions that produce the observed savings; $+2$ reaches the endpoint everywhere. The larger $+0$ savings come with 74 unresolved SIFT directions and 24 unresolved Arxiv directions in the held-out audit. Since one native rung represents different work increments in the two libraries, this is an implementation-and-grid result, not a claim that one HNSW implementation is intrinsically more portable.
 
 \subsection{RQ5: Does Recovery Worsen the Search-Work Tail?}
 Neither recalibration rule increases query-pooled p95 or p99 relative to the endpoint. For joint-error replay, p95 is 2,349 versus 2,615 NDC on SIFT, and 3,117 versus 3,252 on Arxiv; p99 is 2,774 versus 2,855 and 3,460 versus 3,504. Every individual target also has non-increasing p95 and p99. Figure~\ref{fig:tails} displays the per-target ratios without connecting unrelated seeds.

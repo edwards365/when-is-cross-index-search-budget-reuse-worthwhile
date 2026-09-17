@@ -36,6 +36,13 @@ def main() -> None:
     title_match = re.search(r"\\title(?:\[[^]]*\])?\{([^}]*)\}", (ROOT / "main.tex").read_text())
     require(title_match is not None, "main title exists", checks)
     require("[Experiments \\& Analysis]" in title_match.group(1), "required E&A title suffix", checks)
+    require("Conference'17" not in text and "Conference’17" not in text, "no default ACM conference placeholder", checks)
+    require("552/552" not in text, "source certificates are not described as 552 pair certificates", checks)
+    require("0.05/6" in text and "375 queries per build" in text, "source-action rule is self-contained", checks)
+    require(text.count("source_selected_plus_") == 0, "internal lane identifiers stay out of manuscript prose", checks)
+    require(all((ROOT / "evidence" / "s4_fresh" / name).exists() for name in (
+        "s4_preregistration_public.json", "s4_source_policy.csv", "S4_PROTOCOL_PUBLIC.md"
+    )), "public S4 preregistration and source-policy records are packaged", checks)
 
     labels = re.findall(r"\\label\{([^}]+)\}", text)
     refs = re.findall(r"\\(?:ref|eqref)\{([^}]+)\}", text)
@@ -55,6 +62,14 @@ def main() -> None:
         require((ROOT / row["source"]).exists(), f"claim source exists: {row['claim_id']}", checks)
 
     rows = list(csv.DictReader((ROOT / "evidence" / "s4_fresh" / "s4_summary.csv").open(encoding="utf-8")))
+    require(len(rows) == 16, "S4 summary contains three lanes plus endpoint for four blocks", checks)
+    require(
+        {row["lane"] for row in rows} == {
+            "source_selected_plus_0", "source_selected_plus_1",
+            "source_selected_plus_2", "endpoint",
+        },
+        "all preregistered S4 lanes are present", checks,
+    )
     selected = {
         (row["operator"], row["dataset"]): row
         for row in rows if row["lane"] == "source_selected_plus_1"
@@ -70,6 +85,30 @@ def main() -> None:
         require(round(pct(row["target_risk"]), 2) == risk, f"S4 risk matches: {key}", checks)
         require(round(pct(row["relative_mean_ndc_saving"]), 2) == gain, f"S4 gain matches: {key}", checks)
         require(int(row["target_qualified_pairs"]) == qualified, f"S4 qualification matches: {key}", checks)
+
+    source_rows = list(csv.DictReader(
+        (ROOT / "evidence" / "s4_fresh" / "s4_source_policy.csv").open(encoding="utf-8")
+    ))
+    require(len(source_rows) == 96, "96 frozen source actions are packaged", checks)
+    require(
+        len({(r["operator"], r["dataset"], r["source_build"]) for r in source_rows}) == 96,
+        "one frozen source action per implementation-dataset-build", checks,
+    )
+    require(
+        all(r["decision"] == "SOURCE_QUALIFIED" for r in source_rows),
+        "all packaged source actions satisfy the frozen source rule", checks,
+    )
+    prereg = json.loads(
+        (ROOT / "evidence" / "s4_fresh" / "s4_preregistration_public.json").read_text()
+    )
+    require(
+        prereg["status"] == "FROZEN_BEFORE_FUTURE_VECTOR_OR_TRUTH_ACCESS",
+        "public S4 registration preserves the freeze order", checks,
+    )
+    require(
+        prereg["source_policy_sha256"] == "327f57beda1109a1eaf700f16fab158efc7409779e11911cc54eb0a4c7163319",
+        "public S4 registration identifies the frozen source policy", checks,
+    )
 
     public_replay = json.loads((ROOT / "qa" / "S5_CLEAN_REPLAY_PUBLIC.json").read_text())
     require(public_replay["status"] == "PASS", "clean replay status", checks)

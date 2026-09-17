@@ -18,6 +18,8 @@ FORBIDDEN_PDF_TOKENS = (
     "wang" + "lekang", "edwards" + "365", "/home/" + "wlk",
     "101.6." + "160.66", "C:\\" + "Users",
     "navigation-aware-resistance-" + "hnsw.git",
+    "Conference'17", "Conference’17", "10.1145/nnnnnnn.nnnnnnn",
+    "978-x-xxxx-xxxx-x",
 )
 
 

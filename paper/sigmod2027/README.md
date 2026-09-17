@@ -45,7 +45,10 @@ runs; numerical reproducibility does not imply byte-identical PDFs.
 checks decisions, gains, quantiles, LOTO and costs, and reproduces the crossed
 bootstrap intervals. It performs no ANN search or raw-truth access. The
 delivered run passes 244 checks; this is not independent native replication.
-The separately frozen fresh-query stage passes 210/210 recorded checks.
+The separately frozen fresh-query stage passes 210/210 recorded checks. Its
+public preregistration summary records the frozen source-policy digest, query-role
+counts and digests, lane definitions, and confidence allocation without exposing
+host paths or private role-ID arrays.
 `run_clean_replay.py` verifies the anonymous manifest, both check sets, and
 normalized generated-table hashes, then builds the PDFs when a supported
 LaTeX engine is available. `qa/S5_CLEAN_REPLAY_PUBLIC.json` records the sealed
@@ -93,7 +96,8 @@ container for full native replay.
 - `evidence/generated_tables.tex`: generated typeset table definitions.
 - `evidence/w6_audit/`: compact numerical evidence and validation report.
 - `evidence/extensions/`: unchanged external-method and scale/family summaries.
-- `evidence/s4_fresh/`: compact fresh-query source-slack confirmation evidence.
+- `evidence/s4_fresh/`: compact fresh-query evidence, the 96 frozen source
+  actions, a sanitized preregistration summary, and the public protocol.
 - `make_figures.py`, `check_evidence.py`, `run_clean_replay.py`: regeneration and checks.
 - `PROVENANCE.md`: frozen sources and inference units.
 - `SHA256SUMS.txt`: hashes for the delivery contents, excluding itself.
