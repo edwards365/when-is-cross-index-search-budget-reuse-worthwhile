@@ -39,6 +39,16 @@ Publication metadata for DARTH, Ada-ef, ICTIR ordering, and the graph-search eva
 |Mean NDC gain 44.39% / 44.79%|`WZeroSiftTargetGain`, `WZeroArxivTargetGain`|Relative to registered endpoint; not latency or full-cost SOTA.|
 |Cross-family/scale evidence|W0 Vamana and Deep1M blocks|Their local references/estimands retained, not merged into one leaderboard.|
 
-## Remaining work, outside W2
+## W3 theoretical references and verification (2026-09-17)
 
-Full-text theorem-level comparison with DARTH+ remains pending. The broader literature and exact-binomial/information-theory references should be expanded when the corresponding sections are written. W0 holds on source-profile access, joint certification, source-truth cost, shared-query bootstrap dependence, and theory premises remain open. These are not fixed by writing or bibliography checks.
+The W2 entries remain unchanged. Three references were added for the theory section, using public title searches only:
+
+- `yu1997assouad`: Springer chapter, 1997, pp. 423–435, DOI `10.1007/978-1-4612-1880-7_29`. Publisher metadata and abstract verified. Publisher preview was available intermittently, not the full chapter. The two-point reduction in the manuscript is proved explicitly; no empirical TV value is borrowed from this source. Primary record: https://link.springer.com/chapter/10.1007/978-1-4612-1880-7_29.
+- `clopper1934confidence`: Biometrika 26(4), 404–413, 1934, DOI `10.1093/biomet/26.4.404`. Oxford's indexed publisher record verifies metadata; full paper remains paywalled. The one-sided formula is also checked against the frozen analysis implementation and direct binomial inversion in `check_w3_math.py`. Primary record: https://academic.oup.com/biomet/article-abstract/26/4/404/291538.
+- `angelopoulos2023conformal`: Foundations and Trends in Machine Learning 16(4), 494–591, 2023, DOI `10.1561/2200000101`. Publisher summary verifies publication metadata (https://www.nowpublishers.com/article/DownloadSummary/MAL-101). Inspected the author preprint v6, Section 1.1 and Appendix D, for finite-sample rank coverage, exchangeability, the unsupported-rank case and ties (https://arxiv.org/html/2107.07511v6). W3 supplies the discrete-label proof with random tie-breaking for analysis only. It does not implement randomization of budget actions.
+
+The existing LTT citation supports simultaneous risk testing. The mathematical primitives are credited as classical; the manuscript does not present them as new distribution-free inequalities. No numerical farm result or TV upper bound was added to W0.
+
+## Remaining work after W3
+
+Full-text theorem-level comparison with DARTH+ remains pending. W3 states conditional theory and clarifies the implementation boundary; it does not resolve the W0 empirical holds on source-profile acquisition, joint certification of the refresh lane, source-truth cost, shared-query bootstrap dependence, or empirical TV premises.

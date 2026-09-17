@@ -30,14 +30,19 @@ keys = re.findall(r'@\w+\{([^,]+),', bib)
 assert len(keys) == len(set(keys)), 'Duplicate bibliography keys'
 cited = {key.strip() for group in re.findall(r'\\cite\w*\{([^}]+)\}', text) for key in group.split(',')}
 assert cited == set(keys), ('Unresolved or unused references', cited ^ set(keys))
-assert len(keys) == 13
+assert len(keys) == 16
 assert r'\bibliography{references}' in text
-for section in sections[:2]:
+for section in sections[:4]:
     prose = section.read_text(encoding='utf-8')
     assert r'\sectionaim' not in prose
     assert 'Contributions to develop' not in prose
 assert '5\\% mixed delete/insert refresh' in sections[0].read_text(encoding='utf-8')
-print(f'PASS: {len(macros)} W0 macros, {len(used)} referenced; 10 sections; 5 figure slots; 4 tables; labels resolved.')
-print(f'PASS: W2 Introduction/Related Work; {len(keys)} unique, cited bibliography entries; refresh scope explicit.')
+assert text.count(r'\begin{proposition}') == 4
+assert text.count(r'\begin{proof}') == 4
+assert 'simultaneously for all queries' in text
+assert 'first qualifying shift' in text
+assert 'error allocations sum to 0.10' in text
+print(f'PASS: {len(macros)} W0 macros, {len(used)} referenced; 10 sections; 5 figures (4 placeholders); 4 tables; labels resolved.')
+print(f'PASS: W3 sections 1-4; 4 propositions/proofs; {len(keys)} unique, cited bibliography entries; refresh scope explicit.')
 print('Template SHA256:', hashlib.sha256((ROOT/'acmart.cls').read_bytes()).hexdigest())
 print('Scope: structure and frozen-value linkage, NOT scientific validation or submission readiness.')

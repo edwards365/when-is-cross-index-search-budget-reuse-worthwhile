@@ -1,22 +1,70 @@
 \section{ICBA Workflow and the TCP Recovery Case}
 \label{sec:auditor}
-\sectionaim{Make the measurement and decision path executable in the reader's mind.}
 
-ICBA records the graph build, allowed observations, candidate action family, query roles, risk event, and cost units before interpreting a recovery result. Selection, certification, and evaluation have distinct functions. Selection chooses an action using the permitted target information. Certification evaluates a frozen candidate under a stated statistical rule. Evaluation estimates its behavior after selection and certification are complete.
+ICBA connects a portability measurement to an operational decision. It leaves graph construction and native traversal unchanged. Its inputs are source and target build identities, a query workload, the permitted policy observations, an action grid, a failure event, and a cost model. Its outputs separate direct-reuse behavior, the selected policy, certification status, fallback behavior, and lifecycle cost. TCP is the history-based budget policy used to study recovery within this workflow.
 
-\paragraph{Query-profile source reuse.}
-In the frozen TCP replay, each query has a profile of minimum passing actions from nine old builds, excluding the target-seed build. The source-pool action is the maximum of these old-build minima. This is a query-indexed profile-reuse workload: the old-build responses for the corresponding query are inputs to the policy. A workload of previously unprofiled queries would require an additional acquisition or prediction path.
+\subsection{From a Transfer Measurement to a Decision}
 
-\paragraph{Target recalibration.}
-The target-selection procedure chooses a global shift on the registered action grid. It then checks the selected candidate on certification queries. The implementation also checks the endpoint on that certification role and may choose it as fallback. We retain the resulting empirical behavior in the recovery tables. A pipeline-wide confidence statement depends on resolving the candidate/endpoint selection composition, rather than interpreting each individual upper bound as a joint guarantee.
+An audit first fixes the execution contract: vector snapshot, ground truth, implementation, grid, recall target, and endpoint treatment. The same parameter name across implementations is not a shared unit of work. We therefore retain native actions alongside NDC, recall, and measured timing, and identify unresolved endpoints before summarizing minimum budgets.
 
-\paragraph{Fallback is an action.}
-The registered fixed endpoint is $ef=200$ in the primary case. Its failure event and cost are measured like those of other actions. Calling it an endpoint identifies its place on the grid; it does not establish zero risk. Report both the fallback-build count and its contribution to mean and tail search work.
+Target information then follows three paths. Selection chooses a candidate using its assigned queries. Certification checks the frozen candidate; it cannot retrain or reorder that candidate using evaluation outcomes. Evaluation records the completed decision's risk and cost. The primary replay has disjoint roles of 500 selection, 500 certification, and 1,000 evaluation queries. Role separation concerns target responses: each query can still require a corresponding source-history profile, whose acquisition must be reported.
+
+The audit preserves a direct-reuse row even when it would fail certification. Otherwise fallback could conceal the transfer failure being measured. For recovery rows, it reports the actual chosen policy and includes all fallback queries in risk and cost denominators. A certificate rejection is a statement about available evidence, not proof that the policy's true risk exceeds $\delta$.
+
+\subsection{The Frozen TCP Replay Policy}
+\label{sec:tcp-implementation}
+
+The primary refresh experiment uses the action grid
+\begin{equation}
+ \mathcal{A}=(10,20,40,80,120,160,200)
+ \label{eq:tcp-grid}
+\end{equation}
+for native HNSW search, with $\tau=0.95$. For each query and old build, the implementation finds the first grid index meeting the recall target. It stores index $J$ if no action passes. Write this encoded index as $\tilde j_g(q)$; its unresolved status is a separate property of the underlying responses. For target seed $t$, the history-max rule is
+\begin{equation}
+ j_0^{(t)}(q)=\max_{g\in\mathcal{H}_t}\tilde j_g(q),\qquad
+ \pi_0^{(t)}(q)=a_{j_0^{(t)}(q)},
+ \label{eq:history-max}
+\end{equation}
+where $\mathcal{H}_t$ contains the nine old builds other than the target-seed build. Executing the endpoint for an unresolved source query does not make its source label finite-safe; target outcomes are still measured normally.
+
+This rule uses historical responses for the \emph{same query}, including queries assigned to target evaluation. The experiment thus evaluates query-profile reuse after refresh, not prediction of a budget for an unprofiled query. No learned query-to-budget predictor is used in this lane. A fresh workload requires obtaining those profiles or declaring another action for a cache miss.
+
+The historical TCP-HM9-TC variant instead uses stable-tail labels at $\tau=0.90$, retaining $+\infty$ before routing unresolved queries to the endpoint. We keep that variant distinct from the first-passing, $\tau=0.95$ refresh replay. Neither a shared name nor nine-source maximum pooling supplies the 5\% build-marginal guarantee of Proposition~\ref{prop:pooling}; the label bridge, pool size, and exchangeability assumptions must each hold.
+
+\subsection{Target Recalibration and Fallback}
+\label{sec:tcp-recalibration}
+
+Recalibration changes one global grid shift, not a per-query target label lookup. For $s\in\{0,\ldots,J-1\}$, define
+\begin{equation}
+ \pi_s(q)=a_{\min\{j_0^{(t)}(q)+s,J\}}.
+ \label{eq:shift}
+\end{equation}
+The selection routine scans shifts in ascending order and chooses the first whose selection-role CP upper bound is at most 0.05. If none passes, it returns shift $J-1$, the endpoint policy. This use of the bound is a selection heuristic, not a simultaneous certificate over scanned shifts. It chooses the first qualifying shift, not the minimum measured-NDC policy of Proposition~\ref{prop:selection}; larger shifts need not have monotonically increasing NDC.
+
+The chosen policy $\pi_{\hat s}$ is frozen before certification. On the separate certification role, the code computes its individual 95\% CP bound and the endpoint's individual 95\% bound. It executes $\pi_{\hat s}$ if the former passes; otherwise it executes the endpoint and sets a deployment flag according to the latter. If both fail, the replay still records endpoint outcomes with a failed deployment flag. Such a record is evaluation evidence, not an authorized deployment. The source-audited comparator follows the same decision path with $s=0$; raw source reuse bypasses fallback for diagnostic purposes.
+
+These two individual bounds do not instantiate Proposition~\ref{prop:simultaneous} at $\alpha=0.05$: their error allocations sum to 0.10. The primary tables therefore retain empirical risk and fallback behavior without a pipeline-wide 95\% claim. A separate historical three-policy implementation allocates $0.05/3$ to TCP, a source-selected fixed action, and the endpoint. That composition matches the simultaneous construction, but uses a different policy/event configuration and does not retroactively certify the refresh results.
 
 \begin{figure}[t]
 \centering
-\slot{Audit and recovery path}{Inputs: graph identity, source query profiles, action grid. Separate target selection, certification, and evaluation lanes. Route a rejected candidate to the registered endpoint. Attach profile, truth, certification, search, and fallback costs to the operations that incur them.}
-\caption{Workflow placement. Scientific question: what information and costs produce each deployment decision? Certification composition remains a separate proof obligation.}
-\Description{Text-only placeholder for the audit workflow, isolated query roles, and action costs.}
+\fbox{\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}
+\small
+\textbf{Frozen refresh replay}\par\smallskip
+\begin{enumerate}
+\item Encode each query's first passing old-build action; unresolved responses execute at the endpoint.
+\item Pool nine source indices by their maximum to form $j_0^{(t)}(q)$.
+\item On selection queries, scan the global shifts in Equation~\eqref{eq:shift}; freeze the first qualifying shift.
+\item On certification queries, check the candidate and endpoint separately. Choose candidate if accepted, else endpoint; retain a failed flag if neither passes.
+\item Read evaluation outcomes at the chosen actions. Report risk, NDC, tails, fallback, and acquisition costs.
+\end{enumerate}
+\end{minipage}}
+\caption{Executable specification of the TCP recovery replay. The target roles are disjoint; source profiles remain required inputs for each query. Step 4 uses individual bounds rather than a simultaneous 95\% certificate.}
+\Description{Five-step specification: old-build response encoding, history-max pooling, target shift selection, individual candidate and endpoint checks, and held-out evaluation.}
 \label{fig:workflow}
 \end{figure}
+
+\subsection{What the Operator Pays For}
+
+Given a stored pooled index, applying Equation~\eqref{eq:shift} costs a lookup, integer addition, and grid clipping per query before native search. Pooling $m$ stored labels costs $O(m)$; retaining all labels for $Q$ profiled queries costs $O(mQ)$ storage, or $O(Q)$ for an already pooled policy. These operation counts exclude acquiring the labels. Source profiling requires native searches and exact-neighbor truth, while target selection and certification require their own labeled responses. A first-passing profile can stop at a success; a stable-tail profile needs the remaining registered responses too.
+
+The serving gain is the reduction in total NDC relative to the fixed endpoint over the same queries, not the mean of per-query ratios. The audit records mean, query-pooled p95/p99, and fallback-build counts separately, since a build-level endpoint fallback can change the entire cost distribution. Section~\ref{sec:recovery} accounts for the horizon needed to repay information acquisition. An economical policy must repay those costs under its actual query-reuse rate; a cheap lookup alone establishes no lifecycle advantage.

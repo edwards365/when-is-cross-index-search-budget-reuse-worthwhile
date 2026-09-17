@@ -1,8 +1,11 @@
 \section{Problem Formulation and Theoretical Lens}
 \label{sec:theory}
-\sectionaim{Define the estimands first, then state exactly what a theory result would explain.}
 
-Let $G$ denote an index build, $q\sim\mathcal{Q}$ a query, and $a\in\mathcal{A}$ a registered search action. A policy $\pi$ maps its permitted observations to an action. For recall target $\tau$, define
+Budget transfer has three different statistical objects: a decision made from available observations, query risk on a fixed target build, and coverage over a distribution of builds. We state their guarantees separately. The testing, confidence-bound, and rank arguments below are classical tools applied to the registered search setting, rather than new general statistical inequalities.
+
+\subsection{Build-Conditioned Risk and Budget Labels}
+
+Let $G$ include the vector snapshot, graph, and fixed search implementation, $q\sim\mathcal{Q}$ a query, and $\mathcal{A}=(a_1<\cdots<a_J)$ a finite grid of implementation-native actions. A policy $\pi$ maps permitted observations to an action. For recall target $\tau$, define
 \begin{equation}
  \begin{aligned}
  Z_G(q,a)&=\indicator\{\rec@k(G,q,a)<\tau\},\\
@@ -10,24 +13,62 @@ Let $G$ denote an index build, $q\sim\mathcal{Q}$ a query, and $a\in\mathcal{A}$
  \end{aligned}
  \label{eq:risk}
 \end{equation}
-The observation arguments of $\pi$ are suppressed in the notation, not in the experimental contract. In the primary replay $k=10$ and $\tau=0.95$; with discrete recall this threshold requires ten of ten neighbors to be retrieved. It is a stricter event than failure to retrieve nine of ten.
+The arguments describing observations are suppressed in $\pi(q)$, but remain part of the policy definition. Ground truth is computed against the corresponding vector snapshot. In the primary replay, $k=10$ and $\tau=0.95$ require all ten neighbors; recovering nine is a failure.
 
-\paragraph{Absolute and incremental risk.}
-For a policy obtained on source build $G_s$ and a specified target reference $\pi_t^{\rm ref}$, use
+For a source policy $\pi_s$ and a specified target reference $\pi_t^{\mathrm{ref}}$, the incremental risk is
 \begin{equation}
- \Delta_{s\to t}=\risk_{G_t}(\pi_s)-\risk_{G_t}(\pi_t^{\rm ref}).
+ \Delta_{s\to t}=\risk_{G_t}(\pi_s)-\risk_{G_t}(\pi_t^{\mathrm{ref}}).
  \label{eq:increment}
 \end{equation}
-The absolute target risk and the reference risk must accompany this difference. A difference expressed in percentage points is not a relative percentage change. The reference and query distribution are part of the estimand.
+Both absolute risks accompany this difference. A target reference can itself fail, and a refresh-plus-rebuild comparison changes more than the graph alone. Requested action, distance evaluations (NDC), and elapsed time are recorded separately: ordering $a_j$ does not order either realized search work or raw recall.
 
-\paragraph{Budget actions, work, and censoring.}
-Requested search parameters, distance evaluations, and wall-clock time are separate quantities. A larger requested action need not imply a monotone raw recall sequence or a fixed amount of work. When an experiment defines failure using an under-budget or endpoint-censored event, it requires its own event definition and cannot inherit Equation~\eqref{eq:risk} by relabeling. Endpoint truncation will be shown together with any minimum-budget summary.
+This distinction also affects budget labels. Define the first passing action $B_G^{\mathrm{first}}(q)=\min\{a_j:Z_G(q,a_j)=0\}$ and the stable-tail action
+\begin{equation}
+ B_G^{\mathrm{tail}}(q)=\min\{a_j:Z_G(q,a_\ell)=0\ \forall\ell\ge j\}.
+ \label{eq:stable-label}
+\end{equation}
+An empty set has value $+\infty$, denoting an unresolved endpoint, not an executable action. A finite stable-tail label establishes success of every grid action above it \emph{on that recorded response}; a first passing label has no such implication when recall is non-monotone. Both are retrospective labels requiring truth. An under-budget event or a censored label is therefore kept distinct from the execution failure in Equation~\eqref{eq:risk}.
 
-\paragraph{Conditional information limits.}
-The theoretical slot is a conditional impossibility result: if the observations available to a decision rule do not distinguish rebuild states that require incompatible actions, uniformly safe and efficient transfer may be impossible. The final statement must specify the observed variables, admissible policies, loss, state distribution, and the hypothesis controlling distinguishability. The old empirical total-variation premise is not used here as an established measurement. Proof and empirical-premise reconciliation remain part of the next writing stage.
+\subsection{What Limited Observations Cannot Resolve}
+\label{sec:information-limit}
 
-\paragraph{Certification of one fixed policy.}
-Let $x$ failures be observed among $n$ independent certification queries after the policy has been fixed independently of those queries. A one-sided Clopper--Pearson upper confidence bound is
+Fix a query and two possible build environments $E_0,E_1$. Let $O$ contain everything a decision rule can observe: source profiles, permitted query features, and any target probe transcript. Its laws are $P_0^O,P_1^O$. An action may encode execution, fallback, or abstention. Let $D_i$ be the acceptable decisions in $E_i$ under a declared risk--cost requirement, and let $L_i$ be a nonnegative loss. Including cost matters: a common expensive endpoint may satisfy safety in both environments while failing the efficiency requirement.
+
+\begin{proposition}[Observation-limited decision loss]
+\label{prop:information}
+If $D_0\cap D_1=\varnothing$ and $L_i(a)\ge\lambda\indicator\{a\notin D_i\}$ for $\lambda>0$, every common, possibly randomized, decision rule based on $O$ satisfies
+\begin{equation}
+ \max_i\mathbb{E}_i L_i(A)\ \ge\
+ \frac{\lambda}{2}\bigl(1-\operatorname{TV}(P_0^O,P_1^O)\bigr).
+ \label{eq:information}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Use the decision to test the environment: return 0 if $A\in D_0$, and 1 otherwise. Under $E_0$ a testing error implies $A\notin D_0$; under $E_1$ it implies $A\in D_0\subseteq D_1^c$. The sum of expected losses is at least $\lambda$ times the sum of testing errors, which is at least $1-\operatorname{TV}(P_0^O,P_1^O)$ by the two-point testing bound~\cite{yu1997assouad}. Taking half the sum proves the claim.
+\end{proof}
+
+The result identifies an information requirement for avoiding conflicting decisions. It gives no positive lower bound if a common acceptable decision exists or the full observations distinguish the environments. For random queries, the relevant observable includes $q$ jointly with the transcript; a bound on transcript marginals alone is insufficient. Our empirical transfer rates are measured outcomes, not numerical instantiations of Equation~\eqref{eq:information}. In particular, classifier accuracy supplies a lower bound on distinguishability, whereas this loss bound needs an upper bound.
+
+\subsection{Fixed-Target Selection and Certification}
+\label{sec:fixed-cert}
+
+Fix a target $G$ and a family of $M$ candidate policies. Write $r_j=\risk_G(\pi_j)$ and $c_j=\mathbb{E}\ndc_G(q,\pi_j(q))$. Selection estimates $\hat r_j,\hat c_j$ on its own query role. A useful action must be both distinguishable from unsafe candidates and separated from the risk boundary.
+
+\begin{proposition}[Margin-based selection]
+\label{prop:selection}
+On the event $\max_j|\hat r_j-r_j|\le\varepsilon_R$ and $\max_j|\hat c_j-c_j|\le\varepsilon_C$, retain $S=\{j:\hat r_j+\varepsilon_R\le\delta\}$ and choose $\hat j\in\arg\min_{j\in S}\hat c_j$. Every retained policy is safe. If $j_*$ minimizes cost among policies with $r_j\le\delta-2\varepsilon_R$ and this set is nonempty, then
+\begin{equation}
+ r_{\hat j}\le\delta,\qquad c_{\hat j}\le c_{j_*}+2\varepsilon_C.
+ \label{eq:selection}
+\end{equation}
+\end{proposition}
+\begin{proof}
+For retained $j$, $r_j\le\hat r_j+\varepsilon_R\le\delta$. The margin gives $\hat r_{j_*}+\varepsilon_R\le r_{j_*}+2\varepsilon_R\le\delta$, so $j_*\in S$. Thus $c_{\hat j}\le\hat c_{\hat j}+\varepsilon_C\le\hat c_{j_*}+\varepsilon_C\le c_{j_*}+2\varepsilon_C$.
+\end{proof}
+
+This is a conditional selection statement relative to the margin-feasible comparator, not a bound against every safe policy. Its estimation event must be justified for the actual estimator. It also does not bound the cost of a fallback invoked after certification rejects the selected policy.
+
+For a policy fixed independently of $n$ i.i.d. target-certification queries, with $x$ binary failures, a one-sided Clopper--Pearson bound~\cite{clopper1934confidence} is
 \begin{equation}
  U(x,n;\alpha)=
  \begin{cases}
@@ -36,4 +77,40 @@ Let $x$ failures be observed among $n$ independent certification queries after t
  \end{cases}
  \label{eq:cp}
 \end{equation}
-Here $\alpha$ controls the coverage error and $\delta$ is the tolerated failure probability. The acceptance rule is $U\leq\delta$. Even when both are set to 0.05, their meanings differ. Applying this bound to several actions and choosing one afterward requires an additional joint-validity argument. It does not follow directly from the single-policy bound.
+Acceptance requires $U\le\delta$. Here $\alpha$ controls confidence error and $\delta$ bounds query failure. With zero failures, $U=1-\alpha^{1/n}$, so $\alpha=\delta=0.05$ needs at least 59 certification queries. This minimum establishes possible acceptance, not high acceptance probability for a near-boundary policy.
+
+\begin{proposition}[Selected-policy certificate]
+\label{prop:simultaneous}
+Freeze $M$ policies independently of certification outcomes and allocate $\alpha_j>0$ with $\sum_j\alpha_j\le\alpha$. Compute $U_j=U(x_j,n;\alpha_j)$ on a common i.i.d. certification sample. Select any policy with $U_j\le\delta$, or abstain if none qualifies. Then
+\begin{equation}
+ \Pr\{\text{a policy is selected and }r_{\mathrm{selected}}>\delta\}
+ \le\alpha.
+ \label{eq:simultaneous}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The probability that any $r_j>U_j$ is at most $\sum_j\alpha_j\le\alpha$. On the complementary event, every accepted policy is safe, regardless of which is selected. Independence among the policy bounds is unnecessary.
+\end{proof}
+
+This is the standard simultaneous-testing construction~\cite{angelopoulos2021ltt}. Target selection may define the candidate family before certification; the statement then applies conditionally on that selection. A fallback belongs in the family or needs a separately justified certificate. The bound controls the probability of an unsafe selection, not the error rate conditional on the procedure selecting something, and it concerns one fixed target rather than an entire build campaign.
+
+\subsection{Pooling Across Exchangeable Builds}
+\label{sec:pooling-theory}
+
+Historical query profiles provide a different route: pool budget labels across builds rather than certify a policy over target queries. Let $m$ source builds and one target have exchangeable labels $B_1(q),\ldots,B_m(q),B_t(q)$ for a fixed query $q$, with $+\infty$ retained in the order. For a build-marginal error level $\eta$, set $r=\lceil(1-\eta)(m+1)\rceil$. If $r\le m$, let $a(q)$ be the $r$th source order statistic; otherwise abstain. An infinite order statistic also causes abstention.
+
+\begin{proposition}[Build-marginal label coverage]
+\label{prop:pooling}
+For $r\le m$, the preceding rule satisfies
+\begin{equation}
+ \Pr\{a(q)<\infty,\ B_t(q)>a(q)\}
+ \le\frac{m+1-r}{m+1}\le\eta.
+ \label{eq:pooling}
+\end{equation}
+If these are stable-tail labels, the same bound holds for finite-action execution failure.
+\end{proposition}
+\begin{proof}
+Break label ties using independent continuous auxiliary variables. Exchangeability makes the target's augmented rank uniform among $m+1$ positions. A label strictly larger than the $r$th source label has augmented rank greater than $r$, giving the inequality. For stable-tail labels, a finite action at least $B_t(q)$ succeeds by Equation~\eqref{eq:stable-label}.
+\end{proof}
+
+The argument is conformal rank coverage with builds as the sampling unit~\cite{angelopoulos2023conformal}. It holds separately for each fixed query, marginally over the source and target build draw, not simultaneously for all queries or conditionally on a particular target. Nine sources have resolution $1/10$; a non-vacuous 5\% bound requires at least 19. Old-snapshot and refreshed-snapshot labels need not be exchangeable. First-passing labels additionally require a deployment-specific monotonicity bridge; averaging non-monotonicity over all grid actions does not supply that bridge for a selected action. These distinctions determine which parts of the theory can be used to interpret the TCP replay.
