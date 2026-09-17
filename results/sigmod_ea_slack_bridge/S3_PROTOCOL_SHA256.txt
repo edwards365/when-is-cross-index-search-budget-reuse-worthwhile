@@ -1,0 +1,1 @@
+c47aa028e80526d17b7db9a415d25c7490f0be48eae3073612e155e458e62299  docs/sigmod_ea_slack_bridge/S3_PROTOCOL.md
