@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "sift_100k",
+    "source": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/data/raw/sift-128-euclidean.hdf5",
+    "members": [
+      "train[:100000]",
+      "train[frozen_S2_ids]"
+    ],
+    "target_certification_queries": 500,
+    "target_evaluation_queries": 500,
+    "exact_truth_computed": true,
+    "access_after_preregistration": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "source": "/home/wlk/data500/navigation-aware-resistance-hnsw-main/data/raw/arxiv-nomic-768-normalized.hdf5",
+    "members": [
+      "train[:100000]",
+      "train[frozen_S2_ids]"
+    ],
+    "target_certification_queries": 500,
+    "target_evaluation_queries": 500,
+    "exact_truth_computed": true,
+    "access_after_preregistration": true
+  }
+]

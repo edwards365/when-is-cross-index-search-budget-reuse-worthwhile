@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks": {
+    "preregistration_precedes_access": true,
+    "role_manifest_hash": true,
+    "frozen_policy_hash": true,
+    "index_count": true,
+    "raw_file_count": true,
+    "raw_cube_complete": true,
+    "sift_100k_role_counts": true,
+    "sift_100k_role_overlap_zero": true,
+    "arxiv_nomic_100k_role_counts": true,
+    "arxiv_nomic_100k_role_overlap_zero": true,
+    "pair_count": true,
+    "all_executed_actions_certified": true,
+    "evaluation_role_size": true,
+    "two_dataset_summary": true,
+    "all_registered_gates_pass": true
+  },
+  "checks_passed": 15,
+  "checks_total": 15,
+  "raw_rows": 288000
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "sift_100k",
+    "path": "results/sigmod_ea_postseal_uplift/s3_inputs/sift_100k.queries.npy",
+    "bytes": 512128,
+    "sha256": "8a149199ad396416615a3ed893841276c5d08dffecd133e038523808d6a75ef6"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "results/sigmod_ea_postseal_uplift/s3_inputs/sift_100k.truth.npy",
+    "bytes": 40128,
+    "sha256": "df5f3ef2ef5465f653da8fb59ee2723be56d6adab97be636be86736d188217ff"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "results/sigmod_ea_postseal_uplift/s3_inputs/sift_100k.external_ids.json",
+    "bytes": 8001,
+    "sha256": "9e200319f075c74d622c1edc49c2eb5ed487a02d50eb76b1d5a44703db855dc2"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "results/sigmod_ea_postseal_uplift/s3_inputs/arxiv_nomic_100k.queries.npy",
+    "bytes": 3072128,
+    "sha256": "6a128409616ba92b5841dfa7d6e77a2e03e6b4e5e9a4ec6bae66414de7ee876b"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "results/sigmod_ea_postseal_uplift/s3_inputs/arxiv_nomic_100k.truth.npy",
+    "bytes": 40128,
+    "sha256": "b174f89636bd71325620130e7386790772ebf5e51711dcade196c5e0735e3d36"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "results/sigmod_ea_postseal_uplift/s3_inputs/arxiv_nomic_100k.external_ids.json",
+    "bytes": 8001,
+    "sha256": "aaa0c3aacd1ba13dc2d452c1e0b18f173fc8837f52ca5127d56f73649eaee637"
+  }
+]
