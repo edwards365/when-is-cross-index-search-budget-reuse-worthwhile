@@ -1,0 +1,60 @@
+\section{Portability, Risk, and the Scope of Guarantees}
+\label{sec:theory}
+
+\subsection{Execution Risk and Retrospective Responses}
+Let $G$ specify a vector snapshot, graph, and search implementation, and let $\mathcal A=(a_1<\cdots<a_J)$ be its native action grid. A policy $\pi$ maps permitted query and history observations to an action. For $q\sim\mathcal Q$,
+\begin{equation}
+ \begin{aligned}
+ Z_G(q,a)&=\indicator\{\rec@k(G,q,a)<\tau\},\\
+ \risk_G(\pi)&=\mathbb E_q Z_G(q,\pi(q)).
+ \end{aligned}\label{eq:risk}
+\end{equation}
+Truth is computed against the corresponding snapshot. We distinguish target transport risk $\risk_{G_t}(\pi_s)$, source risk $\risk_{G_s}(\pi_s)$, and a reference-relative increment
+\begin{equation}
+ \Delta_{s\to t}=\risk_{G_t}(\pi_s)-\risk_{G_t}(\pi_t^{\rm ref}).\label{eq:increment}
+\end{equation}
+A matched old-to-new comparison instead subtracts $\risk_{G_s}(\pi_s)$, keeping the policy fixed. These two differences answer different questions.
+
+A retrospective first-passing label is $B_G^{\rm first}(q)=\min\{a_j:Z_G(q,a_j)=0\}$. A stable-tail label is
+\begin{equation}
+ B_G^{\rm tail}(q)=\min\{a_j:Z_G(q,a_\ell)=0\text{ for every }\ell\ge j\}.\label{eq:stable-label}
+\end{equation}
+Both require query truth; an empty set is $+\infty$, an unresolved label. Native action order need not make either raw recall or realized NDC monotone. Consequently, an action larger than a first-passing label need not succeed, whereas a finite stable-tail label establishes success above it on the recorded grid. The graph-only study uses first-passing labels and evaluates the transferred action's \emph{actual} target response, rather than replacing execution failure by a budget-order comparison.
+
+\subsection{Information Limits Explain What Must Be Observed}
+\label{sec:information-limit}
+The following classical two-point argument~\cite{yu1997assouad} states why source information alone may be insufficient. For two environments $E_0,E_1$, let $O$ include everything available to the decision rule, with laws $P_0^O,P_1^O$. Suppose acceptable risk--cost decisions form disjoint sets $D_0,D_1$, and loss satisfies $L_i(a)\ge\lambda\indicator\{a\notin D_i\}$ for $\lambda>0$. Then every common decision rule satisfies
+\begin{equation}
+ \max_i\mathbb E_i L_i(A)\ge\frac{\lambda}{2}\bigl(1-\operatorname{TV}(P_0^O,P_1^O)\bigr).\label{eq:information}
+\end{equation}
+Indeed, deciding whether $A\in D_0$ defines a test of the environment; its sum of error probabilities is at least $1-\operatorname{TV}$. If a common expensive endpoint is acceptable, disjointness fails and the bound can be vacuous. For random queries, $O$ must include the query jointly with its transcript. Our measurements establish response differences, not an estimate of full-observation total variation or an impossibility result for every policy. The bound explains the information question; the audit below supplies the operational test. \emph{Takeaway: source observations alone cannot generally identify a low-cost target-qualified action.}
+
+\subsection{Certifying a Fixed-Target Decision}
+\label{sec:fixed-cert}
+For a policy fixed independently of $n$ i.i.d. target-certification queries, $x$ failures yield the one-sided Clopper--Pearson bound~\cite{clopper1934confidence}
+\begin{equation}
+ U(x,n;\alpha)=\begin{cases}
+ \operatorname{Beta}^{-1}(1-\alpha;x+1,n-x),&x<n,\\1,&x=n.
+ \end{cases}\label{eq:cp}
+\end{equation}
+Acceptance requires $U\le\delta$. Confidence error $\alpha$ and allowed query risk $\delta$ are distinct. At zero failures, $U=1-\alpha^{1/n}$; $\alpha=\delta=0.05$ requires at least 59 queries for acceptance to be possible. With 500 certification queries, nonzero failures can be accepted, but rejection can still reflect limited power near the boundary.
+
+\begin{proposition}[Jointly qualified selection on one target]
+\label{prop:simultaneous}
+Freeze $K$ policies before certification, and allocate $\alpha_j>0$ with $\sum_{j=1}^K\alpha_j\le\alpha$. On a common i.i.d. certification sample, compute $U_j=U(x_j,n;\alpha_j)$. Select any policy with $U_j\le\delta$, or abstain if none qualifies. Then
+\begin{equation}
+ \Pr\{\text{a policy is selected and }\risk_G(\pi_{\rm selected})>\delta\}\le\alpha.\label{eq:simultaneous}
+\end{equation}
+\end{proposition}
+\begin{proof}
+By a union bound, $\Pr\{\exists j:\risk_G(\pi_j)>U_j\}\le\sum_j\alpha_j$. Otherwise every selectable policy satisfies the risk limit. Independence among policies' bounds is unnecessary.
+\end{proof}
+This is simultaneous risk control~\cite{angelopoulos2021ltt}. Selection may define the policies using a separate role; the proposition then applies conditionally on selection. A fallback must be included or separately justified. The statement is per fixed target, not simultaneous over a campaign, and does not bound risk conditional on the event of acceptance. Campaign-level coverage would require a separately preregistered simultaneous-error allocation and is not claimed here. The i.i.d. query interpretation concerns the represented workload; fixed-profile replay by itself proves no guarantee for a changed query population. \emph{Takeaway: once candidates are frozen, independent target queries can qualify the completed candidate/fallback decision.}
+
+\subsection{Why Pooling Is Not the Same Certificate}
+\label{sec:pooling-theory}
+For $m$ source builds and one target with exchangeable budget labels at a fixed query, conformal rank reasoning~\cite{angelopoulos2023conformal} gives a different guarantee. Let $r=\lceil(1-\eta)(m+1)\rceil$. Use the $r$th source order statistic if $r\le m$ and it is finite; otherwise abstain. Then
+\begin{equation}
+ \Pr\{a(q)<\infty,\ B_t(q)>a(q)\}\le\frac{m+1-r}{m+1}\le\eta.\label{eq:pooling}
+\end{equation}
+This is build-marginal label coverage for a fixed query. It translates to execution failure for stable-tail labels, but not automatically for first-passing labels. Nine sources offer rank resolution $1/10$, and old/refreshed builds need not be exchangeable. Accordingly, TCP's nine-history replay derives its target qualification from Equation~\eqref{eq:simultaneous}, not from a 5\% conformal claim. The short supplement supplies the rank proof and a margin-based selection result, and states which assumptions are uninstantiated in the experiment. \emph{Takeaway: history pooling constructs a candidate; it does not itself provide the target certificate.}

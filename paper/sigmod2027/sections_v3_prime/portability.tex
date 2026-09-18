@@ -1,0 +1,25 @@
+\section{Where Budget Portability Fails}
+\label{sec:portability}
+
+\subsection{RQ1: Do Responses Transfer When Only the Graph Changes?}
+Retrospective first-passing actions frequently fail after a graph-only rebuild, even though collection membership, queries, and truth are unchanged. Table~\ref{tab:graph-only} reports absolute target risk, the unresolved-reference risk, and their difference. Across hnswlib and Faiss on both datasets, the increment ranges from 17.17 to 23.60 percentage points; every query-cluster interval is above zero. This is a response-level result independent of TCP's pooling or recalibration.
+
+\begin{table*}[t]
+\caption{Graph-only response transfer at $k=10$, $\tau=0.95$. Each row has 24 builds, 552 directed pairs, and 750 shared query IDs. Risk entries and increments are percentages or percentage points [95\% query-cluster interval], conditional on the fixed build set. The reference uses the target's own first-passing response; its failures are unresolved queries. Finite variation counts queries with at least two distinct finite first-passing actions, divided by all 750 queries.}
+\label{tab:graph-only}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llcccr@{}}\toprule
+Implementation & Dataset & Absolute risk (\%) & Reference risk (\%) & Increment (pp) & Finite variation (\%)\\\midrule
+\GraphOnlyRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+The variation is principally among finite budgets: 75.87--91.07\% of queries have different finite first-passing actions across builds, while only 0.53--2.67\% switch between resolved and unresolved states. Removing the 1\% of queries with largest incremental contribution leaves increments of 21.37 (hnswlib/SIFT), 16.95 (hnswlib/Arxiv), 23.43 (Faiss/SIFT), and 17.53 (Faiss/Arxiv) percentage points. Reference unresolved risk spans 0.07--8.82\% across the registered settings. The reported increment subtracts that reference risk, while deployment checks candidate and endpoint separately and abstains if the endpoint does not qualify. Endpoint censoring therefore cannot manufacture a qualified fallback; it instead narrows which registered grids support a decision. Together with the deletion result, this rules out censoring and a handful of extreme queries as explanations for the observed transfer loss.
+
+This experiment diagnoses the budget--response relation using retrospective truth on both source and target. It establishes that source success alone is insufficient evidence for action reuse. The measured mechanism is behavioral variation across builds; structural attribution to particular edges or navigation paths lies outside this response-level design.
+
+\subsection{RQ2: Does an Executable Policy Deteriorate after Refresh?}
+The matched old/new replay holds the nine-history policy fixed and applies it to both snapshots. Unlike RQ1, this changes 5\% of the vectors as well as rebuilding. SIFT's empirical risk rises from 3.77\% to 6.69\%; Arxiv-Nomic's rises from 3.19\% to 7.24\%. The corresponding paired increments [crossed 95\% interval] are 2.92 [1.75, 4.07] and 4.05 [2.86, 5.31] percentage points. Thus this is a measured deterioration, not merely an absolute target risk with an unknown source baseline.
+
+Independent single-policy CP checks at $\alpha=0.05$ qualify six of ten old SIFT policies and five of ten old Arxiv policies. All eleven fail the corresponding target check. This paired diagnostic uses per-policy checks rather than simultaneous control over the eleven transitions. Target evaluation risk exceeds 5\% in all ten builds of each dataset; removing the highest-risk target leaves 6.61\% and 7.13\%. The deterioration is distributed across targets.
+
+The same policy information is held fixed in each old/new comparison, but the experiment does not separate changed graph paths from changed nearest-neighbor membership. Together, RQ1 and RQ2 establish complementary facts: unchanged data do not make the response function portable, and a recurring-query policy can lose its old qualification after refresh plus rebuilding.

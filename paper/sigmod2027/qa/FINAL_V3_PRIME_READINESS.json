@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "main": {
+    "pages": 11,
+    "bytes": 214906,
+    "sha256": "d2467ae851ba497e39dccef453ad3cec4d836a2dfe490e5d15abc6ec39b7e842",
+    "letter": true,
+    "anonymous": true,
+    "references_resolved": true
+  },
+  "appendix": {
+    "pages": 5,
+    "bytes": 99439,
+    "sha256": "a4fd3a26099b1bbe2c1996ea9723cd153a1cc2eb99dc3f63db73a2824886a919",
+    "letter": true,
+    "anonymous": true,
+    "references_resolved": true
+  },
+  "structure": {
+    "icba_centered": true,
+    "semantic_stage_names_in_main": true,
+    "policy_hierarchy_explicit": true,
+    "certificate_scope_explicit": true,
+    "full_risk_intervals_and_cfa_counts": true,
+    "claim_map_rows": 9,
+    "derived_intervals_frozen": true,
+    "anonymous_url_action": "PENDING_SUBMISSION_SYSTEM_VALUE",
+    "equal_target_label_budget_wording": true,
+    "shared_target_decision_unit_explicit": true,
+    "campaign_scope_explicit": true,
+    "timing_amendment_explicit": true,
+    "endpoint_censoring_direction_explicit": true
+  }
+}
