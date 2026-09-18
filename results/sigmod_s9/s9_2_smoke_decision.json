@@ -1,0 +1,46 @@
+{
+  "phase": "S9-2",
+  "decision": "AUTHORIZE_STAGE_A_FULL_RUNTIME",
+  "scientific_result": false,
+  "policy_gain_viewed_before_amendment": false,
+  "frozen_protocol_commit": "5a76227",
+  "timing_amendment_commit": "6cb49ca",
+  "manifest_sha256": "03d5afeceab47e7c96f9e2990ddc79c704a4f99734fdff94e7e67672ac312221",
+  "runs": [
+    {
+      "name": "smoke_v1",
+      "status": "INVALID_SMOKE_WARMUP_SHORTFALL",
+      "reason": "registered 50-query warm-up was incorrectly capped at the 20-query measurement size",
+      "native_mismatches": 0,
+      "gate_sha256": "3b055c198072822fb4ba7a69d2b132faf51aae5ac7cab125c899dd68c05a89de"
+    },
+    {
+      "name": "smoke_v2",
+      "status": "FAIL_ORIGINAL_CELL_CV_GATE",
+      "reason": "correct 50-query warm-up but cell-level CV exceeded the original sub-millisecond timing gate",
+      "native_mismatches": 0,
+      "gate_sha256": "e31b05f70bcab994d1aea4e040ea8ea5de6fc0f307dee5e484f760ab11d25f44"
+    },
+    {
+      "name": "smoke_v3",
+      "status": "PASS_AMENDMENT_A1_ACTION_BLOCK_GATE",
+      "query_count": 100,
+      "repetitions": 7,
+      "warmup_queries": 50,
+      "native_mismatches": 0,
+      "complete_fraction": 1.0,
+      "sift_median_action_block_cv": 0.026171185908647372,
+      "sift_max_action_block_cv": 0.0409426470445708,
+      "arxiv_median_action_block_cv": 0.026842093556605277,
+      "arxiv_max_action_block_cv": 0.04103496124966174,
+      "gate_sha256": "db321f7392e108e4d55d0ee77795dab0903a4c09472c263e26cff165fd154c76"
+    }
+  ],
+  "gate": {
+    "median_action_block_cv_max": 0.05,
+    "max_action_block_cv_max": 0.10,
+    "native_equivalence_required": true,
+    "complete_fraction_required": 1.0
+  },
+  "scope": "Infrastructure authorization only; no TCP, fixed-slack, target-global, latency-gain, tail, safety, or lifecycle conclusion is made."
+}

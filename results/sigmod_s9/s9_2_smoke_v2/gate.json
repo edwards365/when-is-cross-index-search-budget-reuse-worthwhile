@@ -1,0 +1,77 @@
+{
+  "status": "FAIL",
+  "mode": "SMOKE",
+  "manifest_sha256": "03d5afeceab47e7c96f9e2990ddc79c704a4f99734fdff94e7e67672ac312221",
+  "environment": {
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "python": "3.11.16",
+    "faiss": "1.8.0",
+    "pid": 2478283,
+    "affinity": [
+      2
+    ],
+    "required_cpu": 2,
+    "affinity_exact": true,
+    "loadavg": [
+      0.12,
+      0.13,
+      0.1
+    ],
+    "governor": "ondemand",
+    "frequency_khz": "3263446",
+    "timer_overhead": {
+      "wall_median_ns": 70.0,
+      "cpu_median_ns": 790.0
+    },
+    "thread_env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "settings": {
+    "role": "target_evaluation",
+    "query_count": 20,
+    "repetitions": 3,
+    "warmup_queries": 50,
+    "builds_per_dataset": 1,
+    "grid": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ]
+  },
+  "summaries": [
+    {
+      "dataset": "sift_100k",
+      "build": "sift_100k__100k__clean00__seed3101",
+      "rows": 360,
+      "cells": 120,
+      "mismatches": 0,
+      "median_cv": 0.17579484014800206,
+      "p95_cv": 0.44130374323916727,
+      "complete_fraction": 1.0,
+      "output_sha256": "38776eba80e578f73ec0a000e517eb6f4ce60d316e7f2d31201f5cfc8e6eaa70"
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "build": "arxiv_nomic_100k__100k__clean00__seed3101",
+      "rows": 360,
+      "cells": 120,
+      "mismatches": 0,
+      "median_cv": 0.21178201340391384,
+      "p95_cv": 0.5515232246988369,
+      "complete_fraction": 1.0,
+      "output_sha256": "e759c79f062d9a3d7874a432b39ad5197b7ea03a4b42db4c291e853cc74020af"
+    }
+  ],
+  "total_mismatches": 0,
+  "loadavg_after": [
+    0.19,
+    0.15,
+    0.1
+  ]
+}

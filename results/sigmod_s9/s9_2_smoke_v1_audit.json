@@ -1,0 +1,34 @@
+{
+  "phase": "S9-2",
+  "run": "smoke_v1",
+  "status": "INVALID_SMOKE_WARMUP_SHORTFALL",
+  "reason": "runner capped the registered 50 warm-up queries at the 20-query smoke measurement size",
+  "scientific_result": false,
+  "native_mismatches": 0,
+  "observed_noise_retained": [
+    {
+      "dataset": "sift_100k",
+      "build": "sift_100k__100k__clean00__seed3101",
+      "rows": 360,
+      "cells": 120,
+      "mismatches": 0,
+      "median_cv": 0.171862122805714,
+      "p95_cv": 0.43361445962612094,
+      "complete_fraction": 1.0,
+      "output_sha256": "279106e855b1f8131abb60232c28e00809a9a238ecf2a757f809ed13c3b7d6da"
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "build": "arxiv_nomic_100k__100k__clean00__seed3101",
+      "rows": 360,
+      "cells": 120,
+      "mismatches": 0,
+      "median_cv": 0.21271864376562377,
+      "p95_cv": 0.5195615265722461,
+      "complete_fraction": 1.0,
+      "output_sha256": "1b7dbc93690bab1e80d54794ab451cdb5cbd7e89a7b4bd28b175718f6cf1a95d"
+    }
+  ],
+  "gate_sha256": "3b055c198072822fb4ba7a69d2b132faf51aae5ac7cab125c899dd68c05a89de",
+  "action": "fix only the warm-up count; retain all thresholds and rerun as smoke_v2"
+}
