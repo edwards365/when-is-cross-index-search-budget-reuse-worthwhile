@@ -1,0 +1,87 @@
+{
+  "program": "SIGMOD_EA_S9_4_BASELINE_ABLATION_ATTRIBUTION",
+  "status": "FROZEN_BEFORE_QUERY_VECTOR_TRUTH_RESPONSE_POLICY_OR_RUNTIME_ACCESS",
+  "parent_commit": "48eaba46bf4b3f61a5ffbaa53140bf1229748e0b",
+  "protocol_sha256": "1d057c61f08ab0cac9da2904a5a18043f007a8f5490519aecd76e185a56b41e8",
+  "query_role_manifest_sha256": "0da5625ffebcbdbc4f9733837c46e4edf1ba66813ab4198555a8aa573688303f",
+  "frozen_inputs": {
+    "s9_3_build_registry": {
+      "path": "results/sigmod_s9/s9_3_prospective/build_registry_limit8.json",
+      "sha256": "c86666b8a1c8c131fc6147a4c91a81fbe0abfdd03cf41cfeaa022ccd90705401"
+    },
+    "s9_3_source_decisions": {
+      "path": "results/sigmod_s9/s9_3_analysis/primary_decisions.csv",
+      "sha256": "bdd8e5035d1ce1b16fc1549fcb7bbe48a0f3e7d3d85b1e99be5903333a397ec7"
+    },
+    "s9_3_decision": {
+      "path": "manifests/sigmod_s9_3_decision.json",
+      "sha256": "d97cde1d22b3c8a6918a8ddf38c86124c760e425623c984369812ad0482a3b65"
+    }
+  },
+  "datasets": ["sift_100k", "arxiv_nomic_100k"],
+  "outer_unit": "target_build",
+  "target_builds_per_dataset": 8,
+  "source_directions_per_target": 7,
+  "directed_source_target_pairs_per_dataset": 56,
+  "query_roles_per_dataset": {
+    "baseline_selection": 500,
+    "baseline_certification": 500,
+    "baseline_evaluation": 500
+  },
+  "native_grid": [16, 32, 64, 128, 256, 512],
+  "endpoint": 512,
+  "recall_threshold": 0.95,
+  "risk_limit": 0.05,
+  "selection_alpha_bonferroni": 0.008333333333333333,
+  "candidate_alpha": 0.025,
+  "endpoint_alpha": 0.025,
+  "arms": [
+    {"id": "B0_ENDPOINT_512", "deployable": true, "selection_queries": 0, "certification_queries": 500},
+    {"id": "B1_FIXED_256_CERTIFIED", "deployable": true, "selection_queries": 0, "certification_queries": 500},
+    {"id": "B2_SOURCE_ONE_RUNG_CERTIFIED", "deployable": true, "selection_queries": 0, "certification_queries": 500, "amortized_source_queries": 500},
+    {"id": "B3_TARGET_GLOBAL_EQUAL_500", "deployable": true, "selection_queries": 250, "certification_queries": 250},
+    {"id": "B4_TARGET_GLOBAL_1000", "deployable": true, "selection_queries": 500, "certification_queries": 500},
+    {"id": "A1_SOURCE_ACTION_DIRECT", "deployable": false},
+    {"id": "A2_SOURCE_ONE_RUNG_UNCERTIFIED", "deployable": false},
+    {"id": "A3_FIXED_256_UNCERTIFIED", "deployable": false},
+    {"id": "O1_EVALUATION_ORACLE", "deployable": false}
+  ],
+  "runtime_environment": {
+    "python": "/home/wlk/data500/graph_anns_score8/envs/darth/bin/python",
+    "faiss_version": "1.8.0",
+    "swigfaiss_avx2_sha256": "1324bc7385fd6b19c9205db64eab130fdd4e4996a447854448109fb1d63a5834",
+    "logical_cpu_affinity": [2],
+    "search_threads": 1,
+    "warmup_queries_per_action": 50,
+    "repetitions_per_query_action": 7,
+    "gpu_used": false
+  },
+  "statistics": {
+    "bootstrap": "crossed target-build x query-ID; preserve source directions inside cell",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 991,
+    "confidence": 0.95,
+    "loto": true,
+    "delete_largest_benefit_query_fraction": 0.01
+  },
+  "gates": {
+    "query_overlap_max": 0,
+    "native_mismatch_max": 0,
+    "evaluation_risk_max": 0.05,
+    "wall_gain_ci_lower_min": 0.0,
+    "p95_ratio_ci_upper_max": 1.05,
+    "loto_wall_gain_min": 0.0,
+    "median_action_block_cv_max": 0.05,
+    "max_action_block_cv_max": 0.10
+  },
+  "external_evidence_rule": "native registered evidence matrix only; no unmatched cross-implementation leaderboard",
+  "forbidden": [
+    "using evaluation to choose an arm, action, threshold, or conclusion rule",
+    "treating source directions, queries, or repetitions as independent target builds",
+    "calling B4 equal-information",
+    "calling diagnostic or oracle arms deployable",
+    "silently reimplementing external methods on incompatible units",
+    "accessing validation-dev or formal-test",
+    "result-driven retuning"
+  ]
+}
