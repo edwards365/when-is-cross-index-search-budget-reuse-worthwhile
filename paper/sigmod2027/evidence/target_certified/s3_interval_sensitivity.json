@@ -1,0 +1,13 @@
+{
+  "status": "COMPLETE",
+  "estimand": "frozen post-seal target-certified policy",
+  "decision_refit": false,
+  "query_role": "evaluation query IDs 500--999",
+  "resampling": [
+    "target build",
+    "shared query ID",
+    "crossed target build and shared query ID"
+  ],
+  "reps": 5000,
+  "seed": 991
+}

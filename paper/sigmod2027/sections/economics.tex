@@ -26,19 +26,10 @@ For joint-error replay, cold-history break-even is approximately 396,000 executi
 
 At $N=10^6$, the cold-history joint-error model yields mean net savings of about 490 million NDC on SIFT and 389 million on Arxiv. Their target-build intervals are [488, 491] million and [31, 747] million, respectively. At $10^5$, both cold-history means are negative. Figure~\ref{fig:cost} shows how the crossover depends on what information already exists.
 
-\begin{figure}[t]
-\centering\includegraphics[width=\linewidth]{figures/cost.pdf}
-\caption{Joint-error recovery, modeled net distance savings per target versus serving horizon. Solid: cold complete history; dashed: cached history. Dots mark reported horizons; lines depict the stated affine cost model, not additional measurements. Endpoint-fallback targets remain in the average.}
-\label{fig:cost}
-\Description{Net savings are negative for short horizons and positive at one million executions. Cold-history accounting crosses zero later than cached-history accounting.}
-\end{figure}
-
-This calculation assumes repeated executions over the profiled workload. A cache miss requires new information or a declared endpoint action; an unbounded stream of new query identities can invalidate the amortization. Acquisition of historical graphs themselves is not reconstructed here: cold history means acquiring profiles on retained graphs, not rebuilding the entire archive. Memory traffic, storage, energy, and control time require separate prices. The result is a conditional distance-work benefit, not an end-to-end latency or monetary claim.
-
 \paragraph{Target-certified fresh-query policy.}
-The post-seal replication has a different ledger. For each target, it charges exact truth for 500 certification queries ($500\times100{,}000$ distances) plus measured candidate and endpoint searches, deduplicating equal actions. In the pairwise scenario each source--target direction bears that cost separately; in the shared-target scenario one target truth set and each distinct required action are reused across the 23 registered sources (Table~\ref{tab:target-stage-cost}). Pairwise ratio-of-sums break-even is about 66,914 SIFT or 17,018 Arxiv executions per direction. Because clipping gives zero saving in 460/552 and 230/552 directions, these portfolio thresholds are not per-direction guarantees. Sharing one target audit eliminates those nonamortizing target units and reduces the thresholds to 3,019 and 755 executions per direction.
+The post-seal replication has a different ledger. Per dataset, the same 500 certification queries are run on every target and reused across its 23 source histories. For each target, exact truth costs $500\times100{,}000$ distances; measured candidate and endpoint searches are added with identical actions deduplicated. Pairwise accounting charges this target audit to every directed source--target unit, whereas shared-target accounting charges it once and reuses it over the 23 registered sources (Table~\ref{tab:target-stage-cost}). For example, SIFT pairwise acquisition sums to 30.588 billion NDC and serving saving to 457,122.72 NDC per portfolio execution, giving $30.588\text{B}/457{,}122.72=66{,}914$ executions. Shared-target acquisition is 1.380 billion NDC over the same serving saving, giving 3,019 executions. The corresponding Arxiv thresholds are 17,018 and 755. Because clipping gives zero saving in 460/552 and 230/552 directions, the pairwise ratios are portfolio thresholds, not per-direction guarantees.
 
-\begin{table*}[t]
+\begin{table*}[!t]
 \caption{Target-stage NDC ledger for the target-certified Faiss candidate. Break-even is a ratio of summed acquisition cost and serving saving [95\% target-build bootstrap interval]. ``No saving'' counts units with zero serving reduction; the final column is the first registered horizon with positive aggregate net NDC.}
 \label{tab:target-stage-cost}
 \small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
@@ -47,4 +38,13 @@ Dataset & Accounting & Units & Break-even [95\% CI] & No saving & First positive
 \bottomrule\end{tabular*}
 \end{table*}
 
-At $N=10^6$ per direction, shared-target net savings are 18.99 billion NDC on SIFT and 77.61 billion on Arxiv; both target-build interval lower bounds, LOTO minima, and delete-largest-target checks remain positive. This closes the \emph{target-stage} NDC ledger. It does not close complete cold lifecycle economics: historical source-policy acquisition has no compatible per-query NDC record and is not assigned zero. Exact-truth/control wall time is also absent, so search-only timing break-even remains diagnostic rather than an end-to-end latency result.
+At $N=10^6$ per direction, mean shared-target net saving per target (aggregated over its 23 source directions) is 18.99 billion NDC on SIFT and 77.61 billion on Arxiv; both target-build interval lower bounds, LOTO minima, and delete-largest-target checks remain positive. This closes the \emph{target-stage} NDC ledger. It does not close complete cold lifecycle economics: historical source-policy acquisition has no compatible per-query NDC record and is not assigned zero. Exact-truth/control wall time is also absent, so search-only timing break-even remains diagnostic rather than an end-to-end latency result.
+
+\begin{figure}[t]
+\centering\includegraphics[width=\linewidth]{figures/cost.pdf}
+\caption{Joint-error recovery, modeled net distance savings per target versus serving horizon. Solid: cold complete history; dashed: cached history. Dots mark reported horizons; lines depict the stated affine cost model, not additional measurements. Endpoint-fallback targets remain in the average.}
+\label{fig:cost}
+\Description{Net savings are negative for short horizons and positive at one million executions. Cold-history accounting crosses zero later than cached-history accounting.}
+\end{figure}
+
+This calculation assumes repeated executions over the profiled workload. A cache miss requires new information or a declared endpoint action; an unbounded stream of new query identities can invalidate the amortization. Acquisition of historical graphs themselves is not reconstructed here: cold history means acquiring profiles on retained graphs, not rebuilding the entire archive. Memory traffic, storage, energy, and control time require separate prices. The result is a conditional distance-work benefit, not an end-to-end latency or monetary claim.

@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "anonymous package replayed outside the repository in a newly created isolated environment",
+  "environment": {
+    "python": "3.11.16",
+    "numpy": "1.26.4",
+    "matplotlib": "3.10.9",
+    "scipy": "1.14.1",
+    "pypdf": "5.7.0",
+    "tectonic": "0.17.0"
+  },
+  "checks": {
+    "legacy_evidence_replay": "PASS",
+    "postseal_evidence_replay": "PASS",
+    "package_consistency": "PASS",
+    "graph_only_interval_replay": "PASS",
+    "fresh_query_checks": "210/210",
+    "generated_table_hash_mismatches": 0,
+    "main_pdf": "PASS",
+    "appendix_pdf": "PASS"
+  },
+  "repository_imported": false,
+  "private_paths_removed": true
+}

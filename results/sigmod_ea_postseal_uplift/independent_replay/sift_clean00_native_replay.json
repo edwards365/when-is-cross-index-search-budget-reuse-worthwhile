@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "one preregistered SIFT target build; all 1,000 target-role queries and six actions",
+  "build": "sift_100k__100k__clean00__seed3101",
+  "rows_checked": 6000,
+  "fields_checked_per_row": [
+    "action_order",
+    "topk",
+    "recall",
+    "ndc"
+  ],
+  "wall_clock_compared": false,
+  "mismatches": {
+    "action_order": 0,
+    "topk": 0,
+    "recall": 0,
+    "ndc": 0
+  },
+  "first_mismatch_examples": [],
+  "environment": {
+    "python": "3.11.16",
+    "faiss": "1.8.0",
+    "numpy": "1.26.4",
+    "omp_threads": 1
+  },
+  "sha256": {
+    "index": "31d8237d81a777780a283a3658c2df1e99daeb6ab9efee790377c6c5e1a9fc1f",
+    "queries": "8a149199ad396416615a3ed893841276c5d08dffecd133e038523808d6a75ef6",
+    "truth": "df5f3ef2ef5465f653da8fb59ee2723be56d6adab97be636be86736d188217ff",
+    "frozen_response": "832ce83e5f7982150a31e754386a6feb81a32c943fd48dd47b3396fe09ca4d4a"
+  }
+}

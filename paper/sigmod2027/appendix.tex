@@ -100,10 +100,10 @@ Faiss & Arxiv & $+1$ & 0.674 [0.280, 1.211] & 29.095 [29.063, 29.127] & 552/0/0\
 \end{table*}
 
 \subsection{Post-Seal Target-Certification Detail}
-The Faiss $+1$ lane was frozen after the source-only boundary test and before either new target role was accessed. Each dataset contributes 500 target-certification and 500 target-evaluation queries, disjoint from one another and all earlier registered roles. Candidate and endpoint each receive error allocation .025. Across all 1,104 directions, both endpoint and candidate pass their target checks; there is no fallback or abstention. Table~\ref{tab:target-certified-supp} reproduces the main target-build summaries from the compact pair records. Intervals resample 24 target-build summaries rather than treating the 552 overlapping directions as independent trials.
+The Faiss $+1$ lane was frozen after the source-only boundary test and before either new target role was accessed. Each dataset contributes 500 target-certification and 500 target-evaluation queries, disjoint from one another and all earlier registered roles. Candidate and endpoint each receive error allocation .025. Across all 1,104 directions, both endpoint and candidate pass their target checks; there is no fallback or abstention. Table~\ref{tab:target-certified-supp} reproduces the main summaries from the compact pair records. The primary interval independently resamples target builds and shared query IDs while retaining all 23 source directions inside each target--query cell. Target-only and query-only resampling give the same scientific conclusion.
 
 \begin{table*}[t]
-\caption{Target-certified Faiss replication. C/F/A is candidate/fallback/abstention. Risk and mean-NDC saving are percentages [95\% target-build bootstrap interval]. P95 is pooled/worst-target relative to the endpoint; LOTO is the minimum mean saving after one target is removed.}
+\caption{Target-certified Faiss replication. C/F/A is candidate/fallback/abstention. Risk and mean-NDC saving are percentages [95\% crossed target-build/query-ID bootstrap interval]. P95 is pooled/worst-target relative to the endpoint; LOTO is the minimum mean saving after one target is removed.}
 \label{tab:target-certified-supp}
 \small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}\toprule
 Dataset & C/F/A & Evaluation risk & NDC saving & P95 ratio & LOTO saving\\\midrule
@@ -113,6 +113,8 @@ Dataset & C/F/A & Evaluation risk & NDC saving & P95 ratio & LOTO saving\\\midru
 
 \subsection{Target-Stage Cost Detail}
 Target truth costs $500\times100{,}000$ distance computations. Certification adds the measured NDC of candidate and endpoint on the same 500 certification queries, with identical actions deduplicated. Pairwise accounting charges one direction; shared-target accounting reuses one target truth set and each distinct required action across 23 source histories. Table~\ref{tab:target-cost-supp} reports the ratio-of-sums threshold; it is not the mean of direction-level ratios. The 460 SIFT and 230 Arxiv pairwise nonamortizing directions are exactly those whose frozen candidate clips to the endpoint.
+
+For an explicit reconstruction, SIFT pairwise accounting sums 30,588,113,100 acquisition NDC and 457,122.72 serving NDC saved per portfolio execution, hence 66,914.445 executions. Shared-target accounting sums 1,380,172,140 acquisition NDC over the same saving, hence 3,019.260 executions. Arxiv analogously uses 31,723,206,757/1,864,071.51=17,018.235 and 1,408,234,427/1,864,071.51=755.462. Reported integer thresholds are rounded, and the $N=10^6$ net values in the main text are means per target after aggregating its 23 directions.
 
 \begin{table*}[t]
 \caption{Target-stage NDC accounting [95\% target-build bootstrap interval]. Complete cold lifecycle remains not estimable because source-policy acquisition NDC is absent.}

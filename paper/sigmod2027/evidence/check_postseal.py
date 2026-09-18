@@ -44,6 +44,7 @@ def main() -> None:
     horizons = rows("s4_horizon_summary.csv")
     pair_cost = rows("s4_pairwise_cost_ledger.csv")
     shared_cost = rows("s4_shared_target_cost_ledger.csv")
+    interval_rows = rows("s3_interval_sensitivity.csv")
 
     require(len(summary) == 2, "two target-certified dataset summaries")
     require(len(pairs) == 1104, "1,104 directed target-certified decisions")
@@ -52,6 +53,7 @@ def main() -> None:
     require(len(horizons) == 20, "twenty registered horizon rows")
     require(len(pair_cost) == 1104, "1,104 pairwise cost rows")
     require(len(shared_cost) == 48, "48 shared-target cost rows")
+    require(len(interval_rows) == 6, "six target/query interval sensitivity rows")
     require(json.loads((D / "s3_integrity_checks.json").read_text())["checks_passed"] == 15,
             "15/15 native-stage integrity checks")
     require(json.loads((D / "s4_validation.json").read_text())["passed"] == 14,
@@ -88,6 +90,19 @@ def main() -> None:
     require(all(float(r["candidate_cert_ucb"]) <= 0.05 for r in pairs),
             "every deployed candidate has target CP-UCB at most 5%")
 
+    interval_map = {(r["dataset"], r["resampling"]): r for r in interval_rows}
+    for row in summary:
+        ds = row["dataset"]
+        crossed = interval_map[(ds, "CROSSED_TARGET_QUERY")]
+        require(close(crossed["evaluation_risk"], row["evaluation_risk"]),
+                f"{ds}: crossed risk preserves the frozen point estimate")
+        require(close(crossed["relative_mean_ndc_saving"], row["relative_mean_ndc_saving"]),
+                f"{ds}: crossed saving preserves the frozen point estimate")
+        require(float(crossed["evaluation_risk_ci_high"]) < 0.05,
+                f"{ds}: crossed risk interval remains below 5%")
+        require(float(crossed["relative_mean_ndc_saving_ci_low"]) > 0,
+                f"{ds}: crossed saving interval remains positive")
+
     for row in pair_cost:
         require(close(float(row["truth_ndc"]) + float(row["certification_search_ndc"]),
                       row["target_stage_overhead_ndc"]),
@@ -115,13 +130,14 @@ def main() -> None:
     labels = {"sift_100k": "SIFT", "arxiv_nomic_100k": "Arxiv"}
     certified_lines = []
     for row in summary:
+        crossed = interval_map[(row["dataset"], "CROSSED_TARGET_QUERY")]
         certified_lines.append(
             f"{labels[row['dataset']]} & 552/0/0 & "
-            f"{pct(row['evaluation_risk']):.3f} [{pct(row['evaluation_risk_ci_low']):.3f}, "
-            f"{pct(row['evaluation_risk_ci_high']):.3f}] & "
+            f"{pct(row['evaluation_risk']):.3f} [{pct(crossed['evaluation_risk_ci_low']):.3f}, "
+            f"{pct(crossed['evaluation_risk_ci_high']):.3f}] & "
             f"{pct(row['relative_mean_ndc_saving']):.3f} "
-            f"[{pct(row['relative_mean_ndc_saving_ci_low']):.3f}, "
-            f"{pct(row['relative_mean_ndc_saving_ci_high']):.3f}] & "
+            f"[{pct(crossed['relative_mean_ndc_saving_ci_low']):.3f}, "
+            f"{pct(crossed['relative_mean_ndc_saving_ci_high']):.3f}] & "
             f"{float(row['query_pooled_ndc_p95_ratio']):.4f} / "
             f"{float(row['max_target_ndc_p95_ratio']):.4f} & "
             f"{pct(row['lobo_min_ndc_saving']):.3f} \\\\"
