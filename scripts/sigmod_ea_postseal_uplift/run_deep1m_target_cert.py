@@ -78,7 +78,10 @@ def main():
     external_ids = np.asarray([qid for role in role_order for qid in role_manifest["roles"][role]], dtype=np.int64)
     with h5py.File(args.dataset, "r") as handle:
         base = np.asarray(handle["train"][:1000000], dtype=np.float32)
-        queries = normalize(np.asarray(handle["test"][external_ids], dtype=np.float32))
+        # h5py requires a globally increasing fancy index; materializing this
+        # 10k-row test matrix preserves the preregistered role order exactly.
+        all_queries = np.asarray(handle["test"], dtype=np.float32)
+        queries = normalize(all_queries[external_ids])
     query_file = inputs / "queries.fvecs"
     truth_file = inputs / "truth.ivecs"
     if not query_file.exists():
