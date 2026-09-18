@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "estimand": "frozen target-certified Faiss +1 fixed-slack versus efSearch=512 endpoint",
+  "statistics": {
+    "crossed_target_query_bootstrap_reps": 5000,
+    "seed": 991
+  },
+  "datasets": [
+    {
+      "dataset": "arxiv_nomic_100k",
+      "target_builds": 24,
+      "evaluation_queries": 500,
+      "source_directions_per_target": 23,
+      "wall_gain": 0.2603634703376777,
+      "wall_gain_ci95": [
+        0.25622762275649286,
+        0.2644322831657715
+      ],
+      "process_cpu_gain": 0.2601142979142025,
+      "p95_ratio": 0.9137533866806977,
+      "p95_ratio_ci95": [
+        0.8986870271252604,
+        0.9288435160341396
+      ],
+      "p99_ratio": 0.9391031912605261,
+      "min_loto_wall_gain": 0.25968839936690147,
+      "delete_largest_gain_1pct_wall_gain": 0.2601594486271178,
+      "mean_gate_pass": true,
+      "p95_noninferiority_gate_pass": true,
+      "loto_gate_pass": true
+    },
+    {
+      "dataset": "sift_100k",
+      "target_builds": 24,
+      "evaluation_queries": 500,
+      "source_directions_per_target": 23,
+      "wall_gain": 0.0944478770589563,
+      "wall_gain_ci95": [
+        0.09041159604025728,
+        0.09770798279410184
+      ],
+      "process_cpu_gain": 0.09419826840675005,
+      "p95_ratio": 0.9876464978728423,
+      "p95_ratio_ci95": [
+        0.98373048101667,
+        0.9916119870504057
+      ],
+      "p99_ratio": 0.992119409597294,
+      "min_loto_wall_gain": 0.09421556416886956,
+      "delete_largest_gain_1pct_wall_gain": 0.09438510954992807,
+      "mean_gate_pass": true,
+      "p95_noninferiority_gate_pass": true,
+      "loto_gate_pass": true
+    }
+  ],
+  "claim_boundary": "This block does not time TCP or target-global calibration, whose recurring-query roles and native grid are different."
+}
