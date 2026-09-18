@@ -183,13 +183,61 @@ def replay_units(root, output, prereg, limit):
         raise RuntimeError("native serialization replay mismatch")
 
 
+def runtime_units(root, output, prereg, limit, decisions_path):
+    import pandas as pd
+
+    registry = json.loads((output / f"build_registry_limit{limit}.json").read_text(encoding="utf-8"))
+    decisions = pd.read_csv(decisions_path)
+    fields = ["dataset", "target_build", "query_position", "repetition", "ef_search", "wall_ns", "cpu_ns", "ndc", "top10_sha256"]
+    for record in registry:
+        dataset = record["dataset"]
+        identifier = record["build_id"]
+        target_decisions = decisions[(decisions.dataset.eq(dataset)) & (decisions.target_build.eq(identifier))]
+        actions = sorted(set(map(int, target_decisions.deployed_action.dropna())).union({512}))
+        queries = np.load(root / "results/sigmod_s9/s9_3_inputs" / f"{dataset}.queries.npy")[1000:1500]
+        index = faiss.read_index(record["index_path"])
+        graph = core(index)
+        for action in actions:
+            graph.hnsw.efSearch = action
+            index.search(queries[: prereg["runtime"]["warmup_queries_per_action"]], 10)
+        raw = output / "runtime" / dataset / f"{identifier}.csv.gz"
+        raw.parent.mkdir(parents=True, exist_ok=True)
+        rng = np.random.default_rng(prereg["seed"] + int(record["permutation_seed"]))
+        with gzip.open(raw, "wt", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=fields)
+            writer.writeheader()
+            for repetition in range(prereg["runtime"]["repetitions_per_evaluation_query_action"]):
+                for query_position in rng.permutation(len(queries)):
+                    for action in rng.permutation(actions):
+                        graph.hnsw.efSearch = int(action)
+                        faiss.cvar.hnsw_stats.reset()
+                        cpu_start = time.process_time_ns()
+                        wall_start = time.monotonic_ns()
+                        _, found = index.search(queries[query_position : query_position + 1], 10)
+                        wall_ns = time.monotonic_ns() - wall_start
+                        cpu_ns = time.process_time_ns() - cpu_start
+                        writer.writerow({
+                            "dataset": dataset,
+                            "target_build": identifier,
+                            "query_position": int(query_position),
+                            "repetition": repetition,
+                            "ef_search": int(action),
+                            "wall_ns": wall_ns,
+                            "cpu_ns": cpu_ns,
+                            "ndc": int(faiss.cvar.hnsw_stats.n3),
+                            "top10_sha256": hashlib.sha256(found.astype(np.int64).tobytes()).hexdigest(),
+                        })
+        print(json.dumps({"phase": "runtime", "complete": identifier, "actions": actions, "rows": len(queries) * len(actions) * prereg["runtime"]["repetitions_per_evaluation_query_action"]}), flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--phase", choices=["build", "replay"], required=True)
+    parser.add_argument("--phase", choices=["build", "replay", "runtime"], required=True)
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--preregistration", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--limit", type=int, choices=range(1, 9), required=True)
+    parser.add_argument("--decisions", type=Path)
     args = parser.parse_args()
     prereg = json.loads(args.preregistration.read_text(encoding="utf-8"))
     module = verify_environment(prereg)
@@ -207,8 +255,12 @@ def main():
     (args.output / "environment.json").write_text(json.dumps(environment, indent=2) + "\n", encoding="utf-8")
     if args.phase == "build":
         build_units(args.root, args.output, prereg, args.limit)
-    else:
+    elif args.phase == "replay":
         replay_units(args.root, args.output, prereg, args.limit)
+    else:
+        if args.decisions is None:
+            raise RuntimeError("--decisions is required for runtime phase")
+        runtime_units(args.root, args.output, prereg, args.limit, args.decisions)
 
 
 if __name__ == "__main__":
