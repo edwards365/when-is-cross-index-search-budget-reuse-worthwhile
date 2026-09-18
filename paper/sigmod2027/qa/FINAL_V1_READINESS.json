@@ -1,0 +1,50 @@
+{
+  "version": "FINAL_V1",
+  "date": "2026-09-18",
+  "paper_title": "Auditing Search-Budget Portability Across Graph-ANNS Rebuilds: [Experiments & Analysis]",
+  "venue_rules": {
+    "source": "https://2027.sigmod.org/calls_papers_sigmod_research.shtml",
+    "main_page_limit_excluding_references": 12,
+    "separate_short_appendix": true,
+    "double_anonymous": true,
+    "artifact_url_location": "submission form"
+  },
+  "pdfs": {
+    "main": {
+      "file": "ICBA_SIGMOD_EA_FINAL_V1.pdf",
+      "pages": 12,
+      "bytes": 355767,
+      "page_size_points": [612, 792],
+      "sha256": "6871ccdd983d3c656930533565e6bae88a33e045413fdad1333c68592169c621"
+    },
+    "appendix": {
+      "file": "ICBA_SIGMOD_EA_FINAL_V1_appendix.pdf",
+      "pages": 4,
+      "bytes": 92882,
+      "page_size_points": [612, 792],
+      "sha256": "6d98d4da3a752bda8d13500112ade7233c9dba884b63e60c5b5f7ea43d5c9984"
+    }
+  },
+  "anonymous_source": {
+    "file": "icba_final_v1_anonymous_source_only_20260918.zip",
+    "files": 107,
+    "identity_leaks": 0,
+    "clean_compile": true,
+    "sha256": "33e33b56e14868d3368946bbc001ad9bb38e99ef529f9fa8df3f9fc66abc66ce"
+  },
+  "checks": {
+    "limitation_closure_tests": "5/5 PASS",
+    "evidence": "244 PASS",
+    "package": "91 PASS",
+    "postseal": "1205 PASS",
+    "unresolved_references": 0,
+    "identity_hits": 0,
+    "overfull_boxes": 0
+  },
+  "claim_boundary_closed": {
+    "endpoint_relative_recovery": true,
+    "incremental_query_conditioning": "supported on SIFT; unresolved and tail-blocked on Arxiv",
+    "new_experiments_added": false
+  },
+  "remaining_submission_action": "Provide the real anonymous artifact URL in the submission form; do not insert a placeholder."
+}
