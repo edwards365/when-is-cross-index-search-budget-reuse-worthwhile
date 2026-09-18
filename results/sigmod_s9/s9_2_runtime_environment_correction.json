@@ -1,0 +1,36 @@
+{
+  "phase": "S9-2",
+  "status": "FROZEN_ENVIRONMENT_CORRECTION_BEFORE_VALID_STAGE_A_OUTPUT",
+  "reason": "Two Faiss packages reported version 1.8.0 but used different HNSW distance-counter binaries. The generic replay environment reproduced top-k and recall but not every frozen NDC value.",
+  "invalid_environment_attempt": {
+    "python": "/home/wlk/data500/icba_sigmod_s5r4_replay/bin/python",
+    "effect": "partial Stage A stopped immediately after stable NDC-only mismatches appeared on Arxiv; no policy mapping or latency gain was computed",
+    "topk_and_recall_exact": true,
+    "ndc_exact": false,
+    "log_sha256": "0789c12e46512bb741ae27585e26a68ada160a7cbeeba93f4dac9f18a69a71b5"
+  },
+  "corrected_environment": {
+    "python": "/home/wlk/data500/graph_anns_score8/envs/darth/bin/python",
+    "python_version": "3.11.16",
+    "faiss_version": "1.8.0",
+    "numpy_version": "1.26.4",
+    "swigfaiss_avx2_sha256": "1324bc7385fd6b19c9205db64eab130fdd4e4996a447854448109fb1d63a5834",
+    "swigfaiss_scalar_sha256": "e825c02281880448d94a7a928eb84bdad26ccdb13bef8fb679e6014ac9a3d858"
+  },
+  "verification": {
+    "run": "smoke_v4",
+    "datasets": ["sift_100k", "arxiv_nomic_100k"],
+    "target_builds_per_dataset": 1,
+    "evaluation_queries": 500,
+    "actions": 6,
+    "repetitions": 7,
+    "rows": 42000,
+    "native_mismatches": 0,
+    "complete_fraction": 1.0,
+    "median_action_block_cv_max_observed": 0.01296625625947688,
+    "max_action_block_cv_max_observed": 0.03262171189667526,
+    "gate_sha256": "189efbd2313a80ff857949d92f45b550e30c30b2de7ac9848c7670708e03ad4b"
+  },
+  "decision": "AUTHORIZE_STAGE_A_ONLY_WITH_CORRECTED_DARTH_FAISS_BINARY",
+  "scientific_result": false
+}

@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "mode": "FULL",
+  "manifest_sha256": "03d5afeceab47e7c96f9e2990ddc79c704a4f99734fdff94e7e67672ac312221",
+  "environment": {
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "python": "3.11.16",
+    "faiss": "1.8.0",
+    "pid": 2479977,
+    "affinity": [
+      2
+    ],
+    "required_cpu": 2,
+    "affinity_exact": true,
+    "loadavg": [
+      0.12,
+      0.23,
+      0.17
+    ],
+    "governor": "ondemand",
+    "frequency_khz": "3140168",
+    "timer_overhead": {
+      "wall_median_ns": 100.0,
+      "cpu_median_ns": 1130.0
+    },
+    "thread_env": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "settings": {
+    "role": "target_evaluation",
+    "query_count": 500,
+    "repetitions": 7,
+    "warmup_queries": 50,
+    "builds_per_dataset": 1,
+    "grid": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ]
+  },
+  "summaries": [
+    {
+      "dataset": "sift_100k",
+      "build": "sift_100k__100k__clean00__seed3101",
+      "rows": 21000,
+      "cells": 3000,
+      "mismatches": 0,
+      "median_cell_cv_diagnostic": 0.28170345831611865,
+      "p95_cell_cv_diagnostic": 0.3924971281688892,
+      "median_action_block_cv": 0.01296625625947688,
+      "max_action_block_cv": 0.015647271839549285,
+      "complete_fraction": 1.0,
+      "output_sha256": "932620df124232de145a115c2f64ecfc427843d1e345426bb65e81ec353f485f"
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "build": "arxiv_nomic_100k__100k__clean00__seed3101",
+      "rows": 21000,
+      "cells": 3000,
+      "mismatches": 0,
+      "median_cell_cv_diagnostic": 0.27815063420790515,
+      "p95_cell_cv_diagnostic": 0.4878927280026946,
+      "median_action_block_cv": 0.009556123475445624,
+      "max_action_block_cv": 0.03262171189667526,
+      "complete_fraction": 1.0,
+      "output_sha256": "e88b3985a69f2c5ca93b838a88f3b7a1496b543957e79b39bacd9485bea9b47c"
+    }
+  ],
+  "total_mismatches": 0,
+  "loadavg_after": [
+    0.37,
+    0.28,
+    0.19
+  ]
+}
