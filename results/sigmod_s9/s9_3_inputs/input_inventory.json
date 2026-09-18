@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "sift_100k",
+    "path": "results/sigmod_s9/s9_3_inputs/sift_100k.queries.npy",
+    "bytes": 768128,
+    "sha256": "9e31be59c42154dea0f535f3dadc4b520e69a21d7b5a3d3e76aa36f2edc96630"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "results/sigmod_s9/s9_3_inputs/sift_100k.truth.npy",
+    "bytes": 60128,
+    "sha256": "046980bb651899cb07a593611215ec09ec92af2a0b7b262e4e43958b652a53de"
+  },
+  {
+    "dataset": "sift_100k",
+    "path": "results/sigmod_s9/s9_3_inputs/sift_100k.external_ids.json",
+    "bytes": 18312,
+    "sha256": "309a6d3760c55b8fda503dfaaa0a673b5c212acb419a11d8131366347ad4d7d4"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "results/sigmod_s9/s9_3_inputs/arxiv_nomic_100k.queries.npy",
+    "bytes": 4608128,
+    "sha256": "0c47361b5da1ac7e8866fce9766ce7f825cc79d09215c4631b9e02bbbd3e291b"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "results/sigmod_s9/s9_3_inputs/arxiv_nomic_100k.truth.npy",
+    "bytes": 60128,
+    "sha256": "7fd52ca11c03f8d6a30df0bca44c7a1d43d9815763f8daac3c9d94f7a9e60354"
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "path": "results/sigmod_s9/s9_3_inputs/arxiv_nomic_100k.external_ids.json",
+    "bytes": 18312,
+    "sha256": "f8aca90e944c0c92a2ca9a55af1a5a3edd4792eef6870708a31e0850ac3f9fc4"
+  }
+]
