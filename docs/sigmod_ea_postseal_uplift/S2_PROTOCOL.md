@@ -2,57 +2,71 @@
 
 ## Decision
 
-`BLOCKED_MISSING_EXPLICIT_UNUSED_QUERY_POOL`
+`S2_PASS_FRESH_POOL_FROZEN`
 
-S2 is a metadata-only preregistration gate. It does not run ANN search, read query
-vectors, read exact-neighbor truth, choose a new policy, or modify the sealed S5R3
-paper. The parent is `49bd2910b122293f43c1a9063364a038fa4417b8` and the
-work remains in the existing ANNS main worktree.
+S2 is complete. It is a metadata-only preregistration gate: no ANN search, query
+vector read, exact-neighbor truth read, index build, policy change, or sealed
+S5R3 paper modification occurred. The work remains in the existing ANNS main
+worktree on branch `exp/sigmod_ea_target_cert_uplift`.
 
-## Audit result
+## Why the initial gate stopped
 
-The E4 role manifest contains one explicitly reserved pool per dataset:
-`future_replication_ids` with 1,000 unique IDs. S4 already consumed that pool in
-its entirety, in the frozen list order: entries 0--499 became
-`fresh_source_certification_ids` and entries 500--999 became
-`fresh_target_evaluation_ids`. For both SIFT-100K and Arxiv-Nomic-100K, the S4
-union equals the E4 future-replication set and the two S4 roles have zero
-within-dataset overlap.
+The first audit correctly established that E4's only named
+`future_replication_ids` pool had been fully consumed by S4. In each dataset its
+1,000 IDs were partitioned into 500 source-certification and 500
+target-evaluation queries, with zero within-dataset overlap. Reusing those IDs or
+relabeling S3's historically inspected outcomes would not constitute prospective
+evidence. Commit `7c51328b0cf7ffb5e5d2bd1337f769d710c7e702` therefore stopped safely.
 
-No second role is labelled unused, reserved, or future in the audited manifests.
-The 750 E4 confirmatory-evaluation IDs are a subset of the 1,000 confirmatory IDs,
-and the 250 target-sentinel IDs occupy the remainder. The S3 local-ID roles were
-all historically inspected and are explicitly `POST_HOC_ROLE_LIMITED`.
+## Resolution
 
-## Firewall
+The immutable source files contain substantially larger `train` members than the
+100K index: 1,000,000 rows for SIFT and 1,344,643 for Arxiv-Nomic. Source hashes
+and shapes were already sealed in the project registry. S2 defined a new query-ID
+candidate window `[500000, 600000)`, which is outside the E4/S4 ranges, and
+audited every repository role/preregistration/access manifest plus the complete
+Faiss external-validity role tables.
+
+The audit found no repository JSON role ID in that window. The Faiss tables had
+121 SIFT IDs and 86 Arxiv IDs in the window; all were excluded. Deterministic
+sampling then used seed 991 for SIFT and 992 for Arxiv to freeze 1,000 eligible
+IDs per dataset. The first 500 are `target_certification`; the remaining 500 are
+`target_evaluation`. Both within-dataset and known-registry overlap are zero.
+
+Here, **fresh** means never previously assigned or accessed as a query or truth
+role. It does not mean the underlying bytes were never read: some rows may have
+appeared as index data in separate scale experiments. This distinction is frozen
+before outcomes are observed.
+
+## Frozen S3 contract
+
+- Candidate policy: S4-frozen Faiss `source_selected_plus_1`; no retuning.
+- Scope: SIFT-100K and Arxiv-Nomic-100K, 24 registered builds per dataset and
+  552 directed source-to-target pairs.
+- Roles: 500 target-certification and 500 target-evaluation queries per dataset,
+  mutually exclusive and frozen before content access.
+- Risk event: `Recall@10 < 0.95`; threshold 5%.
+- Certification: one-sided Clopper--Pearson bound; candidate/endpoint allocation
+  is 0.025 + 0.025 when both are checked.
+- Evaluation cannot change policy, action, threshold, grid, or endpoint.
+- Statistics: 5,000 bootstrap replicates, seed 991; leave-one-build-out and
+  delete-largest-contributing-build checks.
+- Execution: fixed hardware, threads, affinity, warm-up, and randomized or
+  interleaved candidate/endpoint order; record NDC and wall-clock separately.
+
+Primary admission requires both datasets to satisfy certification UCB <= 5%,
+evaluation risk <= 5%, positive mean work or latency savings with a confidence
+lower bound above zero, p95 non-inferiority, and build-robust direction.
+
+## Firewall and handoff
 
 - New vector reads: 0.
 - New truth reads: 0.
 - ANN searches: 0.
 - Index builds: 0.
-- Policy changes: 0.
 - `validation-dev`, `formal-test`, and reserved truth access: 0.
 
-The presence of larger query files is not evidence of an admissible unused role.
-S2 therefore does not sample IDs from those files and does not infer provenance
-from numeric ranges.
-
-## Frozen S3 design, not yet authorized
-
-Once a provenance-bearing untouched pool of at least 1,000 IDs per dataset is
-created and frozen before content access, allocate 500 target-certification and
-500 target-evaluation IDs deterministically with seed 991. The candidate remains
-the S4-frozen Faiss `source_selected_plus_1` policy over the registered 24 builds
-per dataset and 552 directed source-to-target pairs. Certification and evaluation
-must be disjoint; evaluation may not alter the action, threshold, or endpoint.
-
-Certification uses the one-sided Clopper--Pearson upper bound at 5%. If candidate
-and endpoint are both tested, the preregistered split is 0.025 + 0.025. Primary
-admission requires both datasets to satisfy risk UCB <= 5%, evaluation risk <=
-5%, positive mean work or latency savings with a lower confidence bound above
-zero, non-inferior p95, and stability under leave-one-build-out and deletion of
-the largest contributing build. Candidate and endpoint runs must be interleaved
-under fixed hardware, threads, affinity, warm-up, and order logging.
-
-S3 remains unauthorized until a new role manifest records provenance, IDs,
-hashes, pairwise overlaps, and a truth-access log with pre-access status.
+Exact IDs, hashes, exclusions, source provenance, and the fixed downstream
+contract are stored in
+`manifests/sigmod_ea_postseal_uplift_s2_query_roles.json`. S3 is authorized but
+has not started.
