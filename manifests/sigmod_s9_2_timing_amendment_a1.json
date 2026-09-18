@@ -1,0 +1,40 @@
+{
+  "amendment": "S9_2_TIMING_VALIDITY_A1",
+  "status": "FROZEN_BEFORE_POLICY_GAIN_MAPPING",
+  "reason": "noise-only smoke v2 had zero native mismatches but cell-level CV was dominated by sub-millisecond request variability under a non-writable ondemand governor",
+  "looked_at_before_amendment": [
+    "native mismatch counts",
+    "cell-level wall/process timing",
+    "action-block timing variation",
+    "CPU governor and affinity"
+  ],
+  "not_looked_at_before_amendment": [
+    "TCP latency gain",
+    "target-global latency gain",
+    "fixed-slack latency gain",
+    "endpoint-relative policy latency gain",
+    "policy p95 or p99 ratio",
+    "runtime lifecycle break-even"
+  ],
+  "primary_timing_value": "median of seven repetitions per query-action cell",
+  "validity_unit": "complete query block within target build and native action",
+  "gates": {
+    "native_mismatches_max": 0,
+    "complete_cells_min_fraction": 0.99,
+    "median_action_block_cv_max": 0.05,
+    "max_action_block_cv_max": 0.10
+  },
+  "unchanged_gates": {
+    "mean_latency_gain_ci_lower_min": 0.0,
+    "p95_ratio_ci_upper_max": 1.05,
+    "bootstrap_replicates": 5000,
+    "seed": 991
+  },
+  "retained_diagnostics": [
+    "median within-cell CV",
+    "p95 within-cell CV",
+    "raw all-repetition p95 and p99",
+    "process CPU time",
+    "load and frequency metadata"
+  ]
+}
