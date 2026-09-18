@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "timestamp_utc": "2026-09-18T03:49:56.757119+00:00",
+  "timestamp_utc": "2026-09-18T03:56:40.976780+00:00",
   "anonymous_allowlist_source_files": 84,
   "delivered_package_files": 99,
   "anonymous_identity_leaks": 0,
@@ -35,12 +35,12 @@
       "pages": 12,
       "content_pages_before_references": 10,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "f20778f1c0e7b214fe9b93a850c4e9916119d8a6fecf75835e906e12d5da5c80"
+      "sha256": "cea870f4fe078ab39a51e8389a3fe740178bec555b2f36d45fe2d4b90a51c544"
     },
     "appendix": {
       "pages": 3,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "9052ed3b7906d02af062da387eb8b7f260627b4effa2abc131e74a711adab9fe"
+      "sha256": "732a0b9d0790a45b1e073a77d398231f98a3d121a0cf52ae6738ed0902631937"
     },
     "paper_size": "US Letter",
     "size_gate": "PASS_EACH_LE_10_MIB"
