@@ -1,0 +1,36 @@
+{
+  "phase": "S9-1",
+  "status": "PASS",
+  "frozen_baseline": "96399e742248964dcd49db2fadb0e857a06e3bdd",
+  "same_host_clean_environment": true,
+  "independent_replication_claimed": false,
+  "anonymous_files": 107,
+  "identity_leaks": 0,
+  "evidence_returncode": 0,
+  "postseal_returncode": 0,
+  "package_returncode": 0,
+  "graph_interval_returncode": 0,
+  "s4_checks": {
+    "status": "PASS",
+    "passed": 210,
+    "total": 210,
+    "sha256": "dc7b4f8de5faf8798095033bb56cd79660ea05637bc5abdc66015fa5b40dee0f"
+  },
+  "generated_table_hash_mismatches": 0,
+  "pdf_builds": {
+    "main": {
+      "status": "PASS",
+      "pdf_qa": "PASS"
+    },
+    "appendix": {
+      "status": "PASS",
+      "pdf_qa": "PASS"
+    }
+  },
+  "query_role_firewall": "PASS via packaged role manifests and 210/210 S4 checks",
+  "sha256": {
+    "public_replay": "2a804f2f8df6ee3aa24edf5623de57a46e777d8ab9c4bb0bc910c48bad38a353",
+    "anonymous_manifest": "0ce5b0409a86b01756c56a8ddc5508490e5f223b1207ea5f5f0755a9aa96b738"
+  },
+  "next_phase": "S9-2 protocol freeze"
+}
