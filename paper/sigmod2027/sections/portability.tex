@@ -5,10 +5,10 @@
 Retrospective first-passing actions frequently fail after a graph-only rebuild, even though collection membership, queries, and truth are unchanged. Table~\ref{tab:graph-only} reports absolute target risk, the unresolved-reference risk, and their difference. Across hnswlib and Faiss on both datasets, the increment ranges from 17.17 to 23.60 percentage points; every query-cluster interval is above zero. This is a response-level result independent of TCP's pooling or recalibration.
 
 \begin{table*}[t]
-\caption{Graph-only response transfer at $k=10$, $\tau=0.95$. Each row has 24 builds, 552 directed pairs, and 750 shared query IDs. Risks and finite-action variation are percentages; increments are percentage points [95\% query-cluster interval], conditional on the fixed build set. The reference uses the target's own first-passing response; its failures are unresolved queries. Finite variation counts queries with at least two distinct finite first-passing actions, divided by all 750 queries.}
+\caption{Graph-only response transfer at $k=10$, $\tau=0.95$. Each row has 24 builds, 552 directed pairs, and 750 shared query IDs. Risk entries and increments are percentages or percentage points [95\% query-cluster interval], conditional on the fixed build set. The reference uses the target's own first-passing response; its failures are unresolved queries. Finite variation counts queries with at least two distinct finite first-passing actions, divided by all 750 queries.}
 \label{tab:graph-only}
-\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
-Implementation & Dataset & Absolute risk & Reference risk & Increment [95\% interval] & Finite variation\\\midrule
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llcccr@{}}\toprule
+Implementation & Dataset & Absolute risk [95\% CI] & Reference risk [95\% CI] & Increment [95\% CI] & Finite variation\\\midrule
 \GraphOnlyRows
 \bottomrule\end{tabular*}
 \end{table*}

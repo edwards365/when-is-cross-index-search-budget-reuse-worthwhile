@@ -76,6 +76,9 @@ def main() -> None:
             "evidence/graph_only_rows.tex", "evidence/recovery_rows.tex",
             "evidence/sensitivity_rows.tex", "evidence/s5_claim_map.csv",
             "evidence/reanalyze_review.py",
+            "evidence/replay_graph_only_intervals.py",
+            "evidence/graph_only_query_clusters.csv",
+            "evidence/graph_only_marginal_intervals.csv",
             "qa/S5_CLEAN_REPLAY_PUBLIC.json",
         ):
             copy_file(src / rel, out / rel)

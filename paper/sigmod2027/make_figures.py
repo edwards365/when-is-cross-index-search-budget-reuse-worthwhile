@@ -26,6 +26,7 @@ BLUE='#246A91';TEAL='#227D6C';ORANGE='#A85421';GRAY='#68727B';INK='#203246'
 DS=['sift100k','arxiv_nomic_100k'];NAMES=['SIFT','Arxiv'];COLORS=[BLUE,ORANGE]
 def read(n):return list(csv.DictReader((D/n).open(encoding='utf-8')))
 S=read('crossed_summary.csv');B=read('certification_per_build.csv');C=read('cost_horizons.csv');G=[r for r in read('graph_only_registry.csv') if r['operator']!='Vamana-style']
+M={(r['implementation'],r['dataset']):r for r in csv.DictReader((E/'graph_only_marginal_intervals.csv').open(encoding='utf-8'))}
 def row(ds,lane):return next(r for r in S if r['dataset']==ds and r['lane']==lane)
 def val(r,k):return float(r[k])
 def interval(r,k,scale=100):return f"{scale*val(r,k):.2f} [{scale*val(r,k+'_ci_low'):.2f}, {scale*val(r,k+'_ci_high'):.2f}]"
@@ -40,7 +41,11 @@ def arrow(ax,a,b):ax.add_patch(FancyArrowPatch(a,b,arrowstyle='-|>',mutation_sca
 rows=[]
 for r in G:
     name='SIFT' if r['dataset'].startswith('sift') else 'Arxiv'
-    rows.append(f"{r['operator']} & {name} & {100*val(r,'absolute_risk'):.2f} & {100*val(r,'reference_risk'):.2f} & {100*val(r,'incremental_risk'):.2f} [{100*val(r,'ci_low'):.2f}, {100*val(r,'ci_high'):.2f}] & {100*val(r,'finite_variation'):.2f} \\\\")
+    m=M[(r['operator'],r['dataset'])]
+    absolute=f"{100*float(m['absolute_risk']):.2f} [{100*float(m['absolute_ci_low']):.2f}, {100*float(m['absolute_ci_high']):.2f}]"
+    reference=f"{100*float(m['reference_risk']):.2f} [{100*float(m['reference_ci_low']):.2f}, {100*float(m['reference_ci_high']):.2f}]"
+    increment=f"{100*float(m['incremental_risk']):.2f} [{100*float(m['incremental_ci_low']):.2f}, {100*float(m['incremental_ci_high']):.2f}]"
+    rows.append(f"{r['operator']} & {name} & {absolute} & {reference} & {increment} & {100*val(r,'finite_variation'):.2f} \\\\")
 (E/'graph_only_rows.tex').write_text('\n'.join(rows)+'\n',encoding='utf-8')
 rows=[]
 for ds,name in zip(DS,NAMES):

@@ -30,6 +30,7 @@ clean replay used Python 3.11.16, NumPy 2.4.6, Matplotlib 3.11.2, and pypdf
 6.10.0; PDF libraries are optional for compiling the manuscript.
 
 ```
+python evidence/replay_graph_only_intervals.py
 python make_figures.py
 python check_evidence.py
 python run_clean_replay.py --package .
@@ -40,6 +41,13 @@ from the packaged CSV/NPZ files. The delivered figures use Times New Roman.
 If unavailable, the script announces a DejaVu Serif fallback: inspect the
 layout before using that output. PDF metadata timestamps can differ between
 runs; numerical reproducibility does not imply byte-identical PDFs.
+
+`replay_graph_only_intervals.py` reconstructs the absolute, reference, and
+incremental 95% query-cluster intervals in Table 1 from 3,000 compact
+per-query cluster means (750 shared queries for each of four
+implementation--dataset blocks). It uses 5,000 seed-991 bootstrap draws and
+also verifies the already frozen incremental intervals before writing the
+derived four-row table.
 
 `check_evidence.py` independently inverts the binomial CDF for CP bounds,
 checks decisions, gains, quantiles, LOTO and costs, and reproduces the crossed
@@ -102,6 +110,9 @@ container for full native replay.
 - `figures/`: six PDF/SVG figures, all used in the main paper.
 - `evidence/generated_tables.tex`: generated typeset table definitions.
 - `evidence/w6_audit/`: compact numerical evidence and validation report.
+- `evidence/graph_only_query_clusters.csv` and
+  `evidence/replay_graph_only_intervals.py`: compact replay for all Table 1
+  marginal risk intervals.
 - `evidence/extensions/`: unchanged external-method and scale/family summaries.
 - `evidence/s4_fresh/`: compact fresh-query evidence, the 96 frozen source
   actions, a sanitized preregistration summary, and the public protocol.

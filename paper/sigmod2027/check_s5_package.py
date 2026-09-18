@@ -65,6 +65,23 @@ def main() -> None:
         sha256(reanalysis) == "ab012e376fa73686fe07bad7498aa6ec928d89d06fef28842ccebd8732dab471",
         "post-hoc reanalysis script hash matches the published anchor", checks,
     )
+    marginal_replay = ROOT / "evidence" / "replay_graph_only_intervals.py"
+    require(marginal_replay.exists(), "graph-only marginal-interval replay is packaged", checks)
+    cluster_rows = list(csv.DictReader(
+        (ROOT / "evidence" / "graph_only_query_clusters.csv").open(encoding="utf-8")
+    ))
+    require(len(cluster_rows) == 3000, "3,000 compact graph-only query clusters", checks)
+    marginal_rows = list(csv.DictReader(
+        (ROOT / "evidence" / "graph_only_marginal_intervals.csv").open(encoding="utf-8")
+    ))
+    require(len(marginal_rows) == 4, "four graph-only marginal interval rows", checks)
+    for row in marginal_rows:
+        for stem in ("absolute", "reference", "incremental"):
+            point = float(row[f"{stem}_risk"])
+            require(
+                float(row[f"{stem}_ci_low"]) <= point <= float(row[f"{stem}_ci_high"]),
+                f"{stem} graph-only point lies within interval: {row['implementation']} {row['dataset']}", checks,
+            )
 
     labels = re.findall(r"\\label\{([^}]+)\}", text)
     refs = re.findall(r"\\(?:ref|eqref)\{([^}]+)\}", text)

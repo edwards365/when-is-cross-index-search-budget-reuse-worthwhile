@@ -149,6 +149,7 @@ def main() -> None:
     }
     evidence = run([sys.executable, "check_evidence.py"], root)
     package_checks = run([sys.executable, "check_s5_package.py"], root)
+    graph_only_intervals = run([sys.executable, "evidence/replay_graph_only_intervals.py"], root)
     figures = run([sys.executable, "make_figures.py"], root)
     after_tables = {
         path.name: normalized_text_digest(path)
@@ -171,6 +172,7 @@ def main() -> None:
         manifest.get("status") != "PASS"
         or evidence["returncode"] != 0
         or package_checks["returncode"] != 0
+        or graph_only_intervals["returncode"] != 0
         or figures["returncode"] != 0
         or bool(table_mismatches)
         or not s4_pass
@@ -201,6 +203,7 @@ def main() -> None:
         },
         "w6_evidence_replay": evidence,
         "s5_package_checks": package_checks,
+        "graph_only_interval_replay": graph_only_intervals,
         "figure_table_regeneration": figures,
         "generated_table_hash_mismatches": table_mismatches,
         "s4_validation": {
@@ -216,6 +219,7 @@ def main() -> None:
         "status": status,
         "w6_evidence_returncode": evidence["returncode"],
         "s5_package_returncode": package_checks["returncode"],
+        "graph_only_interval_returncode": graph_only_intervals["returncode"],
         "s4_checks": f"{s4_validation.get('passed')}/{s4_validation.get('total')}",
         "table_hash_mismatches": len(table_mismatches),
         "pdf": {name: item["status"] for name, item in compiled.items()},
