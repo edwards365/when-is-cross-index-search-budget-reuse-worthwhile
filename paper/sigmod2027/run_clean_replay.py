@@ -148,6 +148,7 @@ def main() -> None:
         for path in sorted((root / "evidence").glob("*.tex"))
     }
     evidence = run([sys.executable, "check_evidence.py"], root)
+    postseal = run([sys.executable, "evidence/check_postseal.py"], root)
     package_checks = run([sys.executable, "check_s5_package.py"], root)
     graph_only_intervals = run([sys.executable, "evidence/replay_graph_only_intervals.py"], root)
     figures = run([sys.executable, "make_figures.py"], root)
@@ -171,6 +172,7 @@ def main() -> None:
     hard_fail = (
         manifest.get("status") != "PASS"
         or evidence["returncode"] != 0
+        or postseal["returncode"] != 0
         or package_checks["returncode"] != 0
         or graph_only_intervals["returncode"] != 0
         or figures["returncode"] != 0
@@ -202,6 +204,7 @@ def main() -> None:
             "leaks": manifest.get("leaks"),
         },
         "w6_evidence_replay": evidence,
+        "postseal_evidence_replay": postseal,
         "s5_package_checks": package_checks,
         "graph_only_interval_replay": graph_only_intervals,
         "figure_table_regeneration": figures,
@@ -218,6 +221,7 @@ def main() -> None:
     print(json.dumps({
         "status": status,
         "w6_evidence_returncode": evidence["returncode"],
+        "postseal_evidence_returncode": postseal["returncode"],
         "s5_package_returncode": package_checks["returncode"],
         "graph_only_interval_returncode": graph_only_intervals["returncode"],
         "s4_checks": f"{s4_validation.get('passed')}/{s4_validation.get('total')}",

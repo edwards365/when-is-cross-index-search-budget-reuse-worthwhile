@@ -55,7 +55,7 @@ def main() -> None:
         "main.tex", "appendix.tex", "writing_macros.tex", "references.bib",
         "acmart.cls", "ACM-Reference-Format.bst", "ACM-LICENSE",
         "README.md", "requirements.txt", "make_figures.py", "check_evidence.py",
-        "run_clean_replay.py", "check_s5_package.py",
+        "run_clean_replay.py", "check_s5_package.py", "evidence/check_postseal.py",
     ]
     active_sections = [
         "introduction.tex", "02_related_work.tex", "problem_theory.tex",
@@ -70,7 +70,7 @@ def main() -> None:
         for name in ("overview.pdf", "workflow.pdf", "decisions.pdf", "tradeoff.pdf", "tails.pdf", "cost.pdf"):
             copy_file(src / "figures" / name, out / "figures" / name)
         for rel in (
-            "evidence/generated_tables.tex", "evidence/results_macros.tex",
+            "evidence/generated_tables.tex", "evidence/postseal_tables.tex", "evidence/results_macros.tex",
             "evidence/w5_macros.tex", "evidence/w55_macros.tex", "evidence/w6_macros.tex",
             "evidence/certificate_rows.tex", "evidence/cost_rows.tex",
             "evidence/graph_only_rows.tex", "evidence/recovery_rows.tex",
@@ -82,7 +82,7 @@ def main() -> None:
             "qa/S5_CLEAN_REPLAY_PUBLIC.json",
         ):
             copy_file(src / rel, out / rel)
-        for folder in ("evidence/w6_audit", "evidence/extensions", "evidence/s4_fresh"):
+        for folder in ("evidence/w6_audit", "evidence/extensions", "evidence/s4_fresh", "evidence/target_certified"):
             for path in sorted((src / folder).glob("*")):
                 if path.is_file():
                     copy_file(path, out / folder / path.name)

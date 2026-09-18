@@ -1,8 +1,8 @@
-# S5R review-closure plan
+# S5 post-seal integration and review-closure plan
 
 ## Frozen scope
 
-This repair uses only the sealed S3/S4 records and the existing W6/S5R evidence. It does not construct indexes, access a new query role, change an action, select a lane from target outcomes, or recompute a scientific result under a new protocol.
+This integration uses only the sealed source-only bridge, post-seal target-certification/cost records, and existing W6/S5R3 evidence. It does not construct indexes, access a new query role, change an action, select a lane from target outcomes, or recompute a scientific result under a new protocol.
 
 ## Required repairs
 
@@ -12,6 +12,10 @@ This repair uses only the sealed S3/S4 records and the existing W6/S5R evidence.
 4. Describe fresh-query gains as serving-work savings, not net economics; note that source acquisition is shared across 23 directions but no lifecycle ledger was constructed.
 5. Package the frozen native-response reanalysis script and publish its SHA-256 anchor.
 6. Add regression checks for all five corrections without changing frozen scientific CSV/NPZ/JSON records.
+7. Separate the source-only boundary test from the target-certified replication throughout the abstract, protocol, results, discussion, and claim map.
+8. Replace the old Faiss headline with the independently target-certified 500/500 result while retaining the earlier source-only result in the supplement.
+9. Add the pairwise and shared-target NDC acquisition ledgers, and state that missing historical source acquisition prevents a complete cold-lifecycle claim.
+10. Package compact post-seal pair/target/cost records and verify every identity in a clean anonymous replay.
 
 ## Deliberate deferrals
 

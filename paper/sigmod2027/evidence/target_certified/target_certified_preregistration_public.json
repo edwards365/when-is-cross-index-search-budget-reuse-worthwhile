@@ -1,0 +1,18 @@
+{
+  "status": "FROZEN_BEFORE_TARGET_CERTIFICATION_OR_EVALUATION_ACCESS",
+  "candidate_lane": "one_registered_native_rung_above_source_action",
+  "datasets": ["sift_100k", "arxiv_nomic_100k"],
+  "builds_per_dataset": 24,
+  "directed_pairs_per_dataset": 552,
+  "target_certification_queries": 500,
+  "target_evaluation_queries": 500,
+  "role_overlap": 0,
+  "candidate_alpha": 0.025,
+  "endpoint_alpha": 0.025,
+  "risk_threshold": 0.05,
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 991,
+  "selection_uses_new_target_roles": false,
+  "evaluation_can_change_decision": false,
+  "full_lifecycle_status": "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING"
+}

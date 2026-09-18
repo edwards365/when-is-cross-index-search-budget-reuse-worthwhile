@@ -1,0 +1,21 @@
+{
+  "phase": "S3",
+  "status": "COMPLETE",
+  "decision": "S3_GATE_PASS",
+  "datasets": {
+    "sift_100k": {
+      "gate_certification": "PASS",
+      "gate_evaluation_risk": "PASS",
+      "gate_mean_ndc": "PASS",
+      "gate_p95": "PASS",
+      "gate_robustness": "PASS"
+    },
+    "arxiv_nomic_100k": {
+      "gate_certification": "PASS",
+      "gate_evaluation_risk": "PASS",
+      "gate_mean_ndc": "PASS",
+      "gate_p95": "PASS",
+      "gate_robustness": "PASS"
+    }
+  }
+}

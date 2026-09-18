@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "timestamp_utc": "2026-09-18T02:16:14.754541+00:00",
-  "anonymous_allowlist_source_files": 69,
-  "delivered_package_files": 71,
+  "timestamp_utc": "2026-09-18T03:49:56.757119+00:00",
+  "anonymous_allowlist_source_files": 84,
+  "delivered_package_files": 99,
   "anonymous_identity_leaks": 0,
   "w6_evidence_checks": {
     "passed": 244,
@@ -12,9 +12,14 @@
     "passed": 210,
     "total": 210
   },
-  "s5r3_package_checks": {
-    "passed": 67,
-    "total": 67
+  "postseal_checks": {
+    "status": "PASS",
+    "passed": 1196,
+    "total": 1196
+  },
+  "s5_integrated_package_checks": {
+    "passed": 75,
+    "total": 75
   },
   "generated_table_hash_mismatches": 0,
   "python": "3.11.16",
@@ -27,18 +32,18 @@
     "engine": "Tectonic 0.17.0",
     "status": "PASS",
     "main": {
-      "pages": 11,
+      "pages": 12,
       "content_pages_before_references": 10,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "fddbcb96bc4877413db27067068c6a46ac02411ef6cfe66c7e7ac87a8d45909f"
+      "sha256": "f20778f1c0e7b214fe9b93a850c4e9916119d8a6fecf75835e906e12d5da5c80"
     },
     "appendix": {
       "pages": 3,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "f2457aeb35d5f140740bf8a08cdc1d63b690b27fa71cb60b5122d3fc37ddac63"
+      "sha256": "9052ed3b7906d02af062da387eb8b7f260627b4effa2abc131e74a711adab9fe"
     },
     "paper_size": "US Letter",
     "size_gate": "PASS_EACH_LE_10_MIB"
   },
-  "interpretation": "Numeric, decision, table, figure, main-PDF, and appendix-PDF replay passed from the anonymous package alone. This remains compact-reference replay, not independent native-search replication."
+  "interpretation": "Numeric, decision, table, figure, post-seal target-certification, target-stage cost, main-PDF, and appendix-PDF replay passed from the anonymous package alone. This remains compact-reference replay, not independent native-search replication."
 }

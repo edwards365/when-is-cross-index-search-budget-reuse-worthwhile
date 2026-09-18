@@ -19,6 +19,9 @@ are not changed. Original manuscript/repository baseline:
 | Ada-ef | `results/graph_anns_phase3_ea85/adaef_bridge/arxiv_10build/aggregate.json`, copied to `evidence/extensions/adaef_aggregate.json` | 10 Arxiv target builds; native cosine/IP estimator does not provide an equivalent SIFT L2 path |
 | Deep1M | `scripts/graph_anns_phase3_ea85/analyze_phase4_deep1m.py`; `results/graph_anns_phase3_ea85/deep1m/summary.csv` copied to `evidence/extensions/deep1m_summary.csv` | Eight target-build resampling units; 1000 queries and source histories conditioned on; no query-cluster claim |
 | Vamana-style | `results/graph_anns_phase3_ea85/vamana_unified/summary.csv`, copied to `evidence/extensions/vamana_summary.csv` | Six target builds; stage-specific event, not the HNSW execution estimand; cost is mean per-target ratio and intervals include zero |
+| Source-only fresh-query boundary | `results/sigmod_ea_slack_bridge/s4_summary.csv`, copied to `evidence/s4_fresh/` | 24 builds, source certification and held-out target audit; three fixed lanes remain separate estimands |
+| Post-seal target certification | `results/sigmod_ea_postseal_uplift/s3_analysis/`, copied to `evidence/target_certified/` | frozen Faiss +1 candidate; 500 target-certification and 500 disjoint target-evaluation queries; 552 directions per dataset |
+| Target-stage cost ledger | `results/sigmod_ea_postseal_uplift/s4_lifecycle/`, copied to `evidence/target_certified/` | pairwise and 23-source shared-target NDC accounting; full cold lifecycle remains not estimable because source acquisition NDC is absent |
 
 ## Audit contract
 
@@ -42,12 +45,13 @@ borrowing another setting's certificate or endpoint assumption.
 7. Ratio-of-means gain differs from the mean of build-wise ratios.
 8. Target deletions overlap: the largest-gain deletion is one LOTO member.
 9. The one-million-vector result is response evidence, not TCP recovery there.
-10. No fresh-query, structural causal mechanism, wall-clock, universal SOTA,
-    or independently reproduced native-search claim is added.
+10. Fresh-query target certification is conditional on 24 registered Faiss builds; no structural causal mechanism, cross-implementation recovery, hardware-general wall-clock, universal SOTA, or independently reproduced native-search claim is added.
 
 ## Verification
 
-`independent_validation.json` records 244 arithmetic/provenance checks.
+`independent_validation.json` records 244 earlier arithmetic/provenance checks.
+`evidence/check_postseal.py` verifies the 1,104 target decisions, 48 target
+summaries, and both target-stage cost ledgers before regenerating their tables.
 The four extension snapshots match frozen Git content after LF normalization;
 the Vamana/Deep1M working-tree CSV copies use CRLF, a byte-level difference
 without changed cells. Historical native-replay tests are reported as historical evidence,

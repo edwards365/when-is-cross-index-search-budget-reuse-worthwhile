@@ -12,6 +12,7 @@
 \setlength{\emergencystretch}{1.5em}
 \input{writing_macros}
 \input{evidence/generated_tables}
+\input{evidence/postseal_tables}
 \hypersetup{pdfauthor={},pdfsubject={Short supplementary proofs and audit details}}
 \title{Supplement to Auditing Search-Budget Portability Across Graph-ANNS Rebuilds}
 \author{Anonymous Author(s)}
@@ -98,10 +99,34 @@ Faiss & Arxiv & $+1$ & 0.674 [0.280, 1.211] & 29.095 [29.063, 29.127] & 552/0/0\
 \end{tabular*}
 \end{table*}
 
+\subsection{Post-Seal Target-Certification Detail}
+The Faiss $+1$ lane was frozen after the source-only boundary test and before either new target role was accessed. Each dataset contributes 500 target-certification and 500 target-evaluation queries, disjoint from one another and all earlier registered roles. Candidate and endpoint each receive error allocation .025. Across all 1,104 directions, both endpoint and candidate pass their target checks; there is no fallback or abstention. Table~\ref{tab:target-certified-supp} reproduces the main target-build summaries from the compact pair records. Intervals resample 24 target-build summaries rather than treating the 552 overlapping directions as independent trials.
+
+\begin{table*}[t]
+\caption{Target-certified Faiss replication. C/F/A is candidate/fallback/abstention. Risk and mean-NDC saving are percentages [95\% target-build bootstrap interval]. P95 is pooled/worst-target relative to the endpoint; LOTO is the minimum mean saving after one target is removed.}
+\label{tab:target-certified-supp}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}\toprule
+Dataset & C/F/A & Evaluation risk & NDC saving & P95 ratio & LOTO saving\\\midrule
+\TargetCertifiedRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+\subsection{Target-Stage Cost Detail}
+Target truth costs $500\times100{,}000$ distance computations. Certification adds the measured NDC of candidate and endpoint on the same 500 certification queries, with identical actions deduplicated. Pairwise accounting charges one direction; shared-target accounting reuses one target truth set and each distinct required action across 23 source histories. Table~\ref{tab:target-cost-supp} reports the ratio-of-sums threshold; it is not the mean of direction-level ratios. The 460 SIFT and 230 Arxiv pairwise nonamortizing directions are exactly those whose frozen candidate clips to the endpoint.
+
+\begin{table*}[t]
+\caption{Target-stage NDC accounting [95\% target-build bootstrap interval]. Complete cold lifecycle remains not estimable because source-policy acquisition NDC is absent.}
+\label{tab:target-cost-supp}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
+Dataset & Accounting & Units & Break-even & No saving & First positive $N$\\\midrule
+\TargetStageCostRows
+\bottomrule\end{tabular*}
+\end{table*}
+
 \section{Cost and Reproduction Contract}
 For each target, selection costs sum all seven registered grid searches. Certification charges the chosen candidate and the endpoint once each, sharing a search when their actions coincide for that query. Target truth costs $100{,}000\times1{,}000$ distance evaluations. Cold complete history adds nine old-build first-passing search profiles on all 2,000 role IDs, and $100{,}000\times2{,}000$ old-snapshot truth evaluations reused across those builds. Cached history treats those old acquisitions as sunk. This counts labeled information needed for execution, not target-evaluation truth used only for research assessment. Rebuilding the target graph is common; reconstructing unavailable historical graphs is outside the two scenarios.
 
 Per-build saving is $s_b=\bar D_b^{\rm end}-\bar D_b^{\pi}$; its break-even is $A_b/s_b$ only for $s_b>0$. The table's aggregate is $\bar A/\bar s$, not the mean of individual ratios. Cost intervals resample paired $(A_b,s_b)$ over ten targets, conditional on the finite acquisition records. At horizon $N$, net saving is $N\bar s-\bar A$. Full fallback gives $s_b=0$ and never amortizes positive acquisition. This remains true even when the aggregate interval favors recovery.
 
-The source package distinguishes three reproducibility levels: compile the paper and regenerate figures from compact records; check the statistics and certificate table from paired arrays/counts; reanalyze original native CSV responses using the external replay root. None of these commands constructs an index or launches an ANN search. Raw-search reproduction is a separate historical workflow requiring provisioned data, truth, native binaries, and indexes. The compact package does not purport to contain those large assets or establish independent replication.
+For the post-seal policy, the compact package additionally verifies all pair decisions and both target-stage cost scenarios. Historical source-policy acquisition NDC and exact-truth/control wall time are absent and are not set to zero. The source package distinguishes three reproducibility levels: compile the paper and regenerate figures from compact records; check statistics, certificates, and cost identities from packaged rows; reanalyze original native CSV responses using the external replay root. None of these commands constructs an index or launches an ANN search. Raw-search reproduction is a separate historical workflow requiring provisioned data, truth, native binaries, and indexes. The compact package does not purport to contain those large assets or establish independent replication.
 \end{document}

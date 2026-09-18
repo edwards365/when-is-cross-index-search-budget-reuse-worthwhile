@@ -34,3 +34,17 @@ At $N=10^6$, the cold-history joint-error model yields mean net savings of about
 \end{figure}
 
 This calculation assumes repeated executions over the profiled workload. A cache miss requires new information or a declared endpoint action; an unbounded stream of new query identities can invalidate the amortization. Acquisition of historical graphs themselves is not reconstructed here: cold history means acquiring profiles on retained graphs, not rebuilding the entire archive. Memory traffic, storage, energy, and control time require separate prices. The result is a conditional distance-work benefit, not an end-to-end latency or monetary claim.
+
+\paragraph{Target-certified fresh-query policy.}
+The post-seal replication has a different ledger. For each target, it charges exact truth for 500 certification queries ($500\times100{,}000$ distances) plus measured candidate and endpoint searches, deduplicating equal actions. In the pairwise scenario each source--target direction bears that cost separately; in the shared-target scenario one target truth set and each distinct required action are reused across the 23 registered sources (Table~\ref{tab:target-stage-cost}). Pairwise ratio-of-sums break-even is about 66,914 SIFT or 17,018 Arxiv executions per direction. Because clipping gives zero saving in 460/552 and 230/552 directions, these portfolio thresholds are not per-direction guarantees. Sharing one target audit eliminates those nonamortizing target units and reduces the thresholds to 3,019 and 755 executions per direction.
+
+\begin{table*}[t]
+\caption{Target-stage NDC ledger for the target-certified Faiss candidate. Break-even is a ratio of summed acquisition cost and serving saving [95\% target-build bootstrap interval]. ``No saving'' counts units with zero serving reduction; the final column is the first registered horizon with positive aggregate net NDC.}
+\label{tab:target-stage-cost}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
+Dataset & Accounting & Units & Break-even [95\% CI] & No saving & First positive $N$\\\midrule
+\TargetStageCostRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+At $N=10^6$ per direction, shared-target net savings are 18.99 billion NDC on SIFT and 77.61 billion on Arxiv; both target-build interval lower bounds, LOTO minima, and delete-largest-target checks remain positive. This closes the \emph{target-stage} NDC ledger. It does not close complete cold lifecycle economics: historical source-policy acquisition has no compatible per-query NDC record and is not assigned zero. Exact-truth/control wall time is also absent, so search-only timing break-even remains diagnostic rather than an end-to-end latency result.

@@ -31,6 +31,7 @@ clean replay used Python 3.11.16, NumPy 2.4.6, Matplotlib 3.11.2, and pypdf
 
 ```
 python evidence/replay_graph_only_intervals.py
+python evidence/check_postseal.py
 python make_figures.py
 python check_evidence.py
 python run_clean_replay.py --package .
@@ -53,7 +54,7 @@ derived four-row table.
 checks decisions, gains, quantiles, LOTO and costs, and reproduces the crossed
 bootstrap intervals. It performs no ANN search or raw-truth access. The
 delivered run passes 244 checks; this is not independent native replication.
-The separately frozen fresh-query stage passes 210/210 recorded checks. Its
+The separately frozen source-only fresh-query stage passes 210/210 recorded checks. Its
 public preregistration summary records the frozen source-policy digest, query-role
 counts and digests, lane definitions, and confidence allocation without exposing
 host paths or private role-ID arrays.
@@ -62,12 +63,17 @@ audit records B when the one-sided CP upper bound is at most 0.05, A when the
 lower bound is above 0.05, and U otherwise. No simultaneous correction is
 applied across 552 directions; these labels are descriptive audits rather than
 target deployment certificates.
+The post-seal checker validates all 1,104 target-certified pair decisions,
+48 target-build summaries, four target-stage cost summaries, and both complete
+cost ledgers. It regenerates `evidence/postseal_tables.tex`. These disjoint
+500/500 target roles confirm the frozen Faiss `+1` candidate rather than select
+a new lane.
 `run_clean_replay.py` verifies the anonymous manifest, both check sets, and
 normalized generated-table hashes, then builds the PDFs when a supported
 LaTeX engine is available. `qa/S5_CLEAN_REPLAY_PUBLIC.json` records the sealed
-replay status without machine-specific paths. The sealed run used Tectonic
-0.17.0: the main paper is 11 pages total (references begin on page 10), the
-supplement is 3 pages, both are US Letter, and both are below 10 MB.
+replay status without machine-specific paths. The sealed run uses Tectonic
+0.17.0; current page counts and hashes are recorded in that public report.
+Both documents are US Letter and below 10 MB.
 
 ## Reanalyze the existing native responses (optional; external data required)
 
@@ -90,8 +96,10 @@ The packaged replay script has SHA-256
 
 The matched-source diagnostic, crossed uncertainty, joint-error replay, and
 completed cost accounting are **post-hoc reanalyses of frozen responses**.
-The source-certified slack bridge is a separately preregistered fresh-query
-confirmation conditional on the registered builds. TCP remains a recurring-profile
+The source-derived slack bridge is a separately preregistered fresh-query
+boundary test conditional on the registered builds. A later post-seal stage
+uses new target-certification and target-evaluation roles to qualify the fixed
+Faiss candidate. TCP remains a recurring-profile
 case; its main replay is not a new-query predictor or a 5% build-conformal
 algorithm. The stricter CP allocation is per target, not simultaneous across
 twenty targets. NDC economics is not wall-clock or monetary economics.
@@ -116,6 +124,8 @@ container for full native replay.
 - `evidence/extensions/`: unchanged external-method and scale/family summaries.
 - `evidence/s4_fresh/`: compact fresh-query evidence, the 96 frozen source
   actions, a sanitized preregistration summary, and the public protocol.
+- `evidence/target_certified/`: all 1,104 target decisions, 48 target summaries,
+  target-stage cost ledgers, sanitized registration, and validation records.
 - `make_figures.py`, `check_evidence.py`, `run_clean_replay.py`: regeneration and checks.
 - `PROVENANCE.md`: frozen sources and inference units.
 - `ANONYMOUS_PACKAGE_MANIFEST.json`: byte sizes and SHA-256 hashes for the delivered package contents, excluding itself.

@@ -44,9 +44,10 @@ def main() -> None:
     require("Conference'17" not in text and "Conference’17" not in text, "no default ACM conference placeholder", checks)
     require("552/552" not in text, "source certificates are not described as 552 pair certificates", checks)
     require("0.05/6" in text and "375 queries per build" in text, "source-action rule is self-contained", checks)
-    require("previously analyzed S3 role" in text and "only the 500/500 S4 roles are prospective" in text,
-            "fresh-stage provenance distinguishes prior design from prospective roles", checks)
-    require("B when $U_{.05}\\leq0.05$" in text and "A when $L_{.05}>0.05$" in text,
+    require("Fresh-query source-only boundary" in text and "Post-seal target-certified replication" in text,
+            "source-only and target-certified fresh stages remain distinct", checks)
+    require("B if the one-sided CP upper bound satisfies $U_{.05}\\leq\\delta$" in text and
+            "A if the lower bound satisfies $L_{.05}>\\delta$" in text,
             "target B/U/A labels define both CP tails", checks)
     require("No multiplicity correction is applied across the 552 directions" in text,
             "target audit disclaims simultaneous 552-direction validity", checks)
@@ -96,7 +97,7 @@ def main() -> None:
     require(cited <= bib_keys, "all citations resolve", checks)
 
     claim_rows = list(csv.DictReader((ROOT / "evidence" / "s5_claim_map.csv").open(encoding="utf-8")))
-    require(len(claim_rows) == 10, "ten claim-map rows", checks)
+    require(len(claim_rows) == 12, "twelve claim-map rows", checks)
     for row in claim_rows:
         require((ROOT / row["source"]).exists(), f"claim source exists: {row['claim_id']}", checks)
 
@@ -149,10 +150,29 @@ def main() -> None:
         "public S4 registration identifies the frozen source policy", checks,
     )
 
+    postseal = ROOT / "evidence" / "target_certified"
+    require((ROOT / "evidence" / "check_postseal.py").exists(),
+            "post-seal evidence checker is packaged", checks)
+    require((postseal / "TARGET_CERTIFIED_PROTOCOL_PUBLIC.md").exists() and
+            (postseal / "target_certified_preregistration_public.json").exists(),
+            "target-certified protocol and registration summary are packaged", checks)
+    post_summary = list(csv.DictReader((postseal / "s3_summary.csv").open(encoding="utf-8")))
+    require(len(post_summary) == 2, "two post-seal target-certified summaries", checks)
+    require(all(int(r["deploy_candidate_pairs"]) == 552 and
+                int(r["fallback_endpoint_pairs"]) == 0 and
+                int(r["no_certified_action_pairs"]) == 0 for r in post_summary),
+            "all 1,104 post-seal decisions deploy certified candidates", checks)
+    cost_summary = list(csv.DictReader((postseal / "s4_dataset_summary.csv").open(encoding="utf-8")))
+    require(len(cost_summary) == 4 and all(
+        r["full_end_to_end_lifecycle_status"] ==
+        "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING" for r in cost_summary
+    ), "four target-stage cost summaries retain the full-lifecycle boundary", checks)
+
     public_replay = json.loads((ROOT / "qa" / "S5_CLEAN_REPLAY_PUBLIC.json").read_text())
     require(public_replay["status"] == "PASS", "clean replay status", checks)
     require(public_replay["w6_evidence_checks"] == {"passed": 244, "total": 244}, "W6 replay count", checks)
     require(public_replay["s4_fresh_checks"] == {"passed": 210, "total": 210}, "S4 replay count", checks)
+    require(public_replay["postseal_checks"]["status"] == "PASS", "post-seal replay status", checks)
     require(public_replay["anonymous_identity_leaks"] == 0, "anonymous scan has no leak", checks)
     require(public_replay["pdf_build"]["status"] == "PASS", "clean PDF build status", checks)
 
