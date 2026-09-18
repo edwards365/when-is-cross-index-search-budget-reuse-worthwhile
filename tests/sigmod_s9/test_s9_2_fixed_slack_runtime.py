@@ -1,4 +1,5 @@
 import importlib.util
+import json
 from collections import Counter
 from pathlib import Path
 
@@ -37,6 +38,7 @@ def test_exact_half_runtime_gain_and_tail():
     assert summary["p95_noninferiority_gate_pass"]
     assert summary["loto_gate_pass"]
     assert len(per_build) == 2
+    json.dumps(summary)
 
 
 def test_expansion_respects_source_direction_counts():

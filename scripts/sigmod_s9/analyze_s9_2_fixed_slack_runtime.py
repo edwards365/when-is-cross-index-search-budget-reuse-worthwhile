@@ -166,9 +166,9 @@ def analyze_dataset(dataset, blocks, reps, seed):
         "p99_ratio": p99_ratio,
         "min_loto_wall_gain": min(loto),
         "delete_largest_gain_1pct_wall_gain": delete_gain,
-        "mean_gate_pass": quantile(gains, 0.025) > 0.0,
-        "p95_noninferiority_gate_pass": quantile(p95_ratios, 0.975) <= 1.05,
-        "loto_gate_pass": min(loto) > 0.0,
+        "mean_gate_pass": bool(quantile(gains, 0.025) > 0.0),
+        "p95_noninferiority_gate_pass": bool(quantile(p95_ratios, 0.975) <= 1.05),
+        "loto_gate_pass": bool(min(loto) > 0.0),
     }
     return summary, per_build
 
