@@ -1,4 +1,4 @@
-\section{ICBA and Two Recovery Policies}
+\section{ICBA and Recovery Routes}
 \label{sec:auditor}
 
 \subsection{The Audit Contract}
@@ -19,15 +19,15 @@ For each query and old build, encode the first-passing grid index as $\tilde j_g
 \end{equation}
 The same-query old profiles exist for all three target roles. Thus TCP operates on a recurring, profiled workload, not unseen-query budget prediction. Storing a pooled index costs $O(Q)$ for $Q$ profiles; a serving decision is a lookup, addition, and clipping before native search. Acquiring those profiles is a separate, potentially dominant expense.
 
-Target selection scans $s=0,\ldots,J-1$ in ascending order and takes the first shift whose selection-role CP bound at $\alpha=0.05$ is at most 0.05. If none passes, it returns the endpoint shift. This is a selection heuristic, not a multiple-testing certificate or a minimum-NDC optimizer. Both the selected policy and the endpoint are then fixed before certification.
+Target selection scans $s=0,\ldots,J-1$ in ascending order and takes the first shift whose selection-role CP bound at $\alpha=0.05$ is at most 0.05. If none passes, it returns the endpoint shift. The scan fixes an ordered candidate before certification; it does not optimize NDC or certify the selected shift. Both the candidate and endpoint are then frozen.
 
 Throughout this paper, TCP denotes the \emph{target-calibrated pooling replay} in Equation~\eqref{eq:shift}. Its guarantee is determined by the target selection and certification procedure below, not by an exchangeable-build assumption.
 
 \subsection{Original Decisions and a Joint-Error Sensitivity}
 \label{sec:tcp-recalibration}
-The original replay checks the selected candidate and endpoint separately at $\alpha=0.05$ each. It accepts the candidate if its bound passes, otherwise executes the endpoint with the endpoint's qualification flag. The two allocations sum to 0.10, so they do not provide a 95\% guarantee for the combined selection procedure.
+The original replay checks the selected candidate and endpoint separately at $\alpha=0.05$ each. It accepts the candidate if its bound passes, otherwise executes the endpoint with the endpoint's qualification flag. The two allocations sum to 0.10; their individual 95\% bounds therefore do not yield 95\% joint control for the completed choice.
 
-We therefore add a \emph{post-hoc frozen-response sensitivity}: keep every selected shift unchanged, use $\alpha_c=\alpha_e=0.025$, and apply the same candidate-first order. If neither policy passes, abstain. This instantiates Proposition~\ref{prop:simultaneous} at total $\alpha=0.05$ under its query-sampling assumptions, separately for each target. It does not rerun selection, enlarge the action class, or use evaluation to choose a new threshold. Its results are reported alongside the original decisions, not presented as a preregistered replication.
+We add a \emph{post-hoc frozen-response sensitivity}: keep every selected shift unchanged, use $\alpha_c=\alpha_e=0.025$, and apply the same candidate-first order. If neither policy passes, abstain. This instantiates Proposition~\ref{prop:simultaneous} at total $\alpha=0.05$ under its query-sampling assumptions, separately for each target. Selection, the action class, and evaluation remain fixed; the analysis changes only the confidence allocation. We report it beside the original decisions as a sensitivity rather than a preregistered replication.
 
 Figure~\ref{fig:workflow} shows the data flow. The audit is reusable independently of TCP: a learned termination rule or a fixed budget can occupy the candidate input, provided its observation contract and failure event are retained.
 \begin{figure*}[t]
@@ -43,6 +43,6 @@ The second recovery policy removes TCP's target-selection step. Its source-desig
 
 On 500 previously untouched source-certification queries, each frozen lane and its endpoint receive error allocations $\alpha_c=\alpha_e=0.025$. A source decision executes the lane only when both bounds are at most $\delta=0.05$; otherwise it falls back to the certified endpoint. Another 500 untouched queries evaluate the completed source-to-target decision over all non-diagonal build pairs. The source actions, role identifiers, lane definitions, and their preregistration digest were fixed before any target-evaluation vector or truth was accessed.
 
-This first bridge uses no target labels for design, certification, or action selection, and it does not use the retrospective stable-tail action or evaluation feedback. Target truth is accessed only for the held-out audit. The three lanes are separate preregistered estimands rather than a best-after-observation search. Consequently, this stage can reveal that a particular fixed slack transfers within a registered implementation--grid family, but its source certificate is not a target deployment certificate.
+This first bridge uses source information for design and certification; target truth appears only in the held-out portability audit. The three lanes are separate preregistered estimands. This stage measures whether a fixed slack transfers within a registered implementation--grid family, while reserving deployment qualification for the target-certified stage.
 
 After that result and the manuscript evidence seal, the Faiss $+1$ lane was frozen for an independent target-certification replication. Per dataset, one shared 500-query role checks the candidate and endpoint on every target build with error allocations $\alpha_c=\alpha_e=0.025$; a disjoint 500-query role then evaluates the resulting decisions. Each role is reused across the 23 registered source histories of a target, producing 552 directed decisions without pretending that they are independent query samples. Candidate construction uses neither role, and evaluation cannot change the candidate, threshold, grid, or fallback. The decision abstains if the endpoint fails, deploys the candidate if its target UCB is at most 0.05, and otherwise executes the certified endpoint. This second stage tests a target-qualified fixed candidate, not TCP and not a newly target-selected action.

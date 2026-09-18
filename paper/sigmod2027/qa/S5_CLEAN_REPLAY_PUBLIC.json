@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "timestamp_utc": "2026-09-18T03:56:40.976780+00:00",
+  "timestamp_utc": "2026-09-18T06:28:18.835305+00:00",
   "anonymous_allowlist_source_files": 84,
-  "delivered_package_files": 99,
+  "delivered_package_files": 96,
   "anonymous_identity_leaks": 0,
   "w6_evidence_checks": {
     "passed": 244,
@@ -14,12 +14,12 @@
   },
   "postseal_checks": {
     "status": "PASS",
-    "passed": 1196,
-    "total": 1196
+    "passed": 1205,
+    "total": 1205
   },
   "s5_integrated_package_checks": {
-    "passed": 75,
-    "total": 75
+    "passed": 83,
+    "total": 83
   },
   "generated_table_hash_mismatches": 0,
   "python": "3.11.16",
@@ -33,17 +33,17 @@
     "status": "PASS",
     "main": {
       "pages": 12,
-      "content_pages_before_references": 10,
+      "content_pages_before_references": 11,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "cea870f4fe078ab39a51e8389a3fe740178bec555b2f36d45fe2d4b90a51c544"
+      "sha256": "dce487d393cba989bd0bd4d70f03225772fe517c5245803351b23afbd2a8b751"
     },
     "appendix": {
-      "pages": 3,
+      "pages": 4,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "732a0b9d0790a45b1e073a77d398231f98a3d121a0cf52ae6738ed0902631937"
+      "sha256": "c352522babe20773958f93370d4e66bedbd72858f78115e1ba98da130f22369b"
     },
     "paper_size": "US Letter",
     "size_gate": "PASS_EACH_LE_10_MIB"
   },
-  "interpretation": "Numeric, decision, table, figure, post-seal target-certification, target-stage cost, main-PDF, and appendix-PDF replay passed from the anonymous package alone. This remains compact-reference replay, not independent native-search replication."
+  "interpretation": "Numeric, decision, table, figure, Faiss and Deep1M target-certification, target-stage cost, main-PDF, and appendix-PDF replay passed from the anonymous package alone. This remains compact-reference replay; the separate one-build native replay covers one registered SIFT build rather than the full matrix."
 }

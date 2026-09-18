@@ -68,6 +68,10 @@ The post-seal checker validates all 1,104 target-certified pair decisions,
 cost ledgers. It regenerates `evidence/postseal_tables.tex`. These disjoint
 500/500 target roles confirm the frozen Faiss `+1` candidate rather than select
 a new lane.
+The Deep1M checker validates all 56 target-certified hnswlib decisions, eight
+non-clipped source candidates, crossed target/query intervals, tail ratios,
+LOTO, and delete-largest-target summaries from the separately registered
+500/500/500 roles.
 `run_clean_replay.py` verifies the anonymous manifest, both check sets, and
 normalized generated-table hashes, then builds the PDFs when a supported
 LaTeX engine is available. `qa/S5_CLEAN_REPLAY_PUBLIC.json` records the sealed
@@ -99,7 +103,8 @@ completed cost accounting are **post-hoc reanalyses of frozen responses**.
 The source-derived slack bridge is a separately preregistered fresh-query
 boundary test conditional on the registered builds. A later post-seal stage
 uses new target-certification and target-evaluation roles to qualify the fixed
-Faiss candidate. TCP remains a recurring-profile
+Faiss candidate. A preregistered Deep1M stage applies the same fixed-slack
+logic to eight hnswlib indexes without retuning. TCP remains a recurring-profile
 case; its main replay is not a new-query predictor or a 5% build-conformal
 algorithm. The stricter CP allocation is per target, not simultaneous across
 twenty targets. NDC economics is not wall-clock or monetary economics.
@@ -126,6 +131,8 @@ container for full native replay.
   actions, a sanitized preregistration summary, and the public protocol.
 - `evidence/target_certified/`: all 1,104 target decisions, 48 target summaries,
   target-stage cost ledgers, sanitized registration, and validation records.
+- `evidence/deep1m_target_cert/`: all 56 Deep1M decisions, registration,
+  crossed-bootstrap summaries, tail checks, and build-deletion sensitivities.
 - `make_figures.py`, `check_evidence.py`, `run_clean_replay.py`: regeneration and checks.
 - `PROVENANCE.md`: frozen sources and inference units.
 - `ANONYMOUS_PACKAGE_MANIFEST.json`: byte sizes and SHA-256 hashes for the delivered package contents, excluding itself.

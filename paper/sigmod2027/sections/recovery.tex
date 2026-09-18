@@ -4,7 +4,7 @@
 \subsection{RQ3: What Does the Audit Actually Authorize?}
 Auditing unshifted source reuse rejects every candidate and routes all 20 target decisions to the endpoint in the original replay. The audit therefore prevents cheap but unqualified reuse, yet recovers no search saving by itself. Target-selection recalibration changes the candidate before certification. The original procedure accepts 19 of 20 recalibrated candidates; Arxiv seed 1229 has candidate UCB 0.05056 and falls back despite being close to the threshold.
 
-The joint-error sensitivity is more selective (Figure~\ref{fig:decisions}). With $\alpha_c=\alpha_e=0.025$, it accepts all ten SIFT candidates and six Arxiv candidates. All twenty endpoints pass their allocated checks, so four Arxiv decisions fall back and none abstains. The final decision satisfies the per-target construction in Proposition~\ref{prop:simultaneous}, subject to its query-sampling conditions. Certification rejection is not a finding of true unsafety: it changes the supported action given the available 500-query certificate.
+The joint-error sensitivity is more selective (Figure~\ref{fig:decisions}). With $\alpha_c=\alpha_e=0.025$, it accepts all ten SIFT candidates and six Arxiv candidates. All twenty endpoints pass their allocated checks, so four Arxiv decisions fall back and none abstains. The completed choice satisfies the per-target construction in Proposition~\ref{prop:simultaneous} under its query-sampling assumptions. A rejection routes execution to the endpoint because the 500-query certificate does not qualify the candidate.
 
 \begin{figure*}[t]
 \centering\includegraphics[width=\textwidth]{figures/decisions.pdf}
@@ -25,7 +25,7 @@ Dataset & Decision & Risk [95\% interval] & Reduction [95\% interval] & Mean NDC
 \bottomrule\end{tabular*}
 \end{table*}
 
-Under the joint-error allocation, SIFT is unchanged, while Arxiv risk becomes 1.68\% and relative mean-NDC reduction becomes 29.86 [14.75, 45.00]\%. Figure~\ref{fig:tradeoff} shows that stricter qualification moves the decision toward the endpoint: it reduces risk and sacrifices some efficiency. The positive intervals support recovery of useful search work on both datasets, not a claim of optimality over adaptive-search methods with different information budgets. In particular, the comparator here is the same graph's fixed endpoint, not the best target-trained method.
+Under the joint-error allocation, SIFT is unchanged, while Arxiv risk becomes 1.68\% and relative mean-NDC reduction becomes 29.86 [14.75, 45.00]\%. Figure~\ref{fig:tradeoff} shows that stricter qualification moves the decision toward the endpoint: it reduces risk and sacrifices some efficiency. Both datasets retain positive search-work reductions relative to the same graph's fixed endpoint. Adaptive methods with different information budgets are examined as qualification studies in Section~\ref{sec:families}.
 
 \begin{figure}[t]
 \centering\includegraphics[width=\linewidth]{figures/tradeoff.pdf}
@@ -36,7 +36,7 @@ Under the joint-error allocation, SIFT is unchanged, while Arxiv risk becomes 1.
 
 \subsection{RQ4 Boundary and Replication: Can Fixed Slack Transfer?}
 \label{sec:fresh-bridge}
-The first fresh-query stage tests the source-derived policy of Section~\ref{sec:slack-method}, not TCP. Source certification and 500 held-out target queries are different objects: the former determines the executable candidate, while the latter initially supplies a portability audit rather than a target deployment certificate. The complete three-lane table remains in the supplement. Its main boundary is simple. On hnswlib, the $+1$ lane clips to the endpoint for all registered sources and therefore saves no work on either dataset. On Faiss, the same lane retains 8.27\% and 29.09\% mean-NDC savings, with held-out empirical risks of 0.18\% and 0.67\%; no held-out direction exceeds 5\% empirical risk. This stage fixes a viable candidate family but does not authorize target deployment.
+The first fresh-query stage tests the source-derived policy of Section~\ref{sec:slack-method}. Source certification determines the executable candidate; 500 held-out target queries provide a portability audit. The complete three-lane table remains in the supplement. On hnswlib, the $+1$ lane clips to the endpoint for all registered 100K sources and saves no work. On Faiss, the same lane retains 8.27\% and 29.09\% mean-NDC savings, with held-out empirical risks of 0.18\% and 0.67\%; no held-out direction exceeds 5\% empirical risk. This source-only stage identifies a viable Faiss candidate family for independent target qualification.
 
 The post-seal replication closes that gap with new, mutually exclusive target certification and evaluation roles (Table~\ref{tab:target-certified}). Every candidate and endpoint has a target CP UCB below 5\%; all 552 directions per dataset deploy the frozen candidate, with no fallback or abstention. The largest candidate certificate counts are 5/500 on SIFT and 6/500 on Arxiv-Nomic (UCBs 2.32\% and 2.59\%). Evaluation risk is 0.126 [0.040, 0.250]\% on SIFT and 0.530 [0.233, 0.915]\% on Arxiv-Nomic. Mean-NDC savings remain 8.283 [7.921, 8.557]\% and 29.083 [28.653, 29.518]\%. These crossed target--query intervals are wider than the target-only intervals but leave the conclusions unchanged. Pooled and worst-target p95 ratios remain below one, and leaving out any target preserves positive mean savings.
 
@@ -49,19 +49,22 @@ Dataset & C/F/A & Eval. risk [95\% CI] & NDC saving [95\% CI] & P95 ratio & LOTO
 \bottomrule\end{tabular*}
 \end{table*}
 
-The candidate is below the endpoint in 92/552 SIFT directions and 322/552 Arxiv directions; in the others the upward rung clips to the endpoint. This explains why every decision can deploy the candidate while many isolated directions have zero saving. It also preserves the implementation boundary: no target-certified hnswlib claim is made because the registered hnswlib candidate already equals the endpoint. Fixed-machine interleaved timing points in the same direction (9.27\% and 26.57\% mean reductions), but remains exploratory; NDC is the primary efficiency endpoint.
+The candidate is below the endpoint in 92/552 SIFT directions and 322/552 Arxiv directions; in the others the upward rung clips to the endpoint. Thus every decision can deploy the qualified candidate while many isolated directions have zero saving. Fixed-machine interleaved timing points in the same direction (9.27\% and 26.57\% mean reductions); NDC remains the primary efficiency endpoint because truth and control time are absent from the timing ledger.
+
+\paragraph{Scale confirmation on hnswlib.}
+The preregistered Deep1M replication applies the same fixed-slack logic without retuning. All eight source candidates remain below the endpoint, and all 56 target decisions qualify the candidate with no fallback or abstention. Held-out risk is 1.632 [0.804, 2.614]\%, mean-NDC saving relative to \texttt{efSearch}=1,200 is 34.282 [33.533, 35.045]\%, and pooled p95/p99 ratios are 0.682/0.695. Every target remains positive, and the minimum LOTO saving is 34.126\%. Together with the Faiss results, this establishes target-certified fixed-slack recovery across two HNSW implementations and 100K-to-1M scale. The 100K hnswlib endpoint-clipping result remains the counterexample: the route is useful when the registered source candidate leaves recoverable slack.
 
 \subsection{RQ5: Does Recovery Worsen the Search-Work Tail?}
 Neither recalibration rule increases query-pooled p95 or p99 relative to the endpoint. For joint-error replay, p95 is 2,349 versus 2,615 NDC on SIFT, and 3,117 versus 3,252 on Arxiv; p99 is 2,774 versus 2,855 and 3,460 versus 3,504. Every individual target also has non-increasing p95 and p99. Figure~\ref{fig:tails} displays the per-target ratios without connecting unrelated seeds.
 
 \begin{figure}[t]
 \centering\includegraphics[width=\linewidth]{figures/tails.pdf}
-\caption{Per-target tail ratios for joint-error replay, relative to that target's endpoint; ten dots per dataset/quantile. Equality reflects an endpoint fallback. All ratios are at most one. These descriptive tail comparisons are not formal noninferiority certificates or wall-clock results.}
+\caption{Per-target tail ratios for joint-error replay, relative to that target's endpoint; ten dots per dataset/quantile. Equality reflects an endpoint fallback. All ratios are at most one. The figure reports observed NDC tails rather than a formal tail certificate.}
 \label{fig:tails}
 \Description{Paired target p95 and p99 ratios fall at or below the equality line; endpoint fallback targets have ratio one.}
 \end{figure}
 
-The fallback is a build-level choice, so its serving distribution is exactly the fixed endpoint's distribution for that build. Combining it with candidate-serving builds can change pooled quantiles even without changing a candidate's query path. Reporting both pooled and per-target tails avoids hiding this composition effect. It also avoids inferring tail behavior from the much larger mean gain alone.
+The fallback is a build-level choice, so its serving distribution is the fixed endpoint's distribution for that build. Combining fallback and candidate-serving builds can change pooled quantiles through composition alone. We therefore report pooled and per-target tails separately from the larger mean gain.
 
 \subsection{RQ6: Is the Benefit Driven by One Target?}
-The minimum LOTO mean-NDC reduction is 44.37\%/44.23\% for original SIFT/Arxiv decisions, and 44.37\%/27.64\% for joint-error decisions. Deleting the largest relative-gain build produces those same minima in these records. These are overlapping checks, not independent confirmations. Target-only and shared-query-only interval sensitivities in the supplement show different uncertainty sources: SIFT's variation is dominated by queries, whereas Arxiv's stricter-rule result also varies strongly with the candidate/fallback choice across targets. The retained positive direction supports a fixed-target-set recovery finding; it does not certify an unseen rebuild distribution.
+The minimum LOTO mean-NDC reduction is 44.37\%/44.23\% for original SIFT/Arxiv decisions, and 44.37\%/27.64\% for joint-error decisions. Deleting the largest relative-gain build produces those same minima, so the two checks overlap. Target-only and shared-query-only interval sensitivities in the supplement separate the uncertainty sources: SIFT varies mainly across queries, whereas Arxiv's stricter result also varies with candidate/fallback composition across targets. Every registered deletion preserves positive recovery on the fixed target set.
