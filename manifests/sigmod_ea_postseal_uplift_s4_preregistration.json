@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "phase": "S4",
+  "status": "PREREGISTERED_BEFORE_S4_COST_DERIVATION",
+  "parent_commit": "534e76b84ec63b8d7485d8233b4a0a05f630ba14",
+  "inputs": [
+    {
+      "path": "manifests/sigmod_ea_postseal_uplift_s3_decision.json",
+      "sha256": "a3b922609b4dc186195d7347796a8db1f8acf2036b9175228b7048871ffdca91"
+    },
+    {
+      "path": "manifests/sigmod_ea_postseal_uplift_s3_preregistration.json",
+      "sha256": "03d5afeceab47e7c96f9e2990ddc79c704a4f99734fdff94e7e67672ac312221"
+    },
+    {
+      "path": "results/sigmod_ea_postseal_uplift/s3_analysis/s3_pair_results.csv",
+      "sha256": "1ecad9e2c8fba722adedc893a47d134b39c8f6cf927747cac491b7f5c9872dd3"
+    },
+    {
+      "path": "results/sigmod_ea_postseal_uplift/s3_analysis/s3_target_build_results.csv",
+      "sha256": "d77379093e77be7a6d97b149e9c6b19109be4c9c0d9f3d26480c64adc9d4956a"
+    },
+    {
+      "path": "results/sigmod_ea_postseal_uplift/s3_analysis/s3_summary.csv",
+      "sha256": "d64c5a70f15aa7d6deccd461669c6ee7aef0fb251727a40b735d16b49f44b5a9"
+    }
+  ],
+  "primary_currency": "faiss_hnsw_native_distance_computations",
+  "registered_horizons": [
+    1000,
+    10000,
+    100000,
+    1000000,
+    10000000
+  ],
+  "fixed_accounting": {
+    "base_rows_per_exact_label": 100000,
+    "target_certification_labels": 500,
+    "truth_distance_cost": "100000 * 500 per target truth set",
+    "certification_search": "sum measured candidate and endpoint NDC; identical actions deduplicated",
+    "serving_saving": "endpoint evaluation NDC minus executed-action evaluation NDC",
+    "rebuild": "COMMON_CANCELS_SAME_TARGET_INDEX",
+    "fallback": "already represented by executed_action",
+    "control_extra_ndc": 0
+  },
+  "scenarios": {
+    "PAIRWISE_TARGET_CERTIFICATION": "one source-target deployment; target truth and required searches charged to that direction",
+    "SHARED_TARGET_CERTIFICATION_23_SOURCES": "one target truth set and each unique required action replayed once, shared by 23 registered source policies"
+  },
+  "statistics": {
+    "outer_unit": "target_build",
+    "bootstrap_replicates": 5000,
+    "seed": 991,
+    "interval": 0.95,
+    "robustness": [
+      "LOBO",
+      "delete_largest_net_saving_target_build"
+    ]
+  },
+  "gates": {
+    "target_stage_ndc": "S3 gates pass and, on both datasets, N=1e6 net-NDC bootstrap lower bound, LOBO minimum, and delete-largest check are positive",
+    "full_lifecycle": "requires measured source-policy acquisition plus target-stage terms; missing source terms force NOT_ESTIMABLE",
+    "wall_clock": "truth/control wall time must be measured under a controlled protocol; otherwise only search-only timing is descriptive"
+  },
+  "scope_limits": [
+    "source-policy acquisition NDC is unavailable in the historical Faiss response cube and is never set to zero",
+    "exact-truth wall time was not recorded and is never inferred from NDC",
+    "no new query, truth, index, action, or policy access is authorized",
+    "no monetary or hardware-general wall-clock claim"
+  ]
+}
