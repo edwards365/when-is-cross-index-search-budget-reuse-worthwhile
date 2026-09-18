@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "main": {
+    "pages": 10,
+    "bytes": 306111,
+    "letter": true,
+    "anonymous": true,
+    "references_resolved": true
+  },
+  "appendix": {
+    "pages": 5,
+    "bytes": 97102,
+    "letter": true,
+    "anonymous": true,
+    "references_resolved": true
+  },
+  "structure": {
+    "icba_centered": true,
+    "policy_hierarchy_explicit": true,
+    "source_slack_demoted_to_ablation": true,
+    "s9_3_and_s9_4_numbers_bound_to_decision_manifests": true,
+    "claim_map_rows": 8
+  }
+}

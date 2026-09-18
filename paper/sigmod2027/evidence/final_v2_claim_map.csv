@@ -1,0 +1,9 @@
+claim_id,claim,source_path,evidence_status
+V2-C01,Graph-only transfer adds 17.17--23.60 percentage points,evidence/graph_only_marginal_intervals.csv,REGISTERED_REANALYSIS
+V2-C02,Refresh replay crosses the five-percent risk line,evidence/refresh95_summary.csv,FROZEN_REFRESH_REPLAY
+V2-C03,TCP endpoint-relative and equal-information results,evidence/postseal_tables.tex,FROZEN_RESPONSE_REANALYSIS
+V2-C04,S9-1 clean anonymous replay passes,results/sigmod_s9/s9_1_gate.json,CLEAN_ENVIRONMENT_REPLAY
+V2-C05,S9-2 fixed-machine serving-time result,results/sigmod_s9/s9_2_stage_a_fixed_slack_analysis/summary.json,FIXED_MACHINE_INTERLEAVED
+V2-C06,S9-3 prospective build and query confirmation,manifests/sigmod_s9_3_decision.json,PREREGISTERED_PROSPECTIVE
+V2-C07,S9-4 paired strong-baseline audit,manifests/sigmod_s9_4_decision.json,PREREGISTERED_PAIRED_ABLATION
+V2-C08,S9-4 raw responses and runtime equivalence,manifests/sigmod_s9_4_outputs.sha256,CHECKSUMMED_RAW_EVIDENCE

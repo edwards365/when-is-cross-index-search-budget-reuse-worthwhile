@@ -1,0 +1,22 @@
+\section{Experimental Design and Inference}
+\label{sec:methodology}
+
+\paragraph{Registered settings.}
+SIFT-100K uses 128-dimensional Euclidean vectors; Arxiv-Nomic-100K uses 768-dimensional normalized inner-product vectors. The graph-only study uses 24 hnswlib and 24 Faiss builds per dataset, 750 queries, and all 552 non-diagonal directions. Native grids are $(10,20,40,80,120,200)$ for hnswlib and $(16,32,64,128,256,512)$ for Faiss. Deep1M uses eight hnswlib builds and grid $(200,300,400,600,800,1200)$. Native actions are never equated across implementations.
+
+\paragraph{Evidence stages.}
+The graph-only experiment executes each source first-passing action on the target and compares it with the target first-passing reference. A separate seed-991 refresh replaces 5\% of each 100K collection, rebuilds ten old and ten refreshed indexes, and replays one recurring-query policy. TCP uses 500 selection, 500 certification, and 1,000 evaluation queries.
+
+After these analyses were frozen, the source-slack boundary used previously untouched source-certification and target-evaluation roles. The post-seal Faiss and Deep1M studies added mutually exclusive target-certification and evaluation roles. S9-3 then created eight new insertion-permutation builds per dataset and three fresh 500-query roles, all frozen before response access. It retained the registered Faiss grid, fixed CPU, and source one-rung policy. S9-4 reused only this prospective build panel and introduced another three disjoint 500-query roles for paired baselines and ablations. Thus S9-4 is a paired method comparison, not a second independent build campaign.
+
+\paragraph{S9-4 arms.}
+The deployable arms are endpoint-512; certified fixed-256; certified source one-rung; target-global with 250 selection plus 250 certification labels; and target-global with 500 plus 500 labels. Diagnostic uncertified arms and an evaluation oracle attribute risk and headroom but cannot authorize deployment. Target-global selects the lowest estimated-cost action after removing actions whose risk UCB exceeds 5\%; failed certification executes the fixed endpoint. The 500-label arm is the equal-information comparison with the source candidate; the 1,000-label arm tests label value.
+
+\paragraph{Metrics and timing.}
+Risk is $\Pr(\rec@10<.95)$. Serving gain is $1-\bar c_{\rm policy}/\bar c_{\rm endpoint}$ for NDC or wall time, with equal query counts. We report pooled and per-target p95/p99, actual fallback, LOTO, and deletion sensitivities. Fixed-machine timing pins CPU 2, uses one search thread, 50 warmups, and seven interleaved repetitions. Top-$k$ equivalence is required before timing contributes evidence.
+
+\paragraph{Inference.}
+Primary recovery intervals use 5,000 seed-991 crossed bootstrap replicates over target builds and shared query IDs, retaining source directions within each target--query cell. Graph-only intervals resample query IDs with their complete directed-pair vectors. LOTO deletes one target without refitting. External-method and Vamana intervals retain their native units. No pooled cross-protocol effect or common leaderboard is formed.
+
+\paragraph{Questions.}
+RQ1--RQ2 establish graph-only and refresh non-portability. RQ3 tests what ICBA authorizes. RQ4 compares recovery with strong baselines. RQ5--RQ6 test tails and build sensitivity. RQ7 covers external methods, scale, and graph family. RQ8 separates measured runtime from modeled lifecycle cost. RQ9 audits reproducibility.
