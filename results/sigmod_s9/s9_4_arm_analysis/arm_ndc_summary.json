@@ -1,0 +1,645 @@
+{
+  "arxiv_nomic_100k": {
+    "A1_SOURCE_ACTION_DIRECT": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "128": 42,
+        "256": 14
+      },
+      "point": {
+        "risk": 0.01775,
+        "ndc_gain": 0.6859553170732748,
+        "p95_ndc_ratio": 0.4808998943077155,
+        "p99_ndc_ratio": 0.49476759733816045
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.010605357142857144,
+          0.026464285714285714
+        ],
+        "ndc_gain": [
+          0.6767899288980291,
+          0.6957479868041444
+        ],
+        "p95_ndc_ratio": [
+          0.47377850138586597,
+          0.4865295338396008
+        ],
+        "p99_ndc_ratio": [
+          0.48606160340792304,
+          0.49878019676516566
+        ]
+      },
+      "loto_min_ndc_gain": 0.6821170163579466,
+      "loto_max_p95_ndc_ratio": 0.48210598631290086
+    },
+    "A2_SOURCE_ONE_RUNG_UNCERTIFIED": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "256": 42,
+        "512": 14
+      },
+      "point": {
+        "risk": 0.0030714285714285713,
+        "ndc_gain": 0.37383169939576466,
+        "p95_ndc_ratio": 0.9550090593386682,
+        "p99_ndc_ratio": 0.97951535537978
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0008928571428571428,
+          0.00575
+        ],
+        "ndc_gain": [
+          0.35587826366539277,
+          0.39233884613501485
+        ],
+        "p95_ndc_ratio": [
+          0.9410511066201204,
+          0.9649416727991307
+        ],
+        "p99_ndc_ratio": [
+          0.9623963111125803,
+          0.9880257225219898
+        ]
+      },
+      "loto_min_ndc_gain": 0.3661944221478207,
+      "loto_max_p95_ndc_ratio": 0.9580214479033373
+    },
+    "A3_FIXED_256_UNCERTIFIED": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "256": 56
+      },
+      "point": {
+        "risk": 0.004,
+        "ndc_gain": 0.4984525707532709,
+        "p95_ndc_ratio": 0.504839196738638,
+        "p99_ndc_ratio": 0.5084716669355618
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.001,
+          0.0075
+        ],
+        "ndc_gain": [
+          0.4978292839453677,
+          0.49908294726654273
+        ],
+        "p95_ndc_ratio": [
+          0.5025836094734517,
+          0.5066265123407063
+        ],
+        "p99_ndc_ratio": [
+          0.5035510677294776,
+          0.5121915176592287
+        ]
+      },
+      "loto_min_ndc_gain": 0.49840845182406857,
+      "loto_max_p95_ndc_ratio": 0.5052482033688251
+    },
+    "B0_ENDPOINT_512": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "512": 56
+      },
+      "point": {
+        "risk": 0.0005,
+        "ndc_gain": 0.0,
+        "p95_ndc_ratio": 1.0,
+        "p99_ndc_ratio": 1.0
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0,
+          0.002
+        ],
+        "ndc_gain": [
+          0.0,
+          0.0
+        ],
+        "p95_ndc_ratio": [
+          1.0,
+          1.0
+        ],
+        "p99_ndc_ratio": [
+          1.0,
+          1.0
+        ]
+      },
+      "loto_min_ndc_gain": 0.0,
+      "loto_max_p95_ndc_ratio": 1.0
+    },
+    "B1_FIXED_256_CERTIFIED": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "256": 56
+      },
+      "point": {
+        "risk": 0.004,
+        "ndc_gain": 0.4984525707532709,
+        "p95_ndc_ratio": 0.504839196738638,
+        "p99_ndc_ratio": 0.5084716669355618
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.001,
+          0.0075
+        ],
+        "ndc_gain": [
+          0.4978292839453677,
+          0.49908294726654273
+        ],
+        "p95_ndc_ratio": [
+          0.5025836094734517,
+          0.5066265123407063
+        ],
+        "p99_ndc_ratio": [
+          0.5035510677294776,
+          0.5121915176592287
+        ]
+      },
+      "loto_min_ndc_gain": 0.49840845182406857,
+      "loto_max_p95_ndc_ratio": 0.5052482033688251
+    },
+    "B2_SOURCE_ONE_RUNG_CERTIFIED": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "256": 42,
+        "512": 14
+      },
+      "point": {
+        "risk": 0.0030714285714285713,
+        "ndc_gain": 0.37383169939576466,
+        "p95_ndc_ratio": 0.9550090593386682,
+        "p99_ndc_ratio": 0.97951535537978
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0008928571428571428,
+          0.00575
+        ],
+        "ndc_gain": [
+          0.35587826366539277,
+          0.39233884613501485
+        ],
+        "p95_ndc_ratio": [
+          0.9410511066201204,
+          0.9649416727991307
+        ],
+        "p99_ndc_ratio": [
+          0.9623963111125803,
+          0.9880257225219898
+        ]
+      },
+      "loto_min_ndc_gain": 0.3661944221478207,
+      "loto_max_p95_ndc_ratio": 0.9580214479033373
+    },
+    "B3_TARGET_GLOBAL_EQUAL_500": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 49,
+        "FIXED_SAFE_FALLBACK": 7
+      },
+      "executed_actions": {
+        "128": 21,
+        "256": 28,
+        "512": 7
+      },
+      "point": {
+        "risk": 0.00925,
+        "ndc_gain": 0.5299600067869741,
+        "p95_ndc_ratio": 0.9026347576626903,
+        "p99_ndc_ratio": 0.9644896482779302
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.003,
+          0.018
+        ],
+        "ndc_gain": [
+          0.34307149723566455,
+          0.6854745162271526
+        ],
+        "p95_ndc_ratio": [
+          0.48335523749831183,
+          0.9747398728872666
+        ],
+        "p99_ndc_ratio": [
+          0.49438483349074286,
+          0.9878030751034891
+        ]
+      },
+      "loto_min_ndc_gain": 0.4987344087310597,
+      "loto_max_p95_ndc_ratio": 0.9214205288254451
+    },
+    "B4_TARGET_GLOBAL_1000": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "128": 56
+      },
+      "point": {
+        "risk": 0.02225,
+        "ndc_gain": 0.7484512119996963,
+        "p95_ndc_ratio": 0.25547335044541747,
+        "p99_ndc_ratio": 0.2596870356495879
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.01325,
+          0.033
+        ],
+        "ndc_gain": [
+          0.7478761243552748,
+          0.7490417661076351
+        ],
+        "p95_ndc_ratio": [
+          0.25417736365117494,
+          0.25690341058091704
+        ],
+        "p99_ndc_ratio": [
+          0.25600819337824626,
+          0.26298872022165165
+        ]
+      },
+      "loto_min_ndc_gain": 0.7484305853906607,
+      "loto_max_p95_ndc_ratio": 0.2557223930900545
+    },
+    "O1_EVALUATION_ORACLE": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "128": 56
+      },
+      "point": {
+        "risk": 0.02225,
+        "ndc_gain": 0.7484512119996963,
+        "p95_ndc_ratio": 0.25547335044541747,
+        "p99_ndc_ratio": 0.2596870356495879
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.01325,
+          0.033
+        ],
+        "ndc_gain": [
+          0.7478761243552748,
+          0.7490417661076351
+        ],
+        "p95_ndc_ratio": [
+          0.25417736365117494,
+          0.25690341058091704
+        ],
+        "p99_ndc_ratio": [
+          0.25600819337824626,
+          0.26298872022165165
+        ]
+      },
+      "loto_min_ndc_gain": 0.7484305853906607,
+      "loto_max_p95_ndc_ratio": 0.2557223930900545
+    }
+  },
+  "sift_100k": {
+    "A1_SOURCE_ACTION_DIRECT": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "128": 56
+      },
+      "point": {
+        "risk": 0.0215,
+        "ndc_gain": 0.7469789388925454,
+        "p95_ndc_ratio": 0.25649922479258264,
+        "p99_ndc_ratio": 0.2588436823462068
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0125,
+          0.032
+        ],
+        "ndc_gain": [
+          0.7464325498570666,
+          0.7475479087806831
+        ],
+        "p95_ndc_ratio": [
+          0.25524280951763145,
+          0.25790266475271223
+        ],
+        "p99_ndc_ratio": [
+          0.2570692382231047,
+          0.26045431078988124
+        ]
+      },
+      "loto_min_ndc_gain": 0.7469489814958086,
+      "loto_max_p95_ndc_ratio": 0.2566108040178925
+    },
+    "A2_SOURCE_ONE_RUNG_UNCERTIFIED": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "256": 56
+      },
+      "point": {
+        "risk": 0.004,
+        "ndc_gain": 0.4977733655887764,
+        "p95_ndc_ratio": 0.5054484124718356,
+        "p99_ndc_ratio": 0.5084776255589847
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0005,
+          0.00925
+        ],
+        "ndc_gain": [
+          0.49715383374888256,
+          0.4984158736384057
+        ],
+        "p95_ndc_ratio": [
+          0.503769748444691,
+          0.5078414096916299
+        ],
+        "p99_ndc_ratio": [
+          0.5058435891807722,
+          0.512482952932644
+        ]
+      },
+      "loto_min_ndc_gain": 0.49772721338058923,
+      "loto_max_p95_ndc_ratio": 0.5057561670079356
+    },
+    "A3_FIXED_256_UNCERTIFIED": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "256": 56
+      },
+      "point": {
+        "risk": 0.004,
+        "ndc_gain": 0.4977733655887764,
+        "p95_ndc_ratio": 0.5054484124718356,
+        "p99_ndc_ratio": 0.5084776255589847
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0005,
+          0.00925
+        ],
+        "ndc_gain": [
+          0.49715383374888256,
+          0.4984158736384057
+        ],
+        "p95_ndc_ratio": [
+          0.503769748444691,
+          0.5078414096916299
+        ],
+        "p99_ndc_ratio": [
+          0.5058435891807722,
+          0.512482952932644
+        ]
+      },
+      "loto_min_ndc_gain": 0.49772721338058923,
+      "loto_max_p95_ndc_ratio": 0.5057561670079356
+    },
+    "B0_ENDPOINT_512": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "512": 56
+      },
+      "point": {
+        "risk": 0.0015,
+        "ndc_gain": 0.0,
+        "p95_ndc_ratio": 1.0,
+        "p99_ndc_ratio": 1.0
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0,
+          0.005
+        ],
+        "ndc_gain": [
+          0.0,
+          0.0
+        ],
+        "p95_ndc_ratio": [
+          1.0,
+          1.0
+        ],
+        "p99_ndc_ratio": [
+          1.0,
+          1.0
+        ]
+      },
+      "loto_min_ndc_gain": 0.0,
+      "loto_max_p95_ndc_ratio": 1.0
+    },
+    "B1_FIXED_256_CERTIFIED": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "256": 56
+      },
+      "point": {
+        "risk": 0.004,
+        "ndc_gain": 0.4977733655887764,
+        "p95_ndc_ratio": 0.5054484124718356,
+        "p99_ndc_ratio": 0.5084776255589847
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0005,
+          0.00925
+        ],
+        "ndc_gain": [
+          0.49715383374888256,
+          0.4984158736384057
+        ],
+        "p95_ndc_ratio": [
+          0.503769748444691,
+          0.5078414096916299
+        ],
+        "p99_ndc_ratio": [
+          0.5058435891807722,
+          0.512482952932644
+        ]
+      },
+      "loto_min_ndc_gain": 0.49772721338058923,
+      "loto_max_p95_ndc_ratio": 0.5057561670079356
+    },
+    "B2_SOURCE_ONE_RUNG_CERTIFIED": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "256": 56
+      },
+      "point": {
+        "risk": 0.004,
+        "ndc_gain": 0.4977733655887764,
+        "p95_ndc_ratio": 0.5054484124718356,
+        "p99_ndc_ratio": 0.5084776255589847
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0005,
+          0.00925
+        ],
+        "ndc_gain": [
+          0.49715383374888256,
+          0.4984158736384057
+        ],
+        "p95_ndc_ratio": [
+          0.503769748444691,
+          0.5078414096916299
+        ],
+        "p99_ndc_ratio": [
+          0.5058435891807722,
+          0.512482952932644
+        ]
+      },
+      "loto_min_ndc_gain": 0.49772721338058923,
+      "loto_max_p95_ndc_ratio": 0.5057561670079356
+    },
+    "B3_TARGET_GLOBAL_EQUAL_500": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 49,
+        "FIXED_SAFE_FALLBACK": 7
+      },
+      "executed_actions": {
+        "256": 49,
+        "512": 7
+      },
+      "point": {
+        "risk": 0.0035,
+        "ndc_gain": 0.4357974200041961,
+        "p95_ndc_ratio": 0.9157681141597234,
+        "p99_ndc_ratio": 0.96772244244451
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.00025,
+          0.0085
+        ],
+        "ndc_gain": [
+          0.31147765695050755,
+          0.4982662309202502
+        ],
+        "p95_ndc_ratio": [
+          0.5043265240875605,
+          0.9766623586727752
+        ],
+        "p99_ndc_ratio": [
+          0.5064499132280118,
+          0.9862884921967181
+        ]
+      },
+      "loto_min_ndc_gain": 0.42688539797531666,
+      "loto_max_p95_ndc_ratio": 0.9270856218857375
+    },
+    "B4_TARGET_GLOBAL_1000": {
+      "deployable": true,
+      "decision_counts": {
+        "CANDIDATE_ACCEPTED": 56
+      },
+      "executed_actions": {
+        "128": 7,
+        "256": 49
+      },
+      "point": {
+        "risk": 0.00725,
+        "ndc_gain": 0.5288320494803997,
+        "p95_ndc_ratio": 0.5045655983591077,
+        "p99_ndc_ratio": 0.5077037630035165
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.001,
+          0.01625
+        ],
+        "ndc_gain": [
+          0.4973352302496758,
+          0.5912045080774453
+        ],
+        "p95_ndc_ratio": [
+          0.5009297626747111,
+          0.507563957611972
+        ],
+        "p99_ndc_ratio": [
+          0.5050006338173427,
+          0.5123976663640284
+        ]
+      },
+      "loto_min_ndc_gain": 0.4977948615340525,
+      "loto_max_p95_ndc_ratio": 0.505663540491791
+    },
+    "O1_EVALUATION_ORACLE": {
+      "deployable": false,
+      "decision_counts": {
+        "DIAGNOSTIC_NO_CERTIFICATE": 56
+      },
+      "executed_actions": {
+        "128": 56
+      },
+      "point": {
+        "risk": 0.0215,
+        "ndc_gain": 0.7469789388925454,
+        "p95_ndc_ratio": 0.25649922479258264,
+        "p99_ndc_ratio": 0.2588436823462068
+      },
+      "crossed_target_query_95ci": {
+        "risk": [
+          0.0125,
+          0.032
+        ],
+        "ndc_gain": [
+          0.7464325498570666,
+          0.7475479087806831
+        ],
+        "p95_ndc_ratio": [
+          0.25524280951763145,
+          0.25790266475271223
+        ],
+        "p99_ndc_ratio": [
+          0.2570692382231047,
+          0.26045431078988124
+        ]
+      },
+      "loto_min_ndc_gain": 0.7469489814958086,
+      "loto_max_p95_ndc_ratio": 0.2566108040178925
+    }
+  }
+}

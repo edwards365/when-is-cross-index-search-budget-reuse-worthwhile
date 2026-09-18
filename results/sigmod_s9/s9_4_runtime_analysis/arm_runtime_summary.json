@@ -1,0 +1,550 @@
+{
+  "arxiv_nomic_100k": {
+    "B0_ENDPOINT_512": {
+      "risk": 0.0005,
+      "risk_crossed_95ci": [
+        0.0,
+        0.002
+      ],
+      "point": {
+        "wall_gain": 0.0,
+        "cpu_gain": 0.0,
+        "ndc_gain": 0.0,
+        "p95_wall_ratio": 1.0,
+        "p99_wall_ratio": 1.0
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.0,
+          0.0
+        ],
+        "cpu_gain": [
+          0.0,
+          0.0
+        ],
+        "ndc_gain": [
+          0.0,
+          0.0
+        ],
+        "p95_wall_ratio": [
+          1.0,
+          1.0
+        ],
+        "p99_wall_ratio": [
+          1.0,
+          1.0
+        ]
+      },
+      "loto_min_wall_gain": 0.0,
+      "loto_max_p95_wall_ratio": 1.0,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.0,
+        "cpu_gain": 0.0,
+        "ndc_gain": 0.0,
+        "p95_wall_ratio": 1.0,
+        "p99_wall_ratio": 1.0
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": false,
+        "p95": true,
+        "loto": false,
+        "timing": true
+      },
+      "deployment_value_gate_pass": false
+    },
+    "B1_FIXED_256_CERTIFIED": {
+      "risk": 0.004,
+      "risk_crossed_95ci": [
+        0.001,
+        0.0075
+      ],
+      "point": {
+        "wall_gain": 0.4363947060889204,
+        "cpu_gain": 0.43606024205197136,
+        "ndc_gain": 0.4984525707532709,
+        "p95_wall_ratio": 0.5632540184988407,
+        "p99_wall_ratio": 0.5718926741366233
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.43326211679289217,
+          0.43966725897908876
+        ],
+        "cpu_gain": [
+          0.4329061496573417,
+          0.4393230793526938
+        ],
+        "ndc_gain": [
+          0.4978292839453677,
+          0.49908294726654273
+        ],
+        "p95_wall_ratio": [
+          0.5569045836385286,
+          0.5741343453661865
+        ],
+        "p99_wall_ratio": [
+          0.5574689291241749,
+          0.5897510502356301
+        ]
+      },
+      "loto_min_wall_gain": 0.43566032735664006,
+      "loto_max_p95_wall_ratio": 0.5659638266281026,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.4361244741497684,
+        "cpu_gain": 0.4357871226906809,
+        "ndc_gain": 0.4984482456701578,
+        "p95_wall_ratio": 0.5651360326011539,
+        "p99_wall_ratio": 0.5786371365690269
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    },
+    "B2_SOURCE_ONE_RUNG_CERTIFIED": {
+      "risk": 0.0030714285714285713,
+      "risk_crossed_95ci": [
+        0.0008928571428571428,
+        0.00575
+      ],
+      "point": {
+        "wall_gain": 0.3272779428944337,
+        "cpu_gain": 0.3270279878383433,
+        "ndc_gain": 0.37383169939576466,
+        "p95_wall_ratio": 0.8679583250985472,
+        "p99_wall_ratio": 0.9318992836417426
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.31087404897130694,
+          0.345527328561032
+        ],
+        "cpu_gain": [
+          0.31064375616914414,
+          0.3452433626500923
+        ],
+        "ndc_gain": [
+          0.35587826366539277,
+          0.39233884613501485
+        ],
+        "p95_wall_ratio": [
+          0.8425317506174542,
+          0.8913740547361364
+        ],
+        "p99_wall_ratio": [
+          0.9067595173370244,
+          0.956995034647718
+        ]
+      },
+      "loto_min_wall_gain": 0.3205426603038075,
+      "loto_max_p95_wall_ratio": 0.8747836581349272,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.32704771207559147,
+        "cpu_gain": 0.3267966402518757,
+        "ndc_gain": 0.3738331233979679,
+        "p95_wall_ratio": 0.8751458927849113,
+        "p99_wall_ratio": 0.9469041661067851
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    },
+    "B3_TARGET_GLOBAL_EQUAL_500": {
+      "risk": 0.00925,
+      "risk_crossed_95ci": [
+        0.003,
+        0.018
+      ],
+      "point": {
+        "wall_gain": 0.46806940854128154,
+        "cpu_gain": 0.46776443022182357,
+        "ndc_gain": 0.5299600067869741,
+        "p95_wall_ratio": 0.7627529251678934,
+        "p99_wall_ratio": 0.8734532016296872
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.3036024307646527,
+          0.6053599986073727
+        ],
+        "cpu_gain": [
+          0.3033607696234062,
+          0.6050386511661461
+        ],
+        "ndc_gain": [
+          0.34307149723566455,
+          0.6854745162271526
+        ],
+        "p95_wall_ratio": [
+          0.4996347541680187,
+          0.9209247725584258
+        ],
+        "p99_wall_ratio": [
+          0.5285011869492751,
+          0.9427364358666595
+        ]
+      },
+      "loto_min_wall_gain": 0.43965394551364756,
+      "loto_max_p95_wall_ratio": 0.788431165521287,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.46780228686768976,
+        "cpu_gain": 0.4674941081607985,
+        "ndc_gain": 0.5299706156169259,
+        "p95_wall_ratio": 0.7710663493087622,
+        "p99_wall_ratio": 0.8942358292898385
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    },
+    "B4_TARGET_GLOBAL_1000": {
+      "risk": 0.02225,
+      "risk_crossed_95ci": [
+        0.01325,
+        0.033
+      ],
+      "point": {
+        "wall_gain": 0.6647249301240052,
+        "cpu_gain": 0.6643730535255297,
+        "ndc_gain": 0.7484512119996963,
+        "p95_wall_ratio": 0.34013209279998846,
+        "p99_wall_ratio": 0.3402345805526601
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.662007624088762,
+          0.667375609044357
+        ],
+        "cpu_gain": [
+          0.6616624834292067,
+          0.6670340213639573
+        ],
+        "ndc_gain": [
+          0.7478761243552748,
+          0.7490417661076351
+        ],
+        "p95_wall_ratio": [
+          0.33444471770138245,
+          0.34636703073206565
+        ],
+        "p99_wall_ratio": [
+          0.3306232670588898,
+          0.3526835816433455
+        ]
+      },
+      "loto_min_wall_gain": 0.6642892797872793,
+      "loto_max_p95_wall_ratio": 0.34150741855979755,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.6644108964424766,
+        "cpu_gain": 0.6640602583563188,
+        "ndc_gain": 0.7484590872783181,
+        "p95_wall_ratio": 0.3413560379243178,
+        "p99_wall_ratio": 0.34812785379962485
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    }
+  },
+  "sift_100k": {
+    "B0_ENDPOINT_512": {
+      "risk": 0.0015,
+      "risk_crossed_95ci": [
+        0.0,
+        0.005
+      ],
+      "point": {
+        "wall_gain": 0.0,
+        "cpu_gain": 0.0,
+        "ndc_gain": 0.0,
+        "p95_wall_ratio": 1.0,
+        "p99_wall_ratio": 1.0
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.0,
+          0.0
+        ],
+        "cpu_gain": [
+          0.0,
+          0.0
+        ],
+        "ndc_gain": [
+          0.0,
+          0.0
+        ],
+        "p95_wall_ratio": [
+          1.0,
+          1.0
+        ],
+        "p99_wall_ratio": [
+          1.0,
+          1.0
+        ]
+      },
+      "loto_min_wall_gain": 0.0,
+      "loto_max_p95_wall_ratio": 1.0,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.0,
+        "cpu_gain": 0.0,
+        "ndc_gain": 0.0,
+        "p95_wall_ratio": 1.0,
+        "p99_wall_ratio": 1.0
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": false,
+        "p95": true,
+        "loto": false,
+        "timing": true
+      },
+      "deployment_value_gate_pass": false
+    },
+    "B1_FIXED_256_CERTIFIED": {
+      "risk": 0.004,
+      "risk_crossed_95ci": [
+        0.0005,
+        0.00925
+      ],
+      "point": {
+        "wall_gain": 0.519329493173897,
+        "cpu_gain": 0.5181958552974564,
+        "ndc_gain": 0.4977733655887764,
+        "p95_wall_ratio": 0.5145758947123407,
+        "p99_wall_ratio": 0.5269445389669586
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.5119790081316843,
+          0.5278724263112777
+        ],
+        "cpu_gain": [
+          0.5108987028077364,
+          0.5267418091032174
+        ],
+        "ndc_gain": [
+          0.49715383374888256,
+          0.4984158736384057
+        ],
+        "p95_wall_ratio": [
+          0.5051277336643034,
+          0.5248899260166804
+        ],
+        "p99_wall_ratio": [
+          0.5099936048410402,
+          0.5447535267037527
+        ]
+      },
+      "loto_min_wall_gain": 0.5161363874314739,
+      "loto_max_p95_wall_ratio": 0.5169481913007773,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.5189153882275539,
+        "cpu_gain": 0.5177905925628515,
+        "ndc_gain": 0.4978099780261862,
+        "p95_wall_ratio": 0.516622537607715,
+        "p99_wall_ratio": 0.5316520854885013
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    },
+    "B2_SOURCE_ONE_RUNG_CERTIFIED": {
+      "risk": 0.004,
+      "risk_crossed_95ci": [
+        0.0005,
+        0.00925
+      ],
+      "point": {
+        "wall_gain": 0.519329493173897,
+        "cpu_gain": 0.5181958552974564,
+        "ndc_gain": 0.4977733655887764,
+        "p95_wall_ratio": 0.5145758947123407,
+        "p99_wall_ratio": 0.5269445389669586
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.5119790081316843,
+          0.5278724263112777
+        ],
+        "cpu_gain": [
+          0.5108987028077364,
+          0.5267418091032174
+        ],
+        "ndc_gain": [
+          0.49715383374888256,
+          0.4984158736384057
+        ],
+        "p95_wall_ratio": [
+          0.5051277336643034,
+          0.5248899260166804
+        ],
+        "p99_wall_ratio": [
+          0.5099936048410402,
+          0.5447535267037527
+        ]
+      },
+      "loto_min_wall_gain": 0.5161363874314739,
+      "loto_max_p95_wall_ratio": 0.5169481913007773,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.5189153882275539,
+        "cpu_gain": 0.5177905925628515,
+        "ndc_gain": 0.4978099780261862,
+        "p95_wall_ratio": 0.516622537607715,
+        "p99_wall_ratio": 0.5316520854885013
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    },
+    "B3_TARGET_GLOBAL_EQUAL_500": {
+      "risk": 0.0035,
+      "risk_crossed_95ci": [
+        0.00025,
+        0.0085
+      ],
+      "point": {
+        "wall_gain": 0.4533341831693676,
+        "cpu_gain": 0.452359948971204,
+        "ndc_gain": 0.4357974200041961,
+        "p95_wall_ratio": 0.8336110524715531,
+        "p99_wall_ratio": 0.8793011861907603
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.3248363843666721,
+          0.5200409281189673
+        ],
+        "cpu_gain": [
+          0.3241040758380858,
+          0.5189323658795355
+        ],
+        "ndc_gain": [
+          0.31147765695050755,
+          0.4982662309202502
+        ],
+        "p95_wall_ratio": [
+          0.5093190620427441,
+          0.9299877057710683
+        ],
+        "p99_wall_ratio": [
+          0.514011300829997,
+          0.9350068860962552
+        ]
+      },
+      "loto_min_wall_gain": 0.4426164010358473,
+      "loto_max_p95_wall_ratio": 0.8509432608939419,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.4528893782261547,
+        "cpu_gain": 0.4519309241723066,
+        "ndc_gain": 0.43583132875285135,
+        "p95_wall_ratio": 0.8367771006641824,
+        "p99_wall_ratio": 0.8821458798994153
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    },
+    "B4_TARGET_GLOBAL_1000": {
+      "risk": 0.00725,
+      "risk_crossed_95ci": [
+        0.001,
+        0.01625
+      ],
+      "point": {
+        "wall_gain": 0.5452656406493711,
+        "cpu_gain": 0.5440583609779728,
+        "ndc_gain": 0.5288320494803997,
+        "p95_wall_ratio": 0.512604107305025,
+        "p99_wall_ratio": 0.5265956333455412
+      },
+      "crossed_target_query_95ci": {
+        "wall_gain": [
+          0.5120494724116155,
+          0.6055650738812486
+        ],
+        "cpu_gain": [
+          0.5109803484837243,
+          0.6041497180517548
+        ],
+        "ndc_gain": [
+          0.4973352302496758,
+          0.5912045080774453
+        ],
+        "p95_wall_ratio": [
+          0.5023057268583164,
+          0.5241884827307769
+        ],
+        "p99_wall_ratio": [
+          0.508845339086061,
+          0.544120398882653
+        ]
+      },
+      "loto_min_wall_gain": 0.5161363874314739,
+      "loto_max_p95_wall_ratio": 0.5169481913007773,
+      "delete_top_1pct_query_benefit": {
+        "wall_gain": 0.5448959191629172,
+        "cpu_gain": 0.5437012907232341,
+        "ndc_gain": 0.5288783257242601,
+        "p95_wall_ratio": 0.5150374414884051,
+        "p99_wall_ratio": 0.5316124283062572
+      },
+      "gates": {
+        "safety": true,
+        "mean_wall": true,
+        "p95": true,
+        "loto": true,
+        "timing": true
+      },
+      "deployment_value_gate_pass": true
+    }
+  },
+  "timing_stability": {
+    "arxiv_nomic_100k": {
+      "median": 0.005926642712401548,
+      "max": 0.012481328156087258
+    },
+    "sift_100k": {
+      "median": 0.009564562740364118,
+      "max": 0.01760753271568472
+    }
+  },
+  "integrity": {
+    "top10_checked_cells": 20500,
+    "top10_mismatches": 0
+  }
+}

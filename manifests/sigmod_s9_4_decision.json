@@ -1,0 +1,59 @@
+{
+  "stage": "S9-4",
+  "evidence_class": "PREREGISTERED_PAIRED_BASELINE_ABLATION_ON_FROZEN_PROSPECTIVE_BUILD_PANEL",
+  "decision": "ICBA_VALUE_CONFIRMED_SIMPLE_BASELINE_DOMINATES_SOURCE_SLACK_TARGET_RECALIBRATION_STRONGEST",
+  "icba_audit_value": "SUPPORTED",
+  "source_slack_unique_method_value": "NOT_SUPPORTED",
+  "paper_route": "CENTER_ICBA_AND_TARGET_RECALIBRATION; DEMOTE_SOURCE_SLACK_TO_BOUNDARY_ABLATION",
+  "frozen_inputs": {
+    "parent_s9_3_commit": "601873c278fd7f590a734d697bf32a7f0e6f7013",
+    "role_manifest_sha256": "0da5625ffebcbdbc4f9733837c46e4edf1ba66813ab4198555a8aa573688303f",
+    "datasets": ["sift_100k", "arxiv_nomic_100k"],
+    "target_builds_per_dataset": 8,
+    "queries_per_role": 500,
+    "roles": ["baseline_selection", "baseline_certification", "baseline_evaluation"],
+    "role_overlap": 0,
+    "response_cells": 144000,
+    "runtime_top10_checks": 20500,
+    "runtime_top10_mismatches": 0
+  },
+  "fixed_machine_protocol": {
+    "cpu": 2,
+    "search_threads": 1,
+    "warmups": 50,
+    "interleaved_repetitions": 7,
+    "sift_median_cv": 0.00956,
+    "sift_max_cv": 0.01761,
+    "arxiv_median_cv": 0.00593,
+    "arxiv_max_cv": 0.01248
+  },
+  "primary_wall_time_results": {
+    "sift_100k": {
+      "B1_FIXED_256_CERTIFIED": {"risk": 0.004, "wall_gain": 0.519329, "ci_low": 0.511979, "p95_ratio": 0.514576, "loto_min": 0.51614, "gate": "PASS"},
+      "B2_SOURCE_ONE_RUNG_CERTIFIED": {"risk": 0.004, "wall_gain": 0.519329, "ci_low": 0.511979, "p95_ratio": 0.514576, "loto_min": 0.51614, "gate": "PASS"},
+      "B3_TARGET_GLOBAL_EQUAL_500": {"risk": 0.0035, "wall_gain": 0.453334, "ci_low": 0.324836, "p95_ratio": 0.833611, "loto_min": 0.44262, "accepted": 49, "fallback": 7, "gate": "PASS"},
+      "B4_TARGET_GLOBAL_1000": {"risk": 0.00725, "wall_gain": 0.545266, "ci_low": 0.512049, "p95_ratio": 0.512604, "loto_min": 0.51614, "gate": "PASS"}
+    },
+    "arxiv_nomic_100k": {
+      "B1_FIXED_256_CERTIFIED": {"risk": 0.004, "wall_gain": 0.436395, "ci_low": 0.433262, "p95_ratio": 0.563254, "loto_min": 0.43566, "gate": "PASS"},
+      "B2_SOURCE_ONE_RUNG_CERTIFIED": {"risk": 0.003071, "wall_gain": 0.327278, "ci_low": 0.310874, "p95_ratio": 0.867958, "loto_min": 0.32054, "gate": "PASS"},
+      "B3_TARGET_GLOBAL_EQUAL_500": {"risk": 0.00925, "wall_gain": 0.468069, "ci_low": 0.303602, "p95_ratio": 0.762753, "loto_min": 0.43965, "accepted": 49, "fallback": 7, "gate": "PASS"},
+      "B4_TARGET_GLOBAL_1000": {"risk": 0.02225, "wall_gain": 0.664725, "ci_low": 0.662008, "p95_ratio": 0.340132, "loto_min": 0.66429, "gate": "PASS"}
+    }
+  },
+  "attribution": {
+    "one_rung_shift": "REDUCES_RISK_BUT_COSTS_EFFICIENCY",
+    "certification": "CHANGES_AUTHORIZATION_NOT_EXECUTED_OUTCOME_IN_THIS_PANEL",
+    "fixed_256": "MATCHES_SOURCE_SLACK_ON_SIFT_AND_DOMINATES_ON_ARXIV",
+    "equal_500_target_global": "SAFE_POSITIVE_VALUE_BOTH_DATASETS_WITH_FALLBACK_VARIANCE",
+    "label_rich_target_global": "STRONGEST_DEPLOYABLE_ARM_BOTH_DATASETS",
+    "external_methods": "CONTEXTUAL_NATIVE_ESTIMANDS_NOT_HEAD_TO_HEAD"
+  },
+  "limitations": [
+    "same prospective build panel as S9-3 rather than a new independent build campaign",
+    "eight target builds per dataset",
+    "one fixed CPU configuration",
+    "B4 uses more target labels and is not an equal-information baseline",
+    "ConANN and ANNiE were not executable from available frozen code"
+  ]
+}
