@@ -139,11 +139,15 @@ def main() -> None:
 
     snapshot_path = OUT / "s2_faiss_external_role_snapshot.csv"
     with snapshot_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["dataset", "role", "source_id"])
+        writer = csv.DictWriter(
+            handle, fieldnames=["dataset", "role", "source_id"], lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(snapshot_rows)
     with (OUT / "s2_provisioning_audit.csv").open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(audit_rows[0]))
+        writer = csv.DictWriter(
+            handle, fieldnames=list(audit_rows[0]), lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(audit_rows)
 
