@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "scope": "fresh isolated environment outside the repository",
+  "anonymous_package": {
+    "files": 96,
+    "identity_leaks": 0,
+    "legacy_evidence": "PASS",
+    "postseal_evidence": "PASS",
+    "package_checks": "PASS",
+    "graph_only_interval_replay": "PASS",
+    "generated_table_hash_mismatches": 0,
+    "main_pdf": "PASS",
+    "appendix_pdf": "PASS"
+  },
+  "native_one_build": {
+    "scope": "one registered SIFT target build, 1000 queries, six actions",
+    "rows_checked": 6000,
+    "fields": ["action_order", "topk", "recall", "ndc"],
+    "mismatches": {
+      "action_order": 0,
+      "topk": 0,
+      "recall": 0,
+      "ndc": 0
+    },
+    "wall_clock_compared": false,
+    "environment": {
+      "python": "3.11.16",
+      "faiss": "1.8.0",
+      "numpy": "1.26.4",
+      "omp_threads": 1
+    }
+  },
+  "limitations": [
+    "same physical host",
+    "one of 48 registered Faiss builds",
+    "wall-clock values intentionally excluded from exact comparison"
+  ]
+}

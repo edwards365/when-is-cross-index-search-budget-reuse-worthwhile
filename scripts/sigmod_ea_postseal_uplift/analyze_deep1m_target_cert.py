@@ -195,16 +195,21 @@ def main():
         summary["nonclipped_source_candidates"] > 0
         and summary["abstain"] == 0
         and summary["max_candidate_cert_ucb"] <= .05
+        and summary["max_endpoint_cert_ucb"] <= .05
+        and crossed["risk_ci_high"] < .05
         and crossed["saving_ci_low"] > 0
         and summary["pooled_p95_ratio"] <= 1
+        and summary["max_target_p95_ratio"] <= 1
         and summary["lobo_min_saving"] > 0
+        and summary["min_target_saving"] > 0
     ) else "FAIL"
     args.output.mkdir(parents=True, exist_ok=True)
     write_csv(args.output / "source_policy.csv", source_rows)
     write_csv(args.output / "pair_results.csv", pair_rows)
     write_csv(args.output / "interval_sensitivity.csv", intervals)
-    (args.output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps(summary, indent=2))
+    serializer = lambda value: value.item() if isinstance(value, np.generic) else str(value)
+    (args.output / "summary.json").write_text(json.dumps(summary, indent=2, default=serializer) + "\n", encoding="utf-8")
+    print(json.dumps(summary, indent=2, default=serializer))
     if summary["gate"] != "PASS":
         raise SystemExit(2)
 

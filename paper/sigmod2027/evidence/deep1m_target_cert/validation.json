@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "checks_passed": 17,
+  "checks": [
+    "roles frozen before access",
+    "all query-role overlaps are zero",
+    "three roles contain 500 IDs each",
+    "eight source policies",
+    "56 directed source-target decisions",
+    "three registered resampling analyses",
+    "all source-derived candidates are non-clipped",
+    "all target decisions deploy the candidate",
+    "all candidates pass target certification",
+    "all endpoints pass target certification",
+    "crossed risk interval remains below 5 percent",
+    "crossed NDC-saving interval remains positive",
+    "pooled p95 does not worsen",
+    "no target p95 worsens",
+    "LOTO minimum saving is positive",
+    "every target has positive mean saving",
+    "registered aggregate gate passes"
+  ]
+}

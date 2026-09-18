@@ -80,9 +80,10 @@ def main() -> None:
             "evidence/graph_only_query_clusters.csv",
             "evidence/graph_only_marginal_intervals.csv",
             "qa/S5_CLEAN_REPLAY_PUBLIC.json",
+            "qa/S5R4_INDEPENDENT_REPLAY_PUBLIC.json",
         ):
             copy_file(src / rel, out / rel)
-        for folder in ("evidence/w6_audit", "evidence/extensions", "evidence/s4_fresh", "evidence/target_certified"):
+        for folder in ("evidence/w6_audit", "evidence/extensions", "evidence/s4_fresh", "evidence/target_certified", "evidence/deep1m_target_cert"):
             for path in sorted((src / folder).glob("*")):
                 if path.is_file():
                     copy_file(path, out / folder / path.name)

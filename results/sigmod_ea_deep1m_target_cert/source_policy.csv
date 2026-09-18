@@ -1,0 +1,9 @@
+source_build,source_action,design_failures,design_n,design_cp_ucb,candidate_action,candidate_clipped
+deep1m_seed3011_norm_ascending,400,16,500,0.048198148669046995,600,0
+deep1m_seed3011_random,600,11,500,0.036152510680135336,800,0
+deep1m_seed3203_norm_ascending,400,16,500,0.048198148669046995,600,0
+deep1m_seed3203_random,400,13,500,0.041019868160438115,600,0
+deep1m_seed3413_norm_ascending,400,15,500,0.04581964275099681,600,0
+deep1m_seed3413_random,600,6,500,0.023546585483971323,800,0
+deep1m_seed3617_norm_ascending,600,9,500,0.031199903373401592,800,0
+deep1m_seed3617_random,600,9,500,0.031199903373401592,800,0

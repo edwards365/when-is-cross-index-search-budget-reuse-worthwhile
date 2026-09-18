@@ -7,7 +7,9 @@ The frozen DARTH adapters produce target query-failure rates of 22.55\% on SIFT-
 These measurements show why query-risk qualification matters beyond TCP. They do not, without matched source checks, identify how much failure was caused by rebuilding, and the event is not interchangeable with mean recall or expected false-negative fraction. They therefore remain qualification studies rather than a ranking of published methods. The TCP comparator and information budget are stated separately.
 
 \paragraph{Larger scale.}
-On Deep1M, eight hnswlib builds cross four seeds with two insertion orders, giving 56 directed pairs on 1,000 queries. Source-derived first-passing actions have 28.86\% transport risk against 8.82\% target-reference risk. The incremental risk is 20.04 [17.29, 22.77] percentage points, using a target-build bootstrap conditional on the frozen source histories and query set. Keeping the reference risk visible matters: this is additional loss above a difficult, partly unresolved target reference, not a transfer from a zero-risk baseline. It extends response non-portability to the one-million-vector scale.
+On Deep1M, eight hnswlib builds cross four seeds with two insertion orders, giving 56 directed pairs on 1,000 queries. Source-derived first-passing actions have 28.86\% transport risk against 8.82\% target-reference risk. The incremental risk is 20.04 [17.29, 22.77] percentage points, using a target-build bootstrap conditional on the frozen source histories and query set. Keeping the reference risk visible matters: this is additional loss above a difficult, partly unresolved target reference, not a transfer from a zero-risk baseline.
+
+A preregistered replication reuses the eight indexes with disjoint 500/500/500-query roles. All 56 non-clipped candidates pass target certification; evaluation risk is 1.63 [0.80, 2.61]\% and mean-NDC saving versus efSearch 1200 is 34.28 [33.53, 35.05]\%. Every target and leave-one-target-out analysis remains positive; this is scale, not cross-family, confirmation.
 
 \paragraph{Vamana-style evidence.}
 Six source and six separate target builds produce 36 directions and 750 queries per dataset, using native search-list size and beam width one. The frozen event table combines its stage-specific under-budget and censoring outcomes. A target-build reanalysis gives 16.86 [15.88, 17.93]\% on SIFT and 11.37 [10.80, 11.99]\% on Arxiv. Its recorded responses do not reconstruct exactly the first-passing execution estimand used for hnswlib/Faiss. We retain it as directional cross-family evidence, not another row of Table~\ref{tab:graph-only}.
@@ -21,7 +23,7 @@ Vamana cost-tax intervals include zero: 1.07 [$-1.03$, 2.86]\% and 1.17 [$-0.83$
 Setting & Event and reference & Supported comparison & Unit / query count\\\midrule
 DARTH & Absolute target $\rec@10<0.95$ risk; no matched reference subtraction & Target qualification under the frozen adapter & Target summaries; 1,000/build\\
 Ada-ef & Absolute target $\rec@10<0.95$ risk; endpoint for audited saving & Candidate rejection versus endpoint execution on Arxiv & 10 target builds; 1,000/build\\
-Deep1M & Source-derived execution versus target first-passing reference, unresolved mass retained & Additional response-transfer loss at 1M scale & 8 target builds; 1,000 shared queries\\
+Deep1M & Transport versus target reference; certified slack versus efSearch 1200 & Transfer loss and certified recovery at 1M scale & 8 targets; 1,000 prior + 1,500 fresh\\
 Vamana-style & Frozen stage under-budget/censoring event; stage-specific cost reference & Directional cross-family transfer evidence, not a harmonized HNSW increment & 6 target builds; 750 shared queries\\\bottomrule
 \end{tabularx}
 \end{table*}

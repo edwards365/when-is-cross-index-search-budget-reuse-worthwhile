@@ -97,7 +97,7 @@ def main() -> None:
     require(cited <= bib_keys, "all citations resolve", checks)
 
     claim_rows = list(csv.DictReader((ROOT / "evidence" / "s5_claim_map.csv").open(encoding="utf-8")))
-    require(len(claim_rows) == 12, "twelve claim-map rows", checks)
+    require(len(claim_rows) == 13, "thirteen claim-map rows", checks)
     for row in claim_rows:
         require((ROOT / row["source"]).exists(), f"claim source exists: {row['claim_id']}", checks)
 
@@ -167,6 +167,28 @@ def main() -> None:
         r["full_end_to_end_lifecycle_status"] ==
         "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING" for r in cost_summary
     ), "four target-stage cost summaries retain the full-lifecycle boundary", checks)
+
+    deep = ROOT / "evidence" / "deep1m_target_cert"
+    deep_summary = json.loads((deep / "summary.json").read_text(encoding="utf-8"))
+    deep_validation = json.loads((deep / "validation.json").read_text(encoding="utf-8"))
+    require(deep_validation["status"] == "PASS" and deep_validation["checks_passed"] == 17,
+            "Deep1M target-certified validation passes 17 checks", checks)
+    require(deep_summary["directed_pairs"] == 56 and deep_summary["deploy_candidate"] == 56,
+            "all 56 Deep1M target decisions deploy certified candidates", checks)
+    require(deep_summary["nonclipped_source_candidates"] == 8,
+            "all eight Deep1M source candidates are non-clipped", checks)
+    require(deep_summary["relative_mean_ndc_saving_crossed_ci"][0] > 0 and
+            deep_summary["evaluation_risk_crossed_ci"][1] < 0.05,
+            "Deep1M crossed risk and efficiency gates pass", checks)
+
+    independent = json.loads((ROOT / "qa" / "S5R4_INDEPENDENT_REPLAY_PUBLIC.json").read_text())
+    require(independent["status"] == "PASS", "independent replay summary passes", checks)
+    require(independent["anonymous_package"]["files"] == 96 and
+            independent["anonymous_package"]["identity_leaks"] == 0,
+            "96-file anonymous package has no identity leaks", checks)
+    require(independent["native_one_build"]["rows_checked"] == 6000 and
+            sum(independent["native_one_build"]["mismatches"].values()) == 0,
+            "fresh-environment native replay has zero mismatches", checks)
 
     public_replay = json.loads((ROOT / "qa" / "S5_CLEAN_REPLAY_PUBLIC.json").read_text())
     require(public_replay["status"] == "PASS", "clean replay status", checks)

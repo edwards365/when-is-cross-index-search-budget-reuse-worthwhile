@@ -1,0 +1,36 @@
+{
+  "status": "COMPLETE",
+  "builds": 8,
+  "directed_pairs": 56,
+  "source_actions": {
+    "200": 0,
+    "300": 0,
+    "400": 4,
+    "600": 4,
+    "800": 0,
+    "1200": 0
+  },
+  "nonclipped_source_candidates": 8,
+  "deploy_candidate": 56,
+  "fallback_endpoint": 0,
+  "abstain": 0,
+  "max_candidate_cert_ucb": 0.04653332699148415,
+  "max_endpoint_cert_ucb": 0.028631616183336053,
+  "evaluation_risk": 0.016321428571428574,
+  "evaluation_risk_crossed_ci": [
+    0.008035714285714287,
+    0.02614285714285714
+  ],
+  "relative_mean_ndc_saving": 0.3428227895718201,
+  "relative_mean_ndc_saving_crossed_ci": [
+    0.3353257503923556,
+    0.3504503921101392
+  ],
+  "pooled_p95_ratio": 0.6818638399451674,
+  "pooled_p99_ratio": 0.6951824806396469,
+  "max_target_p95_ratio": 0.7001528381692598,
+  "max_target_p99_ratio": 0.7026573939465403,
+  "lobo_min_saving": 0.34126457670987453,
+  "min_target_saving": 0.33233811798220925,
+  "gate": "PASS"
+}
