@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "phase": "S2",
+  "parent_commit": "49bd2910b122293f43c1a9063364a038fa4417b8",
+  "branch": "exp/sigmod_ea_target_cert_uplift",
+  "decision": "BLOCKED_MISSING_EXPLICIT_UNUSED_QUERY_POOL",
+  "evidence_scope": "METADATA_ONLY_QUERY_ROLE_AUDIT",
+  "sealed_s5r3_modified": false,
+  "new_query_vector_reads": 0,
+  "new_truth_reads": 0,
+  "new_ann_searches": 0,
+  "new_index_builds": 0,
+  "validation_dev_accessed": false,
+  "formal_test_accessed": false,
+  "reserved_truth_accessed": false,
+  "findings": {
+    "sift_100k": {
+      "e4_future_replication_count": 1000,
+      "s4_certification_count": 500,
+      "s4_evaluation_count": 500,
+      "s4_within_dataset_overlap": 0,
+      "s4_union_equals_e4_future_replication": true,
+      "remaining_explicit_unused_ids": 0
+    },
+    "arxiv_nomic_100k": {
+      "e4_future_replication_count": 1000,
+      "s4_certification_count": 500,
+      "s4_evaluation_count": 500,
+      "s4_within_dataset_overlap": 0,
+      "s4_union_equals_e4_future_replication": true,
+      "remaining_explicit_unused_ids": 0
+    },
+    "s3_historical_truth_status": "ALL_750_OUTCOMES_PREVIOUSLY_INSPECTED_IN_PRIOR_PROJECT_STAGES"
+  },
+  "s3_frozen_but_unauthorized": {
+    "datasets": ["sift_100k", "arxiv_nomic_100k"],
+    "policy": "faiss_source_selected_plus_1_from_s4",
+    "builds_per_dataset": 24,
+    "directed_pairs_per_dataset": 552,
+    "target_certification_queries": 500,
+    "target_evaluation_queries": 500,
+    "allocation_seed": 991,
+    "risk_threshold": 0.05,
+    "candidate_alpha": 0.025,
+    "endpoint_alpha": 0.025,
+    "bootstrap_replicates": 5000,
+    "bootstrap_seed": 991
+  },
+  "unlock_condition": "PROVISION_AND_FREEZE_A_PROVENANCE_BEARING_UNTOUCHED_POOL_OF_AT_LEAST_1000_IDS_PER_DATASET_BEFORE_VECTOR_OR_TRUTH_ACCESS"
+}
