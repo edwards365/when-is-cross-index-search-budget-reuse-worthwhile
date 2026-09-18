@@ -84,7 +84,7 @@ for i,ds in enumerate(DS):
     arr=z['old_source_risk'];v=100*arr.mean();dr=np.einsum('ij,ij->i',bw@arr,qw);lo,hi=100*np.quantile(dr,[.025,.975]);x=i-.10
     axs[1].errorbar(x,v,yerr=[[v-lo],[hi-v]],fmt='o',color=COLORS[i],mfc='white',capsize=3)
     r=row(ds,'source');v=100*val(r,'risk');axs[1].errorbar(i+.10,v,yerr=[[v-100*val(r,'risk_ci_low')],[100*val(r,'risk_ci_high')-v]],fmt='s',color=COLORS[i],capsize=3)
-axs[1].axhline(5,color=GRAY,ls='--',lw=.8);axs[1].set_xticks([0,1],NAMES);axs[1].set_xlim(-.45,1.45);axs[1].set_ylim(0,10);axs[1].set_ylabel('Query failure (%)');axs[1].set_title('(b) Same policy, changed snapshot');axs[1].text(.5,9.2,'○ Old    ■ Refreshed',ha='center',fontsize=8)
+axs[1].axhline(5,color=GRAY,ls='--',lw=.8);axs[1].set_xticks([0,1],NAMES);axs[1].set_xlim(-.45,1.45);axs[1].set_ylim(0,10);axs[1].set_ylabel('Query failure (%)');axs[1].set_title('(b) Fixed policy across refresh');axs[1].text(.5,9.2,'○ Old    ■ Refreshed',ha='center',fontsize=8)
 save(fig,'overview')
 
 fig,ax=plt.subplots(figsize=(7,2.55));fig.subplots_adjust(left=.025,right=.98,bottom=.025,top=.98);ax.set_xlim(0,1);ax.set_ylim(0,1);ax.axis('off')

@@ -79,10 +79,10 @@ Dataset & Decision & Crossed & Target-build only & Shared-query only\\\midrule
 \end{table*}
 
 \subsection{Fresh-Query Source-Slack Detail}
-Table~\ref{tab:fresh-detail} expands the two non-endpoint source-slack lanes; the main paper also reports the $+2$ endpoint lane. Each lane was fixed before target-evaluation access, and the rows remain separate estimands. Pair status summarizes the held-out target audit as below-$\delta$/unresolved/above-$\delta$ according to its target-side CP interval; it is not a deployment certificate. Aggregate intervals resample 500 fresh target-query IDs with their full directed-pair vectors.
+Table~\ref{tab:fresh-detail} expands the two non-endpoint source-slack lanes; the main paper also reports the $+2$ endpoint lane. Each lane was fixed before target-evaluation access, and the rows remain separate estimands. For each direction at $\alpha=0.05$, pair status is B if the one-sided CP upper bound satisfies $U_{.05}\leq\delta$, A if the lower bound satisfies $L_{.05}>\delta$, and U otherwise. No multiplicity correction is applied across the 552 directions, so these are descriptive audit labels rather than simultaneous or deployment certificates. Aggregate intervals resample 500 fresh target-query IDs with their full directed-pair vectors.
 
 \begin{table*}[t]
-\caption{Fresh-query source-slack audit. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval]. Pair status is below/unresolved/above $\delta=0.05$ in the held-out target audit.}
+\caption{Fresh-query source-slack audit. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval]. Target B/U/A uses the per-direction $\alpha=0.05$ definition above.}
 \label{tab:fresh-detail}
 \small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrrr@{}}\toprule
 Impl. & Dataset & Lane & Risk & Reduction & Target B/U/A\\\midrule

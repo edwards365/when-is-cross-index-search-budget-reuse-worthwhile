@@ -49,6 +49,11 @@ The separately frozen fresh-query stage passes 210/210 recorded checks. Its
 public preregistration summary records the frozen source-policy digest, query-role
 counts and digests, lane definitions, and confidence allocation without exposing
 host paths or private role-ID arrays.
+For each held-out target direction at per-direction `alpha=0.05`, the fresh-stage
+audit records B when the one-sided CP upper bound is at most 0.05, A when the
+lower bound is above 0.05, and U otherwise. No simultaneous correction is
+applied across 552 directions; these labels are descriptive audits rather than
+target deployment certificates.
 `run_clean_replay.py` verifies the anonymous manifest, both check sets, and
 normalized generated-table hashes, then builds the PDFs when a supported
 LaTeX engine is available. `qa/S5_CLEAN_REPLAY_PUBLIC.json` records the sealed
@@ -70,6 +75,8 @@ original `results/graph_anns_phase3_ea85/refresh95/per_build.csv` to reproduce
 the original decisions before deriving new outputs. It writes only its own
 `evidence/w6_audit` directory. It neither builds indexes nor modifies frozen
 scientific outputs. See `PROVENANCE.md` for claim-to-source mapping.
+The packaged replay script has SHA-256
+`ab012e376fa73686fe07bad7498aa6ec928d89d06fef28842ccebd8732dab471`.
 
 ## Evidence status and submission boundary
 
@@ -100,6 +107,6 @@ container for full native replay.
   actions, a sanitized preregistration summary, and the public protocol.
 - `make_figures.py`, `check_evidence.py`, `run_clean_replay.py`: regeneration and checks.
 - `PROVENANCE.md`: frozen sources and inference units.
-- `SHA256SUMS.txt`: hashes for the delivery contents, excluding itself.
+- `ANONYMOUS_PACKAGE_MANIFEST.json`: byte sizes and SHA-256 hashes for the delivered package contents, excluding itself.
 
 ACM template licensing is retained in `ACM-LICENSE` and the template headers.

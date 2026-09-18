@@ -1,7 +1,8 @@
 {
   "status": "PASS",
-  "timestamp_utc": "2026-09-17T16:49:44.327168+00:00",
-  "anonymous_allowlist_files": 65,
+  "timestamp_utc": "2026-09-18T00:52:59.819946+00:00",
+  "anonymous_allowlist_source_files": 66,
+  "delivered_package_files": 68,
   "anonymous_identity_leaks": 0,
   "w6_evidence_checks": {
     "passed": 244,
@@ -11,9 +12,9 @@
     "passed": 210,
     "total": 210
   },
-  "s5r_package_checks": {
-    "passed": 45,
-    "total": 45
+  "s5r2_package_checks": {
+    "passed": 52,
+    "total": 52
   },
   "generated_table_hash_mismatches": 0,
   "python": "3.11.16",
@@ -29,12 +30,12 @@
       "pages": 11,
       "content_pages_before_references": 10,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "3a4ce7ed2e4964813a2bd06d29b6d241c5f7f38fd9c3d923034be154987bb216"
+      "sha256": "6f492554f6a76cb476bca363d818c6dce03f8110fa7f4b1389305f6d29f1b6f7"
     },
     "appendix": {
       "pages": 3,
       "media_box_points": [0, 0, 612, 792],
-      "sha256": "6ed002905e0a7b37b97e743137a8338214ac799935a059f53ead52322ad51f46"
+      "sha256": "6e942e8d2c541226bef47f53df8c94d2043de125599a749566f2ae0e5d600af0"
     },
     "paper_size": "US Letter",
     "size_gate": "PASS_EACH_LE_10_MIB"

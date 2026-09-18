@@ -75,6 +75,7 @@ def main() -> None:
             "evidence/certificate_rows.tex", "evidence/cost_rows.tex",
             "evidence/graph_only_rows.tex", "evidence/recovery_rows.tex",
             "evidence/sensitivity_rows.tex", "evidence/s5_claim_map.csv",
+            "evidence/reanalyze_review.py",
             "qa/S5_CLEAN_REPLAY_PUBLIC.json",
         ):
             copy_file(src / rel, out / rel)

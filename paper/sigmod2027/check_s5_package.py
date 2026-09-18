@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -26,6 +27,10 @@ def pct(value: str) -> float:
     return 100.0 * float(value)
 
 
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def main() -> None:
     checks: list[str] = []
     documents = [ROOT / "main.tex", ROOT / "appendix.tex"] + [
@@ -39,10 +44,27 @@ def main() -> None:
     require("Conference'17" not in text and "Conference’17" not in text, "no default ACM conference placeholder", checks)
     require("552/552" not in text, "source certificates are not described as 552 pair certificates", checks)
     require("0.05/6" in text and "375 queries per build" in text, "source-action rule is self-contained", checks)
+    require("previously analyzed S3 role" in text and "only the 500/500 S4 roles are prospective" in text,
+            "fresh-stage provenance distinguishes prior design from prospective roles", checks)
+    require("B when $U_{.05}\\leq0.05$" in text and "A when $L_{.05}>0.05$" in text,
+            "target B/U/A labels define both CP tails", checks)
+    require("No multiplicity correction is applied across the 552 directions" in text,
+            "target audit disclaims simultaneous 552-direction validity", checks)
+    require("independently certified source decisions" not in text and
+            "source decisions per dataset are independently certified" not in text,
+            "shared-query source certificates are not called independent", checks)
+    require("transfers economically" not in text and "no economic gain on either hnswlib" not in text,
+            "fresh bridge claims serving work rather than net economics", checks)
     require(text.count("source_selected_plus_") == 0, "internal lane identifiers stay out of manuscript prose", checks)
     require(all((ROOT / "evidence" / "s4_fresh" / name).exists() for name in (
         "s4_preregistration_public.json", "s4_source_policy.csv", "S4_PROTOCOL_PUBLIC.md"
     )), "public S4 preregistration and source-policy records are packaged", checks)
+    reanalysis = ROOT / "evidence" / "reanalyze_review.py"
+    require(reanalysis.exists(), "post-hoc native-response reanalysis script is packaged", checks)
+    require(
+        sha256(reanalysis) == "ab012e376fa73686fe07bad7498aa6ec928d89d06fef28842ccebd8732dab471",
+        "post-hoc reanalysis script hash matches the published anchor", checks,
+    )
 
     labels = re.findall(r"\\label\{([^}]+)\}", text)
     refs = re.findall(r"\\(?:ref|eqref)\{([^}]+)\}", text)
