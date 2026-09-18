@@ -27,6 +27,9 @@ Dataset & Decision & Risk [95\% interval] & Reduction [95\% interval] & Mean NDC
 
 Under the joint-error allocation, SIFT is unchanged, while Arxiv risk becomes 1.68\% and relative mean-NDC reduction becomes 29.86 [14.75, 45.00]\%. Figure~\ref{fig:tradeoff} shows that stricter qualification moves the decision toward the endpoint: it reduces risk and sacrifices some efficiency. Both datasets retain positive search-work reductions relative to the same graph's fixed endpoint. Adaptive methods with different information budgets are examined as qualification studies in Section~\ref{sec:families}.
 
+\paragraph{Equal-information attribution.}
+A post-hoc frozen-response audit also compares TCP with a target-only global action using the same 500 selection, 500 certification, and 1,000 evaluation queries and the same $.025+.025$ candidate/endpoint allocation. On SIFT, TCP reduces mean NDC by a further 27.60\% [17.92, 36.72]\% with p95 ratio 1.009; every target deletion preserves the direction. On Arxiv, the corresponding mean difference is 10.78\% [$-8.48$, 29.43]\% and the p95 ratio is 1.109. Thus query-conditional adaptation has clear incremental value on SIFT, but its Arxiv increment over simple target-global calibration is unresolved and tail-blocked. Nested-grid and risk-limit sensitivities further show that this increment is not grid- or SLA-invariant. These attribution analyses reuse observed responses and are not prospective evidence; the supplement gives their protocols and rows.
+
 \begin{figure}[t]
 \centering\includegraphics[width=\linewidth]{figures/tradeoff.pdf}
 \caption{Refresh risk--work tradeoff with crossed 95\% intervals. The 5\% line is the query-risk target, not a confidence bound. Filled symbols: original recalibration; open symbols: joint-error replay; crosses: direct reuse. SIFT's original and joint points coincide.}

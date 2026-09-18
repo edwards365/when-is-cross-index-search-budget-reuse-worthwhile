@@ -1,0 +1,79 @@
+{
+  "status": "POST_HOC_FROZEN_RESPONSE_EQUAL_INFORMATION_BASELINE_AUDIT",
+  "risk_event": "Recall@10 < 0.95",
+  "target_roles": {
+    "selection": 500,
+    "certification": 500,
+    "evaluation": 1000
+  },
+  "native_grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    160,
+    200
+  ],
+  "error_allocation": {
+    "selection_screen": 0.05,
+    "candidate_certification": 0.025,
+    "endpoint_certification": 0.025
+  },
+  "bootstrap": {
+    "type": "crossed target-build x shared-query",
+    "reps": 5000,
+    "seed": 991
+  },
+  "paper_reproduction": [
+    {
+      "dataset": "sift100k",
+      "paper_joint_arrays_exact": true
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "paper_joint_arrays_exact": true
+    }
+  ],
+  "decisions": {
+    "sift100k": {
+      "primary_comparator": "TARGET_GLOBAL",
+      "comparison_is_post_hoc_frozen_response": true,
+      "tcp_mean_gain_vs_target_global": 0.2760436103236744,
+      "tcp_gain_ci95": [
+        0.17916743995419754,
+        0.3671859333248842
+      ],
+      "tcp_p95_ratio_vs_target_global": 1.0086088449978527,
+      "tcp_p99_ratio_vs_target_global": 1.0323781168589505,
+      "tcp_risk": 0.0179,
+      "target_global_risk": 0.0201,
+      "min_loto_gain": 0.2506999705154741,
+      "delete_largest_gain": 0.2506999705154741,
+      "tcp_accepted_builds": 10,
+      "target_global_accepted_builds": 7,
+      "mean_advantage_positive": true,
+      "p95_noninferior_5pct": true
+    },
+    "arxiv_nomic_100k": {
+      "primary_comparator": "TARGET_GLOBAL",
+      "comparison_is_post_hoc_frozen_response": true,
+      "tcp_mean_gain_vs_target_global": 0.1077924307033079,
+      "tcp_gain_ci95": [
+        -0.08479587413944645,
+        0.2942562598342491
+      ],
+      "tcp_p95_ratio_vs_target_global": 1.1088580576307363,
+      "tcp_p99_ratio_vs_target_global": 1.0600425242492386,
+      "tcp_risk": 0.0168,
+      "target_global_risk": 0.0217,
+      "min_loto_gain": 0.05096413104652264,
+      "delete_largest_gain": 0.05096413104652264,
+      "tcp_accepted_builds": 6,
+      "target_global_accepted_builds": 8,
+      "mean_advantage_positive": false,
+      "p95_noninferior_5pct": false
+    }
+  },
+  "claim_boundary": "Attribution within the registered response cube only; not a prospective result, new-build certificate, runtime claim, or universal baseline ranking."
+}

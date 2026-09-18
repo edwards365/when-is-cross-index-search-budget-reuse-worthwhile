@@ -97,9 +97,45 @@ def main() -> None:
     require(cited <= bib_keys, "all citations resolve", checks)
 
     claim_rows = list(csv.DictReader((ROOT / "evidence" / "s5_claim_map.csv").open(encoding="utf-8")))
-    require(len(claim_rows) == 13, "thirteen claim-map rows", checks)
+    require(len(claim_rows) == 15, "fifteen claim-map rows", checks)
     for row in claim_rows:
         require((ROOT / row["source"]).exists(), f"claim source exists: {row['claim_id']}", checks)
+
+    equal_info = ROOT / "evidence" / "equal_information"
+    equal_decision = json.loads((equal_info / "decision.json").read_text())
+    require(
+        all(row["paper_joint_arrays_exact"] for row in equal_decision["paper_reproduction"]),
+        "equal-information audit exactly reproduces paper TCP arrays", checks,
+    )
+    sift_equal = equal_decision["decisions"]["sift100k"]
+    arxiv_equal = equal_decision["decisions"]["arxiv_nomic_100k"]
+    require(
+        round(100 * sift_equal["tcp_mean_gain_vs_target_global"], 2) == 27.60
+        and sift_equal["mean_advantage_positive"]
+        and sift_equal["p95_noninferior_5pct"],
+        "SIFT equal-information mean and p95 result matches manuscript", checks,
+    )
+    require(
+        round(100 * arxiv_equal["tcp_mean_gain_vs_target_global"], 2) == 10.78
+        and not arxiv_equal["mean_advantage_positive"]
+        and not arxiv_equal["p95_noninferior_5pct"],
+        "Arxiv equal-information unresolved mean and blocked p95 match manuscript", checks,
+    )
+    sensitivity = json.loads(
+        (ROOT / "evidence" / "grid_risk_sensitivity" / "decision.json").read_text()
+    )
+    require(sensitivity["primary_reproduction"] == "PASS",
+            "grid/risk sensitivity reproduces the primary audit", checks)
+    require(
+        sensitivity["decisions"]["coarse_grid"]["sift100k"]["positive_mean_interval"]
+        and not sensitivity["decisions"]["coarse_grid"]["sift100k"]["p95_noninferior_5pct"],
+        "SIFT coarse-grid mean survives while p95 boundary is retained", checks,
+    )
+    require(
+        not sensitivity["decisions"]["upper_grid"]["arxiv_nomic_100k"]["positive_mean_interval"]
+        and not sensitivity["decisions"]["risk_025"]["arxiv_nomic_100k"]["all_endpoints_qualified"],
+        "Arxiv grid and strict-SLA boundaries match manuscript", checks,
+    )
 
     rows = list(csv.DictReader((ROOT / "evidence" / "s4_fresh" / "s4_summary.csv").open(encoding="utf-8")))
     require(len(rows) == 16, "S4 summary contains three lanes plus endpoint for four blocks", checks)

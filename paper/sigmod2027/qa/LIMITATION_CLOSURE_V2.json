@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "evidence_level": "POST_HOC_FROZEN_RESPONSE_LIMITATION_CLOSURE",
+  "scope": "Equal-information baseline attribution and frozen-grid/event/SLA sensitivity; no new ANN index construction.",
+  "equal_information_audit": {
+    "primary_event": "Recall@10 >= 0.95",
+    "risk_limit": 0.05,
+    "methods": [
+      "ENDPOINT",
+      "SOURCE_GLOBAL",
+      "TARGET_GLOBAL",
+      "TCP_REGISTERED"
+    ],
+    "sift100k_tcp_vs_target_global": {
+      "mean_ndc_gain_percent": 27.604,
+      "crossed_95_ci_percent": [17.917, 36.719],
+      "pooled_p95_ratio": 1.0086,
+      "minimum_loto_gain_percent": 25.07,
+      "decision": "CLEAR_INCREMENTAL_QUERY_CONDITIONAL_VALUE"
+    },
+    "arxiv_nomic_100k_tcp_vs_target_global": {
+      "mean_ndc_gain_percent": 10.779,
+      "crossed_95_ci_percent": [-8.480, 29.426],
+      "pooled_p95_ratio": 1.1089,
+      "minimum_loto_gain_percent": 5.10,
+      "decision": "MEAN_UNRESOLVED_AND_TAIL_BLOCKED"
+    }
+  },
+  "sensitivity_audit": {
+    "registered_event_conclusion": "SIFT mean advantage survives nested subgrids but one coarse-grid tail check fails; Arxiv is grid-sensitive and tail-blocked.",
+    "strict_risk_limit_conclusion": "At a 2.5% risk limit the SIFT incremental conclusion becomes unresolved and three Arxiv endpoints are unqualified.",
+    "claim_boundary": "Incremental TCP value is conditional on action grid, safety event, and risk SLA."
+  },
+  "validation": {
+    "new_unit_tests_passed": 5,
+    "paper_evidence_checks_passed": 244,
+    "package_checks_passed": 91,
+    "postseal_checks_passed": 1205,
+    "anonymous_package_files": 107,
+    "anonymous_identity_leaks": 0,
+    "main_pdf_pages": 12,
+    "appendix_pdf_pages": 4,
+    "main_pdf_sha256": "6c113aaa48bfd6efcd9f2c9ba39ca553ac779f298383a7632ebc16e25238671d",
+    "appendix_pdf_sha256": "0530fb7a70e67b113c762b3f4fedf83559118230ddb082f7fd854a6e96d1c7d9"
+  },
+  "interpretation": "The limitation closure narrows causal attribution and deployment scope. It does not claim universal superiority and does not replace a prospective breakthrough experiment."
+}

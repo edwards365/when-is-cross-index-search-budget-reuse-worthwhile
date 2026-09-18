@@ -1,0 +1,67 @@
+{
+  "status": "POST_HOC_FROZEN_RESPONSE_GRID_AND_RISK_SENSITIVITY",
+  "primary_reproduction": "PASS",
+  "decisions": {
+    "primary": {
+      "sift100k": {
+        "positive_mean_interval": true,
+        "p95_noninferior_5pct": true,
+        "all_endpoints_qualified": true
+      },
+      "arxiv_nomic_100k": {
+        "positive_mean_interval": false,
+        "p95_noninferior_5pct": false,
+        "all_endpoints_qualified": true
+      }
+    },
+    "coarse_grid": {
+      "sift100k": {
+        "positive_mean_interval": true,
+        "p95_noninferior_5pct": false,
+        "all_endpoints_qualified": true
+      },
+      "arxiv_nomic_100k": {
+        "positive_mean_interval": true,
+        "p95_noninferior_5pct": false,
+        "all_endpoints_qualified": true
+      }
+    },
+    "upper_grid": {
+      "sift100k": {
+        "positive_mean_interval": true,
+        "p95_noninferior_5pct": true,
+        "all_endpoints_qualified": true
+      },
+      "arxiv_nomic_100k": {
+        "positive_mean_interval": false,
+        "p95_noninferior_5pct": false,
+        "all_endpoints_qualified": true
+      }
+    },
+    "recall_090": {
+      "sift100k": {
+        "positive_mean_interval": true,
+        "p95_noninferior_5pct": true,
+        "all_endpoints_qualified": true
+      },
+      "arxiv_nomic_100k": {
+        "positive_mean_interval": true,
+        "p95_noninferior_5pct": true,
+        "all_endpoints_qualified": true
+      }
+    },
+    "risk_025": {
+      "sift100k": {
+        "positive_mean_interval": false,
+        "p95_noninferior_5pct": true,
+        "all_endpoints_qualified": true
+      },
+      "arxiv_nomic_100k": {
+        "positive_mean_interval": false,
+        "p95_noninferior_5pct": true,
+        "all_endpoints_qualified": false
+      }
+    }
+  },
+  "claim_boundary": "Sensitivity only; conditions are not independent confirmations."
+}

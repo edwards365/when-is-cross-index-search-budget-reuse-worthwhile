@@ -1,0 +1,19 @@
+{
+  "schema_version": "sigmod-ea-limitation-closure-sensitivity-1.0",
+  "status": "FROZEN_BEFORE_SENSITIVITY_OUTPUTS_BUT_AFTER_PARENT_RESULTS",
+  "evidence_level": "POST_HOC_FROZEN_RESPONSE_GRID_AND_RISK_SENSITIVITY",
+  "parent_response_cube": "/home/wlk/data500/graph_anns_phase3_ea85/refresh95_replay",
+  "primary_comparison": "TCP_REGISTERED_STYLE versus TARGET_GLOBAL under identical target roles",
+  "conditions": [
+    {"name": "primary", "grid": [10, 20, 40, 80, 120, 160, 200], "recall_threshold": 0.95, "risk_limit": 0.05},
+    {"name": "coarse_grid", "grid": [20, 40, 80, 160, 200], "recall_threshold": 0.95, "risk_limit": 0.05},
+    {"name": "upper_grid", "grid": [40, 80, 120, 160, 200], "recall_threshold": 0.95, "risk_limit": 0.05},
+    {"name": "recall_090", "grid": [10, 20, 40, 80, 120, 160, 200], "recall_threshold": 0.90, "risk_limit": 0.05},
+    {"name": "risk_025", "grid": [10, 20, 40, 80, 120, 160, 200], "recall_threshold": 0.95, "risk_limit": 0.025}
+  ],
+  "query_roles": {"selection": 500, "certification": 500, "evaluation": 1000},
+  "certification_error_allocation": {"candidate": 0.025, "endpoint": 0.025},
+  "bootstrap": {"type": "crossed target-build x shared-query", "repetitions": 5000, "seed": 991},
+  "mandatory_gate": "The primary condition must exactly reproduce the equal-information audit arrays.",
+  "claim_boundary": "Sensitivity and failure-boundary analysis only; no prospective, runtime, or unseen-build claim."
+}

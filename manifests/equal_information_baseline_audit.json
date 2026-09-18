@@ -1,0 +1,22 @@
+{
+  "schema_version": "sigmod-ea-limitation-closure-1.0",
+  "status": "FROZEN_BEFORE_NEW_BASELINE_OUTPUTS_BUT_AFTER_PARENT_RESULTS",
+  "evidence_level": "POST_HOC_FROZEN_RESPONSE_EQUAL_INFORMATION_BASELINE_AUDIT",
+  "purpose": "Separate TCP's query-conditional value from a target-only global action under the same registered target roles and Recall@10=.95 event.",
+  "parent_response_cube": "/home/wlk/data500/graph_anns_phase3_ea85/refresh95_replay",
+  "datasets": ["SIFT-100K", "Arxiv-Nomic-100K"],
+  "target_builds": [1103, 1229, 1361, 1499, 1621, 1747, 1877, 1999, 2131, 2267],
+  "query_roles": {"selection": 500, "certification": 500, "cold_evaluation": 1000},
+  "native_grid": [10, 20, 40, 80, 120, 160, 200],
+  "risk_event": "Recall@10 < .95",
+  "risk_limit": 0.05,
+  "methods": ["ENDPOINT", "SOURCE_GLOBAL", "TARGET_GLOBAL", "TCP_REGISTERED"],
+  "primary_comparator": "TARGET_GLOBAL",
+  "selection": "TARGET_GLOBAL chooses the lowest global action whose one-sided CP UCB on the 500 selection queries is <=.05; TCP_REGISTERED reuses the registered target shift without refitting.",
+  "certification": "Candidate and endpoint each use the disjoint 500-query certification role with alpha=.025; failure uses the qualified endpoint.",
+  "evaluation": "The 1000-query cold-evaluation role is read only after action and certification decisions are fixed.",
+  "statistics": {"bootstrap": "crossed target-build x shared-query product", "repetitions": 5000, "seed": 991, "robustness": ["LOTO", "delete-largest-gain-build"]},
+  "mandatory_reproduction_gate": "TCP_REGISTERED and ENDPOINT arrays must exactly equal paper/sigmod2027/evidence/w6_audit paired arrays.",
+  "forbidden_claims": ["prospective evidence", "unseen-build certificate", "runtime superiority", "universal SOTA", "campaign-wide simultaneous safety"],
+  "overwrite_policy": "Create a new output directory; never modify parent results."
+}

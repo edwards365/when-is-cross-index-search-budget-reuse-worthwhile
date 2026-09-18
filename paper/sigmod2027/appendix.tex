@@ -79,6 +79,45 @@ Dataset & Decision & Crossed & Target-build only & Shared-query only\\\midrule
 \bottomrule\end{tabular*}
 \end{table*}
 
+\subsection{Equal-Information Simple-Baseline Audit}
+This post-hoc attribution audit reuses the complete registered Recall@10 $<.95$ response cube. It constructs no index and issues no search. TCP and the target-global comparator receive the same 500 selection, 500 certification, and 1,000 held-out evaluation queries. Target-global selects the smallest native action whose one-sided CP upper bound on selection is at most 5\%. Candidate and endpoint are then checked independently with error allocation $.025+.025$; evaluation cannot change the action or fallback. Before forming the new comparison, the replay exactly reproduces the main paper's TCP and endpoint paired arrays.
+
+\begin{table*}[t]
+\caption{Frozen-response equal-information audit. Risk is empirical evaluation risk. Gain is relative mean-NDC reduction against the endpoint. The final column is the observed pooled p95. Crossed 95\% intervals for TCP minus target-global mean gain are [17.92, 36.72]\% on SIFT and [$-8.48$, 29.43]\% on Arxiv.}
+\label{tab:equal-info}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
+Dataset & Policy & Risk & Mean NDC & Gain vs. endpoint & p95 NDC\\\midrule
+SIFT & Source-global & 2.47\% & 1,220.92 & 33.12\% & 1,746\\
+SIFT & Target-global & 2.01\% & 1,402.26 & 23.19\% & 2,329\\
+SIFT & TCP & 1.79\% & 1,015.18 & 44.39\% & 2,349\\
+Arxiv & Source-global & 1.65\% & 2,012.88 & 16.02\% & 2,727\\
+Arxiv & Target-global & 2.17\% & 1,884.16 & 21.39\% & 2,811\\
+Arxiv & TCP & 1.68\% & 1,681.06 & 29.86\% & 3,117\\\bottomrule
+\end{tabular*}
+\end{table*}
+
+Relative to target-global, TCP's SIFT mean gain is 27.60\%, its p95 ratio is 1.009, and its minimum leave-one-target-out gain is 25.07\%. Arxiv's point mean gain is 10.78\%, but its crossed interval contains zero and its p95 ratio is 1.109. Relative to source-global, TCP lowers mean work on both datasets but has a higher pooled p95. These results separate an endpoint-relative recovery claim from the stronger question of incremental query-conditional value. They do not support universal dominance over simple calibration.
+
+\begin{table*}[t]
+\caption{Post-hoc sensitivity of TCP relative to target-global. Gain is mean-NDC reduction [95\% crossed interval]; p95 is the TCP/target-global ratio. The Recall-.90 rows change the failure event and are boundary analyses, not confirmations of the Recall-.95 claim.}
+\label{tab:equal-info-sensitivity}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}\toprule
+Condition & Dataset & Gain [95\% interval] & p95 ratio & Qualified endpoints\\\midrule
+Primary grid, $\delta=.05$ & SIFT & 27.60 [17.92, 36.72]\% & 1.009 & 10/10\\
+Primary grid, $\delta=.05$ & Arxiv & 10.78 [$-8.48$, 29.43]\% & 1.109 & 10/10\\
+Coarse grid, $\delta=.05$ & SIFT & 21.08 [9.38, 30.30]\% & 1.062 & 10/10\\
+Coarse grid, $\delta=.05$ & Arxiv & 33.18 [31.07, 35.27]\% & 1.118 & 10/10\\
+Upper grid, $\delta=.05$ & SIFT & 27.88 [1.77, 46.95]\% & 1.024 & 10/10\\
+Upper grid, $\delta=.05$ & Arxiv & $-16.88$ [$-38.96$, 4.51]\% & 1.143 & 10/10\\
+Primary grid, Recall .90 & SIFT & 34.33 [14.21, 51.17]\% & 0.909 & 10/10\\
+Primary grid, Recall .90 & Arxiv & 35.75 [26.80, 46.94]\% & 0.837 & 10/10\\
+Primary grid, $\delta=.025$ & SIFT & 2.68 [$-3.70$, 10.20]\% & 1.012 & 10/10\\
+Primary grid, $\delta=.025$ & Arxiv & 0.00 [0.00, 0.00]\% & 1.000 & 7/10\\\bottomrule
+\end{tabular*}
+\end{table*}
+
+SIFT's mean advantage survives both nested subgrids, although the coarse-grid p95 misses the 5\% noninferiority margin. Arxiv changes direction with the grid and remains tail-blocked under every Recall-.95 grid. Tightening the risk limit to 2.5\% removes the SIFT mean conclusion and makes three Arxiv endpoints unqualified. Hence the incremental mechanism result is conditional on the registered grid, event, and SLA rather than an intrinsic ranking of TCP.
+
 \subsection{Fresh-Query Source-Slack Detail}
 The anonymous package records the prior 375-query S3 source-design role in \path{evidence/s4_fresh/s4_source_policy.csv}. The disjoint prospective 500/500 S4 roles appear in \path{S4_PROTOCOL_PUBLIC.md} and the public preregistration summary. Their digests and zero-overlap checks make the design, certification, and evaluation memberships auditable without exposing private host paths.
 Table~\ref{tab:fresh-detail} expands the two non-endpoint source-slack lanes; the main paper also reports the $+2$ endpoint lane. Each lane was fixed before target-evaluation access, and the rows remain separate estimands. For each direction at $\alpha=0.05$, pair status is B if the one-sided CP upper bound satisfies $U_{.05}\leq\delta$, A if the lower bound satisfies $L_{.05}>\delta$, and U otherwise. No multiplicity correction is applied across the 552 directions, so these are descriptive audit labels rather than simultaneous or deployment certificates. Aggregate intervals resample 500 fresh target-query IDs with their full directed-pair vectors.
