@@ -1,0 +1,10 @@
+{
+  "python": "/home/wlk/data500/graph_anns_score8/envs/darth/bin/python",
+  "python_version": "3.11.16",
+  "faiss_version": "1.8.0",
+  "faiss_module": "/home/wlk/data500/graph_anns_score8/envs/darth/lib/python3.11/site-packages/faiss/_swigfaiss_avx2.cpython-311-x86_64-linux-gnu.so",
+  "faiss_module_sha256": "1324bc7385fd6b19c9205db64eab130fdd4e4996a447854448109fb1d63a5834",
+  "compile_options": "OPTIMIZE AVX2 ",
+  "threads": 1,
+  "gpu_used": false
+}

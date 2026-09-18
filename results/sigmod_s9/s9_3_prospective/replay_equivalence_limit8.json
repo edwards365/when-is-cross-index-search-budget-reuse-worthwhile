@@ -1,0 +1,98 @@
+[
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_00__seed6011",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_01__seed6211",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_02__seed6421",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_03__seed6637",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_04__seed6841",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_05__seed7057",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_06__seed7273",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "sift_100k",
+    "build_id": "sift_100k__s9p3_07__seed7481",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_00__seed6011",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_01__seed6211",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_02__seed6421",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_03__seed6637",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_04__seed6841",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_05__seed7057",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_06__seed7273",
+    "top10_equal": true,
+    "ndc_equal": true
+  },
+  {
+    "dataset": "arxiv_nomic_100k",
+    "build_id": "arxiv_nomic_100k__s9p3_07__seed7481",
+    "top10_equal": true,
+    "ndc_equal": true
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "program": "SIGMOD_EA_S9_3_PROSPECTIVE_ROBUSTNESS",
+  "decision": "PRIMARY_REGISTERED_CONFIGURATION_PASS_WITH_PREREGISTERED_BOUNDARIES",
+  "evidence_level": "PROSPECTIVE_FRESH_QUERY_FRESH_INSERTION_PERMUTATION_BUILD_FIXED_MACHINE",
+  "datasets": {
+    "sift_100k": {
+      "target_builds": 8,
+      "directed_decisions": 56,
+      "candidate_accepted": 56,
+      "fallback": 0,
+      "abstain": 0,
+      "evaluation_risk": 0.00475,
+      "evaluation_risk_crossed_95ci": [0.00125, 0.0095],
+      "ndc_gain": 0.497753897171861,
+      "ndc_gain_crossed_95ci": [0.49708205474502454, 0.49841678789274124],
+      "wall_gain": 0.5135359592907407,
+      "wall_gain_crossed_95ci": [0.5086560720649551, 0.5184389614935229],
+      "p95_wall_ratio": 0.5189387508779758,
+      "p95_wall_ratio_crossed_95ci": [0.5094123651086127, 0.5280983553658678],
+      "loto_min_wall_gain": 0.511914537960384,
+      "primary_gate_pass": true
+    },
+    "arxiv_nomic_100k": {
+      "target_builds": 8,
+      "directed_decisions": 56,
+      "candidate_accepted": 56,
+      "fallback": 0,
+      "abstain": 0,
+      "evaluation_risk": 0.005357142857142857,
+      "evaluation_risk_crossed_95ci": [0.0014642857142857142, 0.010678571428571428],
+      "ndc_gain": 0.37427041370554537,
+      "ndc_gain_crossed_95ci": [0.356321429329929, 0.3927273355946462],
+      "wall_gain": 0.30127930233935873,
+      "wall_gain_crossed_95ci": [0.2863780263636616, 0.31881210333139354],
+      "p95_wall_ratio": 0.8912227904199687,
+      "p95_wall_ratio_crossed_95ci": [0.8553691287983554, 0.9165096364512479],
+      "loto_min_wall_gain": 0.29490350878850746,
+      "primary_gate_pass": true
+    }
+  },
+  "integrity": {
+    "response_cells": 144000,
+    "raw_runtime_measurements": 112000,
+    "runtime_top10_checked_cells": 16000,
+    "runtime_top10_mismatches": 0,
+    "query_role_overlap": 0,
+    "validation_dev_accessed": false,
+    "formal_test_accessed": false
+  },
+  "preregistered_boundaries": {
+    "sparse_grid_16_64_256_512": "SAFE_BUT_ZERO_GAIN_ENDPOINT_COLLAPSE",
+    "risk_limit_0_025": "SAFE_BUT_ZERO_GAIN_ENDPOINT_COLLAPSE",
+    "upper_grid_32_64_128_256_512_at_0_05": "PRIMARY_DECISION_REPRODUCED"
+  },
+  "claims_not_upgraded": [
+    "TCP target-global runtime",
+    "complete lifecycle economics",
+    "grid-invariant recovery",
+    "hardware-general runtime",
+    "campaign-wide simultaneous certification"
+  ]
+}
