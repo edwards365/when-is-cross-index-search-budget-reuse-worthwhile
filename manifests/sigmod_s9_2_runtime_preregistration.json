@@ -1,0 +1,66 @@
+{
+  "program": "SIGMOD_EA_S9_2_RUNTIME_AND_LIFECYCLE",
+  "status": "FROZEN_BEFORE_TIMING_OUTPUT_ACCESS",
+  "frozen_baseline_commit": "96399e742248964dcd49db2fadb0e857a06e3bdd",
+  "s9_1_gate_commit": "6da07ba5826dfbe98ce6d79637b169989db486a0",
+  "seed": 991,
+  "machine": {
+    "cpu": "AMD EPYC 7542 32-Core Processor",
+    "logical_cpu_affinity": [2],
+    "numa_node": 0,
+    "search_threads": 1,
+    "gpu_used": false
+  },
+  "stage_a": {
+    "implementation": "Faiss HNSW",
+    "datasets": ["sift_100k", "arxiv_nomic_100k"],
+    "target_builds_per_dataset": 24,
+    "certification_queries": 500,
+    "evaluation_queries": 500,
+    "grid": [16, 32, 64, 128, 256, 512],
+    "warmup_queries_per_action": 50,
+    "repetitions_per_query_action": 7,
+    "procedures": ["target_endpoint", "target_global", "tcp_frozen", "fixed_slack_frozen"]
+  },
+  "stage_b": {
+    "implementation": "hnswlib Deep1M",
+    "authorized_after_stage_a_gate": true,
+    "target_builds": 8,
+    "roles": {"source_certification": 500, "target_certification": 500, "evaluation": 500},
+    "grid": [200, 300, 400, 600, 800, 1200],
+    "repetitions_per_query_action": 7
+  },
+  "timers": ["monotonic_wall_ns", "process_cpu_ns"],
+  "statistics": {
+    "outer_unit": "target_build",
+    "inner_unit": "query_id",
+    "bootstrap": "crossed target-build x query-ID",
+    "bootstrap_replicates": 5000,
+    "confidence": 0.95,
+    "loto": true,
+    "delete_largest_gain_query_fraction": 0.01
+  },
+  "gates": {
+    "native_mismatches_max": 0,
+    "complete_cells_min_fraction": 0.99,
+    "median_within_cell_cv_max": 0.10,
+    "p95_within_cell_cv_max": 0.25,
+    "mean_latency_gain_ci_lower_min": 0.0,
+    "p95_ratio_ci_upper_max": 1.05
+  },
+  "input_sha256": {
+    "s3_preregistration": "03d5afeceab47e7c96f9e2990ddc79c704a4f99734fdff94e7e67672ac312221",
+    "s3_input_inventory": "751865d5a3f6e1ff8c62667744cd0d8382683175613993736f6f9413eb29511f",
+    "deep1m_preregistration": "063309a2709aab2936d9cb22e7ab8adf1182e366da2d0e88a3ec1eb89059e41e",
+    "frozen_target_query_vectors": "b1aef5a7267fc214c360104c5dfe6e0bb9891266e1f1b997b97077482a40a4d2",
+    "equal_information_decision": "87da0d1a1ef9ccc95bbae7f2b044bf5898c240b9082e20ce71bee4afcfd54e93",
+    "equal_information_summary": "8148ef7787ed08573bc6cf05289465f579319dcac9c2d229697a81977446851d"
+  },
+  "forbidden": [
+    "result-driven retuning",
+    "treating repeated timings as independent builds",
+    "dropping slow measurements without a registered systems failure",
+    "using NDC as a latency substitute",
+    "claiming end-to-end economics with unmeasured components"
+  ]
+}
