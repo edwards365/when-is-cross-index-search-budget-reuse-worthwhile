@@ -1,0 +1,28 @@
+{
+  "program": "SIGMOD_EA_S9_STABLE_9_OF_10_SPRINT",
+  "created": "2026-09-18",
+  "frozen_baseline_commit": "96399e742248964dcd49db2fadb0e857a06e3bdd",
+  "repository": "/home/wlk/data500/navigation-aware-resistance-hnsw-main",
+  "branch": "exp/sigmod_ea_target_cert_uplift",
+  "execution": {
+    "single_main_worktree": true,
+    "new_codex_tasks_forbidden": true,
+    "checkpoint_minutes": 10,
+    "result_driven_tuning_forbidden": true,
+    "fresh_role_overlap_allowed": false
+  },
+  "phases": [
+    {"id": "S9-1", "goal": "clean anonymous reproducibility and claim-map seal", "status": "ACTIVE"},
+    {"id": "S9-2", "goal": "paired runtime and full lifecycle economics", "status": "LOCKED_PENDING_S9_1"},
+    {"id": "S9-3", "goal": "fresh-build and fresh-query prospective robustness", "status": "LOCKED_PENDING_S9_2_PROTOCOL"},
+    {"id": "S9-4", "goal": "equal-information baselines, external comparators, and failure attribution", "status": "LOCKED_PENDING_FROZEN_INPUTS"},
+    {"id": "S9-5", "goal": "theory, manuscript, artifact, and adversarial submission seal", "status": "LOCKED_PENDING_S9_1_TO_S9_4"}
+  ],
+  "primary_boundaries": [
+    "NDC is not latency",
+    "same-host clean replay is not independent replication",
+    "registered-build conclusions are not open-population guarantees",
+    "endpoint-relative recovery is not incremental query-conditional value",
+    "serving-work savings are not lifecycle economic gains"
+  ]
+}
