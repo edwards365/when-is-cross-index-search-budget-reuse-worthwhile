@@ -22,8 +22,12 @@ def test_build_index_preserves_external_ids():
     permutation = rng.permutation(len(base)).astype(np.int64)
     index = MODULE.build_index(base, permutation)
     MODULE.core(index).hnsw.efSearch = 64
+    faiss = MODULE.faiss
+    faiss.cvar.hnsw_stats.reset()
     _, found = index.search(base[:8], 1)
     assert np.array_equal(found[:, 0], np.arange(8))
+    assert faiss.cvar.hnsw_stats.n3 > 0
+    assert faiss.cvar.hnsw_stats.ndis == 0
 
 
 def test_role_offsets_are_disjoint_and_complete():

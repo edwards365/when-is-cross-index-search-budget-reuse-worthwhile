@@ -138,7 +138,9 @@ def evaluate_unit(index, queries, truth, dataset, identifier, writer):
                     "ef_search": action,
                     "recall_at_10": f"{recall:.1f}",
                     "failure": int(recall < 0.95),
-                    "ndc": int(faiss.cvar.hnsw_stats.ndis),
+                    # Faiss 1.8.0 HNSW records base-layer distance work in n3;
+                    # ndis is unused by this search path and remains zero.
+                    "ndc": int(faiss.cvar.hnsw_stats.n3),
                     "top10_sha256": hashlib.sha256(found.astype(np.int64).tobytes()).hexdigest(),
                 })
 
@@ -168,10 +170,10 @@ def replay_units(root, output, prereg, limit):
             core(second).hnsw.efSearch = action
             faiss.cvar.hnsw_stats.reset()
             _, a = first.search(queries[:20], 10)
-            a_ndc = int(faiss.cvar.hnsw_stats.ndis)
+            a_ndc = int(faiss.cvar.hnsw_stats.n3)
             faiss.cvar.hnsw_stats.reset()
             _, b = second.search(queries[:20], 10)
-            b_ndc = int(faiss.cvar.hnsw_stats.ndis)
+            b_ndc = int(faiss.cvar.hnsw_stats.n3)
             equal &= np.array_equal(a, b)
             ndc_equal &= a_ndc == b_ndc
         equivalence.append({"dataset": dataset, "build_id": identifier, "top10_equal": bool(equal), "ndc_equal": bool(ndc_equal)})
