@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "main": {
+    "pages": 10,
+    "bytes": 211433,
+    "sha256": "7f0a1f4a5373636bd7d747bfaac7c1a383626a8817f6faf4a144d36544b9cb7c",
+    "letter": true,
+    "anonymous": true,
+    "references_resolved": true
+  },
+  "appendix": {
+    "pages": 5,
+    "bytes": 99152,
+    "sha256": "3ee66fc965f65ba48bf1aae8c2a1d78febcc58592990e05c6a9e4d3a4aad2bcd",
+    "letter": true,
+    "anonymous": true,
+    "references_resolved": true
+  },
+  "structure": {
+    "icba_centered": true,
+    "semantic_stage_names_in_main": true,
+    "policy_hierarchy_explicit": true,
+    "certificate_scope_explicit": true,
+    "full_risk_intervals_and_cfa_counts": true,
+    "claim_map_rows": 9,
+    "derived_intervals_frozen": true,
+    "anonymous_url_action": "PENDING_SUBMISSION_SYSTEM_VALUE"
+  }
+}

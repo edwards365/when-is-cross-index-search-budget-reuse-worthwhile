@@ -1,0 +1,31 @@
+\section{RQ7: Scope across Methods, Scale, and Graph Family}
+\label{sec:families}
+
+\paragraph{External adaptive methods.}
+The frozen DARTH adapters produce target query-failure rates of 22.55\% on SIFT-100K and 23.12\% on Arxiv-Nomic-100K at $\rec@10<0.95$. Ada-ef yields 9.52 [9.44, 9.60]\% on ten Arxiv targets, with a target-build bootstrap conditional on its query set. All ten Ada-ef candidate certificates fail; audited execution uses the qualified endpoint and has zero search gain relative to that endpoint. Ada-ef is absent from Euclidean SIFT because the inspected estimator implements cosine/inner-product semantics, not a semantics-preserving L2 path. Its exclusion is an implementation-scope boundary, not a failed SIFT result.
+
+These measurements show why query-risk qualification matters beyond TCP. Without matched source checks, they do not isolate rebuild-induced loss; their failure event also differs from mean recall and expected false-negative fraction. We therefore use them as qualification studies with their own information budgets.
+
+\paragraph{Larger scale.}
+On Deep1M, eight hnswlib builds cross four seeds with two insertion orders, giving 56 directed pairs on 1,000 queries. Source-derived first-passing actions have 28.86\% transport risk against 8.82\% target-reference risk. The incremental risk is 20.04 [17.29, 22.77] percentage points, using 5,000 seed-991 target-build bootstrap replicates conditional on the frozen source histories and query set. This is additional loss above a difficult, partly unresolved target reference.
+
+A separate target-certified scale replication freezes three mutually exclusive 500-query roles and native actions 200, 300, 400, 600, 800, and 1,200 before access. All 56 source one-rung candidates separately qualify under per-target certificates. Held-out risk is 1.632 [0.804, 2.614]\%, endpoint-relative mean-NDC saving is 34.282 [33.533, 35.045]\%, and pooled p95/p99 ratios are 0.682/0.695. This extends target-certified recovery to one million vectors without converting it into a cross-implementation leaderboard.
+
+\paragraph{Vamana-style evidence.}
+Six source and six separate target builds produce 36 directions and 750 queries per dataset, using native search-list size and beam width one. The frozen event table combines its stage-specific under-budget and censoring outcomes. A target-build reanalysis gives 16.86 [15.88, 17.93]\% on SIFT and 11.37 [10.80, 11.99]\% on Arxiv. Its recorded responses do not reconstruct exactly the first-passing execution estimand used for hnswlib/Faiss. We retain it as directional cross-family evidence, not another row of Table~\ref{tab:graph-only}.
+
+Vamana cost-tax intervals include zero: 1.07 [$-1.03$, 2.86]\% and 1.17 [$-0.83$, 3.03]\%, respectively, for the mean of per-target ratios in that reanalysis. Thus it supplies no established positive cost penalty or cross-engine superiority. Table~\ref{tab:scope} summarizes which question each setting can answer.
+
+\begin{table*}[t]
+\caption{Scope of the extension evidence. Each row retains its event, reference, and inference unit. All numeric intervals in the text are 95\%; no common cross-engine ranking or pooled effect is formed.}
+\label{tab:scope}
+\small\begin{tabularx}{\textwidth}{@{}lXXl@{}}\toprule
+Setting & Event and reference & Supported comparison & Unit / query count\\\midrule
+DARTH & Absolute target $\rec@10<0.95$ risk; no matched reference subtraction & Target qualification under the frozen adapter & Target summaries; 1,000/build\\
+Ada-ef & Absolute target $\rec@10<0.95$ risk; endpoint for audited saving & Candidate rejection versus endpoint execution on Arxiv & 10 target builds; 1,000/build\\
+Deep1M & Transport versus target reference; certified slack versus efSearch 1200 & Transfer loss and certified recovery at 1M scale & 8 targets; 1,000 prior + 1,500 fresh\\
+Vamana-style & Frozen stage under-budget/censoring event; stage-specific cost reference & Directional cross-family transfer evidence, not a harmonized HNSW increment & 6 target builds; 750 shared queries\\\bottomrule
+\end{tabularx}
+\end{table*}
+
+Together with RQ1, these results broaden the evidence without collapsing unlike estimands. Response non-portability appears across HNSW implementations and at larger scale; qualification changes the executable outcome of adaptive actions; and Vamana supplies directional graph-family evidence under a narrower event definition. The common conclusion is the need to bind a budget decision to its target index and risk contract.

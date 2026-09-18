@@ -1,0 +1,48 @@
+\documentclass[sigconf,anonymous]{acmart}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{balance}
+\usepackage{siunitx}
+\sisetup{group-minimum-digits=4,group-separator={,}}
+\settopmatter{printacmref=false,printfolios=true,printccs=false}
+\setlength{\emergencystretch}{1.5em}
+\vfuzz=2pt
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\acmConference[SIGMOD 2027]{SIGMOD 2027}{Under review}{Anonymous submission}
+\acmBooktitle{SIGMOD 2027 Experiments \& Analysis submission}
+\acmYear{2027}
+\copyrightyear{2027}
+\acmDOI{}
+\acmISBN{}
+\input{writing_macros}
+\input{evidence/generated_tables}
+\input{evidence/postseal_tables}
+\input{evidence/final_v3_s9_rows}
+\hypersetup{pdfauthor={},pdfsubject={Graph-ANNS budget portability, risk auditing, and target recalibration},pdfkeywords={graph ANNS, budget transfer, risk auditing, target recalibration}}
+
+\title[Auditing Search-Budget Portability]{Auditing Search-Budget Portability Across Graph-ANNS Rebuilds: [Experiments \& Analysis]}
+\author{Anonymous Author(s)}
+\begin{document}
+\begin{abstract}
+Graph indexes are rebuilt while their search-budget policies are often retained. Across unchanged SIFT-100K and Arxiv-Nomic-100K collections, transferred first-passing actions add 17.17--23.60 percentage points of query failure above target-specific references; after a 5\% data refresh, a fixed recurring-query policy crosses a 5\% risk limit. Index-Conditioned Budget Audit (ICBA) turns reuse into a target decision by separating policy construction, certification, fallback, held-out evaluation, and acquisition cost. Target-calibrated pooling (TCP) reduces endpoint-relative distance work by 44.39\% and 29.86\%, although its incremental advantage over equal-information target calibration is resolved only on SIFT. On a prospective insertion-permutation panel, the frozen candidate separately qualifies in all 112 fixed target decisions under per-decision certificates and reduces measured wall time by 51.35\% and 30.13\%; this is not a simultaneous campaign certificate. A paired audit then shows that a certified fixed action matches the source one-rung candidate on SIFT and is more efficient on Arxiv under the same risk contract, while label-richer target calibration gives the largest measured reductions. ICBA is therefore the central contribution: deploy the least complex target-qualified policy whose information cost is justified by held-out value.
+\end{abstract}
+\keywords{approximate nearest-neighbor search, graph indexes, index rebuilding, risk auditing, budget transfer}
+\maketitle
+\raggedbottom
+
+\input{sections_v3/introduction}
+\input{sections_v3/related_work}
+\input{sections_v3/problem_theory}
+\input{sections_v3/auditor_tcp}
+\input{sections_v3/protocol}
+\input{sections_v3/portability}
+\input{sections_v3/recovery}
+\input{sections_v3/extensions}
+\input{sections_v3/economics}
+\input{sections_v3/discussion}
+\balance
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references_final_v3}
+\end{document}

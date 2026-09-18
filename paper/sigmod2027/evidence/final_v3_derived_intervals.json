@@ -1,0 +1,27 @@
+{
+  "status": "DERIVED_FROM_FROZEN_RESPONSES_NO_NEW_EXPERIMENT",
+  "estimand": "TCP divided by target-global pooled p95 NDC ratio",
+  "method": "crossed bootstrap over target builds and shared query IDs, retaining paired policies within cells",
+  "replicates": 5000,
+  "seed": 991,
+  "inputs": {
+    "sift100k": {
+      "path": "results/sigmod_ea_limitation_closure/equal_information_baselines/sift100k_arrays.npz",
+      "sha256": "670dacf2dd074108563c21af0c287470e66eb76a622ae6d2ce08f71cf47d2865"
+    },
+    "arxiv_nomic_100k": {
+      "path": "results/sigmod_ea_limitation_closure/equal_information_baselines/arxiv_nomic_100k_arrays.npz",
+      "sha256": "4eeb2abf2f8538d04a8d7ed8bd22d6d044286d75859c3bca4682bcd8b78be003"
+    }
+  },
+  "results": {
+    "sift100k": {
+      "point": 1.009,
+      "ci95": [0.921, 1.290]
+    },
+    "arxiv_nomic_100k": {
+      "point": 1.109,
+      "ci95": [1.012, 1.285]
+    }
+  }
+}

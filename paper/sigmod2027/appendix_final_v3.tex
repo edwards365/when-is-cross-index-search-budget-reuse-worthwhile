@@ -1,0 +1,209 @@
+\documentclass[sigconf,anonymous]{acmart}
+\usepackage{amsmath,booktabs,tabularx,siunitx}
+\settopmatter{printacmref=false,printfolios=true,printccs=false}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\acmConference[SIGMOD 2027]{SIGMOD 2027}{Under review}{Anonymous submission}
+\acmBooktitle{SIGMOD 2027 Experiments \& Analysis supplement}
+\acmYear{2027}
+\copyrightyear{2027}
+\acmDOI{}
+\acmISBN{}
+\setlength{\emergencystretch}{1.5em}
+\vfuzz=2pt
+\input{writing_macros}
+\input{evidence/generated_tables}
+\input{evidence/postseal_tables}
+\input{evidence/final_v3_s9_rows}
+\hypersetup{pdfauthor={},pdfsubject={Short supplementary proofs and audit details}}
+\title{Supplement to Auditing Search-Budget Portability Across Graph-ANNS Rebuilds}
+\author{Anonymous Author(s)}
+\begin{document}
+\maketitle
+\appendix
+\section{Guarantees and Their Experimental Contact}
+The main paper contains all central findings, including the stricter certification result and completed acquisition costs. This supplement expands the theoretical reasoning and provides numeric details needed to inspect the same findings.
+
+\subsection{Observation-Limited Loss}
+Let two environments have observable laws $P_0^O,P_1^O$, disjoint acceptable-decision sets $D_0,D_1$, and losses satisfying $L_i(a)\ge\lambda\indicator\{a\notin D_i\}$. An action may encode execution, fallback, or abstention. From any common randomized decision rule $A(O)$, form the test that returns 0 exactly when $A\in D_0$. Under environment 0, a test error implies $A\notin D_0$; under environment 1, it implies $A\in D_0\subseteq D_1^c$. Therefore
+\begin{align*}
+ \mathbb E_0L_0+\mathbb E_1L_1
+ &\ge\lambda\{P_0(\text{test error})+P_1(\text{test error})\}\\
+ &\ge\lambda(1-\operatorname{TV}(P_0^O,P_1^O)).
+\end{align*}
+Taking half the sum gives the main bound. This is the classical two-point testing argument, not a new general inequality. Including the query jointly in $O$ is essential when it is random. An efficient classifier lower-bounds distinguishability; it does not provide the upper bound on total variation needed for a positive loss lower bound. The empirical transfer rates are not numerical estimates of this expression.
+
+\subsection{A Conditional Margin Result for Selection}
+For a finite policy family, let $r_j$ and $c_j$ be risk and expected cost. Suppose $\max_j|\hat r_j-r_j|\le\varepsilon_R$ and $\max_j|\hat c_j-c_j|\le\varepsilon_C$. Retain $S=\{j:\hat r_j+\varepsilon_R\le\delta\}$ and minimize estimated cost within $S$. Every retained policy is risk-qualified because $r_j\le\hat r_j+\varepsilon_R\le\delta$. If $j_*$ minimizes true cost among policies with $r_j\le\delta-2\varepsilon_R$, then $j_*\in S$ and
+\[
+ c_{\hat j}\le\hat c_{\hat j}+\varepsilon_C
+ \le\hat c_{j_*}+\varepsilon_C\le c_{j_*}+2\varepsilon_C.
+\]
+The comparison is against the margin-feasible family, not all risk-qualified policies. It requires a justified uniform estimation event and excludes the subsequent cost of rejected-policy fallback. TCP's implemented selector takes the first qualifying shift, not this empirical-cost argmin; this result therefore explains a sufficient selection condition without being claimed as an implemented TCP performance guarantee.
+
+\subsection{Build-Rank Coverage}
+For a fixed query, assume $m$ source labels and one target label are exchangeable, allowing $+\infty$. Choose source order statistic $r=\lceil(1-\eta)(m+1)\rceil$ when it exists and is finite, and otherwise abstain. Break ties with independent continuous variables. The augmented target rank is uniform among $m+1$ positions. A target label strictly above the chosen source value must have augmented rank greater than $r$, hence
+\[
+ \Pr\{a<\infty,B_t>a\}\le\frac{m+1-r}{m+1}\le\eta.
+\]
+If labels are stable-tail budgets, $B_t\le a$ implies execution success on the finite grid. First-passing labels lack that implication without an additional monotonicity bridge. The guarantee is marginal over builds for each fixed query, not conditional on one target or simultaneous over queries. Nine source labels cannot give a nonvacuous 5\% rank guarantee; nineteen are necessary at that level. The refresh replay uses nine first-passing histories from an old snapshot, so it does not instantiate these assumptions.
+
+\subsection{Fixed-Target Certificate Composition}
+CP validity requires policies frozen independently of the certification role and i.i.d. target-query outcomes under the stated population interpretation. For candidate and endpoint error allocations $\alpha_c,\alpha_e$, the probability that either upper bound misses its true risk is at most $\alpha_c+\alpha_e$, without requiring independence between the two bounds. Any accepted action then has risk at most $\delta$ outside that event. The original $(0.05,0.05)$ allocation sums to 0.10; the sensitivity $(0.025,0.025)$ sums to 0.05. This is not a 0.05 bound simultaneously over twenty targets, nor a bound on risk conditional on acceptance.
+
+\section{Decision Details and Statistical Reconstruction}
+\subsection{Per-Target Certificate Audit}
+Table~\ref{tab:cert-detail} shows all twenty decisions. C and E mean candidate and endpoint. S/A abbreviate the two datasets; $x_c,x_e$ count failures out of $n=500$. $U_c(0.05)$ is the original candidate bound. The stricter candidate and endpoint bounds allocate 0.025 each. Empirical evaluation risk uses 1,000 other queries; gain is relative mean-NDC reduction against the same target endpoint. All selected shifts are identical between the two procedures.
+
+\begin{table*}[t]
+\caption{Twenty-target certification and completed joint-error outcomes. Bounds, evaluation risks, and gains are percentages. All endpoint bounds are at most 5\%; the final action is C when $U_c(0.025)\le5\%$, otherwise E.}
+\label{tab:cert-detail}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrrrrrr@{}}\toprule
+Data & Seed & Shift & $x_c$ & $U_c(0.05)$ & $U_c(0.025)$ & $x_e$ & $U_e(0.025)$ & Action & Eval risk & Gain\\\midrule
+\CertificateRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+\subsection{Crossed Bootstrap}
+Write $D_{bq}^{\pi}$ and $Z_{bq}^{\pi}$ for distance cost and binary failure on target $b$ and shared query $q$, after the decision is frozen. For each of 5,000 seed-991 replicates, independently draw multinomial build weights $w_b$ and query weights $v_q$, each normalized to sum one. Use the \emph{same} query weights for all builds and all policies. Compute
+\[
+ \bar D^{\pi *}=\sum_{b,q}w_bv_qD_{bq}^{\pi},\qquad
+ g^*=1-\bar D^{\pi *}/\bar D^{{\rm end}*}.
+\]
+Risk and matched old/new differences use the same product weights. Report the 2.5th and 97.5th percentiles. This resamples two crossed factors; it does not independently resample queries for each selected build. Stored source histories, chosen shifts, and certification decisions are conditioned on, not refitted. Graph-only inference instead retains the complete pair vector per query and does not resample builds.
+
+\begin{table*}[t]
+\caption{Mean-NDC reduction: 95\% interval sensitivities (percent). Build-only conditions on queries; query-only conditions on builds. Crossed intervals are the main refresh summaries. These are not three independent replications.}
+\label{tab:sens}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}\toprule
+Dataset & Decision & Crossed & Target-build only & Shared-query only\\\midrule
+\SensitivityRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+\subsection{Equal-Information Simple-Baseline Audit}
+This post-hoc attribution audit reuses the complete registered Recall@10 $<0.95$ response cube. It constructs no index and issues no search. TCP and the target-global comparator receive the same 500 selection, 500 certification, and 1,000 held-out evaluation queries. Target-global selects the smallest native action whose one-sided CP upper bound on selection is at most 5\%. Candidate and endpoint are then checked independently with error allocation $0.025+0.025$; evaluation cannot change the action or fallback. Before forming the new comparison, the replay exactly reproduces the main paper's TCP and endpoint paired arrays.
+
+\begin{table*}[t]
+\caption{Frozen-response equal-information audit. Risk is empirical evaluation risk. Gain is relative mean-NDC reduction against the endpoint. The final column is the observed pooled p95. Crossed 95\% intervals for TCP minus target-global mean gain are [17.92, 36.72]\% on SIFT and [$-8.48$, 29.43]\% on Arxiv.}
+\label{tab:equal-info}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
+Dataset & Policy & Risk & Mean NDC & Gain vs. endpoint & p95 NDC\\\midrule
+SIFT & Source-global & 2.47\% & 1,220.92 & 33.12\% & 1,746\\
+SIFT & Target-global & 2.01\% & 1,402.26 & 23.19\% & 2,329\\
+SIFT & TCP & 1.79\% & 1,015.18 & 44.39\% & 2,349\\
+Arxiv & Source-global & 1.65\% & 2,012.88 & 16.02\% & 2,727\\
+Arxiv & Target-global & 2.17\% & 1,884.16 & 21.39\% & 2,811\\
+Arxiv & TCP & 1.68\% & 1,681.06 & 29.86\% & 3,117\\\bottomrule
+\end{tabular*}
+\end{table*}
+
+Relative to target-global, TCP's SIFT mean gain is 27.60\%, its p95 ratio is 1.009 [0.921, 1.290], and its minimum leave-one-target-out gain is 25.07\%. Arxiv's point mean gain is 10.78\% [$-8.48$, 29.43]\%, and its p95 ratio is 1.109 [1.012, 1.285]. The p95 intervals are a Final V3 derived crossed bootstrap over the same frozen arrays (5,000 replicates, seed 991); they are not a new experiment. Relative to source-global, TCP lowers mean work on both datasets but has a higher pooled p95. These results separate an endpoint-relative recovery claim from the stronger question of incremental query-conditional value. They do not support universal superiority over simple calibration.
+
+\begin{table*}[t]
+\caption{Post-hoc sensitivity of TCP relative to target-global. Gain is mean-NDC reduction [95\% crossed interval]; p95 is the TCP/target-global ratio. The Recall-.90 rows change the failure event and are boundary analyses, not confirmations of the Recall-.95 claim.}
+\label{tab:equal-info-sensitivity}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrr@{}}\toprule
+Condition & Dataset & Gain [95\% interval] & p95 ratio & Qualified endpoints\\\midrule
+Primary grid, $\delta=0.05$ & SIFT & 27.60 [17.92, 36.72]\% & 1.009 & 10/10\\
+Primary grid, $\delta=0.05$ & Arxiv & 10.78 [$-8.48$, 29.43]\% & 1.109 & 10/10\\
+Coarse grid, $\delta=0.05$ & SIFT & 21.08 [9.38, 30.30]\% & 1.062 & 10/10\\
+Coarse grid, $\delta=0.05$ & Arxiv & 33.18 [31.07, 35.27]\% & 1.118 & 10/10\\
+Upper grid, $\delta=0.05$ & SIFT & 27.88 [1.77, 46.95]\% & 1.024 & 10/10\\
+Upper grid, $\delta=0.05$ & Arxiv & $-16.88$ [$-38.96$, 4.51]\% & 1.143 & 10/10\\
+Primary grid, Recall .90 & SIFT & 34.33 [14.21, 51.17]\% & 0.909 & 10/10\\
+Primary grid, Recall .90 & Arxiv & 35.75 [26.80, 46.94]\% & 0.837 & 10/10\\
+Primary grid, $\delta=0.025$ & SIFT & 2.68 [$-3.70$, 10.20]\% & 1.012 & 10/10\\
+Primary grid, $\delta=0.025$ & Arxiv & 0.00 [0.00, 0.00]\% & 1.000 & 7/10\\\bottomrule
+\end{tabular*}
+\end{table*}
+
+SIFT's mean advantage survives both nested subgrids, although the coarse-grid p95 misses the 5\% noninferiority margin. Arxiv changes direction with the grid and remains tail-blocked under every Recall-.95 grid. Tightening the risk limit to 2.5\% removes the SIFT mean conclusion and makes three Arxiv endpoints unqualified. Hence the incremental mechanism result is conditional on the registered grid, event, and SLA rather than an intrinsic ranking of TCP.
+
+\subsection{Fresh-Query Source One-Rung Detail}
+The anonymous package records the prior 375-query S3 source-design role in \path{evidence/s4_fresh/s4_source_policy.csv}. The disjoint prospective 500/500 S4 roles appear in \path{S4_PROTOCOL_PUBLIC.md} and the public preregistration summary. Their digests and zero-overlap checks make the design, certification, and evaluation memberships auditable without exposing private host paths.
+Table~\ref{tab:fresh-detail} expands the two non-endpoint source one-rung lanes; the main paper also reports the $+2$ endpoint lane. Each lane was fixed before target-evaluation access, and the rows remain separate estimands. For each direction at $\alpha=0.05$, pair status is B if the one-sided CP upper bound satisfies $U_{0.05}\leq\delta$, A if the lower bound satisfies $L_{0.05}>\delta$, and U otherwise. No multiplicity correction is applied across the 552 directions, so these are descriptive audit labels rather than simultaneous or deployment certificates. Aggregate intervals resample 500 new target-query IDs with their full directed-pair vectors.
+
+\begin{table*}[t]
+\caption{New-query source one-rung audit. Risk and relative mean-NDC reduction are percentages [95\% query-bootstrap interval]. Target B/U/A uses the per-direction $\alpha=0.05$ definition above.}
+\label{tab:fresh-detail}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrrr@{}}\toprule
+Impl. & Dataset & Lane & Risk & Reduction & Target B/U/A\\\midrule
+hnswlib & SIFT & $+0$ & 1.487 [0.845, 2.260] & 1.313 [1.307, 1.319] & 543/9/0\\
+hnswlib & Arxiv & $+0$ & 1.317 [0.600, 2.158] & 0.000 [0.000, 0.000] & 552/0/0\\
+Faiss & SIFT & $+0$ & 1.297 [0.852, 1.865] & 53.806 [53.758, 53.855] & 478/74/0\\
+Faiss & Arxiv & $+0$ & 1.724 [1.097, 2.474] & 58.210 [58.165, 58.255] & 528/24/0\\
+hnswlib & SIFT & $+1$ & 1.400 [0.758, 2.159] & 0.000 [0.000, 0.000] & 552/0/0\\
+hnswlib & Arxiv & $+1$ & 1.317 [0.600, 2.158] & 0.000 [0.000, 0.000] & 552/0/0\\
+Faiss & SIFT & $+1$ & 0.183 [0.083, 0.316] & 8.274 [8.266, 8.283] & 552/0/0\\
+Faiss & Arxiv & $+1$ & 0.674 [0.280, 1.211] & 29.095 [29.063, 29.127] & 552/0/0\\\bottomrule
+\end{tabular*}
+\end{table*}
+
+\subsection{Post-Seal Target-Certification Detail}
+The Faiss $+1$ lane was frozen after the source-only boundary test and before either new target role was accessed. Each dataset contributes 500 target-certification and 500 target-evaluation queries, disjoint from one another and all earlier registered roles. Candidate and endpoint each receive error allocation 0.025. Across all 1,104 directions, both endpoint and candidate pass their target checks; there is no fallback or abstention. Table~\ref{tab:target-certified-supp} reproduces the main summaries from the compact pair records. The primary interval independently resamples target builds and shared query IDs while retaining all 23 source directions inside each target--query cell. Target-only and query-only resampling give the same scientific conclusion.
+
+\begin{table*}[t]
+\caption{Target-certified Faiss replication. C/F/A is candidate/fallback/abstention. Risk and mean-NDC saving are percentages [95\% crossed target-build/query-ID bootstrap interval]. p95 is pooled/worst-target relative to the endpoint; LOTO is the minimum mean saving after one target is removed.}
+\label{tab:target-certified-supp}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}\toprule
+Dataset & C/F/A & Evaluation risk & NDC saving & p95 ratio & LOTO saving\\\midrule
+\TargetCertifiedRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+\subsection{Target-Stage Cost Detail}
+Target truth costs $500\times100{,}000$ distance computations. Certification adds the measured NDC of candidate and endpoint on the same 500 certification queries, with identical actions deduplicated. Pairwise accounting charges one direction; shared-target accounting reuses one target truth set and each distinct required action across 23 source histories. Table~\ref{tab:target-cost-supp} reports the ratio-of-sums threshold; it is not the mean of direction-level ratios. The 460 SIFT and 230 Arxiv pairwise nonamortizing directions are exactly those whose frozen candidate clips to the endpoint.
+
+For an explicit reconstruction, SIFT pairwise accounting sums 30,588,113,100 acquisition NDC and 457,122.72 serving NDC saved per portfolio execution, hence 66,914.445 executions. Shared-target accounting sums 1,380,172,140 acquisition NDC over the same saving, hence 3,019.260 executions. Arxiv analogously uses 31,723,206,757/1,864,071.51=17,018.235 and 1,408,234,427/1,864,071.51=755.462. Reported integer thresholds are rounded, and the $N=10^6$ net values in the main text are means per target after aggregating its 23 directions.
+
+\begin{table*}[t]
+\caption{Target-stage NDC accounting [95\% target-build bootstrap interval]. Complete cold lifecycle remains not estimable because source-policy acquisition NDC is absent.}
+\label{tab:target-cost-supp}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llrrrr@{}}\toprule
+Dataset & Accounting & Units & Break-even & No saving & First positive $N$\\\midrule
+\TargetStageCostRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+\section{Artifact-Stage Runtime and Strong-Baseline Detail}
+The artifact uses internal stage identifiers only for provenance: S9-1 is the clean replay, S9-2 the historical timing campaign, S9-3 the prospective build confirmation, and S9-4 the paired strong-baseline audit. The clean replay rebuilt the anonymous package without importing main-repository code; generated table hashes and both PDFs matched their registered evidence. This is a same-host clean-environment replay, not an independent institutional replication.
+
+The historical timing campaign used an AMD EPYC 7542, logical CPU 2 on NUMA node 0, an unprivileged \texttt{ondemand} governor, Faiss 1.8.0 with AVX2, one search thread, 50 warmups per action, and seven query-level interleaved repetitions. The timer surrounded one \texttt{index.search} call; the primary cell statistic was the median of seven repetitions. Its first smoke was invalid because the registered warmup was truncated; the second exposed that per-query sub-millisecond CV was an unsuitable validity gate. Before policy gains were inspected, a hash-sealed amendment replaced it with median/max action-block CV thresholds of 0.05/0.10 while retaining the zero-mismatch, complete-cell, mean, p95, and bootstrap rules. The valid full run has exact top-$k$ equivalence and complete blocks. Across 24 builds per dataset, source one-rung reduces mean wall time by 9.44 [9.04, 9.77]\% on SIFT and 26.04 [25.62, 26.44]\% on Arxiv; p95 ratios are 0.988 and 0.914.
+
+S9-3 uses eight new insertion permutations and three new 500-query roles per dataset. All 56 directed decisions per dataset accept the frozen candidate. Sparse-grid and 2.5\%-risk preregistered sensitivities qualify only the endpoint and therefore produce zero gain. The primary configuration retains the results in Table~\ref{tab:s9-prospective-supp}.
+
+\begin{table*}[t]
+\caption{Prospective result [95\% crossed target-build/query interval]. C/F/A counts candidate/fallback/abstention; p95 is the wall-time policy/endpoint ratio; LOTO is minimum wall-time reduction after deleting one target.}
+\label{tab:s9-prospective-supp}
+\small\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrr@{}}\toprule
+Dataset & C/F/A & Risk & Wall-time reduction & p95 ratio & LOTO reduction\\\midrule
+\SProspectiveRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+S9-4 reuses the S9-3 builds for a paired method comparison but freezes new disjoint selection, certification, and evaluation roles. Fixed-256 and source one-rung are identical on SIFT. On Arxiv, fixed-256 improves wall-time reduction by 10.91 percentage points while both qualify. Target-global-500 accepts 49/56 cells and falls back on seven per dataset; target-global-1000 accepts all cells and gives the largest measured reduction, but receives twice the target-label allocation. The one-rung shift lowers risk while sacrificing mean efficiency; certification changes authorization but not the executed outcome when every candidate passes. These facts support ICBA and target calibration while rejecting a unique source one-rung method claim.
+
+\begin{table*}[t]
+\caption{Paired strong-baseline audit. C/F/A counts candidate/fallback/abstention. Risk, wall-time reduction, and p95 ratio include 95\% crossed intervals.}
+\label{tab:s9-baselines-supp}
+\scriptsize\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllrrrr@{}}\toprule
+Dataset & Candidate & C/F/A & Risk & Wall-time reduction & p95 ratio & LOTO\\\midrule
+\SStrongBaselineRows
+\bottomrule\end{tabular*}
+\end{table*}
+
+The diagnostic unshifted source action has 2.15\% risk and 74.70\% endpoint-relative mean-NDC reduction on SIFT, versus 0.40\% and 49.78\% after one rung; the shift therefore trades 24.92 gain points for lower risk. Arxiv analogously changes from 1.775\% and 68.60\% to 0.307\% and 37.38\%, a 31.21-point trade. These diagnostic arms have no target certificate and are not deployable. The nondeployable evaluation oracle leaves 21.81 NDC-gain points above the best deployable SIFT arm and no action-pattern headroom on Arxiv.
+
+\section{Cost and Reproduction Contract}
+For each target, selection costs sum all seven registered grid searches. Certification charges the chosen candidate and the endpoint once each, sharing a search when their actions coincide for that query. Target truth costs $100{,}000\times1{,}000$ distance evaluations. Cold complete history adds nine old-build first-passing search profiles on all 2,000 role IDs, and $100{,}000\times2{,}000$ old-snapshot truth evaluations reused across those builds. Cached history treats those old acquisitions as sunk. This counts labeled information needed for execution, not target-evaluation truth used only for research assessment. Rebuilding the target graph is common; reconstructing unavailable historical graphs is outside the two scenarios.
+
+Per-build saving is $s_b=\bar D_b^{\rm end}-\bar D_b^{\pi}$; its break-even is $A_b/s_b$ only for $s_b>0$. The table's aggregate is $\bar A/\bar s$, not the mean of individual ratios. Cost intervals resample paired $(A_b,s_b)$ over ten targets, conditional on the finite acquisition records. At horizon $N$, net saving is $N\bar s-\bar A$. Full fallback gives $s_b=0$ and never amortizes positive acquisition. This remains true even when the aggregate interval favors recovery.
+
+For the post-seal policy, the compact package additionally verifies all pair decisions and both target-stage cost scenarios. Historical source-policy acquisition NDC and exact-truth/control wall time are absent and are not set to zero. The source package distinguishes three reproducibility levels: compile the paper and regenerate figures from compact records; check statistics, certificates, and cost identities from packaged rows; reanalyze original native CSV responses using the external replay root. The package itself constructs no index and contains no large native asset. Separately, a fresh Python/Faiss environment reproduced all 6,000 action rows for one registered SIFT build with zero top-$k$, Recall, NDC, or action-order mismatch. This is an environment-level native replay, not an independent host or all-build replication.
+
+\subsection{Deep1M Target-Certified Scale Replication}
+The scale replication freezes three new 500-query roles before their vectors, truth, or responses are accessed. All pairwise overlaps among source design, target certification, and target evaluation are zero, as are overlaps with the prior P10 and Deep1M roles. The action grid is $\{200,300,400,600,800,1200\}$. Four source builds select 400 and four select 600 under the preregistered source-design CP rule; their one-rung candidates are therefore 600 or 800 rather than the 1200 endpoint. On target certification, the largest candidate UCB is 4.65\% and the largest endpoint UCB is 2.86\%; all 56 candidates deploy. Crossed uncertainty uses 5,000 bootstrap replicates with seed 991.
+
+On target evaluation, pooled risk is 1.632\% with crossed 95\% interval [0.804, 2.614]\%. Relative mean-NDC saving against the fixed endpoint is 34.282\% [33.533, 35.045]\%. Pooled p95/p99 ratios are 0.682/0.695, the worst-target p95/p99 ratios are 0.700/0.703, the least favorable target still saves 33.234\% in mean NDC, and the minimum leave-one-target-out saving is 34.126\%. These results use existing registered indexes and new query roles; they neither rebuild the indexes nor turn the hnswlib scale check into cross-family confirmation.
+\end{document}

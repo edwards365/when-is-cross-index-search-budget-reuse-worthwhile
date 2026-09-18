@@ -1,0 +1,38 @@
+\section{Experimental Design and Inference}
+\label{sec:methodology}
+
+\paragraph{Registered settings.}
+SIFT-100K uses 128-dimensional Euclidean vectors; Arxiv-Nomic-100K uses 768-dimensional normalized inner-product vectors. The graph-only study uses 24 hnswlib and 24 Faiss builds per dataset, 750 queries, and all 552 non-diagonal directions. Native grids are $(10,20,40,80,120,200)$ for hnswlib and $(16,32,64,128,256,512)$ for Faiss. Deep1M uses eight hnswlib builds and grid $(200,300,400,600,800,1200)$. Native actions are never equated across implementations.
+
+\paragraph{Evidence stages.}
+The graph-only experiment executes each source first-passing action on the target and compares it with the target first-passing reference. A separate seed-991 refresh replaces 5\% of each 100K collection, rebuilds ten old and ten refreshed indexes, and replays one recurring-query policy. TCP uses 500 selection, 500 certification, and 1,000 evaluation queries.
+
+After these analyses were frozen, the source one-rung boundary used previously untouched source-certification and target-evaluation roles. Post-seal Faiss and Deep1M studies added mutually exclusive target-certification and evaluation roles. The prospective confirmation then created eight new insertion-permutation builds per dataset and three 500-query roles, all frozen before response access. It retained the registered Faiss grid, fixed CPU, and source one-rung policy. The paired strong-baseline audit reused this prospective build panel but introduced another three disjoint 500-query roles. It is therefore a paired method comparison, not a second independent build campaign.
+
+\begin{table*}[t]
+\caption{Evidence provenance. ``Frozen before'' identifies when the candidate or analysis rule became immutable. Prospective confirmation and the paired audit share builds but use disjoint query roles.}
+\label{tab:provenance}
+\scriptsize
+\begin{tabularx}{\textwidth}{@{}lcllX@{}}\toprule
+Stage & Target builds & Query roles & Frozen before & Supported claim \\\midrule
+Graph-only transfer & 24 per implementation/dataset & 750 shared & response analysis & response non-portability on fixed builds \\
+Refresh replay & 10 matched old/new per dataset & 500/500/1,000 & target evaluation & policy deterioration and TCP recovery \\
+Prospective confirmation & 8 new per dataset & 500/500/500 & build/query response access & per-target qualification and runtime value \\
+Paired strong-baseline audit & same 8-build panel & new 500/500/500 & all arm responses & method attribution under matched builds \\
+Deep1M replication & 8 registered & 500/500/500 & fresh-role access & target-certified scale evidence \\\bottomrule
+\end{tabularx}
+\end{table*}
+
+\paragraph{Paired-audit arms.}
+The deployable arms are endpoint-512; certified fixed-256; certified source one-rung; target-global with 250 selection plus 250 certification labels; and target-global with 500 plus 500 labels. Fixed-256 is the penultimate registered Faiss action, one rung below endpoint-512; it was predeclared as the largest non-endpoint fixed-action control before any paired-audit role or response was accessed. Diagnostic uncertified arms and an evaluation oracle attribute risk and headroom but cannot authorize deployment.
+
+On the selection role, target-global retains actions whose one-sided CP UCB at Bonferroni level $0.05/6$ is at most $\delta=0.05$, then chooses the retained action with minimum mean NDC, breaking exact ties toward the smaller action. This screen constructs a candidate only. Deployment qualification comes from the disjoint certification role, where candidate and endpoint receive $\alpha_c=\alpha_e=0.025$; failed candidate certification executes the qualified endpoint, and endpoint failure causes abstention. The 500-label arm is the equal-information comparison with source one-rung; the 1,000-label arm tests label value.
+
+\paragraph{Metrics and timing.}
+Risk is $\Pr(\rec@10<0.95)$. Serving gain is $1-\bar c_{\rm policy}/\bar c_{\rm endpoint}$ for NDC or wall time, with equal query counts. We report pooled and per-target p95/p99, actual fallback, LOTO, and deletion sensitivities. Fixed-machine timing uses an AMD EPYC 7542, logical CPU 2 on NUMA node 0, Faiss 1.8.0 with AVX2, one search thread, 50 warmups per action, and seven interleaved repetitions measured by monotonic wall and process-CPU clocks. The primary cell value is the median of seven repetitions; crossed bootstraps resample target builds and query IDs while retaining repetitions within cells. Fallback timing executes the endpoint rather than splicing a counterfactual. Top-$k$ equivalence is required before timing contributes evidence; complete-cell fraction must be at least 0.99, median/max action-block CV at most 0.05/0.10, mean-gain interval lower bound above zero, p95-ratio upper bound at most 1.05, and every LOTO gain positive. These rules were hash-sealed before policy-gain access; the supplement records the one timing-validity amendment.
+
+\paragraph{Inference.}
+Primary recovery intervals use 5,000 seed-991 crossed bootstrap replicates over target builds and shared query IDs, retaining source directions within each target--query cell. Graph-only intervals resample query IDs with their complete directed-pair vectors. LOTO deletes one target without refitting. Seed 991 has separately recorded roles for query membership and bootstrap generation; the memberships and random streams are not reused as observations. Deep1M also uses 5,000 target-build bootstrap replicates with seed 991. External-method and Vamana intervals retain their native units. No pooled cross-protocol effect or common leaderboard is formed.
+
+\paragraph{Questions.}
+RQ1--RQ2 establish graph-only and refresh non-portability. RQ3 tests what ICBA authorizes. RQ4 spans endpoint-relative recovery, prospective confirmation, and the paired strong-baseline audit (Section~\ref{sec:recovery-results}). RQ5--RQ6 test tails and build sensitivity. RQ7 covers external methods, scale, and graph family. RQ8 separates measured runtime from modeled lifecycle cost. RQ9 audits reproducibility.
