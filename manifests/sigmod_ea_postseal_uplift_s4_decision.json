@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "phase": "S4",
+  "final_label": "S4_TARGET_STAGE_NDC_LIFECYCLE_GATE_PASSED_FULL_LIFECYCLE_NOT_ESTIMABLE",
+  "target_stage_ndc_gate": "PASS",
+  "full_end_to_end_lifecycle": "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING",
+  "wall_clock": "SEARCH_ONLY_EXPLORATORY_FULL_LIFECYCLE_NOT_ESTIMABLE_EXACT_TRUTH_WALL_TIME_MISSING",
+  "datasets": [
+    {
+      "dataset": "sift_100k",
+      "scenario": "PAIRWISE_TARGET_CERTIFICATION",
+      "units": 552,
+      "ratio_of_sums_break_even_queries": 66914.4449875517,
+      "break_even_bootstrap_ci_low": 64804.877672264796,
+      "break_even_bootstrap_ci_high": 69940.32157851284,
+      "max_finite_unit_break_even": 11598.859686891059,
+      "nonamortizing_units": 460,
+      "first_registered_positive_N": 100000,
+      "target_stage_ndc_status": "ESTIMABLE",
+      "full_end_to_end_lifecycle_status": "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING",
+      "wall_clock_status": "SEARCH_ONLY_EXPLORATORY_FULL_LIFECYCLE_NOT_ESTIMABLE"
+    },
+    {
+      "dataset": "sift_100k",
+      "scenario": "SHARED_TARGET_CERTIFICATION_23_SOURCES",
+      "units": 24,
+      "ratio_of_sums_break_even_queries": 3019.259554633382,
+      "break_even_bootstrap_ci_low": 2923.375631369875,
+      "break_even_bootstrap_ci_high": 3156.8022746333145,
+      "max_finite_unit_break_even": 3865.949536360538,
+      "nonamortizing_units": 0,
+      "first_registered_positive_N": 10000,
+      "target_stage_ndc_status": "ESTIMABLE",
+      "full_end_to_end_lifecycle_status": "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING",
+      "wall_clock_status": "SEARCH_ONLY_EXPLORATORY_FULL_LIFECYCLE_NOT_ESTIMABLE"
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "scenario": "PAIRWISE_TARGET_CERTIFICATION",
+      "units": 552,
+      "ratio_of_sums_break_even_queries": 17018.23486213788,
+      "break_even_bootstrap_ci_low": 16766.71238502928,
+      "break_even_bootstrap_ci_high": 17276.16234271698,
+      "max_finite_unit_break_even": 10155.24337795623,
+      "nonamortizing_units": 230,
+      "first_registered_positive_N": 100000,
+      "target_stage_ndc_status": "ESTIMABLE",
+      "full_end_to_end_lifecycle_status": "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING",
+      "wall_clock_status": "SEARCH_ONLY_EXPLORATORY_FULL_LIFECYCLE_NOT_ESTIMABLE"
+    },
+    {
+      "dataset": "arxiv_nomic_100k",
+      "scenario": "SHARED_TARGET_CERTIFICATION_23_SOURCES",
+      "units": 24,
+      "ratio_of_sums_break_even_queries": 755.4615900974743,
+      "break_even_bootstrap_ci_low": 743.954899378721,
+      "break_even_bootstrap_ci_high": 767.2597385859416,
+      "max_finite_unit_break_even": 780.7869549927692,
+      "nonamortizing_units": 0,
+      "first_registered_positive_N": 1000,
+      "target_stage_ndc_status": "ESTIMABLE",
+      "full_end_to_end_lifecycle_status": "NOT_ESTIMABLE_SOURCE_POLICY_ACQUISITION_NDC_MISSING",
+      "wall_clock_status": "SEARCH_ONLY_EXPLORATORY_FULL_LIFECYCLE_NOT_ESTIMABLE"
+    }
+  ],
+  "new_query_or_truth_access": false,
+  "new_index_builds": 0,
+  "input_preregistration_sha256": "3ecf167790da1f737c821869127cd0f5c228f918208c7e754e4df141cff0b80d",
+  "next_phase": "S5_NOT_STARTED_REQUIRES_USER_AUTHORIZATION"
+}

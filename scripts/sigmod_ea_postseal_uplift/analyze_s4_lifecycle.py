@@ -167,6 +167,22 @@ def analyze_dataset(dataset, raw, pairs):
         overhead = np.asarray([float(r[overhead_key]) for r in rows])
         saving = np.asarray([float(r[saving_key]) for r in rows])
         ratio = float(np.sum(overhead) / np.sum(saving))
+        if scenario.startswith("PAIRWISE"):
+            clustered = []
+            for target in targets:
+                local = [r for r in rows if r["target_build"] == target]
+                clustered.append({
+                    "overhead": float(np.sum([float(r[overhead_key]) for r in local])),
+                    "saving": float(np.sum([float(r[saving_key]) for r in local])),
+                })
+        else:
+            clustered = [{"overhead": float(r[overhead_key]), "saving": float(r[saving_key])} for r in rows]
+        ratio_point, ratio_low, ratio_high = bootstrap_target(
+            clustered,
+            lambda xs: float(np.sum([x["overhead"] for x in xs]) / np.sum([x["saving"] for x in xs])),
+        )
+        if not np.isclose(ratio, ratio_point):
+            raise RuntimeError("ratio-of-sums bootstrap point mismatch")
         finite = [float(r[be_key]) for r in rows if r[be_key] != "INF"]
         passed = [r for r in horizon_rows if r["scenario"] == scenario and r["gate_positive"] == 1]
         summaries.append({
@@ -174,6 +190,8 @@ def analyze_dataset(dataset, raw, pairs):
             "scenario": scenario,
             "units": len(rows),
             "ratio_of_sums_break_even_queries": ratio,
+            "break_even_bootstrap_ci_low": ratio_low,
+            "break_even_bootstrap_ci_high": ratio_high,
             "max_finite_unit_break_even": max(finite),
             "nonamortizing_units": len(rows) - len(finite),
             "first_registered_positive_N": min(int(r["N_queries_per_direction"]) for r in passed) if passed else "NONE",
