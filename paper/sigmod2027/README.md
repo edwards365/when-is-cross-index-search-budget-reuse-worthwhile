@@ -1,35 +1,33 @@
-# SIGMOD E&A manuscript and anonymous evidence package
+# SIGMOD E&A manuscript and compact evidence package
 
-Main document: `main.tex`. Separate short supplement: `appendix.tex`.
-The source archive includes compiled PDFs, six vector figures (PDF and SVG),
-the ACM class/bibliography style, bibliography, table data, and analysis code.
-Historical W1--W6 previews and duplicate sections are not required to compile this version and are excluded from the anonymous export.
+The canonical review build is:
 
-## Compile
+- [Final V3 Prime main paper](ICBA_SIGMOD_EA_FINAL_V3_PRIME.pdf)
+- [Final V3 Prime appendix](ICBA_SIGMOD_EA_FINAL_V3_PRIME_appendix.pdf)
+- `ICBA_SIGMOD_EA_FINAL_V3_PRIME_SOURCE.zip`
+- `FINAL_V3_PRIME_DELIVERY_SHA256.txt`
+- `qa/FINAL_V3_PRIME_READINESS.json`
 
-Upload the archive contents to Overleaf and select `main.tex` as the main
-document. Use XeLaTeX with BibTeX (automatic in Overleaf). Switch the main
-document to `appendix.tex` to build the independent supplement.
+The public project title is **ICBA: Auditing Search-Budget Portability Across Graph-ANNS Rebuilds**. Historical W1--W6 and intermediate final builds remain for provenance but are not the recommended reading path.
 
-Locally, with Tectonic 0.17:
+## Build from source
 
+Upload the source archive to Overleaf and select the corresponding main document. The manuscript uses the ACM `acmart` template in anonymous `sigconf` mode. The main paper and appendix are separate submission files.
+
+With Tectonic 0.17:
+
+```bash
+tectonic -X compile main_final_v3_prime.tex --outdir build --keep-logs
+tectonic -X compile appendix_final_v3_prime.tex --outdir build --keep-logs
 ```
-tectonic -X compile main.tex --outdir build --keep-logs
-tectonic -X compile appendix.tex --outdir build --keep-logs
-```
 
-The class is the supplied ACM `acmart` template, `sigconf,anonymous`, with the
-reference block and CCS concepts suppressed for double-anonymous review.
-No negative layout spacing, margin reduction, or global body-font reduction
-is used. The main PDF and supplement are separate submission files.
+If local filenames differ inside the delivered source archive, use the manifest/checklist in that archive as the authority.
 
-## Regenerate tables and figures
+## Regenerate compact evidence, tables, and figures
 
-Python dependencies: NumPy and Matplotlib (see `requirements.txt`). The delivered
-clean replay used Python 3.11.16, NumPy 2.4.6, Matplotlib 3.11.2, and pypdf
-6.10.0; PDF libraries are optional for compiling the manuscript.
+Python dependencies include NumPy and Matplotlib (see `requirements.txt`). The sealed clean replay records exact versions in its readiness report.
 
-```
+```bash
 python evidence/replay_graph_only_intervals.py
 python evidence/check_postseal.py
 python make_figures.py
@@ -37,104 +35,49 @@ python check_evidence.py
 python run_clean_replay.py --package .
 ```
 
-`make_figures.py` regenerates six PDF/SVG/PNG figures and the TeX table macros
-from the packaged CSV/NPZ files. The delivered figures use Times New Roman.
-If unavailable, the script announces a DejaVu Serif fallback: inspect the
-layout before using that output. PDF metadata timestamps can differ between
-runs; numerical reproducibility does not imply byte-identical PDFs.
+These steps reconstruct compact statistics and manuscript products. They do not rebuild ANN indexes or access unbundled reserved truth.
 
-`replay_graph_only_intervals.py` reconstructs the absolute, reference, and
-incremental 95% query-cluster intervals in Table 1 from 3,000 compact
-per-query cluster means (750 shared queries for each of four
-implementation--dataset blocks). It uses 5,000 seed-991 bootstrap draws and
-also verifies the already frozen incremental intervals before writing the
-derived four-row table.
+## What the checks cover
 
-`check_evidence.py` independently inverts the binomial CDF for CP bounds,
-checks decisions, gains, quantiles, LOTO and costs, and reproduces the crossed
-bootstrap intervals. It performs no ANN search or raw-truth access. The
-delivered run passes 244 checks; this is not independent native replication.
-The separately frozen source-only fresh-query stage passes 210/210 recorded checks. Its
-public preregistration summary records the frozen source-policy digest, query-role
-counts and digests, lane definitions, and confidence allocation without exposing
-host paths or private role-ID arrays.
-For each held-out target direction at per-direction `alpha=0.05`, the fresh-stage
-audit records B when the one-sided CP upper bound is at most 0.05, A when the
-lower bound is above 0.05, and U otherwise. No simultaneous correction is
-applied across 552 directions; these labels are descriptive audits rather than
-target deployment certificates.
-The post-seal checker validates all 1,104 target-certified pair decisions,
-48 target-build summaries, four target-stage cost summaries, and both complete
-cost ledgers. It regenerates `evidence/postseal_tables.tex`. These disjoint
-500/500 target roles confirm the frozen Faiss `+1` candidate rather than select
-a new lane.
-The Deep1M checker validates all 56 target-certified hnswlib decisions, eight
-non-clipped source candidates, crossed target/query intervals, tail ratios,
-LOTO, and delete-largest-target summaries from the separately registered
-500/500/500 roles.
-`run_clean_replay.py` verifies the anonymous manifest, both check sets, and
-normalized generated-table hashes, then builds the PDFs when a supported
-LaTeX engine is available. `qa/S5_CLEAN_REPLAY_PUBLIC.json` records the sealed
-replay status without machine-specific paths. The sealed run uses Tectonic
-0.17.0; current page counts and hashes are recorded in that public report.
-Both documents are US Letter and below 10 MB.
+- Query-cluster intervals for graph-only portability.
+- One-sided Clopper--Pearson qualification logic.
+- Decision, gain, quantile, LOTO, deletion, and cost checks.
+- Source-only fresh-query and post-seal target-certified stages.
+- Deep1M crossed target/query intervals and tail checks.
+- Anonymous-package manifest, normalized generated-table hashes, and PDF build when a supported engine is available.
 
-## Reanalyze the existing native responses (optional; external data required)
+See [PROVENANCE.md](PROVENANCE.md) for the frozen claim-to-source map and `ANONYMOUS_PACKAGE_MANIFEST.json` for package contents.
 
-The full experiment repository and frozen refresh95 response files are not
-bundled in this small manuscript archive. With NumPy and SciPy available:
+## Full native replay
 
-```
-python evidence/reanalyze_review.py --repo PATH_TO_EXPERIMENT_REPOSITORY --replay PATH_TO_REFRESH95_REPLAY
+The full experiment repository and large response/index files are not bundled in the manuscript package. The repository-level artifact provides a gated path:
+
+```bash
+bash ../../artifacts/graph_anns_phase3_ea85/run_artifact.sh full-check
+ICBA_FULL_REPLAY_ACK=YES bash ../../artifacts/graph_anns_phase3_ea85/run_artifact.sh full
 ```
 
-This uses `scripts/graph_anns_phase3_ea85/analyze_phase2_refresh95.py` and the
-original `results/graph_anns_phase3_ea85/refresh95/per_build.csv` to reproduce
-the original decisions before deriving new outputs. It writes only its own
-`evidence/w6_audit` directory. It neither builds indexes nor modifies frozen
-scientific outputs. See `PROVENANCE.md` for claim-to-source mapping.
-The packaged replay script has SHA-256
-`ab012e376fa73686fe07bad7498aa6ec928d89d06fef28842ccebd8732dab471`.
+Read `../../artifacts/graph_anns_phase3_ea85/full_replay.md` before running it.
 
-## Evidence status and submission boundary
+## Evidence boundary
 
-The matched-source diagnostic, crossed uncertainty, joint-error replay, and
-completed cost accounting are **post-hoc reanalyses of frozen responses**.
-The source-derived slack bridge is a separately preregistered fresh-query
-boundary test conditional on the registered builds. A later post-seal stage
-uses new target-certification and target-evaluation roles to qualify the fixed
-Faiss candidate. A preregistered Deep1M stage applies the same fixed-slack
-logic to eight hnswlib indexes without retuning. TCP remains a recurring-profile
-case; its main replay is not a new-query predictor or a 5% build-conformal
-algorithm. The stricter CP allocation is per target, not simultaneous across
-twenty targets. NDC economics is not wall-clock or monetary economics.
+- Matched-source diagnostics, crossed uncertainty, and cost reconstructions are identified as reanalyses where applicable.
+- Fresh source-only and target-certified stages use frozen candidates and disjoint registered roles.
+- Per-target/per-decision certificates are not simultaneous campaign certificates.
+- TCP is a recurring-profile recovery route, not a universal build-conformal algorithm.
+- NDC, wall time, serving-work savings, and lifecycle value remain distinct quantities.
+- The anonymous package is compact evidence, not a container for every native experiment.
 
-The PDFs contain no identifying repository URL. The anonymous package is built
-from an explicit allowlist and scanned for identity, host, and local-path
-tokens. Hosting that package at an anonymous, accessible URL and checking the
-live submission form remain author submission steps. Do not put a personal
-repository URL into the anonymous PDF. The compact numerical package is not a
-container for full native replay.
+The PDFs intentionally contain no personal repository URL. Anonymous hosting and the live submission form are author submission steps.
 
-## Files
+## Directory guide
 
-- `main.tex`, `sections/`: manuscript, definitions, theory, RQ1--RQ9.
-- `appendix.tex`: short proofs and complete twenty-target certificate table.
-- `figures/`: six PDF/SVG figures, all used in the main paper.
-- `evidence/generated_tables.tex`: generated typeset table definitions.
-- `evidence/w6_audit/`: compact numerical evidence and validation report.
-- `evidence/graph_only_query_clusters.csv` and
-  `evidence/replay_graph_only_intervals.py`: compact replay for all Table 1
-  marginal risk intervals.
-- `evidence/extensions/`: unchanged external-method and scale/family summaries.
-- `evidence/s4_fresh/`: compact fresh-query evidence, the 96 frozen source
-  actions, a sanitized preregistration summary, and the public protocol.
-- `evidence/target_certified/`: all 1,104 target decisions, 48 target summaries,
-  target-stage cost ledgers, sanitized registration, and validation records.
-- `evidence/deep1m_target_cert/`: all 56 Deep1M decisions, registration,
-  crossed-bootstrap summaries, tail checks, and build-deletion sensitivities.
-- `make_figures.py`, `check_evidence.py`, `run_clean_replay.py`: regeneration and checks.
+- `sections/`: manuscript sections.
+- `figures_v3/`: current PNG/PDF/SVG figures.
+- `evidence/`: compact evidence, registrations, generated tables, and checks.
+- `qa/`: readiness and clean-replay reports.
 - `PROVENANCE.md`: frozen sources and inference units.
-- `ANONYMOUS_PACKAGE_MANIFEST.json`: byte sizes and SHA-256 hashes for the delivered package contents, excluding itself.
+- `ANONYMOUS_PACKAGE_MANIFEST.json`: delivered package file sizes and SHA-256 hashes.
+- `FINAL_V3_PRIME_DETAIL_CHECKLIST.md`: final content and formatting checks.
 
 ACM template licensing is retained in `ACM-LICENSE` and the template headers.

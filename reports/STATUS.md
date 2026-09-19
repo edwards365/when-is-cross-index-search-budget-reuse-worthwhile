@@ -1,35 +1,58 @@
 # Project status
 
-Last updated: 2026-08-22
+Last updated: 2026-09-19
 
-Milestone completed: Tier-0 infrastructure, executable baseline, and first independent theory batch.
+## Current state
 
-Completed locally: workspace/Git/GitHub audit; hardware and toolchain audit; repository scaffold; exact Python and C++ resistance references; deterministic synthetic data generator; manifest-driven downloader; HNSW smoke runner; query-level result schema; baseline analysis; theory boundary documents; initial tests and CI definition. Python tests pass 8/8; CTest passes 1/1; Ruff passes. A 2,000-base/200-query/16-D narrow-bridge dataset was generated with exact top-10 ground truth and SHA-256 `7e0ff23c9a4a0a172aba068bebc0f973f9137668200cee02298bac56fda4ffcc`.
+The active research deliverable is the SIGMOD Experiments & Analysis manuscript **Auditing Search-Budget Portability Across Graph-ANNS Rebuilds** and its ICBA/TCP evidence package. The canonical review build is `paper/sigmod2027/ICBA_SIGMOD_EA_FINAL_V3_PRIME.pdf`.
 
-Executed smoke run `5c814131-a03b-4264-9f36-852f06a5b5c4`: Recall@10 rose from 0.914 at ef=10 to 0.983 at ef=20, 0.997 at ef=40, and 1.0 at ef>=80. These timings are non-affinity-controlled pipeline checks, not H1/H2 evidence. The 256-node union-symmetrized Gaussian k-NN mechanism check scored 1,532 edges; leverage range was 0.0726786 to 1.0000000000000133 with zero violations above `1+1e-8`.
+The project has moved beyond its original resistance-rewiring hypothesis. That early path is frozen at tag `phase1-local-resistance-null-v1`; it remains part of the provenance and negative-results record but is not the current headline contribution.
 
-Instrumentation milestone started: a C++ harness now reads real hnswlib layer-0 adjacency, validates duplicate/self/ID/degree invariants, and counts every actual distance-function call with a wrapped metric. On a deterministic 512×8 fixture it achieved Recall@10=1 with exact mean NDC=199, mean high-layer hops=3.3125, 5,487 directed bottom-layer edges, and maximum bottom degree 32. This audit also found that upstream `metric_distance_computations` reports only 24.4375 on the same queries because default base-layer collection is off; it is explicitly banned as total NDC in this project.
+## Completed evidence blocks
 
-Literature milestone started: 18 required/adjacent search strings and 13 verified primary works are recorded. Within this recorded scope, no identical effective-resistance/leverage modification of HNSW/NSG/Vamana/DiskANN neighbor selection was found. This is not a first-work claim; dynamic random-walk rewiring and pseudoinverse-preserving graph reduction require full-text collision review.
+- Graph-only portability matrices across hnswlib/Faiss and SIFT-100K/Arxiv-Nomic-100K.
+- Controlled 5% refresh replay with mutually separated roles.
+- ICBA decision contract: construction, target certification, fallback, held-out evaluation, and cost accounting.
+- TCP endpoint-relative recovery and a same-target-label-budget strong-baseline audit.
+- Cross-method/family/scale evidence including DARTH/Ada-ef bridges, Vamana, and Deep1M.
+- Prospective insertion-permutation panel with 112 separately certified target decisions.
+- Fixed-machine, fixed-thread, interleaved runtime measurement.
+- Lifecycle and break-even ledgers with explicit cost currencies and boundaries.
+- LOTO, crossed bootstrap, tail, deletion, and fallback sensitivity checks.
+- Compact anonymous manuscript replay, checksums, and claim-to-source provenance.
 
-Degree-preserving repair milestone started: all six required variants run on an exported real hnswlib layer-0 graph while preserving each node's outgoing degree and the total 5,487-edge budget. The first aggressive full-reselection result is negative: Original reaches Recall@10=.995 at ef=10 with mean NDC=98.05, while Resistance+Direction first clears .95 at ef=20 with mean NDC=135.94, and Resistance-only needs ef=40 with mean NDC=182.05. See `reports/repair_smoke_report.md`; this result is retained and does not decide H2.
+## Current scientific conclusion
 
-Theory milestone completed: the HNSW primary paper's Algorithms 1--5 and complexity sections were audited, including the exact Algorithm 4 pairwise diversity condition. A normative notation contract, verified-results ledger, 16-claim status registry, six reading cards, local/global model split, theorem-candidate audit, complexity ledger, first report, and paper-section draft now exist. Dense numerical tests cover known graph families, projection/Foster identities, Rayleigh monotonicity, weighted spanning-tree marginals, log-det and frozen-objective submodularity, and navigation counterexamples. The explicit dynamic objective `sum(selected current leverages)` is disproved as submodular by a five-vertex enumeration. Spectral approximation is also shown insufficient for adjacency-based greedy navigation. Python tests pass 28/28, Ruff passes, and Release CTest passes 2/2.
+Search-budget portability is an index-conditioned property, not reusable state that should be assumed safe after rebuild. ICBA provides the central contribution: deploy the least complex target-qualified policy whose information cost is justified by held-out value.
 
-Phase I is formally closed. Its report, claim table, negative-results register, leakage incident, reproducibility record, theorem boundary, and SHA-256 artifact manifest are frozen under tag `phase1-local-resistance-null-v1`. A fresh reproduction at result-code commit `ba90eda` regenerated the formal swap, per-query, summary, paired-comparison, and metadata files byte-for-byte. Do not tune the Phase I intervention.
+TCP is useful for recurring profiled queries when query conditioning adds incremental value. It is not universally superior. On the registered evidence, its incremental advantage over target calibration with the same target-label budget is resolved on SIFT but not Arxiv-Nomic; certified fixed and target-global policies remain important alternatives.
 
-Next milestone: create `exp/geometry-first-resistance-second`, freeze the Phase II preregistration and test firewall before formal test access, then implement the query-independent GGR development path.
+## Validated claim boundaries
 
-Theory batch 2 completed: the candidate-edge ambiguity is frozen into schemes A/B/C, with the current code identified as scheme A. Rank-one add/delete, spanning-tree partition ratios, exact terminal Kron reduction, hop-localization bias, global degree-feasibility families, and pure greedy/beam/DABS boundaries are formalized. A 21-row source-claim map and a 21-paper verification catalog distinguish full-text checks from abstract-only debt. The proof registry now uses the required nine-state vocabulary and audits dependencies/originality/algorithm relation for every `proved` claim. Thirteen counterexample families now include query-irrelevant bridges, degree-budget displacement, directed symmetrization artifacts, missing candidate coverage, constant scheme-A star scores, and high-dimensional direction concentration. Full Python validation passes 38/38 under serial `conda run`; Release CTest passes 2/2; targeted Ruff is clean. Direct invocation of the environment's Python can load incompatible Intel/LLVM OpenMP runtimes and crash, so serial `conda run` remains the validated command.
+- Results are conditional on registered builds, grids, query populations, and measurement settings.
+- Per-decision certificates are not simultaneous campaign certificates.
+- NDC and wall time are reported as different endpoints.
+- Serving-work savings and lifecycle economic value use separate ledgers.
+- External extensions retain their native estimands and are not pooled as independent replications.
+- Evaluation roles never select actions, thresholds, shifts, or fallback rules.
 
-Insertion-candidate instrumentation completed: a non-invasive wrapper exactly replays HNSW's level RNG, construction search, and Algorithm 4 occlusion before each sequential insertion; actual selected adjacency is asserted after insertion, reverse pruning is diffed, and final edge survival is exported. The first 512-node run logged 46,504 candidate decisions, including 43,343 layer-0 geometric occlusions and no layer-0 budget truncations. The final graph and query metrics are unchanged. This supplies the real rejected-candidate population required by H1 and controlled-swap v0.2. That instrumentation revision passed Python 40/40, Release CTest 2/2, targeted Ruff, and full GitHub CI.
+## Reproduction status
 
-Offline candidate scoring completed: the layer-0 graph was reconstructed after every insertion and matched all 5,487 final directed edges. Schemes A/B/C scored 46,150 real candidate decisions with a shared per-insertion Gaussian scale. Scheme A is nonconstant but has median within-insertion distance correlation -0.671 and only 42.47% matched-budget overlap with Algorithm 4. Scheme B has eight genuine cross-component infinities; more importantly, its top rejected candidates under-enrich cross-cloud edges (7.42% top-1 versus 20.70% baseline). Broad resistance swaps are therefore gated off until query-trace attribution supplies navigation evidence. Numerical checks found zero A/C leverage violations above `1+1e-4`. The expanded suite passes Python 43/43, Ruff, and Release CTest 2/2 locally.
+- Lightweight artifact smoke: available at `artifacts/graph_anns_phase3_ea85/reproduce_smoke.sh`.
+- Paper table/figure replay: available under `paper/sigmod2027/`.
+- Full native replay: documented and gated; raw datasets and indexes are external.
+- Final V3 Prime readiness/checksum records: committed under `paper/sigmod2027/qa/` and the delivery SHA files.
 
-Exact query-trace attribution completed: a non-invasive replay matches upstream labels and exact distance-call counts for all 768 exported searches. At ef=10, 8/256 queries have imperfect recall; ef=20/40 are perfect on this fixture. Of 43,343 rejected candidates, 3,232 have a progressive queue-eligible opportunity. Ninety-two candidates point to an actually missed neighbor under an eligible state; 46 exact directed opportunities are also progressive and cover all eight failures. Scheme B weakly enriches trace support but its best progressive rank reaches 67, so the controlled intervention is frozen as trace-first and B-second. The attribution workload is selection-only; held-out evaluation is mandatory. The expanded suite passes Python 45/45, Ruff, and Release CTest 2/2 locally.
+## Remaining work
 
-Controlled-swap feasibility gate completed: 46 directed replacements (0.8383% of layer-0 edges) preserve every source degree and use matched sources/deletions for Trace+Resistance, Resistance-only, Geometry, and Random. An optimistic base-perturbation holdout was rejected for template leakage. On 1,024 independently sampled Gaussian queries, all 3,072 Original searches match C++ labels and exact NDC. Trace+Resistance does not improve ef10 recall (difference -.000391, 95% interval [-.001074,.000293]) although it reduces NDC by .430. Geometry reduces NDC more in point estimate, and no resistance variant improves recall. The local mathematics and engineering integration are feasible; resistance-specific ANNS benefit is not established. Further tuning on this fixture is stopped. The expanded suite passes Python 48/48, Ruff, and Release CTest 2/2 locally.
+The scientific core is sealed. Remaining submission work is repository/artifact presentation, independent clean-run validation, anonymous hosting, final metadata checks, and any venue-mandated packaging. Further experimental expansion should be preregistered as a new claim rather than retrofitted into the sealed evidence.
 
-Current tier: Tier 0 (16 GiB RAM is the limiting resource). Do not schedule complete 1M sweeps.
+## Navigation
 
-Open constraints: native Windows lacks global CMake/PATH configuration, but the isolated environment supplies CMake and Visual Studio supplies MSVC. No Slurm or WSL distribution is installed. The private GitHub repository, milestone, eight issues, and `main`/`develop`/`exp/resistance-validation` branches now exist remotely. Initial push required retries because connections to `github.com:443` were temporarily reset/timed out; no force push was used.
+- [Project overview](../README.md)
+- [Results guide](../docs/RESULTS_GUIDE.md)
+- [Quickstart](../docs/QUICKSTART.md)
+- [Repository map](../docs/REPOSITORY_MAP.md)
+- [Paper provenance](../paper/sigmod2027/PROVENANCE.md)
+
+Historical status text remains available through Git history and the frozen Phase I tag.

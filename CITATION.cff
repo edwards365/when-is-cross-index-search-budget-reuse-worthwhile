@@ -1,11 +1,22 @@
 cff-version: 1.2.0
-title: Navigation-Aware Resistance Graph for Approximate Nearest Neighbor Search
-message: Please cite this software using these metadata.
+title: "ICBA: Auditing Search-Budget Portability Across Graph-ANNS Rebuilds"
+message: "Please cite this repository and the accompanying manuscript. Archival publication metadata will replace this provisional record when available."
 type: software
 authors:
   - family-names: Research Team
 repository-code: https://github.com/edwards365/navigation-aware-resistance-hnsw
+url: https://github.com/edwards365/navigation-aware-resistance-hnsw
+abstract: >-
+  Code, protocols, compact evidence, and replay tools for auditing whether
+  graph-ANNS search-budget policies remain portable across index rebuilds,
+  including Index-Conditioned Budget Audit (ICBA) and target-calibrated
+  pooling (TCP).
+keywords:
+  - approximate nearest neighbor search
+  - graph indexes
+  - index rebuilds
+  - risk certification
+  - reproducible experiments
 license: MIT
-version: 0.1.0
-date-released: 2026-08-22
-
+version: 0.2.0
+date-released: 2026-09-19

@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "narhnsw"
-version = "0.1.0"
-description = "Reproducible feasibility experiments for navigation-aware resistance graph rewiring"
+version = "0.2.0"
+description = "ICBA protocols and evidence for search-budget portability across graph-ANNS rebuilds"
 readme = "README.md"
 requires-python = ">=3.10,<3.14"
 license = {text = "MIT"}
