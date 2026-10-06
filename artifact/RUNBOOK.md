@@ -1,5 +1,7 @@
 # Reproduce the selected saved-response analyses
 
+This runbook retains the nine-table `artifact-response-v1` route. The separate [paper-figure supplement](paper/README.md) reconstructs Figures 2, 4, 5 and 6, including their reported migration/paired bootstrap intervals. These are complementary entries, not a claim that every original experiment is portable.
+
 ## Scope and inputs
 
 This entry reconstructs nine tables for the same-condition summary-cost diagnostic, qualification sensitivity and fixed-cost components (§4–6). It uses the frozen qualification/evaluation responses and original locked decisions. It does not execute ANN, construct an index, obtain new exact truth, train a model, regenerate bootstrap intervals, or cover every paper panel.

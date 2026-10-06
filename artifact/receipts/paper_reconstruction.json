@@ -1,0 +1,40 @@
+{
+  "status": "PASS_SAVED_RECORD_RECONSTRUCTION",
+  "results": {
+    "F02": {
+      "groups": 4,
+      "intervals": 12,
+      "input_level": "Saved per-query means over all directed pairs"
+    },
+    "F04": {
+      "points": 10,
+      "paired_intervals": 24,
+      "input_level": "Saved locked-policy per-target/query matrices; API times already averaged over seven repeats"
+    },
+    "F05": {
+      "curve_rows": 320,
+      "scenarios": 4,
+      "input_level": "Saved component ledger; no component remeasurement"
+    },
+    "F06": {
+      "cells": 80,
+      "raw_blocks": 560,
+      "input_level": "Batch timing records; memory is the saved object-size measurement, not remeasured",
+      "not_reconstructed": "Per-call pooled p95/p99; not plotted in Figure 6"
+    }
+  },
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "elapsed_seconds": 5.01500000001397,
+  "ann_runs": 0,
+  "timing_measurements": 0,
+  "recomputed_intervals": 36,
+  "original_files_modified": false,
+  "scope": "Selected paper-figure statistics. Does not reproduce all narrative panels or original ANN generation.",
+  "export": "Scoped clean copy without local response paths or private imports",
+  "wrapper_tests": 12,
+  "source_files": {
+    "reproduce_paper.py": "82ac840d6316265c792781b66fcbed64c832023cb0f222923937961007c6020e",
+    "paper/manifest.json": "6d4eb7d466e521e23e8fb61e304b3c49a5dedf8822c755a02436ce0b9a95ae37"
+  }
+}

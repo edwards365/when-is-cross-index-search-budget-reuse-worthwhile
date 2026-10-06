@@ -27,4 +27,6 @@ After the initial entry, the repository was renamed to `when-is-cross-index-sear
 | Historical local paths | A new wrapper resolves selected-analysis inputs; remaining original-execution paths still require separate portable wrappers |
 | Full artifact claim | Require the documented inputs and commands to work from a clean checkout; a repository URL and checksum check alone are insufficient |
 
-No old ANN experiment, failed run, auditor, or bootstrap is restarted as part of repository reconciliation. No branch, result, or untracked file is deleted.
+The later `artifact-paper-v1` supplement adds new portable reconstruction of saved-record Figure 2/4 bootstrap intervals and Figure 5/6 statistics. It does not restart historical workers or original ANN/timing experiments. Its claim-by-claim coverage map supersedes the earlier generic statement that all bootstrap reconstruction was missing. Other narrative panels and original execution still require separate delivery.
+
+No branch, result, or untracked file is deleted.
