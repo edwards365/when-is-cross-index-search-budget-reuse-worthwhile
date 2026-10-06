@@ -1,11 +1,8 @@
 cff-version: 1.2.0
-title: Navigation-Aware Resistance Graph for Approximate Nearest Neighbor Search
-message: Please cite this software using these metadata.
+title: "When Is Cross-Index Search Budget Reuse Worthwhile? — Research Artifact"
+message: "This cites a research repository, not an accepted paper. Cite the exact commit used."
 type: software
 authors:
   - family-names: Research Team
 repository-code: https://github.com/edwards365/navigation-aware-resistance-hnsw
 license: MIT
-version: 0.1.0
-date-released: 2026-08-22
-

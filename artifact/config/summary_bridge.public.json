@@ -1,0 +1,101 @@
+{
+  "publication_view": "Private absolute paths replaced by basenames. NOT executable.",
+  "original_config_sha256": "dd203157a77efa3482a0312571adc2cb5d6fd4c4fd540bd33283999e9d271891",
+  "configuration": {
+    "key": "summary_information_bridge_20261006_v1",
+    "status": "FROZEN_BEFORE_NEW_DERIVED_OUTPUTS_RETROSPECTIVE",
+    "paths": {
+      "policy": "input-name:tcp_fresh_policy_v1.json",
+      "profile_audit": "input-name:independent_audit.json",
+      "membership": "input-name:membership.npz",
+      "decision": "input-name:certification_decision_lock.json",
+      "lifecycle": "input-name:lifecycle.json",
+      "baselines": "input-name:baseline_decisions.json",
+      "ledger": "input-name:component_ledger.csv"
+    },
+    "inputs": {
+      "input-name:minimal_route_20261004_v1.json": {
+        "bytes": 36300,
+        "sha256": "ea65e4f18dbf2d8a3f200ef5ab33cdf15b250360558e4b317e3b367ce3788d6b"
+      },
+      "input-name:tcp_fresh_policy_v1.json": {
+        "bytes": 4781,
+        "sha256": "bee6138a331c3c9e1c5968babe95b86e7955a66ee39369102e9981726b3b8f2d"
+      },
+      "input-name:independent_audit.json": {
+        "bytes": 3738,
+        "sha256": "943c00da72fb85faed26e3bf48779cdd11ced81fd5d5d981c677d807a708484f"
+      },
+      "input-name:membership.npz": {
+        "bytes": 16507,
+        "sha256": "4fad264dead7dd223f34dc6fa540f9c436e0113bd7f1de2e9759ff51b3007b74"
+      },
+      "input-name:certification_decision_lock.json": {
+        "bytes": 5499,
+        "sha256": "5e6cc286bc32c902dfa4055d5cbcf8445d42a7cb0fdca3434d15833a49ba1b3d"
+      },
+      "input-name:lifecycle.json": {
+        "bytes": 28342,
+        "sha256": "f24ca95ab1fc9ec7e55fa028873028e0797dc26d30fba9e6d11de1da07464ed4"
+      },
+      "input-name:baseline_decisions.json": {
+        "bytes": 31904,
+        "sha256": "e3ee34487f1a9984b50334abc52eb617e9dda7063f9ce161e36f026e95dc0040"
+      },
+      "input-name:component_ledger.csv": {
+        "bytes": 3597,
+        "sha256": "81e4f49f253459a41af0a78b53078cc23fab8578a8779eb8a215c39217b17039"
+      },
+      "input-name:sift_target_certification.npz": {
+        "bytes": 1568573,
+        "sha256": "7e63d865a989c54caee7b2c1d3f8d2fdb6cf11d86945fd6e357c598ec06adcc3"
+      },
+      "input-name:sift_target_evaluation.npz": {
+        "bytes": 3124509,
+        "sha256": "ac8037d1d75a759698290607e8a4c4442eec6a68a2108b2087c5e76ca98c2a10"
+      },
+      "input-name:arxiv_target_certification.npz": {
+        "bytes": 1624430,
+        "sha256": "229e1a90207489fabf23a474aa9f81ccb4fcf86e369f54177d0b7056ff7d1635"
+      },
+      "input-name:arxiv_target_evaluation.npz": {
+        "bytes": 3251232,
+        "sha256": "a4e3260b05ee1764e15e89ab15583c2b7324e6f5367398a97185c276463fc31b"
+      },
+      "input-name:summary_bridge.py": {
+        "bytes": 18343,
+        "sha256": "d60a11b4fe5ac30901398fb1083ea7e7d9bb8d4f9c6ced6e5d02a4d5b2b06a6b"
+      },
+      "input-name:check_summary_bridge.py": {
+        "bytes": 7523,
+        "sha256": "ef20ada4437db13a89959fde6ce2913ed49591a4da1525c147717b18d1ed3e3e"
+      },
+      "input-name:execute_bridge.py": {
+        "bytes": 7712,
+        "sha256": "e6cc1a67335805865409bad2937303bcfe2b5c65756ada4cd1aa0ed1fd1cae8b"
+      },
+      "input-name:protocol.md": {
+        "bytes": 3487,
+        "sha256": "91b706d190eec1b34e507bf7618da86a5453e924389a793bee6f1c7ed573f684"
+      }
+    },
+    "output": "input-name:summary_information_bridge_20261006_v1",
+    "implementation_sha256": "d60a11b4fe5ac30901398fb1083ea7e7d9bb8d4f9c6ced6e5d02a4d5b2b06a6b",
+    "checker_sha256": "ef20ada4437db13a89959fde6ce2913ed49591a4da1525c147717b18d1ed3e3e",
+    "resources": {
+      "cpu": 4,
+      "library_threads": 1,
+      "address_space_bytes": 8589934592,
+      "file_bytes": 134217728,
+      "cpu_seconds": 900,
+      "wall_seconds_per_stage": 900,
+      "rss_stop_bytes": 1073741824,
+      "output_cap_bytes": 268435456
+    },
+    "semantics": "protocol.md; full population feasibility plus common endpoint-solvable subset; no new ANN or bootstrap; no manuscript merge",
+    "versions": {
+      "python": "3.11.16 | packaged by conda-forge | (main, Aug 21 2026, 22:44:51) [GCC 14.4.0]",
+      "psutil": "6.1.1"
+    }
+  }
+}

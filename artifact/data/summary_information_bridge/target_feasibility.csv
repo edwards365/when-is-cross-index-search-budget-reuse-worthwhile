@@ -1,0 +1,17 @@
+dataset,target,endpoint_failed_n,endpoint_solvable_n,actual_individual_infeasible_n
+sift-1m-heldout,seed13_random,11,989,0
+sift-1m-heldout,seed13_norm_ascending,11,989,0
+sift-1m-heldout,seed83_random,11,989,2
+sift-1m-heldout,seed83_norm_ascending,7,993,0
+sift-1m-heldout,seed197_random,6,994,0
+sift-1m-heldout,seed197_norm_ascending,9,991,1
+sift-1m-heldout,seed2029_random,11,989,0
+sift-1m-heldout,seed2029_norm_ascending,6,994,0
+arxiv-nomic-1.34m-heldout,seed13_random,3,997,3
+arxiv-nomic-1.34m-heldout,seed13_norm_ascending,2,998,2
+arxiv-nomic-1.34m-heldout,seed83_random,0,1000,0
+arxiv-nomic-1.34m-heldout,seed83_norm_ascending,3,997,3
+arxiv-nomic-1.34m-heldout,seed197_random,3,997,3
+arxiv-nomic-1.34m-heldout,seed197_norm_ascending,2,998,2
+arxiv-nomic-1.34m-heldout,seed2029_random,1,999,1
+arxiv-nomic-1.34m-heldout,seed2029_norm_ascending,2,998,2

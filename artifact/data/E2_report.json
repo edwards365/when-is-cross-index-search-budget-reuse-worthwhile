@@ -1,0 +1,33 @@
+{
+  "config_sha256": "ea65e4f18dbf2d8a3f200ef5ab33cdf15b250360558e4b317e3b367ce3788d6b",
+  "correctness": [
+    {
+      "all_ids_scores_bit_exact": true,
+      "context_miss_controls": 8,
+      "dataset": "sift-1m-heldout",
+      "lookup_semantics": "full bytes equality; preloaded immutable exact values",
+      "magic_hex": "4531415130303031",
+      "query_bit_miss": true,
+      "query_count": 1000
+    },
+    {
+      "all_ids_scores_bit_exact": true,
+      "context_miss_controls": 8,
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "lookup_semantics": "full bytes equality; preloaded immutable exact values",
+      "magic_hex": "4531415130303031",
+      "query_bit_miss": true,
+      "query_count": 1000
+    }
+  ],
+  "implementation_sha256": "80754ec63f7a6073512227609c00a0657eb08cc32fe50410715cbf4487aa7be1",
+  "limitations": [
+    "Fixed host single CPU Python bytes dictionary; no production or end-to-end latency claim.",
+    "Static preload; cyclic workloads exceed intermediate capacities; no LRU adaptation.",
+    "Timing inputs use existing query objects; transport/parsing and miss acquisition not measured.",
+    "Memory includes stored dict/bytes objects; temporary query/result buffers and interpreter excluded."
+  ],
+  "raw_blocks": 560,
+  "status": "COMPLETE_NEW_STATIC_EXACT_CACHE_MEASUREMENT",
+  "workload_cells": 80
+}

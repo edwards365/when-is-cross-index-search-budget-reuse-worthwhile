@@ -1,0 +1,13 @@
+dataset,component,seconds
+sift-1m-heldout,design_selection_cert_profile_ns,192.788779589
+sift-1m-heldout,design_selection_cert_truth_ns,5.644218527
+sift-1m-heldout,exact_base_acquisition_ns,1.073568668
+sift-1m-heldout,certification_decision_compute_ns_allocated_half,0.007345362
+sift-1m-heldout,role_firewall_ns_allocated_half,12.108253614977
+sift-1m-heldout,fixed_net_setup_total,211.62216576097705
+arxiv-nomic-1.34m-heldout,design_selection_cert_profile_ns,514.005610238
+arxiv-nomic-1.34m-heldout,design_selection_cert_truth_ns,40.5053591
+arxiv-nomic-1.34m-heldout,exact_base_acquisition_ns,7.904614891
+arxiv-nomic-1.34m-heldout,certification_decision_compute_ns_allocated_half,0.007345362
+arxiv-nomic-1.34m-heldout,role_firewall_ns_allocated_half,12.108253614977
+arxiv-nomic-1.34m-heldout,fixed_net_setup_total,574.5311832059766
