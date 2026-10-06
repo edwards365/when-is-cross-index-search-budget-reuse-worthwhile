@@ -4,5 +4,5 @@ message: "This cites a research repository, not an accepted paper. Cite the exac
 type: software
 authors:
   - family-names: Research Team
-repository-code: https://github.com/edwards365/navigation-aware-resistance-hnsw
+repository-code: https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile
 license: MIT

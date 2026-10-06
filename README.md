@@ -8,11 +8,12 @@ Rebuilding a physical ANN index can change the search budget needed by a query e
 2. How do target qualification and fallback change the deployed quality–work operating point?
 3. When can search savings repay information acquisition, and what else could the same information support?
 
-The current paper is an evaluation and analysis study, not a claim of a universally faster search algorithm. The historical repository name is retained to preserve existing links.
+The current paper is an evaluation and analysis study, not a claim of a universally faster search algorithm. The repository is named after the paper; its earlier effective-resistance research remains in the history.
 
 ## Start here
 
 - **[Public artifact entry](artifact/README.md)** — included files, a read-only check, and explicitly missing reproduction inputs.
+- **[Response-analysis runbook](artifact/RUNBOOK.md)** — versioned input download, pinned environment, and portable reconstruction of nine analysis tables.
 - [Evidence and terminology map](artifact/EVIDENCE.md) — connects saved results to the paper's main questions.
 - [Publication and branch reconciliation](artifact/REPOSITORY_STATUS.md) — explains why the research history has not been merged wholesale.
 - [Legacy project overview](docs/history/README_before_icde_artifact.md) — the preceding research agenda, retained as history rather than current claims.
@@ -27,7 +28,7 @@ The current paper is an evaluation and analysis study, not a claim of a universa
 
 The study includes 100K and roughly million-vector panels. They differ in more than scale, so they do not isolate a pure scale effect. Cross-build evidence and single-index native implementation checks have different roles. In particular, completed DARTH/Vamana native inner-product chains do not substitute for multi-build transfer validation.
 
-The current public snapshot contains selected saved results and consistency checks. It is **not yet the complete paper artifact**: full response inputs, portable original-execution instructions, and the submission-version paper/figure package remain to be curated. No new ANN experiments or bootstrap analyses were run to publish this snapshot.
+The current release supplies selected saved results and a portable reconstruction of the same-target summary-cost, qualification-sensitivity, and fixed-cost-component tables from archived responses. It is **not yet the complete paper artifact**: other response panels, original ANN execution, and the submission-version paper/figure package remain to be curated. Publication adds no new ANN experiments or bootstrap analyses.
 
 ## Quick check
 

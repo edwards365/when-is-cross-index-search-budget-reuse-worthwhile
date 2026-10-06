@@ -16,13 +16,15 @@ Project title/description, navigation, citation title, a selected saved-result a
 
 ## Still to reconcile
 
+After the initial entry, the repository was renamed to `when-is-cross-index-search-budget-reuse-worthwhile`. A separate response-analysis release now provides the saved inputs and portable wrapper for the new summary-cost/qualification tables. This is selective integration, not a merge of the 943 historical commits. The unchanged historical README retains its original links.
+
 | Material | Required action before a later release |
 |---|---|
 | Research commits not on `main` | Review a claim-linked source/config/test subset; merge or port selected changes rather than importing the whole history |
-| Untracked response files | Match against frozen inventories, determine which analysis inputs are required, and review distribution size and rights |
+| Untracked response files | The selected summary-analysis inputs are now provided as a pinned Release attachment; other panels still need claim-linked input inventories |
 | Indexes, datasets, binaries, environments | Do not commit to Git; provide legal acquisition/build instructions or an appropriate separate distribution where authorized |
 | Manuscript and PPT figures | Pin the submitted version, audit metadata/rights, and deliver a dedicated reproducible paper package |
-| Historical local paths | Provide new portable wrappers; do not modify sealed original execution evidence |
+| Historical local paths | A new wrapper resolves selected-analysis inputs; remaining original-execution paths still require separate portable wrappers |
 | Full artifact claim | Require the documented inputs and commands to work from a clean checkout; a repository URL and checksum check alone are insufficient |
 
 No old ANN experiment, failed run, auditor, or bootstrap is restarted as part of repository reconciliation. No branch, result, or untracked file is deleted.
