@@ -1,0 +1,74 @@
+{
+  "status": "PASS_SAVED_RESPONSE_REPRODUCTION",
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "comparisons": {
+    "budgets.csv": {
+      "rows": 160,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    },
+    "coverage.csv": {
+      "rows": 320,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    },
+    "fixed_cost_components.csv": {
+      "rows": 12,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    },
+    "objectives.csv": {
+      "rows": 640,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    },
+    "policy_bridge.csv": {
+      "rows": 32,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    },
+    "qualification_aggregate.csv": {
+      "rows": 40,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    },
+    "qualification_sensitivity.csv": {
+      "rows": 320,
+      "within_tolerance_nonidentical_cells": 532,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": false
+    },
+    "summary_aggregate.csv": {
+      "rows": 24,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    },
+    "target_feasibility.csv": {
+      "rows": 16,
+      "within_tolerance_nonidentical_cells": 0,
+      "rel_tol": 1e-10,
+      "abs_tol": 1e-09,
+      "byte_identical": true
+    }
+  },
+  "new_ann_runs": 0,
+  "new_bootstrap_runs": 0,
+  "scope": "Regenerated selected derived tables from archived responses; not independent original measurements or full-paper reproduction"
+}

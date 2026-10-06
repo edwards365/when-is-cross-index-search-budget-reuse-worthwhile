@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "scope": "Saved-response summary-cost/qualification analysis only",
+  "release_tag": "artifact-response-v1",
+  "asset_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-response-v1/summary-analysis-inputs.zip",
+  "archive": {
+    "bytes": 9450358,
+    "sha256": "b0e014e00744a11054c98e7a4135c19f62ff5dd792c196e64442783cd64bf9e1"
+  },
+  "files": {
+    "arxiv_target_certification.npz": {
+      "bytes": 1624430,
+      "sha256": "229e1a90207489fabf23a474aa9f81ccb4fcf86e369f54177d0b7056ff7d1635",
+      "original_sha256": "229e1a90207489fabf23a474aa9f81ccb4fcf86e369f54177d0b7056ff7d1635",
+      "transformation": "none"
+    },
+    "arxiv_target_evaluation.npz": {
+      "bytes": 3251232,
+      "sha256": "a4e3260b05ee1764e15e89ab15583c2b7324e6f5367398a97185c276463fc31b",
+      "original_sha256": "a4e3260b05ee1764e15e89ab15583c2b7324e6f5367398a97185c276463fc31b",
+      "transformation": "none"
+    },
+    "baseline_decisions.json": {
+      "bytes": 31904,
+      "sha256": "e3ee34487f1a9984b50334abc52eb617e9dda7063f9ce161e36f026e95dc0040",
+      "original_sha256": "e3ee34487f1a9984b50334abc52eb617e9dda7063f9ce161e36f026e95dc0040",
+      "transformation": "none"
+    },
+    "certification_decision_lock.json": {
+      "bytes": 5499,
+      "sha256": "5e6cc286bc32c902dfa4055d5cbcf8445d42a7cb0fdca3434d15833a49ba1b3d",
+      "original_sha256": "5e6cc286bc32c902dfa4055d5cbcf8445d42a7cb0fdca3434d15833a49ba1b3d",
+      "transformation": "none"
+    },
+    "component_ledger.csv": {
+      "bytes": 3597,
+      "sha256": "81e4f49f253459a41af0a78b53078cc23fab8578a8779eb8a215c39217b17039",
+      "original_sha256": "81e4f49f253459a41af0a78b53078cc23fab8578a8779eb8a215c39217b17039",
+      "transformation": "none"
+    },
+    "independent_audit.json": {
+      "bytes": 3672,
+      "sha256": "8b273ffd547511aa1e2d6ea2fcd3b1244abde0c46edfbdec9a1794d53b376982",
+      "original_sha256": "943c00da72fb85faed26e3bf48779cdd11ced81fd5d5d981c677d807a708484f",
+      "transformation": "Absolute path values replaced with basenames; other JSON fields unchanged"
+    },
+    "lifecycle.json": {
+      "bytes": 28342,
+      "sha256": "f24ca95ab1fc9ec7e55fa028873028e0797dc26d30fba9e6d11de1da07464ed4",
+      "original_sha256": "f24ca95ab1fc9ec7e55fa028873028e0797dc26d30fba9e6d11de1da07464ed4",
+      "transformation": "none"
+    },
+    "membership.npz": {
+      "bytes": 16507,
+      "sha256": "4fad264dead7dd223f34dc6fa540f9c436e0113bd7f1de2e9759ff51b3007b74",
+      "original_sha256": "4fad264dead7dd223f34dc6fa540f9c436e0113bd7f1de2e9759ff51b3007b74",
+      "transformation": "none"
+    },
+    "sift_target_certification.npz": {
+      "bytes": 1568573,
+      "sha256": "7e63d865a989c54caee7b2c1d3f8d2fdb6cf11d86945fd6e357c598ec06adcc3",
+      "original_sha256": "7e63d865a989c54caee7b2c1d3f8d2fdb6cf11d86945fd6e357c598ec06adcc3",
+      "transformation": "none"
+    },
+    "sift_target_evaluation.npz": {
+      "bytes": 3124509,
+      "sha256": "ac8037d1d75a759698290607e8a4c4442eec6a68a2108b2087c5e76ca98c2a10",
+      "original_sha256": "ac8037d1d75a759698290607e8a4c4442eec6a68a2108b2087c5e76ca98c2a10",
+      "transformation": "none"
+    },
+    "tcp_fresh_policy_v1.json": {
+      "bytes": 4781,
+      "sha256": "bee6138a331c3c9e1c5968babe95b86e7955a66ee39369102e9981726b3b8f2d",
+      "original_sha256": "bee6138a331c3c9e1c5968babe95b86e7955a66ee39369102e9981726b3b8f2d",
+      "transformation": "none"
+    },
+    "NOTICE.txt": {
+      "bytes": 457,
+      "sha256": "d4d2dbc8bd9f0e597e138839849f71ba1902df1ab52bd0d0a526b82a3a605902",
+      "transformation": "new release notice"
+    }
+  },
+  "paths": {
+    "policy": "tcp_fresh_policy_v1.json",
+    "profile_audit": "independent_audit.json",
+    "membership": "membership.npz",
+    "decision": "certification_decision_lock.json",
+    "lifecycle": "lifecycle.json",
+    "baselines": "baseline_decisions.json",
+    "ledger": "component_ledger.csv"
+  }
+}
