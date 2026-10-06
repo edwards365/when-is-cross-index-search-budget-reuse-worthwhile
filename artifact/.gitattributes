@@ -1,0 +1,2 @@
+# Preserve pinned payload bytes on Windows and Unix checkouts and archives.
+* -text

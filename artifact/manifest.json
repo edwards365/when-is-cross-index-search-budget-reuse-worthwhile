@@ -1,6 +1,10 @@
 {
   "scope": "Published artifact directory, excluding this manifest",
   "files": {
+    ".gitattributes": {
+      "bytes": 84,
+      "sha256": "2d65c069106a35d07789ced85576b91e294cf6e7b7f714548e6491206eec014d"
+    },
     "check_saved_results.py": {
       "bytes": 4197,
       "sha256": "f9ea44f0daa84659028c89b736f01f99a366260fbd101553c3f3fe1f2a80e2da"
