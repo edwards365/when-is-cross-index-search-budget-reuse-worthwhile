@@ -37,12 +37,12 @@ The study includes 100K and roughly million-vector panels. These panels differ i
 Use **Python 3.11+**. This check needs only the standard library and writes no outputs.
 
 ```sh
-git clone --branch artifact-response-v1 https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile.git budget-reuse
+git clone --branch artifact-paper-v1 https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile.git budget-reuse
 cd budget-reuse
 python artifact/check_saved_results.py
 ```
 
-The command checks file identity and selected aggregation arithmetic. It does not rerun ANN search or recompute confidence intervals. The tag pins the analysis release; `main` also contains subsequent documentation improvements.
+The command checks file identity and selected aggregation arithmetic. It does not rerun ANN search or recompute confidence intervals. The tag pins this paper-statistics supplement; the earlier `artifact-response-v1` release remains unchanged.
 
 ### 2. Reconstruct nine analysis tables
 
@@ -56,7 +56,17 @@ This reconstructs selected summary-cost, qualification-sensitivity, and cost-com
 
 ## Release scope
 
-**`artifact-response-v1` is a partial analysis prerelease, not the complete paper artifact.**
+### 3. Reconstruct numerical-figure statistics
+
+With the pinned analysis environment, run:
+
+```sh
+python artifact/reproduce_paper.py --output paper-reconstruction
+```
+
+The [paper supplement](artifact/paper/README.md) supplies small saved-record inputs directly in Git. Its clean-export check reconstructs 36 migration/paired intervals, ten operating points, 320 cost-curve points and 80 batch-lookup means. Figure 3 uses the nine-table route above. See the [recorded check](artifact/receipts/paper_reconstruction.json) and the [whole-paper coverage map](artifact/EVIDENCE.md).
+
+**`artifact-paper-v1` supplements the partial `artifact-response-v1` release; neither is complete original-experiment reproduction.**
 
 | Material | Public status |
 |---|---|
@@ -64,7 +74,8 @@ This reconstructs selected summary-cost, qualification-sensitivity, and cost-com
 | Saved-response archive and portable nine-table reconstruction | Available in the [release and runbook](artifact/RUNBOOK.md) |
 | Conceptual overview | Available above, in the approved manuscript visual style |
 | Submission-version TeX, editable figures, and complete PDF build | Not yet curated into this release |
-| All original ANN panels and bootstrap reconstruction | Not covered by this release |
+| Numerical-figure saved-record statistics, including Figure 2/4 intervals | Supplied by the paper supplement |
+| All original ANN panels and narrative-only results | Not fully covered; explicit gaps are listed in the evidence map |
 
 The [coverage table](artifact/README.md#coverage) distinguishes supplied materials from remaining work. Single-index native DARTH/Vamana checks do not substitute for multi-build transfer evidence. No publication acceptance, artifact badge, or complete independent reproduction is claimed.
 

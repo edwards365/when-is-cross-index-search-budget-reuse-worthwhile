@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "scope": "Saved-record reconstruction of F02/F04/F05/F06; no ANN or remeasurement",
+  "files": {
+    "inputs/sift_paired.npz": {
+      "bytes": 280944,
+      "sha256": "0c916a009d11fc2f54b81d157808ca567b258bd1c9f65abec677e689134aa205"
+    },
+    "inputs/arxiv_paired.npz": {
+      "bytes": 284769,
+      "sha256": "e3316bf1680d3c4476a51dab7c2af5c4e905e41fe9df84f0667063e2651c264a"
+    },
+    "inputs/cache_raw_blocks.csv": {
+      "bytes": 50313,
+      "sha256": "62f5bc5cbc77a9ead6c78b080ccda7a3cd6a074956a753ae074642e5b23d393a"
+    },
+    "inputs/graph_only_query_clusters.csv": {
+      "bytes": 211608,
+      "sha256": "96579d81a3368f3da9f8a405403a655e5f985c766af8fe2eff124bc22e1b851f"
+    },
+    "inputs/component_ledger.csv": {
+      "bytes": 3597,
+      "sha256": "81e4f49f253459a41af0a78b53078cc23fab8578a8779eb8a215c39217b17039"
+    },
+    "inputs/cache_memory.csv": {
+      "bytes": 1220,
+      "sha256": "c3234675f6fe21c79cd53b4aad34dd42820bac698bc2c231a52d0f751e24ecf3"
+    },
+    "expected/graph_only_marginal_intervals.csv": {
+      "bytes": 1138,
+      "sha256": "aaca872aaec510e7fcf18f7a0bb6319edf933fd57c0a6e9ba07294df53e2d751"
+    },
+    "expected/comparisons.json": {
+      "bytes": 15381,
+      "sha256": "5b78e3df418d790f822eab6a72083a3661a381d0079fac1da002cb068fb095d8"
+    },
+    "expected/operating_points.csv": {
+      "bytes": 807,
+      "sha256": "f3d539d56d3d534c51642f35757ac4379e4e4e4d846efe3bf205876cbb3f7ef0"
+    },
+    "expected/cache_lookup_summary.csv": {
+      "bytes": 15774,
+      "sha256": "71d75383b831aa72ed8c1b85aad5796bd3f553177d9ecbf1d14c9e24968e637a"
+    },
+    "expected/F05_plotted_values.csv": {
+      "bytes": 31717,
+      "sha256": "3d820ae0c7852b6993e486cf14525e58ec0d6835f187ef513be01ba8b10d903a"
+    },
+    "expected/F06_plotted_values.csv": {
+      "bytes": 1288,
+      "sha256": "603b7484b42401eeaf19ef5f3024bffbb7d649a4ade06f2ad4b6cbe1821aabe5"
+    }
+  },
+  "statistical_protocol": {
+    "replicates": 5000,
+    "seed": 991,
+    "F02": "query-cluster integer draws, conditional on registered graphs",
+    "F04": "crossed target/shared-query multinomial weights; 100-replicate chunks, seed reset per contrast",
+    "numeric_tolerance": {
+      "relative": 1e-10,
+      "absolute": 1e-09
+    }
+  },
+  "resource_plan": {
+    "library_threads": 1,
+    "expected_peak_mib_below": 512,
+    "bounded_input_bytes_below": 3000000,
+    "output_bytes_below": 1000000
+  }
+}

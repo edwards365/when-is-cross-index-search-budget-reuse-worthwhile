@@ -1,0 +1,602 @@
+[
+  {
+    "LOTO_means": [
+      0.0008571428571428572,
+      0.0007142857142857143,
+      0.0008571428571428572,
+      0.0007142857142857143,
+      0.0008571428571428572,
+      0.0005714285714285715,
+      0.0008571428571428572,
+      0.0005714285714285715
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-endpoint2400",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      0.0,
+      0.002
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed197_norm_ascending",
+    "metric": "risk",
+    "point": 0.00075,
+    "primary": false,
+    "without_maximum_absolute_target": 0.0005714285714285715
+  },
+  {
+    "LOTO_means": [
+      -10092.55257142857,
+      -7570.453142857142,
+      -10092.55257142857,
+      -7570.079142857144,
+      -10092.55257142857,
+      -7567.855142857142,
+      -10092.55257142857,
+      -7569.270285714285
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-endpoint2400",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -15381.274253125,
+      -2222.1804718750004
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed197_norm_ascending",
+    "metric": "ndc",
+    "point": -8830.9835,
+    "primary": false,
+    "without_maximum_absolute_target": -7567.855142857142
+  },
+  {
+    "LOTO_means": [
+      -1687098.1855714284,
+      -1263730.5947142856,
+      -1687098.1855714284,
+      -1266485.7926938776,
+      -1687098.1855714284,
+      -1263259.8062040817,
+      -1687098.1855714284,
+      -1267818.3631020407
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-endpoint2400",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -2572396.4927383927,
+      -370560.3665991071
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed197_norm_ascending",
+    "metric": "search_ns",
+    "point": -1476210.912375,
+    "primary": false,
+    "without_maximum_absolute_target": -1263259.8062040817
+  },
+  {
+    "LOTO_means": [
+      -0.0007142857142857143,
+      -0.0017142857142857148,
+      -0.0005714285714285715,
+      -0.0010000000000000002,
+      -0.0007142857142857143,
+      -0.0014285714285714288,
+      -0.0017142857142857144,
+      -0.001142857142857143
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-fixed1600",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -0.004875,
+      0.0025
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "risk",
+    "point": -0.001125,
+    "primary": false,
+    "without_maximum_absolute_target": -0.0005714285714285715
+  },
+  {
+    "LOTO_means": [
+      -4645.286571428572,
+      -2125.438571428572,
+      -4645.169142857143,
+      -2125.0288571428573,
+      -4644.559142857143,
+      -2122.812428571429,
+      -4645.4612857142865,
+      -2124.1820000000002
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-fixed1600",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -9943.817425000001,
+      3213.0465218749996
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed197_norm_ascending",
+    "metric": "ndc",
+    "point": -3384.74225,
+    "primary": false,
+    "without_maximum_absolute_target": -2122.812428571429
+  },
+  {
+    "LOTO_means": [
+      -595933.6619183674,
+      -173297.3612448979,
+      -595227.4557346939,
+      -172893.3024897959,
+      -596155.594877551,
+      -172069.0174285714,
+      -594993.6623673469,
+      -172364.34065306117
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-fixed1600",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -1486159.604420089,
+      721222.6664348211
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed197_norm_ascending",
+    "metric": "search_ns",
+    "point": -384116.7995892857,
+    "primary": false,
+    "without_maximum_absolute_target": -172069.0174285714
+  },
+  {
+    "LOTO_means": [
+      -0.0008571428571428572,
+      -0.001,
+      -0.0008571428571428572,
+      -0.0005714285714285715,
+      -0.00028571428571428574,
+      -0.0012857142857142859,
+      -0.0008571428571428572,
+      -0.00028571428571428574
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG500",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -0.003875,
+      0.001875
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed197_random",
+    "metric": "risk",
+    "point": -0.00075,
+    "primary": false,
+    "without_maximum_absolute_target": -0.00028571428571428574
+  },
+  {
+    "LOTO_means": [
+      -6120.941285714287,
+      -3598.841857142858,
+      -6120.941285714287,
+      -4377.6932857142865,
+      -6897.223571428572,
+      -4804.319,
+      -6120.941285714287,
+      -4805.687428571429
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG500",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -10537.4205375,
+      -475.6212750000005
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed13_norm_ascending",
+    "metric": "ndc",
+    "point": -5355.823625,
+    "primary": false,
+    "without_maximum_absolute_target": -3598.841857142858
+  },
+  {
+    "LOTO_means": [
+      -910479.5427142857,
+      -487111.95185714297,
+      -910479.5427142857,
+      -644382.2171020408,
+      -1067644.509489796,
+      -721061.6089591837,
+      -910479.5427142857,
+      -721717.8834489796
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG500",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -1662607.7015058035,
+      13631.673782589236
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed13_norm_ascending",
+    "metric": "search_ns",
+    "point": -796669.599875,
+    "primary": false,
+    "without_maximum_absolute_target": -487111.95185714297
+  },
+  {
+    "LOTO_means": [
+      -0.011285714285714286,
+      -0.010285714285714287,
+      -0.009428571428571429,
+      -0.009714285714285715,
+      -0.011428571428571429,
+      -0.009714285714285715,
+      -0.011428571428571429,
+      -0.009714285714285715
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG1000",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -0.01775,
+      -0.004375
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "risk",
+    "point": -0.010375,
+    "primary": true,
+    "without_maximum_absolute_target": -0.009428571428571429
+  },
+  {
+    "LOTO_means": [
+      4272.194285714285,
+      6258.002857142857,
+      3743.2142857142853,
+      6258.155714285714,
+      4273.1957142857145,
+      6260.519285714285,
+      4271.7,
+      6258.347857142857
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG1000",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -327.18881562499985,
+      10446.56205
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "ndc",
+    "point": 5199.41625,
+    "primary": true,
+    "without_maximum_absolute_target": 3743.2142857142853
+  },
+  {
+    "LOTO_means": [
+      881734.2296530611,
+      1224358.2460816328,
+      801631.6030204081,
+      1224463.34722449,
+      881824.3254285714,
+      1225382.813122449,
+      881976.8389183673,
+      1225020.2198367347
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG1000",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      93097.27240535716,
+      1945224.8905964273
+    ],
+    "dataset": "sift-1m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "search_ns",
+    "point": 1043298.9529107143,
+    "primary": true,
+    "without_maximum_absolute_target": 801631.6030204081
+  },
+  {
+    "LOTO_means": [
+      0.0017142857142857144,
+      0.0014285714285714288,
+      0.0017142857142857144,
+      0.0007142857142857143,
+      0.0017142857142857144,
+      0.0014285714285714288,
+      0.0017142857142857144,
+      0.0015714285714285715
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-endpoint2400",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      0.00012187500000000107,
+      0.004
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_norm_ascending",
+    "metric": "risk",
+    "point": 0.0015,
+    "primary": false,
+    "without_maximum_absolute_target": 0.0007142857142857143
+  },
+  {
+    "LOTO_means": [
+      -10955.905285714285,
+      -8217.935857142858,
+      -10955.905285714285,
+      -8213.611714285715,
+      -10955.905285714285,
+      -8218.436285714286,
+      -10955.905285714285,
+      -8217.732
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-endpoint2400",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -16711.772968750003,
+      -2406.8881031250007
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_norm_ascending",
+    "metric": "ndc",
+    "point": -9586.417125,
+    "primary": false,
+    "without_maximum_absolute_target": -8213.611714285715
+  },
+  {
+    "LOTO_means": [
+      -4458234.01777551,
+      -3344530.9110612245,
+      -4458234.01777551,
+      -3338801.652836735,
+      -4458234.01777551,
+      -3339930.195244898,
+      -4458234.01777551,
+      -3351439.294183674
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-endpoint2400",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -6804320.412390624,
+      -979962.1727446428
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_norm_ascending",
+    "metric": "search_ns",
+    "point": -3900954.7655535717,
+    "primary": false,
+    "without_maximum_absolute_target": -3338801.652836735
+  },
+  {
+    "LOTO_means": [
+      0.001,
+      0.0008571428571428572,
+      0.001,
+      0.00028571428571428574,
+      0.001,
+      0.0008571428571428572,
+      0.001,
+      0.001
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-fixed1600",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -0.00075,
+      0.0031281249999999547
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_norm_ascending",
+    "metric": "risk",
+    "point": 0.000875,
+    "primary": false,
+    "without_maximum_absolute_target": 0.00028571428571428574
+  },
+  {
+    "LOTO_means": [
+      -5059.789428571429,
+      -2321.5774285714288,
+      -5058.744857142857,
+      -2317.291,
+      -5059.931,
+      -2321.942285714286,
+      -5059.277142857143,
+      -2321.340857142857
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-fixed1600",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -10821.531584375001,
+      3474.2556937499994
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_norm_ascending",
+    "metric": "ndc",
+    "point": -3689.98675,
+    "primary": false,
+    "without_maximum_absolute_target": -2317.291
+  },
+  {
+    "LOTO_means": [
+      -1860268.6362244901,
+      -749462.7770000004,
+      -1864374.808653062,
+      -755075.9229795922,
+      -1872145.8339387758,
+      -746531.4946938779,
+      -1863600.1016734696,
+      -752425.9931224493
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-fixed1600",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -4211138.218047768,
+      1604463.117939286
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed197_norm_ascending",
+    "metric": "search_ns",
+    "point": -1307985.6960357146,
+    "primary": false,
+    "without_maximum_absolute_target": -746531.4946938779
+  },
+  {
+    "LOTO_means": [
+      -0.002,
+      -0.002285714285714286,
+      -0.0008571428571428572,
+      -0.0028571428571428576,
+      -0.002142857142857143,
+      -0.002285714285714286,
+      -0.002428571428571429,
+      -0.002142857142857143
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG500",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -0.006125,
+      0.0015
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "risk",
+    "point": -0.002125,
+    "primary": false,
+    "without_maximum_absolute_target": -0.0008571428571428572
+  },
+  {
+    "LOTO_means": [
+      180.95114285714266,
+      2920.822714285714,
+      -339.80285714285714,
+      2924.931714285715,
+      182.568857142857,
+      2920.502,
+      1951.8312857142857,
+      2921.014142857143
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG500",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -4396.144334375,
+      8559.203490625
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "ndc",
+    "point": 1707.852375,
+    "primary": false,
+    "without_maximum_absolute_target": -339.80285714285714
+  },
+  {
+    "LOTO_means": [
+      314851.9266122449,
+      1424697.5116326532,
+      106535.25732653055,
+      1426606.7628571428,
+      300527.1784081632,
+      1423719.2755102043,
+      1069818.3268163265,
+      1421972.0485510204
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG500",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -1524899.7795209824,
+      3748627.5548017854
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "search_ns",
+    "point": 936091.0359642858,
+    "primary": false,
+    "without_maximum_absolute_target": 106535.25732653055
+  },
+  {
+    "LOTO_means": [
+      -0.006285714285714286,
+      -0.0061428571428571435,
+      -0.006,
+      -0.008,
+      -0.006714285714285714,
+      -0.006285714285714286,
+      -0.006285714285714286,
+      -0.007285714285714286
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG1000",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -0.01175,
+      -0.0015
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed83_random",
+    "metric": "risk",
+    "point": -0.006625,
+    "primary": true,
+    "without_maximum_absolute_target": -0.006
+  },
+  {
+    "LOTO_means": [
+      4037.7465714285718,
+      6777.953,
+      4038.9572857142857,
+      7303.691857142856,
+      4039.3728571428574,
+      6777.703285714285,
+      4038.9408571428567,
+      7299.774285714286
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG1000",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -2045.923821875,
+      13179.109471874996
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed13_random",
+    "metric": "ndc",
+    "point": 5539.2675,
+    "primary": true,
+    "without_maximum_absolute_target": 4037.7465714285718
+  },
+  {
+    "LOTO_means": [
+      1891219.495612245,
+      2998203.076938776,
+      1884404.637469388,
+      3204476.143,
+      1876454.182591837,
+      2996522.5409795917,
+      1882692.4434285718,
+      3199841.428693878
+    ],
+    "all_targets": 8,
+    "comparison": "TCP-minus-TG1000",
+    "coverage_comparable": true,
+    "crossed_percentile95": [
+      -587780.0943910715,
+      5590457.044782588
+    ],
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "maximum_absolute_target": "seed197_random",
+    "metric": "search_ns",
+    "point": 2491726.7435892858,
+    "primary": true,
+    "without_maximum_absolute_target": 1876454.182591837
+  }
+]

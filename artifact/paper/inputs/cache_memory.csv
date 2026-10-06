@@ -1,0 +1,11 @@
+dataset,cached_queries,capacity_fraction,resident_cache_python_bytes,key_payload_bytes,value_payload_bytes,byte_cap,admission
+sift-1m-heldout,0,0.0,64,0,0,64,first c role queries; fixed static cache
+sift-1m-heldout,100,0.1,99988,76700,12000,99988,first c role queries; fixed static cache
+sift-1m-heldout,500,0.5,495012,383500,60000,495012,first c role queries; fixed static cache
+sift-1m-heldout,1000,1.0,989952,767000,120000,989952,first c role queries; fixed static cache
+sift-1m-heldout,TCP-seven-source-full-history,,,,,,raw ndarray lower bound per target: hits+ndc+topk on seven source graphs = 6930000 bytes; model/control excluded
+arxiv-nomic-1.34m-heldout,0,0.0,64,0,0,64,first c role queries; fixed static cache
+arxiv-nomic-1.34m-heldout,100,0.1,357288,334000,12000,357288,first c role queries; fixed static cache
+arxiv-nomic-1.34m-heldout,500,0.5,1781512,1670000,60000,1781512,first c role queries; fixed static cache
+arxiv-nomic-1.34m-heldout,1000,1.0,3562952,3340000,120000,3562952,first c role queries; fixed static cache
+arxiv-nomic-1.34m-heldout,TCP-seven-source-full-history,,,,,,raw ndarray lower bound per target: hits+ndc+topk on seven source graphs = 6930000 bytes; model/control excluded
