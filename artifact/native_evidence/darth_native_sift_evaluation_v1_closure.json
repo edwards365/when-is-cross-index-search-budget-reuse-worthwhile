@@ -1,0 +1,94 @@
+{
+  "status": "INDEPENDENT_READONLY_EVALUATION_FILES_INPUT_RUNTIME_RECEIPT_AUDIT_PASS",
+  "actual_audit_exit": 0,
+  "prospective_commit": "77c4d7b",
+  "final_sha256": "fb2927716ab5946957af093657048127e65a86b002d9a0b605e7860bb1cefbc4",
+  "final": {
+    "status": "NATIVE_LOCKED_ACTION_INDEPENDENT_ROLE_DESCRIPTIVE_COMPLETE",
+    "failure": null,
+    "actual_adapter_exit": 0,
+    "actual_native_exit": 0,
+    "required_runtime_maps_observed": true,
+    "sampled_peak_rss": 1328386048,
+    "elapsed_exploratory_seconds": 4.77879810705781,
+    "config_sha256": "fd0b54461b46009682de03618bd6a3b907f9fe40b81cc8d04a6f423d7d1058dd",
+    "role": "target_evaluation",
+    "formal_certification_guarantee": "NOT_ESTABLISHED_NATIVE_REPORTED_ONLY",
+    "files": {
+      "darth_native_sift_evaluation_response_v1/native_responses.csv": {
+        "bytes": 190600,
+        "sha256": "10f4656c358fb4e7d5273a507a479f977d31637eccfa17d6f8f894f378d05a6d"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/native_pid.json": {
+        "bytes": 47,
+        "sha256": "621f3fdb14df3663614fd04693687f7cd0b8df969c4f88a628734dcf8ff82a1a"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/response_summary.json": {
+        "bytes": 241,
+        "sha256": "33818a80224bef9127da875eb14d4c941a3d078f39f92f1dd549aea3f7b2ecce"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/start.json": {
+        "bytes": 1261,
+        "sha256": "1f9980f20b6fd5bcbe82626b3064f4af637e541a43588832888f4784cdcc97fc"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/query_input_audit.json": {
+        "bytes": 288,
+        "sha256": "76f6f56f588f746d77f5c6bf0cfd2c52f3ec289e509edff618669dd976f094f0"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/stdout.log": {
+        "bytes": 3378,
+        "sha256": "04e1dfa965feb30ae155358395203366b3f02fc6d714b84750ad47600b2977f7"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/native_runtime_identity.json": {
+        "bytes": 10703,
+        "sha256": "c5f182538d717d09ff3c37f4b7be6a2f45ce1f1378d081948e68c2ec06454d96"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/samples.jsonl": {
+        "bytes": 3790,
+        "sha256": "bce649c0833e58c79828be8cf1e5a9c511cc0b6750daaea1b72f20a995835269"
+      },
+      "darth_native_sift_evaluation_response_v1_ops/stderr.log": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "darth_native_sift_evaluation_input_v1/adapter_receipt.json": {
+        "bytes": 1815,
+        "sha256": "e90f5ab15dce537bb6f7190a4aedf6a3f0d0f6a2820d2b2ba896fa93ebfcf7a6"
+      },
+      "darth_native_sift_evaluation_input_v1/query_row_ids.json": {
+        "bytes": 7911,
+        "sha256": "579d402a68f061c001011639d3d9d4c47ad9a9f621c676447dda0d415b02fc58"
+      },
+      "darth_native_sift_evaluation_input_v1/SIFT100M/query.10K.fvecs": {
+        "bytes": 516000,
+        "sha256": "b113948d2a0d8bb62a126aab441e640a03fba0953341cb612d5a89b0f74f5f6a"
+      },
+      "darth_native_sift_evaluation_input_v1/SIFT100M/query.groundtruth.10K.k1000.ivecs": {
+        "bytes": 44000,
+        "sha256": "11154e6b24f4d9d19dff95e203f046b5a1ee88497e24b0e0176a6fe105aeefab"
+      },
+      "darth_native_sift_evaluation_input_v1/SIFT100M/query.groundtruth.10K.k1000.fvecs": {
+        "bytes": 44000,
+        "sha256": "f810d8081dd3d016167799debab6c738344a25922743babbbf6d9569b06123f0"
+      }
+    }
+  },
+  "native_reported": {
+    "mean_recall": 0.977,
+    "below_target": 163,
+    "prediction_calls": 3990
+  },
+  "checks": [
+    "all original pins and final file SHA/size",
+    "all query bits/order against prepared bundle and qbin",
+    "10000 truth native-position/raw-ID and distance bits",
+    "source/selection/certification/evaluation role disjoint",
+    "1000 finite ordered CSV rows and nonnegative integer counts",
+    "captured runtime PIDtick/maps/limits and process ended"
+  ],
+  "limitations": [
+    "No returned top-k IDs; recall native-reported, not independent recall recomputation",
+    "No formal timing/CP guarantee or historical binary-source attestation; fixed-action native-reported evaluation only",
+    "stdout Index build time is index loading on this path"
+  ]
+}

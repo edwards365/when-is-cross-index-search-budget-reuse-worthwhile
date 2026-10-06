@@ -94,12 +94,64 @@
       "sha256": "a1fb3277fb078bacc8d87da9c534d279fe8a946c827b7761ae816576a632b6a6"
     },
     "EVIDENCE.md": {
-      "bytes": 10183,
-      "sha256": "48907d3fb8bc70997ce20fb2e005327f32596beb754eace62d3e476e54160a63"
+      "bytes": 11812,
+      "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
+    },
+    "EXECUTION_SCOPE.md": {
+      "bytes": 4330,
+      "sha256": "bf3826d7f4532494b374712951e43f4ca02c631de381fc38e527e7d8b92acd3d"
     },
     "input_manifest.json": {
       "bytes": 4065,
       "sha256": "3ce737ff681978527a88067bf0889401b7c66b076c6598c287860b5eabdf5cca"
+    },
+    "narrative/grid_manifest.json": {
+      "bytes": 17625,
+      "sha256": "83429232d17cacdc35a1b93ac47a88a52fbab1a7c3a4ebd7ea75c39ba00a269a"
+    },
+    "narrative/manifest.json": {
+      "bytes": 7763,
+      "sha256": "6dfef9336c3ecb2501573c91a44bcf1ae7a62a27f1fb45f40508795676b36760"
+    },
+    "narrative/README.md": {
+      "bytes": 5136,
+      "sha256": "bbaaa4b95e979564b42b1a60862f47d90a617e1eb95192f764fd1da7210b78eb"
+    },
+    "native_evidence/darth_arxiv_ip_fixed_action_v1_closure.md.txt": {
+      "bytes": 4521,
+      "sha256": "bb76c223dd40468c1ba631d61f62c66705854d55d79f1efc0b480418d9f9ec39"
+    },
+    "native_evidence/darth_native_alignment_fix_v1.md.txt": {
+      "bytes": 4354,
+      "sha256": "d1fc24bf8e852855d454cc5e867f0bed1ac070a6241cb263f6b9e517349ef583"
+    },
+    "native_evidence/darth_native_sift_evaluation_v1_closure.json": {
+      "bytes": 4241,
+      "sha256": "155f4a0461b8af57dbf1d259acbf7107c69dc7d9e83e45784578bbf81161de2c"
+    },
+    "native_evidence/e6_faiss_cost_latency_v1_closure.md.txt": {
+      "bytes": 2687,
+      "sha256": "8def42ac4cd03c9a6704d51be23497ecfc419ea24126abad0978e3ce9b4f0c56"
+    },
+    "native_evidence/e6_faiss_exact_dc_source_v1_closure.json": {
+      "bytes": 15575,
+      "sha256": "5fd7af468bf4d93cff9d0a1692e09d1dae58ab1a22d2bd228c63cef9917c109b"
+    },
+    "native_evidence/provenance.json": {
+      "bytes": 3857,
+      "sha256": "b5ab5c288ade6ac845a6d0054b36f84cd4c9395937e52c17d79ea7c7d7386dcd"
+    },
+    "native_evidence/README.md": {
+      "bytes": 2232,
+      "sha256": "0b0034b5eec00761c910ebb4d6ccc40f589be90bb3ad3ddb512545190ded60be"
+    },
+    "native_evidence/vamana_arxiv_ip_fixed_l64_v1_closure.md.txt": {
+      "bytes": 2196,
+      "sha256": "98f814f7d3d2bfb5b42393a70a73c655e4f3475b9f9924bf659f8246bbc7e5ee"
+    },
+    "native_evidence/vamana_sift_evaluation_v1_closure.md.txt": {
+      "bytes": 3317,
+      "sha256": "f8dea09ddeb1b500e8c99a14ad98b3faac9c9f329291f6c1fd63e3281473a3c4"
     },
     "paper/expected/cache_lookup_summary.csv": {
       "bytes": 15774,
@@ -162,8 +214,8 @@
       "sha256": "84ac3a7245a1757cecb4cd6026b3fa89ba4265247b71247368bdc39ba057456a"
     },
     "README.md": {
-      "bytes": 5845,
-      "sha256": "8beac91d74b23792ec838671731c3de8a8c2f2db1f06df05137e8cf144160bae"
+      "bytes": 6018,
+      "sha256": "d8849c3b48d373e8a1fff532089f337903db4bf0205260934f43787aa187b3a3"
     },
     "receipts/analysis_check.json": {
       "bytes": 375,
@@ -172,6 +224,10 @@
     "receipts/analysis_final.json": {
       "bytes": 1998,
       "sha256": "54daf58623ac40f52cd4f72dc40d158216b17faec91380eb4ce80179c684559a"
+    },
+    "receipts/narrative_reconstruction.json": {
+      "bytes": 4929,
+      "sha256": "f8874b814db0f67a9d7d331a1fa6408dd0c44ef835aaf40161d8d705abdaede4"
     },
     "receipts/paper_reconstruction.json": {
       "bytes": 1443,
@@ -186,8 +242,16 @@
       "sha256": "e39204520937db614fe8caddab0e5fa312879b62441f72fb1e72d619294d818f"
     },
     "REPOSITORY_STATUS.md": {
-      "bytes": 3754,
-      "sha256": "0119f0b3286e9b0ca4a8827923e030fcbe283b591ba2b37679804bf5dc1e06f3"
+      "bytes": 4314,
+      "sha256": "d6c2f5cc2baa11bc120687ca4ce200698f55974510d02b1934b2a5acb3c60d79"
+    },
+    "reproduce_grid.py": {
+      "bytes": 4940,
+      "sha256": "38f3368b84eca024beee41981a90861665241243996c43815c80bf41a9154f45"
+    },
+    "reproduce_narrative.py": {
+      "bytes": 19475,
+      "sha256": "66cb2bfabdddbf9ac912af022eef7f582f35e24930d64df849a3079da04c43cf"
     },
     "reproduce_paper.py": {
       "bytes": 12538,
@@ -204,6 +268,10 @@
     "RUNBOOK.md": {
       "bytes": 4622,
       "sha256": "e01a67d1123cbc419599d3962f62738a24cdb70261d44be94a700289395b8372"
+    },
+    "test_reproduce_narrative.py": {
+      "bytes": 794,
+      "sha256": "46b74d87ee35e43d379814384174b696432950d30ed5d2beef04c98530014a99"
     },
     "test_reproduce_paper.py": {
       "bytes": 1521,

@@ -2,7 +2,7 @@
 
 [Project home](../README.md) · [Runbook](RUNBOOK.md) · [Evidence map](EVIDENCE.md) · [Release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-response-v1)
 
-**Status: paper-figure reconstruction supplement, 2026-10-06. Saved-record statistical routes cover the numerical figures; full-paper original execution remains incomplete.**
+**Status: narrative-panel reconstruction supplement, 2026-10-07. Numerical figures and the listed narrative panels have runnable saved-record routes; full original execution remains incomplete.**
 
 This directory is the public entry for *When Is Cross-Index Search Budget Reuse Worthwhile?* The versioned Git commit identifies exactly what is supplied. It replaces the absence of a public entry; it does not close the remaining input, portability, or publication checks.
 
@@ -13,6 +13,7 @@ This directory is the public entry for *When Is Cross-Index Search Budget Reuse 
 | Inspect the saved results | `python artifact/check_saved_results.py` from the repository root | File identity and selected arithmetic |
 | Reconstruct nine analysis tables | [Pinned environment and commands](RUNBOOK.md) | Selected derived results from saved responses |
 | Reconstruct Figures 2, 4, 5 and 6 | [Paper reconstruction commands](paper/README.md) | Migration and paired intervals, cost curves and batch lookup means from pinned saved records |
+| Reconstruct narrative panels and Figure 2 raw-to-cluster extraction | [Narrative commands](narrative/README.md) | Finite labels, recovery, demand mixing, refresh intervals and alternative-cost arithmetic |
 | Find evidence behind a claim | [Evidence map](EVIDENCE.md) | File roles, terminology, and interpretation boundaries |
 | Understand remaining delivery work | Coverage below and [repository status](REPOSITORY_STATUS.md) | What this partial release does and does not include |
 
@@ -21,9 +22,9 @@ This directory is the public entry for *When Is Cross-Index Search Budget Reuse 
 | Layer | Included here | Remaining work |
 |---|---|---|
 | Saved-result inspection | Per-target mechanism/qualification CSVs, operating points and paired intervals, cost ledger, cache measurements, checksum manifest, standard-library checker | Review the complete paper-to-evidence coverage, not just this selected subset |
-| Recompute saved-record analyses | Nine-table response-analysis archive plus the paper supplement's pinned query clusters, paired matrices, ledger and timing blocks | Narrative-only panels and original response-generation routes remain incomplete; see the claim-by-claim coverage map |
+| Recompute saved-record analyses | Nine-table route, numerical-figure inputs, and narrative/raw-grid archives | Original response-generation routes remain incomplete; zero-cost diagnostic uses action identity, not new NDC measurement |
 | Rebuild paper figures and PDF | Saved display values and evidence map | Curate the current TeX, editable PPT and export environment into a submission-version release; the separate Overleaf package is not this scientific artifact |
-| Original ANN execution | Historical code remains in repository branches | Reconcile the execution code, frozen protocols, dependencies, input acquisition/licenses, hardware/resource requirements and runbook |
+| Original ANN execution | Historical code and selected closure summaries | [Explicit remaining source/input/configuration work](EXECUTION_SCOPE.md); no original launch is implied by a saved-record PASS |
 
 ## Verify the supplied snapshot
 
