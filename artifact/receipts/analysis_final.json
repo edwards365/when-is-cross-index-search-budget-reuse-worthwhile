@@ -1,0 +1,57 @@
+{
+  "status": "COMPLETE_DERIVED_ANALYSIS_PENDING_SEPARATE_CHECK",
+  "datasets": 2,
+  "targets": 16,
+  "objective_rows": 640,
+  "sensitivity_rows": 320,
+  "new_ann_runs": 0,
+  "new_bootstrap_runs": 0,
+  "identity": "retrospective saved-response diagnostic, not deployable training or prospective validation",
+  "conditional_cost_scope": "endpoint-solvable queries; equal target weights; per-target query weights renormalized",
+  "ledger_rows_read": 14,
+  "full_safe_infeasible_not_replaced_by_conditional": true,
+  "elapsed_seconds": 1.658844605088234,
+  "peak_rss_kib": 87664,
+  "outputs": {
+    "qualification_aggregate.csv": {
+      "bytes": 3280,
+      "sha256": "c6c99c8d7435090ee1ad8af6aff6d273795759910b0fc79ed4cf675022cbb94c"
+    },
+    "summary_aggregate.csv": {
+      "bytes": 4005,
+      "sha256": "b5bfc16f80d2f344265ff7f0d4baf85bd2dca65a8d6b8a066de004884d7611f3"
+    },
+    "target_feasibility.csv": {
+      "bytes": 870,
+      "sha256": "a1fb3277fb078bacc8d87da9c534d279fe8a946c827b7761ae816576a632b6a6"
+    },
+    "coverage.csv": {
+      "bytes": 52673,
+      "sha256": "2de3dc94d35e6074050427afdcae845a2d4439add54fa76815eac9bc83a4149f"
+    },
+    "policy_bridge.csv": {
+      "bytes": 3335,
+      "sha256": "2fb6494deb455812cd05b0f188b7c30db62be1d0bdd545032e7af68de80fe9ca"
+    },
+    "objectives.csv": {
+      "bytes": 115068,
+      "sha256": "fb5366a239e46093be8fabd6e5431b4fdeaf9b7d77e244d1b44dc3acbbe06a42"
+    },
+    "fixed_cost_components.csv": {
+      "bytes": 845,
+      "sha256": "fdde30fa0ae5ebf69106b663c9792fd4f3cbb1ff65b8647544fc67208eff823e"
+    },
+    "budgets.csv": {
+      "bytes": 24023,
+      "sha256": "acf726b59dfc416f0424622981aff9a3e2c33b1b8a5b461d1d3ed8933ebe23fb"
+    },
+    "qualification_sensitivity.csv": {
+      "bytes": 52104,
+      "sha256": "4461bfedb88f65a15995831c9d1e3322fae8b0779ec1cc20be0af12399f3ae26"
+    },
+    "started.json": {
+      "bytes": 294,
+      "sha256": "ea2bf36dd8c9dad1d8a8fe4d66bd14b7825e62d822ab864794f6974c90f2c16e"
+    }
+  }
+}

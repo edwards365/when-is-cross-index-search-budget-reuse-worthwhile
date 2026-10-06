@@ -1,0 +1,8 @@
+{
+  "status": "PASS_NEW_DERIVED_RESULTS_SEPARATE_IMPLEMENTATION",
+  "objective_rows": 640,
+  "coverage_rows": 320,
+  "sensitivity_rows": 320,
+  "scope": "All per-target cost optima, coverage/mixing, qualification UCB/decisions and evaluation risk/NDC; no ANN or bootstrap rerun",
+  "analysis_final_sha256": "54daf58623ac40f52cd4f72dc40d158216b17faec91380eb4ce80179c684559a"
+}

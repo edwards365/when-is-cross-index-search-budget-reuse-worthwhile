@@ -1,0 +1,86 @@
+{
+  "bootstrap": {
+    "replicates": 5000,
+    "seed": 991,
+    "unit": "crossed target-build x shared query; repetition fixed"
+  },
+  "config_sha256": "ea65e4f18dbf2d8a3f200ef5ab33cdf15b250360558e4b317e3b367ce3788d6b",
+  "dataset_summary": {
+    "arxiv-nomic-1.34m-heldout": {
+      "coverage": {
+        "TCP": 8,
+        "TG1000": 8,
+        "TG500": 8,
+        "endpoint2400": 8,
+        "fixed1600": 8
+      },
+      "means": {
+        "TCP": {
+          "ndc": 11130.465875,
+          "risk": 0.0035,
+          "search_ns": 4371441.6972857155
+        },
+        "TG1000": {
+          "ndc": 5591.198375,
+          "risk": 0.010125,
+          "search_ns": 1879714.9536964286
+        },
+        "TG500": {
+          "ndc": 9422.6135,
+          "risk": 0.005625,
+          "search_ns": 3435350.661321428
+        },
+        "endpoint2400": {
+          "ndc": 20716.883,
+          "risk": 0.002,
+          "search_ns": 8272396.462839286
+        },
+        "fixed1600": {
+          "ndc": 14820.452625,
+          "risk": 0.002625,
+          "search_ns": 5679427.393321428
+        }
+      }
+    },
+    "sift-1m-heldout": {
+      "coverage": {
+        "TCP": 8,
+        "TG1000": 8,
+        "TG500": 8,
+        "endpoint2400": 8,
+        "fixed1600": 8
+      },
+      "means": {
+        "TCP": {
+          "ndc": 11610.892375,
+          "risk": 0.00975,
+          "search_ns": 1795201.516785714
+        },
+        "TG1000": {
+          "ndc": 6411.476125,
+          "risk": 0.020125,
+          "search_ns": 751902.563875
+        },
+        "TG500": {
+          "ndc": 16966.716,
+          "risk": 0.0105,
+          "search_ns": 2591871.116660714
+        },
+        "endpoint2400": {
+          "ndc": 20441.875875,
+          "risk": 0.009,
+          "search_ns": 3271412.429160714
+        },
+        "fixed1600": {
+          "ndc": 14995.634625,
+          "risk": 0.010875,
+          "search_ns": 2179318.3163749995
+        }
+      }
+    }
+  },
+  "implementation_sha256": "80754ec63f7a6073512227609c00a0657eb08cc32fe50410715cbf4487aa7be1",
+  "qualification_boundary": "frozen TCP uses original OR CP95; new simple arms raw CP97.5 each; no equal-certificate claim",
+  "status": "COMPLETE_RETROSPECTIVE_MATCHED_SIMPLE_BASELINES",
+  "timing_boundary": "original ANN API wall_ns only; policy control missing"
+}
