@@ -37,7 +37,7 @@ The study includes 100K and roughly million-vector panels. These panels differ i
 Use **Python 3.11+**. This check needs only the standard library and writes no outputs.
 
 ```sh
-git clone --branch artifact-paper-v1 https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile.git budget-reuse
+git clone --branch artifact-paper-v2 https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile.git budget-reuse
 cd budget-reuse
 python artifact/check_saved_results.py
 ```
@@ -66,7 +66,11 @@ python artifact/reproduce_paper.py --output paper-reconstruction
 
 The [paper supplement](artifact/paper/README.md) supplies small saved-record inputs directly in Git. Its clean-export check reconstructs 36 migration/paired intervals, ten operating points, 320 cost-curve points and 80 batch-lookup means. Figure 3 uses the nine-table route above. See the [recorded check](artifact/receipts/paper_reconstruction.json) and the [whole-paper coverage map](artifact/EVIDENCE.md).
 
-**`artifact-paper-v1` supplements the partial `artifact-response-v1` release; neither is complete original-experiment reproduction.**
+### 4. Reconstruct narrative panels
+
+The [narrative runbook](artifact/narrative/README.md) adds 96 original grid CSVs, 100K/Deep1M recovery records, demand labels, refresh arrays and alternative-cost reconstruction. It recomputes ten additional reported intervals and verifies the raw-to-Figure-2-cluster path. Historical native inclusion/measurement records are [separately documented](artifact/native_evidence/README.md).
+
+**`artifact-paper-v2` supplements the immutable `artifact-paper-v1` and `artifact-response-v1` releases. It is saved-record reconstruction, not complete original-experiment reproduction.**
 
 | Material | Public status |
 |---|---|
@@ -75,7 +79,8 @@ The [paper supplement](artifact/paper/README.md) supplies small saved-record inp
 | Conceptual overview | Available above, in the approved manuscript visual style |
 | Submission-version TeX, editable figures, and complete PDF build | Not yet curated into this release |
 | Numerical-figure saved-record statistics, including Figure 2/4 intervals | Supplied by the paper supplement |
-| All original ANN panels and narrative-only results | Not fully covered; explicit gaps are listed in the evidence map |
+| Narrative-panel reconstruction | Supplied for the listed panels; remaining diagnostic/native upstream gaps are explicit |
+| Full original ANN execution | Incomplete; input/source/configuration dependencies are listed in the evidence map |
 
 The [coverage table](artifact/README.md#coverage) distinguishes supplied materials from remaining work. Single-index native DARTH/Vamana checks do not substitute for multi-build transfer evidence. No publication acceptance, artifact badge, or complete independent reproduction is claimed.
 

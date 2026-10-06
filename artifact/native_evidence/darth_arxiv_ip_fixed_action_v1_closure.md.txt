@@ -1,0 +1,24 @@
+# DARTH Arxiv native inner-product fixed-action chain — COMPLETE
+
+Full 1342143 x 768 original float32 base, no normalization or metric relabeling. The native build, source build/search, source audit, new model training, all three held-out native roles and independent audits finished with actual exit0; their external SSH waits were observed as0. All outputs and earlier failures remain immutable. Prospective source9147108/6d69e7d, auditorf062f88, CPU1148289, auditexecutionba50230, source/modelprospectc8e7883, fixed heldout/audit prospecta92226d.
+
+| Registered role | Queries | Independent Recall@10 | Below0.95 | Native prediction calls |
+|---|---:|---:|---:|---:|
+| Source-design |500|0.9960|19 (3.8%)|not applicable|
+| Selection |500|0.9836|48 (9.6%)|1296|
+| Certification role |500|0.9832|63 (12.6%)|1211|
+| Evaluation |1000|0.9906|76 (7.6%)|2598|
+
+Successful execution is not a per-query recall guarantee. Certification is an independent role measurement, not a formal recall certification. The negative below-target outcomes are preserved; no tuning/fallback/retry or index/model replacement occurred.
+
+All2500 registered queries are disjoint; all25000 ordered returned IDs and float32 public dot scores were retained. Independent audits checked full query bits/order, truth native-position/raw-ID mappings and original IP sign bits, no duplicate returned IDs, ordered scores and each original-vector dot product against the prospective64*f32eps*sumabs+1e-6 tolerance. Source graph structure, all saved base float bits and exact EOF passed. Source observation CSV has271692 rows; periodic snapshots are not necessarily the final-returned recall. Legacy signed RDE/TDR ratios are not IP quality metrics or training features.
+
+Same source index/native executable/library across roles; M16, efConstruction100, efSearch200, k10, native single-threadCPU2. The fixed model uses native11feature order (avg before furthest, p50 before p25), regression/100trees/seed42/n_jobs8; source-only trainingCPUs4-11. Structural model check passed, captured runtime max22 OS threads with all affinities within4-11. n_jobs8 does not imply only8 OS threads. Held-out role target0.95/interval1000,100 unchanged and all model loads actually executed. Training environment LightGBM differs from the native inference library; runtime load and prediction were observed, not inferred from headers.
+
+Source index4316704430bytes SHA2566b29c01d5b95d46fd620ab84f17f41780b75c85c54fa3ae8ab0f6a9f5a06b0f3. Model303965bytes SHAbacc5845ecd9ad09001592cec5bad03d75e2156543309366132ca690a98104af; metadata dfbe103de5b83dd2f247e03c59ced5dd4f92b8dc421ef00f9b9772ac1e9d5cea. Nativeexe d30ed4b882cc23c8dfa6565a9d5aacc3092531616a1bf1acad7c36ba6d051a25, newFaiss51cd6dde41b7289dca56e4ec623d6d689a45f9f797efb79c22732717730b7807. Actual captured executable/library/process-start identities, native limits, process end and sampledallthreadCPU observations passed. Sampled monitoring is not continuous quota or complete transient-thread coverage.
+
+Evidence: results/icde2027_1m/darth_arxiv_ip_fixed_action_v1_summary.json stores actual configs/finals/outputSHA,size, every source/role/audit ops file SHA,size, independent audit quantities and external waits. Raw reports remain under <HOST_ROOT>/data500/icde2027_1m/darth_arxiv_ip_{source,selection,certification,evaluation}_v1(_ops) and corresponding _audit_v1_ops. Source/model closure files retain prospective design and the local truncated metadata-transport diagnostic (not a scientific retry).
+
+Operational wall/RSS are not formal benchmark timing. Prediction calls are native-reported, not an independent exact distance counter. Only two patched native objects were freshly compiled, with pinned old immutable objects reused; historical source/object pairing was not independently attested. This completes one full-base DARTH genuine-IP fixed-action chain, not wider panel, formal timing/counter coverage, independent-host reproduction, or publication. All old Vamana/SIFT/DARTH/science/export/audit/replay/E9/ledger remain unchanged and must not rerun. Existing200GiBfloor128GiBaggregate/RAMlimits preserved. User CPUauthorization does not authorize overwriting other projects or changing already frozen actions.
+
+Remaining separate gaps: Faiss exact counter and independently isolated formal timing; wider panel; authorized independent host and distribution. E8 NOT_ESTIMABLE is not a rerun task. Do not automatically launch new scientific phases, tune, rebuild, overwrite, publish or change SIGMOD.

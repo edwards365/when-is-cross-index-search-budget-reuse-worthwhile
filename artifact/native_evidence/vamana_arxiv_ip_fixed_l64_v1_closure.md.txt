@@ -1,0 +1,20 @@
+# Vamana Arxiv 原生 IP 实验：全链完成
+
+完整 prepared base 为 **1,342,143×768**。原始向量位值保持不变，原生距离为 InnerProduct（负点积），没有归一化或改贴 L2。同一张保存图，固定 k=10、L=64、reps=1、单任务；未根据结果调参。
+
+| 独立角色 | 查询数 | 独立审计 Recall@10 均值 | 低于0.95 |
+|---|---:|---:|---:|
+| source_design | 500 | 0.9870 | 46/500（9.2%） |
+| target_selection | 500 | 0.9842 | 50/500（10.0%） |
+| target_certification | 500 | 0.9858 | 41/500（8.2%） |
+| target_evaluation | 1000 | 0.9890 | 74/1000（7.4%） |
+
+四角色原生程序与独立只读审计均真实退出0。2500个查询角色互不重叠，全部25000个原始顺序返回ID均已导出并独立复算召回，未出现重复返回ID。所有查询位值/顺序、truth位置到rawID映射及原IP分数符号位、新文件SHA/大小/EOF、保存图/基础向量、实际程序身份/退出/限额和采样线程CPU2均通过核验。
+
+摘要中的 cmps/hops 是原生程序报告的计数，不冒称独立精确计数审计。
+
+测试依赖已按原锁文件补齐，两项新增返回ID测试真实通过；原编译后测试依赖缺失失败bfeaa97完整保留。旧SIFT、DARTH及其他科学链未重跑，输入export未重复，旧证据未删除。代码/配置/逐阶段证据和小型结果摘要已保存供未来ICDE使用，SIGMOD稿件未改。
+
+这是**单图、固定行动的 Vamana Arxiv IP 实验**，不是更广实验panel，也不是DARTH Arxiv IP已完成。74/1000个最终评估查询低于0.95，因此不能宣称逐查询召回保证或正式认证；操作耗时不是正式benchmark。完整返回ID审计不等于原生返回距离/排名分数的完整导出审计。各阶段现已封账，禁止重跑、调参、回退或自动扩大panel。
+
+摘要：`results/icde2027_1m/vamana_arxiv_ip_fixed_l64_v1_summary.json`。原始输出均在data500下独占 `vamana_arxiv_ip_native_source_v1`、`vamana_arxiv_ip_selection_v1`、`vamana_arxiv_ip_certification_v1`、`vamana_arxiv_ip_evaluation_v1` 及同名ops目录，逐阶段closure/evidence记录真实SHA、输入、前瞻提交与退出。

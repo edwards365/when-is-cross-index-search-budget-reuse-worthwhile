@@ -30,3 +30,7 @@ After the initial entry, the repository was renamed to `when-is-cross-index-sear
 The later `artifact-paper-v1` supplement adds new portable reconstruction of saved-record Figure 2/4 bootstrap intervals and Figure 5/6 statistics. It does not restart historical workers or original ANN/timing experiments. Its claim-by-claim coverage map supersedes the earlier generic statement that all bootstrap reconstruction was missing. Other narrative panels and original execution still require separate delivery.
 
 No branch, result, or untracked file is deleted.
+
+## Narrative supplement — 2026-10-07
+
+`artifact-paper-v2` adds new read-only reconstructions from saved records for the 100K finite-label statistics, recovery/baseline panels, Deep1M selection and qualification, demand mixing, refresh extensions, and alternative-policy component costs. Seven path-redacted historical native records are inspectable. The exact remaining gaps are in `EVIDENCE.md` and `EXECUTION_SCOPE.md`; this does not merge the historical research branch or make its launchers portable. Old releases and original outputs remain unchanged.

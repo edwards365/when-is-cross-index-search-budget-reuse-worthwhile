@@ -1,0 +1,58 @@
+{
+  "darth_native_alignment_fix_v1.md": {
+    "source_relative_path": "docs/icde2027_1m/darth_native_alignment_fix_v1.md",
+    "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+    "source_sha256": "a075b66a3f43425a7bf8d865a7c029d8f35e18ab32d4a3f31491fc97814a57c8",
+    "public_sha256": "d1fc24bf8e852855d454cc5e867f0bed1ac070a6241cb263f6b9e517349ef583",
+    "transformation": "Host-root and local-path redaction only; original evidence unchanged",
+    "public_filename": "darth_native_alignment_fix_v1.md.txt"
+  },
+  "darth_native_sift_evaluation_v1_closure.json": {
+    "source_relative_path": "docs/icde2027_1m/darth_native_sift_evaluation_v1_closure.json",
+    "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+    "source_sha256": "155f4a0461b8af57dbf1d259acbf7107c69dc7d9e83e45784578bbf81161de2c",
+    "public_sha256": "155f4a0461b8af57dbf1d259acbf7107c69dc7d9e83e45784578bbf81161de2c",
+    "transformation": "Host-root and local-path redaction only; original evidence unchanged",
+    "public_filename": "darth_native_sift_evaluation_v1_closure.json"
+  },
+  "darth_arxiv_ip_fixed_action_v1_closure.md": {
+    "source_relative_path": "docs/icde2027_1m/darth_arxiv_ip_fixed_action_v1_closure.md",
+    "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+    "source_sha256": "0cbe1b11d05a066fd42903faf09723925b1cb84bb515230ad9a62600d7b895ac",
+    "public_sha256": "bb76c223dd40468c1ba631d61f62c66705854d55d79f1efc0b480418d9f9ec39",
+    "transformation": "Host-root and local-path redaction only; original evidence unchanged",
+    "public_filename": "darth_arxiv_ip_fixed_action_v1_closure.md.txt"
+  },
+  "vamana_sift_evaluation_v1_closure.md": {
+    "source_relative_path": "docs/icde2027_1m/vamana_sift_evaluation_v1_closure.md",
+    "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+    "source_sha256": "79f497b729a9301de8631614163662aafcaf8ceb1639485afef38d436a0d2874",
+    "public_sha256": "f8dea09ddeb1b500e8c99a14ad98b3faac9c9f329291f6c1fd63e3281473a3c4",
+    "transformation": "Host-root and local-path redaction only; original evidence unchanged",
+    "public_filename": "vamana_sift_evaluation_v1_closure.md.txt"
+  },
+  "vamana_arxiv_ip_fixed_l64_v1_closure.md": {
+    "source_relative_path": "docs/icde2027_1m/vamana_arxiv_ip_fixed_l64_v1_closure.md",
+    "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+    "source_sha256": "98f814f7d3d2bfb5b42393a70a73c655e4f3475b9f9924bf659f8246bbc7e5ee",
+    "public_sha256": "98f814f7d3d2bfb5b42393a70a73c655e4f3475b9f9924bf659f8246bbc7e5ee",
+    "transformation": "Host-root and local-path redaction only; original evidence unchanged",
+    "public_filename": "vamana_arxiv_ip_fixed_l64_v1_closure.md.txt"
+  },
+  "e6_faiss_cost_latency_v1_closure.md": {
+    "source_relative_path": "docs/icde2027_1m/e6_faiss_cost_latency_v1_closure.md",
+    "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+    "source_sha256": "8def42ac4cd03c9a6704d51be23497ecfc419ea24126abad0978e3ce9b4f0c56",
+    "public_sha256": "8def42ac4cd03c9a6704d51be23497ecfc419ea24126abad0978e3ce9b4f0c56",
+    "transformation": "Host-root and local-path redaction only; original evidence unchanged",
+    "public_filename": "e6_faiss_cost_latency_v1_closure.md.txt"
+  },
+  "e6_faiss_exact_dc_source_v1_closure.json": {
+    "source_relative_path": "docs/icde2027_1m/e6_faiss_exact_dc_source_v1_closure.json",
+    "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+    "source_sha256": "d71e686775af6f75495530496ab476e8d2ddcc833e069128a499b26c71914a05",
+    "public_sha256": "5fd7af468bf4d93cff9d0a1692e09d1dae58ab1a22d2bd228c63cef9917c109b",
+    "transformation": "Host-root and local-path redaction only; original evidence unchanged",
+    "public_filename": "e6_faiss_exact_dc_source_v1_closure.json"
+  }
+}

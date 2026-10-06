@@ -1,0 +1,128 @@
+{
+  "status": "PASS_CLEAN_EXPORT",
+  "archives": [
+    {
+      "archive": "narrative-analysis-inputs-v2.zip",
+      "members": 46,
+      "bytes": 19990429,
+      "sha256": "73c177892a2af2684a65bb444b15899b603b6e120d1fb0a470af4659847f25a2",
+      "content_scan": "PASS text/gzip and no object arrays"
+    },
+    {
+      "archive": "graph-grid-records.zip",
+      "members": 97,
+      "bytes": 32740427,
+      "sha256": "d0d0eb6ec54d590b431afc4740fae51e6cc0668e6308d5ccac00a075e9f937d7",
+      "content_scan": "PASS text/gzip and no object arrays"
+    }
+  ],
+  "narrative": {
+    "status": "PASS_SAVED_RECORD_RECONSTRUCTION",
+    "results": {
+      "recovery": {
+        "point_rows": 52,
+        "prospective_intervals_recomputed": 4,
+        "level": "Locked source-target/query records; original qualification and seven-repeat extraction upstream",
+        "baseline_intervals": "Not recomputed; no baseline interval is reported in current narrative"
+      },
+      "deep": {
+        "raw_response_rows": 72000,
+        "decisions": 56,
+        "intervals": 2,
+        "level": "All recorded recall/work action responses, source selection and qualification reconstructed"
+      },
+      "diagnostic": {
+        "pairs": 648,
+        "mixed_pairs": 594,
+        "level": "Saved query stable-tail labels; original recall-to-label extraction upstream",
+        "cost_zero_cases": "36 pairs: per-query envelope and demand actions identical; zero cost follows use of same recorded action, not an independent NDC measurement"
+      },
+      "refresh": {
+        "intervals": 2,
+        "level": "Saved paired query failure arrays; frozen-policy extraction upstream"
+      },
+      "cost": {
+        "comparisons": 14,
+        "level": "Component-ledger arithmetic, not matched-quality deployment measurement"
+      },
+      "extensions": {
+        "refresh_intervals": 2,
+        "refresh_input": "full saved hit arrays and locked actions",
+        "transfer_input": "saved direction failure counts; query-level extraction upstream"
+      }
+    },
+    "python": "3.12.14",
+    "numpy": "1.26.4",
+    "elapsed_seconds": 7.952999999979511,
+    "ANN_runs": 0,
+    "timing_measurements": 0
+  },
+  "grid": {
+    "status": "PASS_RAW_RECORD_TO_CLUSTER",
+    "groups": 4,
+    "query_rows": 3000,
+    "raw_build_records": 96,
+    "ANN_runs": 0,
+    "scope": "First-passing action on finite grid; all 750 queries in denominator; recorded hits not independently recomputed top-k truth"
+  },
+  "ANN_runs": 0,
+  "new_timing_measurements": 0,
+  "outputs": {
+    "narrative-output/alternative_costs.csv": {
+      "bytes": 4478,
+      "sha256": "e4df5d2dedf227364017c89c960cbb622ab2ecaa4c54e9bc23ab7519178cd297"
+    },
+    "narrative-output/deep_decisions.csv": {
+      "bytes": 4594,
+      "sha256": "77c12b76ca0d29c1e3363e6b8e99b24cdcedf2a0c4303657d4e5a1c593137453"
+    },
+    "narrative-output/deep_recovery.csv": {
+      "bytes": 172,
+      "sha256": "4b2006fcdc3f35a0b097e7290b35061af634753719acceccff7ebec9bee13a71"
+    },
+    "narrative-output/diagnostic_pairs.csv": {
+      "bytes": 43438,
+      "sha256": "028f7a7dc340b74ba195dbbf085f7cab4410eacf29d82ed58d91a87a86ce391c"
+    },
+    "narrative-output/diagnostic_zero_cases.csv": {
+      "bytes": 4935,
+      "sha256": "445b924e1623bd3bd1c932b8ada1b796098c8d55384ab6840fd21a903ab3f26b"
+    },
+    "narrative-output/million_refresh.csv": {
+      "bytes": 307,
+      "sha256": "3ae0872dd64dccf9a441f11bad739852751714ed7386162535874a17a48add75"
+    },
+    "narrative-output/million_transfer.csv": {
+      "bytes": 303,
+      "sha256": "2945d9b734deaf44f2c2f34829ee9aab983e7f00494321eb6d23c5fe7aabec3f"
+    },
+    "narrative-output/recovery_decisions.csv": {
+      "bytes": 1472,
+      "sha256": "8bd403d56e500beaf017eaafb5da20e7c91ae92c41b10febda7beb21662b9704"
+    },
+    "narrative-output/recovery_points.csv": {
+      "bytes": 3536,
+      "sha256": "780dd5c4a6787fb0a625ba2c548d6b067edd58e93ce1d96d20d17c5820d5d56a"
+    },
+    "narrative-output/refresh100k.csv": {
+      "bytes": 181,
+      "sha256": "a9c2a7942efc1d7e94e9f5f389150296b2be1b11adb2f89254a3b478eba6566c"
+    },
+    "narrative-output/registered_sensitivities.csv": {
+      "bytes": 769,
+      "sha256": "f482cedf106f705cbc512b9a4d56f17bc12a6fe437f5171d520e8f14fd56deda"
+    },
+    "grid-output/finite_variation.csv": {
+      "bytes": 615,
+      "sha256": "8b28ed7afbf223c6e7a1e8b20aad3971b8046d12cb0d01518566cb4018cfacc1"
+    },
+    "grid-output/query_labels.csv": {
+      "bytes": 121649,
+      "sha256": "8c58daf514b99293e80d5240bd2335e65700a2c14c815e002d8fe66e3d0b87f3"
+    }
+  },
+  "runner_sha256": {
+    "reproduce_narrative.py": "66cb2bfabdddbf9ac912af022eef7f582f35e24930d64df849a3079da04c43cf",
+    "reproduce_grid.py": "38f3368b84eca024beee41981a90861665241243996c43815c80bf41a9154f45"
+  }
+}

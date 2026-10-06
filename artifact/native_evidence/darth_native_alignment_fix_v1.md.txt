@@ -1,0 +1,77 @@
+# DARTH native alignment: concrete correction, 2026-09-29
+
+## What actually blocked progress
+
+The failed v1-v4 compilation attempts were an additional authored synthetic
+interface probe, not the DARTH native main executable. The native executable
+already exists. Its presence is not proof of a successful new full-base run.
+The pending v5 linker-tracing framework is not a prerequisite for using this
+native path; no further expansion of that framework is planned by default.
+
+Training source and native predictor source disagree on two pairs of columns.
+The new trainer selects the following order, matching the native predictor
+array instead of changing the inference algorithm:
+
+`step,dists,inserts,first_nn_dist,nn_dist,avg_dist,furthest_dist,variance,percentile_50,percentile_25,percentile_75`
+
+The old trainer put furthest before average and percentile_25 before
+percentile_50. This is a concrete positional interface mismatch, not evidence
+that the dataset cannot support DARTH. Old trainers, models, results and failed
+probe receipts remain unchanged. A new model must actually be trained; editing
+an old model header would not correct its learned split positions.
+
+## Implementation delivered
+
+`scripts/icde2027_1m/train_darth_native_aligned_v1.py` uses that explicit order,
+the existing 100-tree/seed42/single-thread LightGBM schedule, finite numeric and
+recall-range checks, and complete source-query coverage. It requires an ordered
+query-row-ID mapping equal to the dataset's registered source_design IDs.
+CSV qids are local offsets into that mapping, not raw vector IDs. It rejects
+role overlap and reserves model/metadata destinations exclusively before fitting.
+Partial failures remain visible; existing files are never overwritten.
+
+The trainer verifies the declared mapping, not the actual query fvec contents or
+the provenance of an observation CSV. Its metadata explicitly preserves that
+limitation. The native adapter must produce those query rows and matching truth
+from the registered prepared data before observation collection. There is no
+hardcoded 2000-query or 100K-base requirement in this trainer.
+
+## Native linkage observation (read-only)
+
+Executable SHA256:
+`9c92759c0abd6f1c2fd72331636acdeb3d4d9ee0b093265b85f966636132d11f`.
+Build-tree libfaiss SHA256:
+`2c2bbabaa2e3d33d865a70fd776a52def9d4d1b03023098954160c5cd216d29c`.
+Existing LightGBM library SHA256:
+`30fae5dcf190f63753ac8c81fef719ca824087453339e0dda66bba0d6da335d0`.
+
+ELF NEEDED/RUNPATH inspection shows executable -> build-tree libfaiss ->
+lib_lightgbm.so, with the LightGBM search path `<HOST_ROOT>/lightgbm-install/lib`.
+That is not the data500 LightGBM path used by the synthetic probe. These are
+file identities and configured loader paths, not actual loaded-map observations
+or proof that the historical binary implements the inspected source array.
+There is currently no demonstrated reason to rebuild the native program solely
+because the auxiliary probe failed.
+
+## Tests and remaining work
+
+Python suite: actual exit0, 90 passed including 10 new schema/publication tests;
+no LightGBM fitting or DARTH execution. Existing CMake/CTest smoke: actual exit0,
+3/3 passed; no C++ rebuild. The first CTest invocation used an unsupported
+--test-dir option and found no tests; it is not counted as validation. Running
+from the existing build directory supplied the actual 3-test result.
+
+No science, native build, model training, old fixture or completed experiment was
+run in this change. Current free disk observation was 538409816064 bytes and
+available RAM 250187456 KiB; no disk insufficiency is established. Resource
+checking was a read-only application of the get-available-resources skill,
+not a detailed full-pipeline budget exercise or launch approval.
+
+Next is the minimal real adapter: full prepared base instead of train[:100000],
+registered source/selection/certification/evaluation query rows and their
+corresponding truth, then one new native index/observation/model/evaluation
+chain before extending the panel. The prepared SIFT base has 945117 retained
+rows and Arxiv 1272661; do not call the former exactly one million. Million
+scale refers to base/index size, not a requirement for a million training
+queries. Keep existing storage/CPU/lane policy, but do not transplant tiny
+synthetic-probe memory/time limits onto the native full-base build.
