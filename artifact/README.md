@@ -1,10 +1,21 @@
 # Artifact: cross-index search budget reuse
 
+[Project home](../README.md) · [Runbook](RUNBOOK.md) · [Evidence map](EVIDENCE.md) · [Release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-response-v1)
+
 **Status: response-analysis release v1, 2026-10-06. Selected analyses reproducible; full-paper execution remains incomplete.**
 
 This directory is the public entry for *When Is Cross-Index Search Budget Reuse Worthwhile?* The versioned Git commit identifies exactly what is supplied. It replaces the absence of a public entry; it does not close the remaining input, portability, or publication checks.
 
-## What is available
+## Choose your task
+
+| Task | Entry | What it establishes |
+|---|---|---|
+| Inspect the saved results | `python artifact/check_saved_results.py` from the repository root | File identity and selected arithmetic |
+| Reconstruct nine analysis tables | [Pinned environment and commands](RUNBOOK.md) | Selected derived results from saved responses |
+| Find evidence behind a claim | [Evidence map](EVIDENCE.md) | File roles, terminology, and interpretation boundaries |
+| Understand remaining delivery work | Coverage below and [repository status](REPOSITORY_STATUS.md) | What this partial release does and does not include |
+
+## Coverage
 
 | Layer | Included here | Remaining work |
 |---|---|---|

@@ -1,45 +1,90 @@
+<div align="center">
+
 # When Is Cross-Index Search Budget Reuse Worthwhile?
 
-**Experiment, analysis, and benchmark of information limits, quality recovery, and conditional reuse costs.**
+**Information limits · Quality recovery · Conditional reuse costs**
 
-Rebuilding a physical ANN index can change the search budget needed by a query even when the data, query vector, and retrieval semantics remain fixed. This project asks three distinct questions:
+An experimental and analytical study of historical search-budget reuse across ANN indexes.
 
-1. What target decisions can a source-budget summary support?
-2. How do target qualification and fallback change the deployed quality–work operating point?
-3. When can search savings repay information acquisition, and what else could the same information support?
+[![Artifact checks](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/workflows/artifact.yml/badge.svg?branch=main)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/workflows/artifact.yml)
+[![Response-analysis release](https://img.shields.io/badge/release-artifact--response--v1-087F99)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-response-v1)
+[![MIT license](https://img.shields.io/badge/license-MIT-64748B)](LICENSE)
 
-The current paper is an evaluation and analysis study, not a claim of a universally faster search algorithm. The repository is named after the paper; its earlier effective-resistance research remains in the history.
+[Overview](#research-overview) · [Quick start](#quick-start) · [Artifact](artifact/README.md) · [Runbook](artifact/RUNBOOK.md) · [中文](README.zh-CN.md)
 
-## Start here
+</div>
 
-- **[Public artifact entry](artifact/README.md)** — included files, a read-only check, and explicitly missing reproduction inputs.
-- **[Response-analysis runbook](artifact/RUNBOOK.md)** — versioned input download, pinned environment, and portable reconstruction of nine analysis tables.
-- [Evidence and terminology map](artifact/EVIDENCE.md) — connects saved results to the paper's main questions.
-- [Publication and branch reconciliation](artifact/REPOSITORY_STATUS.md) — explains why the research history has not been merged wholesale.
-- [Legacy project overview](docs/history/README_before_icde_artifact.md) — the preceding research agenda, retained as history rather than current claims.
+## Research overview
 
-## Current evidence and its limits
+**Rebuilding an index can change the budget a query needs—even when its exact answer does not change.** We study what historical information can support, how target-side evidence changes deployment, and when reuse is worth its acquisition cost.
 
-| Question | Evidence | Interpretation |
+[![Research overview: information limits, quality recovery, and conditional value](docs/assets/research-overview.png)](docs/assets/research-overview.png)
+
+*Three distinct questions, not three automatic guarantees. Click the figure to enlarge; see the [figure guide](docs/OVERVIEW.md) for its scope and notation.*
+
+| Research question | What the study examines | Explore the evidence |
 |---|---|---|
-| Source-summary information | Finite-grid analysis and same-target saved-response cost optima for different summaries | Target-informed empirical references; not learned deployment policies or future-query guarantees |
-| Quality recovery | Candidate/endpoint qualification, locked fallback, and comparisons with target-calibrated fixed budgets | Different quality–cost operating points; not a demonstrated same-risk incremental advantage of history |
-| Cost of reuse | Acquisition ledgers, sharing scenarios, repeated-service models, and valid-answer lookup measurements | Conditional cost analysis, not complete end-to-end deployment acceleration |
+| **What can history distinguish?** | Common safe actions, summary compression, and additional order restrictions | [Same-target summary diagnostics](artifact/data/summary_information_bridge/) |
+| **What does target evidence change?** | Candidate qualification, locked fallback, and target-calibrated fixed budgets | [Operating points and paired comparisons](artifact/EVIDENCE.md) |
+| **When is reuse worth its cost?** | Acquisition, sharing, repeated service, and valid-answer reuse | [Cost ledgers and conditional boundaries](artifact/EVIDENCE.md) |
 
-The study includes 100K and roughly million-vector panels. They differ in more than scale, so they do not isolate a pure scale effect. Cross-build evidence and single-index native implementation checks have different roles. In particular, completed DARTH/Vamana native inner-product chains do not substitute for multi-build transfer validation.
+The study includes 100K and roughly million-vector panels. These panels differ in more than scale; they are not a controlled measurement of scale alone. Target-informed empirical cost optima are diagnostic references, not deployed policies. Quality recovery and savings against a conservative endpoint do not establish a same-risk cost advantage over simpler alternatives.
 
-The current release supplies selected saved results and a portable reconstruction of the same-target summary-cost, qualification-sensitivity, and fixed-cost-component tables from archived responses. It is **not yet the complete paper artifact**: other response panels, original ANN execution, and the submission-version paper/figure package remain to be curated. Publication adds no new ANN experiments or bootstrap analyses.
+## Quick start
 
-## Quick check
+### 1. Check the released results
 
-From a checkout of this version, using Python 3.11 or later and only the standard library:
+Use **Python 3.11+**. This check needs only the standard library and writes no outputs.
 
 ```sh
+git clone --branch artifact-response-v1 https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile.git budget-reuse
+cd budget-reuse
 python artifact/check_saved_results.py
 ```
 
-This checks file identity and selected CSV arithmetic. It does not reconstruct raw ANN responses, retrain models, recompute confidence intervals, or validate all historical branches.
+The command checks file identity and selected aggregation arithmetic. It does not rerun ANN search or recompute confidence intervals. The tag pins the analysis release; `main` also contains subsequent documentation improvements.
 
-## Historical code and license
+### 2. Reconstruct nine analysis tables
 
-Earlier effective-resistance, rebuild-portability, and recovery studies remain in the repository history. Their README status labels and planned algorithms are not current paper claims. The existing [MIT license](LICENSE) is unchanged. Third-party components retain their own licenses; this snapshot grants no redistribution rights to external vector datasets. Citation metadata describes the repository, not an accepted publication.
+Download `summary-analysis-inputs.zip` (**9.45 MB**) from the [versioned release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-response-v1). Follow the [runbook](artifact/RUNBOOK.md) to create an isolated environment with the pinned dependencies, then run:
+
+```sh
+python artifact/reproduce_summary.py --archive summary-analysis-inputs.zip --output reproduction-output
+```
+
+This reconstructs selected summary-cost, qualification-sensitivity, and cost-component tables from saved responses. The recorded portability check used Python 3.12.14, NumPy 1.26.4, and SciPy 1.13.1: **eight tables matched byte-for-byte; one matched within declared numerical tolerances, with decisions unchanged**. See the [verification report](artifact/receipts/portability_verification.json).
+
+## Release scope
+
+**`artifact-response-v1` is a partial analysis prerelease, not the complete paper artifact.**
+
+| Material | Public status |
+|---|---|
+| Selected result tables, paired intervals, and cost records | Available in [`artifact/`](artifact/README.md) |
+| Saved-response archive and portable nine-table reconstruction | Available in the [release and runbook](artifact/RUNBOOK.md) |
+| Conceptual overview | Available above, in the approved manuscript visual style |
+| Submission-version TeX, editable figures, and complete PDF build | Not yet curated into this release |
+| All original ANN panels and bootstrap reconstruction | Not covered by this release |
+
+The [coverage table](artifact/README.md#coverage) distinguishes supplied materials from remaining work. Single-index native DARTH/Vamana checks do not substitute for multi-build transfer evidence. No publication acceptance, artifact badge, or complete independent reproduction is claimed.
+
+## Repository guide
+
+```text
+artifact/          Released results, manifests, checks, and analysis runbook
+docs/              Documentation index, overview guide, and historical context
+.github/           Continuous checks and contribution templates
+CITATION.cff       Repository citation metadata
+CONTRIBUTING.md    Contribution and evidence-preservation guidelines
+CHANGELOG.md       Public release and presentation history
+```
+
+Start with the [documentation index](docs/README.md) or [paper-to-evidence map](artifact/EVIDENCE.md). Earlier code under `python/`, `cpp/`, `configs/`, and `scripts/` remains in place; those directories are not all current artifact entry points. The [repository status](artifact/REPOSITORY_STATUS.md) explains the branch reconciliation, and the [historical README](docs/history/README_before_icde_artifact.md) preserves the preceding research agenda.
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) before changing experiments or frozen evidence. For reproduction problems, [open a reproducibility issue](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/issues/new?template=reproducibility.yml) with the release, environment, command, and sanitized output.
+
+## Citation and license
+
+Use [CITATION.cff](CITATION.cff) for repository metadata and record the release or commit used. This metadata does not describe an accepted publication. Code and project-generated materials use the existing [MIT license](LICENSE); third-party components retain their licenses, and external vector datasets are not redistributed by this release.
