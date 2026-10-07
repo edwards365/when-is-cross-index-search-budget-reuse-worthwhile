@@ -44,3 +44,7 @@ The paper remains pinned to `artifact-paper-v2` until original-execution integra
 ## Exact-truth entry
 
 [portable_truth/README.md](portable_truth/README.md) identifies the original public wheel by all32 package/library payload hashes and connects new input receipts to exact top-10 generation. Synthetic L2/IP and rejection tests accompany the entry; original-data generation is not rerun for delivery. Native profile binaries, graph inputs and receipt integration remain separate gates.
+
+## Native profile entry
+
+[portable_profiles/README.md](portable_profiles/README.md) supplies the unchanged500/1000-query programs, pinned HNSW headers with license, a small native build/test command, and a one-role/eight-graph execution wrapper. New binaries and frozen CSV equivalence are distinct gates. It requires registered saved graphs; portable benchmark graph construction and CSV-to-array materialization remain open. No benchmark build or search was rerun.

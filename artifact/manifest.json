@@ -98,8 +98,8 @@
       "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
     },
     "EXECUTION_SCOPE.md": {
-      "bytes": 6920,
-      "sha256": "dee573241e522ce34af96b8a047e253f468d9953a7388d807a0018bc6f922cbd"
+      "bytes": 7451,
+      "sha256": "62f76590aa8788ed30e0fa850b3e74845384acc30e775abeba0f6aace02fb3a4"
     },
     "input_manifest.json": {
       "bytes": 4065,
@@ -286,8 +286,8 @@
       "sha256": "ae0f82b39407ede22eb7729ec9e314cb78ff25d81b703fb40738af0e0d9cb5fe"
     },
     "original_execution/README.md": {
-      "bytes": 4936,
-      "sha256": "c09f4fb236b400c50a537f5871814d53eb84fcd6d803b44e83d572032bb2395f"
+      "bytes": 5404,
+      "sha256": "bc58084ec5223a78eb89f31314fade8ef98e962add16877c9de33cb693c077b0"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -412,6 +412,74 @@
     "original_execution/portable_truth/validation.json": {
       "bytes": 1675,
       "sha256": "e8eb9d8c69423e2b1efd76c6fd43ac89231494f12bb7b7c8d081a3a87174c88b"
+    },
+    "original_execution/portable_profiles/config.json": {
+      "bytes": 21560,
+      "sha256": "3025680f003389ab407e66f44751972ac8406a4d3bb4f72d829d440c4e99ad12"
+    },
+    "original_execution/portable_profiles/e1a_ndc_replay.cpp": {
+      "bytes": 5799,
+      "sha256": "ad89676f1095111b3f910faf688fbe9d313e5af5228030fd8840135423e6280f"
+    },
+    "original_execution/portable_profiles/e1a_ndc_replay_evaluation.cpp": {
+      "bytes": 5805,
+      "sha256": "280711030d7eb8037a01adab1de25db95d70010fcdee3ac0bc49ae1a3ddb907e"
+    },
+    "original_execution/portable_profiles/native_entry.py": {
+      "bytes": 6453,
+      "sha256": "79a6ad86f05187c8282f6fcc7a02a7d648424d75ed7b25555ad6dc0e2c9382f9"
+    },
+    "original_execution/portable_profiles/README.md": {
+      "bytes": 4173,
+      "sha256": "9287a6c331c080c95208b24c9b0f4fc62afb3103718d8602fa36c6d533697c7a"
+    },
+    "original_execution/portable_profiles/run_profiles.py": {
+      "bytes": 8047,
+      "sha256": "308c50c30fd7b9ed7739d9b9ae0bee471976a330855c38a55b23569a2525c5b2"
+    },
+    "original_execution/portable_profiles/test_profiles.py": {
+      "bytes": 1622,
+      "sha256": "44a8b3f741652a8a1a7ce312a3d03b6af085f8c4a94b438aa31f186c0715e46d"
+    },
+    "original_execution/portable_profiles/tiny_fixture.cpp": {
+      "bytes": 795,
+      "sha256": "511965a47120e6d931efeda1ac71ba0d17d8908907e2c75c375c20a6283c9fda"
+    },
+    "original_execution/portable_profiles/include/LICENSE": {
+      "bytes": 11357,
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "original_execution/portable_profiles/include/hnswlib/bruteforce.h": {
+      "bytes": 5913,
+      "sha256": "da1f179e99d8e5a4c39b5db0c681bccf3c63e797aaa4982620519f8e001cb2c6"
+    },
+    "original_execution/portable_profiles/include/hnswlib/hnswalg.h": {
+      "bytes": 56889,
+      "sha256": "0fb2c1b1d3aae1ea959b536f96844f3f3ae6a2f32ce063f2c31f93d84a7e5c32"
+    },
+    "original_execution/portable_profiles/include/hnswlib/hnswlib.h": {
+      "bytes": 6124,
+      "sha256": "54403db81f55fd28246114c5c9f683e663a2a55ad64903b56578c73e6db5ad2c"
+    },
+    "original_execution/portable_profiles/include/hnswlib/space_ip.h": {
+      "bytes": 11379,
+      "sha256": "6a89b5275527fe3592a9b02ea4fc50293fdc68cbd9f7c1ec13683581e1ebbaf7"
+    },
+    "original_execution/portable_profiles/include/hnswlib/space_l2.h": {
+      "bytes": 8561,
+      "sha256": "c599d024657896412250b4fde1a95e39f8bc55cccd263f36c8948fa35779edf1"
+    },
+    "original_execution/portable_profiles/include/hnswlib/stop_condition.h": {
+      "bytes": 8874,
+      "sha256": "930da73eead77dff0c8c9f3281c5d12250051c90ef98fcfbab8f5f307bdae8d9"
+    },
+    "original_execution/portable_profiles/include/hnswlib/visited_list_pool.h": {
+      "bytes": 1790,
+      "sha256": "8e5bab8d12b5ef26e3b603b656b8a1acba6738498d1d98f44c9fdb1cb0e25110"
+    },
+    "original_execution/portable_profiles/validation.json": {
+      "bytes": 2553,
+      "sha256": "d3d97190cb3fdafb1c83232b436e27648cd46e369fa2590ac0f8e364d1fdc106"
     }
   }
 }

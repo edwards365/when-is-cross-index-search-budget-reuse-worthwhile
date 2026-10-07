@@ -42,3 +42,7 @@ The [role/base/query input adapter](original_execution/portable_fresh_inputs/REA
 ## Stage integration progress: exact truth (2026-10-07)
 
 The [truth adapter](original_execution/portable_truth/README.md) preserves the frozen full-role search and serialization body, validates the prepared membership, checks regenerated truth hashes, and records independent raw-vector score checks. A byte-matched public faiss-cpu1.8.0.post1 wheel replaces an unportable location-only dependency. Historical dispatch is not retrospectively attested; no original truth, ANN or paper timing was rerun. Complete original execution still requires the profile and remaining family integrations.
+
+## Stage integration progress: native profiles (2026-10-07)
+
+The [profile entry](original_execution/portable_profiles/README.md) links new input/truth receipts to unchanged native replay sources, pins16 graph and64 CSV identities, and rejects incomplete or differing responses. Native synthetic tests establish only the small tested interface. Benchmark graph generation, profile NPZ materialization, timing and remaining experimental families still require integration; the whole original-execution chain is not declared closed.
