@@ -1,0 +1,17 @@
+{
+  "build": "seed197_norm_ascending",
+  "cache_boundary": "OS page cache uncontrolled; not a cold-start claim",
+  "config_sha256": "40e0c65d75c254128278540480df042d60cbfb54cb16f19472fa7a70f72bf366",
+  "cpu_affinity": [
+    2
+  ],
+  "dataset": "arxiv-nomic-1.34m-heldout",
+  "effective_base_count": 1337142,
+  "index_bytes": 4306293968,
+  "index_sha256": "09a23cfd51edd1c3ffb6a52358106ebe4bb2775b55ab6fc70ab10c4476bd0005",
+  "load_index_ns": 3802181111,
+  "maxrss_kib": 4348324,
+  "rep": 1,
+  "schema_version": "icde2027-tcp-fresh-reload-v1",
+  "status": "LOADED_NO_QUERY_ACCESSED"
+}

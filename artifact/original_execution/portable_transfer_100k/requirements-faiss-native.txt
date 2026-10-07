@@ -1,0 +1,1 @@
+faiss-cpu @ https://files.pythonhosted.org/packages/c8/3b/8878dbfc78a0084bbd408b34827a58b530be98132fcf620b7e15f9191614/faiss_cpu-1.15.0-cp310-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl#sha256=ec9b29aae29e428c085c2d49dbb02e4673cdea75db418d420f9e60e0b4184498

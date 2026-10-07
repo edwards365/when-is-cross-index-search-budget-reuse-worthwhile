@@ -1,0 +1,29 @@
+{
+  "schema": "portable-transfer-1m-local-validation-1",
+  "status": "PASS_LOCAL_SYNTHETIC_INTERFACES_LINUX_NATIVE_CHECK_PENDING",
+  "runtime": "Windows Python 3.12.14; NumPy 1.26.4",
+  "unit_test_command": "python -m unittest discover -s portable_transfer_1m -p test_transfer.py -v",
+  "unit_tests": 18,
+  "failures": 0,
+  "errors": 0,
+  "actual_exit_code": 0,
+  "historical_core_sha256": "2cb2e012d4074d15fd34081359d603600f0ba59668e8c20633e7f83fc440a6a0",
+  "source_file_count": 20,
+  "historical_reference_record_count": 15,
+  "fixed_member_graph_pins": 16,
+  "refresh_graph_pins": 32,
+  "fixed_member_response_pins": 64,
+  "refresh_response_pins": 48,
+  "fixed_member_truth_pins": 8,
+  "refresh_truth_pins": 10,
+  "native_ci_command": "python portable_transfer_1m/native_check.py --profiles portable_profiles --output NEW_SYNTHETIC_OUTPUT --authorize-synthetic-only",
+  "native_ci_expected_scope": "Compile unchanged replay500/replay1000 sources; actual hnswlib/Faiss and C++ equivalence on new32-vector, 1000-query fixtures; both metrics and seven truth cores",
+  "original_dataset_runs": 0,
+  "old_scientific_outputs_modified": false,
+  "full_original_panel_regenerated": false,
+  "historical_native_runtime_or_timing_identity_claimed": false,
+  "local_failures_fixed_before_final_pass": [
+    "Synthetic graph blocks initially lacked json import; explicit import restored.",
+    "Target certification/evaluation cores required explicit role, panel_row and qbin bindings; no scientific operation was changed."
+  ]
+}

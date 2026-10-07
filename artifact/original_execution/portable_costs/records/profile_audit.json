@@ -1,0 +1,95 @@
+{
+  "complete_query_action_cells": 440000,
+  "config_sha256": "12a12c2ca9f14a1ea9da5ea6b1c159da79baab65c8785f8322beefa21fc39a50",
+  "forbidden_hdf5_datasets_not_accessed": [
+    "test",
+    "neighbors",
+    "distances"
+  ],
+  "inference_unit": "target graph/build, not query or source direction",
+  "profile_roles": 8,
+  "rows": [
+    {
+      "array_bytes": 1567081,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/sift_source_design.npz",
+      "array_sha256": "a4e0fea0bc2deb76e4545c5b8c264f4d89f06985c9c6ac437b67ffc60891075a",
+      "cells": 44000,
+      "dataset": "sift-1m-heldout",
+      "query_count": 500,
+      "role": "source_design",
+      "role_final_sha256": "7f2bbdaea02b0bd93588ea3ebb489e7c85cd6035b98dd03c6288658ae5087c81"
+    },
+    {
+      "array_bytes": 1568119,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/sift_target_selection.npz",
+      "array_sha256": "5b313d3914502bae98dfce622a55a62d8e447e03c4be789e7d4e222eaf9347d4",
+      "cells": 44000,
+      "dataset": "sift-1m-heldout",
+      "query_count": 500,
+      "role": "target_selection",
+      "role_final_sha256": "3b5a380b66c77d4d44c5347be58b03dba56d35b332caffe70705cf4a8b40cda7"
+    },
+    {
+      "array_bytes": 1568573,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/sift_target_certification.npz",
+      "array_sha256": "7e63d865a989c54caee7b2c1d3f8d2fdb6cf11d86945fd6e357c598ec06adcc3",
+      "cells": 44000,
+      "dataset": "sift-1m-heldout",
+      "query_count": 500,
+      "role": "target_certification",
+      "role_final_sha256": "67a51041e023931ef564a3352fbc62b1a1f5ba6855af30b1ac9670ccbe7ae922"
+    },
+    {
+      "array_bytes": 3124509,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/sift_target_evaluation.npz",
+      "array_sha256": "ac8037d1d75a759698290607e8a4c4442eec6a68a2108b2087c5e76ca98c2a10",
+      "cells": 88000,
+      "dataset": "sift-1m-heldout",
+      "query_count": 1000,
+      "role": "target_evaluation",
+      "role_final_sha256": "cbdc8c7c8a89fd5eee1521e9ec7b8f3d9f4397a28e8fca9746b767302cace976"
+    },
+    {
+      "array_bytes": 1624464,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/arxiv_source_design.npz",
+      "array_sha256": "e4137a9df9a1c7c30a91000351ebb08444adca22b3ac6be25f09a004b63e6d9a",
+      "cells": 44000,
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "query_count": 500,
+      "role": "source_design",
+      "role_final_sha256": "f85e978c79ad869f58dce6fcecb802ea6504d1283c359a95df91a3b1b3ca8849"
+    },
+    {
+      "array_bytes": 1625335,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/arxiv_target_selection.npz",
+      "array_sha256": "0a82f17a49dd4565df8b107eb5c26c7b1eea0981f35287f66e06344e9357f72b",
+      "cells": 44000,
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "query_count": 500,
+      "role": "target_selection",
+      "role_final_sha256": "fbf58d2ae6e7505cf5bbed8fe6757c7ddbe0a1c78161e1d884640fc6f3d624b1"
+    },
+    {
+      "array_bytes": 1624430,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/arxiv_target_certification.npz",
+      "array_sha256": "229e1a90207489fabf23a474aa9f81ccb4fcf86e369f54177d0b7056ff7d1635",
+      "cells": 44000,
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "query_count": 500,
+      "role": "target_certification",
+      "role_final_sha256": "d66b524968f1c68b579a16e9d96f49638e46e6fadfb7a9738219f624976c2e0d"
+    },
+    {
+      "array_bytes": 3251232,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1_ops/audited_arrays/arxiv_target_evaluation.npz",
+      "array_sha256": "a4e3260b05ee1764e15e89ab15583c2b7324e6f5367398a97185c276463fc31b",
+      "cells": 88000,
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "query_count": 1000,
+      "role": "target_evaluation",
+      "role_final_sha256": "55f923c6c72bdfb28b76e466963329e4449fcec22561c2104092941e485e731b"
+    }
+  ],
+  "schema_version": "icde2027-tcp-fresh-independent-profile-audit-v1",
+  "status": "PASS_FULL_ORDERED_ID_AND_NATIVE_COUNT_AUDIT"
+}

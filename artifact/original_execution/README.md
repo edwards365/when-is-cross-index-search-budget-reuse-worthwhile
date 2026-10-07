@@ -37,6 +37,15 @@ See [dependency distinctions](DEPENDENCIES.md) and [dataset sources](datasets.js
 
 These entries have synthetic tests and frozen graph/input gates. They do not claim a new full-size reproduction or new benchmark times.
 
+## Transfer and diagnostic recipes
+
+- [100K transfer](portable_transfer_100k/README.md): original HNSW and corrected Faiss roles, distinct grids/metrics, separate preparation/build/replay and paper-row filtering.
+- [Fixed-member transfer and paired refresh](portable_transfer_1m/README.md): 48 graph identities, separate state truth and locked role phases. The historical source NDC export is distinct from the no-NDC source-design response.
+- [Three-implementation ambiguity](portable_ambiguity/README.md): 81 registered builds, 648 directions, exact no-finite-tail marker, four-patch locked DiskANN source recipe.
+- [Cost component provenance](portable_costs/README.md): 79 original receipts and the 12-row fixed-cost bridge. It reconstructs original operational allocations without substituting newly measured wrapper times.
+
+Native CI uses newly generated small vectors only. Full-size original execution is opt-in and has not been repeated during delivery. Historical binary attestation and new source reproducibility are separate records.
+
 ## Three separate delivery layers
 
 1. [Saved-result reconstruction](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2)

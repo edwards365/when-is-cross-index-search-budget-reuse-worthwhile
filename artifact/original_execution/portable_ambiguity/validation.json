@@ -1,0 +1,23 @@
+{
+  "status": "SYNTHETIC_INTERFACE_TESTS_PASS_NATIVE_EXECUTION_NOT_RUN",
+  "test_count": 19,
+  "passed": 19,
+  "failed": 0,
+  "python": "3.12.14 Windows local test environment",
+  "test_command": "python -m unittest discover -s portable_ambiguity -p test_ambiguity.py -v",
+  "original_scientific_arrays_read": false,
+  "native_builds_run": false,
+  "scientific_units_run": 0,
+  "historical_analysis_run": false,
+  "native_historical_equivalence_claimed": false,
+  "privacy_scan": "22 text files PASS",
+  "cli_help": "PASS",
+  "native_ci_entry": "run_native_controls.py: faiss, hnswlib, vamana; defined but not executed on Windows",
+  "remaining_execution_prerequisites": [
+    "Linux x86-64 Python 3.11 pinned dependencies and sufficient declared resources",
+    "frozen raw dataset files supplied by operator",
+    "new source-built HNSW benchmark receipt",
+    "Rust 1.97.1 toolchain and Cargo.lock dependencies for G1 DiskANN",
+    "new graph identities and full analysis verified only after explicit new execution"
+  ]
+}

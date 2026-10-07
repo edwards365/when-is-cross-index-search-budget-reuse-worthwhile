@@ -1,0 +1,72 @@
+{
+  "config_sha256": "4ac949e1af0e45740cbc1fc6f581f2771b6ba9bbb63303c6b9aaa745b8c36b8f",
+  "cpu_affinity": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "dataset": "sift-1m-heldout",
+  "effective_base_count": 992295,
+  "exact_base_acquisition_ns": 1073568668,
+  "faiss_module": "ARCHIVED_DATA/graph_anns_score8/envs/darth/lib/python3.11/site-packages/faiss/__init__.py",
+  "faiss_threads": 16,
+  "faiss_version": "1.8.0",
+  "forbidden_hdf5_datasets_not_accessed": [
+    "test",
+    "neighbors",
+    "distances"
+  ],
+  "process_maxrss_kib": 869700,
+  "role_receipt_sha256": "cb8f88ac5082ec40e459ac843c1403cead95f0b48f2ef7eaacdd0c7a47d402a7",
+  "roles": {
+    "source_design": {
+      "count": 500,
+      "exact_search_ns": 1856115480,
+      "output_bytes": 32550,
+      "output_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_truth_v1/sift_source_design.npz",
+      "output_sha256": "d7d8f37049f845364ed5a28256bc5155f41d83bb14dcd66ffad8e4da070b9a25",
+      "query_read_ns": 10646435
+    },
+    "target_certification": {
+      "count": 500,
+      "exact_search_ns": 1828879865,
+      "output_bytes": 32629,
+      "output_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_truth_v1/sift_target_certification.npz",
+      "output_sha256": "ecb3585ac11f9a0992d1e82b5469c5daf69c0a460257f61ec8537eb9b7548c87",
+      "query_read_ns": 13725354
+    },
+    "target_evaluation": {
+      "count": 1000,
+      "exact_search_ns": 3757640299,
+      "output_bytes": 63997,
+      "output_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_truth_v1/sift_target_evaluation.npz",
+      "output_sha256": "f939de89f2fa8e5df51b77300eae1649e04a65fc3e423f5ac4d7bf60d521ccda",
+      "query_read_ns": 33392556
+    },
+    "target_selection": {
+      "count": 500,
+      "exact_search_ns": 1920819772,
+      "output_bytes": 32552,
+      "output_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_truth_v1/sift_target_selection.npz",
+      "output_sha256": "061bc13de34745feafacde7ebc5dd1cfca6f2ac53e2b79497dfe67d362b9b45f",
+      "query_read_ns": 14031621
+    }
+  },
+  "schema_version": "icde2027-tcp-fresh-truth-receipt-v1",
+  "source_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+  "status": "EXACT_TRUTH_ACQUIRED_NO_ANN_OUTCOME_ACCESSED",
+  "whole_unit_ns": 10590594486
+}

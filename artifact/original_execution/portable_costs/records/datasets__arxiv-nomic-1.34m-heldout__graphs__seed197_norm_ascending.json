@@ -1,0 +1,31 @@
+{
+  "config_sha256": "4d3ce525754f133c7e6bfedf9b30e5661d4a5bbe27ad10d5ac698892a2e8efb9",
+  "cpu_affinity": [
+    2
+  ],
+  "dataset": "arxiv-nomic-1.34m-heldout",
+  "effective_base_count": 1337142,
+  "forbidden_hdf5_datasets_not_accessed": [
+    "test",
+    "neighbors",
+    "distances"
+  ],
+  "graph_init_ns": 27582522,
+  "graph_insert_ns": 812188795958,
+  "history": "norm_ascending",
+  "hnswlib_version": "0.8.0",
+  "index_bytes": 4306293968,
+  "index_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_build_v1/indexes/arxiv_seed197_norm_ascending.bin",
+  "index_sha256": "09a23cfd51edd1c3ffb6a52358106ebe4bb2775b55ab6fc70ab10c4476bd0005",
+  "membership_and_order_ns": 4755276664,
+  "process_maxrss_kib": 8467620,
+  "query_roles_used": [],
+  "role_receipt_sha256": "cb8f88ac5082ec40e459ac843c1403cead95f0b48f2ef7eaacdd0c7a47d402a7",
+  "schema_version": "icde2027-tcp-fresh-build-receipt-v1",
+  "seed": 197,
+  "serialize_fsync_ns": 25956883757,
+  "source_sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+  "status": "BUILT_NO_QUERY_OUTCOME_ACCESSED",
+  "train_read_ns": 10025467661,
+  "whole_unit_ns": 856168858644
+}
