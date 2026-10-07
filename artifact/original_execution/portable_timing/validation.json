@@ -1,0 +1,36 @@
+{
+  "status": "LOCAL_SYNTHETIC_CHECKS_PASS",
+  "total_tests": 14,
+  "native_linux_tests_pending": true,
+  "original_scientific_runs": 0,
+  "files": {
+    "build_native.py": {
+      "bytes": 4741,
+      "sha256": "1d073feb96aeb0af02b1baa7ff9ae80f19e0bff019c3aca4bc5bd212712d1ac4"
+    },
+    "config.json": {
+      "bytes": 10248,
+      "sha256": "3fb3695824e2cf5c1444c00292787a2df35f67bb6732aa6ab3d4ba4de78eb05d"
+    },
+    "e1a_runtime_native.cpp": {
+      "bytes": 6704,
+      "sha256": "f9af8aa13a4d5b7f7cdcf12c8116edb3837bdf6f9526dcfc117bea9d04813c70"
+    },
+    "README.md": {
+      "bytes": 5121,
+      "sha256": "6bb4ecc163a6750f5a482a8d829034ed2531d78c2d907f408bb3c05c4742d0d4"
+    },
+    "run_timing.py": {
+      "bytes": 9680,
+      "sha256": "97a555e5aa8f88dfb752d0895f18d77e01e14cf85665415d31712b1e83f4d5e1"
+    },
+    "test_timing.py": {
+      "bytes": 6129,
+      "sha256": "43a5fc772efa470abd6c8c7b36e4c07dd38a0bfc3340f74f39fc23988cc236f2"
+    },
+    "timing.py": {
+      "bytes": 4556,
+      "sha256": "fdaeebab0ede48000f940e8a2ab36c2cc7a2732582cd6f46ddc3a8131df445ec"
+    }
+  }
+}

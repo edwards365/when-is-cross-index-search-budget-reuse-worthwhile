@@ -14,6 +14,9 @@ execution is not yet a one-command, independently reproduced pipeline.**
 | [Native profiles](portable_profiles/README.md) | Complete fixed action grid on eight graphs | 10 wrapper tests and two role-size native programs tested on tiny graphs |
 | [Profile arrays](portable_arrays/README.md) | Ordered CSVs to frozen NPZ schema | 12 synthetic tests |
 | [Policy lock](portable_policy/README.md) | History-Max qualification, then SHA-bound evaluation | 16 synthetic tests |
+| [Baseline lock](portable_baselines/README.md) | Fixed-1600, TG500, TG1000 and endpoint, lock then evaluate | 18 synthetic tests |
+| [Native API timing](portable_timing/README.md) | Prior-lock, one-graph native query timing | 14 tests; Linux native test uses tiny generated graphs |
+| [Reload measurement](portable_reload/README.md) | Fresh-process reload, three repetitions | 8 tests; Linux native test uses tiny generated graphs |
 | [Cache measurement](portable_cache/README.md) | Check inputs or explicitly measure a new cache workload | 18 synthetic tests; seven saved-input identities checked |
 
 Tests of new entries do not re-execute the sealed experiments. Full benchmark
@@ -57,8 +60,8 @@ is present. Archived `.txt` source views are not portable launchers.
 
 ## Remaining coverage
 
-Simple-baseline policy interfaces, isolated native API timing and component
-measurement still need integration. The 100K transfer/recovery, Deep1M,
+Acquisition-component measurement and lifecycle aggregation still need
+new-execution integration; saved-ledger reconstruction is already delivered. The 100K transfer/recovery, Deep1M,
 multi-implementation ambiguity, refresh/fixed-transfer and supplementary native
 families retain their separate gaps in the source archive's `CHAINS.md`.
 Full DARTH source/object provenance cannot be retroactively established by a

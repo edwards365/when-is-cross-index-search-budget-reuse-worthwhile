@@ -20,8 +20,15 @@ data; they do not re-execute the sealed benchmark or certify full-data success.
    frozen NPZ schema consumed by saved-record analysis and cache measurement.
 5. [Qualification and evaluation](portable_policy/README.md): frozen History-Max
    rule, certification-only lock, then explicitly SHA-bound evaluation. TG and
-   fixed-budget baseline decisions remain separate.
-6. [Cache entry](portable_cache/README.md): read-only seven-input validation
+   fixed-budget baseline decisions use the separate
+   [baseline lock entry](portable_baselines/README.md), with selection and
+   qualification separated from final evaluation.
+6. [Native API timing](portable_timing/README.md): separate native build and
+   explicitly authorized one-graph measurement after the decision lock; seven
+   repetitions retain the original arithmetic-mean aggregation.
+7. [Fresh-process reload](portable_reload/README.md): independent reload units,
+   three repetitions per graph; no cold-cache claim.
+8. [Cache entry](portable_cache/README.md): read-only seven-input validation
    or a separately authorized new cache measurement. Acquisition, API timing
    and cache lookup are distinct measurements.
 
@@ -39,7 +46,10 @@ The commands and resource conditions are in the linked stage READMEs.
 | Graphs | Hash-pinned source recipe; tiny two-metric/two-order native test in CI | Complete historical extension build provenance; full new graph byte equivalence |
 | Profiles | Native compilation and tiny ordered-ID/count interface checks | Full eight-target response equivalence or original binary identity |
 | Arrays | Synthetic schema, ordered grid, hit and identity rejection tests | Recomputed original arrays from a new full profile run |
-| Policy | Synthetic lock/role guards, all three qualification branches and union-event arithmetic | New full-array certification/evaluation, baseline policy integration |
+| Policy | Synthetic lock/role guards, all three qualification branches and union-event arithmetic | New full-array certification/evaluation |
+| Baselines | Synthetic original CP/selection arithmetic and prior-lock gates | Full new-array baseline reproduction |
+| API timing | Unchanged native source; tiny native ID/time-schema tests in CI | New full-scale timing or historical binary/time identity |
+| Reload | Original loader timing body; fresh-process tiny native tests in CI | Historical cache state or new full-panel reload times |
 | Cache | Synthetic lookup-interface tests and saved seven-input checks | New benchmark cache timing or general cache-system performance |
 
 Local validation JSON files describe local checks; Linux-only native outcomes
@@ -49,9 +59,7 @@ of complete experiment reproduction.
 
 ## Remaining delivery work
 
-- Simple-baseline policy integration and native API timing entries, including
-  timing aggregation and provenance; the original source views remain available.
-- Reload/component measurement and lifecycle aggregation interfaces, keeping
+- Acquisition-component measurement and lifecycle aggregation interfaces, keeping
   ledger allocations distinct from unavoidable deployment work.
 - Other experiment families in `CHAINS.md` inside the separate
   [source archive](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-sources-v1):
