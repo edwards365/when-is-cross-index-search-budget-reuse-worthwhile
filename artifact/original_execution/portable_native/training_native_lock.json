@@ -1,0 +1,22 @@
+{
+  "version": "4.5.0",
+  "url": "https://files.pythonhosted.org/packages/4e/19/1b928cad70a4e1a3e2c37d5417ca2182510f2451eaadb6c91cd9ec692cae/lightgbm-4.5.0-py3-none-manylinux_2_28_x86_64.whl",
+  "wheel_sha256": "960a0e7c077de0ca3053f1325d3edfc92ea815acf5176adcacdea0f635aeef9b",
+  "wheel_bytes": 3552481,
+  "installed_payload": {
+    "lightgbm/VERSION.txt": "195790f73af85f22cd306965e5fa5f5a73399c51b74065aa3ee1d4d571d6eef4",
+    "lightgbm/__init__.py": "93e45c129d1ccec1a4a5312ddca680ab8de645bdeaeea1edd2b5cc9426ff9986",
+    "lightgbm/basic.py": "2baef20df6b174b147064781d0c8e375ef1d835fd77097a14a73bc0532244d7e",
+    "lightgbm/callback.py": "81ca99b99057eb547b5e1eae5b965d1c857fc4518345de0df187d96e4ad2421d",
+    "lightgbm/compat.py": "63589b19c2ab493d24fef2686f7d6ed4706ecd1b4e58fea49710275521894631",
+    "lightgbm/dask.py": "a02232fb9555ca4a98d9d0d8abec164c76264cc296bab8ae5d9a3cdcf25eb643",
+    "lightgbm/engine.py": "3247aead37fabb897880ff0830f5c40a9e14050e216af865da8fa05fdcf5c60b",
+    "lightgbm/lib/lib_lightgbm.so": "fe7dc92841ecad6b1b5584b72668e32c680855b44d9ce856bed4746de292ea50",
+    "lightgbm/libpath.py": "b69cee79de726aaa2eb2b2cd68123d8f201fe41991a3264423f529e5d11742df",
+    "lightgbm/plotting.py": "3f006f02d86eb9ac39965c87963d4bac0b47bb0404226f5d7757b712c170bbae",
+    "lightgbm/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lightgbm/sklearn.py": "656bc097d216647e2352dcb5ed0bbf7f4af528c22f00205a9eff30b243186fcc"
+  },
+  "training_installation_match": true,
+  "separate_cpp_library_equivalence_claimed": false
+}

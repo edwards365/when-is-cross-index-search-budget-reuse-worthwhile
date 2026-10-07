@@ -1,0 +1,12 @@
+{
+  "schema": "operational-boundary-validation-1",
+  "core_sha256": "808b7da6044cd0c38a3ae067a5b0fa48091a8b9668d1573e0f7272f2c47c76dc",
+  "local_python": "3.12.14",
+  "local_platform": "Windows",
+  "synthetic_tests": 6,
+  "actual_test_exit": 0,
+  "native_profile_calls": "mocked in this test suite; not native runtime verification",
+  "new_full_measurement_executed": false,
+  "historical_timing_or_science_rerun": false,
+  "linux_production_entry_validation": "pending CI"
+}

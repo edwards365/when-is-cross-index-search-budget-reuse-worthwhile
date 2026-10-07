@@ -5,6 +5,14 @@ from types import SimpleNamespace
 import run_reload as e
 CFG=json.loads((e.HERE/'config.json').read_text());C=e.load(e.HERE/'historical_reload.py','reload_core',CFG['core_sha256'])
 class Tests(unittest.TestCase):
+    def test_graph_dependency_pins_before_native_load(self):
+        import hashlib
+        graphs=e.HERE.parent/'portable_graphs'
+        digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+        self.assertEqual(CFG['graph_adapter_sha256'],digest(graphs/'build_graph.py'))
+        self.assertEqual(CFG['graph_config_sha256'],digest(graphs/'config.json'))
+        graph=json.loads((graphs/'config.json').read_text())
+        self.assertEqual(graph['core_sha256'],digest(graphs/'historical_graph.py'))
     def test_clock_boundary(self):
         events=[]
         class Graph:

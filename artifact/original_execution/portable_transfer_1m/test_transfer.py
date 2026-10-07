@@ -29,6 +29,10 @@ class Flat:
         pos=np.argsort(-score if self.ip else score,axis=1)[:,:k];return np.take_along_axis(score,pos,axis=1).astype('f4'),pos.astype('i8')
 MOCK_FAISS=SimpleNamespace(IndexFlatL2=lambda dim:Flat(dim),IndexFlatIP=lambda dim:Flat(dim,True),omp_set_num_threads=lambda n:None)
 class TransferTests(unittest.TestCase):
+    def test_graph_crosspins_before_native_load(self):
+        cfg=json.loads((HERE/'config.json').read_text());graphs=HERE.parent/'portable_graphs'
+        for field,name in [('graph_adapter','build_graph.py'),('graph_config','config.json')]:
+            self.assertEqual(cfg['dependencies'][field],hashlib.sha256((graphs/name).read_bytes()).hexdigest())
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
     def test_core_identity(self):

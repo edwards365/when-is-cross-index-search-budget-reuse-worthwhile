@@ -56,3 +56,20 @@ does not establish full serialized-graph equivalence on another compiler/CPU.
 A graph hash mismatch remains a real failed reproduction and must not be
 fixed by changing the expected hash, dropping a graph or trying multiple builds
 until one matches. New construction times do not replace historical costs.
+
+## Optional original-boundary operational measurement
+
+Add `--measure-operational-unit` when a new operational component ledger needs
+`whole_unit_ns`. This uses the unchanged original timer segment extracted from
+`build_tcp_fresh_graph_v1.py`: membership mask and retained IDs, train reading,
+insertion order, index initialization/insertion, serialization+fsync, index hash,
+and completion status. It excludes prior role/input/source validation and the
+final receipt write, exactly as the original segment does. The default graph
+construction path remains unchanged. Whole-unit time is neither wrapper elapsed
+nor the sum of component timers. `operational.json` preserves source identity,
+declared boundary, timing and maxRSS; `completed.json` repeats the measured
+fields only after the original frozen graph SHA/size gate passes. A graph mismatch
+stops the chain even if the earlier operational subreceipt recorded successful
+construction. Consumers must require `completed.json` and no `failure.json`.
+These new measurements remain operational, not historical timing reproduction
+or an uncontended benchmark.

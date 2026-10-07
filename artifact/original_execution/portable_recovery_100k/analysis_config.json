@@ -1,0 +1,20 @@
+{
+  "schema": "new-recovery-analysis-1",
+  "source_hashes": {
+    "analyze_s9_3_prospective.py": "da379e604dae8b7bdd01cc930354142295973c92e445f7135f3307d96e2bac13",
+    "analyze_s9_3_runtime.py": "3e0509c78052c2380eb2cefac73a8f57c910fafb2f6f0e28c257f0192e8ae001",
+    "analyze_s9_4_arms.py": "aea8f4e6a78599aeba6cb12138c096ed3ae24131961261552ae5ebbb6e43b323",
+    "analyze_s9_4_runtime.py": "846b51ebafcc0638bd821ff7af5909cbe8839e591ce9c94d438fdef03f060cbc"
+  },
+  "cores": {
+    "analysis3_quality_core.py": "26fd1e80e57d7f2f4832f774b74ebc4d7a04503ed678aac983b35a783f89a867",
+    "analysis3_runtime_core.py": "330246bd2e0e6974f9a0adbdde2332d9e55530294da8f9631120fcc8d54bb374",
+    "analysis4_quality_core.py": "c01d82538ff1041bca8ec5e02b29119c47a43d39c9ed0af11baa7826bd39a45a",
+    "analysis4_runtime_core.py": "20ef9b06028a7b47726b64dc2781a31b21c0b374b0bd349fd2c6173dab5ac493"
+  },
+  "recovery_config_sha256": "dbc25ff8731a941338f2ce51d1525e185a26dbc3e03c83af84db27956aa985c2",
+  "recovery_entry_sha256": "c76452711c0a1c604bd627c011bf8c1bfefc13479b30e36b98e1430151fba2a4",
+  "repetitions": 7,
+  "bootstrap_repetitions": 5000,
+  "bootstrap_seed": 991
+}

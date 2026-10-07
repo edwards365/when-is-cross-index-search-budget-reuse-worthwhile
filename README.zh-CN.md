@@ -26,10 +26,10 @@
 
 ### 检查已发布结果
 
-使用 Python 3.11 或更新版本，仅需标准库。以下命令固定到分析发布版本；`main` 还包含后续文档改进。
+使用 Python 3.11 或更新版本，仅需标准库。以下命令固定到保存结果重建版本；后续执行入口另行版本化。
 
 ```sh
-git clone --branch artifact-response-v1 https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile.git budget-reuse
+git clone --branch artifact-paper-v2 https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile.git budget-reuse
 cd budget-reuse
 python artifact/check_saved_results.py
 ```
@@ -46,16 +46,21 @@ python artifact/reproduce_summary.py --archive summary-analysis-inputs.zip --out
 
 该入口重建九张摘要成本、资格敏感性与成本分项分析表。已记录的可移植性验证使用 Python 3.12.14、NumPy 1.26.4、SciPy 1.13.1：八张表字节一致，一张表在声明的数值容差内一致，决策不变。完整比较见[验证报告](artifact/receipts/portability_verification.json)。
 
-## 目前公开到哪一步
+### 重建论文统计与叙述面板
 
-**当前是 `artifact-response-v1` 分析工件预发布版，不是完整论文工件。**
+按[论文统计指南](artifact/paper/README.md)运行 `reproduce_paper.py`，重建图 2、4、5、6 的保存记录统计；图 3 使用上述九表入口。[叙述面板指南](artifact/narrative/README.md)说明原始网格记录、100K／Deep1M 恢复、摘要歧义、刷新与替代成本的重建命令和所需发布附件。这些路径重算所声明的统计及区间，不重新测量历史搜索时间。
 
-- 已提供：部分结果、配对区间、成本记录、文件清单、保存响应输入包和九表重建入口。
-- 已提供：论文总览图及文档导航；不改变既有实验结果。
-- 尚未纳入此发布：投稿版 TeX、可编辑完整图集及完整 PDF 构建环境。
-- 尚未完整交付：全部原始 ANN 面板执行与 bootstrap 重建。
+## 当前交付的三个层次
 
-详细范围见[工件覆盖表](artifact/README.md#coverage)。原生 DARTH/Vamana 单图检查与多图迁移实验的证据用途不同；此处不宣称论文已录用、已获工件徽章或已完成全部独立复现。
+| 层次 | 固定入口 | 能够确认什么 |
+|---|---|---|
+| 保存结果重建 | [`artifact-paper-v2`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2)；九表输入仍取自不可变的 `artifact-response-v1` | 按证据导航重建论文已交付的点估计、区间和成本算术，不等于重新执行 ANN |
+| 当前论文与图形 | [`artifact-delivery-v1`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) | Overleaf 源码、当前 PDF、六图可编辑包及其数据／生成入口；作者个人信息仍按要求暂缓 |
+| 原协议的新执行入口 | 同一交付版本中的[十类实验执行导航](artifact/original_execution/EXECUTION_MAP.md) | 数据获取、依赖身份、分阶段命令、独占新输出与收据；实际检查范围由 `DELIVERY.json` 和对应 CI 记录说明 |
+
+保存统计重建、合成／微型原生测试和全规模新实验是不同验证层次。新入口提供响应、锁定决策及测量记录的生产路径；只有明确列出的新分析入口才进一步汇总新输出，不能把保存结果重建程序当作任意新测量的自动导入器。本次交付没有独立重测全部原始 ANN 或计时面板，也没有补造历史缺失的来源、退出状态或获取成本。
+
+详细范围见[工件覆盖表](artifact/README.md#coverage)、[证据导航](artifact/EVIDENCE.md)和[执行范围](artifact/EXECUTION_SCOPE.md)。获取执行入口时应使用其固定交付版本，不要假定较早的 `artifact-paper-v2` 已包含后续新增命令。第三方数据与依赖仍须按各自许可获取；此处不宣称论文录用、工件徽章或全部独立复现。
 
 ## 目录与协作
 

@@ -1,0 +1,14 @@
+{
+  "status":"SYNTHETIC_INTERFACE_CHECKS_PASS_NATIVE_CI_PENDING",
+  "local_tests":11,
+  "passed":11,
+  "failed":0,
+  "original_data_accessed":false,
+  "full_scientific_units_executed":0,
+  "native_ci_executed_locally":false,
+  "archived_replays_or_auditors_executed":false,
+  "historical_seed13_random_exit":"EXIT_STATUS_UNOBSERVED_UNCHANGED",
+  "full_acquisition_time":"MISSING",
+  "E8":"NOT_ESTIMABLE",
+  "historical_final_binary_equivalence_claimed":false
+}

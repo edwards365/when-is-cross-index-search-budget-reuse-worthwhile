@@ -77,10 +77,18 @@ The [narrative runbook](artifact/narrative/README.md) adds 96 original grid CSVs
 | Selected result tables, paired intervals, and cost records | Available in [`artifact/`](artifact/README.md) |
 | Saved-response archive and portable nine-table reconstruction | Available in the [release and runbook](artifact/RUNBOOK.md) |
 | Conceptual overview | Available above, in the approved manuscript visual style |
-| Submission-version TeX, editable figures, and complete PDF build | Not yet curated into this release |
+| Current TeX, PDF and six editable figures | [Fixed delivery assets](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1): Overleaf source, compiled PDF and figure/data/generator package; author details remain intentionally deferred |
 | Numerical-figure saved-record statistics, including Figure 2/4 intervals | Supplied by the paper supplement |
-| Narrative-panel reconstruction | Supplied for the listed panels; remaining diagnostic/native upstream gaps are explicit |
-| Full original ANN execution | Incomplete; input/source/configuration dependencies are listed in the evidence map |
+| Narrative-panel reconstruction | Runnable saved-record routes for the listed panels; input layers remain explicit |
+| New original-protocol execution entries | [Ten-family execution map](artifact/original_execution/EXECUTION_MAP.md), pinned source/dependencies, phase-separated producers and new receipts; synthetic/native CI is not a full-data rerun |
+
+### 5. Prepare a new original-protocol execution
+
+Use the [ten-family execution map](artifact/original_execution/EXECUTION_MAP.md) in the current execution-entry checkout. It links data acquisition, pinned sources, stage commands and bounded controls. The immutable `artifact-paper-v2` checkout above is deliberately the saved-result route; it does not contain later execution-entry additions. Record the exact execution-entry commit separately.
+
+The fixed [`artifact-delivery-v1`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) groups the execution-entry ZIP, six-figure editable package, current PDF and Overleaf source. `DELIVERY.json` records their identities and actual verification scope. Earlier saved-response archives retain their original tags and hashes.
+
+New commands require separate output paths and explicit opt-in. Generated-fixture and tiny native checks validate the tested interfaces, not full-data scientific reproduction. Original sealed runs and published measurements are not rerun or overwritten during delivery.
 
 The [coverage table](artifact/README.md#coverage) distinguishes supplied materials from remaining work. Single-index native DARTH/Vamana checks do not substitute for multi-build transfer evidence. No publication acceptance, artifact badge, or complete independent reproduction is claimed.
 
