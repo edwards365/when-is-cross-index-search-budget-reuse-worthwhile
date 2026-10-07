@@ -30,3 +30,7 @@ Completing the remaining layer requires selecting each original source/config/de
 ## Source-delivery progress (2026-10-07)
 
 The [original-source supplement](original_execution/README.md) now supplies pinned, privacy-transformed source/configuration views for all eight families, original dataset acquisition/checksum information, and 125 historical Arxiv native operation records. The source package passes clean-archive identity/link checks and synthetic transport tests. This closes source discovery and part of historical-evidence delivery, **not** portable build/run integration. The remaining column above must not be marked complete on the basis of source presence alone. No scientific execution or manuscript claim changed in this tranche.
+
+## Stage integration progress: cache E2 (2026-10-07)
+
+The [standalone cache entry](original_execution/portable_cache/README.md) now removes the old absolute-root/multi-stage entry dependency for static cache measurement. It has explicit seven-file pins, role/order checks, exclusive outputs, historical resource conditions and an opt-in measurement command. Clean adapter tests and original prepared-input validation passed; no timing was run. This closes the cache-stage entry and prepared-input wiring, not the fresh-query raw-data/true-answer pipeline, native builds, or the full lifecycle acquisition chain. The paper and saved results remain unchanged.

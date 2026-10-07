@@ -32,3 +32,7 @@ The Arxiv provider's fixed-revision LFS identity matches the experiment's SHA256
 Portable phase adapters, native dependency/build closure, receipt/pin rebinding in a fresh output tree and isolated execution checks remain open. Native historical record coverage in this tranche is Arxiv, not every SIFT/Faiss operation log. The archive lists the remaining items per family rather than labelling the presence of source code as a successful original execution.
 
 The paper remains pinned to `artifact-paper-v2` until original-execution integration and the next full public delivery have been verified. Scientific methods, recorded results and figures are unchanged.
+
+## Standalone cache entry
+
+[portable_cache/README.md](portable_cache/README.md) supplies an executable, explicit-opt-in E2 stage separated from the historical multi-stage campaign. Its original lookup/workload/timer body is preserved with an enumerated input-location diff. Eighteen synthetic tests and seven pinned historical input/schema checks pass without invoking the timer. Original measurement results are unchanged. Prepared query/truth inputs are not redistributed here; raw-to-prepared-input generation and an actual Linux performance run remain outside this verification. The other original-execution families remain open as listed above.

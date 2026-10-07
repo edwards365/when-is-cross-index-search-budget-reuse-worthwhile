@@ -1,0 +1,73 @@
+{
+  "schema": "portable-cache-e2-1",
+  "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+  "source_sha256": "80754ec63f7a6073512227609c00a0657eb08cc32fe50410715cbf4487aa7be1",
+  "core_sha256": "281c20a4386db2c2f2778ef085a7e5f12756d829b77d9a152d37c11cd3647d40",
+  "historical_query_count": 1000,
+  "membership": {
+    "path": "tcp_fresh_roles_v1/membership.npz",
+    "bytes": 16507,
+    "sha256": "4fad264dead7dd223f34dc6fa540f9c436e0113bd7f1de2e9759ff51b3007b74"
+  },
+  "datasets": {
+    "sift": {
+      "dimension": 128,
+      "files": {
+        "queries": {
+          "path": "tcp_fresh_profiles_v1/sift_target_evaluation/queries.qbin",
+          "bytes": 520024,
+          "sha256": "42e2040b3d8f3960a9cd3d87aac122260a87dfa3a0e29ff85f670815a8960ee6"
+        },
+        "truth": {
+          "path": "tcp_fresh_truth_v1/sift_target_evaluation.npz",
+          "bytes": 63997,
+          "sha256": "f939de89f2fa8e5df51b77300eae1649e04a65fc3e423f5ac4d7bf60d521ccda"
+        },
+        "profile": {
+          "path": "tcp_fresh_profiles_v1_ops/audited_arrays/sift_target_evaluation.npz",
+          "bytes": 3124509,
+          "sha256": "ac8037d1d75a759698290607e8a4c4442eec6a68a2108b2087c5e76ca98c2a10"
+        }
+      }
+    },
+    "arxiv": {
+      "dimension": 768,
+      "files": {
+        "queries": {
+          "path": "tcp_fresh_profiles_v1/arxiv_target_evaluation/queries.qbin",
+          "bytes": 3080024,
+          "sha256": "eff745330acdc50237fed669a7bf87d33084a3ab534401c6c9502092f06699f4"
+        },
+        "truth": {
+          "path": "tcp_fresh_truth_v1/arxiv_target_evaluation.npz",
+          "bytes": 71065,
+          "sha256": "be66fe6ecb9ed4b0ea657f7e404938283e5daab183f2d0b24fb08715f9328ea7"
+        },
+        "profile": {
+          "path": "tcp_fresh_profiles_v1_ops/audited_arrays/arxiv_target_evaluation.npz",
+          "bytes": 3251232,
+          "sha256": "a4e3260b05ee1764e15e89ab15583c2b7324e6f5367398a97185c276463fc31b"
+        }
+      }
+    }
+  },
+  "resources": {
+    "address_space_bytes": 4294967296,
+    "all_output_growth_bytes": 805306368,
+    "cpu": 4,
+    "cpu_seconds": 1800,
+    "expected_rss_bytes": 1073741824,
+    "library_threads": 1,
+    "max_file_bytes": 134217728,
+    "minimum_disk_free_bytes": 214748364800,
+    "project_growth_bytes": 805306368,
+    "rss_stop_bytes": 34359738368,
+    "wall_seconds": 1800
+  },
+  "numpy_version": "1.26.4",
+  "python_minor": [
+    3,
+    11
+  ],
+  "no_automatic_download": true
+}
