@@ -36,3 +36,7 @@ The paper remains pinned to `artifact-paper-v2` until original-execution integra
 ## Standalone cache entry
 
 [portable_cache/README.md](portable_cache/README.md) supplies an executable, explicit-opt-in E2 stage separated from the historical multi-stage campaign. Its original lookup/workload/timer body is preserved with an enumerated input-location diff. Eighteen synthetic tests and seven pinned historical input/schema checks pass without invoking the timer. Original measurement results are unchanged. Prepared query/truth inputs are not redistributed here; raw-to-prepared-input generation and an actual Linux performance run remain outside this verification. The other original-execution families remain open as listed above.
+
+## Fresh-query input entry
+
+[portable_fresh_inputs/README.md](portable_fresh_inputs/README.md) supplies fixed role selection, effective-base exclusions and query-file generation on explicitly chosen input/output paths. The frozen ID partitions reconstruct exactly, and tiny synthetic HDF5 tests check content collisions, raw float32 encoding and train-only access. No original HDF5 scan or query export was rerun for delivery. The entry supplies membership and query files for the cache stage; exact-truth and audited profile generation remain separate unresolved integrations.

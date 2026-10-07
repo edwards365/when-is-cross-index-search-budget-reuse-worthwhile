@@ -1,0 +1,7 @@
+{
+  "tag": "artifact-fresh-inputs-v1",
+  "archive": "portable-fresh-inputs.zip",
+  "bytes": 73893,
+  "sha256": "3b0ed9a11b36e851ed5ebd679b9078b8c39221ca8ed5c5f936b8a04fc2a2e32d",
+  "scope": "Role/base/query input adapter; synthetic HDF5 and frozen registry checked; exact truth/native build still open"
+}

@@ -1,0 +1,29 @@
+{
+  "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+  "source_path": "scripts/icde2027_1m/freeze_tcp_fresh_roles_v1.py",
+  "source_sha256": "20fa3cf1fd9875c14fb03b663668c1bf56b4c27607cd3178cacb40de8ecabe52",
+  "source_config_path": "manifests/icde2027_1m/tcp_fresh_roles_v1.json",
+  "source_config_sha256": "257dadf5fd0b1c6eaee27931160d36758b40662cab1d1ccf2d5b9e9d745acb0a",
+  "prior_roles_sha256": "91288d1c1ba032653136e9430f670c54b7d46202056b18102db4e45c1fc1f9ff",
+  "prior_exclusions_sha256": "e1da86becacce12dba90f443a401c7fe4b09eccc2ce8463fa41f65d2de616b95",
+  "prior_e1b_npz_sha256": "55939ad3eb9256d97cea296dc43814bf5bd54b73cb2560071edb454eb550a953",
+  "role_receipt_sha256": "cb8f88ac5082ec40e459ac843c1403cead95f0b48f2ef7eaacdd0c7a47d402a7",
+  "membership_sha256": "4fad264dead7dd223f34dc6fa540f9c436e0113bd7f1de2e9759ff51b3007b74",
+  "core_sha256": "7ff376b8886c730370b7be198392ae6193fed7af3956ced7bfa01cb592544bd8",
+  "unchanged_functions": {
+    "fresh_ids": "1efedfbe528fef7f94457c5bff37d1ef5dc60024f04d8a034ef0def58b9e07b8",
+    "scan_content": "e622d768639c5299dcbdd63efcdc1df7c8a554c647c0176edac3bd0c8a4a64bc"
+  },
+  "query_writer_source": "scripts/icde2027_1m/run_tcp_fresh_profiles_v1.py",
+  "query_writer_source_sha256": "2d1030deee351165fe3b51615977d9a924dc8c6508fb05310bdc7a9492925136",
+  "adaptations": [
+    "Absolute input/output locations become explicit CLI arguments.",
+    "Original profile-stage query writer is available before ANN; the old truth and native-binary gates are not certificates supplied by this input-only adapter.",
+    "New receipts describe regeneration, not prospective first-use or successful historical audits.",
+    "Expected roles/exclusions/membership and evaluation qbin identities are checked, not repinned."
+  ],
+  "HDF5_reads_during_packaging": 0,
+  "ANN_runs": 0,
+  "truth_runs": 0,
+  "historical_auditor_runs": 0
+}
