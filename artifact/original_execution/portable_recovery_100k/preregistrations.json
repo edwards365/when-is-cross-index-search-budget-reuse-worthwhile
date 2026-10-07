@@ -1,0 +1,290 @@
+{
+  "3": {
+    "program": "SIGMOD_EA_S9_3_PROSPECTIVE_ROBUSTNESS",
+    "status": "FROZEN_BEFORE_QUERY_VECTOR_TRUTH_INDEX_OR_RESPONSE_ACCESS",
+    "parent_commit": "dbc2f287e8b7a8dfcef0d3c1accc640277d624a7",
+    "handoff": {
+      "s9_2_fixed_slack_runtime_gate": "PASS",
+      "s9_2_tcp_target_global_runtime": "OPEN_NOT_SUBSTITUTED",
+      "s9_2_complete_lifecycle_ledger": "OPEN_NOT_SUBSTITUTED",
+      "authorized_s9_3_scope": "fixed_slack_only"
+    },
+    "protocol_sha256": "4cc013c83b2dfe5dad8ed067c2513de937e51275b2c3a7a9e9aa1fc095f56456",
+    "query_role_manifest_sha256": "1a36ea5b685922b286ab248a4cc89a8caefefb8bebb0d07f5d6238d9000820e6",
+    "seed": 991,
+    "datasets": [
+      "sift_100k",
+      "arxiv_nomic_100k"
+    ],
+    "builds": {
+      "implementation": "DARTH/Faiss HNSW 1.8.0",
+      "target_builds_per_dataset": 8,
+      "insertion_permutation_seeds": [
+        6011,
+        6211,
+        6421,
+        6637,
+        6841,
+        7057,
+        7273,
+        7481
+      ],
+      "M": 16,
+      "efConstruction": 100,
+      "threads": 1,
+      "k": 10,
+      "base_rows": [
+        0,
+        100000
+      ],
+      "index_reuse": false
+    },
+    "runtime_environment": {
+      "python_version": "3.11.16",
+      "faiss_version": "1.8.0",
+      "numpy_version": "1.26.4",
+      "swigfaiss_avx2_sha256": "1324bc7385fd6b19c9205db64eab130fdd4e4996a447854448109fb1d63a5834",
+      "logical_cpu_affinity": [
+        2
+      ],
+      "search_threads": 1,
+      "gpu_used": false
+    },
+    "roles_per_dataset": {
+      "source_design": 500,
+      "target_certification": 500,
+      "target_evaluation": 500
+    },
+    "role_hashes": {
+      "sift_100k": {
+        "source_design": "05307dda9a583fd50a4fd76a3d45273b5d93aec870319b6547cabd537ce38e4f",
+        "target_certification": "dacbe118df00447fa57d9e869b69ded9688d809406e8a4583c1b09bd8bbd5de1",
+        "target_evaluation": "d897d873656c57dd36130b5952948601291ac73dae0fdf50c2c1a4bc5a70d506"
+      },
+      "arxiv_nomic_100k": {
+        "source_design": "b5401f48653061f9dc596324d5059c9a3d498f6c71b89839fbea757adade1e35",
+        "target_certification": "f89cfdd2a2b0e5ca05bc106785827d6755e99233f4193b8fb0b25a9101ed4fe2",
+        "target_evaluation": "e861e0ea0145a774ef8b946410a33dfa124a6a11aada9c0c69d53413f4329432"
+      }
+    },
+    "policy": {
+      "primary_grid": [
+        16,
+        32,
+        64,
+        128,
+        256,
+        512
+      ],
+      "endpoint": 512,
+      "source_rule": "smallest action with one-sided CP UCB <= 0.05 at alpha 0.05/6; endpoint otherwise",
+      "candidate": "one registered rung above source action, endpoint-clipped",
+      "candidate_alpha": 0.025,
+      "endpoint_alpha": 0.025,
+      "fallback": "independently qualified endpoint",
+      "abstention": "endpoint certification failure"
+    },
+    "runtime": {
+      "warmup_queries_per_action": 50,
+      "repetitions_per_evaluation_query_action": 7,
+      "timers": [
+        "monotonic_wall_ns",
+        "process_cpu_ns"
+      ],
+      "action_order": "seeded interleaving",
+      "cell_cv": "diagnostic_only",
+      "median_action_block_cv_max": 0.05,
+      "max_action_block_cv_max": 0.1
+    },
+    "sensitivities": {
+      "grids": [
+        [
+          16,
+          64,
+          256,
+          512
+        ],
+        [
+          32,
+          64,
+          128,
+          256,
+          512
+        ]
+      ],
+      "risk_limits": [
+        0.025,
+        0.05
+      ],
+      "primary_decision_may_change": false
+    },
+    "statistics": {
+      "outer_unit": "target_build",
+      "inner_unit": "query_id",
+      "directed_source_target_pairs_per_dataset": 56,
+      "directed_pairs_are_independent_builds": false,
+      "bootstrap": "crossed target-build x query-ID",
+      "bootstrap_repetitions": 5000,
+      "bootstrap_seed": 991,
+      "confidence": 0.95,
+      "loto": true,
+      "delete_largest_gain_query_fraction": 0.01
+    },
+    "gates": {
+      "role_overlap_max": 0,
+      "native_mismatches_max": 0,
+      "complete_cells_min_fraction": 1.0,
+      "evaluation_risk_max": 0.05,
+      "mean_wall_gain_ci_lower_min": 0.0,
+      "p95_ratio_ci_upper_max": 1.05,
+      "loto_gain_min": 0.0
+    },
+    "forbidden": [
+      "result-driven retuning",
+      "reusing S9-2 target builds as S9-3 units",
+      "using target evaluation to choose actions or thresholds",
+      "treating 56 directions as 56 independent builds",
+      "using NDC as a latency substitute",
+      "upgrading TCP or lifecycle claims from this fixed-slack experiment",
+      "accessing validation-dev or formal-test"
+    ],
+    "original_sha256": "f36004899ab7bd11afff5b4941a13dfa43d916016e9df7a3354c3590736a8634"
+  },
+  "4": {
+    "program": "SIGMOD_EA_S9_4_BASELINE_ABLATION_ATTRIBUTION",
+    "status": "FROZEN_BEFORE_QUERY_VECTOR_TRUTH_RESPONSE_POLICY_OR_RUNTIME_ACCESS",
+    "parent_commit": "48eaba46bf4b3f61a5ffbaa53140bf1229748e0b",
+    "protocol_sha256": "1d057c61f08ab0cac9da2904a5a18043f007a8f5490519aecd76e185a56b41e8",
+    "query_role_manifest_sha256": "0da5625ffebcbdbc4f9733837c46e4edf1ba66813ab4198555a8aa573688303f",
+    "frozen_inputs": {
+      "s9_3_build_registry": {
+        "path": "results/sigmod_s9/s9_3_prospective/build_registry_limit8.json",
+        "sha256": "c86666b8a1c8c131fc6147a4c91a81fbe0abfdd03cf41cfeaa022ccd90705401"
+      },
+      "s9_3_source_decisions": {
+        "path": "results/sigmod_s9/s9_3_analysis/primary_decisions.csv",
+        "sha256": "bdd8e5035d1ce1b16fc1549fcb7bbe48a0f3e7d3d85b1e99be5903333a397ec7"
+      },
+      "s9_3_decision": {
+        "path": "manifests/sigmod_s9_3_decision.json",
+        "sha256": "d97cde1d22b3c8a6918a8ddf38c86124c760e425623c984369812ad0482a3b65"
+      }
+    },
+    "datasets": [
+      "sift_100k",
+      "arxiv_nomic_100k"
+    ],
+    "outer_unit": "target_build",
+    "target_builds_per_dataset": 8,
+    "source_directions_per_target": 7,
+    "directed_source_target_pairs_per_dataset": 56,
+    "query_roles_per_dataset": {
+      "baseline_selection": 500,
+      "baseline_certification": 500,
+      "baseline_evaluation": 500
+    },
+    "native_grid": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512
+    ],
+    "endpoint": 512,
+    "recall_threshold": 0.95,
+    "risk_limit": 0.05,
+    "selection_alpha_bonferroni": 0.008333333333333333,
+    "candidate_alpha": 0.025,
+    "endpoint_alpha": 0.025,
+    "arms": [
+      {
+        "id": "B0_ENDPOINT_512",
+        "deployable": true,
+        "selection_queries": 0,
+        "certification_queries": 500
+      },
+      {
+        "id": "B1_FIXED_256_CERTIFIED",
+        "deployable": true,
+        "selection_queries": 0,
+        "certification_queries": 500
+      },
+      {
+        "id": "B2_SOURCE_ONE_RUNG_CERTIFIED",
+        "deployable": true,
+        "selection_queries": 0,
+        "certification_queries": 500,
+        "amortized_source_queries": 500
+      },
+      {
+        "id": "B3_TARGET_GLOBAL_EQUAL_500",
+        "deployable": true,
+        "selection_queries": 250,
+        "certification_queries": 250
+      },
+      {
+        "id": "B4_TARGET_GLOBAL_1000",
+        "deployable": true,
+        "selection_queries": 500,
+        "certification_queries": 500
+      },
+      {
+        "id": "A1_SOURCE_ACTION_DIRECT",
+        "deployable": false
+      },
+      {
+        "id": "A2_SOURCE_ONE_RUNG_UNCERTIFIED",
+        "deployable": false
+      },
+      {
+        "id": "A3_FIXED_256_UNCERTIFIED",
+        "deployable": false
+      },
+      {
+        "id": "O1_EVALUATION_ORACLE",
+        "deployable": false
+      }
+    ],
+    "runtime_environment": {
+      "faiss_version": "1.8.0",
+      "swigfaiss_avx2_sha256": "1324bc7385fd6b19c9205db64eab130fdd4e4996a447854448109fb1d63a5834",
+      "logical_cpu_affinity": [
+        2
+      ],
+      "search_threads": 1,
+      "warmup_queries_per_action": 50,
+      "repetitions_per_query_action": 7,
+      "gpu_used": false
+    },
+    "statistics": {
+      "bootstrap": "crossed target-build x query-ID; preserve source directions inside cell",
+      "bootstrap_repetitions": 5000,
+      "bootstrap_seed": 991,
+      "confidence": 0.95,
+      "loto": true,
+      "delete_largest_benefit_query_fraction": 0.01
+    },
+    "gates": {
+      "query_overlap_max": 0,
+      "native_mismatch_max": 0,
+      "evaluation_risk_max": 0.05,
+      "wall_gain_ci_lower_min": 0.0,
+      "p95_ratio_ci_upper_max": 1.05,
+      "loto_wall_gain_min": 0.0,
+      "median_action_block_cv_max": 0.05,
+      "max_action_block_cv_max": 0.1
+    },
+    "external_evidence_rule": "native registered evidence matrix only; no unmatched cross-implementation leaderboard",
+    "forbidden": [
+      "using evaluation to choose an arm, action, threshold, or conclusion rule",
+      "treating source directions, queries, or repetitions as independent target builds",
+      "calling B4 equal-information",
+      "calling diagnostic or oracle arms deployable",
+      "silently reimplementing external methods on incompatible units",
+      "accessing validation-dev or formal-test",
+      "result-driven retuning"
+    ],
+    "original_sha256": "1de4af2253bb895f4fe4256f885568a2def6588c45e4ee5c30f88a6c06b14ff0"
+  }
+}

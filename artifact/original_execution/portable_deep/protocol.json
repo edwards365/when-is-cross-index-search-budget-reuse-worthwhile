@@ -1,0 +1,70 @@
+{
+  "schema_version": "sigmod-ea-deep1m-target-cert-1.0",
+  "status": "FROZEN_BEFORE_NEW_ROLE_VECTOR_TRUTH_OR_SEARCH_ACCESS",
+  "frozen_utc_date": "2026-09-18",
+  "purpose": "Second-scale target-certified replication of a non-clipped source-derived slack candidate",
+  "evidence_level": "PREREGISTERED_FIXED_TARGET_DEEP1M_SCALE_REPLICATION",
+  "dataset": {
+    "name": "ann-benchmarks deep-image-96-angular",
+    "base": "first 1000000 train rows",
+    "metric": "cosine",
+    "k": 10,
+    "primary_event": "Recall@10 < 0.95"
+  },
+  "frozen_build_family": {
+    "implementation": "hnswlib",
+    "builds": 8,
+    "seeds": [3011, 3203, 3413, 3617],
+    "orders": ["random", "norm_ascending"],
+    "index_rebuild": false
+  },
+  "query_firewall": {
+    "exclude": [
+      "the 500 prior P10 IDs reconstructed with RandomState(991)",
+      "the 1000 prior Deep1M scale-check IDs frozen with default_rng(2991)"
+    ],
+    "new_roles": {
+      "source_design": 500,
+      "target_certification": 500,
+      "target_evaluation": 500
+    },
+    "selection_seed": 3991,
+    "rule": "draw 1500 IDs without replacement from remaining test IDs, sort within each consecutive 500-ID role, and freeze IDs and hashes before vector, truth, or search access",
+    "required_overlap": 0
+  },
+  "action_policy": {
+    "action": "efSearch",
+    "grid": [200, 300, 400, 600, 800, 1200],
+    "source_action": "per source build, smallest grid action whose one-sided 95% Clopper-Pearson UCB on source_design is at most 0.05; if none, endpoint",
+    "candidate": "one registered rung above the source action, clipped only at 1200",
+    "target_decision": "on target_certification, deploy candidate if its one-sided CP UCB at alpha 0.025 is at most 0.05 and the endpoint UCB is at most 0.05; otherwise use certified endpoint; abstain if endpoint fails",
+    "evaluation_blinding": "target_evaluation cannot alter source action, candidate, threshold, grid, or fallback"
+  },
+  "statistics": {
+    "primary_unit": "target build",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 991,
+    "intervals": ["target-build", "shared-query-ID", "crossed target-build/query-ID"],
+    "reports": [
+      "candidate clipping rate and deployment/fallback/abstention counts",
+      "evaluation risk",
+      "relative mean NDC saving versus efSearch=1200",
+      "query-pooled and worst-target p95/p99 ratios",
+      "LOTO and delete-largest-target sensitivity"
+    ]
+  },
+  "gates": {
+    "protocol": "all three roles disjoint from one another and prior roles; no evaluation access before freeze",
+    "safety": "candidate or endpoint decision has target CP UCB at most 0.05; evaluation risk reported without changing decisions",
+    "non_clipped_evidence": "at least one source-derived candidate is below endpoint",
+    "efficiency": "crossed 95% lower bound for relative mean NDC saving is above zero",
+    "tail": "pooled p95 ratio at most one and no structural worst-target degradation",
+    "robustness": "LOTO minimum saving above zero"
+  },
+  "stop_rules": [
+    "stop on query-role overlap, dataset/index hash drift, incomplete exact truth, counter mismatch, or endpoint certification failure",
+    "stop if data500 free space is below projected additions plus 5 GiB",
+    "do not modify the grid, role IDs, policy, threshold, or estimand after the first new role vector, truth, or search access",
+    "do not claim cross-implementation confirmation from this hnswlib scale replication"
+  ]
+}

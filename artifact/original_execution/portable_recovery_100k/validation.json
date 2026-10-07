@@ -1,0 +1,17 @@
+{
+  "status": "PASS_17_LOCAL_SYNTHETIC_TESTS_1_LINUX_NATIVE_PENDING",
+  "platform": "Windows",
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "pandas": "2.2.2",
+  "tests": 18,
+  "passed": 17,
+  "skipped": 1,
+  "actual_exit_code": 0,
+  "original_science_runs": 0,
+  "original_response_arrays_read": 0,
+  "full_production_stages_executed": false,
+  "linux_native_ci": "PENDING_INTEGRATING_OWNER",
+  "initial_synthetic_failure": "Unused evaluation_cells helper appeared in lock-only module; removed from extraction, then all applicable tests passed"
+}

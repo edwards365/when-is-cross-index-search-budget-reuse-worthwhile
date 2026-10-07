@@ -30,6 +30,13 @@ query role, timing boundary and missing provenance remain stage specific.
 Different environments must not be collapsed into one convenience dependency.
 See [dependency distinctions](DEPENDENCIES.md) and [dataset sources](datasets.json).
 
+## Additional original families
+
+- [100K recovery](portable_recovery_100k/README.md): S9-3 and paired S9-4, explicit preparation/build/profile/lock/evaluation/timing phases. The normalized Arxiv truth and physical L2 graph are preserved.
+- [Deep1M recovery](portable_deep/README.md): historical cosine panel with three test-member query roles, separate preparation/build/native replay/analysis. Test-member access requires explicit opt-in; delivery does not execute it.
+
+These entries have synthetic tests and frozen graph/input gates. They do not claim a new full-size reproduction or new benchmark times.
+
 ## Three separate delivery layers
 
 1. [Saved-result reconstruction](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2)
@@ -61,7 +68,7 @@ is present. Archived `.txt` source views are not portable launchers.
 ## Remaining coverage
 
 Acquisition-component measurement and lifecycle aggregation still need
-new-execution integration; saved-ledger reconstruction is already delivered. The 100K transfer/recovery, Deep1M,
+new-execution integration; saved-ledger reconstruction is already delivered. The 100K transfer,
 multi-implementation ambiguity, refresh/fixed-transfer and supplementary native
 families retain their separate gaps in the source archive's `CHAINS.md`.
 Full DARTH source/object provenance cannot be retroactively established by a
