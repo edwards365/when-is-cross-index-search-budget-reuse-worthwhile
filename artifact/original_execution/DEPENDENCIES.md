@@ -7,11 +7,18 @@ This map records the original dependency families. It is not a claim that a sing
 | hnswlib headers | `3f3429661187e4c24a490a0f148fc6bc89042b3d`, `https://github.com/nmslib/hnswlib.git` | Main repository submodule identity read from the pinned commit; Python binding recorded as 0.8.0 in fresh-query protocols. Header/binding native-result equivalence is a separate runtime check. |
 | DARTH | `0d9bafcf31d1d79668bc71139fe93fa5e70b5185`, `https://github.com/MChatzakis/DARTH.git` | Original upstream identity; public project modifications and aligned trainers are included in the source view. Arxiv IP reused some old objects: this identity alone does not attest every object/source pairing. |
 | Ada-ef | `ed463f9993868f7ecc7c103920644e7f94abb377`, `https://github.com/chaozhang-cs/hnsw-ada-ef.git` | Separate official source family; use its metric-port source and registry, not a substitute HNSW implementation. |
-| DiskANN | `8fb4d42e6a8bff0cff4db976a55c5fb99faaf475`, `https://github.com/microsoft/DiskANN.git` | Preserve Rust source patches, Cargo.lock identities and ordered-ID fixes. Dependency correction archives are not equivalent to a new algorithm. |
+| DiskANN G1 diagnostic | `158126e64129d3c39f9df02199c2dcc06d4f9e7f`; Cargo.lock SHA `d83279f030b102dcbac27ff012391af5854aab165d2b3c90ccde21bf6963056c` | `diskann-inmem 0.56.0`, `integration-test` feature/binary and four G1 source replacements. This is not the million-scale native Vamana recipe. |
+| DiskANN native million-scale | `8fb4d42e6a8bff0cff4db976a55c5fb99faaf475`, `https://github.com/microsoft/DiskANN.git` | `diskann-benchmark`; preserve source-tree/target pins, two ordered-ID replacements and the original failure/correction receipts. |
 | Faiss | Historical 100K 1.15.0; S9 DARTH/Faiss 1.8.0; newer exact-counter and AVX2 paths have individual source/binary pins | These are not interchangeable packages. Installing an arbitrary matching version wheel does not reproduce project instrumentation, build options or counter semantics. Use each protocol's source/build map. |
 | Python analysis | Historical Python3.11; NumPy1.26.4, SciPy1.13.1, h5py3.11.0; broader environment.yml supplied | Public saved-record analysis separately runs on Python3.12.14. Do not infer original native compatibility from that test. |
 | LightGBM | Follow the DARTH model/runtime manifests and library hashes | 11-feature order is fixed. Arxiv model uses regression/100 trees/seed42/n_jobs8. Eight jobs does not mean eight OS threads. |
 | Native compiler | C++17 and per-panel compilation flags; Rust for DiskANN | Compiler, SIMD, OpenMP and shared library differences affect both identity and timing. CMakeLists and native sources are inspectable; full portable build closure remains a distinct gate. |
+
+The S9 frozen Faiss extension SHA `1324bc7385fd6b19c9205db64eab130fdd4e4996a447854448109fb1d63a5834`
+matches the public `faiss-cpu1.8.0.post1` payload in the
+[exact-truth dependency lock](portable_truth/native_lock.json). This resolves that
+file's acquisition, not historical SIMD-dispatch provenance. S9 searches normalized
+Arxiv with an **L2 graph**; the later raw Arxiv native-IP chain is a different recipe.
 
 ## Header acquisition (not executed by the delivery task)
 

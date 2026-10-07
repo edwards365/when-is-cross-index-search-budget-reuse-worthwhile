@@ -1,0 +1,28 @@
+{
+  "status": "LOCAL_SYNTHETIC_CHECKS_PASS",
+  "total_tests": 8,
+  "native_linux_tests_pending": true,
+  "original_scientific_runs": 0,
+  "files": {
+    "config.json": {
+      "bytes": 5371,
+      "sha256": "2e70721f32447cafe3cb40f0e2e3e26b54e68229e4bd25207692914ba1b7692d"
+    },
+    "historical_reload.py": {
+      "bytes": 795,
+      "sha256": "08f992f44cf1740f709bd8dd742874fc7081bc83269ebd70b9a0d467b4d93890"
+    },
+    "README.md": {
+      "bytes": 2361,
+      "sha256": "35579569aeed6b3f2746348b0f5f33fcd28430befceddaf55b0ce80c192fae42"
+    },
+    "run_reload.py": {
+      "bytes": 6496,
+      "sha256": "ec24c5ec3629bdffa484590a94155d94a3232ffb9062b7c50dced53cfa3ca9cb"
+    },
+    "test_reload.py": {
+      "bytes": 3467,
+      "sha256": "f4a7597dd4473c8ca2b29960d64a908e2d435abd1b46ce6b1d815663fd5d0a23"
+    }
+  }
+}

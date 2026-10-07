@@ -1,0 +1,36 @@
+{
+  "status": "LOCAL_SYNTHETIC_CHECKS_PASS",
+  "total_tests": 18,
+  "native_linux_tests_pending": false,
+  "original_scientific_runs": 0,
+  "files": {
+    "config.json": {
+      "bytes": 3255,
+      "sha256": "981bc6584d402ecc936a0e5ea8d8d1b9d66c1414661e5efcbc3d11d175abd722"
+    },
+    "expected_decisions.json": {
+      "bytes": 26716,
+      "sha256": "300dd4e0adda46a4f41673f016093d1cfd46f9dbdca4c0e7eb2722fa0b5800cd"
+    },
+    "historical_baselines.py": {
+      "bytes": 1052,
+      "sha256": "b011547d3e57a84df2cbcb783fce8e7df3ee5cd79d942d6a3c6d43c655823c68"
+    },
+    "README.md": {
+      "bytes": 4921,
+      "sha256": "d9961d793baaab36d53f27fd079e31181cb10925b59da15c936d2e712e8677c7"
+    },
+    "requirements.txt": {
+      "bytes": 28,
+      "sha256": "5a81cde5d4f409222788b0a0da88fff0acdb160f45ab8839d9661cff6aa10424"
+    },
+    "run_baselines.py": {
+      "bytes": 9074,
+      "sha256": "d230359c98ffee5f2ea7da7e8301084204d7ee08dd14070a93b404f5285c3e74"
+    },
+    "test_baselines.py": {
+      "bytes": 5251,
+      "sha256": "4ace94a7ad81ec817ebaf356e6df649808624f6e5a0c5cc76462cf0562d77b0f"
+    }
+  }
+}

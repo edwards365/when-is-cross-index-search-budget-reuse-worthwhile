@@ -1,0 +1,106 @@
+{
+  "input_adapter_sha256": "9ba39909b740fcc2d4d62fedae8527d23adcd403fa2684bde02035f2876d345e",
+  "expected_arrays": {
+    "sift_source_design": {
+      "sha256": "a4e0fea0bc2deb76e4545c5b8c264f4d89f06985c9c6ac437b67ffc60891075a",
+      "bytes": 1567081,
+      "cells": 44000
+    },
+    "sift_target_selection": {
+      "sha256": "5b313d3914502bae98dfce622a55a62d8e447e03c4be789e7d4e222eaf9347d4",
+      "bytes": 1568119,
+      "cells": 44000
+    },
+    "sift_target_certification": {
+      "sha256": "7e63d865a989c54caee7b2c1d3f8d2fdb6cf11d86945fd6e357c598ec06adcc3",
+      "bytes": 1568573,
+      "cells": 44000
+    },
+    "sift_target_evaluation": {
+      "sha256": "ac8037d1d75a759698290607e8a4c4442eec6a68a2108b2087c5e76ca98c2a10",
+      "bytes": 3124509,
+      "cells": 88000
+    },
+    "arxiv_source_design": {
+      "sha256": "e4137a9df9a1c7c30a91000351ebb08444adca22b3ac6be25f09a004b63e6d9a",
+      "bytes": 1624464,
+      "cells": 44000
+    },
+    "arxiv_target_selection": {
+      "sha256": "0a82f17a49dd4565df8b107eb5c26c7b1eea0981f35287f66e06344e9357f72b",
+      "bytes": 1625335,
+      "cells": 44000
+    },
+    "arxiv_target_certification": {
+      "sha256": "229e1a90207489fabf23a474aa9f81ccb4fcf86e369f54177d0b7056ff7d1635",
+      "bytes": 1624430,
+      "cells": 44000
+    },
+    "arxiv_target_evaluation": {
+      "sha256": "a4e3260b05ee1764e15e89ab15583c2b7324e6f5367398a97185c276463fc31b",
+      "bytes": 3251232,
+      "cells": 88000
+    }
+  },
+  "datasets": {
+    "sift": "sift-1m-heldout",
+    "arxiv": "arxiv-nomic-1.34m-heldout"
+  },
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "resource_plan": {
+    "cpu_affinity": [
+      2
+    ],
+    "expected_rss_bytes": 1073741824,
+    "address_space_bytes": 4294967296,
+    "file_size_bytes": 16777216,
+    "max_output_growth_bytes": 16777216,
+    "cpu_seconds": 600,
+    "wall_seconds": 600,
+    "minimum_projected_disk_free_bytes": 214748364800,
+    "remaining_project_growth_limit_bytes": 137438953472
+  },
+  "schema": "portable-baselines-1",
+  "original_source_sha256": "80754ec63f7a6073512227609c00a0657eb08cc32fe50410715cbf4487aa7be1",
+  "core_sha256": "b011547d3e57a84df2cbcb783fce8e7df3ee5cd79d942d6a3c6d43c655823c68",
+  "original_baseline_decisions_sha256": "e3ee34487f1a9984b50334abc52eb617e9dda7063f9ce161e36f026e95dc0040",
+  "expected_decisions_sha256": "300dd4e0adda46a4f41673f016093d1cfd46f9dbdca4c0e7eb2722fa0b5800cd",
+  "policy_adapter_sha256": "190e242620220b80a3f88233309ddfe9e01cf707aeec7821ca3e87d24b0ce10f",
+  "action_grid": [
+    10,
+    20,
+    40,
+    80,
+    120,
+    200,
+    400,
+    800,
+    1200,
+    1600,
+    2400
+  ],
+  "build_ids": [
+    "seed13_random",
+    "seed13_norm_ascending",
+    "seed83_random",
+    "seed83_norm_ascending",
+    "seed197_random",
+    "seed197_norm_ascending",
+    "seed2029_random",
+    "seed2029_norm_ascending"
+  ],
+  "methods": [
+    "endpoint2400",
+    "fixed1600",
+    "TG500",
+    "TG1000"
+  ],
+  "role_counts": {
+    "target_selection": 500,
+    "target_certification": 500,
+    "target_evaluation": 1000
+  },
+  "numeric_check": "Exact semantic fields; finite float differences <= 1e-12",
+  "design_identity": "Retrospective rule, now exposed with explicit lock-before-evaluation execution; not a new prospective study"
+}
