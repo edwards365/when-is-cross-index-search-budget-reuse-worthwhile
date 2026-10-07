@@ -64,3 +64,12 @@ jobs:
       - run: python -m pip install numpy==1.26.4
       - run: python -m unittest discover -s artifact/original_execution/portable_profiles -p "test_profiles.py" -v
       - run: python artifact/original_execution/portable_profiles/native_entry.py --output "$RUNNER_TEMP/profile-native-test" --authorize-build-and-synthetic-tests
+  profile-array-synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install numpy==1.26.4
+      - run: python -m unittest discover -s artifact/original_execution/portable_arrays -p "test_arrays.py" -v

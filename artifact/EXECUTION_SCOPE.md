@@ -46,3 +46,7 @@ The [truth adapter](original_execution/portable_truth/README.md) preserves the f
 ## Stage integration progress: native profiles (2026-10-07)
 
 The [profile entry](original_execution/portable_profiles/README.md) links new input/truth receipts to unchanged native replay sources, pins16 graph and64 CSV identities, and rejects incomplete or differing responses. Native synthetic tests establish only the small tested interface. Benchmark graph generation, profile NPZ materialization, timing and remaining experimental families still require integration; the whole original-execution chain is not declared closed.
+
+## Stage integration progress: profile arrays (2026-10-07)
+
+The [array materializer](original_execution/portable_arrays/README.md) supplies the CSV-to-NPZ interface needed by cache and saved-record analyses. It accepts new profile receipts and requires the original array identities. No old auditor or original response array was recomputed. The next fresh-query dependency is graph construction; the other original-execution families remain as listed in the source chain map.
