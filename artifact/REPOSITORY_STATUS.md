@@ -1,4 +1,14 @@
-# Repository reconciliation — 2026-10-06
+# Repository reconciliation — historical record and current navigation
+
+## Current delivery navigation — 2026-10-07
+
+The dated reconciliation below records the initial selective publication; it is not the current inventory of missing interfaces. [artifact-paper-v2](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2) supplies the declared saved-record numerical and narrative reconstruction routes. [artifact-delivery-v1](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) groups current paper sources/PDF, editable figures and new original-protocol stage entries; its `DELIVERY.json` records assets and actual verification scope.
+
+Use [EVIDENCE.md](EVIDENCE.md) for result-level reconstruction and [the ten-family execution map](original_execution/EXECUTION_MAP.md) for new measurement producers. Saved-result reconstruction, synthetic/native interface checks and a full-data scientific rerun are separate levels. Full-scale ANN/timing experiments were not independently remeasured during delivery; historical provenance gaps remain. New aggregation is available only where explicitly named, not implicitly for every new response stream.
+
+This supersedes older delivery-status statements below about absent TeX/PPT, bootstrap routes or portable entries. It does not change the historical commit counts, working-tree observations, scientific protocols or missing historical attestations. Earlier tags and archives remain immutable; selected delivery is still not a wholesale merge of the research branch.
+
+## Initial reconciliation — 2026-10-06
 
 This update replaces the public landing page with the current evaluation-and-analysis scope. It does not rewrite or retroactively merge the scientific history.
 
