@@ -1,0 +1,7 @@
+{
+  "tag": "artifact-cache-entry-v1",
+  "archive": "portable-cache-entry.zip",
+  "bytes": 15598,
+  "sha256": "6e0aca0eee553fd0ddd2626ca68dc8bf8c6cae89807550666aab04fc6cecd4cd",
+  "scope": "Standalone historical E2 input wiring; no new timing run or raw-to-input closure"
+}

@@ -1,0 +1,61 @@
+{
+  "status": "PASS_CLEAN_ADAPTER_AND_PINNED_INPUT_CHECKS",
+  "synthetic_tests": 18,
+  "tests_exit_code": 0,
+  "input_check_exit_code": 0,
+  "historical_prepared_inputs": [
+    {
+      "dataset": "sift",
+      "queries": 1000,
+      "dimension": 128,
+      "profile_payload_bytes": 7920000
+    },
+    {
+      "dataset": "arxiv",
+      "queries": 1000,
+      "dimension": 768,
+      "profile_payload_bytes": 7920000
+    }
+  ],
+  "input_files": 7,
+  "input_bytes": 10127358,
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "files": {
+    "cache_stage.py": {
+      "bytes": 9896,
+      "sha256": "7ec739ee614035875a53f2e4697052e93d482161cd50ec56e16d269a1a5448b0"
+    },
+    "historical_cache.py": {
+      "bytes": 9562,
+      "sha256": "281c20a4386db2c2f2778ef085a7e5f12756d829b77d9a152d37c11cd3647d40"
+    },
+    "inputs.json": {
+      "bytes": 2469,
+      "sha256": "71276c5296ca0082f487c9e36ef29443f642e5b1a5b1b0a2af7f30f70ede32dd"
+    },
+    "provenance.json": {
+      "bytes": 2626,
+      "sha256": "feab305c0df7dc9df69d3d86a4f6234f4dddb3a413f6ebd5d7970dc544aad57f"
+    },
+    "test_cache_stage.py": {
+      "bytes": 6088,
+      "sha256": "35ffda77998b4e88acf99e1360c45a823de939eaa29738ba251aa3d0ed0b819a"
+    },
+    "requirements.txt": {
+      "bytes": 14,
+      "sha256": "e77e7045d01a9431264f9262c6b199d8e7988c139276a5266a3cf689588ad66e"
+    },
+    "README.md": {
+      "bytes": 5028,
+      "sha256": "4894eab248953c0443ba4409b221a4c5b1017f71f4acc649a0e7dba6a7ddc525"
+    }
+  },
+  "timer_invocations": 0,
+  "ANN_runs": 0,
+  "original_auditor_runs": 0,
+  "linux_measurement_runtime_verified": false,
+  "raw_dataset_to_cache_chain_closed": false,
+  "manuscript_changed": false,
+  "resolved_validation_issue": "Initial synthetic output-path assertion compared Windows short and resolved long aliases; corrected expected normalized path, no production-path behavior changed."
+}

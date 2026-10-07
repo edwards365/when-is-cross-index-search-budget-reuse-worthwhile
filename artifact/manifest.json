@@ -98,8 +98,8 @@
       "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
     },
     "EXECUTION_SCOPE.md": {
-      "bytes": 4996,
-      "sha256": "d10e557b23bcf33fa42a91b2d2400fa4846c82848b8f99ea5d5e754e9b2ed2b9"
+      "bytes": 5655,
+      "sha256": "b573abdd1d5e1627e24984ebadad382a12de9492c66777aba0ba59cbcb3aa77c"
     },
     "input_manifest.json": {
       "bytes": 4065,
@@ -286,8 +286,8 @@
       "sha256": "ae0f82b39407ede22eb7729ec9e314cb78ff25d81b703fb40738af0e0d9cb5fe"
     },
     "original_execution/README.md": {
-      "bytes": 3299,
-      "sha256": "1c8b55f74e97b14132caea463b56fd3824a2e06e3228c8004b7efcaaf31f0ffd"
+      "bytes": 3950,
+      "sha256": "c91d00445044e1097558c492b7d6cdc99c4beadc7a749112c169547361237510"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -300,6 +300,42 @@
     "original_execution/validation.json": {
       "bytes": 2173,
       "sha256": "e265bf0fb0f9de3f54fcfbc31e599677078ab6cb0f81c861872d72e7fad9c1dc"
+    },
+    "original_execution/portable_cache/cache_stage.py": {
+      "bytes": 9896,
+      "sha256": "7ec739ee614035875a53f2e4697052e93d482161cd50ec56e16d269a1a5448b0"
+    },
+    "original_execution/portable_cache/historical_cache.py": {
+      "bytes": 9562,
+      "sha256": "281c20a4386db2c2f2778ef085a7e5f12756d829b77d9a152d37c11cd3647d40"
+    },
+    "original_execution/portable_cache/inputs.json": {
+      "bytes": 2469,
+      "sha256": "71276c5296ca0082f487c9e36ef29443f642e5b1a5b1b0a2af7f30f70ede32dd"
+    },
+    "original_execution/portable_cache/provenance.json": {
+      "bytes": 2626,
+      "sha256": "feab305c0df7dc9df69d3d86a4f6234f4dddb3a413f6ebd5d7970dc544aad57f"
+    },
+    "original_execution/portable_cache/test_cache_stage.py": {
+      "bytes": 6088,
+      "sha256": "35ffda77998b4e88acf99e1360c45a823de939eaa29738ba251aa3d0ed0b819a"
+    },
+    "original_execution/portable_cache/requirements.txt": {
+      "bytes": 14,
+      "sha256": "e77e7045d01a9431264f9262c6b199d8e7988c139276a5266a3cf689588ad66e"
+    },
+    "original_execution/portable_cache/README.md": {
+      "bytes": 5028,
+      "sha256": "4894eab248953c0443ba4409b221a4c5b1017f71f4acc649a0e7dba6a7ddc525"
+    },
+    "original_execution/portable_cache/validation.json": {
+      "bytes": 1877,
+      "sha256": "bd8b07548590832bba78821e0e735c1c7cba0ccd8f3c385772203b9f8f8430a3"
+    },
+    "original_execution/portable_cache/release.json": {
+      "bytes": 273,
+      "sha256": "53e8212860f38029346a20d53243d286ad9406e4f4572cb3f99dede040c3b76b"
     }
   }
 }

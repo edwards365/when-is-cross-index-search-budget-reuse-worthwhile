@@ -1,0 +1,52 @@
+{
+  "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+  "source_path": "scripts/icde2027_1m/minimal_route_20261004_v1.py",
+  "source_sha256": "80754ec63f7a6073512227609c00a0657eb08cc32fe50410715cbf4487aa7be1",
+  "frozen_config_path": "manifests/icde2027_1m/minimal_route_20261004_v1.json",
+  "frozen_config_sha256": "ea65e4f18dbf2d8a3f200ef5ab33cdf15b250360558e4b317e3b367ce3788d6b",
+  "core_sha256": "281c20a4386db2c2f2778ef085a7e5f12756d829b77d9a152d37c11cd3647d40",
+  "function_sha256": {
+    "write_json": "492993882b2e6013f7cbfcf59d7a2de44fdf3a882c91499cb23d546898a41a96",
+    "write_csv": "e2905902cc15744d7190a4bf44431b257b29dcafbdb80bc76edb52a0fa95cf7a",
+    "cache_key": "8fdbf6412d6a788bc656c6c1b324d80698aaef1faf4f218afcfac95d1c97412d",
+    "cache_get": "c542ec97ec375028fe0614e74db9a37f88374e66d34d1f694789117f438bd5c5",
+    "cache_bytes": "1f628af91d9c15908962b3d08d3a91debc961b22f8774d404a23949860c8460b",
+    "e2": "8b4b0dca9fe0c2970475affd63422cece478d48d08ae242220a735a77f260d6f",
+    "fresh_resources": "acc33abfdbf2f31ffa7932db4706a8f5033c5f43184d473df6d3a577bb0818f4"
+  },
+  "exactly_retained_functions": [
+    "write_json",
+    "write_csv",
+    "cache_key",
+    "cache_get",
+    "cache_bytes",
+    "fresh_resources"
+  ],
+  "e2_changes": [
+    {
+      "original": "        final=read_json(pin(conf,CAMPAIGN/f'tcp_fresh_profiles_v1_ops/{prefix}_target_evaluation/final.json'))\n",
+      "replacement": ""
+    },
+    {
+      "original": "        qbin=pin(conf,CAMPAIGN/f'tcp_fresh_profiles_v1/{prefix}_target_evaluation/queries.qbin')",
+      "replacement": "        qbin=input_path(conf,prefix,'queries')"
+    },
+    {
+      "original": "        truth=load_array(conf,CAMPAIGN/f'tcp_fresh_truth_v1/{prefix}_target_evaluation.npz')",
+      "replacement": "        truth=load_input(conf,prefix,'truth')"
+    },
+    {
+      "original": "base_version=conf['inputs'][conf['paths']['membership']]['sha256']",
+      "replacement": "base_version=conf['membership']['sha256']"
+    },
+    {
+      "original": "        profile=load_array(conf,next(x['array_path'] for x in read_json(pin(conf,conf['paths']['profile_audit']))['rows'] if x['dataset']==ds and x['role']=='target_evaluation'))",
+      "replacement": "        profile=load_input(conf,prefix,'profile')"
+    }
+  ],
+  "timing_loop_and_workload": "unchanged",
+  "original_argv_entry_not_imported": true,
+  "removed_dependencies": "Unused final read; E0 completion flag and whole-campaign global initialization replaced by explicit pinned input/schema checks.",
+  "runtime_equivalence_measured": false,
+  "historical_measurements_replaced": false
+}
