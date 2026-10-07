@@ -1,7 +1,7 @@
 {
   "archive": "original-execution-source-view.zip",
-  "archive_sha256": "0fbd43ff847fa0ff9811365bd39984f1d00750564d403f2054689ebaaf6f57ff",
-  "archive_bytes": 3349584,
+  "archive_sha256": "a97a7b1f1e7ee5ea1a032a9c17ecb9f56a7c90d62c48aee1b9a6cffbe8ffd889",
+  "archive_bytes": 3349784,
   "source_files": 946,
   "native_record_files": 125,
   "tag": "artifact-sources-v1",
