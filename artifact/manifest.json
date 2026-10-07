@@ -98,8 +98,8 @@
       "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
     },
     "EXECUTION_SCOPE.md": {
-      "bytes": 7451,
-      "sha256": "62f76590aa8788ed30e0fa850b3e74845384acc30e775abeba0f6aace02fb3a4"
+      "bytes": 7929,
+      "sha256": "d8cf60009df18f2aed16c9f990976502fbb96f6d9217be581b48df245bef96ac"
     },
     "input_manifest.json": {
       "bytes": 4065,
@@ -286,8 +286,8 @@
       "sha256": "ae0f82b39407ede22eb7729ec9e314cb78ff25d81b703fb40738af0e0d9cb5fe"
     },
     "original_execution/README.md": {
-      "bytes": 5404,
-      "sha256": "bc58084ec5223a78eb89f31314fade8ef98e962add16877c9de33cb693c077b0"
+      "bytes": 5815,
+      "sha256": "ee302dbd387da7ce3ef6c138fe809924173a367de4fde043b39cea2597b8b0c0"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -480,6 +480,26 @@
     "original_execution/portable_profiles/validation.json": {
       "bytes": 2553,
       "sha256": "d3d97190cb3fdafb1c83232b436e27648cd46e369fa2590ac0f8e364d1fdc106"
+    },
+    "original_execution/portable_arrays/config.json": {
+      "bytes": 2518,
+      "sha256": "83c3eb8829acbbdbae0979f32c0a307f3dbf04ae94f21e6231d9a0e89380cb36"
+    },
+    "original_execution/portable_arrays/materialize.py": {
+      "bytes": 7256,
+      "sha256": "d4eac9aad46e92ca62334fdf61604d06e8d90497432747f568ccab8d82129ab5"
+    },
+    "original_execution/portable_arrays/test_arrays.py": {
+      "bytes": 2678,
+      "sha256": "05c1da3da1301bb29c3d2c74890b73277ea3d79a9a7e3004a492f6e7ed49d84b"
+    },
+    "original_execution/portable_arrays/README.md": {
+      "bytes": 2728,
+      "sha256": "8682d1014110c92ee2e621cbae64e00d095b88e20fe2ecc8379e84b1fc7627ca"
+    },
+    "original_execution/portable_arrays/validation.json": {
+      "bytes": 686,
+      "sha256": "c253dc1cc9e7182261ae10e440d6355128a246a9428e8817f9e670387ef4505e"
     }
   }
 }

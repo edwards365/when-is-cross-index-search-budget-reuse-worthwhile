@@ -48,3 +48,7 @@ The paper remains pinned to `artifact-paper-v2` until original-execution integra
 ## Native profile entry
 
 [portable_profiles/README.md](portable_profiles/README.md) supplies the unchanged500/1000-query programs, pinned HNSW headers with license, a small native build/test command, and a one-role/eight-graph execution wrapper. New binaries and frozen CSV equivalence are distinct gates. It requires registered saved graphs; portable benchmark graph construction and CSV-to-array materialization remain open. No benchmark build or search was rerun.
+
+## Profile array handoff
+
+[portable_arrays/README.md](portable_arrays/README.md) connects complete new profile CSVs to the frozen analysis/cache NPZ schema, checking ordered queries/actions, hit counts, native count range and eight historical output hashes. Only synthetic serialization tests ran for delivery. Benchmark graph preparation remains upstream; this does not close all original-execution families.

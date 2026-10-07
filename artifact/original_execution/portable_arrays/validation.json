@@ -1,0 +1,25 @@
+{
+  "status": "PASS_CLEAN_SYNTHETIC_TESTS",
+  "tests": 12,
+  "original_arrays_recomputed": 0,
+  "ANN_runs": 0,
+  "old_auditor_runs": 0,
+  "files": {
+    "config.json": {
+      "bytes": 2518,
+      "sha256": "83c3eb8829acbbdbae0979f32c0a307f3dbf04ae94f21e6231d9a0e89380cb36"
+    },
+    "materialize.py": {
+      "bytes": 7256,
+      "sha256": "d4eac9aad46e92ca62334fdf61604d06e8d90497432747f568ccab8d82129ab5"
+    },
+    "test_arrays.py": {
+      "bytes": 2678,
+      "sha256": "05c1da3da1301bb29c3d2c74890b73277ea3d79a9a7e3004a492f6e7ed49d84b"
+    },
+    "README.md": {
+      "bytes": 2728,
+      "sha256": "8682d1014110c92ee2e621cbae64e00d095b88e20fe2ecc8379e84b1fc7627ca"
+    }
+  }
+}
