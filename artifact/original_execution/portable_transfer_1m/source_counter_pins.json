@@ -1,0 +1,27 @@
+{
+  "schema":"e1a-source-counter-addendum-1",
+  "reference_panel_sha256":"15fd4eed85c5d9b8bbf88ef62cb31ec05853a3c2b076732bd6d91e5c8e408d08",
+  "io_source_sha256":"f6e47b2cf3f874a6c583998dd8c1d74e3c2978fcf2370199701e28845505ab29",
+  "qbin":{
+    "sift":{"sha256":"33f6cf358c8c63775365ae3f052625dc6f84cca25e7d14224b12e7d01d562b1f","bytes":260024,"reference_receipt_sha256":"682107717ace077aa02dc93c82b1da3396bb8daa9b3c688f8e0c9556999eee76"},
+    "arxiv":{"sha256":"b6e7a05ebbfa75e6c7e81ba269a9f62d890f95f89a3a386b3394a115fbc83b9b","bytes":1540024,"reference_receipt_sha256":"e0af00ff5bfb607f83128186fbf8fca659e5698f62863661dc39a3e69a9efe53"}
+  },
+  "ndc_arrays":{
+    "arxiv-nomic-1.34m-heldout_seed13_norm_ascending":"a0a927816f9495d304f52b605b9397da1e0f139ad10f973b973c5c40db618ae8",
+    "arxiv-nomic-1.34m-heldout_seed13_random":"3c875ad3134813c76030b0d5544fc371400199e77ceb62df3372924463b981c4",
+    "arxiv-nomic-1.34m-heldout_seed83_norm_ascending":"de3dae787c7c9e140d170e6dcfbea28ebd3e47fa7e8edc130aa00134e042b891",
+    "arxiv-nomic-1.34m-heldout_seed83_random":"df1fd46295bdc7266034d6c879f7251477cb0bb515cc38e646fbce08537d5738",
+    "arxiv-nomic-1.34m-heldout_seed197_norm_ascending":"126af8b82f24ff3c8293c19476a39ae7479e42d2d57add94aba86aa60b998992",
+    "arxiv-nomic-1.34m-heldout_seed197_random":"60d3415a4b5c438407b02c7e95a828f6375ea7d3e829fdd734cafa224ab0df2e",
+    "arxiv-nomic-1.34m-heldout_seed2029_norm_ascending":"2efa33fb34b2ae5563da8aa6736f0dabf33192a8676bfcfd346fd02527f5ad48",
+    "arxiv-nomic-1.34m-heldout_seed2029_random":"316c6e52c0759808ad7986dcaa6279991b022eb48b3f577097e841dac8f6ff18",
+    "sift-1m-heldout_seed13_norm_ascending":"cd5e3ef269f47954567ae608bd61df7fea687c1c819f9858572ff0ab3357bff6",
+    "sift-1m-heldout_seed13_random":"118192d7bf2626e590e1c9de2c7883d32267a1b9e31fe58c462b998ed8910b73",
+    "sift-1m-heldout_seed83_norm_ascending":"70d7fd575a89ab1e8f3d4668b74c9ac502ef08e2cc4cd4b74a798215b8b452fc",
+    "sift-1m-heldout_seed83_random":"971f5b8beb54ac84bb4dbdc37bf96a74afa1bf11ba275c02cf49fdc301d89cc4",
+    "sift-1m-heldout_seed197_norm_ascending":"cfeaf600338f74fb621f280cbf093f307cac99a37212a58c03cb251dd3d208e9",
+    "sift-1m-heldout_seed197_random":"3cc0637f29512ff0b4a103b0fe0a3498eeff28c3d8e5685eef1e96f0ff3371c9",
+    "sift-1m-heldout_seed2029_norm_ascending":"74e14634c47322c0330a72e342f04ff3ff6126033bb5d80ec745e8f7fbcc9f23",
+    "sift-1m-heldout_seed2029_random":"9072ee986585c039e85b9eea765d70dbeb374d185f97f2ccf791cf90718de588"
+  }
+}

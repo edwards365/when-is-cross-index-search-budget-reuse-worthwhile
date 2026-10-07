@@ -846,8 +846,8 @@
       "sha256": "6c81ec5e218b5d54b6d8c9c609fa8284bd0e5bdaecbf9914aca93cedbeab86af"
     },
     "original_execution/portable_transfer_100k/requirements.txt": {
-      "bytes": 27,
-      "sha256": "5777d2799be00db3deda716eca898656d12a7c160e38a160905478dd147beff9"
+      "bytes": 43,
+      "sha256": "30f9e4384e1fb51fce59b92e04e8efc0d618ca96cd5643688acf59a72023df77"
     },
     "original_execution/portable_transfer_100k/resources.py": {
       "bytes": 2481,
@@ -1026,8 +1026,8 @@
       "sha256": "5afdaf004c5a6866e0b6d289795b765f33283cf4b06776b560121fc018a39a9e"
     },
     "original_execution/portable_ambiguity/requirements.txt": {
-      "bytes": 41,
-      "sha256": "5eb7744d9286d14e646210f066acfd660703532c319fd6b6f4602e4864d1e316"
+      "bytes": 57,
+      "sha256": "3c0a056d6b3230bd1b985a3b12cd4a2150dea947639cc013d57df1589d0ef19a"
     },
     "original_execution/portable_ambiguity/run_ambiguity.py": {
       "bytes": 20278,
@@ -1388,6 +1388,22 @@
     "original_execution/portable_costs/records/roles_receipt.json": {
       "bytes": 113860,
       "sha256": "40b055d394741464a4652013c71a44d3b317789d50f3edb3be409bbf2193070d"
+    },
+    "original_execution/portable_transfer_1m/source_counter.py": {
+      "bytes": 6015,
+      "sha256": "d6fdb811ec22ae4becbd0cd7427b7a896ee972550a07a8c5d8d31a9a2677d68a"
+    },
+    "original_execution/portable_transfer_1m/source_counter_pins.json": {
+      "bytes": 2487,
+      "sha256": "37bcc9a242a01165f09d27e82e0e9501768a12c3fb3eccf5c1c92c47fd4a5f9f"
+    },
+    "original_execution/portable_transfer_1m/test_source_counter.py": {
+      "bytes": 986,
+      "sha256": "5f6834948baf55266eefa0255bdf20b8b962b1c04f431f30030e5f0e49338f97"
+    },
+    "original_execution/portable_transfer_1m/source_counter.md": {
+      "bytes": 1863,
+      "sha256": "38d5013eedebf7d7c8694837d0d311b11981edfc5f71d64a7c9ab74986610548"
     }
   }
 }
