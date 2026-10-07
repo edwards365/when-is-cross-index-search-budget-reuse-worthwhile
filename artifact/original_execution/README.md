@@ -8,7 +8,7 @@ Start with the [ten-family EXECUTION_MAP.md](EXECUTION_MAP.md) for the paper-wid
 |---|---|---|
 | [Input preparation](portable_fresh_inputs/README.md) | Train-only roles, content exclusions, query files | 18 synthetic tests; frozen membership serialization |
 | [Exact truth](portable_truth/README.md) | Fixed-role Faiss L2/IP truth generation | 20 tests on Linux, including native synthetic cases; pinned wheel payload identity |
-| [Graph construction](portable_graphs/README.md) | One explicitly selected HNSW build unit | 3 tests; four tiny L2/IP/order graph cases |
+| [Graph construction](portable_graphs/README.md) | One explicitly selected HNSW build unit; optional original whole-unit timing | Source, timer and tiny L2/IP/order graph checks; see fixed CI for native execution |
 | [Native profiles](portable_profiles/README.md) | Complete fixed action grid on eight graphs | 10 wrapper tests and two role-size native programs tested on tiny graphs |
 | [Profile arrays](portable_arrays/README.md) | Ordered CSVs to frozen NPZ schema | 12 synthetic tests |
 | [Policy lock](portable_policy/README.md) | History-Max qualification, then SHA-bound evaluation | 16 synthetic tests |
@@ -30,7 +30,7 @@ See [dependency distinctions](DEPENDENCIES.md) and [dataset sources](datasets.js
 
 ## Additional original families
 
-- [100K recovery](portable_recovery_100k/README.md): S9-3 and paired S9-4, explicit preparation/build/profile/lock/evaluation/timing phases. The normalized Arxiv truth and physical L2 graph are preserved.
+- [100K recovery](portable_recovery_100k/README.md): S9-3 and paired S9-4, explicit preparation/build/profile/lock/evaluation/timing phases and [new-result analysis](portable_recovery_100k/NEW_ANALYSIS.md). The normalized Arxiv truth and physical L2 graph are preserved.
 - [Deep1M recovery](portable_deep/README.md): historical cosine panel with three test-member query roles, separate preparation/build/native replay/analysis. Test-member access requires explicit opt-in; delivery does not execute it.
 
 These entries have synthetic tests and frozen graph/input gates. They do not claim a new full-size reproduction or new benchmark times.
