@@ -98,8 +98,8 @@
       "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
     },
     "EXECUTION_SCOPE.md": {
-      "bytes": 8477,
-      "sha256": "4a0fd2d1051d09557bcc04d0f548425faec96306657f567ac1b86c53f659cf62"
+      "bytes": 8794,
+      "sha256": "db47c4f4749848aadb573e420df4b7d3fd84a6c91b3c40e31fe7430cc94468d5"
     },
     "input_manifest.json": {
       "bytes": 4065,
@@ -286,8 +286,8 @@
       "sha256": "ae0f82b39407ede22eb7729ec9e314cb78ff25d81b703fb40738af0e0d9cb5fe"
     },
     "original_execution/README.md": {
-      "bytes": 6292,
-      "sha256": "96e1f72eeec5da52ffaf08182a97dbe8d4192dea5c65f606a2b8988583f242f3"
+      "bytes": 6688,
+      "sha256": "dc72006eac039579891aadd20200fb0afc365ab5671aa44c9c36cbbd47ad5064"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -534,8 +534,44 @@
       "sha256": "3576993e15cf511fd9bdcd2aa4068154e9013470f35a02bb31c5d19e2a911908"
     },
     "original_execution/FRESH_CHAIN.md": {
-      "bytes": 3859,
-      "sha256": "599d21ea223887408914216b40e8e341560706241c801052e1b77e8923759f23"
+      "bytes": 4248,
+      "sha256": "981ebe482e46a38ceddb57f60d1b2559fad1d14d9fe132e86fc5a20157f76ed6"
+    },
+    "original_execution/portable_policy/config.json": {
+      "bytes": 2486,
+      "sha256": "6e01f72d3a49c59767123dfcef48eebd853a8a0cc1dc20a8d634aaa7486163fc"
+    },
+    "original_execution/portable_policy/expected_certification_rows.json": {
+      "bytes": 5688,
+      "sha256": "78cae1c22094e45fcde069b1f8894da59478e9af05398582e873bbad43a09d75"
+    },
+    "original_execution/portable_policy/historical_policy.py": {
+      "bytes": 5397,
+      "sha256": "25418e926552fe030cd0f350b80d8e8614b777e7dcaa8c919fb24934c5c38078"
+    },
+    "original_execution/portable_policy/policy.json": {
+      "bytes": 4781,
+      "sha256": "bee6138a331c3c9e1c5968babe95b86e7955a66ee39369102e9981726b3b8f2d"
+    },
+    "original_execution/portable_policy/README.md": {
+      "bytes": 3741,
+      "sha256": "e4e00e243de84cff18148b4cd53e13b5fa1d20e49135a695d5fbcbfd1a099538"
+    },
+    "original_execution/portable_policy/requirements.txt": {
+      "bytes": 28,
+      "sha256": "5a81cde5d4f409222788b0a0da88fff0acdb160f45ab8839d9661cff6aa10424"
+    },
+    "original_execution/portable_policy/run_policy.py": {
+      "bytes": 6894,
+      "sha256": "190e242620220b80a3f88233309ddfe9e01cf707aeec7821ca3e87d24b0ce10f"
+    },
+    "original_execution/portable_policy/test_policy.py": {
+      "bytes": 4335,
+      "sha256": "17a56efe99c33c6dc2b06fbf71222bb526950509b88b8b27abffe234a1368c19"
+    },
+    "original_execution/portable_policy/validation.json": {
+      "bytes": 1212,
+      "sha256": "3b2556f93fe3f890c85cbf6bfec4fac903fc9602feef6e566be6f77443a29d4c"
     }
   }
 }

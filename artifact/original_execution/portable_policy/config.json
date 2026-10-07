@@ -1,0 +1,70 @@
+{
+  "schema": "portable-policy-1",
+  "original_source_sha256": "1a60069211bed9b62bd1a40da2e3448e24f7a83003b77d2e5cc4a747d53dd4ab",
+  "core_sha256": "25418e926552fe030cd0f350b80d8e8614b777e7dcaa8c919fb24934c5c38078",
+  "policy_sha256": "bee6138a331c3c9e1c5968babe95b86e7955a66ee39369102e9981726b3b8f2d",
+  "expected_rows_sha256": "78cae1c22094e45fcde069b1f8894da59478e9af05398582e873bbad43a09d75",
+  "input_adapter_sha256": "9ba39909b740fcc2d4d62fedae8527d23adcd403fa2684bde02035f2876d345e",
+  "expected_arrays": {
+    "sift_source_design": {
+      "sha256": "a4e0fea0bc2deb76e4545c5b8c264f4d89f06985c9c6ac437b67ffc60891075a",
+      "bytes": 1567081,
+      "cells": 44000
+    },
+    "sift_target_selection": {
+      "sha256": "5b313d3914502bae98dfce622a55a62d8e447e03c4be789e7d4e222eaf9347d4",
+      "bytes": 1568119,
+      "cells": 44000
+    },
+    "sift_target_certification": {
+      "sha256": "7e63d865a989c54caee7b2c1d3f8d2fdb6cf11d86945fd6e357c598ec06adcc3",
+      "bytes": 1568573,
+      "cells": 44000
+    },
+    "sift_target_evaluation": {
+      "sha256": "ac8037d1d75a759698290607e8a4c4442eec6a68a2108b2087c5e76ca98c2a10",
+      "bytes": 3124509,
+      "cells": 88000
+    },
+    "arxiv_source_design": {
+      "sha256": "e4137a9df9a1c7c30a91000351ebb08444adca22b3ac6be25f09a004b63e6d9a",
+      "bytes": 1624464,
+      "cells": 44000
+    },
+    "arxiv_target_selection": {
+      "sha256": "0a82f17a49dd4565df8b107eb5c26c7b1eea0981f35287f66e06344e9357f72b",
+      "bytes": 1625335,
+      "cells": 44000
+    },
+    "arxiv_target_certification": {
+      "sha256": "229e1a90207489fabf23a474aa9f81ccb4fcf86e369f54177d0b7056ff7d1635",
+      "bytes": 1624430,
+      "cells": 44000
+    },
+    "arxiv_target_evaluation": {
+      "sha256": "a4e3260b05ee1764e15e89ab15583c2b7324e6f5367398a97185c276463fc31b",
+      "bytes": 3251232,
+      "cells": 88000
+    }
+  },
+  "datasets": {
+    "sift": "sift-1m-heldout",
+    "arxiv": "arxiv-nomic-1.34m-heldout"
+  },
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "numeric_check": "Exact integer/decision fields; absolute 1e-12 float check, no replacement of expected rows",
+  "resource_plan": {
+    "cpu_affinity": [
+      2
+    ],
+    "expected_rss_bytes": 1073741824,
+    "address_space_bytes": 4294967296,
+    "file_size_bytes": 16777216,
+    "max_output_growth_bytes": 16777216,
+    "cpu_seconds": 600,
+    "wall_seconds": 600,
+    "minimum_projected_disk_free_bytes": 214748364800,
+    "remaining_project_growth_limit_bytes": 137438953472
+  }
+}

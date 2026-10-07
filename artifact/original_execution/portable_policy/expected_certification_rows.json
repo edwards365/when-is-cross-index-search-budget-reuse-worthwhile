@@ -1,0 +1,178 @@
+[
+  {
+    "cert_endpoint_cp95_ucb": 0.023546585483971323,
+    "cert_endpoint_failures": 6,
+    "cert_mean_source_ndc_per_query": 479671.54,
+    "cert_tcp_abstentions": 12,
+    "cert_tcp_cp95_ucb": 0.10508176394677059,
+    "cert_tcp_failures": 41,
+    "dataset": "sift-1m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed13_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.026134711867926545,
+    "cert_endpoint_failures": 7,
+    "cert_mean_source_ndc_per_query": 479467.952,
+    "cert_tcp_abstentions": 12,
+    "cert_tcp_cp95_ucb": 0.03368827233114448,
+    "cert_tcp_failures": 10,
+    "dataset": "sift-1m-heldout",
+    "decision": "TCP",
+    "target_build": "seed13_norm_ascending"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.020910322942267072,
+    "cert_endpoint_failures": 5,
+    "cert_mean_source_ndc_per_query": 479648.98,
+    "cert_tcp_abstentions": 11,
+    "cert_tcp_cp95_ucb": 0.11390506836557418,
+    "cert_tcp_failures": 45,
+    "dataset": "sift-1m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed83_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.023546585483971323,
+    "cert_endpoint_failures": 6,
+    "cert_mean_source_ndc_per_query": 479465.362,
+    "cert_tcp_abstentions": 12,
+    "cert_tcp_cp95_ucb": 0.023546585483971323,
+    "cert_tcp_failures": 6,
+    "dataset": "sift-1m-heldout",
+    "decision": "TCP",
+    "target_build": "seed83_norm_ascending"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.028683663885716783,
+    "cert_endpoint_failures": 8,
+    "cert_mean_source_ndc_per_query": 479820.416,
+    "cert_tcp_abstentions": 12,
+    "cert_tcp_cp95_ucb": 0.12923092513204568,
+    "cert_tcp_failures": 52,
+    "dataset": "sift-1m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed197_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.018212851796106527,
+    "cert_endpoint_failures": 4,
+    "cert_mean_source_ndc_per_query": 479594.25,
+    "cert_tcp_abstentions": 12,
+    "cert_tcp_cp95_ucb": 0.020910322942267072,
+    "cert_tcp_failures": 5,
+    "dataset": "sift-1m-heldout",
+    "decision": "TCP",
+    "target_build": "seed197_norm_ascending"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.023546585483971323,
+    "cert_endpoint_failures": 6,
+    "cert_mean_source_ndc_per_query": 479798.554,
+    "cert_tcp_abstentions": 12,
+    "cert_tcp_cp95_ucb": 0.11610300124033485,
+    "cert_tcp_failures": 46,
+    "dataset": "sift-1m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed2029_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.023546585483971323,
+    "cert_endpoint_failures": 6,
+    "cert_mean_source_ndc_per_query": 479526.624,
+    "cert_tcp_abstentions": 12,
+    "cert_tcp_cp95_ucb": 0.028683663885716783,
+    "cert_tcp_failures": 8,
+    "dataset": "sift-1m-heldout",
+    "decision": "TCP",
+    "target_build": "seed2029_norm_ascending"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.00945228220807518,
+    "cert_endpoint_failures": 1,
+    "cert_mean_source_ndc_per_query": 482815.29,
+    "cert_tcp_abstentions": 3,
+    "cert_tcp_cp95_ucb": 0.0895023066295731,
+    "cert_tcp_failures": 34,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed13_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.012537605409672668,
+    "cert_endpoint_failures": 2,
+    "cert_mean_source_ndc_per_query": 482743.766,
+    "cert_tcp_abstentions": 3,
+    "cert_tcp_cp95_ucb": 0.015433734876752685,
+    "cert_tcp_failures": 3,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "TCP",
+    "target_build": "seed13_norm_ascending"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.005973551516349557,
+    "cert_endpoint_failures": 0,
+    "cert_mean_source_ndc_per_query": 482871.53,
+    "cert_tcp_abstentions": 3,
+    "cert_tcp_cp95_ucb": 0.08276150904882963,
+    "cert_tcp_failures": 31,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed83_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.005973551516349557,
+    "cert_endpoint_failures": 0,
+    "cert_mean_source_ndc_per_query": 482823.732,
+    "cert_tcp_abstentions": 3,
+    "cert_tcp_cp95_ucb": 0.020910322942267072,
+    "cert_tcp_failures": 5,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "TCP",
+    "target_build": "seed83_norm_ascending"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.012537605409672668,
+    "cert_endpoint_failures": 2,
+    "cert_mean_source_ndc_per_query": 482731.832,
+    "cert_tcp_abstentions": 2,
+    "cert_tcp_cp95_ucb": 0.07824266578566919,
+    "cert_tcp_failures": 29,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed197_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.012537605409672668,
+    "cert_endpoint_failures": 2,
+    "cert_mean_source_ndc_per_query": 482782.352,
+    "cert_tcp_abstentions": 3,
+    "cert_tcp_cp95_ucb": 0.018212851796106527,
+    "cert_tcp_failures": 4,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "TCP",
+    "target_build": "seed197_norm_ascending"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.005973551516349557,
+    "cert_endpoint_failures": 0,
+    "cert_mean_source_ndc_per_query": 482735.948,
+    "cert_tcp_abstentions": 3,
+    "cert_tcp_cp95_ucb": 0.07142206975048561,
+    "cert_tcp_failures": 26,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "ENDPOINT",
+    "target_build": "seed2029_random"
+  },
+  {
+    "cert_endpoint_cp95_ucb": 0.012537605409672668,
+    "cert_endpoint_failures": 2,
+    "cert_mean_source_ndc_per_query": 482784.358,
+    "cert_tcp_abstentions": 3,
+    "cert_tcp_cp95_ucb": 0.018212851796106527,
+    "cert_tcp_failures": 4,
+    "dataset": "arxiv-nomic-1.34m-heldout",
+    "decision": "TCP",
+    "target_build": "seed2029_norm_ascending"
+  }
+]

@@ -18,7 +18,10 @@ data; they do not re-execute the sealed benchmark or certify full-data success.
    replay programs; one role across eight registered graphs, full action grid.
 4. [Analysis arrays](portable_arrays/README.md): validated CSVs to the exact
    frozen NPZ schema consumed by saved-record analysis and cache measurement.
-5. [Cache entry](portable_cache/README.md): read-only seven-input validation
+5. [Qualification and evaluation](portable_policy/README.md): frozen History-Max
+   rule, certification-only lock, then explicitly SHA-bound evaluation. TG and
+   fixed-budget baseline decisions remain separate.
+6. [Cache entry](portable_cache/README.md): read-only seven-input validation
    or a separately authorized new cache measurement. Acquisition, API timing
    and cache lookup are distinct measurements.
 
@@ -36,6 +39,7 @@ The commands and resource conditions are in the linked stage READMEs.
 | Graphs | Hash-pinned source recipe; tiny two-metric/two-order native test in CI | Complete historical extension build provenance; full new graph byte equivalence |
 | Profiles | Native compilation and tiny ordered-ID/count interface checks | Full eight-target response equivalence or original binary identity |
 | Arrays | Synthetic schema, ordered grid, hit and identity rejection tests | Recomputed original arrays from a new full profile run |
+| Policy | Synthetic lock/role guards, all three qualification branches and union-event arithmetic | New full-array certification/evaluation, baseline policy integration |
 | Cache | Synthetic lookup-interface tests and saved seven-input checks | New benchmark cache timing or general cache-system performance |
 
 Local validation JSON files describe local checks; Linux-only native outcomes
@@ -45,8 +49,8 @@ of complete experiment reproduction.
 
 ## Remaining delivery work
 
-- Portable decision locking and native API timing entries, including timing
-  aggregation and provenance; the original source views remain available.
+- Simple-baseline policy integration and native API timing entries, including
+  timing aggregation and provenance; the original source views remain available.
 - Reload/component measurement and lifecycle aggregation interfaces, keeping
   ledger allocations distinct from unavoidable deployment work.
 - Other experiment families in [delivery/CHAINS.md](delivery/CHAINS.md):
@@ -55,6 +59,6 @@ of complete experiment reproduction.
 - Complete historical source/object provenance cannot be manufactured from
   an explicit new build. Keep missing attestations visible.
 
-Earlier source-map and progress text is historical where it says the six
-entries above are absent. This map does not supersede their scientific
+Earlier source-map and progress text is historical where it says the entries
+above are absent. This map does not supersede their scientific
 protocols or the remaining-family limitations.
