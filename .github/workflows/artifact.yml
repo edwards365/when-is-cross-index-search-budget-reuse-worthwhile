@@ -247,9 +247,9 @@ jobs:
         with:
           python-version: "3.11"
       - run: sudo apt-get update && sudo apt-get install -y build-essential cmake libopenblas-dev liblapack-dev libomp-dev pkg-config libhdf5-dev
-      - run: python -m pip install numpy==1.26.4
-      - run: python -m unittest discover -s artifact/original_execution/portable_native -p "test_native.py" -v
+      - run: python -m pip install numpy==1.26.4 scipy==1.13.1 h5py==3.11.0
       - run: python artifact/original_execution/portable_native/bootstrap_sources.py --download-public-sources
+      - run: python -m unittest discover -s artifact/original_execution/portable_native -p "test_native.py" -v
       - if: matrix.component == 'vamana'
         run: rustup toolchain install 1.97.1 --profile minimal --component rust-src
       - run: python artifact/original_execution/portable_native/ci_native.py --component ${{ matrix.component }} --toolchain "$HOME/.rustup/toolchains/1.97.1-x86_64-unknown-linux-gnu" --output "$RUNNER_TEMP/native-${{ matrix.component }}"
