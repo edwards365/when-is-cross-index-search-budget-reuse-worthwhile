@@ -1,0 +1,52 @@
+{
+  "schema": "original-input-acquisition-1",
+  "checked_utc_date": "2026-10-07",
+  "redistribute_data": false,
+  "datasets": {
+    "sift": {
+      "filename": "sift-128-euclidean.hdf5",
+      "url": "https://ann-benchmarks.com/sift-128-euclidean.hdf5",
+      "sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+      "bytes": 525128288,
+      "availability_check": "2026-10-07 HTTPS HEAD 200, Content-Length 525128288; no complete download",
+      "provenance": "main/manifests/icde2027_1m/role_spec.json",
+      "upstream": "https://github.com/erikbern/ann-benchmarks/blob/main/ann_benchmarks/datasets.py",
+      "rights": "Dataset rights remain with the original TexMex/SIFT provider; repository MIT license does not relicense data. Obtain directly from the provider.",
+      "train_shape": [1000000, 128]
+    },
+    "arxiv": {
+      "filename": "arxiv-nomic-768-normalized.hdf5",
+      "url": "https://huggingface.co/datasets/vector-index-bench/vibe/resolve/2f0b464f52e08e5bea3817dcc7a15755ba9a0c0f/arxiv-nomic-768-normalized.hdf5",
+      "sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+      "bytes": 4135431488,
+      "provenance": "main/manifests/icde2027_1m/role_spec.json",
+      "upstream": "https://huggingface.co/datasets/vector-index-bench/vibe/tree/2f0b464f52e08e5bea3817dcc7a15755ba9a0c0f",
+      "provider_metadata_check": "HF API LFS oid matches the frozen experiment SHA256; file size matches 4135431488. No new data download performed.",
+      "rights": "Provider dataset card declares CC-BY-4.0; preserve its attribution and consult upstream terms. No data redistributed here.",
+      "train_shape": [1344643, 768]
+    },
+    "glove": {
+      "filename": "glove-100-angular.hdf5",
+      "url": "https://ann-benchmarks.com/glove-100-angular.hdf5",
+      "sha256": "544af1d5e84e112cd4749571dcfd8ca109818a572f850af75a3a09e093a953c4",
+      "bytes": 485413888,
+      "availability_check": "2026-10-07 HTTPS HEAD 200, Content-Length 485413888; no complete download",
+      "provenance": "method-audit/manifests/hardness_portability_100k/data_manifest.json",
+      "upstream": "https://github.com/erikbern/ann-benchmarks/blob/main/ann_benchmarks/datasets.py",
+      "rights": "Obtain from ANN-Benchmarks and consult original Stanford GloVe terms; no relicensing or redistribution by this package.",
+      "dimensions": 100
+    },
+    "deep": {
+      "filename": "deep-image-96-angular.hdf5",
+      "url": "https://ann-benchmarks.com/deep-image-96-angular.hdf5",
+      "sha256": "a0a44dfe80c58e63860862eeea2d34e62cff958dc3aec14fd65263d1d3c751f8",
+      "bytes": 3848008288,
+      "availability_check": "2026-10-07 HTTPS HEAD 200, Content-Length 3848008288; no complete download",
+      "provenance": "main/manifests/graph_anns_phase3_ea85/p4_deep1m_preregistration.json",
+      "upstream": "https://github.com/erikbern/ann-benchmarks/blob/main/ann_benchmarks/datasets.py",
+      "rights": "Obtain from ANN-Benchmarks and consult original Deep-image dataset terms. No data redistribution in this package.",
+      "dimensions": 96
+    }
+  },
+  "processing": "Verify the original HDF5 bytes before panel-specific processing. A file named normalized is not permission to normalize it again. The legacy Deep test-role policy differs from the fresh train-only policy; never apply one panel's role loader globally. All full dataset downloads are opt-in and have NOT been rerun by this delivery task."
+}

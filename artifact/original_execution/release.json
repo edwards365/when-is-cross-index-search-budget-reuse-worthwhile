@@ -1,0 +1,11 @@
+{
+  "archive": "original-execution-source-view.zip",
+  "archive_sha256": "a97a7b1f1e7ee5ea1a032a9c17ecb9f56a7c90d62c48aee1b9a6cffbe8ffd889",
+  "archive_bytes": 3349784,
+  "source_files": 946,
+  "native_record_files": 125,
+  "tag": "artifact-sources-v1",
+  "kind": "source_protocol_and_historical_records",
+  "original_execution_closed": false,
+  "url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-sources-v1/original-execution-source-view.zip"
+}
