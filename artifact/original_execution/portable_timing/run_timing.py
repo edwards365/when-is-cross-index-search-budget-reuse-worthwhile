@@ -12,6 +12,7 @@ import time
 from timing import digest,pin,write_json,query_ids,reference,validate,save_arrays
 
 HERE=Path(__file__).resolve().parent
+OPERATIONAL_CONFIG_SHA='77f2c4b88ff1978c47dd465e72a2577144febdf13e2acdca2015ff94056264ce'
 
 def load(path,name):
     spec=importlib.util.spec_from_file_location(name,path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
@@ -27,8 +28,20 @@ def validated_native(folder,cfg):
     pin(folder/'runtime',r['binaries']['runtime']);pin(HERE/'e1a_runtime_native.cpp',cfg['source_sha256'])
     return r
 
-def validated_profile(folder,prefix,build,cfg):
+def validated_profile(folder,prefix,build,cfg,operational=False):
     done=json.loads((folder/'completed.json').read_text());start=json.loads((folder/'start.json').read_text())
+    if operational:
+        if (folder/'failure.json').exists() or done['status']!='NEW_OPERATIONAL_BOUNDARY_MEASUREMENT_COMPLETE' or done['kind']!='profiles' or start['config_sha256']!=OPERATIONAL_CONFIG_SHA:raise ValueError('New operational profile origin')
+        final=folder/'ops/final.json';pin(final,done['measured']['record_sha256']);record=json.loads(final.read_text())
+        if record['status']!='NATIVE_PROFILES_COMPLETE_AUDIT_PENDING' or (record['dataset'],record['role'])!=(cfg['datasets'][prefix]['name'],'target_evaluation'):raise ValueError('Operational evaluation role')
+        rows={r['build']:r for r in record['profiles']}
+        if len(record['profiles'])!=len(cfg['build_ids']) or set(rows)!=set(cfg['build_ids']):raise ValueError('Operational graph coverage')
+        for name,r in rows.items():
+            expected=cfg['datasets'][prefix]['evaluation']['profiles'][name]
+            if r['actual_exit_code']!=0 or r['csv_sha256']!=expected['sha256']:raise ValueError('Operational native exit/identity')
+            pin(folder/'data'/(name+'.csv'),expected['sha256'],expected['bytes'])
+        evaluation=cfg['datasets'][prefix]['evaluation'];pin(folder/'data/queries.qbin',evaluation['qbin_sha256'],evaluation['qbin_bytes'])
+        return folder/'data'/(build+'.csv')
     if (folder/'failure.json').exists() or done['status']!='NEW_PROFILES_MATCH_ALL_FROZEN_CSVS' or (done['dataset'],done['role'])!=(prefix,'target_evaluation'):
         raise ValueError('New complete evaluation profile receipt required')
     if start['config_sha256']!=cfg['dependencies']['portable_profiles']['config.json']:
@@ -41,6 +54,13 @@ def validated_profile(folder,prefix,build,cfg):
     p=folder/(build+'.csv');frozen=cfg['datasets'][prefix]['evaluation']['profiles'][build]
     pin(p,frozen['sha256'],frozen['bytes']);return p
 
+def operational_lock(folder,expected_sha,policy,expected_rows):
+    pin(folder/'completed.json',expected_sha);done=json.loads((folder/'completed.json').read_text());start=json.loads((folder/'start.json').read_text())
+    if (folder/'failure.json').exists() or done['status']!='NEW_OPERATIONAL_BOUNDARY_MEASUREMENT_COMPLETE' or done['kind']!='decision' or start['config_sha256']!=OPERATIONAL_CONFIG_SHA:raise ValueError('New operational decision origin')
+    path=folder/'ops/certification_decision_lock.json';pin(path,done['measured']['record_sha256']);lock=json.loads(path.read_text())
+    if lock['status']!='DECISIONS_LOCKED_BEFORE_EVALUATION_ARRAY_READ':raise ValueError('Qualification lock boundary')
+    policy.same_rows(lock['rows'],expected_rows);return lock
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ('input-adapter','policy-adapter','policy-lock','prepared','profiles','graphs','native-build','output'):
@@ -49,6 +69,8 @@ def main():
     p.add_argument('--dataset',choices=('sift','arxiv'),required=True);p.add_argument('--build',required=True)
     p.add_argument('--outstanding-growth-bytes',type=int,required=True)
     p.add_argument('--authorize-new-timing',action='store_true');p.add_argument('--assert-isolated-host',action='store_true')
+    p.add_argument('--operational-profiles',action='store_true',help='Accept explicit original-boundary profile receipt and data/ layout')
+    p.add_argument('--operational-policy-lock',action='store_true',help='Accept explicit original-boundary decision receipt')
     a=p.parse_args()
     if not a.authorize_new_timing or not a.assert_isolated_host:p.error('Explicit new timing and externally arranged host-isolation acknowledgement required')
     if platform.system()!='Linux' or platform.machine()!='x86_64' or sys.version_info[:2]!=(3,11) or sys.flags.optimize:raise ValueError('Linux x86_64 Python3.11 without -O required')
@@ -61,7 +83,7 @@ def main():
     # Lock validation deliberately precedes reads of evaluation profile/query contents.
     policy=load(a.policy_adapter/'run_policy.py','timing_policy_lock')
     pc=json.loads((a.policy_adapter/'config.json').read_text());expected=json.loads((a.policy_adapter/'expected_certification_rows.json').read_text())
-    lock=policy.validated_lock(a.policy_lock,a.policy_lock_sha256,pc,expected)
+    lock=operational_lock(a.policy_lock,a.policy_lock_sha256,policy,expected) if a.operational_policy_lock else policy.validated_lock(a.policy_lock,a.policy_lock_sha256,pc,expected)
     if any(r['decision']=='UNDEPLOYABLE' for r in lock['rows']):raise ValueError('Undeployable target has no substitute timing action')
     dependencies(a.input_adapter,cfg['dependencies']['portable_fresh_inputs'])
     adapter=load(a.input_adapter/'prepare_inputs.py','timing_resources')
@@ -75,7 +97,7 @@ def main():
     qbin=a.prepared/'tcp_fresh_profiles_v1'/(a.dataset+'_target_evaluation')/'queries.qbin'
     pin(qbin,evaluation['qbin_sha256'],evaluation['qbin_bytes'])
     graph=a.graphs/(a.dataset+'_'+a.build+'.bin');gp=row['graphs'][a.build];pin(graph,gp['sha256'],gp['bytes'])
-    csv=validated_profile(a.profiles,a.dataset,a.build,cfg)
+    csv=validated_profile(a.profiles,a.dataset,a.build,cfg,a.operational_profiles)
     ids=query_ids(qbin);expected_topk=reference(csv,ids,cfg['action_grid'])
     plan=cfg['resource_plan']
     out,snapshot=adapter.preflight({'python_minor':[3,11],'resource_plan':plan},a.output,
@@ -93,7 +115,9 @@ def main():
         'profile_receipt_sha256':digest(a.profiles/'completed.json'),'graph_sha256':gp['sha256'],
         'qbin_sha256':evaluation['qbin_sha256'],'profile_csv_sha256':digest(csv),'schedule_seed':seed,
         'host_isolation':'Caller arranged; lease prevents concurrent timing through the same native build, not all unrelated host work',
-        'historical_timing_replaced':False,'graph_load_and_validation_not_query_timing':True})
+        'historical_timing_replaced':False,'graph_load_and_validation_not_query_timing':True,
+        'profile_origin':'operational' if a.operational_profiles else 'portable_profiles',
+        'policy_origin':'operational' if a.operational_policy_lock else 'portable_policy'})
     started=time.monotonic_ns();timed=out/'timed.csv';timeout=False
     try:
         argv=[str((a.native_build/'runtime').resolve()),str(graph.resolve()),str(qbin.resolve()),row['metric'],

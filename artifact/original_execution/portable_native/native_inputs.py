@@ -31,7 +31,11 @@ def prepare(a,c,out):
         neighbors=t['neighbor_raw_ids'];scores=t['scores']
     if neighbors.shape!=(n,10) or scores.shape!=(n,10) or any(len(set(row))!=10 for row in neighbors):raise ValueError('Truth rows')
     if a.role=='source_design':
-        if a.bundle is None or entry.sha(a.bundle)!=spec['bundle_sha256']:raise ValueError('Pinned source bundle required')
+        if a.bundle is None:raise ValueError('Source bundle required')
+        if a.new_bundle_receipt is not None:
+            fresh=entry.check_prior(a.new_bundle_receipt,'source-bundle')
+            if fresh['dataset']!=a.dataset or fresh['layout']!='NEW_NATIVE_SOURCE_ONLY_V1' or a.bundle.resolve()!=(a.new_bundle_receipt/'bundle.hdf5').resolve() or entry.sha(a.bundle)!=fresh['container_sha256']:raise ValueError('Explicit new source-only bundle identity')
+        elif entry.sha(a.bundle)!=spec['bundle_sha256']:raise ValueError('Pinned historical source bundle required; new layout needs explicit receipt')
         with h5py.File(a.bundle,'r') as h:
             if h.attrs['source_sha256']!=reg['source_sha256'] or h['train'].shape!=(spec['base_rows'],d):raise ValueError('Bundle binding')
             raw=h['raw_ids'][:];order=h['order_seed13_random'][:];queries=h['source_design_queries'][:]
@@ -44,6 +48,9 @@ def prepare(a,c,out):
         prior=entry.check_prior(a.source_prepared,'prepare')
         if prior['role']!='source_design' or prior['dataset']!=a.dataset:raise ValueError('Source preparation identity')
         if entry.sha(a.qbin)!=r['qbin_sha256']:raise ValueError('Qbin pin')
+        if a.new_role_input is not None:
+            role_record=entry.check_prior(a.new_role_input,'input-role')
+            if role_record['dataset']!=a.dataset or role_record['role']!=a.role or a.qbin.resolve()!=(a.new_role_input/'queries.qbin').resolve() or a.truth.resolve()!=(a.new_role_input/'truth.npz').resolve():raise ValueError('New role input provenance')
         raw=np.fromfile(a.source_prepared/'base_raw_ids.bin',dtype='<i8');sort=np.argsort(raw)
         pos=np.searchsorted(raw[sort],neighbors)
         if np.any(pos>=len(raw)) or not np.array_equal(raw[sort][pos],neighbors):raise ValueError('Truth outside base')

@@ -87,15 +87,63 @@ no normalization or distance relabeling occurs. Vamana degree32/Lbuild64/alpha1.
 k10/L64/reps1/task1; DARTH M16/efC100/efS200, source observations every5,
 held-out target.95 and prediction intervals1000/100 remain frozen.
 
-Config binds source-bundle/truth and each role query/truth hash. These are input
-dependencies, not silently regenerated substitutes. Upstream bundle generation
-and raw dataset acquisition belong to the separate shared input family.
+Config binds historical source-bundle/truth and each role query/truth hash.
+The original all-role HDF5 container's hash is not replaced. The explicit
+role-safe bridge below supplies fresh inputs without depending on an unavailable
+byte-identical container or inspecting future-role answers during source work.
 Model training checks exact native feature order, tree count and finite structure.
 Vamana exports ordered IDs and independently checks recall. Genuine-IP DARTH also
 checks all exported scores against raw-vector float64 dot products. SIFT's legacy
 DARTH executable supplies self-reported recall only; no independent returned-ID
 audit is asserted. Native counters are not independently exact-distance counters,
 and operational timing is not a benchmark rerun.
+
+## Input prerequisite bridge: both SIFT and Arxiv
+
+The fixed public input HDF5 identities and registered train-row roles are in
+`roles.json`; native preparation never opens its `test`, `neighbors` or
+`distances` members. Use the pinned Faiss1.8.0.post1 wheel from
+`refresh_native_lock.json`, NumPy1.26.4 and h5py3.11.0. The `input-role` phase
+uses CPUs4–19/16 truth threads; the other input stages use CPU2. Original
+resource floors and new exclusive output rules still apply.
+
+1. `input-role --dataset sift/arxiv --role source_design --hdf5 RAW`
+   creates `queries.qbin` and `truth.npz`. It runs only the unchanged original
+   E1a source exact-truth block, then requires the original frozen qbin and
+   truth SHA. Alternatively `--truth PINNED_EXISTING_TRUTH` imports that file
+   after checking the same hash. No approximate graph or scientific worker runs.
+2. `source-bundle --dataset ... --hdf5 RAW --prior NEW_SOURCE_ROLE_INPUT`
+   creates a **new declared source-only layout**, not the historical all-role
+   HDF5. It retains the exact native-required raw float32 base, raw IDs, seed13
+   insertion order, source query IDs/vectors and source truth; independent
+   rereading checks every base/query bit and all IDs/order/truth. No later-role
+   vectors or answers are stored. The new receipt binds code/config, raw source,
+   truth-input receipt, semantic audit and new container SHA.
+3. `prepare --dataset ... --role source_design --bundle NEW_BUNDLE/bundle.hdf5
+   --truth NEW_SOURCE_ROLE_INPUT/truth.npz --new-bundle-receipt NEW_BUNDLE`
+   accepts this new layout **only through the explicit receipt argument**.
+   Without it, the original legacy bundle SHA remains mandatory. Then execute
+   the source search and, for DARTH, source model stages from the table.
+4. For each held-out role in order, run `input-role --dataset ... --role ROLE
+   --hdf5 RAW --previous PRECEDING_NATIVE_STAGE`. Selection requires completed
+   Vamana `source-search` or DARTH `darth-train`; certification requires the
+   selection response; evaluation requires certification response. These are
+   registered fixed-action roles, not outcome-driven parameter choices. Only
+   after that gate does it read the role vectors or generate/import its truth.
+   The original E1a role-specific truth function and serialization are retained;
+   all qbin/truth frozen hashes must match. No alternative dispatch/hash retry.
+5. `prepare --dataset ... --role ROLE --source-prepared NEW_SOURCE_PREPARE
+   --qbin NEW_ROLE_INPUT/queries.qbin --truth NEW_ROLE_INPUT/truth.npz
+   --new-role-input NEW_ROLE_INPUT`, then the unchanged same-index/model held-out
+   search. Repeat steps4–5 for the next registered role.
+
+This new layout is an input-delivery representation, not a scientific change or
+retrospective replacement of the old bundle. h5py3.11.0/HDF51.14.2 `libver=latest`
+container metadata can differ across creation times (observed in two empty
+synthetic files), so raw file SHA is not treated as a canonical scientific-content
+digest. The legacy hash still identifies exactly the archived container. New
+source-only output receives its own identity after full semantic checks; no
+attempt is made to backdate metadata or repin the old file.
 
 ## Separate 100K Recall95 member-refresh family
 
@@ -134,3 +182,8 @@ does not claim historical graph or timing bitwise identity. Synthetic tests
 exercise membership/permutation and source-pool logic; full40-cell science is
 not executed during packaging or CI. No old science/auditor, old PID, saved
 result or cached model is rerun here.
+
+The separately versioned authored-model CI control uses the non-cached Mat
+prediction interface; the historical v1 probe and scientific SingleRow calls
+remain unchanged. See [CONTROL_INTERFACE_V2.md](CONTROL_INTERFACE_V2.md) for
+the observed CI failure, pinned-source diagnosis, and exact validation scope.

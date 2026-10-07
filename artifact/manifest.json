@@ -502,20 +502,20 @@
       "sha256": "c253dc1cc9e7182261ae10e440d6355128a246a9428e8817f9e670387ef4505e"
     },
     "original_execution/portable_graphs/build_graph.py": {
-      "bytes": 7429,
-      "sha256": "65f066dd87f060159fb0fd485a60928cabae0208e2efcd7ef753457d318be4ea"
+      "bytes": 8103,
+      "sha256": "087cabebbbcb08082e58ef417c0db4f76bd58b57512ab6ed5cfeb6143de43776"
     },
     "original_execution/portable_graphs/config.json": {
-      "bytes": 6959,
-      "sha256": "f43f12301f35de429cb741d46b21ff7d7da07d29d97b2c61b82824240d20567d"
+      "bytes": 7165,
+      "sha256": "cf9c84db3f35081d90591797561b552cf70f80eed3b2af534e633ea0c09ba75f"
     },
     "original_execution/portable_graphs/historical_graph.py": {
       "bytes": 3140,
       "sha256": "62f37c5906c87bcdd9d0b95590341ea2b4ab0951bec2ad53d83432ccdec94c8c"
     },
     "original_execution/portable_graphs/README.md": {
-      "bytes": 3278,
-      "sha256": "7fce895390c4cfdae49f04684dd3841d8ffd31c1ce50b4391b86f5c40f24c513"
+      "bytes": 4390,
+      "sha256": "759d63644b60a9fd267be3c0b9ae4c5c253720c4e570c41da6b4f25721e7a5a6"
     },
     "original_execution/portable_graphs/requirements-build.txt": {
       "bytes": 77,
@@ -526,12 +526,12 @@
       "sha256": "2d488273b99f2c7f2409a2cf7e369ee887980667718a28e8acec0cd240ba79d7"
     },
     "original_execution/portable_graphs/test_graphs.py": {
-      "bytes": 2580,
-      "sha256": "614cce250da4f23b6f33dc762e08272317ef95998bcf652b589bb3032054b0b6"
+      "bytes": 5635,
+      "sha256": "96f838ef4ea513d870658c23e70e18569aa2ce5b31f4a6843b7f37155b556f36"
     },
     "original_execution/portable_graphs/validation.json": {
-      "bytes": 1072,
-      "sha256": "3576993e15cf511fd9bdcd2aa4068154e9013470f35a02bb31c5d19e2a911908"
+      "bytes": 1237,
+      "sha256": "be7459681503a8de965677493cba84826f96ac5f5f9b4d01e4f41cb39c434910"
     },
     "original_execution/FRESH_CHAIN.md": {
       "bytes": 5058,
@@ -622,8 +622,8 @@
       "sha256": "6bb4ecc163a6750f5a482a8d829034ed2531d78c2d907f408bb3c05c4742d0d4"
     },
     "original_execution/portable_timing/run_timing.py": {
-      "bytes": 9680,
-      "sha256": "97a555e5aa8f88dfb752d0895f18d77e01e14cf85665415d31712b1e83f4d5e1"
+      "bytes": 12428,
+      "sha256": "e3c26e77e63510ffed56a216836cc0417443106bc54c2cd05c1997bfa9f5cc8b"
     },
     "original_execution/portable_timing/test_timing.py": {
       "bytes": 6129,
@@ -1066,8 +1066,8 @@
       "sha256": "ef97e9145ad2ee13800076adf901271d9e725e86020d4e1f6d868146b85595ba"
     },
     "original_execution/portable_costs/README.md": {
-      "bytes": 2883,
-      "sha256": "fc5f56c272ade95413ef3548e232d884fca1b0d554a18c99addc74396de10271"
+      "bytes": 3507,
+      "sha256": "2bea85ef9d045f38e3784bf9710405337df9b246a53a2083748de5bcea26f893"
     },
     "original_execution/portable_costs/test_components.py": {
       "bytes": 2378,
@@ -1414,8 +1414,8 @@
       "sha256": "63023d9f36fcb7b542b4cfe291da4cfae10a6625794db801ff14b2b13c2f49fe"
     },
     "original_execution/portable_native/config.json": {
-      "bytes": 110257,
-      "sha256": "ef9db0b1aef5b796c3a57b78c54c33f1844e09af3de5d343c63b62644c4c6043"
+      "bytes": 112675,
+      "sha256": "b871bf1ecadc9dc1eb4974d081bac837c0815daae920a55e8527ae4a2f87b398"
     },
     "original_execution/portable_native/darth_arxiv_ip_native_v1.cpp": {
       "bytes": 5355,
@@ -1434,20 +1434,20 @@
       "sha256": "255691180dc1537cc7d1e7155e5ccb09b824799fe9fea2340143afdef675800a"
     },
     "original_execution/portable_native/darth_phases.py": {
-      "bytes": 13667,
-      "sha256": "d11a3dc3f25a3200d868024c8d638387bc52fe082cc4bf96a0577188e2e1bdd3"
+      "bytes": 14269,
+      "sha256": "9609b5b6651a6f83b9c015bdc0a4eee3678e05a0d6dc49f65afcea6ebfc77ee9"
     },
     "original_execution/portable_native/input_core.py": {
       "bytes": 2330,
       "sha256": "f2c1420c0866c63ca4dc1ba75fed1119fd3bfd06c8ccf3936847a7a317f398b7"
     },
     "original_execution/portable_native/native_inputs.py": {
-      "bytes": 4668,
-      "sha256": "2491fdb44cbbde00fcb5bc28e9a22e067b45ca40cb88f717f2d6249c0e2cb2bc"
+      "bytes": 5526,
+      "sha256": "01198a622604c1eea2a4aef8480139fede0836967d29a97ea84d556e89a1ba9b"
     },
     "original_execution/portable_native/README.md": {
-      "bytes": 8524,
-      "sha256": "8f542df3ef72411c0ed1574a90d3953b670ecb75f5833bb37f16eebde979a6e8"
+      "bytes": 12135,
+      "sha256": "08b8026c000446403ecd9cf8f6a33201c7ede26d41bec032857b0e51ce839f04"
     },
     "original_execution/portable_native/refresh_analysis.py": {
       "bytes": 20162,
@@ -1474,16 +1474,16 @@
       "sha256": "91288d1c1ba032653136e9430f670c54b7d46202056b18102db4e45c1fc1f9ff"
     },
     "original_execution/portable_native/run_native.py": {
-      "bytes": 12356,
-      "sha256": "54040adf75614b841e2b666126a084f2e468eac05a57fce2c78235b7e31c2548"
+      "bytes": 12676,
+      "sha256": "b54d374e8202084588af30876892a7bcd0fafb9ff942e8d2d6aa2e4a1908228a"
     },
     "original_execution/portable_native/synthetic_model.txt": {
       "bytes": 2915,
       "sha256": "b7affaf765a7ae4d6af1a532663c8f2c796bcdf600681a1786f42d6c89fa7284"
     },
     "original_execution/portable_native/test_native.py": {
-      "bytes": 7066,
-      "sha256": "48f8c299f3fd8609ed005d8fbd1f170ba3cd5409e7fe06e9eb116df85c1f708b"
+      "bytes": 9594,
+      "sha256": "3e403457421cafc67a4c898588824974c91dae7558d52c47f59066c806ebbc0a"
     },
     "original_execution/portable_native/training_native_lock.json": {
       "bytes": 1593,
@@ -1498,8 +1498,8 @@
       "sha256": "4087534c5c9683c977bc09770d95a7cfdb137cdeef28f3affe1fc87765c6b012"
     },
     "original_execution/portable_native/validation.json": {
-      "bytes": 1003,
-      "sha256": "6851578790359fc21be5f7dc93fc190e6e54b27dc675caf7a11fc245fd8067c1"
+      "bytes": 1909,
+      "sha256": "c4d126239c96f5bf2594f32c4a88a81e2d4f040e4b324f5486f0541914bcec45"
     },
     "original_execution/portable_native/darth-source/CMakeLists.txt": {
       "bytes": 2790,
@@ -2928,6 +2928,138 @@
     "original_execution/portable_adaef/official/benchmarking-darth/tutorial/cpp/CMakeLists.txt": {
       "bytes": 1196,
       "sha256": "7e361f025411555278d0524bd8f162abbaae7bfc2466e922b48d24d7332aec45"
+    },
+    "original_execution/portable_faiss_1m/audit_e6_faiss_exact_dc_v1.py": {
+      "bytes": 4944,
+      "sha256": "24f68ddada6820c3cdef4b8845b98915945c98b39ef8068ce4145c4fbcdf9d3d"
+    },
+    "original_execution/portable_faiss_1m/audit_e6_faiss_target_counts_v1.py": {
+      "bytes": 2719,
+      "sha256": "38a4bf0c1c39fbe32a05557e9230a4d507cbc33d5de726464e30bd125cf20fe7"
+    },
+    "original_execution/portable_faiss_1m/build_counter.py": {
+      "bytes": 5290,
+      "sha256": "328d7f0b30a0ae7770c8d1e84ca78eb8f524db0f0e7770be58e98f7d3c9686ac"
+    },
+    "original_execution/portable_faiss_1m/config.json": {
+      "bytes": 248200,
+      "sha256": "665711dcebe9bd6ed1edfff36dda9081d1b6f3864941713ad0e3a309d5848c9e"
+    },
+    "original_execution/portable_faiss_1m/counter_check.py": {
+      "bytes": 4165,
+      "sha256": "87b035ff570f852e76de84f8440a09df41f93338f3d80fa85365bea864f2ef20"
+    },
+    "original_execution/portable_faiss_1m/e6_faiss_exact_dc_reset_corrected_v1.cpp": {
+      "bytes": 7591,
+      "sha256": "6985925f7fb891ca4b39bf04620d7f59442d6ede1620e63a66f5741af567b854"
+    },
+    "original_execution/portable_faiss_1m/generic_package_lock.json": {
+      "bytes": 20277,
+      "sha256": "c4a76e5a9120044a2083c57b6eb3bed8a6182bf9bf09c07251aaa52a9b20a41b"
+    },
+    "original_execution/portable_faiss_1m/historical_core.py": {
+      "bytes": 17548,
+      "sha256": "af0fafb1b61922119371b73ab063a7016e0464921b11c3cbdd71bb1725d97230"
+    },
+    "original_execution/portable_faiss_1m/latency_core.py": {
+      "bytes": 6116,
+      "sha256": "1ecf5f176e5e6b2b4eedada6a1e92d5123f166a70588b956a192f713f1e47073"
+    },
+    "original_execution/portable_faiss_1m/native_check.py": {
+      "bytes": 2568,
+      "sha256": "4abf61a0f705e9d476a21a1319a0902d8be263b5c523a5c889970ea03c94399d"
+    },
+    "original_execution/portable_faiss_1m/README.md": {
+      "bytes": 7224,
+      "sha256": "93f441442e2979298e5ffc85da9803fe8782abacc1a42c8b85ac2bd954aff67b"
+    },
+    "original_execution/portable_faiss_1m/run_faiss.py": {
+      "bytes": 16504,
+      "sha256": "9e1b1e4f5c3ef4293b9876874fabd3f8756b615df92a1a74292a9d1f46300ef3"
+    },
+    "original_execution/portable_faiss_1m/run_supplement.py": {
+      "bytes": 13470,
+      "sha256": "5f21e361c4c594377d8cc18cdb74f0504a8513d6f5d2d7ceaedc0e8ab474783e"
+    },
+    "original_execution/portable_faiss_1m/synthetic_limits.py": {
+      "bytes": 1224,
+      "sha256": "ad7375f67aad7e4c3a7909794b35896461fcddd0de6e7e338d07a9c3a74d4572"
+    },
+    "original_execution/portable_faiss_1m/test_faiss.py": {
+      "bytes": 3532,
+      "sha256": "103ada29450f3687311764787921d4675e762a5b61069c6b92e71c5b7b3c869f"
+    },
+    "original_execution/portable_faiss_1m/validation.json": {
+      "bytes": 772,
+      "sha256": "caccbde7114cde17f56e4c9894cb58f168086a27cf77a4bbb701bd54c53aab0d"
+    },
+    "original_execution/portable_costs/materialize_operational.py": {
+      "bytes": 5566,
+      "sha256": "064bd16af2e5ed7cde537ebd0ec11221f33d2a8f31cc43eb63a6e4c79660de6c"
+    },
+    "original_execution/portable_costs/measure_operational.py": {
+      "bytes": 12839,
+      "sha256": "627b608e8b104bad12694aef4fbcf2652b9c1af52b8ea5f66bd77cf7c50c0ffe"
+    },
+    "original_execution/portable_costs/NEW_LEDGER.md": {
+      "bytes": 9936,
+      "sha256": "37937d84f26271c5ab684f2f5bcb94b4a7a8a503dd56fcbe3c5ff46bb99d77ff"
+    },
+    "original_execution/portable_costs/new_ledger.py": {
+      "bytes": 26164,
+      "sha256": "a79a1cc1a5a17b5ddbf06a6c302dfe17c50fd6c748358e28ceb66e36bfb848f5"
+    },
+    "original_execution/portable_costs/operational_config.json": {
+      "bytes": 26484,
+      "sha256": "77f2c4b88ff1978c47dd465e72a2577144febdf13e2acdca2015ff94056264ce"
+    },
+    "original_execution/portable_costs/operational_core.py": {
+      "bytes": 19592,
+      "sha256": "808b7da6044cd0c38a3ae067a5b0fa48091a8b9668d1573e0f7272f2c47c76dc"
+    },
+    "original_execution/portable_costs/OPERATIONAL_MEASUREMENTS.md": {
+      "bytes": 4863,
+      "sha256": "585302648fa90d8b254913b4fafec2aadf93a47b3b3d335d23c213a83fe987f4"
+    },
+    "original_execution/portable_costs/operational_validation.json": {
+      "bytes": 476,
+      "sha256": "c723605caa0856e6dd9221cf25b236fcddc0df020c17cc64137faeccf155a515"
+    },
+    "original_execution/portable_costs/test_new_ledger.py": {
+      "bytes": 16021,
+      "sha256": "a859964f4fa06359d34ad9895a6e4165b94be83da4bd2b157ca285554560bc1e"
+    },
+    "original_execution/portable_costs/test_operational.py": {
+      "bytes": 8904,
+      "sha256": "5b732a086b1eeaeb6a4dc0cc32161db90b1c005d1d09f4140923a0e88ce71f36"
+    },
+    "original_execution/portable_graphs/operational_graph.py": {
+      "bytes": 5080,
+      "sha256": "da0388a269835415bc661f628760e70b9a4f54f889394ebdc17381f12699d5a6"
+    },
+    "original_execution/portable_timing/test_operational_origin.py": {
+      "bytes": 2158,
+      "sha256": "585028eeff6dc994a5c7f0da35259be782fdf808ad7ee93014be91e560409216"
+    },
+    "original_execution/portable_native/CONTROL_INTERFACE_V2.md": {
+      "bytes": 2159,
+      "sha256": "e8a17f5d38fc81eb7472e1c534d82a72fa8062894a420e17e66ced53a49b3e71"
+    },
+    "original_execution/portable_native/darth_compiled_interface_probe_v2.cpp": {
+      "bytes": 3509,
+      "sha256": "9f0194501c652caecdddb010fdd975bd3b28ffd9c2d1e5c95cfa0448a8185839"
+    },
+    "original_execution/portable_native/input_bridge.py": {
+      "bytes": 8691,
+      "sha256": "e199c7ae73480cab501cb70ae78f49de513e104c662b1717026ab295c652c851"
+    },
+    "original_execution/portable_native/native_truth_core.py": {
+      "bytes": 9300,
+      "sha256": "7d163ce05479fce86c12e2658cdf7814a4094239f173aeec62269d96531a53cb"
+    },
+    "original_execution/EXECUTION_MAP.md": {
+      "bytes": 5689,
+      "sha256": "875d17cebe6aa6647e6857062a6171104e951d61b08f0cef286265ba7fea972e"
     }
   }
 }

@@ -2,6 +2,21 @@
 import csv,importlib.metadata,importlib.util,json,os,shutil,struct,subprocess,sys
 from pathlib import Path
 HERE=Path(__file__).resolve().parent
+
+def audit_model_control(text):
+    """All 363 unique authored one-hot/permutation predictions, not a marker."""
+    import math
+    lines=[x.split('\t') for x in text.splitlines() if x.startswith('PRED\t')]
+    if len(lines)!=363:raise ValueError('All authored model predictions required')
+    perm=[0,1,2,3,4,6,5,7,9,8,10];seen=set()
+    for fields in lines:
+        if len(fields)!=5:raise ValueError('Malformed authored prediction')
+        _,arm,row,tree,value=fields
+        arm,row,tree=int(arm),int(row),int(tree);value=float(value);key=(arm,row,tree)
+        if arm not in range(3) or row not in range(11) or tree not in range(11) or key in seen:raise ValueError('Authored prediction identity')
+        seen.add(key);active=perm[row] if arm==1 else row
+        if not math.isfinite(value) or abs(value-float(active==tree))>1e-12:raise ValueError('Authored model prediction mismatch')
+    return {'predictions':len(seen),'interface':'LGBM_BoosterPredictForMat','control_version':2}
 def command(args,out,name,env=None,cwd=None):
     with (out/(name+'.stdout')).open('xb') as so,(out/(name+'.stderr')).open('xb') as se:
         process=subprocess.Popen(list(map(str,args)),stdout=so,stderr=se,env=env,cwd=cwd,start_new_session=True)
@@ -93,15 +108,10 @@ def run(a,c,out):
         if a.flavor=='arxiv-ip':
             command([out/'darth_ip','--controls'],out,'ip_controls',env)
             if 'NEW_IP_AND_NEGATIVE_FEATURE_CONTROLS_PASS' not in (out/'ip_controls.stdout').read_text():raise ValueError('IP control marker missing')
-        command([compiler,'-O2','-std=c++17','-I'+str(include),HERE/'darth_compiled_interface_probe_v1.cpp',lib,'-ldl','-Wl,-rpath,'+str(lib.parent),'-o',out/'model_control'],out,'model_compile')
+        command([compiler,'-O2','-std=c++17','-I'+str(include),HERE/'darth_compiled_interface_probe_v2.cpp',lib,'-ldl','-Wl,-rpath,'+str(lib.parent),'-o',out/'model_control'],out,'model_compile')
         command([out/'model_control',HERE/'synthetic_model.txt'],out,'model_control',env)
-        lines=[x.split('\t') for x in (out/'model_control.stdout').read_text().splitlines() if x.startswith('PRED\t')]
-        if len(lines)!=363:raise ValueError('All authored model predictions required')
-        perm=[0,1,2,3,4,6,5,7,9,8,10]
-        for _,arm,row,tree,value in lines:
-            arm,row,tree=int(arm),int(row),int(tree);active=perm[row] if arm==1 else row
-            if abs(float(value)-float(active==tree))>1e-12:raise ValueError('Authored model prediction mismatch')
-        return {'flavor':a.flavor,'lightgbm_build_receipt_sha256':entry.sha(a.prior/'completed.json'),'lightgbm_library':str(lib),'lightgbm_library_sha256':entry.sha(lib),'new_full_source_build':True,'historical_object_source_pairing_attested':False}
+        control=audit_model_control((out/'model_control.stdout').read_text())
+        return {'flavor':a.flavor,'model_control':control,'lightgbm_build_receipt_sha256':entry.sha(a.prior/'completed.json'),'lightgbm_library':str(lib),'lightgbm_library_sha256':entry.sha(lib),'new_full_source_build':True,'historical_object_source_pairing_attested':False}
     build=entry.check_prior(a.native_build,'darth-build');lib=Path(build['lightgbm_library'])
     if entry.sha(lib)!=build['lightgbm_library_sha256']:raise ValueError('C++ model library changed')
     env=dict(os.environ,LD_LIBRARY_PATH=str(a.native_build/'build/faiss')+os.pathsep+str(lib.parent))

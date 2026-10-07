@@ -40,7 +40,16 @@ receipts. Their outer wrapper timers are not all identical to the old operationa
 boundaries: new preparation includes query exports; new policy computation omits
 some input reads; profile query export is prepared earlier. This entry rejects
 those new receipt types rather than relabeling their wall times as old components.
-The historical producer bodies and their exact timer boundaries are available
-in the separate source archive. A new complete measured lifecycle ledger must
-record those boundaries explicitly; the saved-paper path here is complete, but
-that new-measurement integration is not asserted complete.
+The [operational measurement entry](OPERATIONAL_MEASUREMENTS.md) now exposes
+the original role, profile and decision timer boundaries on new outputs.
+`materialize_operational.py` connects its verified profiles to the normal policy
+and baseline entries. Graph construction separately offers the original
+whole-unit timer through `portable_graphs --measure-operational-unit`.
+
+The [new lifecycle bridge](NEW_LEDGER.md) consumes these typed measurements,
+paired graph/reload receipts, locked evaluations, API timing and cache records.
+It derives the original conditional cost equations without accepting caller-
+supplied cost numbers. Missing whole-graph timing prevents standalone thresholds;
+it does not prevent the matched eight-graph scenario where those costs cancel.
+These are future execution interfaces and synthetic-tested integrations, not new
+full-data measurements or replacements for the saved paper ledger.

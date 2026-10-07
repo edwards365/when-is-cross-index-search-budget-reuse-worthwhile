@@ -67,7 +67,7 @@ def audit_report(report,truth,rows,base_rows):
     return {'mean_recall':float(np.mean(recall)),'below095':sum(x<.95 for x in recall),'native_cmps_independently_counted':False}
 def run(a,c):
     if not a.authorize_new_execution:raise ValueError('Explicit opt-in required')
-    cpus=set(range(4,12)) if a.phase=='darth-train' and check_prior(a.prior,'darth-source')['dataset']=='arxiv' else {2}
+    cpus=set(range(4,20)) if a.phase=='input-role' else (set(range(4,12)) if a.phase=='darth-train' and check_prior(a.prior,'darth-source')['dataset']=='arxiv' else {2})
     if not cpus<=os.sched_getaffinity(0):raise ValueError('Required CPUs unavailable')
     os.sched_setaffinity(0,cpus)
     for key in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','RAYON_NUM_THREADS'):os.environ[key]=str(len(cpus))
@@ -79,7 +79,9 @@ def run(a,c):
     def timeout(sig,frame):raise TimeoutError('Phase wall limit')
     signal.signal(signal.SIGALRM,timeout);signal.alarm(14400);record={}
     try:
-        if a.phase.startswith('refresh-'):
+        if a.phase in ('input-role','source-bundle'):
+            record=module('input_bridge').run(a,c,out)
+        elif a.phase.startswith('refresh-'):
             record=module('refresh_phases').run(a,c,out)
         elif a.phase=='lightgbm-build' or a.phase.startswith('darth-'):
             record=module('darth_phases').run(a,c,out)
@@ -129,14 +131,14 @@ def run(a,c):
     except BaseException as e:res.write_json(out/'failure.json',{'status':'FAILED_STOP_DEPENDENT_PHASES','error':repr(e)});raise
     finally:signal.alarm(0)
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('phase',choices=['check','source','fetch','build','prepare','source-search','heldout-search','lightgbm-build','darth-build','darth-source','darth-train','darth-heldout','refresh-prepare','refresh-build','refresh-replay','refresh-analyze'])
-    for name in ('output','prior','toolchain','bundle','truth','qbin','source_prepared','native_build','prepared','graph','model','hdf5'):p.add_argument('--'+name.replace('_','-'),type=Path)
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('phase',choices=['check','source','fetch','build','prepare','source-search','heldout-search','lightgbm-build','darth-build','darth-source','darth-train','darth-heldout','refresh-prepare','refresh-build','refresh-replay','refresh-analyze','input-role','source-bundle'])
+    for name in ('output','prior','toolchain','bundle','truth','qbin','source_prepared','native_build','prepared','graph','model','hdf5','previous','new_bundle_receipt','new_role_input'):p.add_argument('--'+name.replace('_','-'),type=Path)
     p.add_argument('--refresh-dataset',choices=['sift100k','arxiv_nomic_100k']);p.add_argument('--snapshot',choices=['old','target_refresh05']);p.add_argument('--seed',type=int);p.add_argument('--units',nargs='+',type=Path)
     p.add_argument('--flavor',choices=['arxiv-ip','legacy-l2'],default='arxiv-ip')
     p.add_argument('--dataset',choices=['sift','arxiv']);p.add_argument('--role',choices=['source_design','target_selection','target_certification','target_evaluation']);p.add_argument('--authorize-new-execution',action='store_true');p.add_argument('--outstanding-growth-bytes',type=int)
     a=p.parse_args();c=config()
     if a.phase=='check':print(json.dumps({'source_pins':'PASS','historical_tree_match':c['historical_tree_match'],'science_runs':0}));return
-    need={'source':[],'fetch':['prior','toolchain'],'build':['prior','toolchain'],'prepare':['dataset','role','truth'],'source-search':['native_build','prepared'],'heldout-search':['native_build','prepared','graph'],'lightgbm-build':[],'darth-build':['prior'],'darth-source':['native_build','prepared'],'darth-train':['prior','native_build'],'darth-heldout':['native_build','prepared','graph','model'],'refresh-prepare':['hdf5','refresh_dataset'],'refresh-build':['prepared','snapshot','seed'],'refresh-replay':['prepared','graph','native_build'],'refresh-analyze':['units']}[a.phase]+['output','outstanding_growth_bytes']
+    need={'source':[],'fetch':['prior','toolchain'],'build':['prior','toolchain'],'prepare':['dataset','role','truth'],'source-search':['native_build','prepared'],'heldout-search':['native_build','prepared','graph'],'lightgbm-build':[],'darth-build':['prior'],'darth-source':['native_build','prepared'],'darth-train':['prior','native_build'],'darth-heldout':['native_build','prepared','graph','model'],'refresh-prepare':['hdf5','refresh_dataset'],'refresh-build':['prepared','snapshot','seed'],'refresh-replay':['prepared','graph','native_build'],'refresh-analyze':['units'],'input-role':['hdf5','dataset','role'],'source-bundle':['hdf5','dataset','prior']}[a.phase]+['output','outstanding_growth_bytes']
     if any(getattr(a,k)is None for k in need):p.error('Required: '+','.join(need))
     run(a,c)
 if __name__=='__main__':main()

@@ -1,6 +1,8 @@
 {
   "schema": "portable-graphs-1",
   "core_sha256": "62f37c5906c87bcdd9d0b95590341ea2b4ab0951bec2ad53d83432ccdec94c8c",
+  "operational_core_sha256": "da0388a269835415bc661f628760e70b9a4f54f889394ebdc17381f12699d5a6",
+  "operational_original_segment_sha256": "43c0e78dc2bb03761153926edc9a6d18ac7effd4bcb0ca727f3937ca72855ca2",
   "historical_source_sha256": "e8f89456dd906365c79e9a09688c3f604ce93cd631891aa8ebfd01a779599ae9",
   "source_distribution": {
     "filename": "hnswlib-0.8.0.tar.gz",

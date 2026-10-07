@@ -5,7 +5,24 @@ import run_native as entry
 import native_inputs
 import darth_phases
 import refresh_phases
+import input_bridge
 class NativeTests(unittest.TestCase):
+    def test_authored_probe_predictions(self):
+        perm=[0,1,2,3,4,6,5,7,9,8,10]
+        rows=[f'PRED\t{a}\t{r}\t{t}\t{int((perm[r] if a==1 else r)==t)}' for r in range(11) for a in range(3) for t in range(11)]
+        self.assertEqual(darth_phases.audit_model_control('\n'.join(rows))['predictions'],363)
+        cached=[f'PRED\t{a}\t{r}\t{t}\t{int(r==0)}' for r in range(11) for a in range(3) for t in range(11)]
+        for bad in (cached,rows[:-1]+rows[:1],[rows[0].rsplit('\t',1)[0]+'\tnan']+rows[1:]):
+            with self.assertRaises(ValueError):darth_phases.audit_model_control('\n'.join(bad))
+    def test_probe_api_and_scientific_iteration_scope(self):
+        import re
+        v2=(entry.HERE/'darth_compiled_interface_probe_v2.cpp').read_text()
+        self.assertIn('1, 11, 1, C_API_PREDICT_NORMAL, tree, 1,',v2)
+        self.assertNotIn('LGBM_BoosterPredictForMatSingleRow(',v2)
+        for path in ('darth_ip_DeclarativeRecall.cpp','darth-source/faiss/impl/DeclarativeRecall.cpp'):
+            calls=re.findall(r'LGBM_BoosterPredictForMatSingleRow\((.*?)\);',(entry.HERE/path).read_text(),re.S)
+            self.assertEqual(len(calls),3)
+            for call in calls:self.assertRegex(call,r'C_API_PREDICT_NORMAL,\s*0,\s*-1,')
     def test_pins(self):
         c=entry.config();self.assertTrue(c['historical_tree_match']);self.assertEqual(c['rust_version'],'1.97.1')
     def test_whole_tree(self):
@@ -86,4 +103,18 @@ class NativeTests(unittest.TestCase):
             def getrlimit(self,k):return (123,456)
             def setrlimit(self,k,v):self.got=v
         r=Resource();ci_native.bounded_limit(r,0,999);self.assertEqual(r.got,(123,123))
+    def test_source_only_bundle_full_bits(self):
+        import h5py
+        with tempfile.TemporaryDirectory() as t:
+            root=Path(t);source=root/'raw.h5';raw=np.arange(128,dtype='<f4').reshape(32,4)/7;raw[7,1]=-0.
+            with h5py.File(source,'x') as f:f['train']=raw
+            qids=np.array([0,2],dtype=np.int64);keep=np.ones(32,bool);keep[qids]=False;keep[5]=False;ids=np.flatnonzero(keep).astype(np.int64);q=raw[qids];truth=np.tile(ids[:10],(2,1));pin=entry.sha(source);bundle=root/'bundle.hdf5'
+            input_bridge.write_source_only(bundle,source,keep,ids,qids,q,truth,pin,h5py,chunk=8)
+            audit=input_bridge.audit_source_only(bundle,source,keep,ids,qids,q,truth,pin,h5py,chunk=8);self.assertFalse(audit['future_role_vectors_or_truth_in_bundle'])
+            with h5py.File(bundle,'r+') as f:f['train'][0,0]+=1
+            with self.assertRaises(AssertionError):input_bridge.audit_source_only(bundle,source,keep,ids,qids,q,truth,pin,h5py,chunk=8)
+    def test_new_role_gate(self):
+        from types import SimpleNamespace
+        self.assertIsNone(input_bridge.gate(SimpleNamespace(role='source_design')))
+        with self.assertRaises(ValueError):input_bridge.gate(SimpleNamespace(role='target_evaluation',previous=None))
 if __name__=='__main__':unittest.main()

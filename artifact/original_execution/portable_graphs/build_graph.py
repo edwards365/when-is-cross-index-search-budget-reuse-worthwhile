@@ -25,7 +25,7 @@ def main():
     for n in ('input-adapter','prepared','source','output-root'):p.add_argument('--'+n,type=Path,required=True)
     p.add_argument('--dataset',choices=('sift','arxiv'),required=True);p.add_argument('--seed',type=int,choices=(13,83,197,2029),required=True)
     p.add_argument('--history',choices=('random','norm_ascending'),required=True)
-    p.add_argument('--outstanding-growth-bytes',type=int,required=True);p.add_argument('--authorize-graph-build',action='store_true');a=p.parse_args()
+    p.add_argument('--outstanding-growth-bytes',type=int,required=True);p.add_argument('--authorize-graph-build',action='store_true');p.add_argument('--measure-operational-unit',action='store_true',help='Use the exact original whole-unit timer boundary; new operational measurement, not formal timing');a=p.parse_args()
     if not a.authorize_graph_build:p.error('Explicit graph build opt-in required')
     if platform.system()!='Linux' or platform.machine()!='x86_64' or sys.version_info[:2]!=(3,11) or sys.flags.optimize:raise ValueError('Linux x86_64 Python3.11 required')
     if 2 not in os.sched_getaffinity(0):raise ValueError('CPU2 unavailable')
@@ -71,16 +71,21 @@ def main():
         hnsw,native=installed_source(cfg)
         input_core=adapter.load_core(reg);roles,allids,base=adapter.partition(reg,row,input_core)
         if digest(a.source)!=row['source_sha256']:raise ValueError('Source SHA')
-        n,dim=row['train_shape'];keep=np.zeros(n,dtype=bool);keep[base]=True
-        core=load(HERE/'historical_graph.py','historical_graph',cfg['core_sha256'])
-        result=core.construct(a.source,n,dim,keep,base,cfg['datasets'][a.dataset]['metric'],a.seed,a.history,index,hnsw,np,h5py)
+        n,dim=row['train_shape']
+        if a.measure_operational_unit:
+            core=load(HERE/'operational_graph.py','operational_graph',cfg['operational_core_sha256'])
+            result=core.construct(a.source,[n,dim],set(allids),np.asarray(row['expected_base_exclusions'],dtype=np.int64),len(base),cfg['datasets'][a.dataset]['metric'],a.seed,a.history,index,unit/'operational.json',unit/'operational_failure.json',hnsw,np,h5py,resource)
+        else:
+            keep=np.zeros(n,dtype=bool);keep[base]=True
+            core=load(HERE/'historical_graph.py','historical_graph',cfg['core_sha256'])
+            result=core.construct(a.source,n,dim,keep,base,cfg['datasets'][a.dataset]['metric'],a.seed,a.history,index,hnsw,np,h5py)
         expected=cfg['datasets'][a.dataset]['graphs'][f'seed{a.seed}_'+a.history]
         if result['index_sha256']!=expected['sha256'] or result['index_bytes']!=expected['bytes']:raise ValueError('Frozen graph bytes differ; stop, no retry/repinning')
         if sum(p.stat().st_size for p in root.rglob('*') if p.is_file())>plan['max_total_output_growth_bytes']:raise ValueError('Graph panel output cap')
         masks=[next(s for s in p.read_text().splitlines() if s.startswith('Cpus_allowed_list:')).split(':')[1].strip() for p in Path('/proc/self/task').glob('*/status')]
         if not masks or set(masks)!={'2'}:raise ValueError('All-thread affinity')
         adapter.write_json(unit/'completed.json',dict(result,status='NEW_GRAPH_MATCHES_FROZEN_BYTES',native=native,thread_masks=masks,
-            query_outcomes_accessed=False,not_historical_build_receipt=True))
+            query_outcomes_accessed=False,not_historical_build_receipt=True,operational_unit_measured=bool(a.measure_operational_unit)))
     except BaseException as e:adapter.write_json(unit/'failure.json',{'status':'FAILED_STOP_NEW_GRAPH_UNITS_AND_PROFILES','error':repr(e)});raise
     finally:signal.alarm(0)
 if __name__=='__main__':main()

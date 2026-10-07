@@ -2,11 +2,14 @@
   "status": "LOCAL_SYNTHETIC_AND_SOURCE_IDENTITY_PASS",
   "platform": "Windows Python 3.12.14; NumPy 1.26.4",
   "command": "python -m unittest -v test_native.py",
-  "tests_passed": 14,
-  "seconds": 21.647,
+  "tests_passed": 18,
+  "seconds": 20.685,
   "coverage": ["full 1343-file historical DiskANN source reconstruction", "all packaged source pins", "unsafe archive rejection", "raw-ID mapping", "signed IP score bits", "exclusive native vector export", "fvec float-bit preservation", "fixed Build/Load action", "ordered returned-ID recall checks", "independent dot-score negative control", "100-tree model finite structure negative control", "refresh membership exact frozen deleted-ID hash", "leave-one-build-out source pool", "stricter inherited resource limits"],
   "original_data_opened": false,
+  "new_input_bridge_tests": ["source-only HDF5 complete float32 bit audit and deliberate corrupted-vector rejection", "held-out role gate fails before missing predecessor access"],
+  "hdf5_container_metadata_control": {"h5py": "3.11.0", "hdf5": "1.14.2", "fixture": "Two empty libver=latest files created 1.1 seconds apart", "sha256": ["40f70d34a9406e2ba57ba8ecd0850a673c8cffa6a316a9fe4823fbc222e13829", "ab3076b27f7b2bfc8b1f266d06311234bf230153444b176edb234b1476aa8658"], "scope": "Container metadata nondeterminism only, not scientific vector variation"},
   "old_science_or_auditors_run": false,
+  "control_v2_regression": {"expected_unique_predictions": 363, "observed_cached_tree_pattern_rejected": true, "duplicate_and_nan_rejected": true, "production_fixed_all_tree_call_sites_checked": 6, "compiled_v2_execution": "PENDING_SEPARATE_LINUX_CI", "failed_ci_stdout_sha256": "e3def1c35c25f234da24ff342817b8ef39fbf1b13834398049303a29c636e935"},
   "linux_native_compilation": "NOT_RUN_LOCALLY; use distinct ci_native.py build-only contract",
   "historical_darth_object_source_pairing": "NOT_ATTESTED; new full-source recipe does not change this"
 }

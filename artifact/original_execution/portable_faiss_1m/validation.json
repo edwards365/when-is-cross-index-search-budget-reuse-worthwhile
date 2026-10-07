@@ -1,0 +1,18 @@
+{
+  "schema": "portable-faiss1m-validation-1",
+  "core_sha256": "af0fafb1b61922119371b73ab063a7016e0464921b11c3cbdd71bb1725d97230",
+  "local_python": "3.12.14",
+  "local_platform": "Windows",
+  "synthetic_tests": 7,
+  "truth_gate": "Own 48-record Faiss predecessor before native or heldout access; four unchanged E1a truth cores and all eight original NPZ pins",
+  "actual_test_exit": 0,
+  "python_compile_exit": 0,
+  "graph_records": 48,
+  "response_records": 192,
+  "fixed_selection_direction_rows": 1104,
+  "fixed_certification_rows": 3408,
+  "generic_pinned_header_library_payload_files": 124,
+  "full_scientific_experiment_executed": false,
+  "historical_experiment_rerun": false,
+  "native_linux_checks": "pending parent CI; no successful native run claimed here"
+}
