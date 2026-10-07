@@ -1,0 +1,12 @@
+{
+  "status": "LOCAL_SYNTHETIC_AND_SOURCE_IDENTITY_PASS",
+  "platform": "Windows Python 3.12.14; NumPy 1.26.4",
+  "command": "python -m unittest -v test_native.py",
+  "tests_passed": 14,
+  "seconds": 21.647,
+  "coverage": ["full 1343-file historical DiskANN source reconstruction", "all packaged source pins", "unsafe archive rejection", "raw-ID mapping", "signed IP score bits", "exclusive native vector export", "fvec float-bit preservation", "fixed Build/Load action", "ordered returned-ID recall checks", "independent dot-score negative control", "100-tree model finite structure negative control", "refresh membership exact frozen deleted-ID hash", "leave-one-build-out source pool", "stricter inherited resource limits"],
+  "original_data_opened": false,
+  "old_science_or_auditors_run": false,
+  "linux_native_compilation": "NOT_RUN_LOCALLY; use distinct ci_native.py build-only contract",
+  "historical_darth_object_source_pairing": "NOT_ATTESTED; new full-source recipe does not change this"
+}

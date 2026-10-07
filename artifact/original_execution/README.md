@@ -46,6 +46,13 @@ These entries have synthetic tests and frozen graph/input gates. They do not cla
 
 Native CI uses newly generated small vectors only. Full-size original execution is opt-in and has not been repeated during delivery. Historical binary attestation and new source reproducibility are separate records.
 
+## Native and official-adapter execution
+
+- [Native Vamana, DARTH and 100K refresh](portable_native/README.md): source dependencies, native builds, role-safe preparation, frozen training and saved-graph searches; historical and new build identities remain distinct.
+- [Official Ada-ef](portable_adaef/README.md): original C++ adapter, role-isolated truth, source statistics, selection, certification and evaluation with independent endpoint checks.
+
+These entries are undergoing Linux build and synthetic-input validation; original scientific datasets are not rerun by CI.
+
 ## Three separate delivery layers
 
 1. [Saved-result reconstruction](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2)

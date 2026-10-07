@@ -1,0 +1,209 @@
+{
+  "schema": "portable-official-adaef-1",
+  "pins": {
+    "e2_adaef_native.cpp": "757fd99cb0c84ade1f6f4990298e6c5cf4cae08903d23a5c256c8622df5321bf",
+    "roles.json": "91288d1c1ba032653136e9430f670c54b7d46202056b18102db4e45c1fc1f9ff",
+    "base_exclusions.json": "e1da86becacce12dba90f443a401c7fe4b09eccc2ce8463fa41f65d2de616b95",
+    "truth_core.py": "7d163ce05479fce86c12e2658cdf7814a4094239f173aeec62269d96531a53cb",
+    "bundle_core.py": "a69385e6075dad32640dc2c8c266a361f5feb32b49ba77dccf83c7be51159c8c",
+    "selection_core.py": "de99baed639791b6a02cbafd9d41843619ab6b1f3458feaa75e9c4d391970184"
+  },
+  "source_archive_sha256": "db439a8d2f80e387d7e81ceba7603d775c76533bc0967fe65a324f16eca39c76",
+  "official_commit": "ed463f9993868f7ecc7c103920644e7f94abb377",
+  "official_files": {
+    "CMakeLists.txt": "1077fae8f64fcdf37fcedf917e0648db1e2edebd7523fd7f05c77f725c4a822a",
+    "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    "benchmarking-darth/CMakeLists.txt": "32d01276d423e115d77fa61695451a099f4bf315ef08acfbc259d03d0fe2025d",
+    "benchmarking-darth/LICENSE": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+    "benchmarking-darth/c_api/CMakeLists.txt": "f409592f5bedba8c83fa67d3994714623174ae7b5061f2c50764c357e7ba3d03",
+    "benchmarking-darth/c_api/gpu/CMakeLists.txt": "e1c80591472f702a54fd0b90544200ca65dfd5a2c3e21bb2f36e4ea1617890bd",
+    "benchmarking-darth/demos/CMakeLists.txt": "65e638f46359799c060c12501e9755292093ab6a8313f8bdfde707836b7ab15f",
+    "benchmarking-darth/demos/rocksdb_ivf/CMakeLists.txt": "378ef9d4b858d37dd13eec1d76507c56ffcb0e3daf71a2bcc94769fc88f2baea",
+    "benchmarking-darth/faiss/CMakeLists.txt": "3cc3b46850a3d72dd6c6a5e0324060f7a5873000e07dc2f28a73c99e4483ac10",
+    "benchmarking-darth/faiss/gpu/CMakeLists.txt": "07793049e091f46f077bfb49c935834e5569b87ba587827e1142c82aea1e4ce1",
+    "benchmarking-darth/faiss/gpu/test/CMakeLists.txt": "89353b6d50d15ad518d6eb2f8226ff5f536a691038f6c731c9c60e891ca254a5",
+    "benchmarking-darth/faiss/python/CMakeLists.txt": "e4726b00d59ef294a93f8a9e09e065995b501fcb17ba67357701901ce140d556",
+    "benchmarking-darth/hnsw-test/CMakeLists.txt": "35f447ad755d9fe6098dcdd6c4b4dc923a19c971dffb72ae78d08066f8b43912",
+    "benchmarking-darth/requirements.txt": "20825daa1db43968eac568e55aeaed0e5a01253e1f15c63c763ea360d6676167",
+    "benchmarking-darth/tests/CMakeLists.txt": "72890fab3788ceba628978cd841372c391d33bd1ed58cef99af5ee543a37b0a6",
+    "benchmarking-darth/tutorial/cpp/CMakeLists.txt": "7e361f025411555278d0524bd8f162abbaae7bfc2466e922b48d24d7332aec45",
+    "hnswlib/adaptive_ef.h": "724b91650c9b22a2ded53f74b33a563f0078cc093ed50a321dfaf3f0791b591d",
+    "hnswlib/bruteforce.h": "da1f179e99d8e5a4c39b5db0c681bccf3c63e797aaa4982620519f8e001cb2c6",
+    "hnswlib/distribution.h": "5d0391eac7f9bbc8d060d89ed42792f28ed0f1a94b703c74c674cf799b24a470",
+    "hnswlib/hnswalg.h": "e91b156d2e7e942d7f4562dec1cdc6904a3aba73e410c67620abbe07b0455cda",
+    "hnswlib/hnswlib.h": "68e6241284933c99ff7dfe47286bb6ce78c81907ba8a7db3d8d8643c02836af6",
+    "hnswlib/sketch.h": "7d56e67522b1c4a9df7f776d259cb537a164f63ba2e981f6d9c662990f1611f8",
+    "hnswlib/space_ip.h": "f8e772d275a7de4adb7d5ccffae999e159f50b47f232d1bda2a9e014836eaace",
+    "hnswlib/space_l2.h": "c599d024657896412250b4fde1a95e39f8bc55cccd263f36c8948fa35779edf1",
+    "hnswlib/stop_condition.h": "930da73eead77dff0c8c9f3281c5d12250051c90ef98fcfbab8f5f307bdae8d9",
+    "hnswlib/visited_list_pool.h": "8e5bab8d12b5ef26e3b603b656b8a1acba6738498d1d98f44c9fdb1cb0e25110"
+  },
+  "protocol_sha256": "3b73faf83763ecbd5964c8ef7bd97fa772d0f59c8d0062f52a6edef17e449c7c",
+  "immutable_inputs": {
+    "raw_hdf5": {
+      "path": "data/raw/arxiv-nomic-768-normalized.hdf5",
+      "sha256": "8be0993b978b0d0ef023d21d878251a5ed09e058adb25994553c08388d37d414",
+      "allowed_dataset": "train",
+      "forbidden_datasets": [
+        "test",
+        "neighbors",
+        "distances"
+      ]
+    },
+    "roles_json": {
+      "path": "manifests/icde2027_1m/roles.json",
+      "sha256": "91288d1c1ba032653136e9430f670c54b7d46202056b18102db4e45c1fc1f9ff"
+    },
+    "base_exclusions_json": {
+      "path": "manifests/icde2027_1m/base_exclusions.json",
+      "sha256": "e1da86becacce12dba90f443a401c7fe4b09eccc2ce8463fa41f65d2de616b95"
+    },
+    "role_assets": {
+      "source_design_queries": [
+        "results/icde2027_1m/e1a_graph_only/ndc_replay/arxiv-nomic-1.34m-heldout_source_design.qbin",
+        "b6e7a05ebbfa75e6c7e81ba269a9f62d890f95f89a3a386b3394a115fbc83b9b",
+        500
+      ],
+      "source_design_truth": [
+        "results/icde2027_1m/design_truth/arxiv-nomic-1.34m-heldout_top10.npz",
+        "0aa6a0cc52d5c271f02fa6222be44f577479e43ae804ea40a1ba19239599057f",
+        500
+      ],
+      "target_selection_queries": [
+        "results/icde2027_1m/e1a_graph_only/target_selection_response/arxiv-nomic-1.34m-heldout_target_selection.qbin",
+        "824d7df83b3c5f0e668f7388f159947712e8023e0c2811a05b8d6669869eeefe",
+        500
+      ],
+      "target_selection_truth": [
+        "results/icde2027_1m/e1a_graph_only/target_selection_truth/arxiv-nomic-1.34m-heldout_top10.npz",
+        "193a80b7971ee9e451ee65d8b49d228d6ed086900ccbfb33a4a3e5145a3c94ac",
+        500
+      ],
+      "target_certification_queries": [
+        "results/icde2027_1m/e1a_graph_only/target_certification_response/arxiv-nomic-1.34m-heldout_target_certification.qbin",
+        "cef2d7d8455cba312ce8cf9feeaabc704eae8eb48a7c5141071a7651399dbbef",
+        500
+      ],
+      "target_certification_truth": [
+        "results/icde2027_1m/e1a_graph_only/target_certification_truth/arxiv-nomic-1.34m-heldout_top10.npz",
+        "c542b4e955c6a6fc955c39cafa76a28f7c7b10b123d8f44b381ef348dff0741c",
+        500
+      ],
+      "target_evaluation_queries": [
+        "results/icde2027_1m/e1a_graph_only/target_evaluation_response/arxiv-nomic-1.34m-heldout_target_evaluation.qbin",
+        "d87b806383566256900cbcda8296fce7979b3cfe00e560f4c9b2439e084621b7",
+        1000
+      ],
+      "target_evaluation_truth": [
+        "results/icde2027_1m/e1a_graph_only/target_evaluation_truth/arxiv-nomic-1.34m-heldout_top10.npz",
+        "c2e2c4520e985e6a1962d92e239fcb7152b3c6a3b52a6644a6fc696fc9486378",
+        1000
+      ]
+    },
+    "role_rule": "The four roles are mutually exclusive and train-derived. Evaluation cannot change state, candidates, thresholds, fallback, inclusion, or analysis."
+  },
+  "states": [
+    {
+      "key": "seed13_random",
+      "seed": 13,
+      "history": "random",
+      "index_sha256": "068f91089bd78aabefe239dea2cb1b6c9ec44ef27a9dc10b8b908ce5bd2343a8",
+      "adapter_sha256": "5a9c86ebede19de47661c430e6ba8e2e95414fe993ba69409edc5025094ddc43"
+    },
+    {
+      "key": "seed13_norm_ascending",
+      "seed": 13,
+      "history": "norm_ascending",
+      "index_sha256": "0f2ebc944ad5444406ec883d01ee9f6b4d379df199735e282f37deac57406f36",
+      "adapter_sha256": "dbd9e050fd484011fe89d102af1fae1a15431002e4553ff4d903f7205139486b"
+    },
+    {
+      "key": "seed83_random",
+      "seed": 83,
+      "history": "random",
+      "index_sha256": "185ce34778686b17015645eee79adbe18f2c2bf7d904f2c037cdd3fe15ce1914",
+      "adapter_sha256": "121539d0a0c00be6dc9ae82979c563dcead65467f864b8e57bfe0b39df4c3a62"
+    },
+    {
+      "key": "seed83_norm_ascending",
+      "seed": 83,
+      "history": "norm_ascending",
+      "index_sha256": "6edb20df8b357d29921b84a422c70452762a0b66461bb25d76e7be5d1b1a5a89",
+      "adapter_sha256": "6d3dfd0739dab284d350d4c19b9e85a00e0e5ec6e0919e3c47dcbcdd8b354c00"
+    },
+    {
+      "key": "seed197_random",
+      "seed": 197,
+      "history": "random",
+      "index_sha256": "01957c90ac40324105e827960d3a02b709eef3427156cf3977cdabdabf569e1f",
+      "adapter_sha256": "c28c00bc219b07e9c58b9bb8375a093a4e1f96f92500b8395b42aca841db2740"
+    },
+    {
+      "key": "seed197_norm_ascending",
+      "seed": 197,
+      "history": "norm_ascending",
+      "index_sha256": "b4053578ed2d5592b1ddd88db64f4b02bff4a9d28944f16ba4460c6a763458fb",
+      "adapter_sha256": "9f5927938eacbd099733da2b2748ec9004cb157498059e00f767a9b0e0e016e1"
+    },
+    {
+      "key": "seed2029_random",
+      "seed": 2029,
+      "history": "random",
+      "index_sha256": "67583f50a14d61373f18d72ee4eca244b94b113d14e89a6f0c8487651475bf69",
+      "adapter_sha256": "64617ae71affc595290d64d634856e8d0eaa25493877861a495cbe9725644fde"
+    },
+    {
+      "key": "seed2029_norm_ascending",
+      "seed": 2029,
+      "history": "norm_ascending",
+      "index_sha256": "020ce1d64ed437a30d2bf0640a02c252360551f29082a986e654ec21da8d1544",
+      "adapter_sha256": "bc04b75b5806f46ae9a5b8b8dcd8f59430d386c8fb53fbf28a27faa92b9d6bb1"
+    }
+  ],
+  "params": {
+    "target_recall": 0.95,
+    "primary_event": "Recall_at_10_less_than_0.95",
+    "metric_argument": "cd",
+    "quantile_step": 0.001,
+    "statistics_length": 1025,
+    "adaef_ef_upper_bound": 2400,
+    "fixed_safe_endpoint_ef": 2400,
+    "reason_for_scale_endpoint": "The endpoint is frozen before Ada-ef 1M output and matches the already registered million-scale hnswlib boundary; it is not selected from Ada-ef outcomes.",
+    "no_post_result_changes": [
+      "target recall",
+      "metric",
+      "estimator",
+      "quantile step",
+      "statistics length",
+      "ef upper bound",
+      "endpoint",
+      "seeds",
+      "histories",
+      "role IDs",
+      "candidate order",
+      "risk threshold",
+      "fallback",
+      "analysis inclusion"
+    ]
+  },
+  "base_rows": 1342143,
+  "dim": 768,
+  "resources": {
+    "cpu_affinity": [
+      2
+    ],
+    "expected_rss_bytes": 17179869184,
+    "address_space_bytes": 25769803776,
+    "file_size_bytes": 8589934592,
+    "max_output_growth_bytes": 17179869184,
+    "cpu_seconds": 14400,
+    "wall_seconds": 14400,
+    "minimum_projected_disk_free_bytes": 214748364800,
+    "remaining_project_growth_limit_bytes": 137438953472
+  },
+  "input_adapter_sha256": "9ba39909b740fcc2d4d62fedae8527d23adcd403fa2684bde02035f2876d345e",
+  "truth_adapter_sha256": "66becd80c8f42814d442cdc8d0f02639f46aa7fe51b54d2ed4d1de12b237d6f8",
+  "truth_native_lock_sha256": "6be55f94d95b7c448635da72a0eadb7045fa0effaf275111a3c5e8d3988d645f",
+  "graph_adapter_sha256": "65f066dd87f060159fb0fd485a60928cabae0208e2efcd7ef753457d318be4ea",
+  "graph_config_sha256": "f43f12301f35de429cb741d46b21ff7d7da07d29d97b2c61b82824240d20567d"
+}

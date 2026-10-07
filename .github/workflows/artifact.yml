@@ -185,7 +185,7 @@ jobs:
       - run: python -m pip install -r artifact/original_execution/portable_graphs/requirements-build.txt
       - run: python -m pip install --no-build-isolation --no-deps -r artifact/original_execution/portable_graphs/requirements-native.txt
       - run: python -m pip install -r artifact/original_execution/portable_truth/requirements.txt scipy==1.13.1
-      - run: python -m unittest discover -s artifact/original_execution/portable_transfer_1m -p "test_transfer.py" -v
+      - run: python -m unittest discover -s artifact/original_execution/portable_transfer_1m -p "test*.py" -v
       - run: python artifact/original_execution/portable_transfer_1m/native_check.py --profiles artifact/original_execution/portable_profiles --output "$RUNNER_TEMP/transfer-million" --authorize-synthetic-only
       - uses: actions/upload-artifact@v4
         if: always()
@@ -228,3 +228,64 @@ jobs:
           python-version: "3.11"
       - run: python -m unittest discover -s artifact/original_execution/portable_costs -p "test_components.py" -v
       - run: python artifact/original_execution/portable_costs/components.py --output "$RUNNER_TEMP/cost-components"
+  native-supplement-build:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        component: [darth, vamana]
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      CARGO_BUILD_JOBS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: sudo apt-get update && sudo apt-get install -y build-essential cmake libopenblas-dev liblapack-dev libomp-dev pkg-config libhdf5-dev
+      - run: python -m pip install numpy==1.26.4
+      - run: python -m unittest discover -s artifact/original_execution/portable_native -p "test_native.py" -v
+      - run: python artifact/original_execution/portable_native/bootstrap_sources.py --download-public-sources
+      - if: matrix.component == 'vamana'
+        run: rustup toolchain install 1.97.1 --profile minimal --component rust-src
+      - run: python artifact/original_execution/portable_native/ci_native.py --component ${{ matrix.component }} --toolchain "$HOME/.rustup/toolchains/1.97.1-x86_64-unknown-linux-gnu" --output "$RUNNER_TEMP/native-${{ matrix.component }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-${{ matrix.component }}
+          path: |
+            ${{ runner.temp }}/native-${{ matrix.component }}/**/*.json
+            ${{ runner.temp }}/native-${{ matrix.component }}/**/*.stdout
+            ${{ runner.temp }}/native-${{ matrix.component }}/**/*.stderr
+            ${{ runner.temp }}/native-${{ matrix.component }}/**/*.log
+  official-adaef-native:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: sudo apt-get update && sudo apt-get install -y libeigen3-dev libboost-dev libhdf5-dev g++
+      - run: python -m pip install -r artifact/original_execution/portable_adaef/requirements.txt -r artifact/original_execution/portable_graphs/requirements-build.txt
+      - run: python -m pip install --no-build-isolation --no-deps -r artifact/original_execution/portable_graphs/requirements-native.txt
+      - run: python -m unittest discover -s artifact/original_execution/portable_adaef -p "test_adaef.py" -v
+      - run: python artifact/original_execution/portable_adaef/prepare_dependencies.py --output "$RUNNER_TEMP/adaef-deps.json"
+      - run: python artifact/original_execution/portable_adaef/run_native_controls.py --dependencies "$RUNNER_TEMP/adaef-deps.json" --graph-adapter artifact/original_execution/portable_graphs --output "$RUNNER_TEMP/adaef-native" --authorize-synthetic-only
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-adaef-native
+          path: |
+            ${{ runner.temp }}/adaef-native/**/*.json
+            ${{ runner.temp }}/adaef-native/**/*.stdout
+            ${{ runner.temp }}/adaef-native/**/*.stderr

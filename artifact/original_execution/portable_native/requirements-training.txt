@@ -1,0 +1,5 @@
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.14.1
+scikit-learn==1.5.1
+lightgbm @ https://files.pythonhosted.org/packages/4e/19/1b928cad70a4e1a3e2c37d5417ca2182510f2451eaadb6c91cd9ec692cae/lightgbm-4.5.0-py3-none-manylinux_2_28_x86_64.whl#sha256=960a0e7c077de0ca3053f1325d3edfc92ea815acf5176adcacdea0f635aeef9b
