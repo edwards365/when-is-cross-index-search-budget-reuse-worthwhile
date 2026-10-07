@@ -1,12 +1,50 @@
-# Original source and protocol delivery
+# Original-execution delivery
 
-The [artifact-sources-v1 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-sources-v1) adds an inspectable, pinned upstream source/protocol package to the saved-record reconstruction in `artifact-paper-v2`.
+Start with [FRESH_CHAIN.md](FRESH_CHAIN.md) for the current dependency order,
+available commands, tested scope and remaining work. **The full paper's original
+execution is not yet a one-command, independently reproduced pipeline.**
 
-**This release does not close portable original-experiment execution.** It contains 946 source/configuration views for eight paper execution families and 125 historical native operation/evidence records. Personal paths are transformed; original and delivered-view hashes are recorded separately. The text views use `.txt` suffixes because unchanged embedded pins must not be mistaken for executable relocated code.
+## Portable entries now supplied
 
-## Download and check
+| Entry | Purpose | Delivered verification |
+|---|---|---|
+| [Input preparation](portable_fresh_inputs/README.md) | Train-only roles, content exclusions, query files | 18 synthetic tests; frozen membership serialization |
+| [Exact truth](portable_truth/README.md) | Fixed-role Faiss L2/IP truth generation | 20 tests on Linux, including native synthetic cases; pinned wheel payload identity |
+| [Graph construction](portable_graphs/README.md) | One explicitly selected HNSW build unit | 3 tests; four tiny L2/IP/order graph cases |
+| [Native profiles](portable_profiles/README.md) | Complete fixed action grid on eight graphs | 10 wrapper tests and two role-size native programs tested on tiny graphs |
+| [Profile arrays](portable_arrays/README.md) | Ordered CSVs to frozen NPZ schema | 12 synthetic tests |
+| [Policy lock](portable_policy/README.md) | History-Max qualification, then SHA-bound evaluation | 16 synthetic tests |
+| [Cache measurement](portable_cache/README.md) | Check inputs or explicitly measure a new cache workload | 18 synthetic tests; seven saved-input identities checked |
 
-Download `original-execution-source-view.zip` from the release, check the byte length and SHA256 in [release.json](release.json), then extract it into a new directory. Python 3.11+ standard library is sufficient:
+Tests of new entries do not re-execute the sealed experiments. Full benchmark
+graph/truth/response equivalence is an enforced future gate, not a result of
+the tiny tests. Current implementation status in this table supersedes older
+stage README progress statements; their scientific boundaries remain valid.
+
+Production commands require new outputs, pinned inputs, explicit opt-in and
+resource checks. The native library/compiler identity, event being counted,
+query role, timing boundary and missing provenance remain stage specific.
+Different environments must not be collapsed into one convenience dependency.
+See [dependency distinctions](DEPENDENCIES.md) and [dataset sources](datasets.json).
+
+## Three separate delivery layers
+
+1. [Saved-result reconstruction](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2)
+   supplies the paper's delivered saved-record analysis paths. It is not a new
+   benchmark run.
+2. [Original source archive](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-sources-v1)
+   contains 946 source/configuration views, 125 historical native records,
+   `CHAINS.md`, `inventory.json`, `source-view/`, `native-records/`, and the
+   safe `execution.py` inspection tool. **Those files are inside the separate
+   archive, not the current repository directory.** Download instructions and
+   fixed identities are in [release.json](release.json). Personal paths were
+   transformed; original and delivered hashes are separately recorded.
+3. The portable entries above connect selected original stages to new inputs,
+   receipts and output roots. They preserve missing historical attestations
+   rather than replacing them with claims about a new build.
+
+After extracting the separate source archive into a new directory, its safe
+inspection commands are:
 
 ```sh
 python execution.py verify
@@ -14,49 +52,17 @@ python execution.py inspect recovery_100k
 python -m unittest -v test_execution
 ```
 
-The actual clean-archive test used Python 3.12.14 and passed all eight family inspections, file identities and twelve synthetic transport tests. See [validation.json](validation.json). No archived experiment module was imported; ANN runs, native builds and original auditor runs were all zero.
+Do not execute historical default/all-stage scripts simply because their source
+is present. Archived `.txt` source views are not portable launchers.
 
-## Contents
+## Remaining coverage
 
-- `CHAINS.md`: paper result → original stage → source file, with explicit remaining work.
-- `inventory.json`: original commit/blob/SHA, delivered-view SHA, static CLI argument spellings and imports.
-- `source-view/`: selected implementation, frozen configurations, role registries, native sources and local import dependencies from two fixed project commits.
-- `native-records/`: Arxiv DARTH/Vamana command/identity/wait records, sampled resource logs, complete saved audit output and evidence inventories. These are historical records, not freshly executed audits.
-- `datasets.json`: acquisition links and original input checksums for SIFT, Arxiv, GloVe and Deep; original datasets are not redistributed.
-- `execution.py`: safe inspection, input-hash verification and explicit opt-in bounded download. It does not launch scientific stages.
+Simple-baseline policy interfaces, isolated native API timing and component
+measurement still need integration. The 100K transfer/recovery, Deep1M,
+multi-implementation ambiguity, refresh/fixed-transfer and supplementary native
+families retain their separate gaps in the source archive's `CHAINS.md`.
+Full DARTH source/object provenance cannot be retroactively established by a
+new build. Historical record coverage must not be confused with new execution.
 
-The Arxiv provider's fixed-revision LFS identity matches the experiment's SHA256. ANN-Benchmarks HEAD requests for the other three inputs returned HTTP200 and their recorded sizes on 2026-10-07; no full dataset was downloaded by this task. Consult each provider's terms. [Dependency distinctions](DEPENDENCIES.md) are important: different Faiss builds, Arxiv normalization conventions and role policies must not be merged into one convenience environment.
-
-## Remaining integration
-
-Portable phase adapters, native dependency/build closure, receipt/pin rebinding in a fresh output tree and isolated execution checks remain open. Native historical record coverage in this tranche is Arxiv, not every SIFT/Faiss operation log. The archive lists the remaining items per family rather than labelling the presence of source code as a successful original execution.
-
-The paper remains pinned to `artifact-paper-v2` until original-execution integration and the next full public delivery have been verified. Scientific methods, recorded results and figures are unchanged.
-
-## Standalone cache entry
-
-[portable_cache/README.md](portable_cache/README.md) supplies an executable, explicit-opt-in E2 stage separated from the historical multi-stage campaign. Its original lookup/workload/timer body is preserved with an enumerated input-location diff. Eighteen synthetic tests and seven pinned historical input/schema checks pass without invoking the timer. Original measurement results are unchanged. Prepared query/truth inputs are not redistributed here; raw-to-prepared-input generation and an actual Linux performance run remain outside this verification. The other original-execution families remain open as listed above.
-
-## Fresh-query input entry
-
-[portable_fresh_inputs/README.md](portable_fresh_inputs/README.md) supplies fixed role selection, effective-base exclusions and query-file generation on explicitly chosen input/output paths. The frozen ID partitions reconstruct exactly, and tiny synthetic HDF5 tests check content collisions, raw float32 encoding and train-only access. No original HDF5 scan or query export was rerun for delivery. The entry supplies membership and query files for the cache stage; exact-truth and audited profile generation remain separate unresolved integrations.
-
-## Exact-truth entry
-
-[portable_truth/README.md](portable_truth/README.md) identifies the original public wheel by all32 package/library payload hashes and connects new input receipts to exact top-10 generation. Synthetic L2/IP and rejection tests accompany the entry; original-data generation is not rerun for delivery. Native profile binaries, graph inputs and receipt integration remain separate gates.
-
-## Native profile entry
-
-[portable_profiles/README.md](portable_profiles/README.md) supplies the unchanged500/1000-query programs, pinned HNSW headers with license, a small native build/test command, and a one-role/eight-graph execution wrapper. New binaries and frozen CSV equivalence are distinct gates. It requires registered saved graphs; portable benchmark graph construction and CSV-to-array materialization remain open. No benchmark build or search was rerun.
-
-## Profile array handoff
-
-[portable_arrays/README.md](portable_arrays/README.md) connects complete new profile CSVs to the frozen analysis/cache NPZ schema, checking ordered queries/actions, hit counts, native count range and eight historical output hashes. Only synthetic serialization tests ran for delivery. Benchmark graph preparation remains upstream; this does not close all original-execution families.
-
-## Current fresh-query stage navigation
-
-Use [FRESH_CHAIN.md](FRESH_CHAIN.md) for the current input, graph, truth, profile, array and cache interfaces. It supersedes earlier progress paragraphs where they describe those entries as absent. Graph construction now has an explicit source recipe and a frozen-output gate; full-data execution equivalence, policy/timing integration and other families remain open. Historical source-build provenance is not repaired by a new build.
-
-## Qualification-lock handoff
-
-The [policy entry](portable_policy/README.md) uses unchanged historical History-Max arithmetic with new array receipts. It verifies the locked decision identity before evaluation inputs are opened. Its synthetic checks exercise union-vs-raw events, fallback and undeployable cases. This does not add a new statistical guarantee or repeat original policy analysis.
+The manuscript, scientific methods, recorded results and figures stay unchanged
+until the intended delivery coverage is genuinely complete and publicly checked.
