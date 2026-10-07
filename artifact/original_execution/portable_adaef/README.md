@@ -98,7 +98,9 @@ Selection and evaluation need all64 source/target combinations, including8 self/
  "responses":[{"directory":"NEW-response-1","sha256":"..."}]}
 ```
 
-Use every required response reference, not just the example. Replace stage/phase/prior with `certification-lock`/`certification`/selection-lock or `evaluation-lock`/`evaluation`/certification-lock as appropriate. Locks reconcile exact per-query endpoint IDs/recall/counts across arms, keep all56 directions and8targets, and reject drift from the frozen selected/deployed decisions. Final CSVs retain the original native response schema and can feed the separately delivered saved-output analysis after explicit path binding. This entry does **not** rerun the historical crossed bootstrap or E9 replay.
+Use every required response reference, not just the example. Replace stage/phase/prior with `certification-lock`/`certification`/selection-lock or `evaluation-lock`/`evaluation`/certification-lock as appropriate. Locks reconcile exact per-query endpoint IDs/recall/counts across arms, keep all56 directions and8targets, and reject drift from the frozen selected/deployed decisions.
+
+Each evaluation unit writes `response.csv`; the final lock records all64 response references. These CSVs retain the original native schema but are **not required to match historical CSV hashes**: their own new hashes, recalls and endpoint reconciliation are recorded. The historical analysis identifier is `scripts/icde2027_1m/analyze_e2_adaef_arxiv_crossed_v1.py` (SHA `d5504b048aceb1e98abb94c79f89cbfe98a44b61fa4f25aeaa7aa2c22d4181e9`), registered in `manifests/icde2027_1m/e2_adaef_arxiv_crossed_analysis_v1.json`. Those are provenance identifiers, not a portable command for importing new outputs. This package does not supply a new-output crossed-bootstrap importer and does **not** run the historical analyzer or E9 replay. Source/response production and reconstruction of saved paper statistics remain distinct delivery levels.
 
 ## Resource and provenance limits
 

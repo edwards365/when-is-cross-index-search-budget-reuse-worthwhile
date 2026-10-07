@@ -6,6 +6,10 @@ HERE=Path(__file__).resolve().parent
 s=importlib.util.spec_from_file_location('faiss1m_core',HERE/'historical_core.py');core=importlib.util.module_from_spec(s);s.loader.exec_module(core)
 s=importlib.util.spec_from_file_location('faiss1m_entry',HERE/'run_faiss.py');entry=importlib.util.module_from_spec(s);s.loader.exec_module(entry)
 class Tests(unittest.TestCase):
+    def test_all_sibling_dependency_pins_before_native_compile(self):
+        cfg=json.loads((HERE/'config.json').read_text())
+        for relative,digest in cfg['dependencies'].items():
+            with self.subTest(dependency=relative):entry.pin(HERE.parent/relative,digest)
     def test_truth_uses_own_predecessor_before_data_access(self):
         for phase,previous in [('selection','source'),('certify','selection'),('evaluate','certify')]:
             with patch.object(entry,'panel',side_effect=ValueError('gate')) as gate,patch.object(entry,'load') as native:

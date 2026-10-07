@@ -7,6 +7,13 @@ import run_native_controls as nc
 import prepare_dependencies as pd
 HERE=Path(__file__).resolve().parent
 class Synthetic(unittest.TestCase):
+    def test_graph_dependency_pins_before_native_compile(self):
+        c=r.conf();graphs=HERE.parent/'portable_graphs'
+        self.assertEqual(c['graph_adapter_sha256'],r.sha(graphs/'build_graph.py'))
+        self.assertEqual(c['graph_config_sha256'],r.sha(graphs/'config.json'))
+        g=json.loads((graphs/'config.json').read_text())
+        self.assertEqual(g['core_sha256'],r.sha(graphs/'historical_graph.py'))
+        self.assertEqual(g['core_sha256'],'62f37c5906c87bcdd9d0b95590341ea2b4ab0951bec2ad53d83432ccdec94c8c')
     def test_pins_and_panel(self):
         c=r.conf();self.assertEqual(len(c['states']),8)
         self.assertEqual({(x['seed'],x['history']) for x in c['states']},{(s,h) for s in (13,83,197,2029) for h in ('random','norm_ascending')})

@@ -204,6 +204,6 @@
   "input_adapter_sha256": "9ba39909b740fcc2d4d62fedae8527d23adcd403fa2684bde02035f2876d345e",
   "truth_adapter_sha256": "66becd80c8f42814d442cdc8d0f02639f46aa7fe51b54d2ed4d1de12b237d6f8",
   "truth_native_lock_sha256": "6be55f94d95b7c448635da72a0eadb7045fa0effaf275111a3c5e8d3988d645f",
-  "graph_adapter_sha256": "65f066dd87f060159fb0fd485a60928cabae0208e2efcd7ef753457d318be4ea",
-  "graph_config_sha256": "f43f12301f35de429cb741d46b21ff7d7da07d29d97b2c61b82824240d20567d"
+  "graph_adapter_sha256": "087cabebbbcb08082e58ef417c0db4f76bd58b57512ab6ed5cfeb6143de43776",
+  "graph_config_sha256": "cf9c84db3f35081d90591797561b552cf70f80eed3b2af534e633ea0c09ba75f"
 }

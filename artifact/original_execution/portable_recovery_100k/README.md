@@ -122,8 +122,9 @@ python artifact/original_execution/portable_recovery_100k/run_recovery.py evalua
 ```
 
 Family 4 computes its original oracle only after the locked decisions, marking
-it nondeployable. `evaluation_cells.csv` connects to the separately published
-saved-output statistics; this entry does not rerun bootstrap analyses.
+it nondeployable. `evaluation_cells.csv` feeds the receipt-bound new-result
+aggregation in [NEW_ANALYSIS.md](NEW_ANALYSIS.md); saved-paper reconstruction
+remains a separate path.
 
 6. **Measure isolated API timing per graph.** Requires matching prepared, graph
 and lock receipts, `--truth-adapter`, `--dataset`, and `--exclusive-timing`:
@@ -143,6 +144,10 @@ and query/action interleaving. Actions are deployed actions plus endpoint 512.
 Wall and process-CPU clocks surround the original one-query API call. CSV records
 also carry `n3` and returned-ID hashes; new timing values are not frozen historical
 outputs or evidence of historical measurement equivalence.
+
+7. **Aggregate the new results.** Follow [NEW_ANALYSIS.md](NEW_ANALYSIS.md) to
+validate the evaluation and all 16 seven-repeat timing units, then run the
+unchanged original quality/runtime statistics and paired crossed intervals.
 
 ## Verification and remaining scope
 

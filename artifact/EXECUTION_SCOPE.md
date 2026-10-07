@@ -1,60 +1,40 @@
-# Reproduction layers and remaining original-execution work
+# Reproduction layers and original-protocol execution
 
-## Available, runnable layers
+## Choose the intended result
 
-1. **File identity and saved arithmetic:** `check_saved_results.py`.
-2. **Saved-response mechanism analysis:** `RUNBOOK.md`, pinned response-v1 archive and `reproduce_summary.py`.
-3. **Paper statistics and paired uncertainty:** `paper/README.md`, `reproduce_paper.py`.
-4. **Narrative panels and raw-record-to-cluster extraction:** `narrative/README.md`, `reproduce_narrative.py`, `reproduce_grid.py`.
-5. **Historical inclusion and measurement records:** `native_evidence/README.md`; inspectable, not an execution launcher.
-
-These are distinct from a clean-host rerun of original ANN experiments. Saved timing reconstruction is not a portable performance measurement.
-
-## Original execution: unresolved dependencies, not a substitute command
-
-| Family | Required upstream objects | What still must be curated and tested |
+| Goal | Entry | Evidence produced |
 |---|---|---|
-| 100K graph transfer | SIFT/Arxiv source data, exact normalized/raw-base convention, 24 registered build identities per implementation, original action grids and query roles | Legal dataset acquisition and SHA checks; portable build/search configuration and raw-hit generation. Published raw records now reproduce finite labels and all Figure 2 clusters. |
-| 100K prospective/baseline recovery | Source, selection, qualification and evaluation role registries; candidate rules; seven-repeat timing path | Public role/config integration, locked-decision reconstruction from original selection rows, and raw-repeat-to-mean extraction. Published locked rows are sufficient for cited deployed points and prospective intervals. |
-| Deep1M recovery | Deep1M input acquisition, 8 graph configurations, 1,500 role queries, six-action grid | Original vector/graph response generation. All recorded action rows, source selection and qualification are now supplied. |
-| Nine-combination ambiguity diagnostic | Three datasets, three implementations, 81 graphs, recall/cost action curves | Portable recall-to-stable-label extraction and original NDC action curves. Published labels reconstruct all mixing counts and establish identical envelope/demand actions for the cited Vamana zero-cost cases, without independently remeasuring NDC. |
-| Fresh-query mechanism/quality panel | Prepared data, source/query role registries, native binaries, source/target action responses, timing repetitions | Original build/search/timing acquisition and full dependency packaging. Published saved-response and paired-matrix paths reconstruct the reported mechanism and uncertainty. |
-| Refresh extensions | Initial/refreshed membership construction and state-specific exact truth | Portable data preparation and original locked-policy searches. Published matrices/full hit arrays reconstruct cited risk changes with original bootstrap rules. |
-| Native single-graph coverage | Aligned DARTH training and native feature ABI, Vamana metric/ID conventions, saved index/model identities | Selective source/config/dependency publication with legal input acquisition and runtime checks. Historical closure summaries are supplied; they are not executable replacements. |
-| Lifecycle/cache components | Acquisition/qualification workflow, API timing paths, static lookup implementation and request semantics | Original component measurement launchers, hardware/environment map, dependency and input acquisition checks. Published ledger and batch records reproduce the stated arithmetic. |
+| Inspect published files and arithmetic | `check_saved_results.py` | Identity and selected aggregation checks |
+| Reconstruct nine saved-response tables | [RUNBOOK.md](RUNBOOK.md) | Summary-cost, qualification and cost-component results |
+| Reconstruct numerical-figure statistics | [paper/README.md](paper/README.md) | Saved-record points, intervals, curves and lookup means |
+| Reconstruct narrative panels | [narrative/README.md](narrative/README.md) | Grid labels, recovery, mixing, refresh and alternative-cost arithmetic |
+| Inspect historical inclusion and measurement scope | [native_evidence/README.md](native_evidence/README.md) | Retained historical provenance, not new execution |
+| Generate new original-protocol outputs | [Ten-family execution map](original_execution/EXECUTION_MAP.md) | Explicit phase producers, pinned inputs/code, new output paths and receipts |
 
-The source data and third-party components are not relicensed by the repository's MIT license. No datasets, models, indexes or binary environments are silently substituted. Missing acquisition/build commands are **not available in this release**, rather than placeholders presented as executable instructions. Historical source branches are not automatically the frozen implementation for the current paper.
+The first four paths reconstruct published observations from retained records. They do not remeasure ANN or replace published timing samples. The execution map is a separate route for new measurements under the declared original protocols.
 
-Completing the remaining layer requires selecting each original source/config/dependency set, resolving its input rights, replacing machine-local paths without changing semantics, and testing that setup on new output paths. It does not require changing the scientific claims, adding data sets, rerunning sealed outputs, or treating old worker commands as a safe installation procedure. See [EVIDENCE.md](EVIDENCE.md) for per-claim status.
+New execution entries produce raw responses, locked decisions and measurement receipts. Only explicitly named new-analysis entries also aggregate those new outputs. The saved-paper runners accept their pinned historical inputs; they are not a generic importer for arbitrary newly generated measurements. Delivery of all phase producers must therefore not be read as verification of a fresh-input-to-every-paper-estimate pipeline.
 
-## Source-delivery progress (2026-10-07)
+Some response bridges enforce exact historical bytes: million-scale E1a/E1b transfer pins all64/48 role-response NPZs respectively, and Faiss E3 pins all192 role-response NPZs. A successful new full-data stage would establish identity of those response inputs, not new performance equivalence or an automatically executed analysis. Official Ada-ef instead validates its newly generated response CSVs semantically and records new hashes; no historical response-byte equality or generic new-output statistical importer is claimed. Newly measured timing values are not historical-byte-pinned in any of these cases.
 
-The [original-source supplement](original_execution/README.md) now supplies pinned, privacy-transformed source/configuration views for all eight families, original dataset acquisition/checksum information, and 125 historical Arxiv native operation records. The source package passes clean-archive identity/link checks and synthetic transport tests. This closes source discovery and part of historical-evidence delivery, **not** portable build/run integration. The remaining column above must not be marked complete on the basis of source presence alone. No scientific execution or manuscript claim changed in this tranche.
+## Ten execution families
 
-## Stage integration progress: cache E2 (2026-10-07)
+The map links 100K graph transfer; 100K recovery and simple baselines; Deep1M recovery; the nine-combination ambiguity diagnostic; million-scale transfer and refresh; the fresh-query mechanism/quality chain; lifecycle and static cache; native single-graph DARTH/Vamana coverage and registered refresh; official Ada-ef; and million-scale Faiss with its distinct counter/timing supplement.
 
-The [standalone cache entry](original_execution/portable_cache/README.md) now removes the old absolute-root/multi-stage entry dependency for static cache measurement. It has explicit seven-file pins, role/order checks, exclusive outputs, historical resource conditions and an opt-in measurement command. Clean adapter tests and original prepared-input validation passed; no timing was run. This closes the cache-stage entry and prepared-input wiring, not the fresh-query raw-data/true-answer pipeline, native builds, or the full lifecycle acquisition chain. The paper and saved results remain unchanged.
+Each family README identifies its input producer, exact dependency or source pins, role/decision ordering, new-only output paths and resource conditions. There is intentionally no command that silently launches all families or resolves missing inputs by substituting another metric, implementation, role or budget. The [fresh-chain map](original_execution/FRESH_CHAIN.md) gives finer-grained navigation for that family.
 
-## Stage integration progress: fresh-query inputs (2026-10-07)
+For lifecycle work, the [new-measurement ledger bridge](original_execution/portable_costs/NEW_LEDGER.md) consumes linked truth, graph/reload, operational-profile, decision, timing and cache receipts. It does not accept arbitrary caller-supplied cost numbers. This route is separate from reconstruction of the paper's saved ledger; original unmeasured components remain unmeasured.
 
-The [role/base/query input adapter](original_execution/portable_fresh_inputs/README.md) provides an explicit new-output preparation command, unchanged historical selection/content-scan functions, frozen input identities and synthetic HDF5 checks. Its registry reconstructs 2,500 new IDs per dataset and the original retained-base counts without opening the raw datasets. Exact-truth generation still needs the pinned native Faiss build and explicit new-receipt integration; the prepared-input and complete original-execution gates must not be conflated. Methods, paper results and figures remain unchanged.
+## Validation and remaining execution obligations
 
-## Stage integration progress: exact truth (2026-10-07)
+Delivery includes source/configuration identity checks, generated-fixture tests and bounded native controls. Consult the CI workflow and its run at the exact chosen commit for the checks that actually passed. A tiny native test does not validate original-scale numerical identities, dataset access, full-scale resource sufficiency or benchmark isolation.
 
-The [truth adapter](original_execution/portable_truth/README.md) preserves the frozen full-role search and serialization body, validates the prepared membership, checks regenerated truth hashes, and records independent raw-vector score checks. A byte-matched public faiss-cpu1.8.0.post1 wheel replaces an unportable location-only dependency. Historical dispatch is not retrospectively attested; no original truth, ANN or paper timing was rerun. Complete original execution still requires the profile and remaining family integrations.
+Full original datasets and frozen scientific phases were not rerun to deliver these entries. A new full-data execution must still obtain legally accessible inputs, install the pinned Linux/native dependencies, satisfy resource and timing-isolation requirements, and complete each prerequisite stage with its recorded output checks. Hash or semantic mismatches fail closed and are not permission to repin, retry under another key or overwrite historical outputs.
 
-## Stage integration progress: native profiles (2026-10-07)
+New observations do not repair historical missing exit status, missing full-acquisition measurements or E8 NOT_ESTIMABLE. In particular, official Ada-ef's seed13_random historical exit status remains unobserved. New build provenance also does not retroactively attest historical source/binary correspondence.
 
-The [profile entry](original_execution/portable_profiles/README.md) links new input/truth receipts to unchanged native replay sources, pins16 graph and64 CSV identities, and rejects incomplete or differing responses. Native synthetic tests establish only the small tested interface. Benchmark graph generation, profile NPZ materialization, timing and remaining experimental families still require integration; the whole original-execution chain is not declared closed.
+## Version and licensing boundaries
 
-## Stage integration progress: profile arrays (2026-10-07)
+`artifact-paper-v2` is an immutable saved-result reconstruction release; `artifact-sources-v1` supplies the earlier source supplement. Later execution entries belong to their own versioned checkout/release. Record both versions when combining layers, and follow the execution map present in the chosen execution-entry checkout rather than assuming older tags contain later additions.
 
-The [array materializer](original_execution/portable_arrays/README.md) supplies the CSV-to-NPZ interface needed by cache and saved-record analyses. It accepts new profile receipts and requires the original array identities. No old auditor or original response array was recomputed. The next fresh-query dependency is graph construction; the other original-execution families remain as listed in the source chain map.
-
-## Current status: fresh-query graph entry (2026-10-07)
-
-[Fresh-chain navigation](original_execution/FRESH_CHAIN.md) distinguishes implemented stage commands from original-data execution verification. A hash-pinned new hnswlib source build is available; its small native fixture is tested in CI. The historical Python extension lacks complete source-build provenance, so no retrospective identity claim is made. Original graphs must match frozen hashes before downstream use. This is not a claim that all original-execution families are complete.
-
-## Policy interface progress (2026-10-07)
-
-History-Max qualification and independent evaluation now have explicit separate new-output commands. The tests use generated arrays only. Baseline decisions, native serving timings and the other original-execution families remain open as documented in the fresh-chain map.
+Source datasets, model/index files and binary environments are not silently redistributed. Third-party licenses and input access conditions are not replaced by the repository's MIT license. No artifact badge, independent-host reproduction, or completed new full-data reproduction is claimed by the existence of these commands.

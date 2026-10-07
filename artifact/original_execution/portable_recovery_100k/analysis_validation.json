@@ -1,0 +1,13 @@
+{
+  "schema": "new-recovery-analysis-validation-1",
+  "analysis_config_sha256": "e6f102a28ad753cd8053ee4b601b200df619c6ad08636d7bf5ca863334d3abdb",
+  "platform": "Windows",
+  "python": "3.12.14",
+  "new_synthetic_tests_passed": 4,
+  "full_directory_tests_passed": 21,
+  "linux_native_test_skipped": 1,
+  "actual_test_exit": 0,
+  "production_analysis_executed": false,
+  "original_data_or_historical_bootstrap_reexecuted": false,
+  "synthetic_scope": "Seven-repeat means; complete grid and hash rejection; crossed paired arithmetic; exact runtime summary wrappers for both families. Synthetic bootstrap uses seven draws only; production keeps original 5000 draws."
+}

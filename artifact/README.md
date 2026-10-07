@@ -2,7 +2,7 @@
 
 [Project home](../README.md) · [Runbook](RUNBOOK.md) · [Evidence map](EVIDENCE.md) · [Release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-response-v1)
 
-**Status: narrative-panel reconstruction supplement, 2026-10-07. Numerical figures and the listed narrative panels have runnable saved-record routes; full original execution remains incomplete.**
+**Status: saved-record reconstruction plus portable original-protocol execution entries, 2026-10-07. The ten-family execution map distinguishes delivered commands, bounded synthetic/native controls, and full-data runs that have not been repeated.**
 
 This directory is the public entry for *When Is Cross-Index Search Budget Reuse Worthwhile?* The versioned Git commit identifies exactly what is supplied. It replaces the absence of a public entry; it does not close the remaining input, portability, or publication checks.
 
@@ -15,18 +15,21 @@ This directory is the public entry for *When Is Cross-Index Search Budget Reuse 
 | Reconstruct Figures 2, 4, 5 and 6 | [Paper reconstruction commands](paper/README.md) | Migration and paired intervals, cost curves and batch lookup means from pinned saved records |
 | Reconstruct narrative panels and Figure 2 raw-to-cluster extraction | [Narrative commands](narrative/README.md) | Finite labels, recovery, demand mixing, refresh intervals and alternative-cost arithmetic |
 | Find evidence behind a claim | [Evidence map](EVIDENCE.md) | File roles, terminology, and interpretation boundaries |
-| Understand remaining delivery work | Coverage below and [repository status](REPOSITORY_STATUS.md) | What this partial release does and does not include |
+| Prepare new original-protocol measurements | [Ten-family execution map](original_execution/EXECUTION_MAP.md) | Phase-specific input/build/search/decision/timing and cost bridges, with pins and new receipt validation |
+| Understand execution and validation boundaries | [Execution scope](EXECUTION_SCOPE.md) | Saved reconstruction, generated-fixture validation and original full-data execution are different claims |
 
 ## Coverage
 
 | Layer | Included here | Remaining work |
 |---|---|---|
 | Saved-result inspection | Per-target mechanism/qualification CSVs, operating points and paired intervals, cost ledger, cache measurements, checksum manifest, standard-library checker | Review the complete paper-to-evidence coverage, not just this selected subset |
-| Recompute saved-record analyses | Nine-table route, numerical-figure inputs, and narrative/raw-grid archives | Original response-generation routes remain incomplete; zero-cost diagnostic uses action identity, not new NDC measurement |
+| Recompute saved-record analyses | Nine-table route, numerical-figure inputs, and narrative/raw-grid archives | New response-generation entries are separate below; saved zero-cost diagnostic uses action identity, not new NDC measurement |
 | Rebuild paper figures and PDF | Saved display values and evidence map | Curate the current TeX, editable PPT and export environment into a submission-version release; the separate Overleaf package is not this scientific artifact |
-| Original ANN execution | Historical code and selected closure summaries | [Explicit remaining source/input/configuration work](EXECUTION_SCOPE.md); no original launch is implied by a saved-record PASS |
+| Original-protocol execution entries | [Ten-family map](original_execution/EXECUTION_MAP.md), pinned source/config/dependencies, phase-separated new-output entries and bounded controls | Users must obtain permitted datasets, meet each pinned platform/resource contract and run the desired phases; no full-data rerun is asserted from synthetic CI |
 
 ## Verify the supplied snapshot
+
+The execution map documents new raw-response, decision and measurement producers; new aggregation is available where an entry explicitly names it. Saved-paper runners remain bound to historical saved inputs. Neither those producers nor tiny native CI establish a fresh full-data reconstruction of every paper estimate.
 
 ```sh
 python artifact/check_saved_results.py

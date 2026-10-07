@@ -1,6 +1,6 @@
 # Fresh-query original-execution interfaces
 
-This is a stage map, not an all-stage launcher. Run the saved-result entry in
+This is the fresh-query stage map, not an all-stage launcher. The [ten-family execution map](EXECUTION_MAP.md) covers the other paper panels. Run the saved-result entry in
 the main artifact to rebuild published analyses. The entries below instead
 describe new execution from original inputs. Delivery tests use synthetic
 data; they do not re-execute the sealed benchmark or certify full-data success.
@@ -31,6 +31,7 @@ data; they do not re-execute the sealed benchmark or certify full-data success.
 8. [Cache entry](portable_cache/README.md): read-only seven-input validation
    or a separately authorized new cache measurement. Acquisition, API timing
    and cache lookup are distinct measurements.
+9. For lifecycle measurement, use [operational stages](portable_costs/README.md) and [the new-ledger bridge](portable_costs/NEW_LEDGER.md). Measure the original role/profile/decision boundaries, materialize their arrays, and bind them with new truth, graph/reload, policy, baseline, timing and cache receipts. The operational-profile option feeds timing without repeating the profile panel. Use the full graph-unit timing flag when standalone whole-graph costs are required.
 
 Every original-data stage requires a new output location, frozen input/output
 identities and explicit execution authorization. A failed identity gate is not
@@ -51,23 +52,17 @@ The commands and resource conditions are in the linked stage READMEs.
 | API timing | Unchanged native source; tiny native ID/time-schema tests in CI | New full-scale timing or historical binary/time identity |
 | Reload | Original loader timing body; fresh-process tiny native tests in CI | Historical cache state or new full-panel reload times |
 | Cache | Synthetic lookup-interface tests and saved seven-input checks | New benchmark cache timing or general cache-system performance |
+| Operational lifecycle | Original timed boundaries, new-origin array/timing bridges, typed full synthetic receipt-chain tests | New full-dataset component measurements, hardware equivalence, complete unknown overhead or end-to-end performance |
 
 Local validation JSON files describe local checks; Linux-only native outcomes
 are reported separately by the fixed release's CI. Neither is an old audit
 receipt. A published source recipe and a passing small test are not a claim
 of complete experiment reproduction.
 
-## Remaining delivery work
+## Scope and remaining execution checks
 
-- Acquisition-component measurement and lifecycle aggregation interfaces, keeping
-  ledger allocations distinct from unavoidable deployment work.
-- Other experiment families in `CHAINS.md` inside the separate
-  [source archive](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-sources-v1):
-  100K transfer/recovery, Deep1M, multi-implementation ambiguity, refresh and
-  fixed-transfer extensions, and supplementary native coverage.
-- Complete historical source/object provenance cannot be manufactured from
-  an explicit new build. Keep missing attestations visible.
+The acquisition-component and lifecycle aggregation entries are supplied; their ledger allocations remain distinct from unavoidable deployment costs. See [EXECUTION_MAP.md](EXECUTION_MAP.md) for the other original-protocol families. The earlier source archive's `CHAINS.md` records source-delivery status at its own version and is not the current interface map.
 
-Earlier source-map and progress text is historical where it says these
-entries are absent. This map does not supersede their scientific
-protocols or the remaining-family limitations.
+The new commands have not regenerated every original full-scale dataset, graph, response or timing panel during packaging. Those outcomes require explicit production execution and successful identity gates. Tiny native CI is a separate validation layer. Missing historical source/object provenance cannot be manufactured from an explicit new build.
+
+Earlier progress text saying that an upstream interface is absent is superseded by this map and the ten-family map. Their scientific conventions and historical limitations are not superseded.
