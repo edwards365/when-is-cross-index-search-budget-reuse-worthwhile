@@ -73,3 +73,18 @@ jobs:
           python-version: "3.11"
       - run: python -m pip install numpy==1.26.4
       - run: python -m unittest discover -s artifact/original_execution/portable_arrays -p "test_arrays.py" -v
+  graph-native-synthetic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r artifact/original_execution/portable_graphs/requirements-build.txt
+      - run: python -m pip install --no-build-isolation --no-deps -r artifact/original_execution/portable_graphs/requirements-native.txt
+      - run: python -m unittest discover -s artifact/original_execution/portable_graphs -p "test_graphs.py" -v

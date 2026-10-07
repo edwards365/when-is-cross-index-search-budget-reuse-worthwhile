@@ -50,3 +50,7 @@ The [profile entry](original_execution/portable_profiles/README.md) links new in
 ## Stage integration progress: profile arrays (2026-10-07)
 
 The [array materializer](original_execution/portable_arrays/README.md) supplies the CSV-to-NPZ interface needed by cache and saved-record analyses. It accepts new profile receipts and requires the original array identities. No old auditor or original response array was recomputed. The next fresh-query dependency is graph construction; the other original-execution families remain as listed in the source chain map.
+
+## Current status: fresh-query graph entry (2026-10-07)
+
+[Fresh-chain navigation](original_execution/FRESH_CHAIN.md) distinguishes implemented stage commands from original-data execution verification. A hash-pinned new hnswlib source build is available; its small native fixture is tested in CI. The historical Python extension lacks complete source-build provenance, so no retrospective identity claim is made. Original graphs must match frozen hashes before downstream use. This is not a claim that all original-execution families are complete.

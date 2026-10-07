@@ -52,3 +52,7 @@ The paper remains pinned to `artifact-paper-v2` until original-execution integra
 ## Profile array handoff
 
 [portable_arrays/README.md](portable_arrays/README.md) connects complete new profile CSVs to the frozen analysis/cache NPZ schema, checking ordered queries/actions, hit counts, native count range and eight historical output hashes. Only synthetic serialization tests ran for delivery. Benchmark graph preparation remains upstream; this does not close all original-execution families.
+
+## Current fresh-query stage navigation
+
+Use [FRESH_CHAIN.md](FRESH_CHAIN.md) for the current input, graph, truth, profile, array and cache interfaces. It supersedes earlier progress paragraphs where they describe those entries as absent. Graph construction now has an explicit source recipe and a frozen-output gate; full-data execution equivalence, policy/timing integration and other families remain open. Historical source-build provenance is not repaired by a new build.
