@@ -1,0 +1,41 @@
+{
+  "status": "PASS_CLEAN_ARCHIVE_SOURCE_DELIVERY_CHECKS",
+  "archive": "original-execution-source-view.zip",
+  "archive_sha256": "0fbd43ff847fa0ff9811365bd39984f1d00750564d403f2054689ebaaf6f57ff",
+  "archive_bytes": 3349584,
+  "zip_members": 1080,
+  "source_files": 946,
+  "family_inspections": 8,
+  "synthetic_transport_tests": 12,
+  "native_record_files": 125,
+  "python": "3.12.14",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "execution.py",
+        "verify"
+      ],
+      "actual_exit": 0,
+      "stdout": "{\n  \"status\": \"PASS_SOURCE_VIEW_IDENTITY_AND_STAGE_LINKS\",\n  \"source_files\": 946,\n  \"families\": 8,\n  \"native_historical_records\": 125,\n  \"original_experiments_executed\": 0,\n  \"portable_execution_closed\": false\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "-v",
+        "test_execution"
+      ],
+      "actual_exit": 0,
+      "stdout": "",
+      "stderr": "test_bad_download_preserved (test_execution.DeliveryTests.test_bad_download_preserved) ... ok\ntest_cap_before_network (test_execution.DeliveryTests.test_cap_before_network) ... ok\ntest_existing_no_network (test_execution.DeliveryTests.test_existing_no_network) ... ok\ntest_fetch_mock (test_execution.DeliveryTests.test_fetch_mock) ... ok\ntest_http_reject (test_execution.DeliveryTests.test_http_reject) ... ok\ntest_identity (test_execution.DeliveryTests.test_identity) ... ok\ntest_package_manifest (test_execution.DeliveryTests.test_package_manifest) ... ok\ntest_partial_no_retry (test_execution.DeliveryTests.test_partial_no_retry) ... ok\ntest_paths (test_execution.DeliveryTests.test_paths) ... ok\ntest_sha_reject (test_execution.DeliveryTests.test_sha_reject) ... ok\ntest_size_reject (test_execution.DeliveryTests.test_size_reject) ... ok\ntest_stream_cap (test_execution.DeliveryTests.test_stream_cap) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.038s\n\nOK\n"
+    }
+  ],
+  "new_ann_runs": 0,
+  "native_builds": 0,
+  "original_auditor_runs": 0,
+  "original_execution_closed": false,
+  "public_release_verified": false
+}
