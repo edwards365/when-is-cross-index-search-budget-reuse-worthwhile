@@ -54,3 +54,7 @@ The [array materializer](original_execution/portable_arrays/README.md) supplies 
 ## Current status: fresh-query graph entry (2026-10-07)
 
 [Fresh-chain navigation](original_execution/FRESH_CHAIN.md) distinguishes implemented stage commands from original-data execution verification. A hash-pinned new hnswlib source build is available; its small native fixture is tested in CI. The historical Python extension lacks complete source-build provenance, so no retrospective identity claim is made. Original graphs must match frozen hashes before downstream use. This is not a claim that all original-execution families are complete.
+
+## Policy interface progress (2026-10-07)
+
+History-Max qualification and independent evaluation now have explicit separate new-output commands. The tests use generated arrays only. Baseline decisions, native serving timings and the other original-execution families remain open as documented in the fresh-chain map.

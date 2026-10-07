@@ -56,3 +56,7 @@ The paper remains pinned to `artifact-paper-v2` until original-execution integra
 ## Current fresh-query stage navigation
 
 Use [FRESH_CHAIN.md](FRESH_CHAIN.md) for the current input, graph, truth, profile, array and cache interfaces. It supersedes earlier progress paragraphs where they describe those entries as absent. Graph construction now has an explicit source recipe and a frozen-output gate; full-data execution equivalence, policy/timing integration and other families remain open. Historical source-build provenance is not repaired by a new build.
+
+## Qualification-lock handoff
+
+The [policy entry](portable_policy/README.md) uses unchanged historical History-Max arithmetic with new array receipts. It verifies the locked decision identity before evaluation inputs are opened. Its synthetic checks exercise union-vs-raw events, fallback and undeployable cases. This does not add a new statistical guarantee or repeat original policy analysis.
