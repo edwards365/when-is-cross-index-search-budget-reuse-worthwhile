@@ -1,0 +1,69 @@
+{
+  "status": "PASS_CLEAN_INPUT_ADAPTER_CHECKS",
+  "synthetic_tests": 18,
+  "test_exit_code": 0,
+  "registry_check_exit_code": 0,
+  "registry_results": [
+    {
+      "dataset": "sift",
+      "fresh_queries": 2500,
+      "all_queries": 7500,
+      "base_count": 992295,
+      "excluded_content_rows": 205
+    },
+    {
+      "dataset": "arxiv",
+      "fresh_queries": 2500,
+      "all_queries": 7500,
+      "base_count": 1337142,
+      "excluded_content_rows": 1
+    }
+  ],
+  "python": "3.12.14",
+  "numpy": "1.26.4",
+  "h5py": "3.11.0",
+  "files": {
+    "prepare_inputs.py": {
+      "bytes": 12420,
+      "sha256": "9ba39909b740fcc2d4d62fedae8527d23adcd403fa2684bde02035f2876d345e"
+    },
+    "historical_roles.py": {
+      "bytes": 2060,
+      "sha256": "7ff376b8886c730370b7be198392ae6193fed7af3956ced7bfa01cb592544bd8"
+    },
+    "registry.json": {
+      "bytes": 278335,
+      "sha256": "875f85b1396ff43f06cd8fe9b74ac854c1463a6d3c72969f0d210caa2fae7b88"
+    },
+    "provenance.json": {
+      "bytes": 1887,
+      "sha256": "4ada0a506aded69b7cdc772db62c0422cfcc3ff49a58369d0fd4e72b24a31531"
+    },
+    "test_prepare_inputs.py": {
+      "bytes": 7069,
+      "sha256": "6edf8c4fb91d229af5e3dd65df4553c0d086fff2283e6c9d9204460722b7f0ba"
+    },
+    "requirements.txt": {
+      "bytes": 27,
+      "sha256": "5777d2799be00db3deda716eca898656d12a7c160e38a160905478dd147beff9"
+    },
+    "README.md": {
+      "bytes": 4177,
+      "sha256": "e84cf5d467f70f25436ce0fd96f70f90032f8593049102279663c927e1565b13"
+    },
+    "TRUTH_HANDOFF.md": {
+      "bytes": 2129,
+      "sha256": "569efd32ea5c7c717ff79a886d97961c6ef90c9e270e0da2e043e46594ee2c76"
+    }
+  },
+  "original_HDF5_reads": 0,
+  "synthetic_HDF5_test": true,
+  "full_original_content_scans": 0,
+  "ANN_runs": 0,
+  "truth_runs": 0,
+  "timing_runs": 0,
+  "old_auditor_runs": 0,
+  "Linux_membership_byte_test": "CI test included; local Windows test checks arrays, not Linux ZIP bytes",
+  "raw_to_truth_chain_closed": false,
+  "manuscript_changed": false
+}

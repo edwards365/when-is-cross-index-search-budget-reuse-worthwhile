@@ -98,8 +98,8 @@
       "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
     },
     "EXECUTION_SCOPE.md": {
-      "bytes": 5655,
-      "sha256": "b573abdd1d5e1627e24984ebadad382a12de9492c66777aba0ba59cbcb3aa77c"
+      "bytes": 6327,
+      "sha256": "eb9758f095a122bd7bde42165383283989829af3bfba3ab5c1d34457a04e1f5e"
     },
     "input_manifest.json": {
       "bytes": 4065,
@@ -286,8 +286,8 @@
       "sha256": "ae0f82b39407ede22eb7729ec9e314cb78ff25d81b703fb40738af0e0d9cb5fe"
     },
     "original_execution/README.md": {
-      "bytes": 3950,
-      "sha256": "c91d00445044e1097558c492b7d6cdc99c4beadc7a749112c169547361237510"
+      "bytes": 4529,
+      "sha256": "6af21c42e17dd1f75321481509439fe5a12254445f6a7222130e0d9e07ebbc6c"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -336,6 +336,46 @@
     "original_execution/portable_cache/release.json": {
       "bytes": 273,
       "sha256": "53e8212860f38029346a20d53243d286ad9406e4f4572cb3f99dede040c3b76b"
+    },
+    "original_execution/portable_fresh_inputs/prepare_inputs.py": {
+      "bytes": 12420,
+      "sha256": "9ba39909b740fcc2d4d62fedae8527d23adcd403fa2684bde02035f2876d345e"
+    },
+    "original_execution/portable_fresh_inputs/historical_roles.py": {
+      "bytes": 2060,
+      "sha256": "7ff376b8886c730370b7be198392ae6193fed7af3956ced7bfa01cb592544bd8"
+    },
+    "original_execution/portable_fresh_inputs/registry.json": {
+      "bytes": 278335,
+      "sha256": "875f85b1396ff43f06cd8fe9b74ac854c1463a6d3c72969f0d210caa2fae7b88"
+    },
+    "original_execution/portable_fresh_inputs/provenance.json": {
+      "bytes": 1887,
+      "sha256": "4ada0a506aded69b7cdc772db62c0422cfcc3ff49a58369d0fd4e72b24a31531"
+    },
+    "original_execution/portable_fresh_inputs/test_prepare_inputs.py": {
+      "bytes": 7069,
+      "sha256": "6edf8c4fb91d229af5e3dd65df4553c0d086fff2283e6c9d9204460722b7f0ba"
+    },
+    "original_execution/portable_fresh_inputs/requirements.txt": {
+      "bytes": 27,
+      "sha256": "5777d2799be00db3deda716eca898656d12a7c160e38a160905478dd147beff9"
+    },
+    "original_execution/portable_fresh_inputs/README.md": {
+      "bytes": 4177,
+      "sha256": "e84cf5d467f70f25436ce0fd96f70f90032f8593049102279663c927e1565b13"
+    },
+    "original_execution/portable_fresh_inputs/TRUTH_HANDOFF.md": {
+      "bytes": 2129,
+      "sha256": "569efd32ea5c7c717ff79a886d97961c6ef90c9e270e0da2e043e46594ee2c76"
+    },
+    "original_execution/portable_fresh_inputs/validation.json": {
+      "bytes": 2002,
+      "sha256": "a524628648dc8d8683867d7203dbb06e229a6cb22b75585ddf0aa126c55e334d"
+    },
+    "original_execution/portable_fresh_inputs/release.json": {
+      "bytes": 305,
+      "sha256": "fa28845ee5e9f213ba409eed4ed6f9fc690d767307baf2add5b25ee10f3c8d6c"
     }
   }
 }

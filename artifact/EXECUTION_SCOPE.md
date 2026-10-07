@@ -34,3 +34,7 @@ The [original-source supplement](original_execution/README.md) now supplies pinn
 ## Stage integration progress: cache E2 (2026-10-07)
 
 The [standalone cache entry](original_execution/portable_cache/README.md) now removes the old absolute-root/multi-stage entry dependency for static cache measurement. It has explicit seven-file pins, role/order checks, exclusive outputs, historical resource conditions and an opt-in measurement command. Clean adapter tests and original prepared-input validation passed; no timing was run. This closes the cache-stage entry and prepared-input wiring, not the fresh-query raw-data/true-answer pipeline, native builds, or the full lifecycle acquisition chain. The paper and saved results remain unchanged.
+
+## Stage integration progress: fresh-query inputs (2026-10-07)
+
+The [role/base/query input adapter](original_execution/portable_fresh_inputs/README.md) provides an explicit new-output preparation command, unchanged historical selection/content-scan functions, frozen input identities and synthetic HDF5 checks. Its registry reconstructs 2,500 new IDs per dataset and the original retained-base counts without opening the raw datasets. Exact-truth generation still needs the pinned native Faiss build and explicit new-receipt integration; the prepared-input and complete original-execution gates must not be conflated. Methods, paper results and figures remain unchanged.
