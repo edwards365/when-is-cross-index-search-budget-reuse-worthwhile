@@ -98,8 +98,8 @@
       "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
     },
     "EXECUTION_SCOPE.md": {
-      "bytes": 6327,
-      "sha256": "eb9758f095a122bd7bde42165383283989829af3bfba3ab5c1d34457a04e1f5e"
+      "bytes": 6920,
+      "sha256": "dee573241e522ce34af96b8a047e253f468d9953a7388d807a0018bc6f922cbd"
     },
     "input_manifest.json": {
       "bytes": 4065,
@@ -286,8 +286,8 @@
       "sha256": "ae0f82b39407ede22eb7729ec9e314cb78ff25d81b703fb40738af0e0d9cb5fe"
     },
     "original_execution/README.md": {
-      "bytes": 4529,
-      "sha256": "6af21c42e17dd1f75321481509439fe5a12254445f6a7222130e0d9e07ebbc6c"
+      "bytes": 4936,
+      "sha256": "c09f4fb236b400c50a537f5871814d53eb84fcd6d803b44e83d572032bb2395f"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -366,8 +366,8 @@
       "sha256": "e84cf5d467f70f25436ce0fd96f70f90032f8593049102279663c927e1565b13"
     },
     "original_execution/portable_fresh_inputs/TRUTH_HANDOFF.md": {
-      "bytes": 2129,
-      "sha256": "569efd32ea5c7c717ff79a886d97961c6ef90c9e270e0da2e043e46594ee2c76"
+      "bytes": 836,
+      "sha256": "48c15d5a2940f10c0ae199f0552ea348ae5fc83e9456c67cca6e04ee313541bb"
     },
     "original_execution/portable_fresh_inputs/validation.json": {
       "bytes": 2002,
@@ -376,6 +376,42 @@
     "original_execution/portable_fresh_inputs/release.json": {
       "bytes": 305,
       "sha256": "fa28845ee5e9f213ba409eed4ed6f9fc690d767307baf2add5b25ee10f3c8d6c"
+    },
+    "original_execution/portable_truth/config.json": {
+      "bytes": 2620,
+      "sha256": "7d9d11b5b6c16d89cbd3280251fd8fbeed8110114577e4e4c2036e361852273d"
+    },
+    "original_execution/portable_truth/native_lock.json": {
+      "bytes": 4422,
+      "sha256": "6be55f94d95b7c448635da72a0eadb7045fa0effaf275111a3c5e8d3988d645f"
+    },
+    "original_execution/portable_truth/requirements.txt": {
+      "bytes": 315,
+      "sha256": "d62fe9b908aa3d9b45b3edcefe58a10e37d174fb80de9da666b84b13a301a135"
+    },
+    "original_execution/portable_truth/historical_truth.py": {
+      "bytes": 3446,
+      "sha256": "8f8ea4de828262a6d144dd3e3089eed5ff0fd5c80168f1f1c468fdc49ccbf2ea"
+    },
+    "original_execution/portable_truth/historical_collect.py": {
+      "bytes": 706,
+      "sha256": "0535c26eb1f5c391dcfffbaf6f329c5f0efdd7f55706e34a10817a12c81f1c05"
+    },
+    "original_execution/portable_truth/run_truth.py": {
+      "bytes": 13407,
+      "sha256": "66becd80c8f42814d442cdc8d0f02639f46aa7fe51b54d2ed4d1de12b237d6f8"
+    },
+    "original_execution/portable_truth/test_truth.py": {
+      "bytes": 6304,
+      "sha256": "e020e060c8daef5d8d030ce676fa7c76c65a3b4b35404d0703a82da7419c41fa"
+    },
+    "original_execution/portable_truth/README.md": {
+      "bytes": 4261,
+      "sha256": "6b7bb82f92b4cdab14e40eccda136759c315afa972ec008e620587bff08f1805"
+    },
+    "original_execution/portable_truth/validation.json": {
+      "bytes": 1675,
+      "sha256": "e8eb9d8c69423e2b1efd76c6fd43ac89231494f12bb7b7c8d081a3a87174c88b"
     }
   }
 }

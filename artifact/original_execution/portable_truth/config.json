@@ -1,0 +1,60 @@
+{
+  "schema": "portable-truth-1",
+  "core_sha256": "8f8ea4de828262a6d144dd3e3089eed5ff0fd5c80168f1f1c468fdc49ccbf2ea",
+  "collect_sha256": "0535c26eb1f5c391dcfffbaf6f329c5f0efdd7f55706e34a10817a12c81f1c05",
+  "historical_auditor_sha256": "1a4be73ba168c7036161715df5ea6c33005c7e53ab69b5ecb8ebe4015aed81ee",
+  "native_lock_sha256": "6be55f94d95b7c448635da72a0eadb7045fa0effaf275111a3c5e8d3988d645f",
+  "input_registry_sha256": "875f85b1396ff43f06cd8fe9b74ac854c1463a6d3c72969f0d210caa2fae7b88",
+  "input_adapter_sha256": "9ba39909b740fcc2d4d62fedae8527d23adcd403fa2684bde02035f2876d345e",
+  "resource_plan": {
+    "cpu_affinity": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "faiss_threads": 16,
+    "address_space_bytes": 25769803776,
+    "file_size_bytes": 134217728,
+    "cpu_seconds_per_dataset": 7200,
+    "wall_seconds_per_dataset": 7200,
+    "expected_rss_bytes": 17179869184,
+    "max_total_output_growth_bytes": 268435456,
+    "minimum_projected_disk_free_bytes": 214748364800,
+    "remaining_project_growth_limit_bytes": 137438953472
+  },
+  "truth_sha256": {
+    "sift": {
+      "source_design": "d7d8f37049f845364ed5a28256bc5155f41d83bb14dcd66ffad8e4da070b9a25",
+      "target_selection": "061bc13de34745feafacde7ebc5dd1cfca6f2ac53e2b79497dfe67d362b9b45f",
+      "target_certification": "ecb3585ac11f9a0992d1e82b5469c5daf69c0a460257f61ec8537eb9b7548c87",
+      "target_evaluation": "f939de89f2fa8e5df51b77300eae1649e04a65fc3e423f5ac4d7bf60d521ccda"
+    },
+    "arxiv": {
+      "source_design": "6d1c55957705df99c4502f144e11e6e8c7d76d217b243f0b71c07484f93793f6",
+      "target_selection": "4e323199c0eed732446d30a38aec844044e5ee400b1fc24b676f83febafc36ac",
+      "target_certification": "6da9fd1a88d2df9133ef36e7201d63dc80c92d6ae3ba26dd99dff1ce27af07e3",
+      "target_evaluation": "be66fe6ecb9ed4b0ea657f7e404938283e5daab183f2d0b24fb08715f9328ea7"
+    }
+  },
+  "source_commit": "f88dc625272fade3dc7774747dc95683bda4b38a",
+  "historical_source_sha256": "f1c7ab8bbc567e5a096a4c2b015e6db1344f3c221484da00c7f76e8a696be7aa",
+  "adaptations": [
+    "Historical core is extracted without modifying add/search/check/write order.",
+    "A new input preparation receipt and independently checked frozen membership replace absolute historical receipt paths.",
+    "New truth outputs must match each historical NPZ SHA before completion; a mismatch stops, without dispatch retry or repinning.",
+    "New runtime/library checks do not retrospectively attest historical loaded mappings or timing."
+  ]
+}

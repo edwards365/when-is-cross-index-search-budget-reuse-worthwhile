@@ -1,0 +1,47 @@
+{
+  "status": "PASS_CLEAN_LOCAL_TESTS_NATIVE_PENDING_CI",
+  "tests": 20,
+  "passed": 18,
+  "skipped_native": 2,
+  "files": {
+    "config.json": {
+      "bytes": 2620,
+      "sha256": "7d9d11b5b6c16d89cbd3280251fd8fbeed8110114577e4e4c2036e361852273d"
+    },
+    "native_lock.json": {
+      "bytes": 4422,
+      "sha256": "6be55f94d95b7c448635da72a0eadb7045fa0effaf275111a3c5e8d3988d645f"
+    },
+    "requirements.txt": {
+      "bytes": 315,
+      "sha256": "d62fe9b908aa3d9b45b3edcefe58a10e37d174fb80de9da666b84b13a301a135"
+    },
+    "historical_truth.py": {
+      "bytes": 3446,
+      "sha256": "8f8ea4de828262a6d144dd3e3089eed5ff0fd5c80168f1f1c468fdc49ccbf2ea"
+    },
+    "historical_collect.py": {
+      "bytes": 706,
+      "sha256": "0535c26eb1f5c391dcfffbaf6f329c5f0efdd7f55706e34a10817a12c81f1c05"
+    },
+    "run_truth.py": {
+      "bytes": 13407,
+      "sha256": "66becd80c8f42814d442cdc8d0f02639f46aa7fe51b54d2ed4d1de12b237d6f8"
+    },
+    "test_truth.py": {
+      "bytes": 6304,
+      "sha256": "e020e060c8daef5d8d030ce676fa7c76c65a3b4b35404d0703a82da7419c41fa"
+    },
+    "README.md": {
+      "bytes": 4261,
+      "sha256": "6b7bb82f92b4cdab14e40eccda136759c315afa972ec008e620587bff08f1805"
+    }
+  },
+  "original_HDF5_reads": 0,
+  "original_truth_runs": 0,
+  "ANN_runs": 0,
+  "historical_auditor_runs": 0,
+  "initial_adapter_test_failure": "Missing args logging binding; repaired before publication; no benchmark run",
+  "native_validation": "See truth-native-synthetic CI for actual Linux wheel checks; not claimed by local tests",
+  "publication_preflight_repair": "Windows CRLF generated metadata normalized to LF before commit; scientific inputs unchanged"
+}

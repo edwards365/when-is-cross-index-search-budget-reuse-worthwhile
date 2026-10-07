@@ -38,3 +38,7 @@ The [standalone cache entry](original_execution/portable_cache/README.md) now re
 ## Stage integration progress: fresh-query inputs (2026-10-07)
 
 The [role/base/query input adapter](original_execution/portable_fresh_inputs/README.md) provides an explicit new-output preparation command, unchanged historical selection/content-scan functions, frozen input identities and synthetic HDF5 checks. Its registry reconstructs 2,500 new IDs per dataset and the original retained-base counts without opening the raw datasets. Exact-truth generation still needs the pinned native Faiss build and explicit new-receipt integration; the prepared-input and complete original-execution gates must not be conflated. Methods, paper results and figures remain unchanged.
+
+## Stage integration progress: exact truth (2026-10-07)
+
+The [truth adapter](original_execution/portable_truth/README.md) preserves the frozen full-role search and serialization body, validates the prepared membership, checks regenerated truth hashes, and records independent raw-vector score checks. A byte-matched public faiss-cpu1.8.0.post1 wheel replaces an unportable location-only dependency. Historical dispatch is not retrospectively attested; no original truth, ANN or paper timing was rerun. Complete original execution still requires the profile and remaining family integrations.
