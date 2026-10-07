@@ -1,0 +1,17 @@
+{
+  "build": "seed13_random",
+  "cache_boundary": "OS page cache uncontrolled; not a cold-start claim",
+  "config_sha256": "40e0c65d75c254128278540480df042d60cbfb54cb16f19472fa7a70f72bf366",
+  "cpu_affinity": [
+    2
+  ],
+  "dataset": "sift-1m-heldout",
+  "effective_base_count": 992295,
+  "index_bytes": 655465440,
+  "index_sha256": "6f2a98db52ac25fb96b3402bc4c8c5a6e11b1436de6c345f53b2168aeb68c4ee",
+  "load_index_ns": 1326052072,
+  "maxrss_kib": 755828,
+  "rep": 0,
+  "schema_version": "icde2027-tcp-fresh-reload-v1",
+  "status": "LOADED_NO_QUERY_ACCESSED"
+}

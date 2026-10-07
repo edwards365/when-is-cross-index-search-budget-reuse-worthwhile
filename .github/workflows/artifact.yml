@@ -145,3 +145,86 @@ jobs:
       - run: python -m pip install -r artifact/original_execution/portable_deep/requirements.txt
       - run: python -m pip install --no-build-isolation --no-deps -r artifact/original_execution/portable_deep/requirements-native.txt
       - run: python -m unittest discover -s artifact/original_execution/portable_deep -p "test_deep.py" -v
+  transfer-and-g1-python-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r artifact/original_execution/portable_ambiguity/requirements.txt
+      - run: python -m pip install --no-deps -r artifact/original_execution/portable_transfer_100k/requirements-faiss-native.txt
+      - run: python -m unittest discover -s artifact/original_execution/portable_transfer_100k -p "test_transfer.py" -v
+      - run: python -m unittest discover -s artifact/original_execution/portable_ambiguity -p "test_ambiguity.py" -v
+      - run: python artifact/original_execution/portable_ambiguity/run_native_controls.py faiss --output "$RUNNER_TEMP/g1-faiss" --authorize-synthetic-native
+      - run: python artifact/original_execution/portable_ambiguity/run_native_controls.py hnswlib --transfer-adapter "$GITHUB_WORKSPACE/artifact/original_execution/portable_transfer_100k" --output "$RUNNER_TEMP/g1-hnsw" --authorize-synthetic-native
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: transfer-g1-python-native-${{ github.event_name }}
+          path: |
+            ${{ runner.temp }}/g1-faiss
+            ${{ runner.temp }}/g1-hnsw
+  transfer-million-native:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r artifact/original_execution/portable_graphs/requirements-build.txt
+      - run: python -m pip install --no-build-isolation --no-deps -r artifact/original_execution/portable_graphs/requirements-native.txt
+      - run: python -m pip install -r artifact/original_execution/portable_truth/requirements.txt scipy==1.13.1
+      - run: python -m unittest discover -s artifact/original_execution/portable_transfer_1m -p "test_transfer.py" -v
+      - run: python artifact/original_execution/portable_transfer_1m/native_check.py --profiles artifact/original_execution/portable_profiles --output "$RUNNER_TEMP/transfer-million" --authorize-synthetic-only
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: transfer-million-${{ github.event_name }}
+          path: ${{ runner.temp }}/transfer-million
+  ambiguity-rust-native:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      CARGO_BUILD_JOBS: "1"
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r artifact/original_execution/portable_ambiguity/requirements.txt
+      - run: rustup toolchain install 1.97.1 --profile minimal --component rust-src && rustup default 1.97.1
+      - run: curl --fail --location --max-time 180 https://codeload.github.com/microsoft/DiskANN/tar.gz/158126e64129d3c39f9df02199c2dcc06d4f9e7f -o "$RUNNER_TEMP/g1-source.tar.gz"
+      - run: python artifact/original_execution/portable_ambiguity/run_native_controls.py vamana --source-archive "$RUNNER_TEMP/g1-source.tar.gz" --output "$RUNNER_TEMP/g1-rust" --authorize-synthetic-native
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ambiguity-rust-${{ github.event_name }}
+          path: |
+            ${{ runner.temp }}/g1-rust/completed.json
+            ${{ runner.temp }}/g1-rust/failure.json
+            ${{ runner.temp }}/g1-rust/build/build.stdout
+            ${{ runner.temp }}/g1-rust/build/build.stderr
+  cost-component-delivery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m unittest discover -s artifact/original_execution/portable_costs -p "test_components.py" -v
+      - run: python artifact/original_execution/portable_costs/components.py --output "$RUNNER_TEMP/cost-components"

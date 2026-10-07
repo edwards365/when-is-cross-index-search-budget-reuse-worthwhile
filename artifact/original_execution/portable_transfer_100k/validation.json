@@ -1,0 +1,12 @@
+{
+  "scope": "local synthetic and packaging checks only",
+  "platform": "Windows Python 3.12.14",
+  "tests": 10,
+  "passed": 8,
+  "skipped_linux_native_tests": 2,
+  "original_dataset_reads": 0,
+  "original_science_executions": 0,
+  "full_panel_execution": "NOT_RUN",
+  "linux_native_validation": "PENDING_SEPARATE_CI_RECEIPT",
+  "historical_binary_dispatch_attestation": false
+}

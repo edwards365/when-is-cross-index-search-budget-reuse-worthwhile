@@ -1,0 +1,189 @@
+{
+  "cache_boundary": "Warm-up exists; OS page-cache state not forcibly reset, so no cold-start claim.",
+  "config_sha256": "56d939c641fca22239aed06ab9e13efd492322613beb607e7a9c42a73ca8cc0f",
+  "cpu_clock_boundary": "Per-query process CPU clock has coarse/zero observations; do not use cpu_ns as a per-query CPU-time estimate. Positive wall_ns is the primary timing measure.",
+  "native_final_sha256": "f3abc56a20a42b971496229544ed0b585eabf6a3a30d9c6d2eb7aaa20b6e6e59",
+  "profile_audit_sha256": "943c00da72fb85faed26e3bf48779cdd11ced81fd5d5d981c677d807a708484f",
+  "rows": [
+    {
+      "array_bytes": 313302,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed13_random.npz",
+      "array_sha256": "73e3fc592adb655f51e9521562f6c7299aeb2afd7b11fa6b173005f564c2f5c7",
+      "build": "seed13_random",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3273454.222,
+      "median_endpoint_wall_ns": 3375955.0,
+      "raw_csv_sha256": "1b11cee13d23455732f2fc6c9282c801c4108da3a84e1db377bc0e65812f5165",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 313957,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed13_norm_ascending.npz",
+      "array_sha256": "8e280338f9bd96a713362578401e9a49d8b518050fd8775142edafd05437337f",
+      "build": "seed13_norm_ascending",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3280989.1035714285,
+      "median_endpoint_wall_ns": 3378845.0,
+      "raw_csv_sha256": "a7de0ba878a20935cbdfe2a5c8565e5aa9026aa83a4f647afac86fb6ac4466ec",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 313053,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed83_random.npz",
+      "array_sha256": "c17756c2d5c4932518b9739f3182f4ca2df90aac1828c99c932dfdfe72590b16",
+      "build": "seed83_random",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3277442.7435714286,
+      "median_endpoint_wall_ns": 3365395.5,
+      "raw_csv_sha256": "aabd1d4412dc8a1ff3c87cc445daabc8339f914f195338551a09a78f7c441c4d",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 313569,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed83_norm_ascending.npz",
+      "array_sha256": "765a49a2ec550353440412bbd4ab8ed07fe99d1a0ae22e0da1b3399cd3173a54",
+      "build": "seed83_norm_ascending",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3260164.044285714,
+      "median_endpoint_wall_ns": 3352450.0,
+      "raw_csv_sha256": "2483a00370c58516759b79ca6695fade48514a58482c2b44b7f38c6731b5d71f",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 313350,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed197_random.npz",
+      "array_sha256": "57aeaf48412fca298635f804cdae0b23ecfd50cc0fabc1aeac1f8c113d58a4de",
+      "build": "seed197_random",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3278049.169,
+      "median_endpoint_wall_ns": 3370745.0,
+      "raw_csv_sha256": "a6e915d275b5c635526cec4e49b64adbb34e7d9c81288bc36633edc89092ce36",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 313785,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed197_norm_ascending.npz",
+      "array_sha256": "56d38739260ba0f0f0a45871caa231dbcc495a8771503ea14592e9bc8aab30a2",
+      "build": "seed197_norm_ascending",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3279795.582,
+      "median_endpoint_wall_ns": 3357050.0,
+      "raw_csv_sha256": "497d1bacc9c080ce5c37304a8ccc405a4a2851c2c13d6018eea1b27ec60b9722",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 313206,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed2029_random.npz",
+      "array_sha256": "30f8d5de65af4c124ed79b5ac77d0a61a4683f62690b1eb6c04d1b3ac802caf9",
+      "build": "seed2029_random",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3269273.1004285715,
+      "median_endpoint_wall_ns": 3369525.0,
+      "raw_csv_sha256": "67101ff18efe362dd0ab74f7daf857ba330b32841e3348b7c6c0bfe57a0f5f2c",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 313507,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/sift_seed2029_norm_ascending.npz",
+      "array_sha256": "ca2c51791214f8307dc67bf68d1ecef46fe3234b92bd37c46fc929308e9e85f2",
+      "build": "seed2029_norm_ascending",
+      "dataset": "sift-1m-heldout",
+      "mean_endpoint_wall_ns": 3252131.4684285712,
+      "median_endpoint_wall_ns": 3352900.0,
+      "raw_csv_sha256": "21b30bb821bdde1121199baebdb210ae385bb1f265e6b2064f1e28a4ce2c5cf3",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 375888,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed13_random.npz",
+      "array_sha256": "90501f09b3181ea894e6365b36f0a216847b3a99fb923cbe30fbd514d8e151a7",
+      "build": "seed13_random",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8208489.977285714,
+      "median_endpoint_wall_ns": 8013610.0,
+      "raw_csv_sha256": "f0621ccb54aef02ee75b0c843ee6722b552706094fcd4fef1b72ff980673b060",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 376773,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed13_norm_ascending.npz",
+      "array_sha256": "982dff9f015418310660141a0b79e50fde99ff36e28cfaa334f2333a9ab85610",
+      "build": "seed13_norm_ascending",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8274300.642285714,
+      "median_endpoint_wall_ns": 8094350.0,
+      "raw_csv_sha256": "51dd4b79d394444c5a443bce5ed8cd00599bf28e6b41cd45c988755535faca67",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 375741,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed83_random.npz",
+      "array_sha256": "f0f9aa57c245c4738dabd20c66d3e5117865e17b89cbaa294ebb12a5479ac030",
+      "build": "seed83_random",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8254066.839,
+      "median_endpoint_wall_ns": 8063105.0,
+      "raw_csv_sha256": "2bbe6970aae29a84ed40f8f9d443cb57a1577371a16d0b53b212feb995496e17",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 376580,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed83_norm_ascending.npz",
+      "array_sha256": "c72ca7806746db24348b0f1f87f120be781c43510ece11654d0b2577b78757fd",
+      "build": "seed83_norm_ascending",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8306604.117857143,
+      "median_endpoint_wall_ns": 8093425.0,
+      "raw_csv_sha256": "78dbd624574b5152dd45cd6b1b40d2793640685bd5558c7bb83864e3d02a16c2",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 376037,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed197_random.npz",
+      "array_sha256": "37f9ad925a27702c4ad20a8a59002e1fa7595a56fa5e146915318110158412e3",
+      "build": "seed197_random",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8327663.873285715,
+      "median_endpoint_wall_ns": 8079761.0,
+      "raw_csv_sha256": "46d3ec20f2ebe36879df642ae32797867290d130ccfc9c886c736e7fbe6a7a13",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 376200,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed197_norm_ascending.npz",
+      "array_sha256": "ca0215c1eae47d6eb1cbb779ae98312449e8dce717840ee574ecefa0e25ef1d4",
+      "build": "seed197_norm_ascending",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8299401.643857143,
+      "median_endpoint_wall_ns": 8118830.0,
+      "raw_csv_sha256": "89409822c3c4a4b94444f5816e760720085314ae6174e38768155dda712b7ba0",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 375551,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed2029_random.npz",
+      "array_sha256": "ca87c0337cf2c3989846546700821de1a837eba4e6303f4e1c1c7d1e000d7f1e",
+      "build": "seed2029_random",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8287083.584714286,
+      "median_endpoint_wall_ns": 8085220.0,
+      "raw_csv_sha256": "6198a9d9de9c9455ed0cdca712926b6519c1e30b8bd8447d0068005a0f5c4b4f",
+      "timed_cells": 77000
+    },
+    {
+      "array_bytes": 375960,
+      "array_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_latency_v1_ops/audited_arrays_v2/arxiv_seed2029_norm_ascending.npz",
+      "array_sha256": "d96cde4d8794afd6811211ba66e26695fdc3039b4350f0a5874cf6c72c370122",
+      "build": "seed2029_norm_ascending",
+      "dataset": "arxiv-nomic-1.34m-heldout",
+      "mean_endpoint_wall_ns": 8221561.024428572,
+      "median_endpoint_wall_ns": 8031120.0,
+      "raw_csv_sha256": "8de3e9cd904d1dd84d8b94caf7fe00d7a8f76d00003a46f8a83412ed04a9d6e1",
+      "timed_cells": 77000
+    }
+  ],
+  "schema_version": "icde2027-tcp-fresh-latency-audit-v2",
+  "status": "PASS_COMPLETE_BALANCED_SINGLE_QUERY_TIME_AND_ID_AUDIT",
+  "timed_cells": 1232000,
+  "zero_process_cpu_clock_cells": 840070
+}

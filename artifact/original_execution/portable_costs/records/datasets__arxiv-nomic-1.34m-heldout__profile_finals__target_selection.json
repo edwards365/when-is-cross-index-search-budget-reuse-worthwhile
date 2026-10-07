@@ -1,0 +1,102 @@
+{
+  "binary_sha256": "c29bd997c064579e47c51da619bd3fbc969b175dc3d33aed83f9e819c28f29b9",
+  "config_sha256": "12a12c2ca9f14a1ea9da5ea6b1c159da79baab65c8785f8322beefa21fc39a50",
+  "cpu_affinity": [
+    2
+  ],
+  "dataset": "arxiv-nomic-1.34m-heldout",
+  "process_maxrss_kib": 69728,
+  "profiles": [
+    {
+      "actual_exit_code": 0,
+      "build": "seed13_random",
+      "csv_bytes": 482880,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed13_random.csv",
+      "csv_sha256": "f1f97061f5f86bc25d62597d3e86292e302420e5ccc2ab69c6630441daf4339b",
+      "elapsed_ns_operational_including_native_reload": 17960047315,
+      "index_sha256": "90f0a4be2e46ec81f633da8ef0b5139f30e3230b610befe8ba3afa6d36ce2d0f",
+      "receipt_sha256": "80b2a489e3e4bcadd5166b8ce94bff8a074ab5f77cafa00380d9b296519f7814"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed13_norm_ascending",
+      "csv_bytes": 482795,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed13_norm_ascending.csv",
+      "csv_sha256": "3f8c646f2983c60f0936d3b70b133ee5c32638008d7a8ea8af0e4ee53fe8065b",
+      "elapsed_ns_operational_including_native_reload": 17910314712,
+      "index_sha256": "f734523553c99c9c55e70d27f4a4f2f32c481c389290222c5317653367984208",
+      "receipt_sha256": "1b04abf51ffb8c6930a599b59eb7848ffabd9d117b7248c6677b22c35305aa38"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed83_random",
+      "csv_bytes": 482770,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed83_random.csv",
+      "csv_sha256": "38b9981f8e7d9bd7d3d5f6d855615cfc7add35263aad37371ca2398089274ef8",
+      "elapsed_ns_operational_including_native_reload": 17909343598,
+      "index_sha256": "38bcc16f903985ad7084d4ac9b8638efca00a7c2a4d34a39105ef66332b8ab79",
+      "receipt_sha256": "8cb992dfea7193b96f39f60f36db781256d7168566f08c44f6f582a9d1441ce5"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed83_norm_ascending",
+      "csv_bytes": 482795,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed83_norm_ascending.csv",
+      "csv_sha256": "517a2cc215f2a52266ee1a5e55b175926e4459d5c18bd980e9f11c56edcd3b14",
+      "elapsed_ns_operational_including_native_reload": 17957348105,
+      "index_sha256": "d9432c3c47023971127137a3406ce0ac31a9f6c1f323dd586a83d89fafad885e",
+      "receipt_sha256": "e2663a22787762ce9adfc3ec211c6b1a4ba73dc6e8e980f6c8a7b629411e7f1a"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed197_random",
+      "csv_bytes": 482805,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed197_random.csv",
+      "csv_sha256": "2185acd6372ec0f675401e9c9f9ffca0a9507aea57dcafaabf09ae9d6697a603",
+      "elapsed_ns_operational_including_native_reload": 17856362120,
+      "index_sha256": "90351ac24bd54d1bcf2a0a8a391f01271ee708ef7d1455080c2b298f4ea62728",
+      "receipt_sha256": "e905133651c989d09da6f09715b81a620095ee669e6140970ed4ca72203fc65b"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed197_norm_ascending",
+      "csv_bytes": 482811,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed197_norm_ascending.csv",
+      "csv_sha256": "3aa32a2eb7403935c8dcb4ba4738a34659d7ebdd8d0477087488bbff6f19b661",
+      "elapsed_ns_operational_including_native_reload": 17757900500,
+      "index_sha256": "09a23cfd51edd1c3ffb6a52358106ebe4bb2775b55ab6fc70ab10c4476bd0005",
+      "receipt_sha256": "cc11151f55d9c6d3268b8f16d9f2c3be3fb64111ae8b1d1d1c3b76a35492d9ce"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed2029_random",
+      "csv_bytes": 482839,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed2029_random.csv",
+      "csv_sha256": "9e5d4b9c8581ea0c84e747b77ae09a63699139bbceb7d75626edd07182e0baac",
+      "elapsed_ns_operational_including_native_reload": 18159257798,
+      "index_sha256": "f21fd5ed8ce0002ba9f7e010db5cd109157e163da6b72bb2be96a8b2f8e07d95",
+      "receipt_sha256": "2a6ae20d7abc17fbdada729c7641ac857b60b952adc064de189b1b72452c9290"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed2029_norm_ascending",
+      "csv_bytes": 482789,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/arxiv_target_selection/seed2029_norm_ascending.csv",
+      "csv_sha256": "6f09741a508306b9456ab1c6089a4e513b8d5e45c6a9bcaca6bcce3f93663578",
+      "elapsed_ns_operational_including_native_reload": 18012612969,
+      "index_sha256": "98053b99e547dbd710249661852793bd6a6fa7ec0cb90adc74c636c16b9c848d",
+      "receipt_sha256": "0ee03a759289ee22fe27008c4da7051de606060e1f4d9ef6c33817e21cd76c2e"
+    }
+  ],
+  "qbin_bytes": 1540024,
+  "qbin_sha256": "afe7cae977de9ee45eacd3f727e1f7c87d04c654964a40d3a90b67d6839c2de4",
+  "query_count": 500,
+  "query_export_fsync_ns": 21484496,
+  "query_read_ns": 12684540,
+  "role": "target_selection",
+  "role_receipt_sha256": "cb8f88ac5082ec40e459ac843c1403cead95f0b48f2ef7eaacdd0c7a47d402a7",
+  "schema_version": "icde2027-tcp-fresh-native-profiles-v1",
+  "status": "NATIVE_PROFILES_COMPLETE_AUDIT_PENDING",
+  "truth_sha256": "4e323199c0eed732446d30a38aec844044e5ee400b1fc24b676f83febafc36ac",
+  "whole_unit_ns": 169829085504
+}

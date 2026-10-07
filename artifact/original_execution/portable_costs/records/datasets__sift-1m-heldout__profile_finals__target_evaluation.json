@@ -1,0 +1,102 @@
+{
+  "binary_sha256": "dc6646c564d462d750071c538c76485da5195644e095288db5d9ed050bfe0eba",
+  "config_sha256": "12a12c2ca9f14a1ea9da5ea6b1c159da79baab65c8785f8322beefa21fc39a50",
+  "cpu_affinity": [
+    2
+  ],
+  "dataset": "sift-1m-heldout",
+  "process_maxrss_kib": 68804,
+  "profiles": [
+    {
+      "actual_exit_code": 0,
+      "build": "seed13_random",
+      "csv_bytes": 931387,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed13_random.csv",
+      "csv_sha256": "246a63f244e04f5d9be9c88d879eacdf621e0618b8cad3f5abfaa2c3742ca45c",
+      "elapsed_ns_operational_including_native_reload": 13243826394,
+      "index_sha256": "6f2a98db52ac25fb96b3402bc4c8c5a6e11b1436de6c345f53b2168aeb68c4ee",
+      "receipt_sha256": "496090236f45f96b447977b61126dfee11874ab7dfec0bffcc359210eb0d275d"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed13_norm_ascending",
+      "csv_bytes": 931348,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed13_norm_ascending.csv",
+      "csv_sha256": "d7e44bd99437cb32c6a569537d0760e39f15106824db20a8a07975b7c4dba535",
+      "elapsed_ns_operational_including_native_reload": 13242987754,
+      "index_sha256": "23afe37e62d71a2d0359fce32ddae4daf064b2fe30a1bae855becc170b9563b2",
+      "receipt_sha256": "005dd171dd41ebcbf0f5ccc0317ff45a0e5549ddebe669750a6c8e8ffe94b87d"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed83_random",
+      "csv_bytes": 931414,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed83_random.csv",
+      "csv_sha256": "a9dbe5f3176c4cdca397754b1c6bb1e16340342d391890dabc718f2e43a2ffa6",
+      "elapsed_ns_operational_including_native_reload": 13193554241,
+      "index_sha256": "7f8aa0f6098437088180334aec02bb78f1a7d32dfeea2c4f3905320809f1b763",
+      "receipt_sha256": "ee323e7d0090f83d3a94d9929e4c496224dd10165807cc11160265fea8f81282"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed83_norm_ascending",
+      "csv_bytes": 931327,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed83_norm_ascending.csv",
+      "csv_sha256": "0da16017ce49d4924fd1105a4482571942405e9832f9ad95ea0fe4f0c7b4a936",
+      "elapsed_ns_operational_including_native_reload": 13245194209,
+      "index_sha256": "b11ba763e27be1ebd97cb2dc0a5a91723c1a3a0ba9b67bd8120182be10cbfd6b",
+      "receipt_sha256": "39d036eb4f1685ab6d544ede04c496b8904d4d7505c0978e28d189b731e3cf41"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed197_random",
+      "csv_bytes": 931348,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed197_random.csv",
+      "csv_sha256": "d64403b671a04bc39f40f744a2819482301c45e29ac1dae6390ac694f05f458b",
+      "elapsed_ns_operational_including_native_reload": 13193647123,
+      "index_sha256": "e02c59c813fe207ca1ff2feb93223e0eb5c0539156ee8852944ad5f331715522",
+      "receipt_sha256": "4a745b13837be731153fd3b1523c38f7597924f6515d66f30cc7a563269ba151"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed197_norm_ascending",
+      "csv_bytes": 931358,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed197_norm_ascending.csv",
+      "csv_sha256": "dc669e57b59c9ede46dde7d0454030d92c1414370e74b0616367f1f9c7457d6c",
+      "elapsed_ns_operational_including_native_reload": 13196009438,
+      "index_sha256": "68aacae72ddc3f97178bc79eef55e7dc4a84fe42ebd45c10517d24b546aa741c",
+      "receipt_sha256": "78634b3d7ce28c00441f299a0b6348b64bacc84e2cf90a3b887cae0c40b4c6be"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed2029_random",
+      "csv_bytes": 931437,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed2029_random.csv",
+      "csv_sha256": "ba9851b17d766241d5e560075d91717268ef06f1fe897cdc1c1f1368d7d694ef",
+      "elapsed_ns_operational_including_native_reload": 13193576061,
+      "index_sha256": "f9fdde5be674b9bc900e8bf7df3f4b791829bd79a8ba65f5bc9a5c9b440b7df8",
+      "receipt_sha256": "b9e9e464508c5d9b1845f0f222a2f6cfd139606b06a48d0c25b1c8545b51f30b"
+    },
+    {
+      "actual_exit_code": 0,
+      "build": "seed2029_norm_ascending",
+      "csv_bytes": 931342,
+      "csv_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_profiles_v1/sift_target_evaluation/seed2029_norm_ascending.csv",
+      "csv_sha256": "dd1fa4845713606e098ed15272618a434c936eea833a78d8a192b0a7ed0ebac0",
+      "elapsed_ns_operational_including_native_reload": 13193414998,
+      "index_sha256": "18d514c0dd655ba9ca97df458bd2a7f806fea1f410de968034c03a101ac47f9e",
+      "receipt_sha256": "70878821c2d417d4ef5a415c7f450ace67784a92637bbca54fbe4e7651423113"
+    }
+  ],
+  "qbin_bytes": 520024,
+  "qbin_sha256": "42e2040b3d8f3960a9cd3d87aac122260a87dfa3a0e29ff85f670815a8960ee6",
+  "query_count": 1000,
+  "query_export_fsync_ns": 7524292,
+  "query_read_ns": 26696329,
+  "role": "target_evaluation",
+  "role_receipt_sha256": "cb8f88ac5082ec40e459ac843c1403cead95f0b48f2ef7eaacdd0c7a47d402a7",
+  "schema_version": "icde2027-tcp-fresh-native-profiles-v1",
+  "status": "NATIVE_PROFILES_COMPLETE_AUDIT_PENDING",
+  "truth_sha256": "f939de89f2fa8e5df51b77300eae1649e04a65fc3e423f5ac4d7bf60d521ccda",
+  "whole_unit_ns": 109836276867
+}

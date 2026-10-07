@@ -1,0 +1,31 @@
+{
+  "config_sha256": "4d3ce525754f133c7e6bfedf9b30e5661d4a5bbe27ad10d5ac698892a2e8efb9",
+  "cpu_affinity": [
+    2
+  ],
+  "dataset": "sift-1m-heldout",
+  "effective_base_count": 992295,
+  "forbidden_hdf5_datasets_not_accessed": [
+    "test",
+    "neighbors",
+    "distances"
+  ],
+  "graph_init_ns": 20735362,
+  "graph_insert_ns": 226672834383,
+  "history": "random",
+  "hnswlib_version": "0.8.0",
+  "index_bytes": 655441776,
+  "index_path": "ARCHIVED_DATA/icde2027_1m/tcp_fresh_build_v1/indexes/sift_seed197_random.bin",
+  "index_sha256": "e02c59c813fe207ca1ff2feb93223e0eb5c0539156ee8852944ad5f331715522",
+  "membership_and_order_ns": 14516089,
+  "process_maxrss_kib": 1321648,
+  "query_roles_used": [],
+  "role_receipt_sha256": "cb8f88ac5082ec40e459ac843c1403cead95f0b48f2ef7eaacdd0c7a47d402a7",
+  "schema_version": "icde2027-tcp-fresh-build-receipt-v1",
+  "seed": 197,
+  "serialize_fsync_ns": 3906624579,
+  "source_sha256": "dd6f0a6ed6b7ebb8934680f861a33ed01ff33991eaee4fd60914d854a0ca5984",
+  "status": "BUILT_NO_QUERY_OUTCOME_ACCESSED",
+  "train_read_ns": 262834312,
+  "whole_unit_ns": 231395190107
+}

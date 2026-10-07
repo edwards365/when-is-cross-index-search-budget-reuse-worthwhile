@@ -1,0 +1,559 @@
+{
+  "schema": "original-cost-components-1",
+  "original_config_sha256": "ca6a18caf721b133b68a11f5b8c0ddfa134daa3966d734919c2289550d5e8526",
+  "records": {
+    "roles_receipt": {
+      "file": "records/roles_receipt.json",
+      "source_sha256": "cb8f88ac5082ec40e459ac843c1403cead95f0b48f2ef7eaacdd0c7a47d402a7",
+      "delivered_sha256": "40b055d394741464a4652013c71a44d3b317789d50f3edb3be409bbf2193070d",
+      "bytes": 113860,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "profile_audit": {
+      "file": "records/profile_audit.json",
+      "source_sha256": "943c00da72fb85faed26e3bf48779cdd11ced81fd5d5d981c677d807a708484f",
+      "delivered_sha256": "73d20ef5c797caafd73aa46868cf5354a9fa1b0e493568ab235783e9c95594ad",
+      "bytes": 4208,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "latency_audit": {
+      "file": "records/latency_audit.json",
+      "source_sha256": "86aeae954f5e64049d1248cf88fb2dbd3d2d45ff214e618384d4ad6c32795d29",
+      "delivered_sha256": "77e75e05557e91642ccbef48480ed99a255e6aaad33f035ae6cb5a569afdc599",
+      "bytes": 9445,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "decision_lock": {
+      "file": "records/decision_lock.json",
+      "source_sha256": "5e6cc286bc32c902dfa4055d5cbcf8445d42a7cb0fdca3434d15833a49ba1b3d",
+      "delivered_sha256": "66f061dd329f494641047b6c535964ea1cbdfa6f334a2fd1af248f4e8de98cee",
+      "bytes": 6545,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "evaluation": {
+      "file": "records/evaluation.json",
+      "source_sha256": "59d41801710e62560c0c02a132d8c383c6b46cbf513109ab84339b040a0613da",
+      "delivered_sha256": "d8fb9360f0688c527f4d60c2fd5b6e661d053175262293dbf4eaf4b48d0a4aca",
+      "bytes": 9839,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed13_random": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed13_random.json",
+      "source_sha256": "496090236f45f96b447977b61126dfee11874ab7dfec0bffcc359210eb0d275d",
+      "delivered_sha256": "5a3f0f33a49f6231e33426e683713e4b6a8bc6de9a2ac94c391a729efc105fa6",
+      "bytes": 1105,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed13_norm_ascending": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed13_norm_ascending.json",
+      "source_sha256": "005dd171dd41ebcbf0f5ccc0317ff45a0e5549ddebe669750a6c8e8ffe94b87d",
+      "delivered_sha256": "3b92d6780f3b4453fe94d91929a8d6f032d5c2c1bd1839493e5b48176a467b4b",
+      "bytes": 1121,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed83_random": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed83_random.json",
+      "source_sha256": "ee323e7d0090f83d3a94d9929e4c496224dd10165807cc11160265fea8f81282",
+      "delivered_sha256": "ca6801a4f6ca74d7c0b699b878abf1d05a1be94b046e504192bd565237441401",
+      "bytes": 1104,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed83_norm_ascending": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed83_norm_ascending.json",
+      "source_sha256": "39d036eb4f1685ab6d544ede04c496b8904d4d7505c0978e28d189b731e3cf41",
+      "delivered_sha256": "c4c6e28c5c8fe14943cf6f30563c5fc6f74b67afebd9fac0fdc9618060df0852",
+      "bytes": 1121,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed197_random": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed197_random.json",
+      "source_sha256": "4a745b13837be731153fd3b1523c38f7597924f6515d66f30cc7a563269ba151",
+      "delivered_sha256": "32973122e5b5724eac90d731d979b3738e1cf4be013c58add474dda975bfe7e9",
+      "bytes": 1106,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed197_norm_ascending": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed197_norm_ascending.json",
+      "source_sha256": "78634b3d7ce28c00441f299a0b6348b64bacc84e2cf90a3b887cae0c40b4c6be",
+      "delivered_sha256": "ce2975a79747ff1b22960fbfe0e29e018561df4100a608a0e30b3618e160b054",
+      "bytes": 1123,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed2029_random": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed2029_random.json",
+      "source_sha256": "b9e9e464508c5d9b1845f0f222a2f6cfd139606b06a48d0c25b1c8545b51f30b",
+      "delivered_sha256": "688f2aa6a14740bdcc2106163aaddaeb88e4daf20679db6f972fd56471e13bef",
+      "bytes": 1108,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__graphs__seed2029_norm_ascending": {
+      "file": "records/datasets__sift-1m-heldout__graphs__seed2029_norm_ascending.json",
+      "source_sha256": "70878821c2d417d4ef5a415c7f450ace67784a92637bbca54fbe4e7651423113",
+      "delivered_sha256": "0a84bba4f1b047aed2b4140207b168f5b07000f334737783cc8a23f26206549a",
+      "bytes": 1125,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed13_random__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed13_random__0.json",
+      "source_sha256": "e2bad2eca116077c1d327044c21f8e53cad70b7f07ad7d53b6087d0ea36d5183",
+      "delivered_sha256": "6e7fc200837d14afd8a26ec2c56fc85621afb465317177c24a0aa154f53c9464",
+      "bytes": 562,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed13_random__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed13_random__1.json",
+      "source_sha256": "7e0dea3aef7f3b3dabdb4e58fa269a9555b050c665573abe5c4d8036b369c759",
+      "delivered_sha256": "538559d58dd8e6677cc882011428d91c93bea9e9338a98f63b53a1c4289be16c",
+      "bytes": 562,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed13_random__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed13_random__2.json",
+      "source_sha256": "47cc22fe0c575f1bfaecf02903ce49f0438fd579580579744d897b9ed38a2dcd",
+      "delivered_sha256": "2461e525855a019ce5b9a98cf5345c76869034865bba448597727aa9723d168c",
+      "bytes": 562,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed13_norm_ascending__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed13_norm_ascending__0.json",
+      "source_sha256": "07b61e65133f72f13f09ce91237affd30c468883c9e73fa89718eb284360b1b8",
+      "delivered_sha256": "fdf9d488d7e368362120ef1a2069804e536d3bedd2690841f969170f6511ecb6",
+      "bytes": 570,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed13_norm_ascending__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed13_norm_ascending__1.json",
+      "source_sha256": "fd3677f0a92b781e43f98ac91752506916068db4bfd6c33d999e610bcec42f75",
+      "delivered_sha256": "ae6e43277c70d905965cc1191667734c12911b1b2d2e3b75dbf2ab1f9f6f1c62",
+      "bytes": 570,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed13_norm_ascending__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed13_norm_ascending__2.json",
+      "source_sha256": "055f7e585be79cc659f7fca68990ce2578552475c88b05aa13c9ffd0d4ad5bc5",
+      "delivered_sha256": "1863a5e7f5b68fba74159c4300a5c7d600a2901976962cadef8035ef34c0d904",
+      "bytes": 570,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed83_random__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed83_random__0.json",
+      "source_sha256": "368aa59df2244b4014e5f9644bba361e0a2d1cc8d28a14618a860bdcf504ad91",
+      "delivered_sha256": "9028026f71c6980448d9237199b9983cf77d18c28231863580b59e840d0e8b01",
+      "bytes": 562,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed83_random__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed83_random__1.json",
+      "source_sha256": "efe46b1159f16401374755ac8a64a0735b1f8c4d801d5a08e37d78a98324019f",
+      "delivered_sha256": "af0dab28304ef54e4ec5d5402a6979f81f4c2a2ad7938d3e0fe0937444d4c13b",
+      "bytes": 562,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed83_random__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed83_random__2.json",
+      "source_sha256": "de8a4493de6e012e13176a5bfcdd7d3ae6605e7d1e91686733b8342c037e7e85",
+      "delivered_sha256": "bcec3fc44a80cbf0b48df4bbf574b73b41554d8e6b863ccc1117614fd993839f",
+      "bytes": 562,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed83_norm_ascending__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed83_norm_ascending__0.json",
+      "source_sha256": "b32b6564e7dd9f66b7ac8bcf13e86535e15c7e8ba21d0aeb0960ded15ee6188e",
+      "delivered_sha256": "ea10f74fa4389de15ef362b2c719112108fb01a47f9fcbf92bd86f85b776b92c",
+      "bytes": 570,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed83_norm_ascending__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed83_norm_ascending__1.json",
+      "source_sha256": "b4e43f7e3b438b07a2fa1dafd2c49bbad649bd457700e810b8d0aa80f90080f9",
+      "delivered_sha256": "7b277dde10108ad31a424e3172544223c67431ddc479115ef7c0a7e86ffe57cf",
+      "bytes": 570,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed83_norm_ascending__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed83_norm_ascending__2.json",
+      "source_sha256": "a9c4b0861eb0b1633d090cb3c99fc6f24e8e662c8b81f06329b0a746b4be766c",
+      "delivered_sha256": "d9752d29606371be98cc4c4a094f3084af748e16c3929616cad3f0b19eb56049",
+      "bytes": 570,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed197_random__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed197_random__0.json",
+      "source_sha256": "11a1bc5ce1be599e588934f5f2cb50e46a6b8324020c58435443a3126a025575",
+      "delivered_sha256": "848b597e580855dd968f570f37358af9f631e6ca63c6b1843144bd957e2e2ecf",
+      "bytes": 563,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed197_random__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed197_random__1.json",
+      "source_sha256": "dd966d8a3f37330b426e28c781c2014f184d7121ad5cffc147fbd06e6e2e716a",
+      "delivered_sha256": "a33b3781863b0f01b3d39b0494bb8eef1b7d70f19a210b571daf57fa0aead9c0",
+      "bytes": 563,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed197_random__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed197_random__2.json",
+      "source_sha256": "0a7c9c391bd40b4c73b25e2e4fd1d32e17380de500b53cd108df0f73fd683f5c",
+      "delivered_sha256": "a709ccf2f7b0dab6247d10e1ea6d704b807751a2aee71169f18fe2b091b464b9",
+      "bytes": 563,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed197_norm_ascending__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed197_norm_ascending__0.json",
+      "source_sha256": "703e917412069bd530c0300f00421e997e89c5455fba98ee9e33e69c14552e91",
+      "delivered_sha256": "082b1ba7e7bf69a39761c0fb9b3d3c61d343050f98e820dfb3495a8f1cf98863",
+      "bytes": 571,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed197_norm_ascending__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed197_norm_ascending__1.json",
+      "source_sha256": "80f5098b0ff231275dfabf75e01b1b6284f2978758b1db7f22b2c310fe316c18",
+      "delivered_sha256": "3cd29bdb5ad0c7d1e32de23d957ef5b5e4e8a83fb60e781d527e4fad0d972b08",
+      "bytes": 571,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed197_norm_ascending__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed197_norm_ascending__2.json",
+      "source_sha256": "6ef3782292cfd28ded95f5cd230cde0f288db2db77060e2164236e73692eb621",
+      "delivered_sha256": "a4a2e94b30a8df7da713160208038987126b932c8fb443c74d6c1996723b83d2",
+      "bytes": 571,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed2029_random__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed2029_random__0.json",
+      "source_sha256": "ab6ca1b35ed94bbb637b6de35eb24013f11977bc65d6b835ffd564828845d945",
+      "delivered_sha256": "b83c58288ea34c0dfd64298b7bec9c037741bd5265019c49c7b50b92eb864aea",
+      "bytes": 564,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed2029_random__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed2029_random__1.json",
+      "source_sha256": "15d4f813c7a629ee69405b7c28c2dd445415fe9ce89ae2c9b6eda3f243b1d62a",
+      "delivered_sha256": "329551293b28d8591d8a0de24994d64c44e5fedcc90b518122c4deea6d85fe14",
+      "bytes": 564,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed2029_random__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed2029_random__2.json",
+      "source_sha256": "7b2f70fcf1ccb1ba9710d8ac84ccee6770a7ddb1fab212a6400d0bc616e4f5ba",
+      "delivered_sha256": "bafcb4b3d6fe969f3ebea2412ce40ab0155008e67b728860048cd0e44f6b9e54",
+      "bytes": 564,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed2029_norm_ascending__0": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed2029_norm_ascending__0.json",
+      "source_sha256": "9ffa9722f66dbc7ac2052fa9dc6a3062132f1943b2023c32f893487dda781480",
+      "delivered_sha256": "90860e4bcf100d98f2503339bd3c078cc1242e51519b332ddb9d885826501859",
+      "bytes": 572,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed2029_norm_ascending__1": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed2029_norm_ascending__1.json",
+      "source_sha256": "86d3838dd6306e5c18774949b4a814deda9911a9ecba33a948251acf041b4110",
+      "delivered_sha256": "c31580c88fd28c3dffc7b94936306505b59a552e3a45e9388b1aa2f7b76154d9",
+      "bytes": 572,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__reloads__seed2029_norm_ascending__2": {
+      "file": "records/datasets__sift-1m-heldout__reloads__seed2029_norm_ascending__2.json",
+      "source_sha256": "1905eab407b92ff10778282b962a790b260c4e327fe5e42186c14b3d4add5461",
+      "delivered_sha256": "e54658d8bc86b13fdd64e6f6571c2c129c8aead0f7a1db016e1e691e12032272",
+      "bytes": 572,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__truth_receipt": {
+      "file": "records/datasets__sift-1m-heldout__truth_receipt.json",
+      "source_sha256": "1674ffe6ea70821645fa3997fb6564fa1095b4a2f295d4c5b02b7e8648521a61",
+      "delivered_sha256": "44ea40a62b267fa5ad5b278e2311d66b43f850dd0ef557e330404856b3e8f632",
+      "bytes": 2334,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__profile_finals__source_design": {
+      "file": "records/datasets__sift-1m-heldout__profile_finals__source_design.json",
+      "source_sha256": "7f2bbdaea02b0bd93588ea3ebb489e7c85cd6035b98dd03c6288658ae5087c81",
+      "delivered_sha256": "18fb0ad8652609e2668540bec965b2af97ab05284309cbe5e2c402b0734da6c5",
+      "bytes": 5268,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__profile_finals__target_selection": {
+      "file": "records/datasets__sift-1m-heldout__profile_finals__target_selection.json",
+      "source_sha256": "3b5a380b66c77d4d44c5347be58b03dba56d35b332caffe70705cf4a8b40cda7",
+      "delivered_sha256": "3c18c5c03a05332fda6da3cd430c317b6f2513d8f2c9bea11b5a89967ceeee95",
+      "bytes": 5295,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__profile_finals__target_certification": {
+      "file": "records/datasets__sift-1m-heldout__profile_finals__target_certification.json",
+      "source_sha256": "67a51041e023931ef564a3352fbc62b1a1f5ba6855af30b1ac9670ccbe7ae922",
+      "delivered_sha256": "b8f77a5d9f69a4a4caa6bb9fc4a2d5bb66cfb5684aebe02e868351b1a5fe9573",
+      "bytes": 5331,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__sift-1m-heldout__profile_finals__target_evaluation": {
+      "file": "records/datasets__sift-1m-heldout__profile_finals__target_evaluation.json",
+      "source_sha256": "cbdc8c7c8a89fd5eee1521e9ec7b8f3d9f4397a28e8fca9746b767302cace976",
+      "delivered_sha256": "fea14fc5018a6c2f2a5c255f772c14366109ae770559c942e1f81f309e6ed5a9",
+      "bytes": 5314,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed13_random": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed13_random.json",
+      "source_sha256": "80b2a489e3e4bcadd5166b8ce94bff8a074ab5f77cafa00380d9b296519f7814",
+      "delivered_sha256": "04dd9fbc64a00038cdfe8ec568de1add538707b55c9649f63a7049d18f7e08c6",
+      "bytes": 1120,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed13_norm_ascending": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed13_norm_ascending.json",
+      "source_sha256": "1b04abf51ffb8c6930a599b59eb7848ffabd9d117b7248c6677b22c35305aa38",
+      "delivered_sha256": "7f29a145c090b4bfa03980a9b4a7f94b4213619b2d33e6d73827869dcb96efeb",
+      "bytes": 1138,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed83_random": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed83_random.json",
+      "source_sha256": "8cb992dfea7193b96f39f60f36db781256d7168566f08c44f6f582a9d1441ce5",
+      "delivered_sha256": "1c8122c69ad18f5553e0687e8c4e1258a8df84dd77144176ec179dd8eef1577a",
+      "bytes": 1120,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed83_norm_ascending": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed83_norm_ascending.json",
+      "source_sha256": "e2663a22787762ce9adfc3ec211c6b1a4ba73dc6e8e980f6c8a7b629411e7f1a",
+      "delivered_sha256": "59342864f48ceb2639572f116ee4239f77762f974e46180b156b5f208f3a87e3",
+      "bytes": 1139,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed197_random": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed197_random.json",
+      "source_sha256": "e905133651c989d09da6f09715b81a620095ee669e6140970ed4ca72203fc65b",
+      "delivered_sha256": "5427792f565ca8e15b898fbe11c218bcfb7f5185f3ace9e09a7dc1f06b94d9e7",
+      "bytes": 1122,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed197_norm_ascending": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed197_norm_ascending.json",
+      "source_sha256": "cc11151f55d9c6d3268b8f16d9f2c3be3fb64111ae8b1d1d1c3b76a35492d9ce",
+      "delivered_sha256": "b362fba205c17472189d076aa3329e14a812cac04a0ad4760b7ba9345b551ca5",
+      "bytes": 1140,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed2029_random": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed2029_random.json",
+      "source_sha256": "2a6ae20d7abc17fbdada729c7641ac857b60b952adc064de189b1b72452c9290",
+      "delivered_sha256": "cbd2c83ca02114d79cdb0a1fd22db321dee91295cb64f444938f2dcb81657877",
+      "bytes": 1123,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__graphs__seed2029_norm_ascending": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__graphs__seed2029_norm_ascending.json",
+      "source_sha256": "0ee03a759289ee22fe27008c4da7051de606060e1f4d9ef6c33817e21cd76c2e",
+      "delivered_sha256": "53183d5cf2747e2c287d8eeccd3af92cf8c49afc4cab0e0af792916ae9ae40cb",
+      "bytes": 1143,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_random__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_random__0.json",
+      "source_sha256": "d23766f616b63c56b1e4a67b96b1007619a6de0b71ee363621237e593fb7fe9f",
+      "delivered_sha256": "3226d95f96505f69efa8096e783241af34bd8c8b039c935367ea8e6ed99c412c",
+      "bytes": 575,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_random__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_random__1.json",
+      "source_sha256": "4166dd1b58418cad304c14226c2279a2ca955e7ec6f77ef6f7d4826de8ad1033",
+      "delivered_sha256": "948ec53efbab45f60c5c17dc8b006fe7dd58f524c49cc513859ccea8a22b0201",
+      "bytes": 575,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_random__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_random__2.json",
+      "source_sha256": "1db5b2b615801a3e0cfaec48d695cc5ba60d89fa37ee605b7cb9c073e8a1ddf8",
+      "delivered_sha256": "c5fdf20213daa8e2e8b14cc785a75838efb6bf285d2492ba3448e462af9b3118",
+      "bytes": 575,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_norm_ascending__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_norm_ascending__0.json",
+      "source_sha256": "d07d8720baddf14646843081322e5f50f9fd22884763bfc87aa4de18e66397e5",
+      "delivered_sha256": "1af1a1280f476939793f56f0527419dd48ec3bdcf47cb2b73a0b0b569349f8a3",
+      "bytes": 583,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_norm_ascending__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_norm_ascending__1.json",
+      "source_sha256": "5196bbd2ffddac8c82734a3f7a7f15f117d6b8b47767cd5bac75e50baaec5805",
+      "delivered_sha256": "e422223c5e6c398bf5fff2b5a3f37dd15207f4bdce3190cf55d78cbf5c1eacd4",
+      "bytes": 583,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_norm_ascending__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed13_norm_ascending__2.json",
+      "source_sha256": "856615906d33add9e104180054be13b5a302b14bd3f0adfe5a037fe8afa7836e",
+      "delivered_sha256": "9c1830bf60a8ea8985468380275045f6a724ab7207fb33c41033dc46ee810505",
+      "bytes": 583,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_random__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_random__0.json",
+      "source_sha256": "3ff57781812f372fcf6382f297368866facc32b3f56761faba968f7eebd2e928",
+      "delivered_sha256": "5142e2fcf31d0fafeeb82becb81cb84bfb723b1c9c5afb726bafcb629897486f",
+      "bytes": 575,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_random__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_random__1.json",
+      "source_sha256": "429c3a7b69fa4adc9e5fd6eb4ef380acad7a783ad3531a4182ec949c0fc5137e",
+      "delivered_sha256": "0b66d0296eae29294771db9918082475199da2eab6ecad173615549360d005e5",
+      "bytes": 575,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_random__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_random__2.json",
+      "source_sha256": "3fdd33b0d4ae3790af923d23c6f9124bd5c7f1760b0975d2e771282462bd6485",
+      "delivered_sha256": "ec8c6f8353d0b7c700862ac3995231c074d19216708971f870b585d4d97b3925",
+      "bytes": 575,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_norm_ascending__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_norm_ascending__0.json",
+      "source_sha256": "c8752b74d6e7081630f6c6668f9729f2673b29fcb534c9c85e8bb1c91361f485",
+      "delivered_sha256": "484f2ad073fda1d8c8ed4bd5e889adc03b490b22ff39b9c341e9a2717d4afacf",
+      "bytes": 583,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_norm_ascending__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_norm_ascending__1.json",
+      "source_sha256": "18283fd7b9345ec40f95df926e28dfcefe78e98f7cdf584191cbbbbbb6ab2a2e",
+      "delivered_sha256": "5103b7c202ae92e03d67593f7c874f64987aa7573c7b5de9ce52af4889175008",
+      "bytes": 583,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_norm_ascending__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed83_norm_ascending__2.json",
+      "source_sha256": "e498366e6e5171a05da095bf0a07c015ab3b288cd0733156897c8f7970a45f55",
+      "delivered_sha256": "fabbda08a5346d5cb874f4285722173323735b41d65fa1d91364acff492eb42b",
+      "bytes": 583,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_random__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_random__0.json",
+      "source_sha256": "3189100c3fef3185b9ba38b99ab9a15e501de9bc75b06280cff9cc817e28b35d",
+      "delivered_sha256": "f150b37f1635c29444cb0d02e967d608b069e89bbd943958585f3b8c5c7173ee",
+      "bytes": 576,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_random__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_random__1.json",
+      "source_sha256": "465d01d4a7439da972bca4ac29f683590efa6ced289203070f06a2ebe8d3ead8",
+      "delivered_sha256": "76f290fa4400fef795187816b6a083834455ce59c5044093e629eeddbea4f61d",
+      "bytes": 576,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_random__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_random__2.json",
+      "source_sha256": "21649167fa323771b24b86508aefd957baf3c89b7f43edfefd3eb3f75ef15eb7",
+      "delivered_sha256": "24ebd0bc84d5eacb88c765854ae61883d6eccb55d4a215de24160593a0593bef",
+      "bytes": 576,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_norm_ascending__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_norm_ascending__0.json",
+      "source_sha256": "221af298e927cc2a6e843149422ca0968b30aa6d1085f2c010d10c84ad9c4b2f",
+      "delivered_sha256": "0d8e051f655f6040c9c93fd571dbd3ec4c2b72a6b8d1df7b566c46f366fc2245",
+      "bytes": 584,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_norm_ascending__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_norm_ascending__1.json",
+      "source_sha256": "ab2b46a2acb5b51b3e112d223d4107791baa01c91836eeb30e69b618a4eb15e8",
+      "delivered_sha256": "812f62b6631967e4398f0a11455765d81d69938227fa3e914580b09ea204c414",
+      "bytes": 584,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_norm_ascending__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed197_norm_ascending__2.json",
+      "source_sha256": "1727a3eda7127353d4e52d70e709ed53f6eae7e22e5602910e63e8bc1080168d",
+      "delivered_sha256": "403b968d11dc2de4f7218c82b357a5a5c84e1367984c6602fee398456d88d552",
+      "bytes": 584,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_random__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_random__0.json",
+      "source_sha256": "6a20e42d5ae16161eba5f1a3727e13cdc5ccdbe47461d4b35799c4f497517722",
+      "delivered_sha256": "d285b4374d39e07260d8fc7f3e7c278e0db28287307391b190a1d9f00a27fad7",
+      "bytes": 577,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_random__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_random__1.json",
+      "source_sha256": "c2ae4c31c0d99708482835d3e7c02b1ecdea8abc6d168f6d635790f847afadde",
+      "delivered_sha256": "e975360af946f75805a5a7a8e1202948717113647452ac03957b17d0f405eafe",
+      "bytes": 577,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_random__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_random__2.json",
+      "source_sha256": "03037f8869861b011de52cb42826e9477facf86d7bb20990f4bd08f9c993ed0f",
+      "delivered_sha256": "409c60c2eca9ec40c779a7cea28cb4a0776c273b745f6c3dd08a8eccb56a7f48",
+      "bytes": 577,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_norm_ascending__0": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_norm_ascending__0.json",
+      "source_sha256": "cf748127e4ecc58b6f8ba0d0c3293fbc8c90f3360b61c8418e2af1bcc16402f6",
+      "delivered_sha256": "1c66222a5d84032505b9e8ee8a365540a046faa449e9a53da419d486bed4c100",
+      "bytes": 585,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_norm_ascending__1": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_norm_ascending__1.json",
+      "source_sha256": "3eaca0dba590d76944df8469e97174f482ac7520b817bee1e76fa49fa5313a57",
+      "delivered_sha256": "63c8ed833f8236c46a092832d74586b9398ee468337ae872d98584548f57351e",
+      "bytes": 585,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_norm_ascending__2": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__reloads__seed2029_norm_ascending__2.json",
+      "source_sha256": "dca0fa5f925fab41bb8ac7885ccb937f12548904f6dd72b7298f990dfb556700",
+      "delivered_sha256": "da1c710d359d2f90d67d30ddbfbef120e6c5d45c9ef3ee899fb98b6cb2a03546",
+      "bytes": 585,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__truth_receipt": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__truth_receipt.json",
+      "source_sha256": "b88844bd2e3167dc8262e2c3487100ca40bccbdae3c6f60d8297d39d292a9371",
+      "delivered_sha256": "a64920e790c2cbca97e2c80d5d708942131b982df6419ca2eee2ba0483d4554d",
+      "bytes": 2354,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__profile_finals__source_design": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__profile_finals__source_design.json",
+      "source_sha256": "f85e978c79ad869f58dce6fcecb802ea6504d1283c359a95df91a3b1b3ca8849",
+      "delivered_sha256": "72f279799f727a4852b51a5c9af0185f445c7bf36369daa06dda69398a18550f",
+      "bytes": 5297,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__profile_finals__target_selection": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__profile_finals__target_selection.json",
+      "source_sha256": "fbf58d2ae6e7505cf5bbed8fe6757c7ddbe0a1c78161e1d884640fc6f3d624b1",
+      "delivered_sha256": "95b3754be4bb4a58622e5c500de51465ff874be7431163a26902100c22c383a8",
+      "bytes": 5324,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__profile_finals__target_certification": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__profile_finals__target_certification.json",
+      "source_sha256": "d66b524968f1c68b579a16e9d96f49638e46e6fadfb7a9738219f624976c2e0d",
+      "delivered_sha256": "6ff9c5f0ee1b9f36a5f996da6d15edde5d671dd78e633b1d07195973a7249ed0",
+      "bytes": 5360,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    },
+    "datasets__arxiv-nomic-1.34m-heldout__profile_finals__target_evaluation": {
+      "file": "records/datasets__arxiv-nomic-1.34m-heldout__profile_finals__target_evaluation.json",
+      "source_sha256": "55f923c6c72bdfb28b76e466963329e4449fcec22561c2104092941e485e731b",
+      "delivered_sha256": "9489a443e55098d1a42285b7b5beaefb6fc516e7768c7c1041cdd04085e72939",
+      "bytes": 5334,
+      "transform": "Private root prefixes replaced; numeric/scientific fields unchanged"
+    }
+  }
+}
