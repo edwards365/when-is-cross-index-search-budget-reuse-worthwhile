@@ -1,0 +1,116 @@
+{
+  "schema": "portable-deep-recovery-1",
+  "dataset": {
+    "filename": "deep-image-96-angular.hdf5",
+    "url": "https://ann-benchmarks.com/deep-image-96-angular.hdf5",
+    "sha256": "a0a44dfe80c58e63860862eeea2d34e62cff958dc3aec14fd65263d1d3c751f8",
+    "bytes": 3848008288,
+    "availability_check": "2026-10-07 HTTPS HEAD 200, Content-Length 3848008288; no complete download",
+    "provenance": "main/manifests/graph_anns_phase3_ea85/p4_deep1m_preregistration.json",
+    "upstream": "https://github.com/erikbern/ann-benchmarks/blob/main/ann_benchmarks/datasets.py",
+    "rights": "Obtain from ANN-Benchmarks and consult original Deep-image dataset terms. No data redistribution in this package.",
+    "dimensions": 96
+  },
+  "source_distribution": {
+    "filename": "hnswlib-0.8.0.tar.gz",
+    "url": "https://files.pythonhosted.org/packages/cf/7a/1a9b1405f2eb59515f06c3074750b03e0e96edf7fee0f6dd6df81d9c21d7/hnswlib-0.8.0.tar.gz",
+    "sha256": "cb6d037eedebb34a7134e7dc78966441dfd04c9cf5ee93911be911ced951c44c",
+    "bytes": 36206
+  },
+  "headers_commit": "3f3429661187e4c24a490a0f148fc6bc89042b3d",
+  "historical_sources": {
+    "scripts\\graph_anns_phase3_ea85\\run_phase4_deep1m.py": "6e352faef87c32ea8fd90582fc5df5e915aca3dc7055870f3439cf7b995e084a",
+    "scripts\\sigmod_ea_postseal_uplift\\run_deep1m_target_cert.py": "8b510435ce4a63615d84b680646b09368494fff4a815ca16fceb54da861d7c45"
+  },
+  "files": {
+    "deep1m_counting_runner.cpp": "a6274dc4eae3b1f3e73114070fea6e7fd018b51711e490d9e8971bf340c1ccc4",
+    "historical_analysis.py": "3638713dec781028455e5d187724251e689853c4430c8ee482873f169a8cb933",
+    "historical_core.py": "3c5a0e9f632147f3f00b2ed80923732537f971ef3c9f70954765f984a07d5e09",
+    "include/hnswlib/bruteforce.h": "da1f179e99d8e5a4c39b5db0c681bccf3c63e797aaa4982620519f8e001cb2c6",
+    "include/hnswlib/hnswalg.h": "0fb2c1b1d3aae1ea959b536f96844f3f3ae6a2f32ce063f2c31f93d84a7e5c32",
+    "include/hnswlib/hnswlib.h": "54403db81f55fd28246114c5c9f683e663a2a55ad64903b56578c73e6db5ad2c",
+    "include/hnswlib/space_ip.h": "6a89b5275527fe3592a9b02ea4fc50293fdc68cbd9f7c1ec13683581e1ebbaf7",
+    "include/hnswlib/space_l2.h": "c599d024657896412250b4fde1a95e39f8bc55cccd263f36c8948fa35779edf1",
+    "include/hnswlib/stop_condition.h": "930da73eead77dff0c8c9f3281c5d12250051c90ef98fcfbab8f5f307bdae8d9",
+    "include/hnswlib/visited_list_pool.h": "8e5bab8d12b5ef26e3b603b656b8a1acba6738498d1d98f44c9fdb1cb0e25110",
+    "include/LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+    "protocol.json": "063309a2709aab2936d9cb22e7ab8adf1182e366da2d0e88a3ec1eb89059e41e",
+    "resources.py": "94f4471ea505d949ba8e03e1eb6c7d87385121700acc0157abb17037f9cb965a",
+    "roles.json": "1d60bdccc5f7bd575e5ba265eec4c1b99923a5fcaff9574f9580819117f81f82"
+  },
+  "seeds": [
+    3011,
+    3203,
+    3413,
+    3617
+  ],
+  "histories": [
+    "random",
+    "norm_ascending"
+  ],
+  "grid": [
+    200,
+    300,
+    400,
+    600,
+    800,
+    1200
+  ],
+  "role_order": [
+    "source_design",
+    "target_certification",
+    "target_evaluation"
+  ],
+  "expected_queries_sha256": "c0d3d7d08e6b142c443596c6b96d8b1003cca4b3b7ce33ade157b8bcbb699a70",
+  "expected_truth_sha256": "2eec784a59161de4f1b6a4b58317157d7fe684958d61a1e255ac0230737d816c",
+  "expected_graphs": {
+    "deep1m_seed3011_random": {
+      "sha256": "c78b3a86a59ea99b8d337d914caa5a45d3dc37db5b39fe6a7db3b2723a9b14ed",
+      "bytes": 532529916
+    },
+    "deep1m_seed3011_norm_ascending": {
+      "sha256": "28d780e375b769d167f13f66158578714849fe1f402fcbf6675d2322b0dcb98a",
+      "bytes": 532529916
+    },
+    "deep1m_seed3203_random": {
+      "sha256": "fef72cb443d1049b2b0a5753d1bc22b82fb077d7bc0938d64fec37d72b159a24",
+      "bytes": 532545828
+    },
+    "deep1m_seed3203_norm_ascending": {
+      "sha256": "4c2aa8518f8ab18c813bcd086eb21eacd7970d626f5246082046ed126ee63380",
+      "bytes": 532545828
+    },
+    "deep1m_seed3413_random": {
+      "sha256": "f82ec80d91224d39f21da5802fbc6855029a787e93ad07d27b5c76e861b8abe8",
+      "bytes": 532528692
+    },
+    "deep1m_seed3413_norm_ascending": {
+      "sha256": "258178a9aef0ba8896675ea2e96bafc270a406364fd8998e2421d25e3c40ba20",
+      "bytes": 532528692
+    },
+    "deep1m_seed3617_random": {
+      "sha256": "a8f27d049be2931cd34118c067163b4ca8b343e8670d6094cc9b1a6307a25816",
+      "bytes": 532528012
+    },
+    "deep1m_seed3617_norm_ascending": {
+      "sha256": "fb4eab0a7d9aa78820115ed6a2764e9f9155e3866ea506aab738a9035071c643",
+      "bytes": 532528012
+    }
+  },
+  "historical_inventory_sha256": "7fcc4d1db0ec008b09efeba8d2089b239b9215cf5ac559d221a51e530ac4db29",
+  "historical_progress_sha256": "e5a9cec8bcbc42b8a5b330fd94a77a3be91ba0b24b176f4f16c02d9460cdd441",
+  "historical_native_binary_identity_attested": false,
+  "resource_plan": {
+    "cpu_affinity": [
+      2
+    ],
+    "expected_rss_bytes": 8589934592,
+    "address_space_bytes": 17179869184,
+    "file_size_bytes": 2147483648,
+    "max_output_growth_bytes": 12884901888,
+    "remaining_project_growth_limit_bytes": 137438953472,
+    "minimum_projected_disk_free_bytes": 214748364800,
+    "cpu_seconds": 14400,
+    "wall_seconds": 14400
+  }
+}

@@ -1,0 +1,6 @@
+numpy==1.26.4
+h5py==3.11.0
+scipy==1.13.1
+setuptools==84.0.0
+wheel==0.44.0
+pybind11==2.12.0

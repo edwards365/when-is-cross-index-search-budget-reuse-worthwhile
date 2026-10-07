@@ -1,0 +1,14 @@
+{
+  "schema": "portable-deep-validation-1",
+  "checked_date": "2026-10-07",
+  "local_environment": "Windows Python 3.12.14 NumPy 1.26.4",
+  "local_unittest": {"tests": 9, "passed": 8, "skipped_native_linux": 1, "failures": 0},
+  "frozen_role_reconstruction": {"queries": 1500, "roles": 3, "each_role": 500, "dataset_reads": 0},
+  "original_query_truth_and_graph_sha_pins_bound": true,
+  "native_synthetic_verification": "PENDING_LINUX_CI",
+  "historical_native_binary_source_attestation": false,
+  "full_original_scale_execution_performed": false,
+  "original_ann_or_bootstrap_reruns": 0,
+  "local_path_privacy_rg": "NO_MATCHES",
+  "scope": "Executable adapters and source/role integrity tests; not a claim of independent full Deep1M reproduction. Linux CI status must be reported separately."
+}

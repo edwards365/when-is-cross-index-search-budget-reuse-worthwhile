@@ -286,8 +286,8 @@
       "sha256": "460ccefed95e4c9c8de72ac871273df914fbb612197463dd42d35b1968cc3f38"
     },
     "original_execution/README.md": {
-      "bytes": 4669,
-      "sha256": "b92863e35b1ea7805346a6cbacbad330adf1eb2c698051f04318c7961a493799"
+      "bytes": 5260,
+      "sha256": "2d61f5924ca19e1f7b891f40dced2389c816ff1195910a39ff081faec22b709f"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -660,6 +660,146 @@
     "original_execution/portable_reload/validation.json": {
       "bytes": 825,
       "sha256": "b7668b20891e0e05d9d5ab8eec9c569b2abb263c0422973def2a5db0bb31e6be"
+    },
+    "original_execution/portable_deep/config.json": {
+      "bytes": 5155,
+      "sha256": "b44f226c1d3f5d4d1fb8d1ac61cad81277f1c5849e587170ddfe53b8c430037a"
+    },
+    "original_execution/portable_deep/deep1m_counting_runner.cpp": {
+      "bytes": 5347,
+      "sha256": "a6274dc4eae3b1f3e73114070fea6e7fd018b51711e490d9e8971bf340c1ccc4"
+    },
+    "original_execution/portable_deep/historical_analysis.py": {
+      "bytes": 10337,
+      "sha256": "3638713dec781028455e5d187724251e689853c4430c8ee482873f169a8cb933"
+    },
+    "original_execution/portable_deep/historical_core.py": {
+      "bytes": 2489,
+      "sha256": "3c5a0e9f632147f3f00b2ed80923732537f971ef3c9f70954765f984a07d5e09"
+    },
+    "original_execution/portable_deep/protocol.json": {
+      "bytes": 3466,
+      "sha256": "063309a2709aab2936d9cb22e7ab8adf1182e366da2d0e88a3ec1eb89059e41e"
+    },
+    "original_execution/portable_deep/README.md": {
+      "bytes": 3820,
+      "sha256": "85e234002e5a8cfc9faa4d73f9922076e85bc28d17d764e83a4500f0a7164ad9"
+    },
+    "original_execution/portable_deep/requirements-native.txt": {
+      "bytes": 210,
+      "sha256": "2d488273b99f2c7f2409a2cf7e369ee887980667718a28e8acec0cd240ba79d7"
+    },
+    "original_execution/portable_deep/requirements.txt": {
+      "bytes": 91,
+      "sha256": "b50698c3938aed6376caa1bf4231fa77f24d859003ae57c8da71f1609d37876d"
+    },
+    "original_execution/portable_deep/resources.py": {
+      "bytes": 2481,
+      "sha256": "94f4471ea505d949ba8e03e1eb6c7d87385121700acc0157abb17037f9cb965a"
+    },
+    "original_execution/portable_deep/roles.json": {
+      "bytes": 18563,
+      "sha256": "1d60bdccc5f7bd575e5ba265eec4c1b99923a5fcaff9574f9580819117f81f82"
+    },
+    "original_execution/portable_deep/run_deep.py": {
+      "bytes": 10988,
+      "sha256": "5f30666ed113cddd1fd3ff53841f076cae7ddb56f992ed4b1f67e8569e080833"
+    },
+    "original_execution/portable_deep/test_deep.py": {
+      "bytes": 4280,
+      "sha256": "97176381b7ad439ab66a9f069bfe8b0bef58ec5d1a3dacd71a4975ebb6db6a0e"
+    },
+    "original_execution/portable_deep/validation.json": {
+      "bytes": 796,
+      "sha256": "249eaf4661ceadbdb7b813feed015e58058d1c918056b6d1ce24a5161c98396c"
+    },
+    "original_execution/portable_deep/include/LICENSE": {
+      "bytes": 11357,
+      "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+    },
+    "original_execution/portable_deep/include/hnswlib/bruteforce.h": {
+      "bytes": 5913,
+      "sha256": "da1f179e99d8e5a4c39b5db0c681bccf3c63e797aaa4982620519f8e001cb2c6"
+    },
+    "original_execution/portable_deep/include/hnswlib/hnswalg.h": {
+      "bytes": 56889,
+      "sha256": "0fb2c1b1d3aae1ea959b536f96844f3f3ae6a2f32ce063f2c31f93d84a7e5c32"
+    },
+    "original_execution/portable_deep/include/hnswlib/hnswlib.h": {
+      "bytes": 6124,
+      "sha256": "54403db81f55fd28246114c5c9f683e663a2a55ad64903b56578c73e6db5ad2c"
+    },
+    "original_execution/portable_deep/include/hnswlib/space_ip.h": {
+      "bytes": 11379,
+      "sha256": "6a89b5275527fe3592a9b02ea4fc50293fdc68cbd9f7c1ec13683581e1ebbaf7"
+    },
+    "original_execution/portable_deep/include/hnswlib/space_l2.h": {
+      "bytes": 8561,
+      "sha256": "c599d024657896412250b4fde1a95e39f8bc55cccd263f36c8948fa35779edf1"
+    },
+    "original_execution/portable_deep/include/hnswlib/stop_condition.h": {
+      "bytes": 8874,
+      "sha256": "930da73eead77dff0c8c9f3281c5d12250051c90ef98fcfbab8f5f307bdae8d9"
+    },
+    "original_execution/portable_deep/include/hnswlib/visited_list_pool.h": {
+      "bytes": 1790,
+      "sha256": "8e5bab8d12b5ef26e3b603b656b8a1acba6738498d1d98f44c9fdb1cb0e25110"
+    },
+    "original_execution/portable_recovery_100k/config.json": {
+      "bytes": 11149,
+      "sha256": "dbc25ff8731a941338f2ce51d1525e185a26dbc3e03c83af84db27956aa985c2"
+    },
+    "original_execution/portable_recovery_100k/decision3_core.py": {
+      "bytes": 4266,
+      "sha256": "47fa9749556de9a8b370e38e00597e52efa3dd2f69d3a2936d8c6df67d2790bb"
+    },
+    "original_execution/portable_recovery_100k/decision4_core.py": {
+      "bytes": 5772,
+      "sha256": "5f619b88865f6c96fb35d1cdce68fd5f321c10c28ebb552d1d2c157334db225c"
+    },
+    "original_execution/portable_recovery_100k/decision4_lock_core.py": {
+      "bytes": 4162,
+      "sha256": "18fb8b515b46986d0cdcb171ef37f9d6ad469e5d6220ee9e0f3b40436c88c402"
+    },
+    "original_execution/portable_recovery_100k/expected_source_decisions.csv": {
+      "bytes": 20502,
+      "sha256": "bdd8e5035d1ce1b16fc1549fcb7bbe48a0f3e7d3d85b1e99be5903333a397ec7"
+    },
+    "original_execution/portable_recovery_100k/input_core.py": {
+      "bytes": 910,
+      "sha256": "9bf22ac367973e2c86d285ab5aba31fcb83a1574af75a5a9ee502c4290b89198"
+    },
+    "original_execution/portable_recovery_100k/native_core.py": {
+      "bytes": 2088,
+      "sha256": "7add458b584a883392439d5459e79f58519e63aef9edc15629902939584e51f8"
+    },
+    "original_execution/portable_recovery_100k/preregistrations.json": {
+      "bytes": 9136,
+      "sha256": "7c59d9f2e6d3e649058d6853c2913f2968c3de779adc199ba9d5cb7fff57b050"
+    },
+    "original_execution/portable_recovery_100k/README.md": {
+      "bytes": 8243,
+      "sha256": "7e92756d430ecbba49e532f231e02b8031dda25a779d0d0efb33fa035771d187"
+    },
+    "original_execution/portable_recovery_100k/requirements.txt": {
+      "bytes": 124,
+      "sha256": "66bd86ae4dab09cf936154fd4212fe8a6fe8519368f41238ac343090a0299427"
+    },
+    "original_execution/portable_recovery_100k/roles.json": {
+      "bytes": 109964,
+      "sha256": "51b58e049df0ef0dcfb2d1b115e6f3259a1caf370879a1ccea03b6a05969fd13"
+    },
+    "original_execution/portable_recovery_100k/run_recovery.py": {
+      "bytes": 18403,
+      "sha256": "c76452711c0a1c604bd627c011bf8c1bfefc13479b30e36b98e1430151fba2a4"
+    },
+    "original_execution/portable_recovery_100k/test_recovery.py": {
+      "bytes": 6360,
+      "sha256": "043b4b27ada29c407628c17469fef1e269398f72fe8295090ae14201c0788770"
+    },
+    "original_execution/portable_recovery_100k/validation.json": {
+      "bytes": 569,
+      "sha256": "31a7554740f9e4d42dd0d7b0defbcc2f6b5b89abf5e64849093a491f70473d78"
     }
   }
 }
