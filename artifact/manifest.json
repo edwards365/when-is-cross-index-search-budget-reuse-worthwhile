@@ -98,8 +98,8 @@
       "sha256": "344c1557babacbde99429815f536847334ba7cfc366f52e9fb93cb9adc5d02eb"
     },
     "EXECUTION_SCOPE.md": {
-      "bytes": 7929,
-      "sha256": "d8cf60009df18f2aed16c9f990976502fbb96f6d9217be581b48df245bef96ac"
+      "bytes": 8477,
+      "sha256": "4a0fd2d1051d09557bcc04d0f548425faec96306657f567ac1b86c53f659cf62"
     },
     "input_manifest.json": {
       "bytes": 4065,
@@ -286,8 +286,8 @@
       "sha256": "ae0f82b39407ede22eb7729ec9e314cb78ff25d81b703fb40738af0e0d9cb5fe"
     },
     "original_execution/README.md": {
-      "bytes": 5815,
-      "sha256": "ee302dbd387da7ce3ef6c138fe809924173a367de4fde043b39cea2597b8b0c0"
+      "bytes": 6292,
+      "sha256": "96e1f72eeec5da52ffaf08182a97dbe8d4192dea5c65f606a2b8988583f242f3"
     },
     "original_execution/datasets.json": {
       "bytes": 3465,
@@ -500,6 +500,42 @@
     "original_execution/portable_arrays/validation.json": {
       "bytes": 686,
       "sha256": "c253dc1cc9e7182261ae10e440d6355128a246a9428e8817f9e670387ef4505e"
+    },
+    "original_execution/portable_graphs/build_graph.py": {
+      "bytes": 7429,
+      "sha256": "65f066dd87f060159fb0fd485a60928cabae0208e2efcd7ef753457d318be4ea"
+    },
+    "original_execution/portable_graphs/config.json": {
+      "bytes": 6959,
+      "sha256": "f43f12301f35de429cb741d46b21ff7d7da07d29d97b2c61b82824240d20567d"
+    },
+    "original_execution/portable_graphs/historical_graph.py": {
+      "bytes": 3140,
+      "sha256": "62f37c5906c87bcdd9d0b95590341ea2b4ab0951bec2ad53d83432ccdec94c8c"
+    },
+    "original_execution/portable_graphs/README.md": {
+      "bytes": 3278,
+      "sha256": "7fce895390c4cfdae49f04684dd3841d8ffd31c1ce50b4391b86f5c40f24c513"
+    },
+    "original_execution/portable_graphs/requirements-build.txt": {
+      "bytes": 77,
+      "sha256": "7689aed24cb1edb66f98cae8b420a0af63fe179be830652dbd6c093b6420cbf5"
+    },
+    "original_execution/portable_graphs/requirements-native.txt": {
+      "bytes": 210,
+      "sha256": "2d488273b99f2c7f2409a2cf7e369ee887980667718a28e8acec0cd240ba79d7"
+    },
+    "original_execution/portable_graphs/test_graphs.py": {
+      "bytes": 2580,
+      "sha256": "614cce250da4f23b6f33dc762e08272317ef95998bcf652b589bb3032054b0b6"
+    },
+    "original_execution/portable_graphs/validation.json": {
+      "bytes": 1072,
+      "sha256": "3576993e15cf511fd9bdcd2aa4068154e9013470f35a02bb31c5d19e2a911908"
+    },
+    "original_execution/FRESH_CHAIN.md": {
+      "bytes": 3859,
+      "sha256": "599d21ea223887408914216b40e8e341560706241c801052e1b77e8923759f23"
     }
   }
 }
