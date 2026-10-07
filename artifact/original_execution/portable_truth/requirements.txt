@@ -1,0 +1,4 @@
+numpy==1.26.4
+h5py==3.11.0
+packaging==24.1
+faiss-cpu @ https://files.pythonhosted.org/packages/76/6c/256239bd142101cd2ce50d920622ab6d5a03742eabc462db49d7910c69c7/faiss_cpu-1.8.0.post1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl#sha256=ed46928de3dc20170b10fec89c54075a11383c2aaf4f119c63e0f6ae5a507d74

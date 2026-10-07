@@ -40,3 +40,7 @@ The paper remains pinned to `artifact-paper-v2` until original-execution integra
 ## Fresh-query input entry
 
 [portable_fresh_inputs/README.md](portable_fresh_inputs/README.md) supplies fixed role selection, effective-base exclusions and query-file generation on explicitly chosen input/output paths. The frozen ID partitions reconstruct exactly, and tiny synthetic HDF5 tests check content collisions, raw float32 encoding and train-only access. No original HDF5 scan or query export was rerun for delivery. The entry supplies membership and query files for the cache stage; exact-truth and audited profile generation remain separate unresolved integrations.
+
+## Exact-truth entry
+
+[portable_truth/README.md](portable_truth/README.md) identifies the original public wheel by all32 package/library payload hashes and connects new input receipts to exact top-10 generation. Synthetic L2/IP and rejection tests accompany the entry; original-data generation is not rerun for delivery. Native profile binaries, graph inputs and receipt integration remain separate gates.

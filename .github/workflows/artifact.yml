@@ -43,3 +43,13 @@ jobs:
       - run: python -m pip install -r artifact/original_execution/portable_fresh_inputs/requirements.txt
       - run: python -m unittest discover -s artifact/original_execution/portable_fresh_inputs -p "test_prepare_inputs.py" -v
       - run: python artifact/original_execution/portable_fresh_inputs/prepare_inputs.py check-registry
+  truth-native-synthetic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -r artifact/original_execution/portable_truth/requirements.txt
+      - run: python artifact/original_execution/portable_truth/run_truth.py check-native
+      - run: python -m unittest discover -s artifact/original_execution/portable_truth -p "test_truth.py" -v
