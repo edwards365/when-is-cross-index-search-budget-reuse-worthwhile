@@ -53,12 +53,13 @@ of complete experiment reproduction.
   timing aggregation and provenance; the original source views remain available.
 - Reload/component measurement and lifecycle aggregation interfaces, keeping
   ledger allocations distinct from unavoidable deployment work.
-- Other experiment families in [delivery/CHAINS.md](delivery/CHAINS.md):
+- Other experiment families in `CHAINS.md` inside the separate
+  [source archive](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-sources-v1):
   100K transfer/recovery, Deep1M, multi-implementation ambiguity, refresh and
   fixed-transfer extensions, and supplementary native coverage.
 - Complete historical source/object provenance cannot be manufactured from
   an explicit new build. Keep missing attestations visible.
 
-Earlier source-map and progress text is historical where it says the entries
-above are absent. This map does not supersede their scientific
+Earlier source-map and progress text is historical where it says these
+entries are absent. This map does not supersede their scientific
 protocols or the remaining-family limitations.
