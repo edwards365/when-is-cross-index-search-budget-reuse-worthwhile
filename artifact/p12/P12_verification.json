@@ -1,0 +1,25 @@
+{
+  "package_sha256": "0ddfae6978c8876edd272940a5ce5de7339b0bd2e4a4d8b43ad361aed8d86c0f",
+  "fresh_venv": true,
+  "same_host": true,
+  "reconstruction": {
+    "status": "PASS",
+    "stages": [
+      {
+        "stage": "analysis",
+        "exit_code": 0,
+        "seconds": 4.655999999999949,
+        "peak_sampled_rss": 4370432,
+        "min_available": 5499449344
+      },
+      {
+        "stage": "check",
+        "exit_code": 0,
+        "seconds": 25.09400000000005,
+        "peak_sampled_rss": 4374528,
+        "min_available": 5415817216
+      }
+    ]
+  },
+  "scope": "Saved-response analysis and separate checker; no ANN, exhaustive truth search or bootstrap rerun."
+}

@@ -1,0 +1,3 @@
+# Sources and permissions
+
+The original analysis and verification code is distributed under the repository MIT license. Saved response/truth records are project-produced numerical experiment records from the pre-existing SIFT1M evaluation and are supplied for reproducibility under the same project license; this does not relicense the underlying SIFT dataset or upstream software. No original vectors, third-party implementation, model weights, personal data or upstream PDFs are bundled. Obtain the SIFT dataset independently under its upstream terms. Dataset identity and origin are documented in README.md; the code enforces its hash. Claims of clean reconstruction refer to rebuilding these saved-response analyses, not rerunning the complete original ANN experiment.

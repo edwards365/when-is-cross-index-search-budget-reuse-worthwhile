@@ -1,0 +1,73 @@
+{
+  "release_tag": "artifact-deepening-v3",
+  "scope": "Current manuscript and P12; immutable P0-P11 linked as predecessor",
+  "assets": {
+    "claims.csv": {
+      "sha256": "8caedd2a4b256a7a9df1c276efa0917373f393d4d06c0152909b977a0bdd486e",
+      "bytes": 6769
+    },
+    "EVIDENCE.md": {
+      "sha256": "436c5613adb8dc705cba1025c871672006428fddba08957f6505e2811b1bcccc",
+      "bytes": 2991
+    },
+    "manuscript-source.zip": {
+      "sha256": "84151549bae49077b45073a1310db87b7b0a221fea66cbab95b6429d009000b1",
+      "bytes": 637582
+    },
+    "manuscript.pdf": {
+      "sha256": "dc8d03d44308d0883dc181bdf74921554b874a1c3c3f3671a83dae9d5c9f70a0",
+      "bytes": 620530
+    },
+    "P12_artifact_review.zip": {
+      "sha256": "0ddfae6978c8876edd272940a5ce5de7339b0bd2e4a4d8b43ad361aed8d86c0f",
+      "bytes": 5662307
+    },
+    "P12_verification.json": {
+      "sha256": "1c610edb803b27f3ee470e1f956ec430a879c3c67429c4eba593a45eb7943363",
+      "bytes": 698
+    }
+  },
+  "predecessor": {
+    "release_tag": "artifact-deepening-v2",
+    "scope": "P0-P11 saved-response analyses and bound working manuscript",
+    "assets": {
+      "ICDE_P0-P11_artifact.zip": {
+        "sha256": "5997f09493db537ba109319446846ae45e31cdcee9eba4caa243d39b6a3e626a",
+        "bytes": 44938462
+      },
+      "manuscript-source.zip": {
+        "sha256": "6f6008d70b6e08831b846c0f4a9266b05f091196c1555fb4c6b169ea881ea80f",
+        "bytes": 637841
+      },
+      "manuscript.pdf": {
+        "sha256": "a13907c0eae1d0034d0f5e9220358f39418a5da00f39de22a16a6ef0c15726f4",
+        "bytes": 619854
+      }
+    },
+    "earlier_fixed_releases": [
+      "artifact-response-v1",
+      "artifact-paper-v2",
+      "artifact-delivery-v1"
+    ],
+    "body_pages": 12,
+    "figure_sha256": {
+      "F02_transfer_gap.pdf": "f6eec75c392a3f4c0109c893bcf34ef3eecdcbc8673082c28506cb026f24c626",
+      "F03_summary_cost_mechanism.pdf": "f5809de5cffc21772db158dfb5a3e0c8a328b22d61244676bb07ff1efe1eb078",
+      "F05_conditional_break_even.pdf": "2e72e6d040faf4fc37987180bd365d3d8aba6ec62498123ed45eb714442689b2",
+      "F06_answer_reuse.pdf": "2316353c885191423cbb72a5db14e20163bf979c89583609406f7fe20fc5f19b",
+      "F01_research_overview.pdf": "eb62996025663093ceb1169891b682ec78b5f8bda4d45562c43dc9024b12cd03",
+      "F04_quality_cost.pdf": "c5dcdaa9a8bd60401846397bfe92a3e32fcdc52638c104f4d3ffa408668cb2fd"
+    }
+  },
+  "pages": 13,
+  "body_pages": 12,
+  "figure_sha256": {
+    "F02_transfer_gap.pdf": "f6eec75c392a3f4c0109c893bcf34ef3eecdcbc8673082c28506cb026f24c626",
+    "F03_summary_cost_mechanism.pdf": "f5809de5cffc21772db158dfb5a3e0c8a328b22d61244676bb07ff1efe1eb078",
+    "F05_conditional_break_even.pdf": "2e72e6d040faf4fc37987180bd365d3d8aba6ec62498123ed45eb714442689b2",
+    "F06_answer_reuse.pdf": "2316353c885191423cbb72a5db14e20163bf979c89583609406f7fe20fc5f19b",
+    "F01_research_overview.pdf": "eb62996025663093ceb1169891b682ec78b5f8bda4d45562c43dc9024b12cd03",
+    "F04_quality_cost.pdf": "c5dcdaa9a8bd60401846397bfe92a3e32fcdc52638c104f4d3ffa408668cb2fd"
+  },
+  "verification_scope": "P12 fresh Windows venv and separate implementation; no new full ANN or bootstrap; no Linux P12 claim"
+}
