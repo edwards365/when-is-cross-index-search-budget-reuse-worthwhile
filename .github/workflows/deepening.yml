@@ -50,7 +50,7 @@ jobs:
             ${{ runner.temp }}/assets/ASSET_VERIFICATION.json
             ${{ runner.temp }}/rebuilt/VERIFICATION.json
             ${{ runner.temp }}/rebuilt/logs
-            ${{ runner.temp }}/rebuilt/p0-p10/logs/*.json
+            ${{ runner.temp }}/rebuilt/p0-p10/logs
             ${{ runner.temp }}/rebuilt/p0-p10/REBUILD_COMPLETE.json
             ${{ runner.temp }}/rebuilt/p11/cost_check.json
             ${{ runner.temp }}/rebuilt/p11/learning_check.json
