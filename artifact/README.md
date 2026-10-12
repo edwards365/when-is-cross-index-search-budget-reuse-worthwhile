@@ -8,6 +8,8 @@ This directory is the public entry for *When Is Cross-Index Search Budget Reuse 
 
 ## Choose your task
 
+The [P0–P11 additive release](deepening/README.md) is the current manuscript's mechanism/learning supplement. Its [unified entry](deepening/EVIDENCE.md) resolves the 23 current claims and links the earlier result routes below. License scope, source hashes and manuscript binding accompany the release ZIP.
+
 | Task | Entry | What it establishes |
 |---|---|---|
 | Inspect the saved results | `python artifact/check_saved_results.py` from the repository root | File identity and selected arithmetic |

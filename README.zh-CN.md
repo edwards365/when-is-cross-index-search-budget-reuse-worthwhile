@@ -24,6 +24,10 @@
 
 ## 快速开始
 
+### 当前稿件与P0—P11深化证据
+
+固定版本[artifact-deepening-v1](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v1)绑定修订稿PDF／源码与新增机制、构图、学习及边界并列分析。包内包含23项主张索引、来源与许可边界、固定输入和期望输出，并提供统一重建命令。请从[P0—P11运行入口](artifact/deepening/README.md)和[统一证据导航](artifact/deepening/EVIDENCE.md)开始；实际新环境验证见发布收据。下列旧tag继续对应原面板，保持固定。
+
 ### 检查已发布结果
 
 使用 Python 3.11 或更新版本，仅需标准库。以下命令固定到保存结果重建版本；后续执行入口另行版本化。

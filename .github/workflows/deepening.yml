@@ -1,0 +1,52 @@
+name: P0-P11 release reconstruction
+on:
+  workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Fixed release to verify
+        required: true
+        default: artifact-deepening-v1
+permissions:
+  contents: read
+jobs:
+  saved-response-reconstruction:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      PYTHONNOUSERSITE: "1"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.release_tag }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Download fixed release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir "$RUNNER_TEMP/assets"
+      - name: Verify identities and extract
+        run: python artifact/deepening/verify_release.py --assets "$RUNNER_TEMP/assets" --output "$RUNNER_TEMP/deepening-bundle"
+      - name: Create independent environment
+        run: |
+          python -m venv "$RUNNER_TEMP/analysis-env"
+          "$RUNNER_TEMP/analysis-env/bin/python" -m pip install -r "$RUNNER_TEMP/deepening-bundle/requirements.txt"
+      - name: Reconstruct and independently check
+        run: "$RUNNER_TEMP/analysis-env/bin/python" "$RUNNER_TEMP/deepening-bundle/rebuild.py" --bundle "$RUNNER_TEMP/deepening-bundle" --output "$RUNNER_TEMP/rebuilt"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p0-p11-release-verification
+          path: |
+            ${{ runner.temp }}/assets/ASSET_VERIFICATION.json
+            ${{ runner.temp }}/rebuilt/VERIFICATION.json
+            ${{ runner.temp }}/rebuilt/logs
+            ${{ runner.temp }}/rebuilt/p0-p10/logs/*.json
+            ${{ runner.temp }}/rebuilt/p0-p10/REBUILD_COMPLETE.json
+            ${{ runner.temp }}/rebuilt/p11/cost_check.json
+            ${{ runner.temp }}/rebuilt/p11/learning_check.json

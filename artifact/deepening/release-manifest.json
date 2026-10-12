@@ -1,0 +1,32 @@
+{
+  "release_tag": "artifact-deepening-v1",
+  "scope": "P0-P11 saved-response analyses and bound working manuscript",
+  "assets": {
+    "ICDE_P0-P11_artifact.zip": {
+      "sha256": "4cf62c914d4ec595df3edcc2af2da8eead3710a8be247afb82f613aaca5cc44a",
+      "bytes": 44936939
+    },
+    "manuscript-source.zip": {
+      "sha256": "613289af5134407d0577f352b57e9c51b9a571b6d1b824a5d7e58cacc88cbeff",
+      "bytes": 637843
+    },
+    "manuscript.pdf": {
+      "sha256": "e3ae1b31a610bcd177eca1f82be98474684ac8ee88fbb2f14da66ffd99126b14",
+      "bytes": 619855
+    }
+  },
+  "earlier_fixed_releases": [
+    "artifact-response-v1",
+    "artifact-paper-v2",
+    "artifact-delivery-v1"
+  ],
+  "body_pages": 12,
+  "figure_sha256": {
+    "F02_transfer_gap.pdf": "f6eec75c392a3f4c0109c893bcf34ef3eecdcbc8673082c28506cb026f24c626",
+    "F03_summary_cost_mechanism.pdf": "f5809de5cffc21772db158dfb5a3e0c8a328b22d61244676bb07ff1efe1eb078",
+    "F05_conditional_break_even.pdf": "2e72e6d040faf4fc37987180bd365d3d8aba6ec62498123ed45eb714442689b2",
+    "F06_answer_reuse.pdf": "2316353c885191423cbb72a5db14e20163bf979c89583609406f7fe20fc5f19b",
+    "F01_research_overview.pdf": "eb62996025663093ceb1169891b682ec78b5f8bda4d45562c43dc9024b12cd03",
+    "F04_quality_cost.pdf": "c5dcdaa9a8bd60401846397bfe92a3e32fcdc52638c104f4d3ffa408668cb2fd"
+  }
+}

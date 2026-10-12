@@ -1,5 +1,7 @@
 # Evidence map and interpretation
 
+For the revised manuscript and added P0–P11 analyses, use the [unified mechanism evidence entry](deepening/EVIDENCE.md). It identifies the current claim map, boundary-tie interpretation and fixed paper binding. The original-panel routes below retain their input layers and versions.
+
 The paper's three questions are related but not interchangeable. The following files are saved outputs, not fresh measurements produced during repository publication.
 
 | Paper question/location | Files under `data/` | Use |
