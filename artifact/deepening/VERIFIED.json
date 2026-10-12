@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "release_tag": "artifact-deepening-v2",
+  "entry_commit": "391ab33e0c285ba636398ea8c9bcf3e48fdc4ca3",
+  "ci_run": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/runs/38206787987",
+  "receipt": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/release-verification.json",
+  "scope": "Linux clean-environment saved-response reconstruction and independent algorithms",
+  "p0_p10_stages": 11,
+  "p11_outputs_checked": 14,
+  "p11_byte_identical_outputs": 7,
+  "p11_maximum_absolute_floating_difference": 1.0408340855860843e-16,
+  "anonymous_assets_verified": 7,
+  "body_pages": 12,
+  "total_pdf_pages": 13,
+  "ann_truth_timing_bootstrap_remeasured": false
+}

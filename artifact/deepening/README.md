@@ -28,6 +28,8 @@ The current claim map takes precedence over historical P0–P9 interpretation wh
 
 ## Paper and validation scope
 
+[The Linux clean-environment run](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/runs/38206787987) passed all eleven P0–P10 stages, the constructed theory examples, and P11 analysis/independent checks. [The release receipt](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/release-verification.json) records 14 checked P11 outputs: seven byte-identical, with all remaining scientific differences inside the declared numeric tolerances. The largest P11 floating difference is approximately `1.04e-16`. Seven release attachments were subsequently downloaded without authentication and their hashes verified. The entry commit is `391ab33e0c285ba636398ea8c9bcf3e48fdc4ca3`.
+
 The release manifest pins the manuscript PDF/source, six frozen figure hashes, scientific ZIP, and referenced earlier release versions. Author details remain deferred in this working manuscript. The new release's public verification receipt records saved-response reconstruction and independent algorithmic checks in its stated environment; it does not remeasure ANN, ground truth, bootstrap or original timings. Figures 3 and 4 still show their original panels, while the added construction/learning evidence is indexed here.
 
 Original vectors, documents, graph indexes, binary environments and third-party paper PDFs are excluded. The source-data acquisition routes remain in the pinned original-execution delivery. Code, documentation and project-generated numerical records follow the repository's existing MIT grant; third-party material retains its own terms.
