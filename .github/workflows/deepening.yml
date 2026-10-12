@@ -37,7 +37,9 @@ jobs:
           python -m venv "$RUNNER_TEMP/analysis-env"
           "$RUNNER_TEMP/analysis-env/bin/python" -m pip install -r "$RUNNER_TEMP/deepening-bundle/requirements.txt"
       - name: Reconstruct and independently check
-        run: "$RUNNER_TEMP/analysis-env/bin/python" "$RUNNER_TEMP/deepening-bundle/rebuild.py" --bundle "$RUNNER_TEMP/deepening-bundle" --output "$RUNNER_TEMP/rebuilt"
+        run: >-
+          "$RUNNER_TEMP/analysis-env/bin/python" "$RUNNER_TEMP/deepening-bundle/rebuild.py"
+          --bundle "$RUNNER_TEMP/deepening-bundle" --output "$RUNNER_TEMP/rebuilt"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
