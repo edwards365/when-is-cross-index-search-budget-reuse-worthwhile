@@ -1,18 +1,18 @@
 {
-  "release_tag": "artifact-deepening-v1",
+  "release_tag": "artifact-deepening-v2",
   "scope": "P0-P11 saved-response analyses and bound working manuscript",
   "assets": {
     "ICDE_P0-P11_artifact.zip": {
-      "sha256": "4cf62c914d4ec595df3edcc2af2da8eead3710a8be247afb82f613aaca5cc44a",
-      "bytes": 44936939
+      "sha256": "5997f09493db537ba109319446846ae45e31cdcee9eba4caa243d39b6a3e626a",
+      "bytes": 44938462
     },
     "manuscript-source.zip": {
-      "sha256": "613289af5134407d0577f352b57e9c51b9a571b6d1b824a5d7e58cacc88cbeff",
-      "bytes": 637843
+      "sha256": "6f6008d70b6e08831b846c0f4a9266b05f091196c1555fb4c6b169ea881ea80f",
+      "bytes": 637841
     },
     "manuscript.pdf": {
-      "sha256": "e3ae1b31a610bcd177eca1f82be98474684ac8ee88fbb2f14da66ffd99126b14",
-      "bytes": 619855
+      "sha256": "a13907c0eae1d0034d0f5e9220358f39418a5da00f39de22a16a6ef0c15726f4",
+      "bytes": 619854
     }
   },
   "earlier_fixed_releases": [

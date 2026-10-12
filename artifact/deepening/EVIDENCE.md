@@ -1,6 +1,6 @@
 # Unified paper and P0–P11 evidence entry
 
-Use the fixed [artifact-deepening-v1 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v1), its asset hashes and the [runbook](README.md). Every path in the following added-analysis rows resolves from the extracted `deepening-bundle` root. Individual stage commands run from `p0-p10/` with a new output path; stage dependencies must precede dependents. The umbrella command executes them in order.
+Use the fixed [artifact-deepening-v2 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2), its asset hashes and the [runbook](README.md). Every path in the following added-analysis rows resolves from the extracted `deepening-bundle` root. Individual stage commands run from `p0-p10/` with a new output path; stage dependencies must precede dependents. The umbrella command executes them in order.
 
 | Stage / paper use | Inputs and configuration | Execution / independent check | Expected result |
 |---|---|---|---|

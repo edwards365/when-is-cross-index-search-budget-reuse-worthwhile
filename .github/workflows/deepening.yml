@@ -5,7 +5,7 @@ on:
       release_tag:
         description: Fixed release to verify
         required: true
-        default: artifact-deepening-v1
+        default: artifact-deepening-v2
 permissions:
   # GitHub requires write-level repository access to read an unpublished draft release.
   contents: write

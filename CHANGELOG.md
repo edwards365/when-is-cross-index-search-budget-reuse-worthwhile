@@ -2,13 +2,14 @@
 
 This log tracks the public artifact and repository presentation. It does not imply new scientific runs when only documentation changes.
 
-## `artifact-deepening-v1` — 2026-10-12
+## `artifact-deepening-v2` — 2026-10-12
 
 - Added unified P0–P11 saved-response reconstruction, independently implemented checks and the current 23-claim evidence entry.
 - Preserved scientific source/input/expected hashes; documented packaging changes and the existing MIT/third-party scope.
 - Bound the revised working manuscript PDF/source and six frozen figures through SHA256 asset identities.
 - Added a dedicated fresh-environment release verification workflow; verification receipts specify the environment and actual equality level.
 - Kept all earlier release tags and original measurement boundaries fixed. This delivery does not create new ANN, timing or bootstrap measurements.
+- Corrected the portable P8 cross-stage comparison of two floating-point qualification bounds; integer/action/decision checks remain exact. The prepublication v1 snapshot and failed Linux receipts remain traceable.
 
 ## Repository presentation — 2026-10-06
 

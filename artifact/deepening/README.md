@@ -1,8 +1,8 @@
 # P0–P11 mechanism and learning evidence
 
-This additive release binds the revised working manuscript to all P0–P11 saved-response analyses and independent checking code. The previous paper, response, source and execution-entry tags remain fixed. Download **ICDE_P0-P11_artifact.zip**, **manuscript-source.zip**, **manuscript.pdf**, and **release-manifest.json** from [artifact-deepening-v1](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v1).
+This additive release binds the revised working manuscript to all P0–P11 saved-response analyses and independent checking code. The previous paper, response, source and execution-entry tags remain fixed. Download **ICDE_P0-P11_artifact.zip**, **manuscript-source.zip**, **manuscript.pdf**, and **release-manifest.json** from [artifact-deepening-v2](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2).
 
-The ZIP provides two preserved scientific components (`p0-p10/`, `p11/`), current theory and result notes, a 23-claim evidence map, all configurations, saved inputs, expected outputs and an umbrella command. Scientific code and measured arrays retain their original hashes; delivery documentation and the release wrapper are separately identified in provenance.
+The ZIP provides two scientific components (`p0-p10/`, `p11/`), current theory and result notes, a 23-claim evidence map, all configurations, saved inputs, expected outputs and an umbrella command. Optimizers, learning rules and measured arrays retain their original hashes. The portable P8 checker compares two qualification-bound fields numerically instead of as strings; see [PORTABILITY.md](PORTABILITY.md). That verification-only change and the release wrapper are separately identified in provenance.
 
 ## Reconstruct the added evidence
 

@@ -7,7 +7,7 @@
 An experimental and analytical study of historical search-budget reuse across ANN indexes.
 
 [![Artifact checks](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/workflows/artifact.yml/badge.svg?branch=main)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/workflows/artifact.yml)
-[![Current evidence release](https://img.shields.io/badge/release-artifact--deepening--v1-087F99)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v1)
+[![Current evidence release](https://img.shields.io/badge/release-artifact--deepening--v2-087F99)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2)
 [![MIT license](https://img.shields.io/badge/license-MIT-64748B)](LICENSE)
 
 [Overview](#research-overview) · [Quick start](#quick-start) · [Artifact](artifact/README.md) · [Runbook](artifact/RUNBOOK.md) · [中文](README.zh-CN.md)
@@ -34,7 +34,7 @@ The study includes 100K and roughly million-vector panels. These panels differ i
 
 ### Current manuscript and P0–P11 evidence
 
-The fixed [artifact-deepening-v1 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v1) binds the revised manuscript to the added mechanism, construction, learning and boundary-tie analyses. It supplies a 23-claim map, source/input identities, license scope and a single reconstruction command. Start with the [P0–P11 runbook](artifact/deepening/README.md) and [unified evidence entry](artifact/deepening/EVIDENCE.md); the verification receipt reports the actual fresh-environment checks. Earlier release tags below remain fixed for their original panels.
+The fixed [artifact-deepening-v2 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2) binds the revised manuscript to the added mechanism, construction, learning and boundary-tie analyses. It supplies a 23-claim map, source/input identities, license scope and a single reconstruction command. Start with the [P0–P11 runbook](artifact/deepening/README.md) and [unified evidence entry](artifact/deepening/EVIDENCE.md); the verification receipt reports the actual fresh-environment checks. Earlier release tags below remain fixed for their original panels.
 
 ### 1. Check the released results
 
@@ -78,7 +78,7 @@ The [narrative runbook](artifact/narrative/README.md) adds 96 original grid CSVs
 
 | Material | Public status |
 |---|---|
-| Current manuscript and added P0–P11 analyses | [artifact-deepening-v1](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v1), [claim/evidence entry](artifact/deepening/EVIDENCE.md), SHA-bound PDF/source and saved-response bundle |
+| Current manuscript and added P0–P11 analyses | [artifact-deepening-v2](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2), [claim/evidence entry](artifact/deepening/EVIDENCE.md), SHA-bound PDF/source and saved-response bundle |
 | Selected result tables, paired intervals, and cost records | Available in [`artifact/`](artifact/README.md) |
 | Saved-response archive and portable nine-table reconstruction | Available in the [release and runbook](artifact/RUNBOOK.md) |
 | Conceptual overview | Available above, in the approved manuscript visual style |
