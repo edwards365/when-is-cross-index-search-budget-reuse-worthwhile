@@ -3,9 +3,10 @@ title: "When Is Cross-Index Search Budget Reuse Worthwhile? — Research Artifac
 message: "This cites a research repository, not an accepted paper. Cite the exact commit used."
 type: software
 authors:
-  - family-names: Research Team
+  - family-names: Wang
+    given-names: Lekang
 repository-code: https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile
 license: MIT
-version: artifact-deepening-v2
-date-released: 2026-10-12
-url: https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2
+version: artifact-manuscript-v4
+date-released: 2026-10-15
+url: https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4

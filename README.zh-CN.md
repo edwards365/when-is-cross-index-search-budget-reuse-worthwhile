@@ -24,7 +24,11 @@
 
 ## 快速开始
 
-### 当前稿件与P0—P11深化证据
+### 当前稿件与P0—P12深化证据
+
+[artifact-manuscript-v4](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4)提供当前稿件PDF、Overleaf源码、补充协议及定稿总览图的PPTX／PDF／PNG。请从[稿件—证据入口](docs/manuscript/EVIDENCE.md)开始。本次只更新稿件绑定与展示，不增加实验结果；资产哈希与实际打包检查随版本提供。
+
+[artifact-deepening-v3](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3)继续提供SIFT1M并列敏感性补充（P12）及10月12日的历史稿件快照；[P0—P12证据导航](artifact/p12/EVIDENCE.md)连接下列P0—P11前置版本。所有旧版本及其结果保持不变。
 
 固定版本[artifact-deepening-v2](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2)绑定修订稿PDF／源码与新增机制、构图、学习及边界并列分析。包内包含23项主张索引、来源与许可边界、固定输入和期望输出，并提供统一重建命令。请从[P0—P11运行入口](artifact/deepening/README.md)和[统一证据导航](artifact/deepening/EVIDENCE.md)开始；实际新环境验证见发布收据。下列旧tag继续对应原面板，保持固定。
 
@@ -59,8 +63,8 @@ python artifact/reproduce_summary.py --archive summary-analysis-inputs.zip --out
 | 层次 | 固定入口 | 能够确认什么 |
 |---|---|---|
 | 保存结果重建 | [`artifact-paper-v2`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2)；九表输入仍取自不可变的 `artifact-response-v1` | 按证据导航重建论文已交付的点估计、区间和成本算术，不等于重新执行 ANN |
-| 当前论文与图形 | [`artifact-delivery-v1`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) | Overleaf 源码、当前 PDF、六图可编辑包及其数据／生成入口；作者个人信息仍按要求暂缓 |
-| 原协议的新执行入口 | 同一交付版本中的[十类实验执行导航](artifact/original_execution/EXECUTION_MAP.md) | 数据获取、依赖身份、分阶段命令、独占新输出与收据；实际检查范围由 `DELIVERY.json` 和对应 CI 记录说明 |
+| 当前论文与图形 | [`artifact-manuscript-v4`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4) | 含已确认作者信息的PDF、Overleaf源码、补充协议和新版总览图可编辑源；源码内含全部六图PDF。未变的图2—6可编辑源仍见旧`artifact-delivery-v1` |
+| 原协议的新执行入口 | `artifact-delivery-v1`中的[十类实验执行导航](artifact/original_execution/EXECUTION_MAP.md) | 数据获取、依赖身份、分阶段命令、独占新输出与收据；实际检查范围由 `DELIVERY.json` 和对应 CI 记录说明 |
 
 保存统计重建、合成／微型原生测试和全规模新实验是不同验证层次。新入口提供响应、锁定决策及测量记录的生产路径；只有明确列出的新分析入口才进一步汇总新输出，不能把保存结果重建程序当作任意新测量的自动导入器。本次交付没有独立重测全部原始 ANN 或计时面板，也没有补造历史缺失的来源、退出状态或获取成本。
 

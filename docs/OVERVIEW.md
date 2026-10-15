@@ -1,31 +1,35 @@
 # Reading the research overview
 
-[Project home](../README.md) · [Evidence map](../artifact/EVIDENCE.md) · [Runbook](../artifact/RUNBOOK.md)
+[Project home](../README.md) · [Current manuscript and evidence](manuscript/EVIDENCE.md)
 
 [![Information limits, quality recovery, and conditional value](assets/research-overview.png)](assets/research-overview.png)
 
-The figure connects three research questions. It is a conceptual guide, not a measured graph topology, an executable pipeline, or a promise that each stage guarantees the next. The public response-analysis release covers selected supporting analyses, not every experiment depicted.
+Figure 1 appears at the top of page 3, alongside Section III's framework description; the introduction first points readers to it. The lower panels are three evaluation perspectives, not successive execution stages. The graphic is the approved manuscript figure, reused without redrawing.
+
+## Same task, rebuilt index
+
+The two graphs use the same query and point positions. Changed edges illustrate rebuilding while keeping data, queries, and retrieval semantics fixed. Search results are compared with exact answers to obtain budget labels, from which summaries can be retained. Keeping the exact answers is optional; direct answer reuse additionally requires that those answers remain valid. The graphs and records are schematic.
 
 ## A. Information limits
 
-Two queries can share a source summary while having different target stable-tail demands. For a fixed target, recall threshold, and finite action grid, a summary-only deterministic policy must assign the same action to queries with the same summary. If both stable-tail demands are finite, a common stable-tail-safe budget must cover their maximum.
+A deterministic summary-only policy assigns the same budget to queries with the same summary. The example merges two fine-summary cells into one maximum-label cell. Its matrix marks cell-common safe actions and cell-cost minima, computed from known target responses. Different smallest safe budgets can still share a cost-minimizing safe action; in this example compression is lossless.
 
-The orange target-demand bars illustrate a diagnostic constraint; they are **not inputs available to the source-summary-only policy**, and their lengths are schematic. A minimum safe budget is not necessarily the minimum measured cost. Information constraints and an additional order restriction are analyzed separately.
+The example illustrates the condition, not a measured result or a deployable oracle. A minimum safe budget is not necessarily the minimum measured cost. Information constraints and an additional order restriction are analyzed separately in Section IV.
 
 ## B. Quality recovery
 
-A frozen history-based candidate is checked using held-out target qualification queries. The branches summarize the declared deployment logic: an ineligible endpoint prevents deployment; otherwise the candidate is used if eligible, with the endpoint used as fallback. This logical ordering does not assert that statistical checks execute sequentially. Each method retains its own declared qualification rule.
+The diagram distinguishes preset and learned rules, including query-level fallback for learned mappings. Target qualification then selects the candidate when both checks pass, the endpoint when only it passes, or no deployment when the endpoint fails. These are the studied protocols' rules, not a universal requirement of the framework. Each method retains its own declared qualification event.
 
 The deployment decision is locked before evaluation. Recall-threshold failure rate, distance computations, and ANN API time describe different outcomes; a cost comparison alone does not establish matched quality. Target-calibrated fixed budgets provide a separate reference beyond the conservative endpoint.
 
 ## C. Conditional value
 
-Each service alternative is accounted for separately, including its upfront setup/acquisition and repeated-service components. The branches compare alternatives; they do not add answer-reuse service cost to search service cost. Sharing rules and unmeasured **net** costs affect the resulting break-even boundary.
+History-Max is compared separately with an endpoint, target calibration, or valid-answer reuse. For each comparison, net cost is `B − V D + U`: net upfront cost `B`, per-round savings `D`, complete access rounds `V`, and unmeasured net cost `U`. Negative net cost means reuse costs less than that particular alternative. Available information determines which remaining acquisition costs apply. This accounting neither combines the alternatives into one pipeline nor guarantees that break-even occurs.
 
 Answer reuse is a relevant alternative only when exact answers have been obtained, retained, and remain valid for the data and retrieval semantics. The fixed-data banner describes this setting; it does not assert validity after member or semantic changes. Conditional break-even is a model outcome, not an end-to-end deployment speedup.
 
-## Visual conventions
+## Editable source and attribution
 
-Blue marks source summaries and search policies; orange marks target demands, qualification evidence, or acquisition inputs; purple marks valid answers and their reuse. Rectangles indicate processing/accounting, diamonds indicate deployment decisions, and the rounded termination shape indicates no deployment. Solid arrows show decision or accounting relationships; dashed arrows show additional evidence, available answers, or cost inputs.
+The [v4 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4) supplies the unchanged approved PPTX, PDF, and PNG. Small Lucide icons retain their ISC attribution in `LUCIDE_LICENSE`; project-specific arrangements remain covered by the repository license. The release includes figure provenance and the full manuscript-to-evidence entry.
 
-The graphic is the approved manuscript overview, reused without redrawing. The [evidence map](../artifact/EVIDENCE.md) links its questions to available numerical materials.
+The [evidence map](manuscript/EVIDENCE.md) links the figure's questions to available numerical materials.

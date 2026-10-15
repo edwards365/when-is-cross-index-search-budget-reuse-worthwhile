@@ -2,6 +2,18 @@
 
 This log tracks the public artifact and repository presentation. It does not imply new scientific runs when only documentation changes.
 
+## `artifact-manuscript-v4` — 2026-10-15
+
+- Bound the reorganized manuscript and supplementary protocol to the unchanged P0–P12 evidence releases.
+- Supplied the current Overleaf source, PDF, and approved editable Figure 1, with asset hashes and source-ZIP compilation checks.
+- Updated the homepage, overview guide, and citation metadata; preserved Figures 2–6 and all original measurements.
+- This is a manuscript/documentation release, not a new ANN, timing, bootstrap, or independent scientific reproduction run.
+
+## `artifact-deepening-v3` — 2026-10-12
+
+- Added the P12 SIFT1M boundary-tie sensitivity supplement, its verification receipt, and the manuscript snapshot at that date.
+- Retained v2 as the fixed P0–P11 predecessor. See the v3 release manifest for asset identities and verification scope.
+
 ## `artifact-deepening-v2` — 2026-10-12
 
 - Added unified P0–P11 saved-response reconstruction, independently implemented checks and the current 23-claim evidence entry.

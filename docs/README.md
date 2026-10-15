@@ -7,14 +7,14 @@
 | I want to… | Start here |
 |---|---|
 | Understand the research questions | [Project overview](../README.md#research-overview) and [figure guide](OVERVIEW.md) |
-| Read or compile the paper; edit the six figures | [Fixed delivery assets](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) and their `DELIVERY.json` |
+| Read or compile the current paper; edit the overview | [Current manuscript binding](manuscript/EVIDENCE.md); unchanged Figures 2–6 editing sources remain in [artifact-delivery-v1](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) |
 | Check saved results or reconstruct analysis tables | [Artifact runbook](../artifact/RUNBOOK.md), [numerical-figure routes](../artifact/paper/README.md), and [narrative routes](../artifact/narrative/README.md) |
 | Prepare a new original-protocol execution | [Ten-family map](../artifact/original_execution/EXECUTION_MAP.md), then the selected phase runbook |
-| Trace a claim to its saved evidence | [Evidence and terminology map](../artifact/EVIDENCE.md) |
+| Trace a claim to its saved evidence | [Current P0–P12 and original-panel navigation](manuscript/EVIDENCE.md) |
 | Verify file identities and published inputs | [Payload manifest](../artifact/manifest.json), [input manifest](../artifact/input_manifest.json), and [portability report](../artifact/receipts/portability_verification.json) |
 | Understand verification boundaries | [Artifact coverage](../artifact/README.md#coverage), [execution scope](../artifact/EXECUTION_SCOPE.md) and [historical reconciliation](../artifact/REPOSITORY_STATUS.md) |
 | Report an issue or contribute | [Contributing](../CONTRIBUTING.md) |
-| Identify a fixed public version | [Current delivery](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1), [saved-result release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2), and [changelog](../CHANGELOG.md) |
+| Identify a fixed public version | [Current manuscript](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4), [P0–P12 evidence](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3), and [changelog](../CHANGELOG.md) |
 
 ## Current artifact versus historical research
 

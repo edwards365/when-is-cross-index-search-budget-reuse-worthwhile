@@ -7,7 +7,7 @@
 An experimental and analytical study of historical search-budget reuse across ANN indexes.
 
 [![Artifact checks](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/workflows/artifact.yml/badge.svg?branch=main)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/actions/workflows/artifact.yml)
-[![Current evidence release](https://img.shields.io/badge/release-artifact--deepening--v3-087F99)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3)
+[![Current manuscript release](https://img.shields.io/badge/release-artifact--manuscript--v4-087F99)](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4)
 [![MIT license](https://img.shields.io/badge/license-MIT-64748B)](LICENSE)
 
 [Overview](#research-overview) · [Quick start](#quick-start) · [Artifact](artifact/README.md) · [Runbook](artifact/RUNBOOK.md) · [中文](README.zh-CN.md)
@@ -32,9 +32,11 @@ The study includes 100K and roughly million-vector panels. These panels differ i
 
 ## Quick start
 
-### Fixed manuscript and P0–P11 evidence
+### Fixed manuscript and P0–P12 evidence
 
-The current [artifact-deepening-v3 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3) binds the revised manuscript to the added SIFT1M tie-sensitivity evidence. Start at the [P12 runbook](artifact/p12/README.md) and [unified P0–P12 evidence map](artifact/p12/EVIDENCE.md). It retains the fixed v2 below as its P0–P11 predecessor.
+The current [artifact-manuscript-v4 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4) supplies the reorganized manuscript, Overleaf source, supplementary protocol, and approved editable overview. Start at the [manuscript-to-evidence entry](docs/manuscript/EVIDENCE.md). This is a manuscript-only binding: it uses the unchanged P0–P12 releases below and adds no experimental results. Asset hashes and packaging checks accompany the release.
+
+The fixed [artifact-deepening-v3 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3) supplies the SIFT1M tie-sensitivity evidence and its October 12 manuscript snapshot. See the [P12 runbook](artifact/p12/README.md) and [unified P0–P12 evidence map](artifact/p12/EVIDENCE.md). It retains the fixed v2 below as its P0–P11 predecessor.
 
 The fixed [artifact-deepening-v2 release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2) binds the revised manuscript to the added mechanism, construction, learning and boundary-tie analyses. It supplies a 23-claim map, source/input identities, license scope and a single reconstruction command. Start with the [P0–P11 runbook](artifact/deepening/README.md) and [unified evidence entry](artifact/deepening/EVIDENCE.md); the verification receipt reports the actual fresh-environment checks. Earlier release tags below remain fixed for their original panels.
 
@@ -84,7 +86,8 @@ The [narrative runbook](artifact/narrative/README.md) adds 96 original grid CSVs
 | Selected result tables, paired intervals, and cost records | Available in [`artifact/`](artifact/README.md) |
 | Saved-response archive and portable nine-table reconstruction | Available in the [release and runbook](artifact/RUNBOOK.md) |
 | Conceptual overview | Available above, in the approved manuscript visual style |
-| Current TeX, PDF and six editable figures | [Fixed delivery assets](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1): Overleaf source, compiled PDF and figure/data/generator package; author details remain intentionally deferred |
+| Current TeX, PDF, supplementary protocol and editable overview | [artifact-manuscript-v4](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v4), with declared author information and all six figure PDFs in the source ZIP |
+| Historical six-figure editable package | [artifact-delivery-v1](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1); use v4 for the updated Figure 1, and the earlier package for unchanged Figures 2–6 |
 | Numerical-figure saved-record statistics, including Figure 2/4 intervals | Supplied by the paper supplement |
 | Narrative-panel reconstruction | Runnable saved-record routes for the listed panels; input layers remain explicit |
 | New original-protocol execution entries | [Ten-family execution map](artifact/original_execution/EXECUTION_MAP.md), pinned source/dependencies, phase-separated producers and new receipts; synthetic/native CI is not a full-data rerun |
@@ -93,7 +96,7 @@ The [narrative runbook](artifact/narrative/README.md) adds 96 original grid CSVs
 
 Use the [ten-family execution map](artifact/original_execution/EXECUTION_MAP.md) in the current execution-entry checkout. It links data acquisition, pinned sources, stage commands and bounded controls. The immutable `artifact-paper-v2` checkout above is deliberately the saved-result route; it does not contain later execution-entry additions. Record the exact execution-entry commit separately.
 
-The fixed [`artifact-delivery-v1`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) groups the execution-entry ZIP, six-figure editable package, current PDF and Overleaf source. `DELIVERY.json` records their identities and actual verification scope. Earlier saved-response archives retain their original tags and hashes.
+The fixed [`artifact-delivery-v1`](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1) groups the execution-entry ZIP, six-figure editable package, and the manuscript snapshot at that release. `DELIVERY.json` records their identities and actual verification scope. Earlier saved-response archives retain their original tags and hashes.
 
 New commands require separate output paths and explicit opt-in. Generated-fixture and tiny native checks validate the tested interfaces, not full-data scientific reproduction. Original sealed runs and published measurements are not rerun or overwritten during delivery.
 

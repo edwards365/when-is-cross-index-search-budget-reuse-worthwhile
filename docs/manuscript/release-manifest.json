@@ -1,0 +1,271 @@
+{
+  "release": "artifact-manuscript-v4",
+  "scope": "Manuscript packaging only; no scientific experiment or statistical reconstruction rerun.",
+  "predecessors": {
+    "artifact-deepening-v2": {
+      "tag_object_sha": "b6330979773e06bb36dbdad8dee635ab51499166",
+      "tag_object_type": "tag",
+      "release_id": 410194141,
+      "url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v2",
+      "assets": [
+        {
+          "id": 632745751,
+          "name": "CHECKSUMS.sha256",
+          "size": 537,
+          "digest": "sha256:661b29cbf549f5fffe39f8a5b6a306ea42ab5999001e6c80f17b4b38127b0dd9",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/CHECKSUMS.sha256"
+        },
+        {
+          "id": 632733608,
+          "name": "ICDE_P0-P11_artifact.zip",
+          "size": 44938462,
+          "digest": "sha256:5997f09493db537ba109319446846ae45e31cdcee9eba4caa243d39b6a3e626a",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/ICDE_P0-P11_artifact.zip"
+        },
+        {
+          "id": 632733605,
+          "name": "manuscript-source.zip",
+          "size": 637841,
+          "digest": "sha256:6f6008d70b6e08831b846c0f4a9266b05f091196c1555fb4c6b169ea881ea80f",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/manuscript-source.zip"
+        },
+        {
+          "id": 632733604,
+          "name": "manuscript.pdf",
+          "size": 619854,
+          "digest": "sha256:a13907c0eae1d0034d0f5e9220358f39418a5da00f39de22a16a6ef0c15726f4",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/manuscript.pdf"
+        },
+        {
+          "id": 632733607,
+          "name": "release-manifest.json",
+          "size": 1358,
+          "digest": "sha256:e46eace64f75addb137d7373143316a9c450ed2923c9491ba919b23641317172",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/release-manifest.json"
+        },
+        {
+          "id": 632745753,
+          "name": "release-verification.json",
+          "size": 120770,
+          "digest": "sha256:2e85e7488d9dcc3507cd47be1c653ccfb5ed5f016fd34291a132f0dbeb843041",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/release-verification.json"
+        },
+        {
+          "id": 632745757,
+          "name": "verification-details.zip",
+          "size": 43837,
+          "digest": "sha256:6f0c8b7ae0bbcedaba5a0d7a7db203a1a2d73588f721a62b12a5395fb5f3983b",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v2/verification-details.zip"
+        }
+      ]
+    },
+    "artifact-deepening-v3": {
+      "tag_object_sha": "56c65d26538299d44c26746a7f0f145231cf1531",
+      "tag_object_type": "tag",
+      "release_id": 410404944,
+      "url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3",
+      "assets": [
+        {
+          "id": 633238603,
+          "name": "CHECKSUMS.sha256",
+          "size": 597,
+          "digest": "sha256:6a734464a95b7f04427ae95f0a9eef4a876ff61097ef9d1026c40e78b28e3131",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/CHECKSUMS.sha256"
+        },
+        {
+          "id": 633238602,
+          "name": "claims.csv",
+          "size": 6769,
+          "digest": "sha256:8caedd2a4b256a7a9df1c276efa0917373f393d4d06c0152909b977a0bdd486e",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/claims.csv"
+        },
+        {
+          "id": 633238606,
+          "name": "EVIDENCE.md",
+          "size": 2991,
+          "digest": "sha256:436c5613adb8dc705cba1025c871672006428fddba08957f6505e2811b1bcccc",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/EVIDENCE.md"
+        },
+        {
+          "id": 633238630,
+          "name": "manuscript-source.zip",
+          "size": 637582,
+          "digest": "sha256:84151549bae49077b45073a1310db87b7b0a221fea66cbab95b6429d009000b1",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/manuscript-source.zip"
+        },
+        {
+          "id": 633238635,
+          "name": "manuscript.pdf",
+          "size": 620530,
+          "digest": "sha256:dc8d03d44308d0883dc181bdf74921554b874a1c3c3f3671a83dae9d5c9f70a0",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/manuscript.pdf"
+        },
+        {
+          "id": 633238598,
+          "name": "P12_artifact_review.zip",
+          "size": 5662307,
+          "digest": "sha256:0ddfae6978c8876edd272940a5ce5de7339b0bd2e4a4d8b43ad361aed8d86c0f",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/P12_artifact_review.zip"
+        },
+        {
+          "id": 633238599,
+          "name": "P12_verification.json",
+          "size": 698,
+          "digest": "sha256:1c610edb803b27f3ee470e1f956ec430a879c3c67429c4eba593a45eb7943363",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/P12_verification.json"
+        },
+        {
+          "id": 633238640,
+          "name": "release-manifest.json",
+          "size": 3244,
+          "digest": "sha256:ecbbf5f9ca0f56a012ec3d9011f8ee53d7a2b4552c28f7d2d22706a4445d28fb",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-deepening-v3/release-manifest.json"
+        }
+      ]
+    },
+    "artifact-delivery-v1": {
+      "tag_object_sha": "02418792673f8253c53d03ebf5c6cc71434dd6de",
+      "tag_object_type": "commit",
+      "release_id": 405534171,
+      "url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-delivery-v1",
+      "assets": [
+        {
+          "id": 618046166,
+          "name": "DELIVERY.json",
+          "size": 14812,
+          "digest": "sha256:dc614993a47a16bd0860bcacc8a323b42164a85c92d206b34bfbec79f2660d59",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-delivery-v1/DELIVERY.json"
+        },
+        {
+          "id": 618047923,
+          "name": "DELIVERY_VERIFICATION.json",
+          "size": 1344,
+          "digest": "sha256:4a2d4ffd528b0d1b1a77f4b605e99646e4c42643b36cbdbb483c4db34315e2a7",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-delivery-v1/DELIVERY_VERIFICATION.json"
+        },
+        {
+          "id": 618046168,
+          "name": "figure_delivery.zip",
+          "size": 1555627,
+          "digest": "sha256:74f7f18e93ce743393740b9b5fce60d83fa170c1cb9736d9a0f43d29e30a5b15",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-delivery-v1/figure_delivery.zip"
+        },
+        {
+          "id": 618046177,
+          "name": "ICDE_Overleaf.zip",
+          "size": 552543,
+          "digest": "sha256:0199e79357dec6d5f66fd7dce121185e7a48c42c4fd017f1fb014e65fc12a094",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-delivery-v1/ICDE_Overleaf.zip"
+        },
+        {
+          "id": 618046175,
+          "name": "main.pdf",
+          "size": 535604,
+          "digest": "sha256:6c9fbc6ceb99f66064aa9bab2a1ef1f60f27bdf29fd52fa3f1f78acbfd1e3d38",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-delivery-v1/main.pdf"
+        },
+        {
+          "id": 618046170,
+          "name": "original-execution-entries-v3.zip",
+          "size": 3315669,
+          "digest": "sha256:996fb67ce4854432d0a24a95e0d8f49b2f0eca032188bbf0b5ce37cc5d705581",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-delivery-v1/original-execution-entries-v3.zip"
+        }
+      ]
+    },
+    "artifact-paper-v2": {
+      "tag_object_sha": "d55a37580835077d127cb47c50ef39273ae61e8f",
+      "tag_object_type": "commit",
+      "release_id": 404951160,
+      "url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-paper-v2",
+      "assets": [
+        {
+          "id": 616093139,
+          "name": "graph-grid-records.zip",
+          "size": 32740427,
+          "digest": "sha256:d0d0eb6ec54d590b431afc4740fae51e6cc0668e6308d5ccac00a075e9f937d7",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-paper-v2/graph-grid-records.zip"
+        },
+        {
+          "id": 616093140,
+          "name": "narrative-analysis-inputs-v2.zip",
+          "size": 19990429,
+          "digest": "sha256:73c177892a2af2684a65bb444b15899b603b6e120d1fb0a470af4659847f25a2",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-paper-v2/narrative-analysis-inputs-v2.zip"
+        }
+      ]
+    },
+    "artifact-response-v1": {
+      "tag_object_sha": "d876ec0246ae45c4a8981bce8e5db8356bc72b47",
+      "tag_object_type": "commit",
+      "release_id": 404645743,
+      "url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-response-v1",
+      "assets": [
+        {
+          "id": 615362090,
+          "name": "summary-analysis-inputs.zip",
+          "size": 9450358,
+          "digest": "sha256:b0e014e00744a11054c98e7a4135c19f62ff5dd792c196e64442783cd64bf9e1",
+          "browser_download_url": "https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/artifact-response-v1/summary-analysis-inputs.zip"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "file": "EVIDENCE.md",
+      "bytes": 5049,
+      "sha256": "f781c553e50cbbea79cf6b06807d18afbcee0628253877dc7274bff1048e2049"
+    },
+    {
+      "file": "figure_asset_licenses.md",
+      "bytes": 769,
+      "sha256": "537d0a1fc3c84ceb11a22cca94bdf2ff03919ea4dddd68b102cbbb55b9ad345c"
+    },
+    {
+      "file": "LICENSE",
+      "bytes": 1090,
+      "sha256": "930e2282c5970c6706f800a66565f199c2b465f120fea369ad17b094fd5066dc"
+    },
+    {
+      "file": "LUCIDE_LICENSE",
+      "bytes": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    },
+    {
+      "file": "manuscript-source.zip",
+      "bytes": 731314,
+      "sha256": "160b5568f8538c4266af3151bbb25ddb456d220499bc7d467548b0e9ff10c6c7"
+    },
+    {
+      "file": "manuscript.pdf",
+      "bytes": 721961,
+      "sha256": "3030d385f7e6299745c6c2ea793d4a7c8288d49f7671ac5416fa2b030bc6efd1"
+    },
+    {
+      "file": "overview.pdf",
+      "bytes": 280772,
+      "sha256": "025ec9ded96e51c596c518045626481b5dbcafa548cdeab9b4585a9a3f2d352a"
+    },
+    {
+      "file": "overview.png",
+      "bytes": 273146,
+      "sha256": "e5d0543b2cebb5a1c7f5342a14e065e67f673b81168411ad3b2c7886526d807a"
+    },
+    {
+      "file": "overview.pptx",
+      "bytes": 43337,
+      "sha256": "f1d1364ba93269cc595cf5e71db1a6609058f31296991db66d0a673ef63e9844"
+    },
+    {
+      "file": "study_design_protocol.md",
+      "bytes": 18169,
+      "sha256": "9abedf64f917832f5d6c48404c774b12cba5300cbf1f37e7b7534bfa54e3b191"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 2333,
+      "sha256": "dcc598f214c1fbc82e0e423bf296d300ac5e6749096abe4353b7e4b8b5c7103f"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "scope": "Manuscript packaging only; no scientific experiment or statistical reconstruction rerun.",
+  "timestamp_utc": "2026-10-15T02:21:01.563487+00:00",
+  "compiler": "Tectonic 0.17.0 (locally cached dependencies)",
+  "source_zip": {
+    "compile_exit": 0,
+    "all_page_text_and_sizes_match": true,
+    "file_count": 26
+  },
+  "pages": 13,
+  "body_pages": 12,
+  "label_citation_figure_checks": {
+    "duplicate_labels": [],
+    "missing_labels": [],
+    "missing_citations": [],
+    "missing_figures": []
+  },
+  "frozen_figure_matches": {
+    "F02_transfer_gap.pdf": true,
+    "F03_summary_cost_mechanism.pdf": true,
+    "F05_conditional_break_even.pdf": true,
+    "F06_answer_reuse.pdf": true,
+    "F04_quality_cost.pdf": true,
+    "F01_research_overview.pdf": true
+  },
+  "figure_sha256": {
+    "F02_transfer_gap.pdf": "f6eec75c392a3f4c0109c893bcf34ef3eecdcbc8673082c28506cb026f24c626",
+    "F03_summary_cost_mechanism.pdf": "f5809de5cffc21772db158dfb5a3e0c8a328b22d61244676bb07ff1efe1eb078",
+    "F05_conditional_break_even.pdf": "2e72e6d040faf4fc37987180bd365d3d8aba6ec62498123ed45eb714442689b2",
+    "F06_answer_reuse.pdf": "2316353c885191423cbb72a5db14e20163bf979c89583609406f7fe20fc5f19b",
+    "F04_quality_cost.pdf": "c5dcdaa9a8bd60401846397bfe92a3e32fcdc52638c104f4d3ffa408668cb2fd",
+    "F01_research_overview.pdf": "025ec9ded96e51c596c518045626481b5dbcafa548cdeab9b4585a9a3f2d352a"
+  },
+  "pdf_checks": {
+    "font_count": 37,
+    "all_fonts_embedded": true,
+    "internal_links": 52,
+    "missing_named_destinations": []
+  },
+  "layout_warnings": [
+    "Underfull \\vbox (badness 10000) has occurred while \\output is active []",
+    "Underfull \\hbox (badness 4846) in paragraph at lines 90--91",
+    "Underfull \\hbox (badness 3375) in paragraph at lines 9--10",
+    "Underfull \\hbox (badness 1377) in paragraph at lines 59--60",
+    "Underfull \\vbox (badness 2080) has occurred while \\output is active []",
+    "Underfull \\hbox (badness 2050) in paragraph at lines 84--85"
+  ],
+  "privacy_scan": {
+    "text_entries_checked": 55,
+    "local_path_or_credential_patterns_found": false,
+    "pptx_external_relationships_found": false
+  },
+  "placement": "Figure 1: page 3 top, Section III-A; first reference in Section I. No figure movement or redraw."
+}
