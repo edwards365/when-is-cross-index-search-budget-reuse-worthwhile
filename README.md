@@ -1,3 +1,5 @@
+> Current fixed manuscript and supplementary protocol: [artifact-manuscript-v5](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-manuscript-v5). Earlier scientific evidence and release snapshots remain available.
+
 <div align="center">
 
 # When Is Cross-Index Search Budget Reuse Worthwhile?

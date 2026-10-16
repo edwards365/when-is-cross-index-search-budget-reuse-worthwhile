@@ -1,0 +1,46 @@
+{
+  "tag": "artifact-manuscript-v5",
+  "status": "FIXED_PUBLICATION_SNAPSHOT",
+  "created_utc": "2026-10-16T10:53:48.941974+00:00",
+  "predecessor": "artifact-manuscript-v4",
+  "science_changed": false,
+  "manuscript_changed_during_publication": false,
+  "figures_changed_during_publication": false,
+  "body_pages": 12,
+  "pdf_pages": 13,
+  "files": {
+    "figure_asset_licenses.md": {
+      "sha256": "537d0a1fc3c84ceb11a22cca94bdf2ff03919ea4dddd68b102cbbb55b9ad345c",
+      "bytes": 769
+    },
+    "LICENSE": {
+      "sha256": "177c82662cb9dec6d9af9dd48822674337be9bab9c5d294a81ef01c073754929",
+      "bytes": 1068
+    },
+    "LUCIDE_LICENSE": {
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "bytes": 3208
+    },
+    "manuscript-source.zip": {
+      "sha256": "add371f174935902269664404aa62b054239dc00de14febab8e095442b934f0e",
+      "bytes": 747753
+    },
+    "manuscript.pdf": {
+      "sha256": "2f18120eef705aa10411ab2302f7402ecdbf332f3a0b51c4643bc11f7f5ab68f",
+      "bytes": 728679
+    },
+    "PUBLIC_EVIDENCE.json": {
+      "sha256": "58ff47563d0144595cff54405a2b68e647004efc77221413acc4ed9673ae58b6",
+      "bytes": 16144
+    },
+    "REPRODUCIBILITY.md": {
+      "sha256": "b9d02b349edd6a1eea157bb30a7e1ae44d5ac77e9986f60f05d91dcd96a94778",
+      "bytes": 9018
+    },
+    "study_design_protocol.md": {
+      "sha256": "9727ff3056a8a3a168e21dbbebb365bc44f323bd4e154ae10d07c561468a1b1f",
+      "bytes": 25979
+    }
+  },
+  "evidence_note": "Prepublication metadata inside frozen assets retains its original status/date; this release publishes that exact snapshot."
+}
