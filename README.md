@@ -10,7 +10,7 @@ An experimental and analytical study of search-budget reuse across ANN indexes.
 
 
 
-[Paper PDF](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/submission-final/When_Is_Cross_Index_Search_Budget_Reuse_Worthwhile.pdf) · [Overleaf source](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/submission-final/When_Is_Cross_Index_Search_Budget_Reuse_Worthwhile_Overleaf.zip) · [Final submission materials](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/submission-final) · [中文](README.zh-CN.md)
+[Paper PDF](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/Cross_Index_Budget_Reuse_PVLDB.pdf) · [Overleaf source](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/Cross_Index_Budget_Reuse_PVLDB_Overleaf.zip) · [PVLDB submission materials](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/pvldb-submission) · [中文](README.zh-CN.md)
 
 
 
@@ -30,7 +30,7 @@ We study which budget choices historical information supports after an ANN index
 
 
 
-Start with the [manuscript-to-evidence map](docs/manuscript/EVIDENCE.md), [supplementary protocol](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/submission-final/study_design_protocol.md), and [reproduction guide](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/submission-final/REPRODUCIBILITY.md).
+Start with the [manuscript-to-evidence map](docs/manuscript/EVIDENCE.md), [supplementary protocol](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/study_design_protocol.md), and [reproduction guide](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/REPRODUCIBILITY.md).
 
 
 

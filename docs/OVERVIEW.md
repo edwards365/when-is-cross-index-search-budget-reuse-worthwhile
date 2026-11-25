@@ -62,7 +62,7 @@ Answer reuse is a relevant alternative only when exact answers have been obtaine
 
 
 
-The [final manuscript release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/submission-final) supplies the current Figure 1 PDF inside the Overleaf ZIP. The homepage preview is rendered directly from that PDF without redrawing. The editable draw.io file is not included. Older PPTX files retain their historical release identity. Lucide icons retain their ISC attribution in the release's `LUCIDE_LICENSE` and `figure_asset_licenses.md`.
+The [final manuscript release](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/pvldb-submission) supplies the current Figure 1 PDF inside the Overleaf ZIP. The homepage preview is rendered directly from that PDF without redrawing. The editable draw.io file is not included. Older PPTX files retain their historical release identity. Lucide icons retain their ISC attribution in the release's `LUCIDE_LICENSE` and `figure_asset_licenses.md`.
 
 
 

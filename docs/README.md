@@ -30,7 +30,7 @@
 
 | Report an issue or contribute | [Contributing](../CONTRIBUTING.md) |
 
-| Identify a fixed public version | [Current manuscript](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/submission-final), [P0–P12 evidence](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3), and [changelog](../CHANGELOG.md) |
+| Identify a fixed public version | [Current manuscript](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/pvldb-submission), [P0–P12 evidence](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/artifact-deepening-v3), and [changelog](../CHANGELOG.md) |
 
 
 

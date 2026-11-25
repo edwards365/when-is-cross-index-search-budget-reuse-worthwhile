@@ -2,21 +2,21 @@
 
 
 
-**Current manuscript:** [submission-final](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/submission-final). Authors: Lekang Wang, Pinze Ren and Zhen Chen (corresponding author), Tsinghua University.
+**Current manuscript:** [pvldb-submission](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/pvldb-submission). Authors: Lekang Wang, Pinze Ren and Zhen Chen (corresponding author), Tsinghua University.
 
 
 
-- [final manuscript PDF](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/submission-final/When_Is_Cross_Index_Search_Budget_Reuse_Worthwhile.pdf): 12 body pages plus one page of AI disclosure and references.
+- [final manuscript PDF](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/Cross_Index_Budget_Reuse_PVLDB.pdf): 13 PDF pages; references continue on page 13.
 
-- [final manuscript Overleaf package](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/submission-final/When_Is_Cross_Index_Search_Budget_Reuse_Worthwhile_Overleaf.zip): the exact manuscript sources, bibliography, five figure PDFs, and supplementary protocol.
+- [final manuscript Overleaf package](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/Cross_Index_Budget_Reuse_PVLDB_Overleaf.zip): the exact manuscript sources, bibliography, five figure PDFs, and supplementary protocol.
 
-- [Supplementary protocol](final/study_design_protocol.md), [reproduction guide](final/REPRODUCIBILITY.md), and [version manifest](final/release-manifest.json).
+- [Supplementary protocol](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/study_design_protocol.md), [reproduction guide](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/REPRODUCIBILITY.md), and [version manifest](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/download/pvldb-submission/release-manifest.json).
 
 - [Current overview](../assets/research-overview.png) is rendered directly from final manuscript Figure 1. Historical PPTX sources are not the current editable figure source.
 
 
 
-final manuscript updates presentation, author metadata and AI disclosure. It adds no experiments, timing or bootstrap runs. The linked guide maps final manuscript results to unchanged fixed evidence, distinguishes document compilation from scientific reconstruction, and preserves provenance limits. The manuscript's v4 evidence URL remains valid; its release page links to final manuscript.
+The PVLDB manuscript uses the same experimental evidence as the archived ICDE submission. The availability link on page 1 opens the PVLDB release.
 
 
 

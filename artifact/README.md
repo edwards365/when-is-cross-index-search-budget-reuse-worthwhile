@@ -1,4 +1,4 @@
-> Current manuscript: [final manuscript PDF, Overleaf source and protocol](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/submission-final). Fixed experimental evidence below retains its original versions; see the [final manuscript evidence guide](../docs/manuscript/EVIDENCE.md).
+> Current manuscript: [final manuscript PDF, Overleaf source and protocol](https://github.com/edwards365/when-is-cross-index-search-budget-reuse-worthwhile/releases/tag/pvldb-submission). Fixed experimental evidence below retains its original versions; see the [final manuscript evidence guide](../docs/manuscript/EVIDENCE.md).
 
 # Artifact: cross-index search budget reuse
 
